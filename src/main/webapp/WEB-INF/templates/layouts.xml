@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	   <!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+       
+ <tiles-definitions>
+		
+		<!-- template에 최상위 페이지명-->
+		<definition name="layouts" template="/WEB-INF/templates/Layouts.jsp">
+			<put-attribute name="Side" value="/WEB-INF/templates/Side.jsp"/>
+			<!-- 내용은 동적으로 변하기때문에 value에 ""지정-->
+			<put-attribute name="Body" value=""/>
+			<put-list-attribute name="javascripts">
+        		<add-attribute value="/resources/MDB-Free_4.8.10/js/jquery-3.4.1.min.js" />
+        		<add-attribute value="/resources/MDB-Free_4.8.10/js/popper.min.js" />
+        		<add-attribute value="/resources/MDB-Free_4.8.10/js/bootstrap.min.js" />
+        		<add-attribute value="/resources/MDB-Free_4.8.10/js/mdb.min.js" />
+    		</put-list-attribute>
+			<put-list-attribute name="stylesheets">
+        		<add-attribute value="/resources/MDB-Free_4.8.10/css/bootstrap.min.css" />
+        		<add-attribute value="/resources/MDB-Free_4.8.10/css/mdb.min.css" />
+        		<add-attribute value="/resources/css/sidebar.css?ver=1.0" />        		
+        		<add-attribute value="/resources/css/content.css?ver=1.0" />
+    		</put-list-attribute>
+		</definition>
+		
+		<definition name="*.tiles" extends="layouts">
+			<!-- 와일드 카드 * 이 {1}에 대입됨-->
+			<!-- 즉 컨트롤러에서 index.tiles로 리턴하면 index가 {1}로 치환되서 index.jsp가 보여짐-->
+			<!-- *.tiles는 임의로 설정 가능 즉 *.daum로 가능 혹은 *.spring등  단 jsp는 제외-->
+			<put-attribute name="Body" value="/WEB-INF/views/{1}.jsp"/>
+			<!--만약 /WEB-INF/밑에 jsp가 있다면
+			<put-attribute name="body" value="/WEB-INF/{1}.jsp"/>
+			컨틀로러 클래스에서는 return "/WEB-INF/Board/List.tiles"인 경우
+			/WEB-INF생략-->
+		</definition>
+		
+		<!--/*/*.tiles 는 불가 즉 *앞에 /를 붙이지 않는다-->
+		
+		<definition name="*/*.tiles" extends="layouts">
+			<put-attribute name="Body" value="/WEB-INF/views/{1}/{2}.jsp"/>
+		</definition>
+		
+		<definition name="*/*/*.tiles" extends="layouts">
+			<put-attribute name="Body" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
+		</definition>
+
+	   </tiles-definitions>
