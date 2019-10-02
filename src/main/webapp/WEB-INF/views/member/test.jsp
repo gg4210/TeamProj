@@ -8,6 +8,11 @@
 </head>
 <body>
 이것도 되려나....
+<<<<<<< HEAD
 되넹?
+=======
+되겠죠
+
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 </body>
 </html>
