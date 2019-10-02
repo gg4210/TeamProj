@@ -8,8 +8,12 @@
 </head>
 <body>
 이것도 되려나....
+<<<<<<< HEAD
+되넹?
+=======
 되겠죠
 
+<<<<<<< HEAD
 배고프다...
 
 변경   
@@ -17,5 +21,8 @@
 변경점 1
 
 
+=======
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 </body>
 </html>
