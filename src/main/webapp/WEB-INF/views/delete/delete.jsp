@@ -4,13 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>테스트 중입니다</title>
 </head>
 <body>
-이것도 되려나....
-되겠죠
-
-배고프다
 
 </body>
 </html>
