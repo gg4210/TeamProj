@@ -7,6 +7,6 @@
 <title>상세보기</title>
 </head>
 <body>
-
+<h3>상세보기</h3>
 </body>
 </html>
