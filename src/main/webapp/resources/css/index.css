@@ -29,4 +29,22 @@
 	color: #f1f1f1;
 }
 
+/*사이드 바 외의 영역(content)에 margin 속성 부여*/
+.content{
+	margin-left:85px;
+	margin-top:30px;
+	margin-bottom:30px;
+	margin-right:30px;
+}
+
+/*검색 버튼 클릭 시 나오는 점보트론*/
+.jumbotron{
+	margin-left: 50px;
+	display:none;
+}
+
+
+
+
+
 </style>
