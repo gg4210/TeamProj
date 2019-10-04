@@ -17,19 +17,21 @@
 	<div class="container text-center">
 		<h2 class="display-4 pt-4 pb-5 text-light">센터 찾기</h2>
 		<!-- 검색창 영역 -->
-            <div class="input-group input-group-lg col col-md-6 mx-auto">
+		<form id="searchForm" action="<c:url value='/searchResult.do'/>">
+            <div class="input-group input-group-lg col col-md-6 mx-auto">           
                <div class="input-group-prepend">
                   <span class="input-group-text" id="front"><i
                      class="fas fa-search" aria-hidden="true"></i></span>
                </div>
                <input type="text" class="form-control" placeholder="검색할 내용을 입력하세요"
-                  aria-label="검색하기" aria-describedby="button-addon2">
+                  aria-label="검색하기" aria-describedby="button-addon2" name="searchWord" id="searchWord">
                <div class="input-group-append">
                   <button
                      class="btn btn-indigo btn-rounded m-0 px-3 py-2 z-depth-0 waves-effect"
-                     type="submit" id="searchButton">검색</button>
+                     id="searchButton">검색</button>
                </div>
             </div>
+        </form>
       <!-- 검색창 영역 끝 -->
 	</div>
 </div>

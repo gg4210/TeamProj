@@ -25,8 +25,7 @@
 	</c:forEach>
 	<!-- end CSS -->
 	
-		<!-- scripts -->
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ca8bd5c2c6fb77c9d67c44b5c3d04f58&libraries=services,drawing"></script>	
+	<!-- scripts -->
     <c:forEach var="script" items="${javascripts}">
         <script src="<c:url value="${script}"/>"></script>
     </c:forEach>
