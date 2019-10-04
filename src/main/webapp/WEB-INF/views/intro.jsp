@@ -24,6 +24,11 @@
   <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="<c:url value='/resources/css/intro.css?ver=1.0'/>" rel="stylesheet"/>
   
+<<<<<<< HEAD
+=======
+  
+  
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 </head>
 
 <body>
@@ -66,15 +71,9 @@
   <script type="text/javascript" src="<c:url value='/resources/MDB-Free_4.8.10/js/bootstrap.min.js'/>"></script>
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="<c:url value='/resources/MDB-Free_4.8.10/js/mdb.min.js'/>"></script>
+  <script src="<c:url value="/resources/js/intro.js"/>"></script>
   
-  <script>
-  $(function(){
-	  $(".button").click(function() {
-		  location.href='<c:url value="/main.do"/>'
-	  	});
-	});
-  
-  </script>
+
   
 </body>
 

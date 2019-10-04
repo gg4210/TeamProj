@@ -13,7 +13,7 @@
 <!-- sidebar 영역 끝 -->
 
 <!-- search Bar -->
-<div class="jumbotron jumbotron-fluid bg-dark">
+<div class="jumbotron jumbotron-fluid bg-dark" id="side_SearchBar">
 	<div class="container text-center">
 		<h2 class="display-4 pt-4 pb-5 text-light">센터 찾기</h2>
 		<!-- 검색창 영역 -->
@@ -27,7 +27,7 @@
                <div class="input-group-append">
                   <button
                      class="btn btn-indigo btn-rounded m-0 px-3 py-2 z-depth-0 waves-effect"
-                     type="button" id="button-addon2">검색</button>
+                     type="submit" id="searchButton">검색</button>
                </div>
             </div>
       <!-- 검색창 영역 끝 -->

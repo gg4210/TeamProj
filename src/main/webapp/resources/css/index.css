@@ -29,7 +29,10 @@
 	color: #f1f1f1;
 }
 
+<<<<<<< HEAD
 /*���̵� �� ���� ����(content)�� margin �Ӽ� �ο�*/
+=======
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 .content{
 	margin-left:85px;
 	margin-top:30px;
@@ -37,8 +40,12 @@
 	margin-right:30px;
 }
 
+<<<<<<< HEAD
 /*�˻� ��ư Ŭ�� �� ������ ����Ʈ��*/
 .jumbotron{
+=======
+#side_SearchBar{
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	margin-left: 50px;
 	display:none;
 }

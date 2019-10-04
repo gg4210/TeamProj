@@ -5,7 +5,7 @@ $(function() {
 	var sidebarIndex = $('a').click(function() {
 		switch(sidebarIndex.index(this)){
 			case 1://search 버튼 클릭
-			    $(".jumbotron").fadeToggle("3000");
+			    $("#side_SearchBar").fadeToggle("3000");
 				break;
 			case 2://마이페이지 클릭
 				
@@ -14,4 +14,10 @@ $(function() {
 		}
 		
 	});
+	
+	$('#searchButton').click(function(){
+		location.href='searchResult.do';
+	});
+
+	
 });
