@@ -27,7 +27,7 @@
                <div class="input-group-append">
                   <button
                      class="btn btn-indigo btn-rounded m-0 px-3 py-2 z-depth-0 waves-effect"
-                     type="button" id="searchButton">검색</button>
+                     type="submit" id="searchButton">검색</button>
                </div>
             </div>
       <!-- 검색창 영역 끝 -->
