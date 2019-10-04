@@ -47,8 +47,7 @@
       <url-pattern>/*</url-pattern>
    </filter-mapping>
 	
-	<!-- CSS와 같은 자원을 이용하기 위해 등록 -->
-	<mvc:resources mapping="/resources/**" location="/resources/"/>
+
 	
 
 </web-app>

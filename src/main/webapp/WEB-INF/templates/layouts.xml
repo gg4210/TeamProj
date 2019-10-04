@@ -15,12 +15,12 @@
         		<add-attribute value="/resources/MDB-Free_4.8.10/js/popper.min.js" />
         		<add-attribute value="/resources/MDB-Free_4.8.10/js/bootstrap.min.js" />
         		<add-attribute value="/resources/MDB-Free_4.8.10/js/mdb.min.js" />
+        		<add-attribute value="/resources/js/index.js"/>
     		</put-list-attribute>
 			<put-list-attribute name="stylesheets">
         		<add-attribute value="/resources/MDB-Free_4.8.10/css/bootstrap.min.css" />
         		<add-attribute value="/resources/MDB-Free_4.8.10/css/mdb.min.css" />
-        		<add-attribute value="/resources/css/sidebar.css?ver=1.0" />        		
-        		<add-attribute value="/resources/css/content.css?ver=1.0" />
+        		<add-attribute value="/resources/css/index.css?ver=1.0" />        		
     		</put-list-attribute>
 		</definition>
 		
