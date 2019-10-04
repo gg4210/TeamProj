@@ -27,10 +27,14 @@
 	color: #f1f1f1;
 }
 .md-form{
-	margin-left:30px;
-	margin-right:30px;
+	margin-left:10px;
+	margin-right:10px;
 	text-align: center;
 	background-color:white;
+}
+
+#submit{
+	margin-right:5px;
 }
 
 </style>

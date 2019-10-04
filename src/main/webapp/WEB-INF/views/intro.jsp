@@ -23,19 +23,10 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="<c:url value='/resources/css/intro.css?ver=1.0'/>" rel="stylesheet"/>
-  
-<<<<<<< HEAD
-=======
-  
-  
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
+
 </head>
 
 <body>
-
-
-
-
   <!-- Start your project here-->
    <div class="overlay"></div>
    <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">

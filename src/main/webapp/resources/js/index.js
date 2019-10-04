@@ -14,10 +14,6 @@ $(function() {
 		}
 		
 	});
-	
-	$('#searchButton').click(function(){
-		location.href='searchResult.do';
-	});
 
 	
 });
