@@ -18,7 +18,7 @@
 		</div>
 	</div>
 	
-	<div>결과 내 재검색</div>
+	<div>결과 내 재검색하기</div>
 	
 	<!-- List 페이지  -->
 	<div class="card-deck">
