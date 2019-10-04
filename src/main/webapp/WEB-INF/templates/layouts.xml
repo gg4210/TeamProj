@@ -22,9 +22,7 @@
         		<add-attribute value="/resources/MDB-Free_4.8.10/css/bootstrap.min.css" />
         		<add-attribute value="/resources/MDB-Free_4.8.10/css/mdb.min.css" />
         		<add-attribute value="/resources/css/index.css" />
-        		<!-- 
-        		<add-attribute value="/resources/css/login.css?ver=1.9" />       		
- 				-->
+        		<add-attribute value="/resources/css/login.css?ver=1.9" />
     		</put-list-attribute>
 		</definition>
 		

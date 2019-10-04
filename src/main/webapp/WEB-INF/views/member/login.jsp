@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- 로그인 사이드바 제작 중 -->
-<div class="login">
+<div class="login" style="z-index: 5" id="loginMenu">
+	<a href="javascript:void(0)" class="closebtn"
+	         onclick="closeLogin()">&times;</a>
 	<div class="row">
 		<div class="container text-center">
 			<div>
@@ -23,3 +25,11 @@
 		</div>
 	</div>
 </div>
+<script>
+function openLogin() {
+    document.getElementById("loginMenu").style.width = "300px";
+ }
+function closeLogin() {
+    document.getElementById("loginMenu").style.width = "0";
+ }
+</script>
