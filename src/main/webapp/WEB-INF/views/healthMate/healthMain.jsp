@@ -3,7 +3,7 @@
 
 
   <!-- Page Content -->
-  <div class="container">
+  <div class="container-fluid">
 
     <!-- Jumbotron Header -->
     <header class="jumbotron my-4">
