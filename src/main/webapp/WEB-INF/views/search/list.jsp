@@ -40,7 +40,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 var map = new kakao.maps.Map(mapContainer, mapOption); 
 
 // 장소 검색 객체를 생성합니다
-var ps = new kakao.maps.services.Places(); 
+var ps = new kakao.maps.services.Places();
 
 // 키워드로 장소를 검색합니다
 ps.keywordSearch('${param.searchWord}', placesSearchCB); 
@@ -54,7 +54,7 @@ function placesSearchCB (data, status, pagination) {
         var bounds = new kakao.maps.LatLngBounds();
 
         for (var i=0; i<data.length; i++) {
-            displayMarker(data[i]);    
+            displayMarker(data[i]);
             bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
         }       
 
@@ -71,6 +71,7 @@ function displayMarker(place) {
         map: map,
         position: new kakao.maps.LatLng(place.y, place.x) 
     });
+    
 
     // 마커에 클릭이벤트를 등록합니다
     kakao.maps.event.addListener(marker, 'click', function() {
@@ -80,8 +81,10 @@ function displayMarker(place) {
     });
 }
 
-//창의 크기를 바꾸면 지도 위치를 재설정하는 로직 추가
 
+
+//창의 크기를 바꾸면 지도 위치를 재설정하는 로직 추가
+//
 
 
 </script>
