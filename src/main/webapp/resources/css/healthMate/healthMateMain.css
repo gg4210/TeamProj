@@ -1,5 +1,5 @@
 <style>
-.null{}
+
 * {box-sizing: border-box;}
 
 body {
@@ -38,16 +38,14 @@ body {
   .topnav input[type=text] {
     border: 1px solid #ccc;  
   }
+   
   
-  .button {
-	
-	}
-	
-   .card-img-top:hover{
-		
-	 }
-	 
-	 .image {
+.card-image-container {
+  position: relative;
+  width: 50%;
+}
+
+.card-img-top {
   opacity: 1;
   display: block;
   width: 100%;
@@ -56,7 +54,7 @@ body {
   backface-visibility: hidden;
 }
 
-.middle {
+.card-img-middle {
   transition: .5s ease;
   opacity: 0;
   position: absolute;
@@ -67,12 +65,20 @@ body {
   text-align: center;
 }
 
-.container:hover .image {
+.card-image-container:hover .card-img-top {
   opacity: 0.3;
 }
 
-.container:hover .middle {
+.card-image-container:hover .card-img-middle {
   opacity: 1;
 }
+
+.text {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
 
 </style>
