@@ -10,11 +10,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class SearchController {
 
-	@RequestMapping("/searchResult.do")
-	public String searchResult(@RequestParam Map map) {
+	@RequestMapping("/searchList.do")
+	public String searchList(@RequestParam Map map) {
 		
 		return "search/list.tiles";
 		
+	}
+	
+	@RequestMapping("/searchView.do")
+	public String searchView(@RequestParam Map map) {
+		return "search/view.tiles";
 	}
 	
 	
