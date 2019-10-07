@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
   <!-- Page Content -->
   <div class="container-fluid">
@@ -11,7 +11,7 @@
       <p class="lead">We'll do it together!</p>
     </header>
 
-    <!-- Page Features -->
+	<!-- Page Features -->
     <div class="row text-center">
 
       <div class="col-lg-3 col-md-6 mb-4">

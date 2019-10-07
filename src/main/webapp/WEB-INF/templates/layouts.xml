@@ -8,6 +8,7 @@
 		<!-- template에 최상위 페이지명-->
 		<definition name="layouts" template="/WEB-INF/templates/Layouts.jsp">
 			<put-attribute name="Side" value="/WEB-INF/templates/Side.jsp"/>
+			<put-attribute name="login" value="/WEB-INF/views/member/login.jsp"/>
 			<!-- 내용은 동적으로 변하기때문에 value에 ""지정-->
 			<put-attribute name="Body" value=""/>
 			<put-list-attribute name="javascripts">
@@ -20,7 +21,8 @@
 			<put-list-attribute name="stylesheets">
         		<add-attribute value="/resources/MDB-Free_4.8.10/css/bootstrap.min.css" />
         		<add-attribute value="/resources/MDB-Free_4.8.10/css/mdb.min.css" />
-        		<add-attribute value="/resources/css/index.css?ver=1.0" />        		
+        		<add-attribute value="/resources/css/index.css" />
+        		<add-attribute value="/resources/css/login.css?ver=1.9" />
     		</put-list-attribute>
 		</definition>
 		
