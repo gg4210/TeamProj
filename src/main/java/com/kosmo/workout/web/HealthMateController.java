@@ -8,7 +8,7 @@ public class HealthMateController {
 	
 	@RequestMapping("/healthMateMain.do")
 	public String mainPage() {
-		return "healthMate/healthMain.tiles";
+		return "healthMate/healthMateMain.tiles";
 	}
 
 }
