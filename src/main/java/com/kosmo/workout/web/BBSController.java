@@ -20,7 +20,7 @@ public class BBSController {
 		
 		return "bbs/view.tiles";
 	}
-	
+
 	
 	
 }

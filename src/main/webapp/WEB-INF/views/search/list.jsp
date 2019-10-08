@@ -6,18 +6,17 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ca8bd5c2c6fb77c9d67c44b5c3d04f58&libraries=services,drawing"></script>
 
-    <style>
-.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
-.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
-.map_wrap {position:relative;width:100%;height:500px;}
-#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:350px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255);z-index: 1;font-size:12px;border-radius: 10px;}
-.bg_white {background:#fff;}
-#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
+<style>
+
+.map_wrap {margin:0;padding:0;font-size:12px;position:relative;width:100%;height:700px;}
+#map{width:100%;height:100%;overflow:hidden;}
+#menu_wrap {position:absolute;width:450;top:0;left:0;bottom:0;margin:5px;overflow-y:auto;z-index: 1;font-size:12px;border-radius: 10px;}
 #menu_wrap .option{text-align: center;}
-#menu_wrap .option p {margin:10px 0;}  
+#menu_wrap .option p {margin:10px 0;}
 #menu_wrap .option button {margin-left:5px;}
+#menu_wrap hr {display: block; height: 1px;border:0;border-top: 2px solid #5F5F5F;margin:3px 0;}
 #placesList li {list-style: none;}
-#placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
+#placesList .item {position:relative;padding:0;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
 #placesList .item span {display: block;margin-top:4px;}
 #placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
 #placesList .item .info{padding:10px 0 10px 55px;}
@@ -40,13 +39,8 @@
 #placesList .item .marker_13 {background-position: 0 -562px;}
 #placesList .item .marker_14 {background-position: 0 -608px;}
 #placesList .item .marker_15 {background-position: 0 -654px;}
-#pagination {margin:10px auto;text-align: center;}
-#pagination a {display:inline-block;margin-right:10px;}
-#pagination .on {font-weight: bold; cursor: default;color:#777;}
+
 </style>
-
-
-
 
 <!-- Main Container -->
 <div class="container-fluid">
@@ -56,22 +50,21 @@
 	</div>
 
 	<div class="card">
-		<div class="map_wrap">
-			<div id="map"
-				style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
-			<div id="menu_wrap" class="bg_white">
-				<form onsubmit="searchPlaces(); return false;">
-					결과 내 재검색 : <input type="text" id="keyword" size="15">
-					<button type="submit">검색하기</button>
-				</form>
-				<hr>
-				<ul id="placesList"></ul>
-				<div id="pagination"></div>
+		<div class="map_wrap card-body">
+			<div id="map"></div>
+				<div id="menu_wrap" class="bg-white card my-custom-scrollbar my-custom-scrollbar-primary">
+					<div class="card-body">
+						<form onsubmit="searchPlaces(); return false;" class="form-inline mr-auto">
+  							<input class="form-control" type="text" placeholder="Search" id="keyword" aria-label="Search">
+							<button type="submit" class="btn btn-primary ml-2">검색</button>
+						</form>
+						<hr>
+						<div id="placesList"></div>
+						<ul class="pagination pg-blue row justify-content-center mt-2" id="pagination"></ul>
+					</div>
 			</div>
 		</div>
-
 	</div>
-
 </div>
 
 <!-- main 끝-->
@@ -110,7 +103,6 @@ searchPlaces();
 function searchPlaces() {
 
     var keyword='${param.searchWord}'+document.getElementById("keyword").value;
-    console.log('${param.searchWord}'+document.getElementById("keyword").value);
 
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
         alert('키워드를 입력해주세요!');
@@ -256,36 +248,38 @@ function removeMarker() {
     markers = [];
 }
 
-// 검색결과 목록 하단에 페이지번호를 표시는 함수입니다
+//검색결과 목록 하단에 페이지번호를 표시는 함수입니다
 function displayPagination(pagination) {
-    var paginationEl = document.getElementById('pagination'),
-        fragment = document.createDocumentFragment(),
-        i; 
+ var paginationEl = document.getElementById('pagination'),
+     fragment = document.createDocumentFragment(),
+     i; 
 
-    // 기존에 추가된 페이지번호를 삭제합니다
-    while (paginationEl.hasChildNodes()) {
-        paginationEl.removeChild (paginationEl.lastChild);
-    }
+ // 기존에 추가된 페이지번호를 삭제합니다
+ while (paginationEl.hasChildNodes()) {
+     paginationEl.removeChild (paginationEl.lastChild);
+ }
 
-    for (i=1; i<=pagination.last; i++) {
-        var el = document.createElement('a');
-        el.href = "#";
-        el.innerHTML = i;
+ for (i=1; i<=pagination.last; i++) {
+	 var li = document.createElement('li');
+     li.className="page-item";
+     li.innerHTML='<a class="page-link">'+i+'</a>';
 
-        if (i===pagination.current) {
-            el.className = 'on';
-        } else {
-            el.onclick = (function(i) {
-                return function() {
-                    pagination.gotoPage(i);
-                }
-            })(i);
-        }
 
-        fragment.appendChild(el);
-    }
-    paginationEl.appendChild(fragment);
+     if (i===pagination.current) {
+    	 li.className="page-item active";
+     } 
+     else {
+         li.onclick = (function(i) {
+             return function() {
+                 pagination.gotoPage(i);
+             }
+         })(i);
+     }
+     fragment.appendChild(li);//fragment에 a태그를 한줄씩 붙임
+ }
+ paginationEl.appendChild(fragment);
 }
+
 
 // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
 // 인포윈도우에 장소명을 표시합니다

@@ -6,9 +6,11 @@
 	<div class="container">
 		<div class="row mt-3">
 			<div class="col">
-					<blockquote class="blockquote bq-primary card">
-						  	<p class="bq-title">센터명</p>
-					</blockquote>	
+				<blockquote class="blockquote bq-primary card">
+					<div class="card-body">
+						  <h1 class="card-title text-primary">센터명</h1>
+					</div>
+				</blockquote>	
 			</div>
 		</div>
 	
@@ -16,12 +18,14 @@
 		
 			<div class="col-7">
 				<div class="card">
-					<h2>지도 위치</h2>
-					<h2>지도 위치</h2>
-					<h2>지도 위치</h2>
-					<h2>지도 위치</h2>
-					<h2>지도 위치</h2>
-					<h2>지도 위치</h2>
+					<div class="card-body">
+						<h2>지도 위치</h2>
+						<h2>지도 위치</h2>
+						<h2>지도 위치</h2>
+						<h2>지도 위치</h2>
+						<h2>지도 위치</h2>
+						<h2>지도 위치</h2>
+					</div>
 				</div>
 			</div>
 			
@@ -32,14 +36,16 @@
 				<div class="row">
 					<div class="col">
 						<div class="card">
-							<h4>상세정보</h4>
-							<h4>상세정보</h4>
-							<h4>상세정보</h4>
-							<h4>상세정보</h4>
-							<h4>상세정보</h4>
-							<h4>상세정보</h4>
-							<h4>상세정보</h4>
-							<h4>상세정보</h4>
+							<div class="card-body">
+								<h4>상세정보</h4>
+								<h4>상세정보</h4>
+								<h4>상세정보</h4>
+								<h4>상세정보</h4>
+								<h4>상세정보</h4>
+								<h4>상세정보</h4>
+								<h4>상세정보</h4>
+								<h4>상세정보</h4>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -51,20 +57,24 @@
 		
 		<!-- row 2 시작 -->
 		<div class="card mt-3">
-			<h4>센터소개</h4>
-			<h4>센터소개</h4>
-			<h4>센터소개</h4>
-			<h4>센터소개</h4>
-			<h4>센터소개</h4>
-			<h4>센터소개</h4>
+			<div class="card-body">
+				<h4>센터소개</h4>
+				<h4>센터소개</h4>
+				<h4>센터소개</h4>
+				<h4>센터소개</h4>
+				<h4>센터소개</h4>
+				<h4>센터소개</h4>	
+			</div>
 		</div>
 		<!-- row 2 끝 -->
 		
 		<!-- row 3 시작 -->
 		<div class="card mt-3">
-			<h4>사진</h4>
-			<h4>사진</h4>
-			<h4>사진</h4>
+			<div class="card-body">
+				<h4>사진</h4>
+				<h4>사진</h4>
+				<h4>사진</h4>
+			</div>
 		</div>
 		<!-- row 3 끝 -->
 		
@@ -130,3 +140,5 @@
 		</div>
 		<!-- 코멘트 보기 끝 -->
 </div>
+
+
