@@ -4,15 +4,15 @@
 	
 <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/healthMate/healthMateMain.css'/>" />
 
-<!-- Page Content -->
-<div class="container-fluid">
 
-
-	<!-- Jumbotron Header -->
-	<header class="jumbotron my-4">
-		<h1 class="display-3">Come with Me</h1>
-		<p class="lead">We'll do it together!</p>
-	</header>
+  <!-- Page Content -->
+  <div class="container-fluid">
+  
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+      <h1 class="display-3">Come with Me</h1>
+      <p class="lead">We'll do it together!</p>
+    </header>
 
 	<!-- 검색창 시작 -->
 	<div class="topnav clearfix">
@@ -28,6 +28,16 @@
 	<!-- Page Features -->
 	<div class="row text-center">
 
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100">
+          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+          </div>        
+        <div class="card-image-container">
+           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
+           <div class="card-img-middle">
+   				 <div class="text">추가하기</div>
+ 		   </div>
+        </div>   
 		<div class="col-lg-3 col-md-6 mb-4">
 			<div class="card h-100">
 				<div class="card-image-container">

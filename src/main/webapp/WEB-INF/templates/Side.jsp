@@ -8,7 +8,7 @@
 	<a href="#"><i class="fas fa-search"></i></a> 
 	<a href="#" onclick="openLogin()"><i class="fas fa-user"></i></a> 
 	<a href="<c:url value='/healthMateMain.do'/>"><i class="fas fa-user-friends"></i></a> 
-	<a href="#"><i class="fas fa-clipboard-list"></i></a> 
+	<a href="<c:url value='/bbsList.do'/>"><i class="fas fa-clipboard-list"></i></a> 
 	<a href="#"><i class="fas fa-info-circle"></i></a>
 </div>
 <!-- sidebar 영역 끝 -->
@@ -18,7 +18,7 @@
 	<div class="container text-center">
 		<h2 class="display-4 pt-4 pb-5 text-light">센터 찾기</h2>
 		<!-- 검색창 영역 -->
-		<form id="searchForm" action="<c:url value='/searchResult.do'/>">
+		<form id="searchForm" action="<c:url value='/searchList.do'/>">
             <div class="input-group input-group-lg col col-md-6 mx-auto">           
                <div class="input-group-prepend">
                   <span class="input-group-text" id="front"><i
