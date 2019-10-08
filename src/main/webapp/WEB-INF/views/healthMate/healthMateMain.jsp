@@ -26,18 +26,8 @@
 	<!-- 검색창 끝 -->
 
 	<!-- Page Features -->
-	<div class="row text-center">
+<div class="row text-center">
 
-      <div class="col-lg-3 col-md-6 mb-4">
-        <div class="card h-100">
-          <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-          </div>        
-        <div class="card-image-container">
-           <img class="card-img-top" src="http://placehold.it/500x325" alt="">
-           <div class="card-img-middle">
-   				 <div class="text">추가하기</div>
- 		   </div>
-        </div>   
 		<div class="col-lg-3 col-md-6 mb-4">
 			<div class="card h-100">
 				<div class="card-image-container">
@@ -205,13 +195,13 @@
 				</div>
 			</div>
 		</div>
-		
+
 	</div>
 	<!-- /.row -->
 
 	<!-- 모달 시작 -->
 	<div class="modal fade" id="middle-modal" data-backdrop="static">
-		<div class="modal-dialog modal-lg modal-dialog-centered"> 
+		<div class="modal-dialog modal-lg modal-dialog-centered">
 			<div class="modal-content">
 
 				<div class="modal-body">
@@ -240,7 +230,6 @@ $(function(){
 		$('#middle-modal').modal('show');
 	});
 });
-
 </script>
 
 
