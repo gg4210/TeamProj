@@ -5,6 +5,14 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/search/view.css"/>">
 	<div class="container">
 		<div class="row mt-3">
+			<div class="col">
+					<blockquote class="blockquote bq-primary card">
+						  	<p class="bq-title">센터명</p>
+					</blockquote>	
+			</div>
+		</div>
+	
+		<div class="row">
 		
 			<div class="col-7">
 				<div class="card">
@@ -19,19 +27,14 @@
 			
 			
 			<div class="col">
-				<!-- 센터명 -->
-				<div class="row">
-					<div class="col">
-						<blockquote class="blockquote bq-primary card">
-						  	<p class="bq-title">센터명</p>
-						 </blockquote>	
-					</div>
-				</div>
-				
+							
 				<!-- 센터 관련 간략정보 -->
 				<div class="row">
 					<div class="col">
 						<div class="card">
+							<h4>상세정보</h4>
+							<h4>상세정보</h4>
+							<h4>상세정보</h4>
 							<h4>상세정보</h4>
 							<h4>상세정보</h4>
 							<h4>상세정보</h4>
