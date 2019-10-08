@@ -8,12 +8,16 @@ $(function() {
 			    $("#side_SearchBar").fadeToggle("3000");
 				break;
 			case 2://마이페이지 클릭
-				
+				$("#loginMenu").fadeToggle("3000");
+				break;
+			case 3:
+				break;
+			case 6://마이페이지 X버튼 클릭
+				$("#loginMenu").fadeOut("3000");
 				break;
 			default: break;
 		}
 		
 	});
-
 	
 });
