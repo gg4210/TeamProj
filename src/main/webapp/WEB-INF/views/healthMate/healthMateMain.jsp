@@ -201,7 +201,7 @@
 
 	<!-- 모달 시작 -->
 	<div class="modal fade" id="middle-modal" data-backdrop="static">
-		<div class="modal-dialog modal-lg modal-dialog-centered">
+		<div class="modal-dialog modal-lg modal-dialog-centered"> 
 			<div class="modal-content">
 
 				<div class="modal-body">
