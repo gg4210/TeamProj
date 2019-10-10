@@ -1,35 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-    
-	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/search/view.css"/>">
-	<div class="container">
-		<div class="row mt-3">
-			<div class="col">
-				<blockquote class="blockquote bq-primary card">
-					<div class="card-body">
-						  <h1 class="card-title text-primary">센터명</h1>
-					</div>
-				</blockquote>	
-			</div>
-		</div>
+
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bbs/view.css"/>">
 	
-		<div class="row">
-		
-			<div class="col-7">
-				<div class="card">
-					<div class="card-body">
-						<h2>지도 위치</h2>
-						<h2>지도 위치</h2>
-						<h2>지도 위치</h2>
-						<h2>지도 위치</h2>
-						<h2>지도 위치</h2>
-						<h2>지도 위치</h2>
+    
+    	<div class="container">
+			<div class="row mt-3">
+				<div class="col">
+					<div class="card">
+					  	<div class="card-body">
+							<h2 class="card-title">제목</h2>
+							<hr>
+							<i class="fas fa-clock"></i> 올린날짜<i class="fas fa-eye pl-2"></i> 조회수
+						</div>
 					</div>
 				</div>
 			</div>
-			
-			
+	
+		<div class="row mt-3">
+					
 			<div class="col">
 							
 				<!-- 센터 관련 간략정보 -->
@@ -37,14 +27,14 @@
 					<div class="col">
 						<div class="card">
 							<div class="card-body">
-								<h4>상세정보</h4>
-								<h4>상세정보</h4>
-								<h4>상세정보</h4>
-								<h4>상세정보</h4>
-								<h4>상세정보</h4>
-								<h4>상세정보</h4>
-								<h4>상세정보</h4>
-								<h4>상세정보</h4>
+							<h4>상세정보</h4>
+							<h4>상세정보</h4>
+							<h4>상세정보</h4>
+							<h4>상세정보</h4>
+							<h4>상세정보</h4>
+							<h4>상세정보</h4>
+							<h4>상세정보</h4>
+							<h4>상세정보</h4>
 							</div>
 						</div>
 					</div>
@@ -54,29 +44,7 @@
 			<!-- col 끝 -->		
 		</div>
 		<!--  row 1 끝-->
-		
-		<!-- row 2 시작 -->
-		<div class="card mt-3">
-			<div class="card-body">
-				<h4>센터소개</h4>
-				<h4>센터소개</h4>
-				<h4>센터소개</h4>
-				<h4>센터소개</h4>
-				<h4>센터소개</h4>
-				<h4>센터소개</h4>	
-			</div>
-		</div>
-		<!-- row 2 끝 -->
-		
-		<!-- row 3 시작 -->
-		<div class="card mt-3">
-			<div class="card-body">
-				<h4>사진</h4>
-				<h4>사진</h4>
-				<h4>사진</h4>
-			</div>
-		</div>
-		<!-- row 3 끝 -->
+	
 		
 		<!--comment-->
 		<div class="card mt-3">
@@ -140,5 +108,3 @@
 		</div>
 		<!-- 코멘트 보기 끝 -->
 </div>
-
-
