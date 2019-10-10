@@ -27,19 +27,28 @@
 					<div class="col">
 						<div class="card">
 							<div class="card-body">
-							<h4>상세정보</h4>
-							<h4>상세정보</h4>
-							<h4>상세정보</h4>
-							<h4>상세정보</h4>
-							<h4>상세정보</h4>
-							<h4>상세정보</h4>
-							<h4>상세정보</h4>
-							<h4>상세정보</h4>
+							<div class="row">
+									<div class="col-1 text-center pt-3">
+										<i class="far fa-heart fa-2x"></i>
+										<!-- 클릭하면  fas fa-heart fa-2x 로 변경-->
+									</div>
+									<div class="col card">
+										<div class="card-body">
+											<h4>상세정보</h4>
+											<h4>상세정보</h4>
+											<h4>상세정보</h4>
+											<h4>상세정보</h4>
+											<h4>상세정보</h4>
+											<h4>상세정보</h4>
+											<h4>상세정보</h4>
+											<h4>상세정보</h4>
+										</div>	
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				
+				</div>				
 			</div>	
 			<!-- col 끝 -->		
 		</div>

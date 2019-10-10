@@ -1,20 +1,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 
 
 
 <script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ca8bd5c2c6fb77c9d67c44b5c3d04f58&libraries=services,drawing"></script>
+   src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ca8bd5c2c6fb77c9d67c44b5c3d04f58&libraries=services,drawing"></script>
 
 <style>
 
-.map_wrap {margin:0;padding:0;font-size:12px;position:relative;width:100%;height:700px;}
+/*컨텐트 크기 재설정 시작*/
+.content{
+	margin-left:50px;
+	margin-top:15px;
+	margin-bottom:15px;
+	margin-right:15px;
+}
+/*컨텐츠 크기 재설정 끝*/
+
+/*맵영역 설정하는 CSS 시작*/
+.map_wrap {margin:0;padding:0;font-size:12px;position:relative;width:100%;height:800px;}
 #map{width:100%;height:100%;overflow:hidden;}
-#menu_wrap {position:absolute;width:450;top:0;left:0;bottom:0;margin:5px;overflow-y:auto;z-index: 1;font-size:12px;border-radius: 10px;}
+/*맵영역 설정하는 CSS 끝*/
+
+/*검색결과 리스트 메뉴 CSS 시작*/
+#menu_wrap {position:absolute;top:0;left:0;bottom:0;margin:5px;overflow-y:auto;z-index: 1;font-size:12px;border-radius: 10px;}
 #menu_wrap .option{text-align: center;}
 #menu_wrap .option p {margin:10px 0;}
 #menu_wrap .option button {margin-left:5px;}
 #menu_wrap hr {display: block; height: 1px;border:0;border-top: 2px solid #5F5F5F;margin:3px 0;}
+/*검색결과 리스트 메뉴 CSS 끝*/
+
+/*스크롤바 관련 CSS 시작*/
+.scrollbar-primary::-webkit-scrollbar {
+width: 12px;
+background-color: #F5F5F5; }
+.scrollbar-primary::-webkit-scrollbar-thumb {
+border-radius: 10px;
+-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+background-color: #4285F4; }
+/*스크롤바 관련 CSS 끝*/
+
+/*리스트 메뉴 속 결과리스트 시작*/
 #placesList li {list-style: none;}
 #placesList .item {position:relative;padding:0;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
 #placesList .item span {display: block;margin-top:4px;}
@@ -39,39 +65,31 @@
 #placesList .item .marker_13 {background-position: 0 -562px;}
 #placesList .item .marker_14 {background-position: 0 -608px;}
 #placesList .item .marker_15 {background-position: 0 -654px;}
+/*리스트 메뉴 속 결과리스트 끝*/
 
 </style>
 
 <!-- Main Container -->
 <div class="container-fluid">
 
-	<div class="jumbotron bg-dark">
-		<h2 class="text-white">검색결과</h2>
-	</div>
-
-	<div class="card">
-		<div class="map_wrap card-body">
-			<div id="map"></div>
-				<div id="menu_wrap" class="bg-white card my-custom-scrollbar my-custom-scrollbar-primary">
-					<div class="card-body">
-						<form onsubmit="searchPlaces(); return false;" class="form-inline mr-auto">
-  							<input class="form-control" type="text" placeholder="Search" id="keyword" aria-label="Search">
-							<button type="submit" class="btn btn-primary ml-2">검색</button>
-						</form>
-						<hr>
-						<div id="placesList"></div>
-						<ul class="pagination pg-blue row justify-content-center mt-2" id="pagination"></ul>
-					</div>
-			</div>
-		</div>
-	</div>
+   <div class="card">
+      <div class="map_wrap card-body">
+         <div id="map"></div>
+         <div id="menu_wrap" class="card scrollbar scrollbar-primary">
+            <div class="card-body">
+               <table class="table table-hover"><tbody id="placesList"></tbody></table>
+               <ul class="pagination pg-blue row justify-content-center mt-2" id="pagination"></ul>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>
 
 <!-- main 끝-->
 
 <!-- 아래는 View 페이지를 확인하기 위해 임시로 만든 버튼입니다. -->
 <form action="/workout/searchView.do">
-	<button class="btn btn-primary" type="submit">뷰페이지 확인</button>
+   <button class="btn btn-primary" type="submit">뷰페이지 확인</button>
 </form>
 
 
@@ -102,7 +120,7 @@ searchPlaces();
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
 
-    var keyword='${param.searchWord}'+document.getElementById("keyword").value;
+    var keyword='${param.searchWord}';
 
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
         alert('키워드를 입력해주세요!');
@@ -198,24 +216,20 @@ function displayPlaces(places) {
 // 검색결과 항목을 Element로 반환하는 함수입니다
 function getListItem(index, places) {
 
-    var el = document.createElement('li'),
-    itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
+    var el = document.createElement('tr'),
+    itemStr = '<th scope="row"><span class="markerbg marker_' + (index+1) + '"></span>' +
                 '<div class="info">' +
                 '   <h5>' + places.place_name + '</h5>';
-
     if (places.road_address_name) {
         itemStr += '    <span>' + places.road_address_name + '</span>' +
                     '   <span class="jibun gray">' +  places.address_name  + '</span>';
     } else {
         itemStr += '    <span>' +  places.address_name  + '</span>'; 
-    }
-                 
+    }                 
       itemStr += '  <span class="tel">' + places.phone  + '</span>' +
-                '</div>';           
-
-    el.innerHTML = itemStr;
-    el.className = 'item';
-
+                '</div></th>';
+    el.innerHTML=itemStr;
+    el.className='item';
     return el;
 }
 
@@ -260,13 +274,13 @@ function displayPagination(pagination) {
  }
 
  for (i=1; i<=pagination.last; i++) {
-	 var li = document.createElement('li');
+    var li = document.createElement('li');
      li.className="page-item";
      li.innerHTML='<a class="page-link">'+i+'</a>';
 
 
      if (i===pagination.current) {
-    	 li.className="page-item active";
+        li.className="page-item active";
      } 
      else {
          li.onclick = (function(i) {
@@ -299,4 +313,3 @@ function removeAllChildNods(el) {
 
 
 </script>
-

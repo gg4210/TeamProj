@@ -3,6 +3,24 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
     
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/search/view.css"/>">
+	<script src="<c:url value="/resources/MDB-Free_4.8.10/js/addons/rating.js"/>"></script>
+	
+	<style>
+	.rate-popover{
+	  color: #c4c4c4;
+	}
+	.live{
+	  color: black;
+	}
+	.noReview{
+	}
+	.review{
+	 padding:0;
+	}
+	
+
+	</style>
+	
 	<div class="container">
 		<div class="row mt-3">
 			<div class="col">
@@ -80,13 +98,14 @@
 		
 		<!--comment-->
 		<div class="card mt-3">
-			<div class="card-header font-weight-bold">코멘트 달기</div>
+			<div class="card-header font-weight-bold">Review 쓰기</div>
 			<div class="card-body">
 				<div class="row">
 					<div class="col-1">
 						<img src="<c:url value='/resources/images/girl.png'/>" alt="Avatar" class="avatar img-fluid">					
 					</div>
 					<form action="#" class="col">
+						<span id="rating" class="rating-faces"></span>
 						<div class="form-group basic-textarea rounded-corners">
 						      <textarea class="form-control z-depth-1" id="exampleFormControlTextarea345" rows="3"></textarea>
 						</div>
@@ -99,7 +118,7 @@
 		
 		<!-- 코멘트 보기 시작 -->
 		<div class="card card-comments mb-3 wow fadeIn mt-3">
-			<div class="card-header font-weight-bold">[코멘트 갯수]개</div>
+			<div class="card-header font-weight-bold">Review : [갯수]개</div>
 			<div class="card-body">
 			
 				<div class="row">
@@ -107,38 +126,47 @@
 						<img src="<c:url value='/resources/images/girl.png'/>" alt="Avatar" class="avatar img-fluid">
 					</div>
 					<div class="col">
-						<h5 class="mt-0 font-weight-bold blue-text"><strong>닉네임</strong><img src="<c:url value='/resources/images/reply.png'/>" alt="reply-button" class="img-fluid reply-button mx-2"></h5>
-						<p>코멘트 내용입니다.</p>
+						<div>
+							<strong class="h5 mt-0 font-weight-bold blue-text">닉네임</strong> 
+								<span id="rated" class="rating-faces" data-placement="top" data-toggle="tooltip" title="보통이에요">
+									 <i class="far fa-meh py-2 px-1 live" data-index="0"></i>
+									 <i class="far fa-meh py-2 px-1 live" data-index="1"></i>
+									 <i class="far fa-meh py-2 px-1 live" data-index="2"></i>
+									 <i class="far fa-meh-blank px-1 py-2 rate-popover" data-index="3"></i>
+									 <i class="far fa-meh-blank px-1 py-2 rate-popover" data-index="4"></i>			
+								</span>
+						</div>
+						<div class="card review">
+							<div class="card-body">
+								<p>For proper cross-browser and cross-platform behavior, you must use the a tag, not the button tag, and you also must include a tabindex attribute.</p>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="row mt-4">
-					<div class="col-1 offset-1">
-						<img src="<c:url value='/resources/images/student.png'/>" alt="Avatar" class="avatar img-fluid">
-					</div>
-					<div class="col">
-						<h5 class="mt-0 font-weight-bold blue-text"><strong>답글러 닉네임</strong><img src="<c:url value='/resources/images/reply.png'/>" alt="reply-button" class="img-fluid reply-button mx-2"></h5>
-						<p>답글러의 코멘트 내용입니다.</p>
-					</div>				
 				</div>
 				
-				<!-- 답글버튼 클릭할 때 나오는 내용 -->
-				<div class="row mt-3">
-					<div class="col-1 offset-2">
-						<img src="<c:url value='/resources/images/girl.png'/>" alt="Avatar" class="avatar img-fluid">					
+				<!-- 데이터가 존재하지 않을 경우 시작-->
+				<div class="row">
+					<div class="col text-center h3">
+						<p><i class="far fa-laugh-wink"></i> 후기가 존재하지 않습니다. 첫 후기를 입력해주세요!</p>
 					</div>
-					<form action="#" class="col">
-						<div class="form-group basic-textarea rounded-corners">
-							   <label for="replyTextarea"><strong>답글 달기</strong></label>
-						      <textarea class="form-control z-depth-1" id="replyTextarea" rows="3"></textarea>
-						</div>
-						<button type="submit" class="btn btn-primary z-depth-1">등록</button>					  
-					</form>	
-				</div>
-				<!-- 답글버튼 클릭할 때 나오는 내용 끝 -->
+				</div>	
+				<!-- 데이터가 존재하지 않을 경우 끝 -->
 						
 			</div>
 		</div>
 		<!-- 코멘트 보기 끝 -->
 </div>
+
+
+
+<script>
+$(function(){
+	$('#rating').mdbRate();
+	  $('[data-toggle="tooltip"]').tooltip();
+});
+
+
+
+</script>
 
 
