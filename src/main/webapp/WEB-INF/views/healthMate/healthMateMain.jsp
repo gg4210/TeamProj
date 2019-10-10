@@ -156,8 +156,6 @@
 		</div>
 	</div>
 	<!-- 모달 끝 -->
-
-	
 	
 	<div class="modal fade" id="write-modal" data-backdrop="static">
 	<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
