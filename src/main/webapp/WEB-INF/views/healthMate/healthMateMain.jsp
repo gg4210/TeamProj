@@ -156,28 +156,6 @@
 		</div>
 	</div>
 	<!-- 모달 끝 -->
-	
-	<!-- 등록 모달 시작 -->
-	<!--
-	<div class="modal fade" id="write-modal" data-backdrop="static">
-		<div class="modal-dialog modal-lg modal-dialog-centered">
-			<div class="modal-content">
-
-				<div class="modal-body">
-					<button class="close" data-dismiss="modal">
-						<span>&times;</span>
-					</button>
-					<h2>임시모달</h2>
-					<p>
-						임시 모달<br/>임시 모달<br/>임시 모달
-					</p>
-					<button class="btn btn-primary">YES</button>
-					<button class="btn btn-danger">NO</button>
-				</div>
-			</div>
-		</div>
-	</div> -->
-	<!-- 모달 끝 -->
 
 	
 	
