@@ -18,7 +18,7 @@
 				placeholder="비밀번호를 입력하세요"> <label for="password"></label>
 		</div>
 		<div class="text-right" id="submit">
-			<button class="btn btn-light-blue">들어가기</button>
+			<a href="<c:url value='mypage.do'/>"><button class="btn btn-light-blue">들어가기</button></a>
 		</div>
 		<div>
 			<span style="color: white; font-weight: bold;"><a href="<c:url value='join.do'/>">아직 운동메이트 회원이 아니신가요?</a></span>

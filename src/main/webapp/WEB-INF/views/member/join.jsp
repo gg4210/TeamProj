@@ -1,11 +1,98 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script>
-$(function(){
-	$('.row').slice(1).children().css('border','0.5px solid gray');
-	$('.row').slice(1).children('div:first-child').css('background-color','green');
-});
-</script>
+    <div class="container">
+	   	<div class="col-6">
+		    <form class="text-center border border-light p-5" action="#!">
+		
+		    <p class="h4 mb-4">회원가입</p>
+		
+		    <!-- 이름 -->
+		    <input type="text" id="Name" class="form-control mb-4" placeholder="이름을 입력하세요.">
+			
+			<!-- 닉네임 -->
+			<div class="form-inline text-center">
+				<input type="text" id="Id" class="form-control mb-4 col-8" placeholder="아이디">
+				<button type="button" class="btn btn-primary mb-2 col" id="idcheck">중복확인</button>
+		    </div>
+		    
+		    <!-- Password -->
+		    <input type="password" id="Password" class="form-control mb-4" placeholder="비밀번호를 입력하세요.">
+		    
+		    <!-- Password re-->
+		    <input type="password" id="Password" class="form-control mb-4" placeholder="비밀번호를 다시 입력하세요.">
+			
+			<!-- 전화번호 -->
+			<div class="form-inline">
+				<label class="col-4">전화번호</label>
+				<select class="browser-default custom-select col">
+				  <option selected>지역번호</option>
+				  <option value="1">02)</option>
+				  <option value="2">031)</option>
+				  <option value="3">032)</option>
+				  <option value="4">033)</option>
+				  <option value="5">041)</option>
+				  <option value="6">042)</option>
+				  <option value="7">043)</option>
+				  <option value="8">044)</option>
+				  <option value="9">051)</option>
+				  <option value="10">052)</option>
+				  <option value="11">053)</option>
+				  <option value="12">054)</option>
+				  <option value="13">055)</option>
+				  <option value="14">061)</option>
+				  <option value="15">062)</option>
+				  <option value="16">063)</option>
+				  <option value="17">064)</option>
+				</select>
+				<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<input type="tel" id="Tel-1" class="col"/>
+				<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<input type="tel" id="Tel-2" class="col"/>
+			</div>
+			
+			<!-- 휴대폰 번호 -->
+			<div class="form-inline">
+				<label class="col-4">휴대폰번호</label>
+				<input type="tel" id="Cel-1" class="col"/>
+				<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<input type="tel" id="Cel-1" class="col"/>
+				<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+				<input type="tel" id="Cel-2" class="col"/>
+			</div>
+		    <div class="d-flex justify-content-around">
+		        <div>
+		            <!-- Remember me -->
+		            <div class="custom-control custom-checkbox">
+		                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+		                <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+		            </div>
+		        </div>
+		        <div>
+		            <!-- Forgot password -->
+		            <a href="">Forgot password?</a>
+		        </div>
+		    </div>
+		
+		    <!-- Sign in button -->
+		    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+		
+		    <!-- Register -->
+		    <p>Not a member?
+		        <a href="">Register</a>
+		    </p>
+		
+		    <!-- Social login -->
+		    <p>or sign in with:</p>
+		
+		    <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+		    <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+		    <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+		    <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+		
+			</form>
+		</div>
+	</div>
+<!-- 
 <div class="container">
 	<div class="row" style="margin-bottom:5px">
 		<div class="col-2 offset-2">
@@ -16,14 +103,12 @@ $(function(){
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-2">이름*</div>
-		<div class="col-5"><input class="form-control" type="text" placeholder="이름을 입력하세요."/></div>
-		<div class="col-2">프로필사진</div>
-		<div class="col-3"></div>
+		<div class="col">이름*</div>
+		<div class="col"><input class="form-control" type="text" placeholder="이름을 입력하세요."/></div>
 	</div>
 	<div class="row">
-		<div class="col-2">닉네임*</div>
-		<div class="col-5">
+		<div class="col">닉네임*</div>
+		<div class="col">
 			<form class="form-inline">
 				<div class="form-group mb-2">
 					<input class="form-control" type="text" placeholder="닉네임을 입력하세요."/>
@@ -31,38 +116,28 @@ $(function(){
 				<button class="btn btn-light mb-2" id="idcheck">중복확인</button>
 			</form>
 		</div>
-		<div class="col-2"></div>
-		<div class="col-3"></div>
 	</div>
 	<div class="row">
-		<div class="col-2">비밀번호*</div>
-		<div class="col-5"><input class="form-control form-control-sm" type="text" placeholder="이름을 입력하세요."/></div>
-		<div class="col-2"></div>
-		<div class="col-3"></div>
+		<div class="col">비밀번호*</div>
+		<div class="col"><input class="form-control form-control-sm" type="text" placeholder="이름을 입력하세요."/></div>
 	</div>
 	<div class="row">
-		<div class="col-2">휴대폰(*)</div>
-		<div class="col-5"><input class="form-control form-control-sm" type="text" placeholder="이름을 입력하세요."/></div>
-		<div class="col-2"></div>
-		<div class="col-3"></div>
+		<div class="col">휴대폰(*)</div>
+		<div class="col"><input class="form-control form-control-sm" type="text" placeholder="이름을 입력하세요."/></div>
 	</div>
 	<div class="row">
-		<div class="col-2">이메일</div>
-		<div class="col-5"><input class="form-control form-control-sm" type="text" placeholder="이름을 입력하세요."/></div>
-		<div class="col-2"></div>
-		<div class="col-3"></div>
+		<div class="col">이메일</div>
+		<div class="col"><input class="form-control form-control-sm" type="text" placeholder="이름을 입력하세요."/></div>
 	</div>
 	<div class="row">
-		<div class="col-2">관심지역</div>
-		<div class="col-5">
+		<div class="col">관심지역</div>
+		<div class="col">
 			<input class=""/>
 		</div>
-		<div class="col-2"></div>
-		<div class="col-3"></div>
 	</div>
 	<div class="row">
-		<div class="col-2">관심운동</div>
-		<div class="col-5">
+		<div class="col">관심운동</div>
+		<div class="col">
 			<input type="checkbox" name="inter" value="health" />헬스
 			&nbsp;&nbsp;&nbsp;&nbsp;
 			<input type="checkbox" name="inter" value="gx" />GX
@@ -84,20 +159,16 @@ $(function(){
 			<input type="checkbox" name="inter" value="golf" />골프
 			&nbsp;&nbsp;&nbsp;&nbsp;
 		</div>
-		<div class="col-2"></div>
-		<div class="col-3"></div>
 	</div>
 	<div>
 	</div>
 	<div class="row">
-		<div class="col-2">성별</div>
-		<div class="col-5">
+		<div class="col">성별</div>
+		<div class="col">
 			<input type="radio" name="gender" value="man" />남
 			<input type="radio" name="gender" value="woman" />녀
 			<input type="radio" name="gender" value="trans" />트랜스젠더
 		</div>
-		<div class="col-2"></div>
-		<div class="col-3"></div>
 	</div>
-	
 </div>
+-->
