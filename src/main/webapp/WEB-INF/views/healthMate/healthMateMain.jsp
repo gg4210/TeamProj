@@ -206,6 +206,7 @@ $(function(){
 	$('#write').click(function(){
 		$('#write-modal').modal('show');
 	});
+	
 });
 </script>
 
