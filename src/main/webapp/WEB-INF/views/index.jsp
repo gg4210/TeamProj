@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<<<<<<< HEAD
 <style>
 	.content{
 		margin-left:50px;
@@ -31,3 +32,15 @@ var myFullpage = new fullpage('#fullpage', {
     navigationTooltips: ['첫번째 페이지', '두번째 페이지', '세번째 페이지'],
 });
 </script>
+=======
+1
+2
+3
+4
+5
+6
+7
+vkf
+푸쉬됩니까?
+안되네
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git

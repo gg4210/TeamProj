@@ -18,14 +18,12 @@
         		<add-attribute value="/resources/MDB-Free_4.8.10/js/bootstrap.min.js" />
         		<add-attribute value="/resources/MDB-Free_4.8.10/js/mdb.min.js" />
         		<add-attribute value="/resources/js/index.js?ver=1.7"/>
-        		<add-attribute value="/resources/fullpage/fullpage.js"/>
     		</put-list-attribute>
 			<put-list-attribute name="stylesheets">
         		<add-attribute value="/resources/MDB-Free_4.8.10/css/bootstrap.min.css" />
         		<add-attribute value="/resources/MDB-Free_4.8.10/css/mdb.min.css" />
         		<add-attribute value="/resources/css/index.css" />
         		<add-attribute value="/resources/css/member/login.css?ver=1.0" />
-        		<add-attribute value="/resources/fullpage/fullpage.css" />
     		</put-list-attribute>
     		
 		</definition>

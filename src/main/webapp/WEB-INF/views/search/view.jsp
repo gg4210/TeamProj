@@ -138,7 +138,7 @@
 <script>
 $(function(){
 	$('#rating').mdbRate();
-	$('[data-toggle="tooltip"]').tooltip();
+	  $('[data-toggle="tooltip"]').tooltip();
 });
 
 
