@@ -21,7 +21,7 @@
 	<!-- Page Features -->
 <div class="row text-center">
 
-		<div class="col-lg-3 col-md-6 mb-4">
+		<div class="col-lg-3 col-md-6 col mb-4">
 			<div class="card h-100">
 				<div class="card-image-container">
 					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
@@ -41,7 +41,7 @@
 			</div>
 		</div>
 
-		<div class="col-lg-3 col-md-6 mb-4">
+		<div class="col-lg-3 col-md-6 col mb-4">
 			<div class="card h-100">
 				<div class="card-image-container">
 					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
@@ -61,7 +61,7 @@
 			</div>
 		</div>
 
-		<div class="col-lg-3 col-md-6 mb-4">
+		<div class="col-lg-3 col-md-6 col mb-4">
 			<div class="card h-100">
 				<div class="card-image-container">
 					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
@@ -81,7 +81,7 @@
 			</div>
 		</div>
 
-		<div class="col-lg-3 col-md-6 mb-4">
+		<div class="col-lg-3 col-md-6 col mb-4">
 			<div class="card h-100">
 				<div class="card-image-container">
 					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
@@ -104,13 +104,16 @@
 		<!-- 페이징, 검색창 시작 -->
 		<div class="row mx-auto">
 			<div class="text-center">
-				<div class="btn-group" role="group" aria-label="First group">
-					<button type="button" class="btn btn-info mr-1">1</button>
-					<button type="button" class="btn btn-info mr-1">2</button>
-					<button type="button" class="btn btn-info mr-1">3</button>
-					<button type="button" class="btn btn-info mr-1">4</button>
-					<button type="button" class="btn btn-info">5</button>
-				</div>
+				<nav aria-label="Page navigation example">
+					<ul class="pagination pg-blue">
+						<li class="page-item "><a class="page-link" tabindex="-1">Previous</a>
+						</li>
+						<li class="page-item"><a class="page-link">1</a></li>
+						<li class="page-item"><a class="page-link">2</a></li>
+						<li class="page-item"><a class="page-link">3</a></li>
+						<li class="page-item "><a class="page-link">Next</a></li>
+					</ul>
+				</nav>
 				<form class="form-inline" method="#" action="#">
 					<div class="form-group">
 						<select name="searchColumn" class="form-control">
@@ -127,11 +130,7 @@
 				</form>
 			</div>
 		</div>
-		<!-- 페이징 끝 -->
-
-
-
-		
+		<!-- 페이징, 검색창 끝 -->
 
 		</div>
 		<!-- /.row -->
@@ -156,42 +155,50 @@
 		</div>
 	</div>
 	<!-- 모달 끝 -->
-	
+
+	<!-- write 모달 시작 -->
 	<div class="modal fade" id="write-modal" data-backdrop="static">
-	<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fas fa-user prefix grey-text"></i>
-          <input type="text" id="orangeForm-name" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
-        </div>
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="email" id="orangeForm-email" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
-        </div>
+		<div class="modal-dialog modal-lg modal-dialog-centered"
+			role="document">
 
-        <div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
-          <input type="password" id="orangeForm-pass" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
-        </div>
+			<div class="modal-content">
+				<div class="modal-header text-center">
+					<h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body mx-3">
+					<div class="md-form mb-5">
+						<i class="fas fa-user prefix grey-text"></i> <input type="text"
+							id="orangeForm-name" class="form-control validate"> <label
+							data-error="wrong" data-success="right" for="orangeForm-name">Your
+							name</label>
+					</div>
+					<div class="md-form mb-5">
+						<i class="fas fa-envelope prefix grey-text"></i> <input
+							type="email" id="orangeForm-email" class="form-control validate">
+						<label data-error="wrong" data-success="right"
+							for="orangeForm-email">Your email</label>
+					</div>
 
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button class="btn btn-deep-orange">Sign up</button>
-      </div>
-    </div>
-  </div>
-</div>
-	
+					<div class="md-form mb-4">
+						<i class="fas fa-lock prefix grey-text"></i> <input
+							type="password" id="orangeForm-pass"
+							class="form-control validate"> <label data-error="wrong"
+							data-success="right" for="orangeForm-pass">Your password</label>
+					</div>
+
+				</div>
+				<div class="modal-footer d-flex justify-content-center">
+					<button class="btn btn-deep-orange">Sign up</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- write 모달 끝 -->
+
 
 </div>
 <!-- /.container -->
@@ -206,7 +213,6 @@ $(function(){
 	$('#write').click(function(){
 		$('#write-modal').modal('show');
 	});
-	
 });
 </script>
 

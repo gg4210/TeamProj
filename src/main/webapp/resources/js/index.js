@@ -15,11 +15,19 @@ $(function() {
 			
 			default: break;
 		}
-		
+	
 	});
 	
 	$("#closelogin").click(function(){
 		$("#loginMenu").fadeOut("3000");
+	});
+
+	var myFullpage = new fullpage('#fullpage', {
+	    anchors: ['firstPage', 'secondPage', 'thirdPage'],
+	    sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
+	    navigation: true,
+	    navigationPosition: 'right',
+	    navigationTooltips: ['첫번째 페이지', '두번째 페이지', '세번째 페이지'],
 	});
 	
 });

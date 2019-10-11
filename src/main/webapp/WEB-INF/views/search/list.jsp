@@ -13,7 +13,7 @@
 	margin-left:50px;
 	margin-top:15px;
 	margin-bottom:15px;
-	margin-right:15px;
+	margin-right:5px;
 }
 /*컨텐츠 크기 재설정 끝*/
 
@@ -83,8 +83,8 @@ background-color: #4285F4; }
          </div>
       </div>
    </div>
+   
 </div>
-
 <!-- main 끝-->
 
 <!-- 아래는 View 페이지를 확인하기 위해 임시로 만든 버튼입니다. -->
