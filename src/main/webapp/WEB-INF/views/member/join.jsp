@@ -9,7 +9,7 @@
 		    <!-- 이름 -->
 		    <input type="text" id="Name" class="form-control mb-4" placeholder="이름을 입력하세요.">
 			
-			<!-- 닉네임 -->
+			<!-- 아이디 -->
 			<div class="form-inline text-center">
 				<input type="text" id="Id" class="form-control mb-4 col-8" placeholder="아이디">
 				<button type="button" class="btn btn-primary mb-2 col" id="idcheck">중복확인</button>
@@ -20,13 +20,15 @@
 		    
 		    <!-- Password re-->
 		    <input type="password" id="Password" class="form-control mb-4" placeholder="비밀번호를 다시 입력하세요.">
+		    
+		    <!-- 이메일 -->
+			<input type="email" id="email" class="form-control mb-4" placeholder="이메일을 입력하세요.">
 			
 			<!-- 전화번호 -->
-			<div class="form-inline">
-				<label class="col-4">전화번호</label>
-				<select class="browser-default custom-select col">
-				  <option selected>지역번호</option>
-				  <option value="1">02)</option>
+			<div class="form-inline" id="Tel">
+				<label class="col-4 text-left">전화번호</label>
+				<select class="browser-default custom-select col-2">
+				  <option selected value="1">02)</option>
 				  <option value="2">031)</option>
 				  <option value="3">032)</option>
 				  <option value="4">033)</option>
@@ -45,54 +47,56 @@
 				  <option value="17">064)</option>
 				</select>
 				<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-				<input type="tel" id="Tel-1" class="col"/>
+				<input type="tel" class="col"/>
 				<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-				<input type="tel" id="Tel-2" class="col"/>
+				<input type="tel" class="col"/>
 			</div>
 			
 			<!-- 휴대폰 번호 -->
-			<div class="form-inline">
-				<label class="col-4">휴대폰번호</label>
-				<input type="tel" id="Cel-1" class="col"/>
+			<div class="form-inline" id="Cel">
+				<label class="col-4 text-left">휴대폰번호</label>
+				<select class="browser-default custom-select col-2">
+				  <option selected value="1">010</option>
+				  <option value="2">011</option>
+				  <option value="3">016</option>
+				  <option value="4">017</option>
+				  <option value="5">018</option>
+				  <option value="6">019</option>
+				</select>
 				<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-				<input type="tel" id="Cel-1" class="col"/>
+				<input type="tel" class="col"/>
 				<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-				<input type="tel" id="Cel-2" class="col"/>
+				<input type="tel" class="col"/>
 			</div>
-		    <div class="d-flex justify-content-around">
-		        <div>
-		            <!-- Remember me -->
-		            <div class="custom-control custom-checkbox">
-		                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-		                <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
-		            </div>
-		        </div>
-		        <div>
-		            <!-- Forgot password -->
-		            <a href="">Forgot password?</a>
-		        </div>
-		    </div>
+			<div class="form-inline" id="region">
+				<label class="col-4 text-left">관심지역</label>
+				<select class="browser-default custom-select col-2">
+				  <option selected value="1">서울</option>
+				  <option value="2">경기</option>
+				  <option value="3">강원</option>
+				  <option value="4">충북</option>
+				  <option value="5">충남</option>
+				  <option value="6">전북</option>
+				  <option value="7">전남</option>
+				  <option value="8">경북</option>
+				  <option value="9">경남</option>
+				  <option value="10">제주</option>
+				</select>
+			</div>
+			<div class="form-inline" id="favorite">
+				<label class="col-4 text-left">관심운동</label>
+				<input type="checkbox" class="custom-control-input" id="defaultUnchecked"/>
+			</div>
 		
 		    <!-- Sign in button -->
-		    <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
-		
-		    <!-- Register -->
-		    <p>Not a member?
-		        <a href="">Register</a>
-		    </p>
-		
-		    <!-- Social login -->
-		    <p>or sign in with:</p>
-		
-		    <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
-		    <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
-		    <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
-		    <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
-		
+		    <button class="btn btn-info btn-block my-4" type="submit">가입하기</button>
 			</form>
 		</div>
 	</div>
 <!-- 
+=======
+
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 <div class="container">
 	<div class="row" style="margin-bottom:5px">
 		<div class="col-2 offset-2">

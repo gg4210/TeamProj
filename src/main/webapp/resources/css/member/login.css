@@ -5,13 +5,13 @@
   	height: 100%;
   	width: 300px;
   	position: fixed;
-	z-index: 1;
+	z-index: 6;
    	top: 0;
    	left: 0;
-   	background-color: #111;
    	overflow-x: hidden;
    	transition: 0.5s;
    	padding-top: 60px;
+   	margin-left:50px;
    	display: none;
 }
 
@@ -27,10 +27,10 @@
 	margin-left:10px;
 	margin-right:10px;
 	text-align: center;
-	background-color:white;
 }
 
 #submit{
 	margin-right:5px;
 }
+
 </style>
