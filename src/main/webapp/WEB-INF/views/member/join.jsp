@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <div class="container">
-	   	<div class="col-6">
+	   	<div class="col-md-6">
 		    <form class="text-center border border-light p-5" action="#!">
 		
 		    <p class="h4 mb-4">회원가입</p>
@@ -11,8 +11,8 @@
 			
 			<!-- 아이디 -->
 			<div class="form-inline text-center">
-				<input type="text" id="Id" class="form-control mb-4 col-8" placeholder="아이디">
-				<button type="button" class="btn btn-primary mb-2 col" id="idcheck">중복확인</button>
+				<input type="text" id="Id" class="form-control mb-4 col-md-8" placeholder="아이디">
+				<button type="button" class="btn btn-primary mb-2 col-md-4" id="idcheck">중복확인</button>
 		    </div>
 		    
 		    <!-- Password -->
@@ -26,7 +26,7 @@
 			
 			<!-- 전화번호 -->
 			<div class="form-inline" id="Tel">
-				<label class="col-4 text-left">전화번호</label>
+				<label class="col-md-4 text-left">전화번호</label>
 				<select class="browser-default custom-select col-2">
 				  <option selected value="1">02)</option>
 				  <option value="2">031)</option>
@@ -54,7 +54,7 @@
 			
 			<!-- 휴대폰 번호 -->
 			<div class="form-inline" id="Cel">
-				<label class="col-4 text-left">휴대폰번호</label>
+				<label class="col-md-4 text-left">휴대폰번호</label>
 				<select class="browser-default custom-select col-2">
 				  <option selected value="1">010</option>
 				  <option value="2">011</option>
@@ -69,7 +69,7 @@
 				<input type="tel" class="col"/>
 			</div>
 			<div class="form-inline" id="region">
-				<label class="col-4 text-left">관심지역</label>
+				<label class="col-md-4 text-left">관심지역</label>
 				<select class="browser-default custom-select col-2">
 				  <option selected value="1">서울</option>
 				  <option value="2">경기</option>
@@ -84,7 +84,7 @@
 				</select>
 			</div>
 			<div class="form-inline" id="favorite">
-				<label class="col-4 text-left">관심운동</label>
+				<label class="col-md-4 text-left">관심운동</label>
 				<input type="checkbox" class="custom-control-input" id="defaultUnchecked"/>
 			</div>
 		
