@@ -15,7 +15,7 @@ $(function() {
 			
 			default: break;
 		}
-		
+	
 	});
 	
 	$("#closelogin").click(function(){

@@ -150,7 +150,7 @@
 						임시 모달<br/>임시 모달<br/>임시 모달
 					</p>
 					<button class="btn btn-outline-primary">YES</button>
-					<button class="btn btn-outline-danger">NO</button>
+					<button class="btn btn-outline-danger" data-dismiss="modal">NO</button>
 				</div>
 			</div>
 		</div>
