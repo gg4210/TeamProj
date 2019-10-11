@@ -4,7 +4,7 @@
 
     
     <a href="<c:url value='/bbsView.do'/>" class="btn btn-primary">뷰페이지 확인용 버튼(추후 삭제 예정)</a>
-    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalWriteForm">글쓰기(모달작성예정)</a>
+    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalWriteForm">글쓰기</a>
     
     
     
@@ -13,7 +13,7 @@
 
 	<div class="modal fade" id="modalWriteForm" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
+		<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header text-center">
 					<h4 class="modal-title w-100 font-weight-bold">등록하기</h4>
