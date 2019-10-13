@@ -27,7 +27,7 @@
 </ul>
 <div class="tab-content pt-2 pl-1" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-mate" role="tabpanel" aria-labelledby="pills-home-tab">
-  	운동메읻트
+  	운동메이트
   </div>
   <div class="tab-pane fade" id="pills-message" role="tabpanel" aria-labelledby="pills-profile-tab">
   	쪽지함
