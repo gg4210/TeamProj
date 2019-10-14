@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<<<<<<< HEAD
 <style>
 	.content{
 	margin:0px;
@@ -9,12 +10,15 @@
 	height:100vh;
 	}
 </style>
+=======
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 
 	<div id="fullpage">
 	    <div class="section">Section 1</div>
 	    <div class="section">Section 2</div>
 	    <div class="section">Section 3</div>
 	</div>
+<<<<<<< HEAD
 
 
 <script>
@@ -31,3 +35,6 @@ new fullpage('#fullpage', {
     },
 });
 </script>
+=======
+
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git

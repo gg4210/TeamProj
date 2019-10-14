@@ -9,10 +9,18 @@ public class BBSController {
 	
 	@RequestMapping("/bbsList.do")
 	public String bbsList() {
+		
+		
 		return "bbs/list.tiles";
 	}
+	
 	@RequestMapping("/bbsView.do")
 	public String bbsView() {
+		
+		
 		return "bbs/view.tiles";
 	}
+
+	
+	
 }

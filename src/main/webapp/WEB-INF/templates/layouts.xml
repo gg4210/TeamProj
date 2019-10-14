@@ -23,12 +23,14 @@
 			<put-list-attribute name="stylesheets">
         		<add-attribute value="/resources/MDB-Free_4.8.10/css/bootstrap.min.css" />
         		<add-attribute value="/resources/MDB-Free_4.8.10/css/mdb.min.css" />
+        		<add-attribute value="/resources/fullPage/fullpage.css" />
         		<add-attribute value="/resources/css/index.css" />
         		<add-attribute value="/resources/css/member/login.css?ver=1.0" />
-        		<add-attribute value="/resources/fullpage/fullpage.css" />
     		</put-list-attribute>
     		
 		</definition>
+		
+		
 		
 		<definition name="*.tiles" extends="layouts">
 			<!-- 와일드 카드 * 이 {1}에 대입됨-->
@@ -50,5 +52,4 @@
 		<definition name="*/*/*.tiles" extends="layouts">
 			<put-attribute name="Body" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
 		</definition>
-
 	   </tiles-definitions>

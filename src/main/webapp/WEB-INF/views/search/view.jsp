@@ -17,11 +17,9 @@
 	.review{
 	 padding:0;
 	}
-	
-
 	</style>
 	
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row mt-3">
 			<div class="col">
 				<blockquote class="blockquote bq-primary card">
@@ -34,21 +32,21 @@
 	
 		<div class="row">
 		
-			<div class="col-7">
+			<div class="col-md-7">
 				<div class="card">
 					<div class="card-body">
-						<h2>지도 위치</h2>
-						<h2>지도 위치</h2>
-						<h2>지도 위치</h2>
-						<h2>지도 위치</h2>
-						<h2>지도 위치</h2>
-						<h2>지도 위치</h2>
+						<h2>사진 위치</h2>
+						<h2>사진 위치</h2>
+						<h2>사진 위치</h2>
+						<h2>사진 위치</h2>
+						<h2>사진 위치</h2>
+						<h2>사진 위치</h2>	
 					</div>
 				</div>
 			</div>
 			
 			
-			<div class="col">
+			<div class="col-md mt-2">
 							
 				<!-- 센터 관련 간략정보 -->
 				<div class="row">
@@ -73,28 +71,6 @@
 		</div>
 		<!--  row 1 끝-->
 		
-		<!-- row 2 시작 -->
-		<div class="card mt-3">
-			<div class="card-body">
-				<h4>센터소개</h4>
-				<h4>센터소개</h4>
-				<h4>센터소개</h4>
-				<h4>센터소개</h4>
-				<h4>센터소개</h4>
-				<h4>센터소개</h4>	
-			</div>
-		</div>
-		<!-- row 2 끝 -->
-		
-		<!-- row 3 시작 -->
-		<div class="card mt-3">
-			<div class="card-body">
-				<h4>사진</h4>
-				<h4>사진</h4>
-				<h4>사진</h4>
-			</div>
-		</div>
-		<!-- row 3 끝 -->
 		
 		<!--comment-->
 		<div class="card mt-3">
@@ -121,6 +97,7 @@
 			<div class="card-header font-weight-bold">Review : [갯수]개</div>
 			<div class="card-body">
 			
+			<!-- 코멘트가 존재할 경우 시작 -->
 				<div class="row">
 					<div class="col-1">
 						<img src="<c:url value='/resources/images/girl.png'/>" alt="Avatar" class="avatar img-fluid">
@@ -143,13 +120,12 @@
 						</div>
 					</div>
 				</div>
+				<!-- 코멘트가 존재할 경우 끝 -->
 				
 				<!-- 데이터가 존재하지 않을 경우 시작-->
-				<div class="row">
-					<div class="col text-center h3">
+					<div class="text-center h3">
 						<p><i class="far fa-laugh-wink"></i> 후기가 존재하지 않습니다. 첫 후기를 입력해주세요!</p>
 					</div>
-				</div>	
 				<!-- 데이터가 존재하지 않을 경우 끝 -->
 						
 			</div>
@@ -162,7 +138,7 @@
 <script>
 $(function(){
 	$('#rating').mdbRate();
-	$('[data-toggle="tooltip"]').tooltip();
+	  $('[data-toggle="tooltip"]').tooltip();
 });
 
 
