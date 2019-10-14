@@ -4,9 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class MypageController {
-	@RequestMapping("mypage.do")
-	public String join() {
+public class MyPageController {
+	@RequestMapping("/mypage.do")
+	public String join(){
 		return "/mypage/mypage.tiles";
 	}
+
 }
