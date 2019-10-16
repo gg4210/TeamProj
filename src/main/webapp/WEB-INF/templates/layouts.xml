@@ -18,7 +18,7 @@
         		<add-attribute value="/resources/MDB-Free_4.8.10/js/bootstrap.min.js" />
         		<add-attribute value="/resources/MDB-Free_4.8.10/js/mdb.min.js" />
         		<add-attribute value="/resources/js/index.js?ver=1.7"/>
-        		<add-attribute value="/resources/fullpage/fullpage.js"/>
+        		<add-attribute value="/resources/fullPage/fullpage.js"/>
     		</put-list-attribute>
 			<put-list-attribute name="stylesheets">
         		<add-attribute value="/resources/MDB-Free_4.8.10/css/bootstrap.min.css" />
