@@ -8,7 +8,7 @@
   <div class="container-fluid">
   
     <!-- Jumbotron Header -->
-    <header class="jumbotron my-4">
+    <header class="jumbotron">
       <h1 class="display-3">Come with Me</h1>
       <p class="lead">We'll do it together!</p>
     </header>
@@ -35,7 +35,7 @@
 						adipisicing elit. Sapiente esse necessitatibus neque.</p>
 				</div>
 				<div class="card-footer">
-					<button button type="button" class="btn btn-info">상세보기</button>
+					<button button type="submit" class="btn btn-info">상세보기</button>
 				</div>
 			</div>
 		</div>
@@ -55,7 +55,7 @@
 						adipisicing elit. Sapiente esse necessitatibus neque.</p>
 				</div>
 				<div class="card-footer">
-					<button button type="button" class="btn btn-info">상세보기</button>
+					<button button type="submit" class="btn btn-info">상세보기</button>
 				</div>
 			</div>
 		</div>
@@ -75,7 +75,7 @@
 						adipisicing elit. Sapiente esse necessitatibus neque.</p>
 				</div>
 				<div class="card-footer">
-					<button button type="button" class="btn btn-info">상세보기</button>
+					<button button type="submit" class="btn btn-info">상세보기</button>
 				</div>
 			</div>
 		</div>
@@ -95,7 +95,7 @@
 						adipisicing elit. Sapiente esse necessitatibus neque.</p>
 				</div>
 				<div class="card-footer">
-					<button button type="button" class="btn btn-info">상세보기</button>
+					<button button type="submit" class="btn btn-info">상세보기</button>
 				</div>
 			</div>
 		</div>
@@ -124,7 +124,7 @@
 					<div class="form-group">
 						<input type="text" name="searchWord" class="form-control" placeholder="Search" />
 					</div>
-					<button button type="button" class="btn btn-primary">search</button>
+					<button button type="submit" class="btn btn-primary">search</button>
 				</form>
 			</div>
 		</div>
