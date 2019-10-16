@@ -10,5 +10,11 @@ public class HealthMateController {
 	public String mainPage() {
 		return "healthMate/healthMateMain.tiles";
 	}
+	
+	@RequestMapping("/healthMateWrite.do")
+	public String wirtePage() {
+		return "healthMate/healthMateWrite.tiles";
+	}
+
 
 }
