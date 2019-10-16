@@ -14,9 +14,10 @@
 <!-- sidebar 영역 끝 -->
 
 <!-- search Bar -->
-<div class="jumbotron jumbotron-fluid bg-dark" id="side_SearchBar">
+<div class="bg-dark" id="side_SearchBar">
 	<div class="container text-center">
-		<h2 class="display-4 pt-4 pb-5 text-light">센터 찾기</h2>
+		<h2 class="display-4 text-light py-5">센터 찾기</h2>
+		
 		<!-- 검색창 영역 -->
 		<form id="searchForm" action="<c:url value='/searchList.do'/>">
             <div class="input-group input-group-lg col col-md-6 mx-auto">           
@@ -34,6 +35,7 @@
             </div>
         </form>
       <!-- 검색창 영역 끝 -->
+      
 	</div>
 </div>
 <!-- search Bar 영역 끝-->
