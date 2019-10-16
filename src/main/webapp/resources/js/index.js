@@ -24,7 +24,7 @@ $(function() {
 
 	var myFullpage = new fullpage('#fullpage', {
 	    anchors: ['firstPage', 'secondPage', 'thirdPage'],
-	    sectionsColor: ['#C63D0F', '#1BBC9B', '#7E8F7C'],
+		verticalCentered: false,
 	    navigation: true,
 	    navigationPosition: 'right',
 	    navigationTooltips: ['첫번째 페이지', '두번째 페이지', '세번째 페이지'],

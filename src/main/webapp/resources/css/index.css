@@ -34,16 +34,15 @@
 
 
 #side_SearchBar{
-	margin-left: 50px;
+	vertical-align:middle;
+	margin:auto;
+	position: fixed;
+	width:100%;
+	height:40%;
 	z-index:3;
 	display:none;
+	margin: auto;
 }
-
-.section{
-	text-align: center;
-	}
-
-
 
 
 </style>
