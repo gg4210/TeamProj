@@ -10,10 +10,12 @@ $(function() {
 				$('#side_SearchBar').css('width', $(window).width() - 50 );
 				console.log($(window).width());
 			    $("#side_SearchBar").fadeToggle("3000");
+			    	/*브라우저 사이즈 조정 할때마다 search 창이 함께 조정됨*/
 				$(window).resize(function() {
 					$('#side_SearchBar').css('width', $(window).width() - 50 );
 					console.log($(window).width());
 				});
+			    	/*브라우저 사이즈 조정 할때마다 search 창이 함께 조정됨 끝*/
 				break;
 			case 2://마이페이지 클릭
 				$("#loginMenu").fadeToggle("3000");

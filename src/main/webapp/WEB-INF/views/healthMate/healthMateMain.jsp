@@ -9,7 +9,7 @@
   <div class="container-fluid">
   
     <!-- Jumbotron Header -->
-    <header class="jumbotron my-4">
+    <header class="jumbotron">
       <h1 class="display-3">Come with Me</h1>
       <p class="lead">We'll do it together!</p>
     </header>

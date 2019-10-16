@@ -3,6 +3,7 @@
 * {box-sizing: border-box;}
 
 .content {
+  padding-top:30px;
   padding-left:150px;
   padding-right:150px;
   margin:0;
