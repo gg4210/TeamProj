@@ -3,9 +3,9 @@
     <div class="container">
 	   	<div class="col-md-6">
 		    <form class="text-center border border-light p-5" action="#!">
-		
+			
 		    <p class="h4 mb-4">회원가입</p>
-		
+			
 		    <!-- 이름 -->
 		    <input type="text" id="Name" class="form-control mb-4" placeholder="이름을 입력하세요.">
 			

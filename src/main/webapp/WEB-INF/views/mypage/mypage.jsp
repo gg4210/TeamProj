@@ -22,7 +22,7 @@ ul span{
 </head>
 <body>
 	<div class="row justify-content-md-center">
-		<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+		<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" id="collapse-menu">
 		  <li class="nav-item col-md-3">
 		    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-mate" role="tab"
 		      aria-controls="pills-home" aria-selected="true"><i class="fa fa-users" style="font-size:9em"></i><br/><span>운동메이트</span></a>
@@ -42,18 +42,18 @@ ul span{
 		</ul>
 	</div>
 	<div class="container">
-		<div class="tab-content pt-2 pl-1" id="pills-tabContent">
-		  <div class="tab-pane fade show active" id="pills-mate" role="tabpanel" aria-labelledby="pills-home-tab">
-		  	운동메이트
-		  </div>
-		  <div class="tab-pane fade" id="pills-message" role="tabpanel" aria-labelledby="pills-profile-tab">
-		  	쪽지함
-		  </div>
-		  <div class="tab-pane fade" id="pills-coupon" role="tabpanel" aria-labelledby="pills-contact-tab">
-		  	<jsp:include page="/WEB-INF/views/mypage/Coupon.jsp"/>
-		  </div>
-		  <div class="tab-pane fade" id="pills-scrap" role="tabpanel" aria-labelledby="pills-contact-tab">
-		  	<jsp:include page="/WEB-INF/views/mypage/Scrap.jsp"/>
-		  </div>
+		<div class="tab-content pt-2 pl-1" id="pills-tabContent" id="collapse-menu">
+			<div class="tab-pane fade show active" id="pills-mate" role="tabpanel" aria-labelledby="pills-home-tab">
+				<jsp:include page="/WEB-INF/views/mypage/healthmatelist.jsp"/>
+			</div>
+			<div class="tab-pane fade" id="pills-message" role="tabpanel" aria-labelledby="pills-profile-tab">
+				<jsp:include page="/WEB-INF/views/mypage/letter.jsp"/>
+			</div>
+			<div class="tab-pane fade" id="pills-coupon" role="tabpanel" aria-labelledby="pills-contact-tab">
+				<jsp:include page="/WEB-INF/views/mypage/Coupon.jsp"/>
+			</div>
+			<div class="tab-pane fade" id="pills-scrap" role="tabpanel" aria-labelledby="pills-contact-tab">
+				<jsp:include page="/WEB-INF/views/mypage/Scrap.jsp"/>
+			</div>
 	  	</div>
 	</div>
