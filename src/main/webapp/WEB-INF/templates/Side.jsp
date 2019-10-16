@@ -9,7 +9,7 @@
 	<a href="#" id="member"><i class="fas fa-user"></i></a> 
 	<a href="<c:url value='/healthMateMain.do'/>"><i class="fas fa-user-friends"></i></a> 
 	<a href="<c:url value='/bbsList.do'/>"><i class="fas fa-clipboard-list"></i></a> 
-	<a href="#"><i class="fas fa-info-circle"></i></a>
+	<a href="<c:url value='/customerServiceMain.do'/>"><i class="fas fa-info-circle"></i></a>
 </div>
 <!-- sidebar 영역 끝 -->
 
