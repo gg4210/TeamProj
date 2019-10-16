@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
-	
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/healthMate/healthMateMain.css'/>" />
 
 
@@ -9,13 +8,13 @@
   <div class="container-fluid">
   
     <!-- Jumbotron Header -->
-    <header class="jumbotron">
+    <header class="jumbotron my-4">
       <h1 class="display-3">Come with Me</h1>
       <p class="lead">We'll do it together!</p>
     </header>
 	
 	<div class="text-right mb-2">
-	<button type="button" class="btn btn-primary" id="write" data-toggle="modal" data-target="#">Write</button>
+	<button type="button" class="btn btn-primary" id="write">Write</button>
 	</div>
 
 	<!-- Page Features -->
@@ -105,7 +104,7 @@
 		<div class="row mx-auto">
 			<div class="text-center">
 				<nav aria-label="Page navigation example">
-					<ul class="pagination pg-blue">
+					<ul class="pagination pg-blue justify-content-center">
 						<li class="page-item "><a class="page-link" tabindex="-1">Previous</a>
 						</li>
 						<li class="page-item"><a class="page-link">1</a></li>
@@ -123,8 +122,7 @@
 						</select>
 					</div>
 					<div class="form-group">
-						<input type="text" name="searchWord" class="form-control"
-							placeholder="Search" />
+						<input type="text" name="searchWord" class="form-control" placeholder="Search" />
 					</div>
 					<button button type="button" class="btn btn-primary">search</button>
 				</form>
@@ -135,69 +133,92 @@
 		</div>
 		<!-- /.row -->
 
-	<!-- 추가하기 모달 시작 -->
-	<div class="modal fade" id="plus-modal" data-backdrop="static">
-		<div class="modal-dialog modal-sm modal-dialog-centered">
-			<div class="modal-content">
-
-				<div class="modal-body">
-					<button class="close" data-dismiss="modal">
-						<span>&times;</span>
-					</button>
-					<h2>임시모달</h2>
-					<p>
-						임시 모달<br/>임시 모달<br/>임시 모달
-					</p>
-					<button class="btn btn-outline-primary">YES</button>
-					<button class="btn btn-outline-danger" data-dismiss="modal">NO</button>
+		<!-- 추가하기 모달 시작 -->
+		<div class="modal fade" id="plus-modal" data-backdrop="static">
+			<div class="modal-dialog modal-sm modal-dialog-centered">
+				<div class="modal-content">
+	
+					<div class="modal-body">
+						<button class="close" data-dismiss="modal">
+							<span>&times;</span>
+						</button>
+						<h2>Plus Mate</h2>
+						<p>
+							임시모달<br/>임시 모달<br/>임시 모달
+						</p>
+						<button class="btn btn-outline-primary">추가</button>
+						<button class="btn btn-outline-danger" data-dismiss="modal">취소</button>	
+					
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- 모달 끝 -->
+		<!-- 모달 끝 -->
 
-	<!-- write 모달 시작 -->
-	<div class="modal fade" id="write-modal" data-backdrop="static">
-		<div class="modal-dialog modal-lg modal-dialog-centered"
-			role="document">
-
-			<div class="modal-content">
-				<div class="modal-header text-center">
-					<h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body mx-3">
-					<div class="md-form mb-5">
-						<i class="fas fa-user prefix grey-text"></i> <input type="text"
-							id="orangeForm-name" class="form-control validate"> <label
-							data-error="wrong" data-success="right" for="orangeForm-name">Your
-							name</label>
+		<!-- write 모달 시작 -->
+		<!--
+		<div class="modal fade" id="write-modal" data-backdrop="static">
+			<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+	
+				<div class="modal-content">
+					<div class="modal-header text-center">
+						<h4 class="modal-title w-100 font-weight-bold">함께 운동할 메이트를 직접 찾아보세요!</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body mx-3">
+				
+				<div class="md-form mb-5">
+					<select class="browser-default custom-select">
+						<option selected>Open this select menu</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+					</select>
 					</div>
 					<div class="md-form mb-5">
-						<i class="fas fa-envelope prefix grey-text"></i> <input
-							type="email" id="orangeForm-email" class="form-control validate">
-						<label data-error="wrong" data-success="right"
-							for="orangeForm-email">Your email</label>
+					<select class="browser-default custom-select">
+						<option selected>Open this select menu</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+					</select>
 					</div>
-
-					<div class="md-form mb-4">
-						<i class="fas fa-lock prefix grey-text"></i> <input
-							type="password" id="orangeForm-pass"
-							class="form-control validate"> <label data-error="wrong"
-							data-success="right" for="orangeForm-pass">Your password</label>
+					<div class="md-form mb-5">
+							<i class="prefix grey-text"></i>
+							<input type="text" id="orangeForm-name" class="form-control validate">
+							<label data-error="wrong" data-success="right" for="orangeForm-name">title</label>
+						</div>
+						</form>
+						<div class="md-form mb-5">
+							<i class="prefix grey-text"></i>
+							<input type="email" id="orangeForm-email" class="form-control validate">
+							<label data-error="wrong" data-success="right" for="orangeForm-email">지역</label>
+						</div>
+						<div class="md-form mb-5">
+							<i class="prefix grey-text"></i>
+							<input type="email" id="orangeForm-email" class="form-control validate">
+							<label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
+						</div>
+						<div class="md-form mb-4">
+							<i class="prefix grey-text"></i>
+							<input type="password" id="orangeForm-pass" class="form-control validate">
+							<label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
+						</div>
 					</div>
-
-				</div>
-				<div class="modal-footer d-flex justify-content-center">
-					<button class="btn btn-deep-orange">Sign up</button>
+					<div class="modal-footer d-flex justify-content-center">
+						<button class="btn btn-primary">Sign up</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- write 모달 끝 -->
+		 -->
+		<!-- write 모달 끝 -->
+		
+		
+		
+	
 
 
 </div>
@@ -209,9 +230,8 @@ $(function(){
 	$('.text').click(function(){
 		$('#plus-modal').modal('show');
 	});
-	
 	$('#write').click(function(){
-		$('#write-modal').modal('show');
+		location.href="healthMateWrite.do";
 	});
 });
 </script>
