@@ -13,7 +13,9 @@
   	<div class="row">
 	  	<div class="col-md-3">
 	  	<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
-	  	<a href="#" >사진 등록</a>  	
+	  	<div class="row justify-content-center mt-2">
+	  		<a href="#">사진 등록</a>  
+	  	</div>
 	  	</div>
 	  	<div class="col-md-9">
 	  	<!-- 셀렉트박스 시작 -->
@@ -67,7 +69,16 @@
 						<option value="9">시간협의</option>
 					</select>
 				</div>
-				</div>
+				<!-- 날짜 -->
+					<div class="col-md-4">
+						<input type="text" id="datepicker" placeholder="날짜를 선택하세요" />
+					</div>
+				<!-- 날짜 -->
+
+
+
+
+			</div>
 				<!-- 셀렉트박스 row 끝 -->
 				
 				<!-- 태그 row 시작 -->
@@ -117,11 +128,36 @@
 <!-- container -->
 <!-- 실제 내용 끝 -->
 
+
+
+
+<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
+<!-- 제이쿼리 코어용 라이브러리 임베드 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- 제이쿼리 UI용 라이브러리 임베드 -->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<script src="<c:url value='/bootstrap/js/bootstrap.min.js'/>"></script>
+<!-- 제이쿼리 UI용 CSS -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 <script>
-$('#ok').click(function(){
-	location.href("/healMateMain.do");
-});
 
+	$(function() {
 
-
+		$('#ok').click(function() {
+			location.href("/healMateMain.do");
+		});
+		$('#datepicker').datepicker({
+			showAnim : "fold",
+			dateFormat : "yy-mm-dd",
+			minDate : new Date(2019, 10, 17),
+			//showOn: "button"
+			showOn : "both",
+			onSelect : function(dateText) {
+				console.log(dateText);
+				$('#display').html(dateText);
+			}
+		});
+	});
 </script>
