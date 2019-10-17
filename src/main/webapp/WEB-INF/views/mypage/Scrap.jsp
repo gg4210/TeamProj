@@ -35,11 +35,7 @@ $(function(){
 
 th, td {
 	border-bottom: 1px solid #D8D8D8;
-	text-align: center;
-}
-
-td:nth-child(4) {
-	text-align: left;
+	text-align:center;
 }
 
 td:nth-child(1) {
@@ -50,9 +46,14 @@ td:nth-child(2) {
 	width:100px;
 }
 
-ul {
-	align-content: center;
+td:nth-child(4) {
+	text-align:left;
 }
+
+nav > ul a {
+	width:35px;
+}
+
 </style>
 <div class="container">
 	<div class="page-header">
@@ -61,7 +62,7 @@ ul {
 	<div class="row">
 		<div class="col-md-12">
 			<div style="float:right;">
-				<button type="button" class="btn btn-success" style="height:38px;">삭제</button>
+				<button class="btn purple-gradient btn-sm">삭제</button>
 			</div>
 			<table class="table" style="margin-top:50px;">
 				<thead>
@@ -70,7 +71,6 @@ ul {
 						<th>글번호</th>
 						<th>게시판 구분</th>
 						<th style="text-align: left">제목</th>
-						<th>작성일자</th>
 						<th>스크랩일자</th>
 					</tr>
 				</thead>
@@ -80,7 +80,6 @@ ul {
 						<td>10</td>
 						<td>자유게시판</td>
 						<td>오늘의 일상10</td>
-						<td>2019-10-03</td>
 						<td>2019-10-05</td>
 					</tr>
 					<tr>
@@ -88,7 +87,6 @@ ul {
 						<td>9</td>
 						<td>자유게시판</td>
 						<td>오늘의 일상9</td>
-						<td>2019-10-03</td>
 						<td>2019-10-05</td>
 					</tr>
 					<tr>
@@ -96,7 +94,6 @@ ul {
 						<td>8</td>
 						<td>자유게시판</td>
 						<td>오늘의 일상8</td>
-						<td>2019-10-03</td>
 						<td>2019-10-05</td>
 					</tr>
 					<tr>
@@ -104,7 +101,6 @@ ul {
 						<td>7</td>
 						<td>자유게시판</td>
 						<td>오늘의 일상7</td>
-						<td>2019-10-03</td>
 						<td>2019-10-05</td>
 					</tr>
 					<tr>
@@ -112,7 +108,6 @@ ul {
 						<td>6</td>
 						<td>자유게시판</td>
 						<td>오늘의 일상6</td>
-						<td>2019-10-03</td>
 						<td>2019-10-05</td>
 					</tr>
 					<tr>
@@ -120,7 +115,6 @@ ul {
 						<td>5</td>
 						<td>자유게시판</td>
 						<td>오늘의 일상5</td>
-						<td>2019-10-03</td>
 						<td>2019-10-05</td>
 					</tr>
 					<tr>
@@ -128,7 +122,6 @@ ul {
 						<td>4</td>
 						<td>자유게시판</td>
 						<td>오늘의 일상4</td>
-						<td>2019-10-03</td>
 						<td>2019-10-05</td>
 					</tr>
 					<tr>
@@ -136,7 +129,6 @@ ul {
 						<td>3</td>
 						<td>자유게시판</td>
 						<td>오늘의 일상3</td>
-						<td>2019-10-03</td>
 						<td>2019-10-05</td>
 					</tr>
 					<tr>
@@ -144,7 +136,6 @@ ul {
 						<td>2</td>
 						<td>자유게시판</td>
 						<td>오늘의 일상2</td>
-						<td>2019-10-03</td>
 						<td>2019-10-05</td>
 					</tr>
 					<tr>
@@ -152,7 +143,6 @@ ul {
 						<td>1</td>
 						<td>자유게시판</td>
 						<td>오늘의 일상1</td>
-						<td>2019-10-03</td>
 						<td>2019-10-05</td>
 					</tr>
 				</tbody>
@@ -160,7 +150,7 @@ ul {
 		</div>
 	</div>
 	<div class="row" style="float:right; z-index:2">
-		<div class="input-group col-md-12 col-xs-12">
+		<div class="input-group col-md-12">
 			<div class="form-group">
 				<select name="searchColumn" class="form-control">
 					<option value="title">제목</option>
@@ -170,26 +160,35 @@ ul {
 			</div>
 			<div>
 				<input type="text" class="form" placeholder="Search" style="height:38px">
-			</div>
-			<div class="input-group-append">
-				<button class="btn btn-success" type="submit" style="height:38px">검색</button>
+				<button class="btn blue-gradient btn-sm">검색</button>
 			</div>
 		</div>
 	</div>
 	<div>
-		<br/>
+		<br/><br/>
 	</div>
-	<div class="col-xs-12 col-sm-12" style="z-index: 1">
-		<div class="form-group">
-			<ul class="pagination justify-content-center" style="padding-left:40%;padding-top:3%">
+	<div class="container">
+		<nav aria-label="Page navigation example" style="margin-left:15%; position:absolute;">
+			<ul class="pagination pagination-circle pg-blue">
 				<li class="page-item"><a class="page-link" href="#">◀</a></li>
-				<li class="page-item"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#" tabindex="-1">＜</a></li>
+				<li class="page-item active"><a class="page-link" href="#">1</a></li>
 				<li class="page-item"><a class="page-link" href="#">2</a></li>
 				<li class="page-item"><a class="page-link" href="#">3</a></li>
 				<li class="page-item"><a class="page-link" href="#">4</a></li>
 				<li class="page-item"><a class="page-link" href="#">5</a></li>
+				<li class="page-item"><a class="page-link" href="#">＞</a></li>
 				<li class="page-item"><a class="page-link" href="#">▶</a></li>
 			</ul>
-		</div>
+		</nav>
 	</div>
 </div>
+
+
+
+
+	
+	
+
+
+
