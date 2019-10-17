@@ -14,8 +14,8 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 // 장소 검색 객체를 생성합니다
 var ps = new kakao.maps.services.Places();  
 
-// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 인포윈도우를 생성합니다
-var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+// 검색 결과 목록이나 마커를 클릭했을 때 장소명을 표출할 커스텀 오버레이를 생성합니다
+var customOverlay = new kakao.maps.CustomOverlay();
 
 // 키워드로 장소를 검색합니다
 searchPlaces();
@@ -23,17 +23,16 @@ searchPlaces();
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
 	
-	url=window.location.href;
-	
+	url=window.location.href;	
     var keyword=getParameterByName("searchWord");
-
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
-        alert('키워드를 입력해주세요!');
+    	//setWarningModal('키워드를 입력해주세요!');
+    	warningModalOpen();
         return false;
     }
-
     // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
-    ps.keywordSearch( keyword, placesSearchCB); 
+    ps.keywordSearch(keyword, placesSearchCB);
+    
 }
 
 // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
@@ -48,13 +47,15 @@ function placesSearchCB(data, status, pagination) {
         displayPagination(pagination);
 
     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-
-        alert('검색 결과가 존재하지 않습니다.');
+    	//setWarningModal('검색 결과가 존재하지 않습니다.');
+        //$('#warningModal').modal();
+    	warningModalOpen();
         return;
 
     } else if (status === kakao.maps.services.Status.ERROR) {
-
-        alert('검색 결과 중 오류가 발생했습니다.');
+    	//setWarningModal('검색 결과 중 오류가 발생했습니다.');
+        //$('#warningModal').modal();
+    	warningModalOpen();
         return;
 
     }
@@ -89,23 +90,29 @@ function displayPlaces(places) {
         // 마커와 검색결과 항목에 mouseover 했을때
         // 해당 장소에 인포윈도우에 장소명을 표시합니다
         // mouseout 했을 때는 인포윈도우를 닫습니다
-        (function(marker, title) {
-            kakao.maps.event.addListener(marker, 'mouseover', function() {
-                displayInfowindow(marker, title);
+        (function(marker, title, address, road_address, phone) {
+            kakao.maps.event.addListener(marker, 'click', function() {
+            	if(road_address!=null){
+            		displayCustomOverlay(marker, title, address, road_address, phone);
+            	}
+            	else{
+            		closeOverlay();
+            	}
             });
 
-            kakao.maps.event.addListener(marker, 'mouseout', function() {
-                infowindow.close();
-            });
-
-            itemEl.onmouseover =  function () {
-                displayInfowindow(marker, title);
+            itemEl.onclick =  function () {
+            	if(road_address!=null){
+            		displayCustomOverlay(marker, title, address, road_address, phone);
+            	}
+            	else{
+            		closeOverlay();
+            	}
             };
 
-            itemEl.onmouseout =  function () {
+            /*itemEl.onmouseout =  function () {
                 infowindow.close();
-            };
-        })(marker, places[i].place_name);
+            };*/
+        })(marker, places[i].place_name, places[i].address_name, places[i].road_address_name, places[i].phone);
 
         fragment.appendChild(itemEl);
     }
@@ -202,11 +209,40 @@ function displayPagination(pagination) {
 
 // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
 // 인포윈도우에 장소명을 표시합니다
-function displayInfowindow(marker, title) {
-    var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
+function displayCustomOverlay(marker, title, address, road_address, phone) {
+   var content = 
+	   '<div class="card">' + 
+		   '<div class="card-header">'+
+		        '<button type="button" class="close" aria-label="Close">'+
+		         '<span aria-hidden="true">&times;</span>'+
+		        '</button>'+
+		   '</div>' + 
+		   '<div class="card-body">'+
+	   	   '<img class="card-img-top" src="#" alt="Card image cap">'+
+	   	   			'<h5 class="card-title">'+title+'</h5>'+
+		   	   		'<p>';
+		    		if(road_address!=null){
+		    				content+=address+'</p>' + 
+		    				'<p>'+road_address+'</p>';
+		    		}
+		    		else{
+	    					content+=address+'</p>';
+		    		}
+		    		if(phone!=null){
+		    			content+='<p><span class="tel">' + phone  + '</span></p>';
+		    		}
+		    +'</div>' + 
+    	'</div>';
 
-    infowindow.setContent(content);
-    infowindow.open(map, marker);
+    customOverlay = new kakao.maps.CustomOverlay({
+		    	    content: content,
+		    	    clickable: true,
+		    	    map: map,
+		    	    position: marker.getPosition(),
+		    	    zIndex: 1
+		    	});
+    customOverlay.setMap(map);
+    
 }
 
  // 검색결과 목록의 자식 Element를 제거하는 함수입니다
@@ -216,6 +252,9 @@ function removeAllChildNods(el) {
     }
 }
 
+
+
+//parameter 값으로 처음 검색어를 받았을 때 그 값을 받기위한 함수입니다.
 function getParameterByName(name) {
     name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
     var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
@@ -223,6 +262,20 @@ function getParameterByName(name) {
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
+//overlay 닫기
+function closeOverlay() {
+	customOverlay.setMap(null);
+}
+
+//모달창을 위한 클래스
+function warningModalOpen(){
+	$('#warningModal').modal('show');
+}
+
+	$('.close').click(function(){
+		console.log('젭라 클릭');
+	});
 
 });
+
 
