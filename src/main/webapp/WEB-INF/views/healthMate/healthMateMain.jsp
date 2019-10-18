@@ -18,7 +18,7 @@
 	</div>
 
 	<!-- Page Features -->
-<div class="row text-center">
+	<div class="row text-center">
 
 		<div class="col-lg-3 col-md-6 col mb-4">
 			<div class="card h-100">
@@ -30,12 +30,18 @@
 				</div>
 
 				<div class="card-body">
-					<h4 class="card-title">Card title</h4>
+					<h4 class="title">TITLE</h4>
+					<div class="row tag">
+						<h6>#태그</h6>
+						<h6>#태그</h6>
+						<h6>#태그</h6>
+						<h6>#태그</h6>
+					</div>
 					<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 						adipisicing elit. Sapiente esse necessitatibus neque.</p>
 				</div>
 				<div class="card-footer">
-					<button button type="button" class="btn btn-info">상세보기</button>
+					<button button type="submit" class="detail btn btn-info">상세보기</button>
 				</div>
 			</div>
 		</div>
@@ -55,7 +61,7 @@
 						adipisicing elit. Sapiente esse necessitatibus neque.</p>
 				</div>
 				<div class="card-footer">
-					<button button type="button" class="btn btn-info">상세보기</button>
+					<button button type="submit" class="detail btn btn-info">상세보기</button>
 				</div>
 			</div>
 		</div>
@@ -75,7 +81,7 @@
 						adipisicing elit. Sapiente esse necessitatibus neque.</p>
 				</div>
 				<div class="card-footer">
-					<button button type="button" class="btn btn-info">상세보기</button>
+					<button button type="submit" class="detail btn btn-info">상세보기</button>
 				</div>
 			</div>
 		</div>
@@ -95,7 +101,7 @@
 						adipisicing elit. Sapiente esse necessitatibus neque.</p>
 				</div>
 				<div class="card-footer">
-					<button button type="button" class="btn btn-info">상세보기</button>
+					<button button type="submit" class="detail btn btn-info">상세보기</button>
 				</div>
 			</div>
 		</div>
@@ -114,7 +120,7 @@
 					</ul>
 				</nav>
 				<form class="form-inline" method="#" action="#">
-					<div class="form-group">
+					<div class="p-1 px-3form-group">
 						<select name="searchColumn" class="form-control">
 							<option value="title">제목</option>
 							<option value="name">작성자</option>
@@ -124,7 +130,7 @@
 					<div class="form-group">
 						<input type="text" name="searchWord" class="form-control" placeholder="Search" />
 					</div>
-					<button button type="button" class="btn btn-primary">search</button>
+					<button button type="submit" class="p-2 px-3 btn btn-primary">search</button>
 				</form>
 			</div>
 		</div>
@@ -133,92 +139,90 @@
 		</div>
 		<!-- /.row -->
 
-		<!-- 추가하기 모달 시작 -->
-		<div class="modal fade" id="plus-modal" data-backdrop="static">
-			<div class="modal-dialog modal-sm modal-dialog-centered">
-				<div class="modal-content">
-	
-					<div class="modal-body">
-						<button class="close" data-dismiss="modal">
-							<span>&times;</span>
-						</button>
-						<h2>Plus Mate</h2>
-						<p>
-							임시모달<br/>임시 모달<br/>임시 모달
-						</p>
-						<button class="btn btn-outline-primary">추가</button>
-						<button class="btn btn-outline-danger" data-dismiss="modal">취소</button>	
-					
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- 모달 끝 -->
 
-		<!-- write 모달 시작 -->
-		<!--
-		<div class="modal fade" id="write-modal" data-backdrop="static">
-			<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-	
+		<!-- PLUS MATE 모달 시작 -->
+		<div class="modal fade" id="plus-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-notify modal-info modal-dialog-centered" role="document">
+				<!--Content-->
 				<div class="modal-content">
-					<div class="modal-header text-center">
-						<h4 class="modal-title w-100 font-weight-bold">함께 운동할 메이트를 직접 찾아보세요!</h4>
+					<!--Header-->
+					<div class="modal-header">
+						<p class="heading">PLUS MATE</p>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
+							<span aria-hidden="true" class="white-text">&times;</span>
 						</button>
 					</div>
-					<div class="modal-body mx-3">
-				
-				<div class="md-form mb-5">
-					<select class="browser-default custom-select">
-						<option selected>Open this select menu</option>
-						<option value="1">One</option>
-						<option value="2">Two</option>
-						<option value="3">Three</option>
-					</select>
-					</div>
-					<div class="md-form mb-5">
-					<select class="browser-default custom-select">
-						<option selected>Open this select menu</option>
-						<option value="1">One</option>
-						<option value="2">Two</option>
-						<option value="3">Three</option>
-					</select>
-					</div>
-					<div class="md-form mb-5">
-							<i class="prefix grey-text"></i>
-							<input type="text" id="orangeForm-name" class="form-control validate">
-							<label data-error="wrong" data-success="right" for="orangeForm-name">title</label>
+					<!--Body-->
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-5">
+								<img src="http://placehold.it/500x325" class="img-fluid" alt="">
+							</div>
+							<div class="col-7">
+								<p>
+									<strong>healthaMate 추가하기</strong>
+								</p>
+								<p>'아이디'님을<br/>추가하시겠습니까?</p>
+								<button type="button" class="btn btn-info btn-md">추가하기</button>
+								<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
+							</div>
 						</div>
-						</form>
-						<div class="md-form mb-5">
-							<i class="prefix grey-text"></i>
-							<input type="email" id="orangeForm-email" class="form-control validate">
-							<label data-error="wrong" data-success="right" for="orangeForm-email">지역</label>
-						</div>
-						<div class="md-form mb-5">
-							<i class="prefix grey-text"></i>
-							<input type="email" id="orangeForm-email" class="form-control validate">
-							<label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
-						</div>
-						<div class="md-form mb-4">
-							<i class="prefix grey-text"></i>
-							<input type="password" id="orangeForm-pass" class="form-control validate">
-							<label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
-						</div>
-					</div>
-					<div class="modal-footer d-flex justify-content-center">
-						<button class="btn btn-primary">Sign up</button>
 					</div>
 				</div>
+				<!--/.Content-->
 			</div>
 		</div>
-		 -->
-		<!-- write 모달 끝 -->
+		<!-- PLUS MATE 모달 끝 -->
 		
 		
+		<!-- 상세보기 모달 시작 -->
+		<div class="modal fade" id="detail-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-lg modal-notify modal-primary modal-dialog-centered" role="document">
+				<!--Content-->
+				<div class="modal-content">
+					<!--Header-->
+					<div class="modal-header">
+						<p class="heading">Title</p>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true" class="white-text">&times;</span>
+						</button>
+					</div>
+					<!--Body-->
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-5">
+								<img src="http://placehold.it/500x325" class="img-fluid" alt="">
+							</div>
+							<div class="col-7">
+								<p>
+									<strong>[지역]</strong> 지역
+								</p>
+								<p>
+									<strong>[관심종목]</strong> 관심종목
+								</p>
+								<p>
+									<strong>[운동시간]</strong> 시간협의
+								</p>
+								<p>
+									<strong>[대표 태그]</strong> #여자 #20대 #다이어트
+								</p>
+								<p>
+									<strong>[글 내용]</strong>
+								</p>
+								<p>함께 운동해요</br>함께 운동해요</br>함께 운동해요</br>함께 운동해요</br>함께 운동해요</br></p>
+							</div>
+						</div>
+						<div class="row justify-content-center">
+							<button type="button" class="btn btn-info btn-md">추가하기</button>
+							<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
+						</div>
+					</div>
+				</div>
+				<!--/.Content-->
+			</div>
+		</div>
+		<!-- 상세보기 모달 끝 -->
 		
-	
 
 
 </div>
@@ -232,6 +236,10 @@ $(function(){
 	});
 	$('#write').click(function(){
 		location.href="healthMateWrite.do";
+	});
+	
+	$('.detail').click(function(){
+		$('#detail-modal').modal('show');
 	});
 });
 </script>

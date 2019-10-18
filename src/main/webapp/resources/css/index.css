@@ -2,6 +2,14 @@
 
 .null{}
 
+@font-face { 
+	font-family: 'TmonMonsori'; 
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff') format('woff'); 
+	font-weight: normal; 
+	font-style: normal; 
+}
+
+
 .sidebar {
 	height: 100%; /* Full-height: remove this if you want "auto" height */
 	width: 50px; /* Set the width of the sidebar */
