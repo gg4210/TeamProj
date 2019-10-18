@@ -87,31 +87,17 @@ function displayPlaces(places) {
         // LatLngBounds 객체에 좌표를 추가합니다
         bounds.extend(placePosition);
 
-        // 마커와 검색결과 항목에 mouseover 했을때
-        // 해당 장소에 인포윈도우에 장소명을 표시합니다
-        // mouseout 했을 때는 인포윈도우를 닫습니다
+        // 마커와 검색결과 항목에 클릭 했을때
+        // 해당 장소에 커스텀 오버레이에 장소명을 표시합니다
+        // 토글속성을 부여하였습니다
         (function(marker, title, address, road_address, phone) {
             kakao.maps.event.addListener(marker, 'click', function() {
-            	if(road_address!=null){
-            		displayCustomOverlay(marker, title, address, road_address, phone);    		
-            	}
-            	else{
-            		closeOverlay();
-            	}
+            	displayCustomOverlay(marker, title, address, road_address, phone);
             });
 
             itemEl.onclick =  function () {
-            	if(road_address!=null){
-            		displayCustomOverlay(marker, title, address, road_address, phone);
-            	}
-            	else{
-            		closeOverlay();
-            	}
-            };
-
-            /*itemEl.onmouseout =  function () {
-                infowindow.close();
-            };*/
+            	displayCustomOverlay(marker, title, address, road_address, phone);
+            };            
         })(marker, places[i].place_name, places[i].address_name, places[i].road_address_name, places[i].phone);
 
         fragment.appendChild(itemEl);
@@ -130,16 +116,10 @@ function getListItem(index, places) {
 
     var el = document.createElement('tr'),
     itemStr = '<th scope="row"><span class="markerbg marker_' + (index+1) + '"></span>' +
-                '<div class="info">' +
+                '<div class="place_name">' +
                 '   <h5>' + places.place_name + '</h5>';
-    if (places.road_address_name) {
-        itemStr += '    <span>' + places.road_address_name + '</span>' +
-                    '   <span class="jibun gray">' +  places.address_name  + '</span>';
-    } else {
-        itemStr += '    <span>' +  places.address_name  + '</span>'; 
-    }                 
-      itemStr += '  <span class="tel">' + places.phone  + '</span>' +
-                '</div></th>';
+                '</div>'+
+    			'</th>';
     el.innerHTML=itemStr;
     el.className='item';
     return el;
@@ -211,46 +191,40 @@ function displayPagination(pagination) {
 // 인포윈도우에 장소명을 표시합니다
 
 function displayCustomOverlay(marker, title, address, road_address, phone) {
-   var content = '<div class="wrap">' + 
+	if(customOverlay.getMap()!=null){
+	    customOverlay.setMap(null);
+	    return;
+	}
+	
+   var content = 
+   '<div class="wrap">' + 
    '    <div class="info">' + 
-   '        <div class="title">' + 
-   '            카카오 스페이스닷원' + 
-   '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+   
+   '        <div class="title">' + title + 
+   '            <div class="close" title="닫기"></div>' + 
    '        </div>' + 
+   
    '        <div class="body">' + 
    '            <div class="img">' +
    '                <img src="http://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
-   '           </div>' + 
-   '            <div class="desc">' + 
-   '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' + 
-   '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' + 
-   '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+   '            </div>' + 
+   '            <div class="desc">';
+	if(road_address!=null){
+		content+='                <div class="ellipsis">'+address+'</div>' + 
+				 '                <div class="jibun ellipsis">'+road_address+'</div>';
+	}
+	else{
+		content+='                <div class="ellipsis">'+address+'</div>';
+
+	}
+   content+='                <div><span class="tel">'+phone+'</span></div>' + 
+					   '<form action="/workout/searchView.do">'+
+					   '<button class="btn btn-primary" type="submit">뷰페이지 확인</button></form>'+
    '            </div>' + 
    '        </div>' + 
    '    </div>' +    
    '</div>';
-	   
-	   
-	   
-	   
-	   
-	   /*
-	   '<div class="popover" role="tooltip"><div class="arrow"></div>'+
-   				'<h3 class="popover-header">'+title+'</h3>'+
-   					'<div class="popover-body">'
-		    		if(road_address!=null){
-		    				content+=address+'</p>' + 
-		    				'<p>'+road_address+'</p>';
-		    		}
-		    		else{
-	    					content+=address+'</p>';
-		    		}
-		    		if(phone!=null){
-		    			content+='<p><span class="tel">' + phone  + '</span></p>';
-		    		}
-		    		 '</div>'+
-		    	'</div>';*/
-		    		 
+
     customOverlay = new kakao.maps.CustomOverlay({
 		    	    content: content,
 		    	    clickable: true,
@@ -261,6 +235,12 @@ function displayCustomOverlay(marker, title, address, road_address, phone) {
     
     customOverlay.setMap(map);
     
+    $('.close').click(function(){
+    	//클로즈 클릭시 
+    	customOverlay.setMap(null);
+    });
+    
+
 }
 
 
@@ -281,19 +261,13 @@ function getParameterByName(name) {
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-//overlay 닫기
-function closeOverlay() {
-	customOverlay.setMap(null);
-}
 
 //모달창을 위한 클래스
 function warningModalOpen(){
 	$('#warningModal').modal('show');
 }
-
-	$('.close').click(function(){
-		console.log('젭라 클릭');
-	});
+	
+	
 
 });
 
