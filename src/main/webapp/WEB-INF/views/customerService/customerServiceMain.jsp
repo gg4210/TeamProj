@@ -5,7 +5,7 @@
 
 <style>
 
-.row{
+#servicepills{
 	padding-top: 35px;	
 	padding-left: 65px;
 }
@@ -27,7 +27,7 @@ ul span{
 
 <body>
 <div class="container">
-<div class=row>
+<div class=row id="servicepills">
  <ul class="nav nav-pills" id="pills-tab" role="tablist"><!-- mb-숫자 : margine bottom 숫자(최대 5까지 먹는 듯.)만큼 띄운다. -->
   <li class="nav-item">
    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
@@ -71,11 +71,10 @@ ul span{
 	<jsp:include page="/WEB-INF/views/customerService/FAQ.jsp"/>
   </div>
   <div class="tab-pane fade" id="pills-notice" role="tabpanel" aria-labelledby="pills-contact-tab">
-  	공지사항/이벤트 내용
+  	<jsp:include page="/WEB-INF/views/customerService/Notice.jsp"/>
   </div>
   <div class="tab-pane fade" id="pills-personalQ" role="tabpanel" aria-labelledby="pills-contact-tab">
   	1:1문의 내용
-  	<jsp:include page="/WEB-INF/views/customerService/test.jsp"/>
   </div>
   <div class="tab-pane fade" id="pills-comfirmA" role="tabpanel" aria-labelledby="pills-contact-tab">
   	<jsp:include page="/WEB-INF/views/customerService/consultlist.jsp"/>
