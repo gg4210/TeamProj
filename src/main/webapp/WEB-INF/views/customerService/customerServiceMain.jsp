@@ -21,11 +21,6 @@ ul span{
 }
 
 </style>
-<meta charset="UTF-8">
-<title>운동해 - 고객센터</title>
-
-
-<body>
 <div class="container">
 	<div class=row>
 		 <ul class="nav nav-pills" id="pills-tab" role="tablist"><!-- mb-숫자 : margine bottom 숫자(최대 5까지 먹는 듯.)만큼 띄운다. -->
