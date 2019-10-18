@@ -22,7 +22,7 @@
 	<!-- card 1 시작 -->
 	<div class="col-lg-3 col-md-6">
 			<div class="card h-100">
-				<h2 class="card-title m-0 p-2" style="background-color: #A1EAFE">TITLE</h2>
+				<h2 class="card-title m-0 p-2" style="background-color: #1a237e; color: white">TITLE</h2>
 				<div class="card-image-container p-3">
 					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
 					<div class="card-img-middle">
@@ -59,7 +59,7 @@
 	<!-- card 2 시작 -->
 	<div class="col-lg-3 col-md-6">
 			<div class="card h-100">
-				<h2 class="card-title m-0 p-2" style="background-color: #A1EAFE">TITLE</h2>
+				<h2 class="card-title m-0 p-2" style="background-color: #1a237e; color: white">TITLE</h2>
 				<div class="card-image-container p-3">
 					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
 					<div class="card-img-middle">
@@ -96,7 +96,7 @@
 	<!-- card 3 시작 -->
 	<div class="col-lg-3 col-md-6">
 			<div class="card h-100">
-				<h2 class="card-title m-0 p-2" style="background-color: #A1EAFE">TITLE</h2>
+				<h2 class="card-title m-0 p-2" style="background-color: #1a237e; color: white">TITLE</h2>
 				<div class="card-image-container p-3">
 					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
 					<div class="card-img-middle">
@@ -133,7 +133,7 @@
 		<!-- card 4 시작 -->
 		<div class="col-lg-3 col-md-6">
 			<div class="card h-100">
-				<h2 class="card-title m-0 p-2" style="background-color: #A1EAFE">TITLE</h2>
+				<h2 class="card-title m-0 p-2" style="background-color: #1a237e; color: white">TITLE</h2>
 				<div class="card-image-container p-3">
 					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
 					<div class="card-img-middle">
