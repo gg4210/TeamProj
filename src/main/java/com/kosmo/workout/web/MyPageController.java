@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MyPageController {
 	@RequestMapping("/mypage.do")
-	public String join(){
-		return "/mypage/mypage.tiles";
+	public String customer(){
+		return "mypage/customerpage/mypage.tiles";
 	}
 
 }
