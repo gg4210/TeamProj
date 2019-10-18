@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/healthMate/healthMateWrite.css'/>" />
+<title>HealthMate Write</title>
+
 <!-- 실제 내용 시작 -->
 <div class="container">
 	<!-- 점보트론(Jumbotron) -->
@@ -11,12 +13,16 @@
     </header>
     <!-- row 시작 -->
   	<div class="row">
+	  	<!-- 사진 등록 시작 -->
 	  	<div class="col-md-3">
-	  	<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
-	  	<div class="row justify-content-center mt-2">
-	  		<a href="#">사진 등록</a>  
+			<div class="wrap-custom-file">
+				<input type="file" name="image1" id="image1" accept=".gif, .jpg, .png"/>
+				<label for="image1"> 
+					<span>사진 등록하기<br/>Click</span>
+				</label>
+			</div>
 	  	</div>
-	  	</div>
+	  	<!-- 사진 등록 끝 -->
 	  	<div class="col-md-9">
 	  	<!-- 셀렉트박스 시작 -->
 	  		<label>필수선택</label>
@@ -138,20 +144,43 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
 <script src="<c:url value='/bootstrap/js/bootstrap.min.js'/>"></script>
-<!-- 제이쿼리 UI용 CSS -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
 <script>
+$(function() {
 
-	$(function() {
-
-		$('#ok').click(function() {
-			location.href("/healMateMain.do");
-		});
-		$('#datepicker').datepicker({
-			showAnim : "fold",
-			dateFormat : "yy-mm-dd",
-			minDate : new Date(2019, 10, 17)
-		});
-	});
+		$('input[type="file"]').each(function(){		
+			  var $file = $(this),
+			      $label = $file.next('label'),
+			      $labelText = $label.find('span'),
+			      labelDefault = $labelText.text();
+		
+			  $file.on('change', function(event){
+			    var fileName = $file.val().split( '\\' ).pop(),
+			        tmppath = URL.createObjectURL(event.target.files[0]);
+			    if( fileName ){
+			      $label
+			        .addClass('file-ok')
+			        .css('background-image', 'url(' + tmppath + ')');
+			      $labelText.text(fileName);
+			    }else{
+			      $label.removeClass('file-ok');
+			      $labelText.text(labelDefault);
+			    }
+			  });
+			  
+			});
+			
+			$('#datepicker').datepicker({
+				showAnim : "fold",
+				dateFormat : "yy-mm-dd",
+				minDate : new Date(2019, 10, 17)
+			});////datePicker
+			
+			$('#ok').click(function(){
+				location.href='/workout/healthMateMain.do'
+			});
+			
+});
+		
+	
 </script>

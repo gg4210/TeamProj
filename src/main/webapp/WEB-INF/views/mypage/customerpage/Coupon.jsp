@@ -9,24 +9,25 @@ button {
 	margin-right:5px;
 }
 </style>
-
-<div>
+<div class="container">
 	<div class="page-header" style="margin-bottom:25px; border-bottom:1px solid #D8D8D8;">
 		<h2>쿠폰함</h2>
 	</div>
+</div>
+<div>
 	<div class="row">
-		<div class="col-md-6" style="display:inline;">
+		<div class="col-md-6" style="display:inline; padding-left:10px">
 			<div class="page-header">
 				<h2>운동시설 쿠폰</h2>
 			</div>
-			<div>
+			<div class="col-md-12">
 				<table class="table">
 					<thead>
 						<tr>
 							<th>시설명</th>
-							<th style="text-align:left">이벤트 내역</th>
+							<th style="text-align: left">이벤트 내역</th>
 							<th>유효기간</th>
-							<th></th>
+							<th>사용</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -35,7 +36,7 @@ button {
 							<td>10월 이벤트 5% 할인쿠폰</td>
 							<td>2019-10-01~<br />2019-10-31
 							</td>
-							<td><button class="btn purple-gradient">사용</button></td>
+							<td><button class="btn purple-gradient btn-sm">사용</button></td>
 						</tr>
 					</tbody>
 				</table>
@@ -53,7 +54,7 @@ button {
 								<th>쿠폰이름</th>
 								<th style="text-align:left">적용상품</th>
 								<th>유효기간</th>
-								<th></th>
+								<th>사용</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -62,7 +63,7 @@ button {
 								<td>스타벅스 아메리카노</td>
 								<td>2019-10-01~<br />2019-10-31
 								</td>
-								<td><button class="btn purple-gradient">사용</button></td>
+								<td><button class="btn purple-gradient btn-sm">사용</button></td>
 							</tr>
 						</tbody>
 					</table>

@@ -75,9 +75,10 @@ ul span{
   </div>
   <div class="tab-pane fade" id="pills-personalQ" role="tabpanel" aria-labelledby="pills-contact-tab">
   	1:1문의 내용
+  	<jsp:include page="/WEB-INF/views/customerService/test.jsp"/>
   </div>
   <div class="tab-pane fade" id="pills-comfirmA" role="tabpanel" aria-labelledby="pills-contact-tab">
-  	상담내역 확인 내용
+  	<jsp:include page="/WEB-INF/views/customerService/consultlist.jsp"/>
   </div>
 </div>
 
