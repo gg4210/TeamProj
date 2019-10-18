@@ -22,11 +22,14 @@ ul span{
 }
 
 </style>
+<<<<<<< HEAD
+=======
 <meta charset="UTF-8">
 <title>운동해 - 고객센터</title>
 
 
 
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 <div class="container">
 	<div class=row>
 		 <ul class="nav nav-pills" id="pills-tab" role="tablist"><!-- mb-숫자 : margine bottom 숫자(최대 5까지 먹는 듯.)만큼 띄운다. -->
