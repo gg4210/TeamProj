@@ -36,32 +36,27 @@ nav > ul a {
 			<table class="table table-hover" style="margin-top:50px;">
 				<thead>
 					<tr>
-						<th scope="col" class="text-center" style="width:5%">글번호</th>
+						<th scope="col" class="text-center" style="width:15%">글번호</th>
 						<th scope="col" class="text-center" style="width:15%">카테고리</th>
 						<th scope="col" class="text-center" style="width:50%">제목</th>
-						<th scope="col" class="text-center" style="width:15%">등록일</th>
-						<th scope="col" class="text-center" style="width:15%">답변현황</th>
+						<th scope="col" class="text-center" style="width:10%">등록일</th>
+						<th scope="col" class="text-center" style="width:10%">답변현황</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<td class="text-center">10</td>
-						<td class="text-center">헬스장 관련(카테고리)</td>
-						<td class="text-center">헬스장 신청은 어떻게 하면 좋을까요?</td>
-						<td>2019-10-05</td>
+						<td class="text-center">헬스장 관련</td>
+						<td>헬스장 신청은 어떻게 하면 좋을까요?</td>
 						<td class="text-center">2019-10-05</td>
+						<td class="text-center">미답변</td>
 					</tr>
 					<tr>
-						<td class="text-center">
-							<div class="custom-control custom-checkbox">
-							    <input type="checkbox" class="custom-control-input" id="defaultUnchecked3">
-							    <label class="custom-control-label" for="defaultUnchecked3"></label>
-							</div>						
-						</td>
 						<td class="text-center">9</td>
-						<td class="text-center">자유게시판</td>
-						<td>오늘의 일상9</td>
-						<td class="text-center">2019-10-02</td>
+						<td class="text-center">게시판 이용 관련</td>
+						<td>로그인 했는데 글을 쓸수가 없어요. 댓글은 되는데</td>
+						<td class="text-center">2019-10-03</td>
+						<td class="text-center">답변완료</td>
 					</tr>
 				</tbody>			
 			</table>			
@@ -99,5 +94,4 @@ nav > ul a {
 		</div>
 	</div>
 	<!-- 페이지네이션 끝 -->
-	
 </div>		
