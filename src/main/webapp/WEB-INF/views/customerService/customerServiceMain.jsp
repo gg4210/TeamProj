@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%--@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"--%>
-
-
 <style>
 
 .row{
@@ -20,16 +18,7 @@ ul i{
 ul span{
 	font-size:1.5em;
 }
-
 </style>
-<<<<<<< HEAD
-=======
-<meta charset="UTF-8">
-<title>운동해 - 고객센터</title>
-
-
-
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 <div class="container">
 	<div class=row>
 		 <ul class="nav nav-pills" id="pills-tab" role="tablist"><!-- mb-숫자 : margine bottom 숫자(최대 5까지 먹는 듯.)만큼 띄운다. -->
@@ -60,28 +49,27 @@ ul span{
 		  </li>
 		</ul>
 	</div>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
-<div class="tab-content pt-2 pl-1" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        고객센터 홈 내용
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        ddd
-  </div>
-  <div class="tab-pane fade" id="pills-faq" role="tabpanel" aria-labelledby="pills-profile-tab">
-	<jsp:include page="/WEB-INF/views/customerService/FAQ.jsp"/>
-  </div>
-  <div class="tab-pane fade" id="pills-notice" role="tabpanel" aria-labelledby="pills-contact-tab">
-  	공지사항/이벤트 내용
-  </div>
-  <div class="tab-pane fade" id="pills-personalQ" role="tabpanel" aria-labelledby="pills-contact-tab">
-  	<jsp:include page="/WEB-INF/views/customerService/consultwrite.jsp"/>
-  </div>
-  <div class="tab-pane fade" id="pills-comfirmA" role="tabpanel" aria-labelledby="pills-contact-tab">
-  	<jsp:include page="/WEB-INF/views/customerService/consultlist.jsp"/>
-  </div>
-</div>
+	<div class="tab-content pt-2 pl-1" id="pills-tabContent">
+	  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+	        고객센터 홈 내용
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        <br/>
+	        ddd
+	  </div>
+	  <div class="tab-pane fade" id="pills-faq" role="tabpanel" aria-labelledby="pills-profile-tab">
+		<jsp:include page="/WEB-INF/views/customerService/FAQ.jsp"/>
+	  </div>
+	  <div class="tab-pane fade" id="pills-notice" role="tabpanel" aria-labelledby="pills-contact-tab">
+	  	공지사항/이벤트 내용
+	  </div>
+	  <div class="tab-pane fade" id="pills-personalQ" role="tabpanel" aria-labelledby="pills-contact-tab">
+	  	<jsp:include page="/WEB-INF/views/customerService/consultwrite.jsp"/>
+	  </div>
+	  <div class="tab-pane fade" id="pills-comfirmA" role="tabpanel" aria-labelledby="pills-contact-tab">
+	  	<jsp:include page="/WEB-INF/views/customerService/consultlist.jsp"/>
+	  </div>
+	</div>
 </div>

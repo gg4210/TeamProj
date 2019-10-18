@@ -123,10 +123,4 @@
 		</div>
 	</div>
 	<!-- 페이지네이션 끝 -->
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 </div>
-<<<<<<< HEAD
- 
-</div>
-=======
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git

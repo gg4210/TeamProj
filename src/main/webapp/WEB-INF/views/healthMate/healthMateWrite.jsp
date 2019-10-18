@@ -11,8 +11,10 @@
       <h1 class="display-3">Come with Me</h1>
       <p class="lead">We'll do it together!</p>
     </header>
+    
     <!-- row 시작 -->
-  	<div class="row">
+<form action="/workout/healthMateMain.do" method="get">
+  	<div class="form-row">
 	  	<!-- 사진 등록 시작 -->
 	  	<div class="col-md-3">
 			<div class="wrap-custom-file">
@@ -23,10 +25,11 @@
 			</div>
 	  	</div>
 	  	<!-- 사진 등록 끝 -->
+	  	
 	  	<div class="col-md-9">
-	  	<!-- 셀렉트박스 시작 -->
+	  	<!-- 셀렉트박스, 날짜 시작 -->
 	  		<label>필수선택</label>
-	  		<div class="row mb-3">
+	  		<div class="form-row mb-3">
 				<div class="col-md-2">
 					<select class="browser-default custom-select">
 						<option selected>지역</option>
@@ -75,21 +78,20 @@
 						<option value="9">시간협의</option>
 					</select>
 				</div>
+				
 				<!-- 날짜 -->
 					<div class="py-1 col-md-4">
 						<input type="text" id="datepicker" placeholder="날짜를 선택하세요" />
 					</div>
 				<!-- 날짜 -->
-
-
-
-
+				
 			</div>
-				<!-- 셀렉트박스 row 끝 -->
+				<!-- 셀렉트박스, 날짜 row 끝 -->
+				
 				
 				<!-- 태그 row 시작 -->
 				<label>대표 TAG</label>
-				<div class="row mb-5">
+				<div class="form-row mb-5">
 					<div class="col-md-3">
 						<input type="text" class="form-control" name="tag1" id="tag1" placeholder="태그입력" value="#"/>
 					</div>
@@ -105,7 +107,7 @@
 				
 				<!-- 제목 row 시작 -->
 				<label>제목</label>
-				<div class="row mb-3">
+				<div class="form-row mb-3">
 					<div class="col-md-10">
 						<input type="text" class="form-control" name="title" id="title" placeholder="제목을 입력하세요" />
 					</div>
@@ -114,22 +116,23 @@
 				
 				<!-- 내용 row 시작 -->
 				<label>내용</label>
-				<div class="row mb-3">
+				<div class="form-row mb-3">
 					<div class="col-md-10">
 						<textarea rows="10" name="content" id="content" class="form-control" placeholder="내용을 입력하세요"></textarea>
 					</div>
 				</div>
 				<!-- 내용 row 끝 -->
 				<!-- 등록 버튼 row 시작 -->
-				<div class="row">
+				<div class="form-row">
 					<div class="col-md-12">
 						<button type="submit" class="btn btn-info" id="ok">등록</button>
 					</div>
 	
 				</div>
 		</div>
+		</div>
   	<!-- row 끝 -->
- 
+ </form>
 </div>
 <!-- container -->
 <!-- 실제 내용 끝 -->
@@ -143,6 +146,9 @@
 <!-- 제이쿼리 UI용 라이브러리 임베드 -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<<<<<<< HEAD
+<script src="<c:url value="/resources/js/healthMate/healthMateWrite.js"/>"></script>
+=======
 <script src="<c:url value='/bootstrap/js/bootstrap.min.js'/>"></script>
 
 <script>
@@ -185,3 +191,4 @@ $(function() {
 		
 	
 </script>
+>>>>>>> refs/remotes/origin/master
