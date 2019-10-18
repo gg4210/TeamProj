@@ -9,5 +9,9 @@ $(function(){
 	
 	$('.detail').click(function(){
 		$('#detail-modal').modal('show');
+		
+		
+		
+		
 	});
 });
