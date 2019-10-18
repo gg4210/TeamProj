@@ -8,7 +8,7 @@ public class CustomerServiceController {
 	
 	@RequestMapping("/customerServiceMain.do")
 	public String mainPage() {
-		return "customerService/customerServiceMain.tiles";
+		return "customerService/customerServiceMain.tiles";		
 	}
 
 }
