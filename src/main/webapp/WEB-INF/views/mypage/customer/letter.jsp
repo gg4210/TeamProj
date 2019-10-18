@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
 <div>
 	<div class="page-header" style="margin-bottom:25px; border-bottom:1px solid #D8D8D8;">
 		<h2>쪽지함</h2>
@@ -9,24 +8,45 @@
 	<table class="table">
 	  <thead class="black white-text">
 	    <tr>
-	    	<th style="width:5%" scope="col"></th>
-			<th style="width:15%" scope="col"></th>
-			<th style="width:40%" scope="col"></th>
-			<th style="width:30%" scope="col"></th>
+	    	<th style="width:5%" scope="col">
+	    		<div class="custom-control custom-checkbox">
+					<input type="checkbox" class="custom-control-input" id="defaultUnchecked" value="all">
+					<label class="custom-control-label" for="defaultUnchecked"></label>
+				</div>
+	    	</th>
+	    	<th style="width:10%" scope="col"></th>
+			<th style="width:70%" scope="col"></th>
+			<th scope="col"></th>
 	    </tr>
 	  </thead>
 	  <tbody>
 	  	<tr>
-	    	<th scope="row"><img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/22.jpg" alt="Card image cap"></th>
-			<td><a href="<c:url value='#'/>">김길동</a></td>
-			<td><a href="<c:url value='#'/>">저도 잘 부탁드려요</a></td>
+	    	<th scope="row">
+	    		<div class="custom-control custom-checkbox">
+					<input type="checkbox" class="custom-control-input" id="defaultUnchecked" value="all">
+					<label class="custom-control-label" for="defaultUnchecked"></label>
+				</div>
+	    	</th>
+	    	<td><img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/22.jpg" alt="Card image cap"></td>
+			<td>
+				<p><a href="<c:url value='#'/>">김길동</a></p>
+				<p><a href="<c:url value='#'/>">저도 잘 부탁드려요</a></p>
+			</td>
 			<td>2019-10-15</td>
 	    </tr>
 	    <tr>
-	    	<th style="width:5%" scope="col"><img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/20.jpg" alt="Card image cap"></th>
-			<td style="width:15%" scope="col"><a href="<c:url value='#'/>">system</a></td>
-			<td style="width:40%" scope="col"><a href="<c:url value='#'/>">가입을 축하드립니다.</a></td>
-			<td style="width:30%" scope="col">2019-10-13</td>
+	    	<th scope="row">
+	    		<div class="custom-control custom-checkbox">
+					<input type="checkbox" class="custom-control-input" id="defaultUnchecked" value="all">
+					<label class="custom-control-label" for="defaultUnchecked"></label>
+				</div>
+	    	</th>
+	    	<td><img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/20.jpg" alt="Card image cap"></td>
+			<td>
+				<p><a href="<c:url value='#'/>">system</a></p>
+				<p><a href="<c:url value='#'/>">가입을 환영합니다!</a></p>
+			</td>
+			<td scope="col">2019-10-13</td>
 	    </tr>
 	  </tbody>
 	</table>

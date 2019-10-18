@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <script>
+<!-- 전체선택 -->
 $(function(){
 	$(':checkbox').click(function(){
 		if($(this).val() == 'all'){
@@ -69,8 +70,8 @@ nav > ul a {
 					<tr>
 						<th scope="col" class="text-center">
 							<div class="custom-control custom-checkbox">
-							    <input type="checkbox" class="custom-control-input" id="defaultUnchecked1" value="all">
-							    <label class="custom-control-label" for="defaultUnchecked1"></label>
+							    <input type="checkbox" class="custom-control-input" id="defaultUnchecked" value="all">
+							    <label class="custom-control-label" for="defaultUnchecked"></label>
 							</div>
 						</th>
 						<th scope="col" class="text-center" style="width:10%">글번호</th>
@@ -83,27 +84,15 @@ nav > ul a {
 					<tr>
 						<td class="text-center">
 							<div class="custom-control custom-checkbox">
-							    <input type="checkbox" class="custom-control-input" id="defaultUnchecked2">
-							    <label class="custom-control-label" for="defaultUnchecked2"></label>
+							    <input type="checkbox" class="custom-control-input">
+							    <label class="custom-control-label" for="defaultUnchecked"></label>
 							</div>						
 						</td>
 						<td class="text-center">10</td>
 						<td class="text-center">자유게시판</td>
 						<td>오늘의 일상10</td>
 						<td class="text-center">2019-10-05</td>
-					</tr>
-					<tr>
-						<td class="text-center">
-							<div class="custom-control custom-checkbox">
-							    <input type="checkbox" class="custom-control-input" id="defaultUnchecked3">
-							    <label class="custom-control-label" for="defaultUnchecked3"></label>
-							</div>						
-						</td>
-						<td class="text-center">9</td>
-						<td class="text-center">자유게시판</td>
-						<td>오늘의 일상9</td>
-						<td class="text-center">2019-10-02</td>
-					</tr>
+					</tr>				
 				</tbody>			
 			</table>			
 		</div><!-- col-md-12 -->
@@ -126,15 +115,15 @@ nav > ul a {
 		<div class="col">
 			<nav class="d-flex justify-content-center mt-3">
 				<ul class="pagination pagination-circle pg-blue">
-					<li class="page-item"><a class="page-link" href="#">◀</a></li>
-					<li class="page-item"><a class="page-link" href="#" tabindex="-1">＜</a></li>
+					<li class="page-item"><a class="page-link" title="처음페이지로 이동" href="#">◀</a></li>
+					<li class="page-item"><a class="page-link" title="이전페이지" href="#" tabindex="-1">＜</a></li>
 					<li class="page-item active"><a class="page-link" href="#">1</a></li>
 					<li class="page-item"><a class="page-link" href="#">2</a></li>
 					<li class="page-item"><a class="page-link" href="#">3</a></li>
 					<li class="page-item"><a class="page-link" href="#">4</a></li>
 					<li class="page-item"><a class="page-link" href="#">5</a></li>
-					<li class="page-item"><a class="page-link" href="#">＞</a></li>
-					<li class="page-item"><a class="page-link" href="#">▶</a></li>
+					<li class="page-item"><a class="page-link" title="다음페이지" href="#">＞</a></li>
+					<li class="page-item"><a class="page-link" title="마지막페이지로 이동" href="#">▶</a></li>
 				</ul>
 			</nav>
 		</div>

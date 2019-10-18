@@ -9,25 +9,21 @@ button {
 	margin-right:5px;
 }
 </style>
-<div class="container">
-	<div class="page-header" style="margin-bottom:25px; border-bottom:1px solid #D8D8D8;">
-		<h2>쿠폰함</h2>
-	</div>
-</div>
+
 <div>
 	<div class="row">
 		<div class="col-md-6" style="display:inline; padding-left:10px">
 			<div class="page-header">
 				<h2>운동시설 쿠폰</h2>
 			</div>
-			<div class="col-md-12">
+			<div>
 				<table class="table">
 					<thead>
 						<tr>
 							<th>시설명</th>
-							<th style="text-align: left">이벤트 내역</th>
+							<th style="text-align:left">이벤트 내역</th>
 							<th>유효기간</th>
-							<th>사용</th>
+							<th></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -54,7 +50,7 @@ button {
 								<th>쿠폰이름</th>
 								<th style="text-align:left">적용상품</th>
 								<th>유효기간</th>
-								<th>사용</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
