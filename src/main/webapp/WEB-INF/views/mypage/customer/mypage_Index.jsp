@@ -9,19 +9,19 @@
 			<ul class="nav nav-pills mt-5 mb-4" id="pills-tab" role="tablist">
 			  <li class="nav-item col">
 			    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-mate" role="tab"
-			      aria-controls="pills-home" aria-selected="true"><i class="fa fa-users fa-8x"></i><h3 class="mt-2">운동메이트</h3></a>
+			      aria-controls="pills-home" aria-selected="true"><i class="fa fa-users fa-6x"></i><h4 class="mt-2">운동메이트</h4></a>
 			  </li>
 			  <li class="nav-item col">
 			    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-message" role="tab"
-			      aria-controls="pills-profile" aria-selected="false"><i class="fa fa-envelope fa-8x"></i><h3 class="mt-2">쪽지함</h3></a>
+			      aria-controls="pills-profile" aria-selected="false"><i class="fa fa-envelope fa-6x"></i><h4 class="mt-2">쪽지함</h4></a>
 			  </li>
 			  <li class="nav-item col">
 			    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-coupon" role="tab"
-			      aria-controls="pills-contact" aria-selected="false"><i class="fa fa-ticket-alt fa-8x"></i><h3 class="mt-2">쿠폰함</h3></a>
+			      aria-controls="pills-contact" aria-selected="false"><i class="fa fa-ticket-alt fa-6x"></i><h4 class="mt-2">쿠폰함</h4></a>
 			  </li>
 			  <li class="nav-item col">
 			    <a class="nav-link" id="pills-scrap-tab" data-toggle="pill" href="#pills-scrap" role="tab"
-			      aria-controls="pills-contact" aria-selected="false"><i class="far fa-list-alt fa-8x"></i><h3 class="mt-2">스크랩</h3></a>
+			      aria-controls="pills-contact" aria-selected="false"><i class="far fa-list-alt fa-6x"></i><h4 class="mt-2">스크랩</h4></a>
 			  </li>
 			</ul>
 		</div>
