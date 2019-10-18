@@ -70,4 +70,41 @@ button {
 			</div>
 		</div>
 	</div>
+
+	<!-- 쿠폰사용 모달 -->
+	<div class="modal fade" id="coupon-modal" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalCenterTitle"
+		aria-hidden="true">
+
+		<!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+		<div class="modal-dialog modal-dialog-centered" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">쿠폰을 사용하시겠습니까?</div>
+				<div class="modal-footer">
+					<button type="button" class="btn blue-gradient">바코드로 받기</button>
+					<button type="button" class="btn blue-gradient">QR코드로 받기</button>
+					<button type="button" class="btn peach-gradient" data-dismiss="modal">사용안함</button>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
 </div>
+
+<script>
+<!-- 쿠폰사용 모달 -->
+$(function(){
+	$('button').click(function(){
+		$('#coupon-modal').modal('show');
+	});
+});
+</script>
