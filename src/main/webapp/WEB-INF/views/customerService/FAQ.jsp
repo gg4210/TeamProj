@@ -20,7 +20,7 @@
  <script>
   $( function() {
     $( "#accordion" ).accordion({
-    	 heightStyle: "content",collapsible: true
+    	 heightStyle: "content",collapsible:true
     });
   } );
 </script>
