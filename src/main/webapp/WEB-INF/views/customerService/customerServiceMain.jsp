@@ -1,67 +1,94 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container{
+	padding-top: 35px;
+	padding-left: 65px;
+}
+ul a{
+	width:200px;
+	text-align:center;
+}
+ul i{
+	height:140px;
+}
+ul span{
+	font-size:1.5em;
+}
 
-    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bbs/view.css"/>">
-	  
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</style>
+<meta charset="UTF-8">
+<title>운동해 - 고객센터</title>
+</head>
 
-  
-  
-  
-  
-  <title>운동해 - 고객센터</title>
-  
-  <button class="btn btn-primary" type="button">검색</button>
-  <button class="btn btn-primary" size="lg" type="button">검색</button>
-  <button type="button" mdbBtn color="primary" mdbWavesEffect>Primary</button>
-  <div class="btn-group btn-group-lg" role="group" aria-label="Basic example">
-    <button type="button" color="unique" size="lg" class="waves-light" mdbWavesEffect>Left</button>
-    <button type="button" color="unique" size="lg" class="waves-light" mdbWavesEffect>Middle</button>
-    <button mdbBtn type="button" color="unique" size="lg" class="waves-light" mdbWavesEffect>Right</button>
+<body>
+<div class="container">
+<div class=row>
+ <ul class="nav nav-pills" id="pills-tab" role="tablist"><!-- mb-숫자 : margine bottom 숫자(최대 5까지 먹는 듯.)만큼 띄운다. -->
+  <li class="nav-item">
+   <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+    aria-controls="pills-home" aria-selected="true" >
+    <i class='fas fa-headphones' style='font-size:120px;'></i><br/><span>고객센터 홈</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-faq-tab" data-toggle="pill" href="#pills-faq" role="tab"
+      aria-controls="pills-faq" aria-selected="false">
+      <i class='fas fa-edit' style='font-size:120px'></i><br/><span>자주 묻는 질문</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-notice-tab" data-toggle="pill" href="#pills-notice" role="tab"
+      aria-controls="pills-notice" aria-selected="false">
+      	<i class="fas fa-bullhorn" style='font-size:120px'></i><br/><span>공지/이벤트</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-personalQ-tab" data-toggle="pill" href="#pills-personalQ" role="tab"
+      aria-controls="pills-personalQ" aria-selected="false">
+      <i class='fas fa-edit' style='font-size:120px'></i><br/><span>1:1문의</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-comfirmA-tab" data-toggle="pill" href="#pills-comfirmA" role="tab"
+      aria-controls="pills-comfirmA" aria-selected="false">
+      <i class='fas fa-comments' style='font-size:120px'></i><br/><span>상담내역 확인</span></a>
+  </li>
+</ul>
 </div>
 
- <div class="btn-group btn-group-lg" role="group">
-    <button type="button" color="success" size="lg" class="waves-light" >Left</button>
-    <button type="button" color="unique" size="lg" class="waves-light" >Middle</button>
-    <button type="button" color="unique" size="lg" class="waves-light" >Right</button>
+<div class="tab-content pt-2 pl-1" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        고객센터 홈 내용
+  </div>
+  <div class="tab-pane fade" id="pills-faq" role="tabpanel" aria-labelledby="pills-profile-tab">
+	<jsp:include page="/WEB-INF/views/customerService/FAQ.jsp"/>
+  </div>
+  <div class="tab-pane fade" id="pills-notice" role="tabpanel" aria-labelledby="pills-contact-tab">
+  	공지사항/이벤트 내용
+  </div>
+  <div class="tab-pane fade" id="pills-personalQ" role="tabpanel" aria-labelledby="pills-contact-tab">
+  	1:1문의 내용
+  </div>
+  <div class="tab-pane fade" id="pills-comfirmA" role="tabpanel" aria-labelledby="pills-contact-tab">
+  	<jsp:include page="/WEB-INF/views/customerService/FAQ.jsp"/>
+  </div>
 </div>
-  
-  
-  <script>
-  $( function() {
-    $( "#accordion" ).accordion({
-      collapsible: true
-    });
-  } );
-  </script>
+
+
+
+
+
+
+
+
+
+
+
+
 
  
-<div id="accordion">
-  <h3>Section 1</h3>
-  <div>
-    <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
-  </div>
-  <h3>Section 2</h3>
-  <div>
-    <p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
-  </div>
-  <h3>Section 3</h3>
-  <div>
-    <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui. </p>
-    <ul>
-      <li>List item one</li>
-      <li>List item two</li>
-      <li>List item three</li>
-    </ul>
-  </div>
-  <h3>Section 4</h3>
-  <div>
-    <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
-  </div>
-</div> 
-
-
+</div>
+</body>
+</html>

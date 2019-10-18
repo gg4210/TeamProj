@@ -1,33 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<script>
-$(function(){
-	$(':checkbox').click(function(){
-		if($(this).val() == 'all'){
-			if($(this).prop('checked')){
-				$(':checkbox:gt(0)').each(function(){
-					$(this).prop('checked',true);
-				});
-			}
-			else{
-				$(':checkbox:gt(0)').each(function(){
-					$(this).prop('checked',false);
-				});
-			}
-		}
-		else{
-			if($(this).prop('checked')){
-				if($(':checkbox:gt(0)').length == $(':checkbox:checked').length){
-					$(':checkbox:first').prop('checked',true);
-				}
-			}
-			else{
-				$(':checkbox:first').prop('checked',false);
-			}
-		}
-	});
-});
-</script>
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <style>
 #page-header {
 	font-style: inherit;
@@ -55,43 +28,41 @@ nav > ul a {
 
 <div class="container">
 	<div class="page-header">
-		<h2>스크랩</h2>
+		<h2>상담내역</h2>
 	</div>
 	
 	<div class="row">
 		<div class="col-md-12">
-			<div class="float-right">
-				<button class="btn purple-gradient p-2 px-4">삭제</button>
-			</div>
-			
 			<table class="table table-hover" style="margin-top:50px;">
 				<thead>
 					<tr>
-						<th scope="col" class="text-center">
-							<div class="custom-control custom-checkbox">
-							    <input type="checkbox" class="custom-control-input" id="defaultUnchecked" value="all">
-							    <label class="custom-control-label" for="defaultUnchecked"></label>
-							</div>
-						</th>
-						<th scope="col" class="text-center" style="width:10%">글번호</th>
-						<th scope="col" class="text-center">#</th>
+						<th scope="col" class="text-center" style="width:5%">글번호</th>
+						<th scope="col" class="text-center" style="width:15%">카테고리</th>
 						<th scope="col" class="text-center" style="width:50%">제목</th>
-						<th scope="col" class="text-center">스크랩일자</th>
+						<th scope="col" class="text-center" style="width:15%">등록일</th>
+						<th scope="col" class="text-center" style="width:15%">답변현황</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
+						<td class="text-center">10</td>
+						<td class="text-center">헬스장 관련(카테고리)</td>
+						<td class="text-center">헬스장 신청은 어떻게 하면 좋을까요?</td>
+						<td>2019-10-05</td>
+						<td class="text-center">2019-10-05</td>
+					</tr>
+					<tr>
 						<td class="text-center">
 							<div class="custom-control custom-checkbox">
-							    <input type="checkbox" class="custom-control-input">
-							    <label class="custom-control-label" for="defaultUnchecked"></label>
+							    <input type="checkbox" class="custom-control-input" id="defaultUnchecked3">
+							    <label class="custom-control-label" for="defaultUnchecked3"></label>
 							</div>						
 						</td>
-						<td class="text-center">10</td>
+						<td class="text-center">9</td>
 						<td class="text-center">자유게시판</td>
-						<td>오늘의 일상10</td>
-						<td class="text-center">2019-10-05</td>
-					</tr>				
+						<td>오늘의 일상9</td>
+						<td class="text-center">2019-10-02</td>
+					</tr>
 				</tbody>			
 			</table>			
 		</div><!-- col-md-12 -->
@@ -130,12 +101,3 @@ nav > ul a {
 	<!-- 페이지네이션 끝 -->
 	
 </div>		
-
-
-
-
-	
-	
-
-
-
