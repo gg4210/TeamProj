@@ -57,6 +57,7 @@ nav > ul a {
 <div class="container">
 	<div class="page-header">
 		<h2>스크랩</h2>
+		<hr/>
 	</div>
 	
 	<div class="row">
@@ -130,7 +131,7 @@ nav > ul a {
 	</div>
 	<!-- 페이지네이션 끝 -->
 	
-</div>		
+</div>
 
 
 
