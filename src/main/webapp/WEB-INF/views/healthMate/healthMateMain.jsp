@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/healthMate/healthMateMain.css'/>" />
-
+<title>HealthMate Main</title>
 
   <!-- Page Content -->
   <div class="container-fluid">
@@ -30,7 +30,18 @@
 				</div>
 
 				<div class="card-body">
-					<h4 class="card-title">Card title</h4>
+					<h4 class="title">TITLE</h4>
+					<div class="row justify-content-center">
+						<div class="mr-3">
+							<h6 style="font-weight: bold;">#태그</h6>
+						</div>
+						<div class="mr-3">
+							<h6 style="font-weight: bold;">#태그</h6>
+						</div>
+						<div>
+							<h6 style="font-weight: bold;">#태그</h6>
+						</div>
+					</div>
 					<p class="card-text">Lorem ipsum dolor sit amet, consectetur
 						adipisicing elit. Sapiente esse necessitatibus neque.</p>
 				</div>
@@ -114,7 +125,7 @@
 					</ul>
 				</nav>
 				<form class="form-inline" method="#" action="#">
-					<div class="form-group">
+					<div class="p-1 px-3form-group">
 						<select name="searchColumn" class="form-control">
 							<option value="title">제목</option>
 							<option value="name">작성자</option>
@@ -124,7 +135,7 @@
 					<div class="form-group">
 						<input type="text" name="searchWord" class="form-control" placeholder="Search" />
 					</div>
-					<button button type="submit" class="btn btn-primary">search</button>
+					<button button type="submit" class="p-2 px-3 btn btn-primary">search</button>
 				</form>
 			</div>
 		</div>

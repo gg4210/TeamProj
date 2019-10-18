@@ -14,17 +14,15 @@
 				<img src="<c:url value='/resources/images/loginImage.png'/>" />
 			</div>
 		</div>
-		
 		<div class="h3 text-white">운동메이트</div>
-				<div class="md-form bg-dark">
-					<input type="text" id="id" class="form-control text-white"> 
-						<label for="id"><p class="text-white" id="labelId">아이디</p></label>
-				</div>
-				<div class="md-form bg-dark">
-					<input type="password" id="password" class="form-control text-white"> 
-						<label for="password"><p class="text-white" id="labelPwd">비밀번호</p></label>
-				</div>
-		
+			<div class="md-form bg-dark">
+				<input type="text" id="id" class="form-control text-white"> 
+					<p class="text-white" id="labelId"><label for="id">아이디</p></label>
+			</div>
+			<div class="md-form bg-dark">
+				<input type="password" id="password" class="form-control text-white"> 
+					<label for="password"><p class="text-white" id="labelPwd">비밀번호</p></label>
+			</div>
 		<div class="text-right" id="submit">
 			<a href="<c:url value='/mypage.do'/>"><button class="btn btn-primary">들어가기</button></a>
 		</div>
