@@ -147,38 +147,39 @@
 
 <script>
 $(function() {
-
-		$('input[type="file"]').each(function(){		
-			  var $file = $(this),
-			      $label = $file.next('label'),
-			      $labelText = $label.find('span'),
-			      labelDefault = $labelText.text();
 		
-			  $file.on('change', function(event){
-			    var fileName = $file.val().split( '\\' ).pop(),
-			        tmppath = URL.createObjectURL(event.target.files[0]);
-			    if( fileName ){
-			      $label
-			        .addClass('file-ok')
-			        .css('background-image', 'url(' + tmppath + ')');
-			      $labelText.text(fileName);
-			    }else{
-			      $label.removeClass('file-ok');
-			      $labelText.text(labelDefault);
-			    }
-			  });
-			  
+			
+			$('#ok').click(function(){
+				location.href='/workout/healthMateMain.do'
 			});
 			
+			/*
 			$('#datepicker').datepicker({
 				showAnim : "fold",
 				dateFormat : "yy-mm-dd",
 				minDate : new Date(2019, 10, 17)
 			});////datePicker
+			*/
 			
-			$('#ok').click(function(){
-				location.href='/workout/healthMateMain.do'
-			});
+			$('input[type="file"]').each(function(){		
+				  var $file = $(this),
+				      $label = $file.next('label'),
+				      $labelText = $label.find('span'),
+				      labelDefault = $labelText.text();		
+				  $file.on('change', function(event){
+				    var fileName = $file.val().split( '\\' ).pop(),
+				        tmppath = URL.createObjectURL(event.target.files[0]);
+				    if( fileName ){
+				      $label
+				        .addClass('file-ok')
+				        .css('background-image', 'url(' + tmppath + ')');
+				      $labelText.text(fileName);
+				    }else{
+				      $label.removeClass('file-ok');
+				      $labelText.text(labelDefault);
+				    }
+				  });				  
+				});
 			
 });
 		
