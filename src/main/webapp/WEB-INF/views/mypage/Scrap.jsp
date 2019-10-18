@@ -45,16 +45,12 @@ td:nth-child(2) {
 	width:100px;
 }
 
-td:nth-child(4) {
-	text-align:left;
-}
 
 nav > ul a {
 	width:35px;
 }
 
 </style>
-
 
 
 <div class="container">
@@ -65,22 +61,32 @@ nav > ul a {
 	<div class="row">
 		<div class="col-md-12">
 			<div class="float-right">
-				<button class="btn purple-gradient btn-sm">삭제</button>
+				<button class="btn purple-gradient p-2 px-4">삭제</button>
 			</div>
 			
-			<table class="table" style="margin-top:50px;">
+			<table class="table table-hover" style="margin-top:50px;">
 				<thead>
 					<tr>
-						<th scope="col" class="text-center"><span style="border: 1px solid #cbcbcb; width:25px; height:25px; display:inline-block;"><input type="checkbox" value="all"></span></td>
-						<th scope="col" class="text-center">글번호</th>
-						<th scope="col" class="text-center">게시판 구분</th>
-						<th scope="col" style="width:60%">제목</th>
+						<th scope="col" class="text-center">
+							<div class="custom-control custom-checkbox">
+							    <input type="checkbox" class="custom-control-input" id="defaultUnchecked" value="all">
+							    <label class="custom-control-label" for="defaultUnchecked"></label>
+							</div>
+						</th>
+						<th scope="col" class="text-center" style="width:10%">글번호</th>
+						<th scope="col" class="text-center">#</th>
+						<th scope="col" class="text-center" style="width:50%">제목</th>
 						<th scope="col" class="text-center">스크랩일자</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td class="text-center"><input type="checkbox"></td>
+						<td class="text-center">
+							<div class="custom-control custom-checkbox">
+							    <input type="checkbox" class="custom-control-input">
+							    <label class="custom-control-label" for="defaultUnchecked"></label>
+							</div>						
+						</td>
 						<td class="text-center">10</td>
 						<td class="text-center">자유게시판</td>
 						<td>오늘의 일상10</td>
@@ -91,26 +97,22 @@ nav > ul a {
 		</div><!-- col-md-12 -->
 	</div><!-- row 끝 -->
 	
-	<div class="row" style="z-index:2">
-	<div class="col">
-		<div class="input-group">
-			<div class="form-group">
-				<select name="searchColumn" class="form-control">
+		<!-- 검색창 -->
+			<div class="form-inline d-flex justify-content-center mt-3">
+				<select name="searchColumn" class="form-control custom-select mr-2">
 					<option value="title">제목</option>
 					<option value="name">작성자</option>
 					<option value="content">내용</option>
 				</select>
+				<input type="text" class="form-control" placeholder="Search">
+				<button class="btn blue-gradient p-2 px-4">검색</button>
 			</div>
-			<div>
-				<input type="text" class="form" placeholder="Search" style="height:38px">
-				<button class="btn blue-gradient btn-sm">검색</button>
-			</div>
-		</div>		
-	</div>
+		<!-- 검색창 끝 -->		
 
+	<!-- 페이지네이션 시작 -->
 	<div class="row">
 		<div class="col">
-			<nav>
+			<nav class="d-flex justify-content-center mt-3">
 				<ul class="pagination pagination-circle pg-blue">
 					<li class="page-item"><a class="page-link" href="#">◀</a></li>
 					<li class="page-item"><a class="page-link" href="#" tabindex="-1">＜</a></li>
@@ -125,8 +127,9 @@ nav > ul a {
 			</nav>
 		</div>
 	</div>
-		
-</div>
+	<!-- 페이지네이션 끝 -->
+	
+</div>		
 
 
 

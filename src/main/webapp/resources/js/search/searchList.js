@@ -93,7 +93,7 @@ function displayPlaces(places) {
         (function(marker, title, address, road_address, phone) {
             kakao.maps.event.addListener(marker, 'click', function() {
             	if(road_address!=null){
-            		displayCustomOverlay(marker, title, address, road_address, phone);
+            		displayCustomOverlay(marker, title, address, road_address, phone);    		
             	}
             	else{
             		closeOverlay();
@@ -209,18 +209,35 @@ function displayPagination(pagination) {
 
 // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
 // 인포윈도우에 장소명을 표시합니다
+
 function displayCustomOverlay(marker, title, address, road_address, phone) {
-   var content = 
-	   '<div class="card">' + 
-		   '<div class="card-header">'+
-		        '<button type="button" class="close" aria-label="Close">'+
-		         '<span aria-hidden="true">&times;</span>'+
-		        '</button>'+
-		   '</div>' + 
-		   '<div class="card-body">'+
-	   	   '<img class="card-img-top" src="#" alt="Card image cap">'+
-	   	   			'<h5 class="card-title">'+title+'</h5>'+
-		   	   		'<p>';
+   var content = '<div class="wrap">' + 
+   '    <div class="info">' + 
+   '        <div class="title">' + 
+   '            카카오 스페이스닷원' + 
+   '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+   '        </div>' + 
+   '        <div class="body">' + 
+   '            <div class="img">' +
+   '                <img src="http://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
+   '           </div>' + 
+   '            <div class="desc">' + 
+   '                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>' + 
+   '                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>' + 
+   '                <div><a href="http://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>' + 
+   '            </div>' + 
+   '        </div>' + 
+   '    </div>' +    
+   '</div>';
+	   
+	   
+	   
+	   
+	   
+	   /*
+	   '<div class="popover" role="tooltip"><div class="arrow"></div>'+
+   				'<h3 class="popover-header">'+title+'</h3>'+
+   					'<div class="popover-body">'
 		    		if(road_address!=null){
 		    				content+=address+'</p>' + 
 		    				'<p>'+road_address+'</p>';
@@ -231,9 +248,9 @@ function displayCustomOverlay(marker, title, address, road_address, phone) {
 		    		if(phone!=null){
 		    			content+='<p><span class="tel">' + phone  + '</span></p>';
 		    		}
-		    +'</div>' + 
-    	'</div>';
-
+		    		 '</div>'+
+		    	'</div>';*/
+		    		 
     customOverlay = new kakao.maps.CustomOverlay({
 		    	    content: content,
 		    	    clickable: true,
@@ -241,9 +258,11 @@ function displayCustomOverlay(marker, title, address, road_address, phone) {
 		    	    position: marker.getPosition(),
 		    	    zIndex: 1
 		    	});
+    
     customOverlay.setMap(map);
     
 }
+
 
  // 검색결과 목록의 자식 Element를 제거하는 함수입니다
 function removeAllChildNods(el) {
