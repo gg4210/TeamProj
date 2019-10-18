@@ -2,48 +2,68 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<!-- 
-<table class="table">
-  <thead class="black white-text">
-    <tr>
-    	<th style="width:5%" scope="col"><input type="checkbox" value="all"></th>
-		<th style="width:15%" scope="col">#</th>
-		<th style="width:40%" scope="col">First</th>
-		<th style="width:30%" scope="col">Last</th>
-		<th style="width:10%" scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-    	<th scope="row"><input type="checkbox"></th>
-		<td>1</td>
-		<td>Mark</td>
-		<td>Otto</td>
-		<td>@mdo</td>
-    </tr>
-    <tr>
-    	<th scope="row"><input type="checkbox"></th>
-      <td>1</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-    	<th scope="row"><input type="checkbox"></th>
-      <td>1</td>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
--->
-<style>
-.row div{
-	border-bottom:1px solid gray;
-}
-</style>
+<div>
+	<div class="page-header" style="margin-bottom:25px; border-bottom:1px solid #D8D8D8;">
+		<h2>쪽지함</h2>
+	</div>
+	<table class="table">
+	  <thead class="black white-text">
+	    <tr>
+	    	<th style="width:5%" scope="col"></th>
+			<th style="width:15%" scope="col"></th>
+			<th style="width:40%" scope="col"></th>
+			<th style="width:30%" scope="col"></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	  	<tr>
+	    	<th scope="row"><img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/22.jpg" alt="Card image cap"></th>
+			<td><a href="<c:url value='#'/>">김길동</a></td>
+			<td><a href="<c:url value='#'/>">저도 잘 부탁드려요</a></td>
+			<td>2019-10-15</td>
+	    </tr>
+	    <tr>
+	    	<th style="width:5%" scope="col"><img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/20.jpg" alt="Card image cap"></th>
+			<td style="width:15%" scope="col"><a href="<c:url value='#'/>">system</a></td>
+			<td style="width:40%" scope="col"><a href="<c:url value='#'/>">가입을 축하드립니다.</a></td>
+			<td style="width:30%" scope="col">2019-10-13</td>
+	    </tr>
+	  </tbody>
+	</table>
+</div>
+<!-- 검색창 -->
+			<div class="form-inline d-flex justify-content-center mt-3">
+				<select name="searchColumn" class="form-control custom-select mr-2">
+					<option value="title">제목</option>
+					<option value="name">대화 상대</option>
+					<option value="content">내용</option>
+				</select>
+				<input type="text" class="form-control" placeholder="Search">
+				<button class="btn blue-gradient p-2 px-4">검색</button>
+			</div>
+		<!-- 검색창 끝 -->		
 
+	<!-- 페이지네이션 시작 -->
+	<div class="row">
+		<div class="col">
+			<nav class="d-flex justify-content-center mt-3">
+				<ul class="pagination pagination-circle pg-blue">
+					<li class="page-item"><a class="page-link" href="#">◀</a></li>
+					<li class="page-item"><a class="page-link" href="#" tabindex="-1">＜</a></li>
+					<li class="page-item active"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#">4</a></li>
+					<li class="page-item"><a class="page-link" href="#">5</a></li>
+					<li class="page-item"><a class="page-link" href="#">＞</a></li>
+					<li class="page-item"><a class="page-link" href="#">▶</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<!-- 페이지네이션 끝 -->
+
+<!--  
 <div>
 	<div class="col-12">
 		<div style="border-bottom:1px solid gray;">쪽지함</div>
@@ -72,3 +92,4 @@
 		<div class="col-2"><input type="button" value="정보"></div>
 	</div>
 </div>
+-->
