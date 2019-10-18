@@ -27,8 +27,8 @@
         		<add-attribute value="/resources/css/index.css" />
         		<add-attribute value="/resources/css/member/login.css?ver=1.0" />
     		</put-list-attribute>
-    		
 		</definition>
+		
 		
 		
 		

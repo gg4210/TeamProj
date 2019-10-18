@@ -146,4 +146,49 @@
 <!-- 제이쿼리 UI용 라이브러리 임베드 -->
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
+<<<<<<< HEAD
 <script src="<c:url value="/resources/js/healthMate/healthMateWrite.js"/>"></script>
+=======
+<script src="<c:url value='/bootstrap/js/bootstrap.min.js'/>"></script>
+
+<script>
+$(function() {
+		
+			
+			$('#ok').click(function(){
+				location.href='/workout/healthMateMain.do'
+			});
+			
+			/*
+			$('#datepicker').datepicker({
+				showAnim : "fold",
+				dateFormat : "yy-mm-dd",
+				minDate : new Date(2019, 10, 17)
+			});////datePicker
+			*/
+			
+			$('input[type="file"]').each(function(){		
+				  var $file = $(this),
+				      $label = $file.next('label'),
+				      $labelText = $label.find('span'),
+				      labelDefault = $labelText.text();		
+				  $file.on('change', function(event){
+				    var fileName = $file.val().split( '\\' ).pop(),
+				        tmppath = URL.createObjectURL(event.target.files[0]);
+				    if( fileName ){
+				      $label
+				        .addClass('file-ok')
+				        .css('background-image', 'url(' + tmppath + ')');
+				      $labelText.text(fileName);
+				    }else{
+				      $label.removeClass('file-ok');
+				      $labelText.text(labelDefault);
+				    }
+				  });				  
+				});
+			
+});
+		
+	
+</script>
+>>>>>>> refs/remotes/origin/master
