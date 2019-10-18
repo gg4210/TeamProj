@@ -26,9 +26,10 @@
         		<add-attribute value="/resources/fullPage/fullpage.css" />
         		<add-attribute value="/resources/css/index.css" />
         		<add-attribute value="/resources/css/member/login.css?ver=1.0" />
+        		<add-attribute value="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
     		</put-list-attribute>
-    		
 		</definition>
+		
 		
 		
 		

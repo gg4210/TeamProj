@@ -17,7 +17,7 @@
 		console.log(checked);
 	});
 </script>
-<div class="container">
+<div class="row">
 	<div class="page-header" style="margin-bottom:25px; border-bottom:1px solid #D8D8D8;">
 		<h2>운동메이트</h2>
 	</div>
