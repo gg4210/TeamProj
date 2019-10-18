@@ -69,7 +69,7 @@ ul span{
   	1:1문의 내용
   </div>
   <div class="tab-pane fade" id="pills-comfirmA" role="tabpanel" aria-labelledby="pills-contact-tab">
-  	상담내역 확인 내용
+  	<jsp:include page="/WEB-INF/views/customerService/FAQ.jsp"/>
   </div>
 </div>
 
