@@ -153,5 +153,7 @@
 			dateFormat : "yy-mm-dd",
 			minDate : new Date(2019, 10, 17)
 		});
+		
+
 	});
 </script>

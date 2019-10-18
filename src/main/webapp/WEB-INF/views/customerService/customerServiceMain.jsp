@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-<!DOCTYPE html>
-<html>
-<head>
+
 <style>
 .container{
 	padding-top: 35px;
@@ -26,7 +24,6 @@ ul span{
 <title>운동해 - 고객센터</title>
 </head>
 
-<body>
 <div class="container">
 <div class=row>
  <ul class="nav nav-pills" id="pills-tab" role="tablist"><!-- mb-숫자 : margine bottom 숫자(최대 5까지 먹는 듯.)만큼 띄운다. -->
