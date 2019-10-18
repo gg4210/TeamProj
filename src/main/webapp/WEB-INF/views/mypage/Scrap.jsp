@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <script>
+<!-- 전체선택 -->
 $(function(){
 	$(':checkbox').click(function(){
 		if($(this).val() == 'all'){
@@ -114,15 +115,15 @@ nav > ul a {
 		<div class="col">
 			<nav class="d-flex justify-content-center mt-3">
 				<ul class="pagination pagination-circle pg-blue">
-					<li class="page-item"><a class="page-link" href="#">◀</a></li>
-					<li class="page-item"><a class="page-link" href="#" tabindex="-1">＜</a></li>
+					<li class="page-item"><a class="page-link" title="처음페이지로 이동" href="#">◀</a></li>
+					<li class="page-item"><a class="page-link" title="이전페이지" href="#" tabindex="-1">＜</a></li>
 					<li class="page-item active"><a class="page-link" href="#">1</a></li>
 					<li class="page-item"><a class="page-link" href="#">2</a></li>
 					<li class="page-item"><a class="page-link" href="#">3</a></li>
 					<li class="page-item"><a class="page-link" href="#">4</a></li>
 					<li class="page-item"><a class="page-link" href="#">5</a></li>
-					<li class="page-item"><a class="page-link" href="#">＞</a></li>
-					<li class="page-item"><a class="page-link" href="#">▶</a></li>
+					<li class="page-item"><a class="page-link" title="다음페이지" href="#">＞</a></li>
+					<li class="page-item"><a class="page-link" title="마지막페이지로 이동" href="#">▶</a></li>
 				</ul>
 			</nav>
 		</div>
