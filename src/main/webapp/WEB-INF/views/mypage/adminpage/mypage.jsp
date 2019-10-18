@@ -44,16 +44,16 @@ ul span{
 	<div class="container">
 		<div class="tab-content pt-2 pl-1" id="pills-tabContent" id="collapse-menu">
 			<div class="tab-pane fade show active" id="pills-mate" role="tabpanel" aria-labelledby="pills-home-tab">
-				<jsp:include page="/WEB-INF/views/mypage/healthmatelist.jsp"/>
+				<jsp:include page="/WEB-INF/views/mypage/adminpage/healthmatelist.jsp"/>
 			</div>
 			<div class="tab-pane fade" id="pills-message" role="tabpanel" aria-labelledby="pills-profile-tab">
-				<jsp:include page="/WEB-INF/views/mypage/letter.jsp"/>
+				<jsp:include page="/WEB-INF/views/mypage/adminpage/letter.jsp"/>
 			</div>
 			<div class="tab-pane fade" id="pills-coupon" role="tabpanel" aria-labelledby="pills-contact-tab">
-				<jsp:include page="/WEB-INF/views/mypage/Coupon.jsp"/>
+				<jsp:include page="/WEB-INF/views/mypage/adminpage/Coupon.jsp"/>
 			</div>
 			<div class="tab-pane fade" id="pills-scrap" role="tabpanel" aria-labelledby="pills-contact-tab">
-				<jsp:include page="/WEB-INF/views/mypage/Scrap.jsp"/>
+				<jsp:include page="/WEB-INF/views/mypage/adminpage/Scrap.jsp"/>
 			</div>
 	  	</div>
 	</div>

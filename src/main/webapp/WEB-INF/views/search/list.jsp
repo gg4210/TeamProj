@@ -57,10 +57,9 @@
 </div>
 <!-- main 끝-->
 
-<!-- 아래는 View 페이지를 확인하기 위해 임시로 만든 버튼입니다. -->
-<form action="/workout/searchView.do">
-   <button class="btn btn-primary" type="submit">뷰페이지 확인</button>
-</form>
+
+
+
 
 
 
