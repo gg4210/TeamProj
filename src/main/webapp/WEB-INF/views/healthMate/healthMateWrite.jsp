@@ -55,7 +55,7 @@
 						<option value="6">기타</option>
 					</select>
 				</div>
-				<div class="col-md-2">
+				<div class="col-md-auto">
 					<select class="browser-default custom-select">
 						<option selected>운동시간</option>
 						<option value="1">오전</option>
@@ -70,7 +70,7 @@
 					</select>
 				</div>
 				<!-- 날짜 -->
-					<div class="col-md-4">
+					<div class="py-1 col-md-4">
 						<input type="text" id="datepicker" placeholder="날짜를 선택하세요" />
 					</div>
 				<!-- 날짜 -->
@@ -151,13 +151,7 @@
 		$('#datepicker').datepicker({
 			showAnim : "fold",
 			dateFormat : "yy-mm-dd",
-			minDate : new Date(2019, 10, 17),
-			//showOn: "button"
-			showOn : "both",
-			onSelect : function(dateText) {
-				console.log(dateText);
-				$('#display').html(dateText);
-			}
+			minDate : new Date(2019, 10, 17)
 		});
 	});
 </script>
