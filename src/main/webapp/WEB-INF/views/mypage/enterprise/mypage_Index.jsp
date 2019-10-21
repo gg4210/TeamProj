@@ -33,7 +33,7 @@
 	<!-- 탭 컨텐츠 시작 -->
 		<div class="tab-content" id="pills-tabContent">
 			<div class="tab-pane fade show active pt-3 pl-1" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-				<jsp:include page="/WEB-INF/views/mypage/enterprise/adminmain.jsp"/>
+				<jsp:include page="/WEB-INF/views/mypage/enterprise/enterprise_main.jsp"/>
 			</div>
 			<div class="tab-pane fade show" id="pills-user" role="tabpanel" aria-labelledby="pills-user-tab">
 				<jsp:include page="/WEB-INF/views/mypage/enterprise/user-stats.jsp"/>
