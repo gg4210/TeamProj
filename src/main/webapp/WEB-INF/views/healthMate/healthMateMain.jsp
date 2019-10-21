@@ -14,44 +14,162 @@
     </header>
 	
 	<div class="text-right mb-2">
-	<button type="button" class="btn btn-primary" id="write">Write</button>
+	<button type="button" class="btn btn-primary p-2 px-3" id="write">글쓰기</button>
 	</div>
 
 	<!-- Page Features -->
 	<div class="row text-center">
-
-		<div class="col-lg-3 col-md-6 col mb-4">
+	<!-- card 1 시작 -->
+	<div class="col-lg-3 col-md-6">
 			<div class="card h-100">
-				<div class="card-image-container">
+				<h2 class="card-title m-0 p-2" style="background-color: #1a237e; color: white">TITLE</h2>
+				<div class="card-image-container p-3">
 					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
 					<div class="card-img-middle">
-						<div class="text" id="text-modal">추가하기</div>
+						<div class="text px-3" id="text-modal">추가하기</div>
 					</div>
 				</div>
-
 				<div class="card-body">
-					<h4 class="title">TITLE</h4>
-					<div class="row justify-content-center">
-						<div class="mr-3">
-							<h6 style="font-weight: bold;">#태그</h6>
-						</div>
-						<div class="mr-3">
-							<h6 style="font-weight: bold;">#태그</h6>
-						</div>
-						<div>
-							<h6 style="font-weight: bold;">#태그</h6>
-						</div>
+				<div class="row justify-content-center">
+					<div class="row tag pb-3">
+							<div class="mr-3">
+							<h5><span class="badge badge-default">#태그</span></h5>
+							</div>
+							<div class="mr-3">
+								<h5><span class="badge badge-default">#태그</span></h5>
+							</div>
+							<div>
+								<h5><span class="badge badge-default">#태그</span></h5>
+							</div>
 					</div>
-					<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Sapiente esse necessitatibus neque.</p>
 				</div>
+					<div class="row justify-content-center"><strong>지역: 어딘가</strong></div>
+					<div class="row justify-content-center"><strong>종목: 기타</strong></div>
+					<div class="row justify-content-center"><strong>운동시간: 협의</strong></div>
+					<div class="row justify-content-center"><strong>일자: 협의</strong></div>
+					</div>
+					
 				<div class="card-footer">
-					<button button type="submit" class="detail btn btn-info">상세보기</button>
+					<button button type="submit" class="detail btn btn-info px-3">상세보기</button>
 				</div>
 			</div>
 		</div>
+		<!-- card 1 끝 -->
 
-		<div class="col-lg-3 col-md-6 col mb-4">
+	<!-- card 2 시작 -->
+	<div class="col-lg-3 col-md-6">
+			<div class="card h-100">
+				<h2 class="card-title m-0 p-2" style="background-color: #1a237e; color: white">TITLE</h2>
+				<div class="card-image-container p-3">
+					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
+					<div class="card-img-middle">
+						<div class="text px-3" id="text-modal">추가하기</div>
+					</div>
+				</div>
+				<div class="card-body">
+				<div class="row justify-content-center">
+					<div class="row tag pb-3">
+							<div class="mr-3">
+							<h5><span class="badge badge-default">#태그</span></h5>
+							</div>
+							<div class="mr-3">
+								<h5><span class="badge badge-default">#태그</span></h5>
+							</div>
+							<div>
+								<h5><span class="badge badge-default">#태그</span></h5>
+							</div>
+					</div>
+				</div>
+					<div class="row justify-content-center"><strong>지역: 어딘가</strong></div>
+					<div class="row justify-content-center"><strong>종목: 기타</strong></div>
+					<div class="row justify-content-center"><strong>운동시간: 협의</strong></div>
+					<div class="row justify-content-center"><strong>일자: 협의</strong></div>
+					</div>
+					
+				<div class="card-footer">
+					<button button type="submit" class="detail btn btn-info px-3">상세보기</button>
+				</div>
+			</div>
+		</div>
+		<!-- card 2 끝 -->
+
+	<!-- card 3 시작 -->
+	<div class="col-lg-3 col-md-6">
+			<div class="card h-100">
+				<h2 class="card-title m-0 p-2" style="background-color: #1a237e; color: white">TITLE</h2>
+				<div class="card-image-container p-3">
+					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
+					<div class="card-img-middle">
+						<div class="text px-3" id="text-modal">추가하기</div>
+					</div>
+				</div>
+				<div class="card-body">
+				<div class="row justify-content-center">
+					<div class="row tag pb-3">
+							<div class="mr-3">
+							<h5><span class="badge badge-default">#태그</span></h5>
+							</div>
+							<div class="mr-3">
+								<h5><span class="badge badge-default">#태그</span></h5>
+							</div>
+							<div>
+								<h5><span class="badge badge-default">#태그</span></h5>
+							</div>
+					</div>
+				</div>
+					<div class="row justify-content-center"><strong>지역: 어딘가</strong></div>
+					<div class="row justify-content-center"><strong>종목: 기타</strong></div>
+					<div class="row justify-content-center"><strong>운동시간: 협의</strong></div>
+					<div class="row justify-content-center"><strong>일자: 협의</strong></div>
+					</div>
+					
+				<div class="card-footer">
+					<button button type="submit" class="detail btn btn-info px-3">상세보기</button>
+				</div>
+			</div>
+		</div>
+		<!-- card 3 끝 -->
+		
+		<!-- card 4 시작 -->
+		<div class="col-lg-3 col-md-6">
+			<div class="card h-100">
+				<h2 class="card-title m-0 p-2" style="background-color: #1a237e; color: white">TITLE</h2>
+				<div class="card-image-container p-3">
+					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
+					<div class="card-img-middle">
+						<div class="text px-3" id="text-modal">추가하기</div>
+					</div>
+				</div>
+				<div class="card-body">
+				<div class="row justify-content-center">
+					<div class="row tag pb-3">
+							<div class="mr-3">
+							<h5><span class="badge badge-default">#태그</span></h5>
+							</div>
+							<div class="mr-3">
+								<h5><span class="badge badge-default">#태그</span></h5>
+							</div>
+							<div>
+								<h5><span class="badge badge-default">#태그</span></h5>
+							</div>
+					</div>
+				</div>
+					<div class="row justify-content-center"><strong>지역: 어딘가</strong></div>
+					<div class="row justify-content-center"><strong>종목: 기타</strong></div>
+					<div class="row justify-content-center"><strong>운동시간: 협의</strong></div>
+					<div class="row justify-content-center"><strong>일자: 협의</strong></div>
+					</div>
+					
+				<div class="card-footer">
+					<button button type="submit" class="detail btn btn-info px-3">상세보기</button>
+				</div>
+			</div>
+		</div>
+		<!-- card 4 끝 -->
+		
+		
+		<!--
+		<div class="col-lg-3 col-md-6 col-mb-4">
 			<div class="card h-100">
 				<div class="card-image-container">
 					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
@@ -69,50 +187,11 @@
 					<button button type="submit" class="detail btn btn-info">상세보기</button>
 				</div>
 			</div>
-		</div>
-
-		<div class="col-lg-3 col-md-6 col mb-4">
-			<div class="card h-100">
-				<div class="card-image-container">
-					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
-					<div class="card-img-middle">
-						<div class="text" id="text-modal">추가하기</div>
-					</div>
-				</div>
-
-				<div class="card-body">
-					<h4 class="card-title">Card title</h4>
-					<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Sapiente esse necessitatibus neque.</p>
-				</div>
-				<div class="card-footer">
-					<button button type="submit" class="detail btn btn-info">상세보기</button>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-lg-3 col-md-6 col mb-4">
-			<div class="card h-100">
-				<div class="card-image-container">
-					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
-					<div class="card-img-middle">
-						<div class="text">추가하기</div>
-					</div>
-				</div>
-
-				<div class="card-body">
-					<h4 class="card-title">Card title</h4>
-					<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Sapiente esse necessitatibus neque.</p>
-				</div>
-				<div class="card-footer">
-					<button button type="submit" class="detail btn btn-info">상세보기</button>
-				</div>
-			</div>
-		</div>
+		</div> -->
+		
 		
 		<!-- 페이징, 검색창 시작 -->
-		<div class="row mx-auto">
+		<div class="row mx-auto pt-4">
 			<div class="text-center">
 				<nav aria-label="Page navigation example">
 					<ul class="pagination pg-blue justify-content-center">
@@ -135,7 +214,7 @@
 					<div class="form-group">
 						<input type="text" name="searchWord" class="form-control" placeholder="Search" />
 					</div>
-					<button button type="submit" class="p-2 px-3 btn btn-primary">search</button>
+					<button button type="submit" class="p-2 px-3 btn btn-primary">검색</button>
 				</form>
 			</div>
 		</div>
@@ -233,20 +312,6 @@
 </div>
 <!-- /.container -->
 
-<script>
-$(function(){
-	
-	$('.text').click(function(){
-		$('#plus-modal').modal('show');
-	});
-	$('#write').click(function(){
-		location.href="healthMateWrite.do";
-	});
-	
-	$('.detail').click(function(){
-		$('#detail-modal').modal('show');
-	});
-});
-</script>
+<script src="<c:url value="/resources/js/healthMate/healthMateMain.js"/>"></script>
 
 

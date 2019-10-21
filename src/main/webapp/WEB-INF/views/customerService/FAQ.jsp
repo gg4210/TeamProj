@@ -3,43 +3,59 @@
 <%--@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"--%>
  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+<style>
+	.clickable{
+		padding:5px;
+		background-color:#D3D3D3;
+	}
+	#questions #nospace{
+		padding-top:0px !important;
+		padding-bottom:0px !important;
+	}
+</style>
+<script>
+$(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
+</script>
+  <div class="page-header py-3 pt-1">
+     <h3>자주 묻는 질문</h3>
+     <hr/>
+  </div>
 
 
 <div class="row">
-	<div class="col-md-offset-6 col-md-4 col-md-offset-1">
-		<select class="browser-default custom-select">
-		  <option selected>검색조건</option>
-		  <option value="1">One</option>
-		  <option value="2">Two</option>
-		  <option value="3">Three</option>
-		  
-		</select>
-	<button type="button" class="btn btn-primary">Primary</button>
+	<div class="offset-md-8 col-md-3 py-1">
+	   <select class="browser-default custom-select">
+	     <option selected>검색조건</option>
+	     <option value="1">회원가입</option>
+	     <option value="2">로그인</option>
+	     <option value="3">사이트 이용</option>        
+	   </select>
+	</div>
+	<div class="col-md-1">
+		<button type="button" class="btn btn-primary btn-sm"><i class='fas fa-search' style='font-size:20px;text-align: center'></i></button>
+	</div>
 </div>
-</div>
-
 <div class="container">
-	<div class="row">
-		<div class="col-md-12">
-			<table class="table table-hover" >
+	<div class="col-md-12">
+		<div>
+			<table class="table table-hover" id="questions">
 				<thead>
-					<tr>
-						<th scope="col" class="text-center" style="width:10%"></th>
-						<th scope="col" class="text-center" style="width:30%">분류</th>
-						<th scope="col" class="text-center" style="width:60%">질문</th>
+					<tr style="background-color:#DCDCDC;">
+						<th scope="col" class="text-center" style="width:5%"></th>
+						<th scope="col" class="text-center" style="width:15%">분류</th>
+						<th scope="col" class="text-center" style="width:80%">질문</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="contentGroup">
 					<tr class="clickable" data-toggle="collapse" role="button" data-target="#content1" aria-expanded="false" aria-controls="content1">
 						<td class="text-center">1</td>
 						<td class="text-center">계정 관련 질문</td>
 						<td>자주 묻는 질문 1</td>
 					</tr>
-				</tbody>
-				<tbody id="content1" class="collapse">
 					<tr>
-						<td colspan="3">
-							<div class="card card-body">
+						<td id="nospace" colspan="2"></td>
+						<td id="nospace">
+							<div id="content1" class="collapse" data-parent="#contentGroup" style="align-content:center; ">
 								<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget,
 								quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida
 								in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam
@@ -48,37 +64,31 @@
 							</div>
 						</td>
 					</tr>
-				</tbody>
-				<tbody>
-					<tr class="clickable" data-toggle="collapse" role="button" data-target="#content2" aria-expanded="false" aria-controls="content2">
+					<tr class="clickable collapsed" data-toggle="collapse" role="button" data-target="#content2" aria-expanded="false" aria-controls="content2">
 						<td class="text-center">2</td>
 						<td class="text-center">앱 관련 질문</td>
 						<td>자주 묻는 질문 2</td>
 					</tr>
-				</tbody>
-				<tbody id="content2" class="collapse">
 					<tr>
-						<td colspan="3">
-							<div class="card card-body">
-								<p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum
-								sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris
-								turpis porttitor velit, faucibus interdum tellus libero ac justo.
-								Vivamus non quam. In suscipit faucibus urna.</p>
+						<td id="nospace" colspan="2"></td>
+						<td id="nospace">
+							<div id="content2" class="collapse" data-parent="#contentGroup">
+							<p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum
+							sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris
+							turpis porttitor velit, faucibus interdum tellus libero ac justo.
+							Vivamus non quam. In suscipit faucibus urna.</p>
 							</div>
 						</td>
 					</tr>
-				</tbody>
-				<tbody>
-					<tr class="clickable" data-toggle="collapse" role="button" data-target="#content3" aria-expanded="false" aria-controls="content3">
+					<tr class="clickable collapsed" data-toggle="collapse" role="button" data-target="#content3" aria-expanded="false" aria-controls="content3">
 						<td class="text-center">3</td>
 						<td class="text-center">운동메이트</td>
 						<td>자주 묻는 질문3</td>
 					</tr>
-				</tbody>
-				<tbody id="content3" class="collapse">
 					<tr>
-						<td colspan="3">
-							<div class="card card-body">
+						<td id="nospace" colspan="2"></td>
+						<td id="nospace">
+							<div id="content3" class="collapse" data-parent="#contentGroup">
 								<p>Nam enim risus, molestie et, porta ac, aliquam ac, risus.
 								Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in
 								pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac

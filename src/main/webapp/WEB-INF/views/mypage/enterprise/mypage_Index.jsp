@@ -5,24 +5,27 @@
 <div class="container">
 	<!-- 탭메뉴 시작 -->
 	<div class="row d-flex justify-content-md-center text-center">
-		<ul class="nav nav-pills mt-4 mb-3" id="pills-tab" role="tablist">
+		<ul class="nav nav-pills mt-5 mb-4" id="pills-tab" role="tablist">
 		  <li class="nav-item col">
 		    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-		      aria-controls="pills-home" aria-selected="true"><i class="fas fa-home fa-10x"></i><h3 class="mt-2">메인</h3></a>
+		      aria-controls="pills-home" aria-selected="true">
+		      <i class="fas fa-home fa-6x"></i><h4 class="mt-2">메인</h4></a>
 		  </li>
 		  <li class="nav-item col">
 		    <a class="nav-link" id="pills-user-tab" data-toggle="pill" href="#pills-user" role="tab"
-		      aria-controls="pills-user" aria-selected="true"><i class="far fa-address-card fa-10x"></i><h3 class="mt-2">회원관리</h3></a>
+		      aria-controls="pills-user" aria-selected="true">
+		      <i class="far fa-address-card fa-6x"></i><h4 class="mt-2">회원관리</h4></a>
 		  </li>
 		  <li class="nav-item col">
 		    <a class="nav-link" id="pills-board-tab" data-toggle="pill" href="#pills-board" role="tab"
-		      aria-controls="pills-board" aria-selected="false"><i class="fas fa-bullhorn fa-10x"></i><h3 class="mt-2">홍보</h3></a>
+		      aria-controls="pills-board" aria-selected="false">
+		      <i class="fas fa-bullhorn fa-6x"></i><h4 class="mt-2">홍보</h4></a>
 		  </li>
 		  <li class="nav-item col">
 		    <a class="nav-link" id="pills-customer-service-tab" data-toggle="pill" href="#pills-customer-service" role="tab"
 		      aria-controls="pills-customer-service" aria-selected="false">
-		      	<i class="fas fa-dumbbell fa-10x"></i>
-		      <h3 class="mt-2">센터 관리</h3></a>
+		      	<i class="fas fa-dumbbell fa-6x"></i>
+		      <h4 class="mt-2">센터 관리</h4></a>
 		  </li>
 		</ul>
 	</div>
