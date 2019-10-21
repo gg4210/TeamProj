@@ -209,19 +209,19 @@
 									<th scope="row">3</th>
 									<td>10/20</td>
 									<td>10% 할인 이벤트</td>
-									<td><span style="color: red">검토 중</span></td>
+									<td class="font-weight-bold"><span style="color: red">검토 중</span></td>
 								</tr>
 								<tr>
 									<th scope="row">2</th>
 									<td>09/05</td>
 									<td>'함께하자' 이벤트</td>
-									<td><span style="color: blue">등록 완료</span></td>
+									<td class="font-weight-bold"><span style="color: blue">등록 완료</span></td>
 								</tr>
 								<tr>
 									<th scope="row">1</th>
 									<td>07/01</td>
 									<td>필라테스 과정 신설</td>
-									<td><span style="color: green">기한 만료</span></td>
+									<td class="font-weight-bold"><span style="color: green">기한 만료</span></td>
 								</tr>
 							</tbody>
 						</table>
