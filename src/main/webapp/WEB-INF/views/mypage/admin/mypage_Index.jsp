@@ -27,11 +27,11 @@
 	</div>
 	<!-- 탭메뉴 끝 -->
 	<!-- 탭컨텐츠 시작 -->
-		<div class="tab-content pt-2 pl-1" id="pills-tabContent">
+		<div class="tab-content pt-1 pl-1" id="pills-tabContent">
 			<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 				<jsp:include page="/WEB-INF/views/mypage/admin/adminmain.jsp"/>
 			</div>
-			<div class="tab-pane fade show active" id="pills-user" role="tabpanel" aria-labelledby="pills-user-tab">
+			<div class="tab-pane fade show" id="pills-user" role="tabpanel" aria-labelledby="pills-user-tab">
 				<jsp:include page="/WEB-INF/views/mypage/admin/userlist.jsp"/>
 			</div>
 			<div class="tab-pane fade" id="pills-board" role="tabpanel" aria-labelledby="pills-board-tab">
