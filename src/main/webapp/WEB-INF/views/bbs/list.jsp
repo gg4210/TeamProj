@@ -2,11 +2,14 @@
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
     <div class="container">
-    	
-    	<div class="jumbotron mt-3">
-    		<h2>게시판</h2>
-    	</div>
+    
+	    <div class="jumbotron">
+	    	<div class="container">
+	    		<h1>게시판</h1>
+	    	</div>
+	    </div>
     	
     	<div class="row">
     		<div class="col clearfix">
@@ -21,6 +24,7 @@
 							<a class="dropdown-item" href="#">헬스</a>
 							<a class="dropdown-item" href="#">수영</a>
 							<a class="dropdown-item" href="#">요가</a>
+							<a class="dropdown-item" href="#">런닝</a>
 						</div>
   					</div>
 					
@@ -38,7 +42,7 @@
 			  <div class="row no-gutters">
 			  
 			    <div class="col-md-6 mt-4">
-					<img src="https://infinitejoynow.ca/wp-content/uploads/2018/06/ZenFest-cause-you-are-worth-it--900x500.jpg" class="img-fluid rounded-lg"/>			    
+					<img src="https://infinitejoynow.ca/wp-content/uploads/2018/06/ZenFest-cause-you-are-worth-it--900x500.jpg" class="img-fluid rounded-lg border"/>			    
 				</div>
 				
 			    <div class="col-md-6">
@@ -48,7 +52,7 @@
 			      		<div class="col">
 				      		<div class="card">
 				    			<div class="card-body mr-3">
-				    				<h2 class="card-title mt-2"><a href="<c:url value='/bbsView.do?nowPage=&no='/>">마음이 안정되는</a></h2>
+				    				<h3 class="card-title font-weight-bold mt-2"><a href="<c:url value='/bbsView.do?nowPage=&no='/>">마음이 안정되는</a></h3>
 				    				<hr>
 				    				<p class="mb-0"><span class="badge badge-primary">글쓴이</span>&nbsp김길동</p>
 				    			</div>
@@ -63,7 +67,7 @@
 		    					<p>내면의 평화를 위해</p>
 		    					<p>수련중입니다.</p>
 		    					<p>요가 사랑합니다</p>	    					
-		    					<i class="fas fa-tag"></i>&nbsp<span class="badge badge-pill badge-primary"># 요가</span>
+		    					<i class="fas fa-hashtag"></i>&nbsp<span class="badge badge-pill badge-primary"># 요가</span>
 		    				</div>
 		    				<div class="card-footer">
 		    					<i class="far fa-heart"></i>&nbsp2 &nbsp&nbsp<i class="far fa-comment-dots"></i> 12
@@ -86,7 +90,7 @@
 			  <div class="row no-gutters">
 			  
 			    <div class="col-md-6 mt-4">
-					<img src="https://dgalywyr863hv.cloudfront.net/pictures/clubs/251378/5534586/7/large.jpg" class="img-fluid rounded-lg"/>			    
+					<img src="https://dgalywyr863hv.cloudfront.net/pictures/clubs/251378/5534586/7/large.jpg" class="img-fluid rounded-lg border"/>			    
 				</div>
 				
 			    <div class="col-md-6">
@@ -96,7 +100,7 @@
 			      		<div class="col">
 				      		<div class="card">
 				    			<div class="card-body mr-3">
-				    				<h2 class="card-title mt-2"><a href="<c:url value='/bbsView.do?nowPage=&no='/>">런닝중</a></h2>
+				    				<h3 class="card-title font-weight-bold mt-2"><a href="<c:url value='/bbsView.do?nowPage=&no='/>">런닝중</a></h3>
 				    				<hr>
 				    				<p class="mb-0"><span class="badge badge-primary">글쓴이</span>&nbsp조길동</p>
 				    			</div>
@@ -111,7 +115,7 @@
 		    					<p>가족 달리기 중!</p>
 		    					<p>제 딸 넘모 잘 달리죠?</p>
 		    					<p>이번 주말에도 열운중입니다</p>    					
-		    					<i class="fas fa-tag"></i>&nbsp<span class="badge badge-pill badge-primary"># 런닝</span>
+		    					<i class="fas fa-hashtag"></i>&nbsp<span class="badge badge-pill badge-primary"># 런닝</span>
 		    				</div>
 		    				<div class="card-footer">
 		    					<i class="far fa-heart"></i>&nbsp2 &nbsp&nbsp<i class="far fa-comment-dots"></i> 12
@@ -149,16 +153,22 @@
 					<div class="modal-body">
 						<div class="form-group">
 							<label data-error="wrong" data-success="right" for="title"><i
-								class="fas fa-tag prefix grey-text"></i> 제목</label> <input type="text"
+								class="fas fa-tag prefix"></i> 제목</label> <input type="text"
 								id="title" name="title" class="form-control" required>
 							<div class="invalid-feedback">제목을 입력하세요</div>
 						</div>
 						<div class="form-group">
 							<label data-error="wrong" data-success="right" for="content"><i
-								class="fas fa-pencil-alt prefix grey-text"></i> 내용</label>
+								class="fas fa-pencil-alt prefix"></i> 내용</label>
 							<textarea type="text" id="content" name="content" class="textarea form-control"
 								rows="8" required></textarea>
 							<div class="invalid-feedback">내용을 입력하세요</div>
+						</div>
+						<div class="form-group">
+							<label data-error="wrong" data-success="right" for="title"><i
+								class="fas fa-hashtag"></i> 태그</label> <input type="text"
+								id="title" name="title" class="form-control" required>
+							<div class="invalid-feedback">제목을 입력하세요</div>
 						</div>
 					</div>
 					<div class="modal-footer d-flex justify-content-center">
