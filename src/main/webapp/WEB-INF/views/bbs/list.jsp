@@ -2,12 +2,138 @@
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+    <div class="container">
+    	
+    	<div class="jumbotron mt-3">
+    		<h2>게시판</h2>
+    	</div>
+    	
+    	<div class="row">
+    		<div class="col clearfix">
+    			<div class="float-right">
+    			
+    				<div class="btn-group" role="group" aria-label="Basic example">
+					  <button type="button" class="btn btn-primary">최신순</button>
+					  <button type="button" class="btn btn-primary">추천순</button>
+					  <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						      태그</button>
+						<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+							<a class="dropdown-item" href="#">헬스</a>
+							<a class="dropdown-item" href="#">수영</a>
+							<a class="dropdown-item" href="#">요가</a>
+						</div>
+  					</div>
+					
+    		    	<a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalWriteForm">글쓰기</a>
+    		    	
+    		    </div>
+    		</div>
+    	</div>
+    	
+    	<!-- 게시판 시작 -->
+    	
+    	<!-- row 1 시작 -->
+    	<div class="row mt-2">	
+	    	<div class="card col">
+			  <div class="row no-gutters">
+			  
+			    <div class="col-md-6 mt-4">
+					<img src="https://infinitejoynow.ca/wp-content/uploads/2018/06/ZenFest-cause-you-are-worth-it--900x500.jpg" class="img-fluid rounded-lg"/>			    
+				</div>
+				
+			    <div class="col-md-6">
+			      <div class="card-body">
+			      
+			      	<div class="row mb-2">
+			      		<div class="col">
+				      		<div class="card">
+				    			<div class="card-body mr-3">
+				    				<h2 class="card-title mt-2"><a href="<c:url value='/bbsView.do?nowPage=&no='/>">마음이 안정되는</a></h2>
+				    				<hr>
+				    				<p class="mb-0"><span class="badge badge-primary">글쓴이</span>&nbsp김길동</p>
+				    			</div>
+				      		</div>
+			      		</div>
+			      	</div>
+			      	
+			      	<div class="row">
+			      		<div class="col">
+				      		<div class="card">
+		    				<div class="card-body mr-3">
+		    					<p>내면의 평화를 위해</p>
+		    					<p>수련중입니다.</p>
+		    					<p>요가 사랑합니다</p>	    					
+		    					<i class="fas fa-tag"></i>&nbsp<span class="badge badge-pill badge-primary"># 요가</span>
+		    				</div>
+		    				<div class="card-footer">
+		    					<i class="far fa-heart"></i>&nbsp2 &nbsp&nbsp<i class="far fa-comment-dots"></i> 12
+		    				</div>
+		    				</div>
+	    				</div>
+	    			</div>
+	    			
+			      </div>
+			    </div><!-- col-md-6 -->
+			    
+			  </div>
+			</div>
+		</div>
+		<!-- row 1 끝 -->
+		
+		<!-- row 2 시작 -->
+    	<div class="row mt-2">	
+	    	<div class="card col">
+			  <div class="row no-gutters">
+			  
+			    <div class="col-md-6 mt-4">
+					<img src="https://dgalywyr863hv.cloudfront.net/pictures/clubs/251378/5534586/7/large.jpg" class="img-fluid rounded-lg"/>			    
+				</div>
+				
+			    <div class="col-md-6">
+			      <div class="card-body">
+			      
+			      	<div class="row mb-2">
+			      		<div class="col">
+				      		<div class="card">
+				    			<div class="card-body mr-3">
+				    				<h2 class="card-title mt-2"><a href="<c:url value='/bbsView.do?nowPage=&no='/>">런닝중</a></h2>
+				    				<hr>
+				    				<p class="mb-0"><span class="badge badge-primary">글쓴이</span>&nbsp조길동</p>
+				    			</div>
+				      		</div>
+			      		</div>
+			      	</div>
+			      	
+			      	<div class="row">
+			      		<div class="col">
+				      		<div class="card">
+		    				<div class="card-body mr-3">
+		    					<p>가족 달리기 중!</p>
+		    					<p>제 딸 넘모 잘 달리죠?</p>
+		    					<p>이번 주말에도 열운중입니다</p>    					
+		    					<i class="fas fa-tag"></i>&nbsp<span class="badge badge-pill badge-primary"># 런닝</span>
+		    				</div>
+		    				<div class="card-footer">
+		    					<i class="far fa-heart"></i>&nbsp2 &nbsp&nbsp<i class="far fa-comment-dots"></i> 12
+		    				</div>
+		    				</div>
+	    				</div>
+	    			</div>
+	    			
+			      </div>
+			    </div><!-- col-md-6 -->
+			    
+			  </div>
+			</div>
+		</div>
+		<!-- row 2 끝 -->	
+		
+		<!-- 게시판 끝 -->
+	
+    </div>
+    <!-- container -->
     
-    <a href="<c:url value='/bbsView.do'/>" class="btn btn-primary">뷰페이지 확인용 버튼(추후 삭제 예정)</a>
-    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalWriteForm">글쓰기(모달작성예정)</a>
-    
-    
-    
+        
     
     <!-- 게시글 등록을 위한 modal div -->
 
