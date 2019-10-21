@@ -25,7 +25,7 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 <div class="row">
 	<div class="offset-md-8 col-md-3 py-1">
 	   <select class="browser-default custom-select">
-	     <option selected>검색조건</option>
+	     <option selected>검색조건()</option>
 	     <option value="1">회원가입</option>
 	     <option value="2">로그인</option>
 	     <option value="3">사이트 이용</option>        
