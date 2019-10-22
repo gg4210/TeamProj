@@ -35,7 +35,7 @@ button {
 							<td>10월 이벤트 5% 할인쿠폰</td>
 							<td>2019-10-01~<br />2019-10-31
 							</td>
-							<td><button class="btn purple-gradient">사용</button></td>
+							<td><button class="btn purple-gradient" id="coupon-use1">사용</button></td>
 						</tr>
 					</tbody>
 				</table>
@@ -62,7 +62,7 @@ button {
 							<td>스타벅스 아메리카노</td>
 							<td>2019-10-01~<br/>2019-10-31
 							</td>
-							<td><button class="btn purple-gradient">사용</button></td>
+							<td><button class="btn purple-gradient" id="coupon-use2">사용</button></td>
 						</tr>
 					</tbody>
 				</table>
@@ -102,7 +102,11 @@ button {
 <script>
 <!-- 쿠폰사용 모달 -->
 $(function(){
-	$('button').click(function(){
+	$('#coupon-use1').click(function(){
+		$('#coupon-modal').modal('show');
+	});
+	
+	$('#coupon-use2').click(function(){
 		$('#coupon-modal').modal('show');
 	});
 });

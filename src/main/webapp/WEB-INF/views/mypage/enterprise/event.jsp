@@ -27,7 +27,7 @@
 					
 				</div>
 				<div class="d-flex justify-content-center">
-					<button style="width:20%;" class="btn purple-gradient">전송</button>
+					<button style="width:20%;" class="btn purple-gradient" id="event-send">전송</button>
 				</div>	
 			</div>
 		</div>
@@ -108,7 +108,7 @@
 <script>
 <!-- 홍보전송 모달 -->
 $(function(){
-	$('button').click(function(){
+	$('#event-send').click(function(){
 		$('#event-modal').modal('show');
 	});
 });
