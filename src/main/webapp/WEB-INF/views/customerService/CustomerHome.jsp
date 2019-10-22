@@ -70,7 +70,7 @@
 			<div class="card">
 				<div class="card-body">
 					<h3 class="card-title">운동해!偕 고객센터</h3>
-					<p class="card-text" style="font-size: 1.5em;">
+					<p class="card-text" style="font-size: 1.5em">
 						<i class="fas fa-phone"></i> 02)5959-5959
 					</p>
 					<h3 class="card-title">
