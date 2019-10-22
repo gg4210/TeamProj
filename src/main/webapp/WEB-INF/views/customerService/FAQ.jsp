@@ -16,28 +16,35 @@
 <script>
 $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 </script>
-  <div class="page-header py-3 pt-1">
-     <h3>자주 묻는 질문</h3>
-     <hr/>
-  </div>
 
 
-<div class="row">
-	<div class="offset-md-8 col-md-3 py-1">
-	   <select class="browser-default custom-select">
-	     <option selected>검색조건()</option>
-	     <option value="1">회원가입</option>
-	     <option value="2">로그인</option>
-	     <option value="3">사이트 이용</option>        
-	   </select>
-	</div>
-	<div class="col-md-1">
-		<button type="button" class="btn btn-primary btn-sm"><i class='fas fa-search' style='font-size:20px;text-align: center'></i></button>
-	</div>
-</div>
 <div class="container">
-	<div class="col-md-12">
-		<div>
+
+	<div class="row">
+	  <div class="page-header">
+	     <h3>자주 묻는 질문</h3>
+	     <hr/>
+	  </div>
+	</div>
+	
+	<div class="row my-2">
+		<div class="clearfix col">
+			<div class="float-right">
+				<div class="form-inline">
+				   <select class="browser-default custom-select">
+				     <option selected>검색조건()</option>
+				     <option value="1">회원가입</option>
+				     <option value="2">로그인</option>
+				     <option value="3">사이트 이용</option>        
+				   </select>
+				   <button type="button" class="btn btn-primary p-2 px-4"><i class='fas fa-search' style='font-size:20px;text-align: center'></i></button>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md">
 			<table class="table table-hover" id="questions">
 				<thead>
 					<tr style="background-color:#DCDCDC;">
@@ -126,6 +133,9 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 		</div>
 	</div>
 </div>
+
+
+
 <!-- 
 <div class="container">
 	<div id="accordion">
