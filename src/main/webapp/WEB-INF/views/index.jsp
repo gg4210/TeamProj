@@ -7,7 +7,7 @@
 	
 		<!-- section 1 시작 -->
 	    <div class="section">
-		    <img src="<c:url value='/resources/images/main2.png'/>" class="float-right img-fluid d-none d-xl-block" style="height:100%"/>
+		    <img src="<c:url value='/resources/images/main1.png'/>" class="float-right img-fluid d-none d-xl-block" style="height:100%"/>
 		    <div class="container-fluid">
 		    	
 		    	<div class="row">
