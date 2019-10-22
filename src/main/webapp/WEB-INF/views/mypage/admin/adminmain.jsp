@@ -120,7 +120,7 @@
 								<h4 class="text-left font-weight-bold">
 									<span class="fa-stack"> <i
 										class="far fa-circle fa-stack-2x text-white"></i> <i
-										class="fas fa-chalkboard fa-stack-1x text-white"></i>
+										class="fas fa-user-clock fa-stack-1x text-white"></i>
 									</span>
 								</h4>
 							
@@ -128,7 +128,7 @@
 							<div class="col">
 								<div class="row">
 									<h5 class="text-left font-weight-bold text-white">
-											접속자 추이
+										접속자 추이
 									</h5>
 								</div>
 								<div class="row">
