@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <style>
 #frequent5{
-	border: 
+	border: 2px solid blue;
 }
 </style>
 <div class="container">
