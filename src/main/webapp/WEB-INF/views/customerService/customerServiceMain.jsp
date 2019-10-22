@@ -57,19 +57,12 @@ ul span{
 
 <div class="tab-content pt-2 pl-1" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        고객센터 홈 내용
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        ddd
-  </div>
+    <jsp:include page="/WEB-INF/views/customerService/CustomerHome.jsp"/>
   <div class="tab-pane fade" id="pills-faq" role="tabpanel" aria-labelledby="pills-profile-tab">
 	<jsp:include page="/WEB-INF/views/customerService/FAQ.jsp"/>
   </div>
   <div class="tab-pane fade" id="pills-notice" role="tabpanel" aria-labelledby="pills-contact-tab">
-  	<jsp:include page="/WEB-INF/views/customerService/Notice.jsp"/>
+  	<jsp:include page="/WEB-INF/views/customerService/NoticeNEvent.jsp"/>
   </div>
   <div class="tab-pane fade" id="pills-personalQ" role="tabpanel" aria-labelledby="pills-contact-tab">
   	<jsp:include page="/WEB-INF/views/customerService/consultwrite.jsp"/>
