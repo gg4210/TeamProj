@@ -21,25 +21,30 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 <div class="container">
 
 	<div class="row">
-	  <div class="page-header">
-	     <h3>자주 묻는 질문</h3>
-	     <hr/>
-	  </div>
+		<div class="col">
+			<div class="page-header">
+				<h3>자주 묻는 질문</h3>
+			</div>
+			<hr />
+		</div>
 	</div>
-	
+
 	<div class="row my-2">
 		<div class="clearfix col">
 			<div class="float-right">
 				<div class="form-inline">
-				   <select class="browser-default custom-select">
-				     <option selected>검색조건()</option>
-				     <option value="1">회원가입</option>
-				     <option value="2">로그인</option>
-				     <option value="3">사이트 이용</option>        
-				   </select>
-				   <button type="button" class="btn btn-primary p-2 px-4"><i class='fas fa-search' style='font-size:20px;text-align: center'></i></button>
+					<select class="browser-default custom-select">
+						<option selected>검색조건()</option>
+						<option value="1">회원가입</option>
+						<option value="2">로그인</option>
+						<option value="3">사이트 이용</option>
+					</select>
+					<button type="button" class="btn btn-primary p-2 px-4">
+						<i class='fas fa-search'
+							style='font-size: 20px; text-align: center'></i>
+					</button>
 				</div>
-			</div>	
+			</div>
 		</div>
 	</div>
 
@@ -47,14 +52,16 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 		<div class="col-md">
 			<table class="table table-hover" id="questions">
 				<thead>
-					<tr style="background-color:#DCDCDC;">
-						<th scope="col" class="text-center" style="width:5%"></th>
-						<th scope="col" class="text-center" style="width:15%">분류</th>
-						<th scope="col" class="text-center" style="width:80%">질문</th>
+					<tr style="background-color: #DCDCDC;">
+						<th scope="col" class="text-center" style="width: 5%"></th>
+						<th scope="col" class="text-center" style="width: 15%">분류</th>
+						<th scope="col" class="text-center" style="width: 80%">질문</th>
 					</tr>
 				</thead>
 				<tbody id="contentGroup">
-					<tr class="clickable" data-toggle="collapse" role="button" data-target="#content1" aria-expanded="false" aria-controls="content1">
+					<tr class="clickable" data-toggle="collapse" role="button"
+						data-target="#content1" aria-expanded="false"
+						aria-controls="content1">
 						<td class="text-center">1</td>
 						<td class="text-center">계정 관련 질문</td>
 						<td>자주 묻는 질문 1</td>
@@ -62,16 +69,19 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 					<tr>
 						<td id="nospace" colspan="2"></td>
 						<td id="nospace">
-							<div id="content1" class="collapse" data-parent="#contentGroup" style="align-content:center; ">
-								<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget,
-								quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida
-								in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam
-								mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a
-								velit eu ante scelerisque vulputate.</p>
+							<div id="content1" class="collapse" data-parent="#contentGroup"
+								style="align-content: center;">
+								<p>Mauris mauris ante, blandit et, ultrices a, suscipit
+									eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel,
+									gravida in, condimentum sit amet, nunc. Nam a nibh. Donec
+									suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur
+									malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
 							</div>
 						</td>
 					</tr>
-					<tr class="clickable collapsed" data-toggle="collapse" role="button" data-target="#content2" aria-expanded="false" aria-controls="content2">
+					<tr class="clickable collapsed" data-toggle="collapse"
+						role="button" data-target="#content2" aria-expanded="false"
+						aria-controls="content2">
 						<td class="text-center">2</td>
 						<td class="text-center">앱 관련 질문</td>
 						<td>자주 묻는 질문 2</td>
@@ -80,14 +90,17 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 						<td id="nospace" colspan="2"></td>
 						<td id="nospace">
 							<div id="content2" class="collapse" data-parent="#contentGroup">
-							<p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum
-							sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris
-							turpis porttitor velit, faucibus interdum tellus libero ac justo.
-							Vivamus non quam. In suscipit faucibus urna.</p>
+								<p>Sed non urna. Donec et ante. Phasellus eu ligula.
+									Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet
+									laoreet, mauris turpis porttitor velit, faucibus interdum
+									tellus libero ac justo. Vivamus non quam. In suscipit faucibus
+									urna.</p>
 							</div>
 						</td>
 					</tr>
-					<tr class="clickable collapsed" data-toggle="collapse" role="button" data-target="#content3" aria-expanded="false" aria-controls="content3">
+					<tr class="clickable collapsed" data-toggle="collapse"
+						role="button" data-target="#content3" aria-expanded="false"
+						aria-controls="content3">
 						<td class="text-center">3</td>
 						<td class="text-center">운동메이트</td>
 						<td>자주 묻는 질문3</td>
@@ -97,10 +110,10 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 						<td id="nospace">
 							<div id="content3" class="collapse" data-parent="#contentGroup">
 								<p>Nam enim risus, molestie et, porta ac, aliquam ac, risus.
-								Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in
-								pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac
-								felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam
-								nisi, eu iaculis leo purus venenatis dui.</p>
+									Quisque lobortis. Phasellus pellentesque purus in massa. Aenean
+									in pede. Phasellus ac libero ac tellus pellentesque semper. Sed
+									ac felis. Sed commodo, magna quis lacinia ornare, quam ante
+									aliquam nisi, eu iaculis leo purus venenatis dui.</p>
 								<ul>
 									<li>List item one</li>
 									<li>List item two</li>

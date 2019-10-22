@@ -30,6 +30,7 @@
         <script src="<c:url value="${script}"/>"></script>
     </c:forEach>
     <!-- end scripts -->
+    
 </head>
 <body>
 
