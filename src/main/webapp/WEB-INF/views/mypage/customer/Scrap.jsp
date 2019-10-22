@@ -83,7 +83,7 @@ nav > ul a {
 						<th scope="col" class="text-center" style="width:10%">글번호</th>
 						<th scope="col" class="text-center">#</th>
 						<th scope="col" class="text-center" style="width:50%">제목</th>
-						<th scope="col" class="text-center">스크랩일자</th>
+						<th scope="col" class="text-center">스크랩 일자</th>
 					</tr>
 				</thead>
 				<tbody>
