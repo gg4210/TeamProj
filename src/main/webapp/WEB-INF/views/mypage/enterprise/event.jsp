@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
     
-<div>
+<div class="container">
 	<div class="page-header" style="margin-bottom:25px; border-bottom:1px solid #D8D8D8;">
 		<h2>홍보</h2>
 	</div>
