@@ -4,7 +4,7 @@
 	<div class="col-md-12">
 		<form class="form-horizontal" method="post" action="<c:url value='#'/>">
 			<div class="form-group row" id="category">
-				<label class="control-label pr-2">키워드</label>
+				<label class="control-label pr-4">키워드</label>
 				<div>
 					<select name="selectCategory" class="form-control custom-select">
 						<option selected value="1">-카테고리를 선택해주세요.</option>
@@ -14,15 +14,21 @@
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="control-label pr-2" for="title">제목</label>
+				<label class="control-label pr-4" for="title">제목</label>
 				<div class="col-10">
 					<input type="text" class="form-control" name="title" id="title" placeholder="제목을 입력하세요"/>
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="control-label pr-2" for="content">내용</label>
+				<label class="control-label pr-4" for="content">내용</label>
 				<div class="col-10">
 					<textarea rows="10" name="content" id="content" class="form-control" placeholder="내용을 입력하세요"></textarea>
+				</div>
+			</div>
+			<div class="form-group row">
+				<label class="control-label pr-1" for="attachedFile">첨부파일</label>
+				<div class="col-10">
+					<input type="file" id="attachedFile">
 				</div>
 			</div>
 			<div class="form-group">

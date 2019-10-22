@@ -13,21 +13,12 @@
 	<div class="row">
 		<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 			<li class="nav-item">
-<<<<<<< HEAD
-				<a class="nav-link active" id="pills-notice-tab" data-toggle="pill" href="#pills-notice" role="tab"
-				aria-controls="pills-notice" aria-selected="true">공지사항</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" id="pills-event-tab" data-toggle="pill" href="#pills-event" role="tab"
-				aria-controls="pills-event" aria-selected="false">이벤트</a>
-=======
 				<a class="nav-link active" id="pills-notice-tab" data-toggle="pill" href="#pills-notice" 
 				role="tab" aria-controls="pills-notice" aria-selected="true">공지사항</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" id="pills-event-tab" data-toggle="pill" href="#pills-event"
 				role="tab" aria-controls="pills-event" aria-selected="false">이벤트</a>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 			</li>
 		</ul>
 	</div>
