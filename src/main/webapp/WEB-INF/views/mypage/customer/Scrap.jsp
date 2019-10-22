@@ -27,6 +27,11 @@ $(function(){
 			}
 		}
 	});
+	
+	<!-- 스크랩 삭제 모달 -->
+	$('#scrap-delete').click(function(){
+		$('#scrap-modal').modal('show');
+	});
 });
 </script>
 <style>
@@ -63,7 +68,7 @@ nav > ul a {
 	<div class="row">
 		<div class="col-md-12">
 			<div class="float-right">
-				<button class="btn purple-gradient p-2 px-4">삭제</button>
+				<button id="scrap-delete" class="btn purple-gradient p-2 px-4">삭제</button>
 			</div>
 			
 			<table class="table table-hover" style="margin-top:50px;">
@@ -78,7 +83,7 @@ nav > ul a {
 						<th scope="col" class="text-center" style="width:10%">글번호</th>
 						<th scope="col" class="text-center">#</th>
 						<th scope="col" class="text-center" style="width:50%">제목</th>
-						<th scope="col" class="text-center">스크랩일자</th>
+						<th scope="col" class="text-center">스크랩 일자</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -130,6 +135,31 @@ nav > ul a {
 		</div>
 	</div>
 	<!-- 페이지네이션 끝 -->
+	
+	<!-- 스크랩 삭제 모달 -->
+	<div class="modal fade" id="scrap-modal" tabindex="-1"
+		role="dialog" aria-labelledby="scrapModalCenterTitle"
+		aria-hidden="true">
+
+		<!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+		<div class="modal-dialog modal-dialog-centered" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="scrapModalLongTitle">삭제</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">정말로 삭제하시겠습니까?</div>
+				<div class="modal-footer">
+					<button type="button" class="btn blue-gradient">삭제</button>
+					<button type="button" class="btn peach-gradient" data-dismiss="modal">취소</button>
+					
+				</div>
+			</div>
+		</div>
+	</div>
 	
 </div>
 
