@@ -48,7 +48,24 @@
 							<i class="fas fa-angle-right indigo-text"></i>&nbsp<i
 								class="fas fa-users"></i>&nbsp일반회원 : 1명
 						</p>
-						<canvas id="doughnutChart"></canvas>
+						
+						<!-- 유저영역 내 네비게이션 바 -->
+						<nav>
+						<div class="nav nav-tabs" id="user_tab" role="tablist">
+						  <a class="nav-item nav-link active" id="nav_doughnutChart" data-toggle="tab" href="#user_doughnutChart" role="tab" aria-controls="nav-home" aria-selected="true">유저유형</a>
+						  <a class="nav-item nav-link" id="nav_lineChart" data-toggle="tab" href="#user_lineChart" role="tab" aria-controls="nav_lineChart" aria-selected="false">유저증감율</a>
+						</div>
+						</nav>
+						<div class="tab-content" id="user_tabContent">
+						  <div class="tab-pane fade show active" id="user_doughnutChart" role="tabpanel" aria-labelledby="nav_doughnutChart">
+						  	<canvas id="doughnutChart" class="mt-2"></canvas>
+						  </div>
+						  <div class="tab-pane fade" id="user_lineChart" role="tabpanel" aria-labelledby="nav_lineChart">
+						  	<canvas id="lineChart_user" class="mt-2"></canvas>
+						  </div>
+						</div>
+						<!-- 유저영역 네비게이션 바 끝-->
+
 						
 					</div>
 				</div>
@@ -231,6 +248,7 @@
 
 <script>
 
+//유저영역
 //doughnut
 var ctxD = document.getElementById("doughnutChart").getContext('2d');
 var myLineChart = new Chart(ctxD, {
@@ -247,6 +265,43 @@ options: {
 responsive: true
 }
 });
+//doughnut
+
+//line
+var ctxL = document.getElementById("lineChart_user").getContext('2d');
+var myLineChart = new Chart(ctxL, {
+type: 'line',
+data: {
+labels: ["January", "February", "March", "April", "May", "June", "July"],
+datasets: [
+{
+label: "일반회원",
+data: [65, 59, 80, 81, 56, 55, 40],
+backgroundColor: ['rgba(105, 0, 132, .2)',],
+borderColor: ['rgba(200, 99, 132, .7)',],
+borderWidth: 2},
+{
+label: "기업회원",
+data: [28, 48, 40, 19, 86, 27, 90],
+backgroundColor: ['rgba(0, 137, 132, .2)',],
+borderColor: ['rgba(0, 10, 130, .7)',],
+borderWidth: 2},
+{
+label: "전체",
+data: [93, 107, 120, 100, 142, 82, 150],
+backgroundColor: ['rgba(0, 137, 0, .2)',],
+borderColor: ['rgba(0, 10, 0, .7)',],
+borderWidth: 2}
+]
+},
+options: {
+responsive: true
+}
+});
+//line
+//유저영역 끝
+
+
 
 
 //bar
