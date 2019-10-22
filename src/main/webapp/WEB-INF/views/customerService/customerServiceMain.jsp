@@ -25,7 +25,7 @@ ul span{
 
 
 <div class="container">
-<div class=row id="servicepills">
+<div class="row" id="servicepills">
  <ul class="nav nav-pills" id="pills-tab" role="tablist"><!-- mb-숫자 : margine bottom 숫자(최대 5까지 먹는 듯.)만큼 띄운다. -->
   <li class="nav-item">
    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
@@ -38,7 +38,7 @@ ul span{
       <i class='fas fa-edit' style='font-size:100px'></i><br/><span>자주 묻는 질문</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="pills-notice-tab" data-toggle="pill" href="#pills-notice" role="tab"
+    <a class="nav-link" id="pills-notice-tab" data-toggle="pill" href="#pills-noticeNEvent" role="tab"
       aria-controls="pills-notice" aria-selected="false">
       	<i class="fas fa-bullhorn" style='font-size:100px'></i><br/><span>공지/이벤트</span></a>
   </li>
@@ -55,13 +55,15 @@ ul span{
 </ul>
 </div>
 
+<div class="row">
 <div class="tab-content pt-2 pl-1" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
     <jsp:include page="/WEB-INF/views/customerService/CustomerHome.jsp"/>
+  </div>
   <div class="tab-pane fade" id="pills-faq" role="tabpanel" aria-labelledby="pills-profile-tab">
 	<jsp:include page="/WEB-INF/views/customerService/FAQ.jsp"/>
   </div>
-  <div class="tab-pane fade" id="pills-notice" role="tabpanel" aria-labelledby="pills-contact-tab">
+  <div class="tab-pane fade" id="pills-noticeNEvent" role="tabpanel" aria-labelledby="pills-contact-tab">
   	<jsp:include page="/WEB-INF/views/customerService/NoticeNEvent.jsp"/>
   </div>
   <div class="tab-pane fade" id="pills-personalQ" role="tabpanel" aria-labelledby="pills-contact-tab">
@@ -72,17 +74,5 @@ ul span{
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
- 
+</div>
 </div>

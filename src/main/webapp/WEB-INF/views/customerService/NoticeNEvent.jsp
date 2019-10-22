@@ -11,12 +11,14 @@
 	</div>
 	<div class="row">
 		<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-			<li class="nav-item col">
+			<li class="nav-item">
 				<a class="nav-link active" id="pills-notice-tab" data-toggle="pill" href="#pills-notice" role="tab"
-				aria-controls="pills-notice" aria-selected="true">공지사항</a></li>
-			<li class="nav-item col">
+				aria-controls="pills-notice" aria-selected="true">공지사항</a>
+			</li>
+			<li class="nav-item">
 				<a class="nav-link" id="pills-event-tab" data-toggle="pill" href="#pills-event" role="tab"
-				aria-controls="pills-event" aria-selected="false">이벤트</a></li>
+				aria-controls="pills-event" aria-selected="false">이벤트</a>
+			</li>
 		</ul>
 	</div>
 	<div class="tab-content pt-2 pl-1" id="pills-tabContent">
