@@ -47,7 +47,7 @@
 						<th>이름</th>
 						<th width="30%">이메일</th>
 						<th>휴대폰 번호</th>
-						<th width="5%">권한</th>
+						<th width="10%">권한</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -64,7 +64,7 @@
 						<td>김길동</td>
 						<td>kim@kim.com</td>
 						<td>000-0000-0000</td>
-						<td>none</td>
+						<td></td>
 					</tr>
 					<tr>
 						<td>
@@ -94,7 +94,7 @@
 						<td>박길동</td>
 						<td>park@pakr.com</td>
 						<td>222-2222-2222</td>
-						<td>mapkey2</td>
+						<td><button class="btn btn-warning p-2 px-4">승인요청</button></td>
 					</tr>
 					<tr>
 						<td>
@@ -109,7 +109,7 @@
 						<td>우길동</td>
 						<td>woo@woo.com</td>
 						<td>333-3333-3333</td>
-						<td>none</td>
+						<td></td>
 					</tr>
 				</tbody>
 			</table>
