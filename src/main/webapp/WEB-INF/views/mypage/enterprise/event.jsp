@@ -77,5 +77,41 @@
 			</div>
 		</div>
 	</div>
+	
+	<!-- 홍보전송 모달 -->
+	<div class="modal fade" id="event-modal" tabindex="-1"
+		role="dialog" aria-labelledby="eventModalCenterTitle"
+		aria-hidden="true">
+
+		<!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+		<div class="modal-dialog modal-dialog-centered" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="eventModalLongTitle">홍보문구 전송</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">홍보문구를 전송하시겠습니까?</div>
+				<div class="modal-footer">
+					<button type="button" class="btn blue-gradient">전송</button>
+					<button type="button" class="btn peach-gradient" data-dismiss="modal">전송안함</button>
+					
+				</div>
+			</div>
+		</div>
+	</div>
 
 </div>
+
+<script>
+<!-- 홍보전송 모달 -->
+$(function(){
+	$('button').click(function(){
+		$('#event-modal').modal('show');
+	});
+});
+</script>
+
+

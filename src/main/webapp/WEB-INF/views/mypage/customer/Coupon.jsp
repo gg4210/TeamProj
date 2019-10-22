@@ -73,7 +73,7 @@ button {
 
 	<!-- 쿠폰사용 모달 -->
 	<div class="modal fade" id="coupon-modal" tabindex="-1"
-		role="dialog" aria-labelledby="exampleModalCenterTitle"
+		role="dialog" aria-labelledby="couponModalCenterTitle"
 		aria-hidden="true">
 
 		<!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
@@ -81,7 +81,7 @@ button {
 
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLongTitle">쿠폰 사용</h5>
+					<h5 class="modal-title" id="couponModalLongTitle">쿠폰 사용</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>

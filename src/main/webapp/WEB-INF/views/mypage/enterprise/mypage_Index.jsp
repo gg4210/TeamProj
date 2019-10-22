@@ -22,7 +22,7 @@
 		      <i class="fas fa-bullhorn fa-6x"></i><h4 class="mt-2">홍보</h4></a>
 		  </li>
 		  <li class="nav-item col">
-		    <a class="nav-link" id="pills-customer-service-tab" data-toggle="pill" href="#pills-customer-service" role="tab"
+		    <a class="nav-link" id="pills-customer-service-tab" data-toggle="pill" href="#pills-center-info" role="tab"
 		      aria-controls="pills-customer-service" aria-selected="false">
 		      	<i class="fas fa-dumbbell fa-6x"></i>
 		      <h4 class="mt-2">센터 관리</h4></a>
