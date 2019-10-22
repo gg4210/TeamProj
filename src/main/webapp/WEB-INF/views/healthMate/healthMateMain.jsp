@@ -14,7 +14,7 @@
     </header>
 	
 	<div class="text-right mb-2">
-	<button type="button" class="btn btn-primary p-2 px-3" id="write">글쓰기</button>
+	<button type="button" class="btn btn-primary" id="write">글쓰기</button>
 	</div>
 
 	<!-- Page Features -->
@@ -22,7 +22,7 @@
 	<!-- card 1 시작 -->
 	<div class="col-lg-3 col-md-6">
 			<div class="card h-100">
-				<h2 class="card-title m-0 p-2" style="background-color: #1a237e; color: white">TITLE</h2>
+				<h2 class="card-title m-0 p-2 mdb-color darken-3" style="color: white">TITLE</h2>
 				<div class="card-image-container p-3">
 					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
 					<div class="card-img-middle">
@@ -33,13 +33,13 @@
 				<div class="row justify-content-center">
 					<div class="row tag pb-3">
 							<div class="mr-3">
-							<h5><span class="badge badge-default">#태그</span></h5>
+							<h5><span class="badge badge-pill badge-default">#태그</span></h5>
 							</div>
 							<div class="mr-3">
-								<h5><span class="badge badge-default">#태그</span></h5>
+								<h5><span class="badge badge-pill badge-default">#태그</span></h5>
 							</div>
 							<div>
-								<h5><span class="badge badge-default">#태그</span></h5>
+								<h5><span class="badge badge-pill badge-default">#태그</span></h5>
 							</div>
 					</div>
 				</div>
@@ -59,7 +59,7 @@
 	<!-- card 2 시작 -->
 	<div class="col-lg-3 col-md-6">
 			<div class="card h-100">
-				<h2 class="card-title m-0 p-2" style="background-color: #1a237e; color: white">TITLE</h2>
+				<h2 class="card-title m-0 p-2 mdb-color darken-3" style="color: white">TITLE</h2>
 				<div class="card-image-container p-3">
 					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
 					<div class="card-img-middle">
@@ -70,13 +70,13 @@
 				<div class="row justify-content-center">
 					<div class="row tag pb-3">
 							<div class="mr-3">
-							<h5><span class="badge badge-default">#태그</span></h5>
+							<h5><span class="badge badge-pill badge-default">#태그</span></h5>
 							</div>
 							<div class="mr-3">
-								<h5><span class="badge badge-default">#태그</span></h5>
+								<h5><span class="badge badge-pill badge-default">#태그</span></h5>
 							</div>
 							<div>
-								<h5><span class="badge badge-default">#태그</span></h5>
+								<h5><span class="badge badge-pill badge-default">#태그</span></h5>
 							</div>
 					</div>
 				</div>
@@ -96,7 +96,7 @@
 	<!-- card 3 시작 -->
 	<div class="col-lg-3 col-md-6">
 			<div class="card h-100">
-				<h2 class="card-title m-0 p-2" style="background-color: #1a237e; color: white">TITLE</h2>
+				<h2 class="card-title m-0 p-2 mdb-color darken-3" style="color: white">TITLE</h2>
 				<div class="card-image-container p-3">
 					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
 					<div class="card-img-middle">
@@ -107,13 +107,13 @@
 				<div class="row justify-content-center">
 					<div class="row tag pb-3">
 							<div class="mr-3">
-							<h5><span class="badge badge-default">#태그</span></h5>
+							<h5><span class="badge badge-pill badge-default">#태그</span></h5>
 							</div>
 							<div class="mr-3">
-								<h5><span class="badge badge-default">#태그</span></h5>
+								<h5><span class="badge badge-pill badge-default">#태그</span></h5>
 							</div>
 							<div>
-								<h5><span class="badge badge-default">#태그</span></h5>
+								<h5><span class="badge badge-pill badge-default">#태그</span></h5>
 							</div>
 					</div>
 				</div>
@@ -133,7 +133,7 @@
 		<!-- card 4 시작 -->
 		<div class="col-lg-3 col-md-6">
 			<div class="card h-100">
-				<h2 class="card-title m-0 p-2" style="background-color: #1a237e; color: white">TITLE</h2>
+				<h2 class="card-title m-0 p-2 mdb-color darken-3" style="color: white">TITLE</h2>
 				<div class="card-image-container p-3">
 					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
 					<div class="card-img-middle">
@@ -144,13 +144,13 @@
 				<div class="row justify-content-center">
 					<div class="row tag pb-3">
 							<div class="mr-3">
-							<h5><span class="badge badge-default">#태그</span></h5>
+							<h5><span class="badge badge-pill badge-default">#태그</span></h5>
 							</div>
 							<div class="mr-3">
-								<h5><span class="badge badge-default">#태그</span></h5>
+								<h5><span class="badge badge-pill badge-default">#태그</span></h5>
 							</div>
 							<div>
-								<h5><span class="badge badge-default">#태그</span></h5>
+								<h5><span class="badge badge-pill badge-default">#태그</span></h5>
 							</div>
 					</div>
 				</div>
