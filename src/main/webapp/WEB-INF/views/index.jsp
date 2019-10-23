@@ -27,27 +27,28 @@
 							
 							<div class="row d-flex justify-content-center mt-5">
 								<!-- 카드덱 -->
-								<div class="card-deck">
+								<div class="card-deck col-md-12">
 									<!-- 카드1 -->
 									<div class="card">
 										<div class="card-body">
-											<h2 class="card-title">함께해요</h2>
-										
+											<h2 class="card-title text-center">함께해요</h2>
+											<hr/>
 										</div>
 									</div>
 									<!-- 카드1 끝 -->
 									<!-- 카드2 -->
 									<div class="card">
 										<div class="card-body">
-											<h2 class="card-title">찾아봐요</h2>
-										
+											<h2 class="card-title text-center">찾아봐요</h2>
+											<hr/>
 										</div>
 									</div>
 									<!-- 카드2 끝 -->
 									<!-- 카드3 -->
 									<div class="card">
 										<div class="card-body">
-											<h2 class="card-title">소통해요</h2>
+											<h2 class="card-title text-center">소통해요</h2>
+											<hr/>
 										
 										</div>
 									</div>
