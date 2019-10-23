@@ -12,14 +12,21 @@
 
 	<div class="card">
 		<div class="card-body">
+<<<<<<< HEAD
 			<div class="row">
 				<div class="col-md-offset-1 md-5">
+=======
+			<div class="container-fluid">
+			<div class="row"  style="background-color: red">
+				<div class="col-md-5 offset-md-1">
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<h4>자주 묻는 질문 BEST 5</h4>
 				</div>
-				<div class="col-md-offset-3 col-md-3"  style="background-color: yellow">
-					<button>+ 더 보기</button>
+				<div class="col-md-3 offset-md-3"  style="background-color: yellow">
+					<button class="btn btn-primary p-2 px-4">+ 더 보기</button>
 				</div>
 			</div>
+			
 		<!-- <div class="card-text"> -->
 				 		
 				<div class="row"> 
@@ -58,8 +65,10 @@
 					</div>
 				</div>
 				<!-- 테이블 끝 -->
-			</div>
-			<!-- card-text 끝 -->
+			<!--</div>
+			 card-text 끝 -->
+			</div>			
+			
 		</div>
 		<!-- card-body 끝 -->
 	</div>
