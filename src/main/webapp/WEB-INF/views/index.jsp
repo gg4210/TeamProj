@@ -23,7 +23,15 @@
 	    </div>
 	    <!-- section 1 끝! -->
 	    
-	    <div class="section">Section 2</div>
+	    <!-- section 2 시작 -->
+	    <div class="section">
+	    	<div class="container-fluid">
+	    		<div class="card ">
+	    		
+	    		</div>
+	    	</div>
+	    </div>
+	    <!-- section 2 끝 -->
 	    <div class="section">Section 3</div>
 	</div>
 
