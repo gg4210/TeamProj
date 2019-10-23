@@ -29,7 +29,10 @@
 		  </li>
 		</ul>
 	</div>
-	<!-- 탭 메뉴 끝 -->
+	<!-- 탭 메뉴 끝 -->	
+</div>
+<!-- container 끝 -->
+
 	<!-- 탭 컨텐츠 시작 -->
 		<div class="tab-content" id="pills-tabContent">
 			<div class="tab-pane fade show active pt-3 pl-1" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -46,4 +49,3 @@
 			</div>
 	  	</div>
 	<!-- 탭 컨텐츠 끝 -->
-</div>

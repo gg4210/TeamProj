@@ -17,7 +17,7 @@ button {
 	<div class="row">
 		<div class="col-md-6" style="display:inline;">
 			<div class="page-header">
-				<h2>운동시설 쿠폰</h2>
+				<h3>운동시설 쿠폰</h3>
 			</div>
 			<div>
 				<table class="table">
@@ -35,7 +35,7 @@ button {
 							<td>10월 이벤트 5% 할인쿠폰</td>
 							<td>2019-10-01~<br />2019-10-31
 							</td>
-							<td><button class="btn purple-gradient">사용</button></td>
+							<td><button class="btn purple-gradient" id="coupon-use1">사용</button></td>
 						</tr>
 					</tbody>
 				</table>
@@ -44,36 +44,36 @@ button {
 		<div class="col-md-6" style="display:inline;">
 			<div >
 				<div class="page-header">
-					<h2>운동메이트 쿠폰</h2>
+					<h3>운동메이트 쿠폰</h3>
 				</div>
-				<div>
-					<table class="table">
-						<thead>
-							<tr>
-								<th>쿠폰이름</th>
-								<th style="text-align:left">적용상품</th>
-								<th>유효기간</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>8월 출석체크 개근상</td>
-								<td>스타벅스 아메리카노</td>
-								<td>2019-10-01~<br/>2019-10-31
-								</td>
-								<td><button class="btn purple-gradient">사용</button></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+				
+				<table class="table">
+					<thead>
+						<tr>
+							<th>쿠폰이름</th>
+							<th style="text-align:left">적용상품</th>
+							<th>유효기간</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>8월 출석체크 개근상</td>
+							<td>스타벅스 아메리카노</td>
+							<td>2019-10-01~<br/>2019-10-31
+							</td>
+							<td><button class="btn purple-gradient" id="coupon-use2">사용</button></td>
+						</tr>
+					</tbody>
+				</table>
+				
 			</div>
 		</div>
 	</div>
 
 	<!-- 쿠폰사용 모달 -->
 	<div class="modal fade" id="coupon-modal" tabindex="-1"
-		role="dialog" aria-labelledby="exampleModalCenterTitle"
+		role="dialog" aria-labelledby="couponModalCenterTitle"
 		aria-hidden="true">
 
 		<!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
@@ -81,7 +81,7 @@ button {
 
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLongTitle">쿠폰 사용</h5>
+					<h5 class="modal-title" id="couponModalLongTitle">쿠폰 사용</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -102,7 +102,11 @@ button {
 <script>
 <!-- 쿠폰사용 모달 -->
 $(function(){
-	$('button').click(function(){
+	$('#coupon-use1').click(function(){
+		$('#coupon-modal').modal('show');
+	});
+	
+	$('#coupon-use2').click(function(){
 		$('#coupon-modal').modal('show');
 	});
 });
