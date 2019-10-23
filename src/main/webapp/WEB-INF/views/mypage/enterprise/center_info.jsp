@@ -37,7 +37,6 @@
 			<div class="card">
 				<h2 class="card-title" style="background-color: #1a237e; color: white;text-align:center">MY 헬스클럽 정보</h2>
 				<div class="card-body">
-					<div>
 					<div>업체명: 운동해 클럽 가산 디지털점</div>
 					<div>대표전화:010-1234-5678</div>
 					<div>주소:서울 특별시 가산동~~</div>
