@@ -40,7 +40,7 @@
 					<div>
 					<div>업체명: 운동해 클럽 가산 디지털점</div>
 					<div>대표전화:010-1234-5678</div>
-					<div>주소:서울 특별시 가산동~</div>
+					<div>주소:서울 특별시 가산동~~</div>
 					<div>운영시간:09:00~23:00</div>
 					<div class="scrolling-wrapper">
 						<div class="card"><img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/35.jpg" alt="Card image cap"></div>
