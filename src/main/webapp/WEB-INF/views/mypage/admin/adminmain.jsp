@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div class="container">
-
 	<!-- row1 시작 -->
 	<div class="row">
-
 		<div class="accordion col" id="accordion1">
 			<div class="card">
 				<div class="card-header mdb-color darken-3 pb-0" id="heading1">

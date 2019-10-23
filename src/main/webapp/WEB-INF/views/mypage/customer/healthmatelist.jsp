@@ -31,7 +31,7 @@
 				<tr>
 					<th style="width:5%" scope="col">
 						<div class="custom-control custom-checkbox">
-						    <input type="checkbox" class="custom-control-input" id="checkall" value="all">
+						    <input type="checkbox" class="custom-control-input" id="checkall">
 						    <label class="custom-control-label" for="checkall"></label>
 						</div>
 					</th>
