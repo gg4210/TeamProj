@@ -51,4 +51,18 @@
 }
 
 
+#mainCard1{
+	border-radius: 0px 0px 0px 300px;
+}
+
+#mainCard2{
+	border-radius: 0px 300px 0px 300px;
+}
+
+#mainCard3{
+	border-radius: 300px 0px 300px 0px;
+}
+
+
+
 </style>

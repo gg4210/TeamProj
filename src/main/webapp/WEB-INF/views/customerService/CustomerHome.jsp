@@ -12,14 +12,16 @@
 
 	<div class="card">
 		<div class="card-body">
+			<div class="container-fluid">
 			<div class="row"  style="background-color: red">
-				<div class="col-md-offset-1 col-md-5">
+				<div class="col-md-5 offset-md-1">
 					<h4>자주 묻는 질문 BEST 5</h4>
 				</div>
-				<div class="col-md-offset-3 col-md-3"  style="background-color: yellow">
-					<button>+ 더 보기</button>
+				<div class="col-md-3 offset-md-3"  style="background-color: yellow">
+					<button class="btn btn-primary p-2 px-4">+ 더 보기</button>
 				</div>
 			</div>
+			
 		<!-- <div class="card-text"> -->
 				 		
 				<div class="row"> 
@@ -58,8 +60,10 @@
 					</div>
 				</div>
 				<!-- 테이블 끝 -->
-			</div>
-			<!-- card-text 끝 -->
+			<!--</div>
+			 card-text 끝 -->
+			</div>			
+			
 		</div>
 		<!-- card-body 끝 -->
 	</div>
