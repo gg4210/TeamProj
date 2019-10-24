@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <div class="container">
+
+	<div class="row pt-2">
+		<h3>이벤트</h3>		
+	</div>
+	
 
 	<div class="row">
 		<div class="clearfix col">
@@ -42,7 +48,7 @@
 					<tr>
 						<td class="text-center">1</td>
 						<td class="text-center">[이벤트]</td>
-						<td>운동해!偕 서비스가 오픈하였습니다.</td>
+						<td><a href="<c:url value='/customerService/eventView.do'/>">운동해!偕 서비스가 오픈하였습니다.</a></td>
 						<td class="text-center">2019-10-21</td>
 					</tr>
 				</tbody>

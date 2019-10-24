@@ -20,12 +20,11 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 
 <div class="container">
 
-	<div class="row">
+	<div class="row pt-2">
 		<div class="col">
 			<div class="page-header">
 				<h3>자주 묻는 질문</h3>
-			</div>
-			<hr />
+			</div>			
 		</div>
 	</div>
 
@@ -34,10 +33,12 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 			<div class="float-right">
 				<div class="form-inline">
 					<select class="browser-default custom-select">
-						<option selected>검색조건()</option>
-						<option value="1">회원가입</option>
-						<option value="2">로그인</option>
-						<option value="3">사이트 이용</option>
+						<option selected>검색조건(전체)</option>
+						<hr/>
+						<option value="1">계정 관련 질문</option>
+						<option value="2">앱 관련 질문</option>
+						<option value="3">운동메이트</option>
+						<option value="4">기타</option>
 					</select>
 					<button type="button" class="btn btn-primary p-2 px-4">
 						<i class='fas fa-search'
@@ -71,11 +72,15 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 						<td id="nospace">
 							<div id="content1" class="collapse" data-parent="#contentGroup"
 								style="align-content: center;">
-								<p>Mauris mauris ante, blandit et, ultrices a, suscipit
-									eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel,
-									gravida in, condimentum sit amet, nunc. Nam a nibh. Donec
-									suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur
-									malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+								<p>자주묻는 질문 1 답변입니다<br/>
+									자주묻는 질문 1 답변입니다<br/>
+									자주묻는 질문 1 답변입니다<br/>
+								</p>
+								<ul>
+									<li>List item one</li>
+									<li>List item two</li>
+									<li>List item three</li>
+								</ul>
 							</div>
 						</td>
 					</tr>
@@ -90,11 +95,15 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 						<td id="nospace" colspan="2"></td>
 						<td id="nospace">
 							<div id="content2" class="collapse" data-parent="#contentGroup">
-								<p>Sed non urna. Donec et ante. Phasellus eu ligula.
-									Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet
-									laoreet, mauris turpis porttitor velit, faucibus interdum
-									tellus libero ac justo. Vivamus non quam. In suscipit faucibus
-									urna.</p>
+								<p>자주묻는 질문 2 답변입니다<br/>
+									자주묻는 질문 2 답변입니다<br/>
+									자주묻는 질문 2 답변입니다<br/>
+									자주묻는 질문 2 답변입니다<br/>
+									자주묻는 질문 2 답변입니다<br/>
+									자주묻는 질문 2 답변입니다<br/>
+									자주묻는 질문 2 답변입니다<br/>
+									자주묻는 질문 2 답변입니다<br/>
+								</p>
 							</div>
 						</td>
 					</tr>
@@ -109,11 +118,12 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 						<td id="nospace" colspan="2"></td>
 						<td id="nospace">
 							<div id="content3" class="collapse" data-parent="#contentGroup">
-								<p>Nam enim risus, molestie et, porta ac, aliquam ac, risus.
-									Quisque lobortis. Phasellus pellentesque purus in massa. Aenean
-									in pede. Phasellus ac libero ac tellus pellentesque semper. Sed
-									ac felis. Sed commodo, magna quis lacinia ornare, quam ante
-									aliquam nisi, eu iaculis leo purus venenatis dui.</p>
+								<p>자주묻는 질문 3 답변입니다<br/>
+									자주묻는 질문 3 답변입니다<br/>
+									자주묻는 질문 3 답변입니다<br/>
+									자주묻는 질문 3 답변입니다<br/>
+									자주묻는 질문 3 답변입니다<br/>
+								</p>
 								<ul>
 									<li>List item one</li>
 									<li>List item two</li>
@@ -122,11 +132,66 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 							</div>
 						</td>
 					</tr>
+					<tr class="clickable collapsed" data-toggle="collapse"
+						role="button" data-target="#content4" aria-expanded="false"
+						aria-controls="content4">
+						<td class="text-center">4</td>
+						<td class="text-center">운동메이트</td>
+						<td>자주 묻는 질문 4</td>
+					</tr>
+					<tr>
+						<td id="nospace" colspan="2"></td>
+						<td id="nospace">
+							<div id="content4" class="collapse" data-parent="#contentGroup">
+								<p>자주묻는 질문 4 답변입니다<br/>
+									자주묻는 질문 4 답변입니다<br/>
+									자주묻는 질문 4 답변입니다<br/>
+									자주묻는 질문 4 답변입니다<br/>
+								</p>
+							</div>
+						</td>
+					</tr>
+					<tr class="clickable collapsed" data-toggle="collapse"
+						role="button" data-target="#content5" aria-expanded="false"
+						aria-controls="content5">
+						<td class="text-center">5</td>
+						<td class="text-center">기타</td>
+						<td>자주 묻는 질문3</td>
+					</tr>
+					<tr>
+						<td id="nospace" colspan="2"></td>
+						<td id="nospace">
+							<div id="content5" class="collapse" data-parent="#contentGroup">
+								<p>자주묻는 질문 5 답변입니다<br/>
+									자주묻는 질문 5 답변입니다<br/>
+									자주묻는 질문 5 답변입니다<br/>
+									자주묻는 질문 5 답변입니다<br/>
+									자주묻는 질문 5 답변입니다<br/>
+								</p>
+								<ul>
+									<li>List item one</li>
+									<li>List item two</li>
+									<li>List item three</li>
+								</ul>
+							</div>
+						</td>
+					</tr>					
 				</tbody>
 			</table>
 		</div>
 	</div>
 	<!-- 아코디언 완료 -->
+	
+	<div class="row">
+		<div class="clearfix col">
+			<div class="float-right">
+				<div class="form-inline">
+					<button type="button" class="btn btn-info p-2 px-4" id="faq_write">FAQ 작성</button>
+				</div>
+			</div>
+		</div>
+	</div>	
+	
 	<div class="row">
 		<div class="col">
 			<nav class="d-flex justify-content-center mt-3">
@@ -147,6 +212,14 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 	</div>
 </div>
 
+<script>
+$(function(){
+	
+	$('#faq_write').click(function(){
+		location.href="customerService/FAQWrite.do";
+	});
+});
+</script>
 
 
 <!-- 
