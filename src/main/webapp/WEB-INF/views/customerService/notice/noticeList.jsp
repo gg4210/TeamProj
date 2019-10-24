@@ -20,7 +20,7 @@
 					</select>
 					<button type="button" class="btn btn-primary p-2 px-4">
 						<i class='fas fa-search'
-							style='font-size: 20px; text-align: center'></i>
+							style='font-size: 20px; text-align: center;'></i>
 					</button>
 				</div>
 			</div>
