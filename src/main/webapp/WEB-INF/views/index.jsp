@@ -199,19 +199,204 @@
 	    		<div class="row">
 		    		<div class="col p-0">
 			    		<div class="card" id="mainCard3">
+			    		
 			    			<div class="card-body p-5">
-			    				<div class="container-fluid m-5">
-			    					<div class="row">
+			    				<div class="container m-5">
+			    					<div class="row my-5">
 				    					<div class="col">
-				    						<p class="h2">가장 많은 추천을 받은 게시글</p>
-				    						<div class="card card-body">
-				    						
+				    								    						
+				    							<div class="row mb-3">
+				    							
+					    							<div class="col-md-6">
+					    								<p class="h2 my-3">가장 많은 추천을 받은 게시글</p>
+					    								
+												        <!-- Image -->
+												        <div class="view overlay rounded z-depth-1-half mb-4">
+												          <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Slides/1.jpg" alt="Sample image">
+												          <a>
+												            <div class="mask rgba-white-slight"></div>
+												          </a>
+												        </div>
+												        
+												        <div class="row d-flex justify-content-between mx-2">
+												            <a href="#!" class="light-blue-text">
+												              <h6 class="font-weight-bold"><i class="fas fa-dumbbell pr-2"></i>헬스</h6>
+												            </a>
+												            <p class="font-weight-bold dark-grey-text"><i class="fas fa-clock-o pr-2"></i>2019/10/24</p>
+												        </div>
+												    
+												    	<!-- Excerpt -->
+												          <h3 class="font-weight-bold dark-grey-text mb-3"><a>Title of the news</a></h3>
+												          <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+												            impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis
+												            dolor
+												            repellendus.</p>
+												    
+					    								<ul class="list-group list-group-flush py-0 my-0">
+					    								
+														    <li class="list-group-item pb-0 mb-0">
+															  <!-- Grid column -->
+															  <div class="row">
+														          <div class="col-md-3">
+														
+														            <!--Image-->
+														            <div class="view overlay rounded z-depth-1 mb-3">
+														              <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img%20(29).jpg" alt="Sample image">
+														              <a>
+														                <div class="mask rgba-white-slight"></div>
+														              </a>
+														            </div>
+														
+														          </div>
+														          <div class="col-md-9 mb-0 pb-0">
+														
+														            <p class="font-weight-bold dark-grey-text">2019/10/25</p>
+														            <div class="d-flex justify-content-between mb-0 p-0">
+														              <div class="col-11 text-truncate pl-0 mb-0">
+														                <a href="#!" class="dark-grey-text pb-0 mb-0">Duis aute irure dolor in reprehenderit in voluptate</a>
+														              </div>
+														              <a><i class="fas fa-angle-double-right pb-0 mb-0"></i></a>
+														            </div>
+														
+														          </div>
+													          </div>													          
+													          <!-- Grid column -->
+														    </li>
+														    
+														    <li class="list-group-item pb-0 mb-0">
+														    	<!-- Grid column -->
+															  <div class="row pb-0 mb-0">
+														          <div class="col-md-3 pb-0 mb-0">
+														
+														            <!--Image-->
+														            <div class="view overlay rounded z-depth-1 mb-3">
+														              <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img%20(29).jpg" alt="Sample image">
+														              <a>
+														                <div class="mask rgba-white-slight"></div>
+														              </a>
+														            </div>
+														
+														          </div>
+														          <div class="col-md-9 pb-0 mb-0">
+														
+														            <p class="font-weight-bold dark-grey-text">2019/10/25</p>
+														            <div class="d-flex justify-content-between pb-0 mb-0">
+														              <div class="col-11 text-truncate pl-0 mb-0 pb-0">
+														                <a href="#!" class="dark-grey-text">Duis aute irure dolor in reprehenderit in voluptate</a>
+														              </div>
+														              <a><i class="fas fa-angle-double-right pb-0 mb-0"></i></a>
+														            </div>
+														
+														          </div>
+													          </div>													          
+													          <!-- Grid column -->													    
+														    
+														    </li>
+														    <li class="list-group-item">
+														    
+														    	<!-- Grid column -->
+															  <div class="row">
+														          <div class="col-md-3">
+														
+														            <!--Image-->
+														            <div class="view overlay rounded z-depth-1 mb-3">
+														              <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/img%20(29).jpg" alt="Sample image">
+														              <a>
+														                <div class="mask rgba-white-slight"></div>
+														              </a>
+														            </div>
+														
+														          </div>
+														          <div class="col-md-9">
+														
+														            <p class="font-weight-bold dark-grey-text">2019/10/25</p>
+														            <div class="d-flex justify-content-between">
+														              <div class="col-11 text-truncate pl-0 mb-lg-3">
+														                <a href="#!" class="dark-grey-text">Duis aute irure dolor in reprehenderit in voluptate</a>
+														              </div>
+														              <a><i class="fas fa-angle-double-right"></i></a>
+														            </div>
+														
+														          </div>
+													          </div>													          
+													          <!-- Grid column -->														    
+														    </li>
+					
+														    
+														</ul>
+														</div><!-- col-md-6 -->
+														
+														
+														
+													<div class="col-md-6 pl-5 pb-5 mb-5">
+														<div class="row">
+															<p class="h2">추천 운동 메이트</p>
+															<ul class="list-group list-group-flush py-0 my-0">					    								
+															    <li class="list-group-item pb-0 mb-0">
+															    	<div class="row">
+																		<div class="col-md-3">
+																			사진
+																		</div>
+																		<div class="col-md-9">
+																			<h5 class="font-weight-bold">Anna Williams</h5>
+																		      <p class="text-uppercase blue-text"><strong>Graphic designer</strong></p>
+																		      <p class="grey-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+																		        adipisci sed quia non numquam modi tempora eius.</p>
+																		</div>
+																	</div>
+																</li>
+															    <li class="list-group-item pb-0 mb-0">
+															    	<div class="row">
+																		<div class="col-md-3">
+																			사진
+																		</div>
+																		<div class="col-md-9">
+																			<h5 class="font-weight-bold">Anna Williams</h5>
+																		      <p class="text-uppercase blue-text"><strong>Graphic designer</strong></p>
+																		      <p class="grey-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+																		        adipisci sed quia non numquam modi tempora eius.</p>
+																		</div>
+																	</div>
+																</li>
+															    <li class="list-group-item pb-0 mb-0">
+															    	<div class="row">
+																		<div class="col-md-3">
+																			사진
+																		</div>
+																		<div class="col-md-9">
+																			<h5 class="font-weight-bold">Anna Williams</h5>
+																		      <p class="text-uppercase blue-text"><strong>Graphic designer</strong></p>
+																		      <p class="grey-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+																		        adipisci sed quia non numquam modi tempora eius.</p>
+																		</div>
+																	</div>
+																</li>
+															    <li class="list-group-item pb-0 mb-0">
+															    	<div class="row">
+																		<div class="col-md-3">
+																			사진
+																		</div>
+																		<div class="col-md-9">
+																			<h5 class="font-weight-bold">Anna Williams</h5>
+																		      <p class="text-uppercase blue-text"><strong>Graphic designer</strong></p>
+																		      <p class="grey-text">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+																		        adipisci sed quia non numquam modi tempora eius.</p>
+																		</div>
+																	</div>
+																</li>
+															</ul>
+														</div>			
+													</div>
+														
+					    							
+				    							</div>
 				    						</div>
-				    					</div>
-			    					</div>
+				    						
+				    				</div>
 			    				</div>
 			    			</div>
 			    		</div>
+			    		
 		    		</div>
 	    		</div>
 	    	</div>
