@@ -1,5 +1,4 @@
 
-
 $(function() {
 	
 	
@@ -40,11 +39,52 @@ $(function() {
 
 	var myFullpage = new fullpage('#fullpage', {
 	    anchors: ['firstPage', 'secondPage', 'thirdPage'],
+	    sectionsColor:['#1a237e','#1a237e','#1a237e'],
 		verticalCentered: false,
-	    navigation: true,
-	    navigationPosition: 'right',
-	    navigationTooltips: ['첫번째 페이지', '두번째 페이지', '세번째 페이지'],
+	    navigation: false,
+	    //navigationPosition: 'right',
+	    //navigationTooltips: ['첫번째 페이지', '두번째 페이지', '세번째 페이지'],
 	});
 
-
+		
+	//메인페이지의 카드 높이 조절용//
+		var height=$(window).height();
+		var width=$(window).width();
+		
+		$('#mainCard1').css('height',height);
+		$('#mainCard2').css('height',height);
+		$('#mainCard3').css('height',height);
+		setMargin(width);
+		
+		$(window).on('resize',function(){
+			height=$(window).height();
+			width=$(window).width();
+			
+			$('#mainCard1').css('height',height);
+			$('#mainCard2').css('height',height);
+			$('#mainCard3').css('height',height);
+			setMargin(width);
+		});
+	//메인페이지의 카드 높이 조절용 끝//
+	
 });
+//마진속성 주는 function//
+function setMargin(width){
+	//margin 속성 주기 시작//
+	
+	if(width<1200) {
+		console.log(width);
+		$('#mainCard2').css("margin","0");
+		$('#mainCard3').css("margin","0");
+		if(width<574){
+			console.log('카드덱 날리기');
+		}
+	}
+	if(width>=1200){
+		$('#mainCard2').css("margin-left","100px");
+		$('#mainCard2').css("margin-right","100px");
+		$('#mainCard3').css("margin-left","100px");
+		$('#mainCard3').css("margin-right","100px");
+	}
+}
+//마진속성 주는 function//

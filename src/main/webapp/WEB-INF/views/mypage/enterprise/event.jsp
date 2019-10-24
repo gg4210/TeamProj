@@ -47,7 +47,7 @@
 							<tbody>
 								<tr>
 									<td>스타벅스 아메리카노adslknsadnklsad nklsadnklnklsadknlsadnklsdanklsadnklsadnlksadnlkk lsadnklnsad klnsadknlsdankl</td>
-									<td style="text-align:center;">2019-10-01</td>
+									<td class="align-middle" style="text-align:center;">2019-10-01</td>
 								</tr>
 							</tbody>
 						</table>

@@ -29,14 +29,14 @@
 					</h4>
 			</a></li>
 			<li class="nav-item col"><a class="nav-link"
-				id="pills-personalQ-tab" data-toggle="pill" href="#pills-personalQ"
-				role="tab" aria-controls="pills-personalQ" aria-selected="false">
+				id="pills-consultwrite-tab" data-toggle="pill" href="#pills-consultwrite"
+				role="tab" aria-controls="pills-consultwrite" aria-selected="false">
 					<i class='fas fa-edit fa-6x'></i>
 					<h4 class="mt-2">1:1문의</h4>
 			</a></li>
 			<li class="nav-item col"><a class="nav-link"
-				id="pills-comfirmA-tab" data-toggle="pill" href="#pills-comfirmA"
-				role="tab" aria-controls="pills-comfirmA" aria-selected="false">
+				id="pills-consultlist-tab" data-toggle="pill" href="#pills-consultlist"
+				role="tab" aria-controls="pills-consultlist" aria-selected="false">
 					<i class='fas fa-comments fa-6x'></i>
 					<h4 class="mt-2">
 						상담내역<br />확인
@@ -50,7 +50,7 @@
 	<div class="tab-content pt-1 pl-1" id="pills-tabContent">
 		<div class="tab-pane fade show active" id="pills-home" role="tabpanel"
 			aria-labelledby="pills-home-tab">
-			<jsp:include page="/WEB-INF/views/customerService/CustomerHome.jsp" />
+			<jsp:include page="/WEB-INF/views/customerService/NoticeView.jsp" />
 		</div>
 		<div class="tab-pane fade" id="pills-faq" role="tabpanel"
 			aria-labelledby="pills-profile-tab">
@@ -60,11 +60,11 @@
 			aria-labelledby="pills-contact-tab">
 			<jsp:include page="/WEB-INF/views/customerService/NoticeNEvent.jsp" />
 		</div>
-		<div class="tab-pane fade" id="pills-personalQ" role="tabpanel"
+		<div class="tab-pane fade" id="pills-consultwrite" role="tabpanel"
 			aria-labelledby="pills-contact-tab">
 			<jsp:include page="/WEB-INF/views/customerService/consultwrite.jsp" />
 		</div>
-		<div class="tab-pane fade" id="pills-comfirmA" role="tabpanel"
+		<div class="tab-pane fade" id="pills-consultlist" role="tabpanel"
 			aria-labelledby="pills-contact-tab">
 			<jsp:include page="/WEB-INF/views/customerService/consultlist.jsp" />
 		</div>
