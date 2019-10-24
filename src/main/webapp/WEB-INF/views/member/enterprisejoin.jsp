@@ -154,7 +154,7 @@ html, body{
 				</div>
 				<!-- 사업장 소재지 -->
 				<div class="form-inline mt-10" id="address">
-					<label class="col-3 text-left">사업장소재지</label><br/>
+					<label class="col-3 text-left">사업장 소재지</label><br/>
 					<div class="col-12">
 						<div class="row justify-content-start">
 							<input type="tel" class="form-control col-2 mt-2" placeholder="우편번호" disabled="disabled"/>
