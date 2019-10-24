@@ -42,8 +42,8 @@ $(function() {
 	    sectionsColor:['#1a237e','#1a237e','#1a237e'],
 		verticalCentered: false,
 	    navigation: false,
-	    navigationPosition: 'right',
-	    navigationTooltips: ['첫번째 페이지', '두번째 페이지', '세번째 페이지'],
+	    //navigationPosition: 'right',
+	    //navigationTooltips: ['첫번째 페이지', '두번째 페이지', '세번째 페이지'],
 	});
 
 		
@@ -73,12 +73,14 @@ function setMargin(width){
 	//margin 속성 주기 시작//
 	
 	if(width<1200) {
-		console.log('width가 1200 미만일 때');
+		console.log(width);
 		$('#mainCard2').css("margin","0");
 		$('#mainCard3').css("margin","0");
+		if(width<574){
+			console.log('카드덱 날리기');
+		}
 	}
 	if(width>=1200){
-		console.log('width가 1200이상일때');
 		$('#mainCard2').css("margin-left","100px");
 		$('#mainCard2').css("margin-right","100px");
 		$('#mainCard3').css("margin-left","100px");
