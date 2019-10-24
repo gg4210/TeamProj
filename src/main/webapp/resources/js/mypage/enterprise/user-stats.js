@@ -4,7 +4,7 @@ $(function(){
 	$('.quarter').hide();
 	$('.year').hide();
 	
-	$('select').on('change',function(){
+	$('select[id="member"]').on('change',function(){
 		var select = $('select option:selected').val();
 		if(select=='option2'){
 			$('.month').hide();	
