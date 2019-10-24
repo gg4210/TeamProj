@@ -8,7 +8,7 @@
 
 	<!-- 페이지 헤더 -->
 	<div class="page-header mb-4" style="border-bottom: 1px solid #D8D8D8;">
-			<h2>회원 관리</h2>
+			<h2 style="font-weight: bold;">회원 관리</h2>
 	</div>
 	<!-- 페이지 헤더 끝 -->
 	
@@ -18,7 +18,7 @@
 		<div class="col-md-6">
 			<div class="card">
 				<div class="card-body">
-					<h2 class="card-title">회원수 추이</h2>
+					<h2 class="card-title" style="font-weight: bold;">회원 증감 추이</h2>
 					<hr/>
 					<!-- 기업용 네비게이션 바 -->
 					<div>
@@ -44,13 +44,13 @@
 									<!-- 셀렉트 박스 끝 -->
 								
 									<!-- 차트 시작 -->	
-									<div class="month">
+									<div class="month mb-4">
 										<canvas id="monthLineChart"></canvas>
 									</div>
-									<div class="quarter">
+									<div class="quarter mb-4">
 										<canvas id="quarterLineChart"></canvas>
 									</div>
-									<div class="year">
+									<div class="year mb-4">
 										<canvas id="yearLineChart"></canvas>
 									</div>
 									<!-- 차트 끝 -->	
@@ -71,7 +71,7 @@
 		<div class="col-md-6">
 			<div class="card">
 				<div class="card-body">
-					<h2 class="card-title" style="font-weight: bold;">회원관리</h2>
+					<h2 class="card-title" style="font-weight: bold;">회원 상세 관리</h2>
 					<hr/>
 						<!-- 회원 등록,삭제 버튼 -->
 							<div class="clearfix">
@@ -83,7 +83,7 @@
 							</div>
 					<!-- 회원 등록,삭제 버튼 -->
 					<!-- 테이블 시작 -->
-						<table class="table">
+						<table class="table" style="text-align: center;">
 							<thead class="bg-primary white-text">
 								<tr>
 									<th scope="col">
