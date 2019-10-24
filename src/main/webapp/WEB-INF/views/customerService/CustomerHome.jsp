@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="container">
 	<div class="row">
 		<div class="col">
 			<div class="page-header">
-				<h3>
-					<strong>고객센터 홈</strong>
-				</h3>
+				<h3><strong>고객센터 홈</strong></h3>
 				<hr />
 			</div>
 		</div>
@@ -21,7 +20,7 @@
 					<h4>자주 묻는 질문 BEST 5</h4>
 				</div>
 				<div class="col-md-2 offset-md-4">
-					<button type="button" class="btn btn-primary">+ 더 보기</button>
+					<button type="button" class="btn btn-primary" id="FAQ">+ 더 보기</button>
 				</div>
 			</div>
 
@@ -87,7 +86,7 @@
 							<h4>공지사항</h4>
 						</div>
 						<div class="float-right pr-2">
-							<button type="button" class="btn btn-primary">+ 더 보기</button>
+							<button type="button" class="btn btn-primary" id="notice">+ 더 보기</button>
 						</div>
 					</div>
 					<!-- 공지사항 카드 안 첫 row 끝 -->
@@ -129,3 +128,17 @@
 		</div>
 	</div>
 </div>  <!-- container -->
+
+<script>
+$(function(){
+	$('#FAQ').click(function(){
+		location.href="moreFAQ.do";
+	});
+	
+	$('#notice').click(function(){
+		location.href="moreNoticeView.do";
+	});
+	
+});
+</script>
+
