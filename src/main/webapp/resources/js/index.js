@@ -73,18 +73,34 @@ function setMargin(width){
 	//margin 속성 주기 시작//
 	
 	if(width<1200) {
-		console.log(width);
 		$('#mainCard2').css("margin","0");
 		$('#mainCard3').css("margin","0");
-		if(width<574){
-			console.log('카드덱 날리기');
+		if(width<=414){
+			$('#top_padding_margin').removeClass('mt-5');
+			$('#top_padding_margin').removeClass('pt-5');
+			$('#top_padding_margin').addClass('mt-3');
+			$('#message').addClass('mt-5');
+			if(width<=375){
+				$('#title').removeClass('display-2');
+				$('#title').addClass('display-3');
+				$('#join-row').removeClass('mt-5');
+			}
+			else{
+				$('#title').addClass('display-2');
+				$('#title').removeClass('display-3');
+			}
+		}
+		else{
+			$('#top_padding_margin').removeClass('mt-3');
+			$('#top_padding_margin').addClass('mt-5');
+			$('#top_padding_margin').addClass('pt-5');
 		}
 	}
 	if(width>=1200){
-		$('#mainCard2').css("margin-left","100px");
-		$('#mainCard2').css("margin-right","100px");
-		$('#mainCard3').css("margin-left","100px");
-		$('#mainCard3').css("margin-right","100px");
+		$('#mainCard2').css("margin-left","10%");
+		$('#mainCard2').css("margin-right","10%");
+		$('#mainCard3').css("margin-left","10%");
+		$('#mainCard3').css("margin-right","10%");
 	}
 }
 //마진속성 주는 function//

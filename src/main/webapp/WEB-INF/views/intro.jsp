@@ -41,8 +41,9 @@
           <div class="masthead-content text-white py-5 py-md-0">
             <h1 class="mb-3">운동해!偕</h1>
             <hr style="border:solid 2px white;"/>
-            <p class="mb-5">We're working hard to finish the development of this site. <br/>Our target launch date is
-              <strong>December 2019</strong>!</br> Come on and have a look!</p>
+            <p class="p-0">Motivation is what gets you started.</p>
+            <p class="p-0">Habit is what keeps you going.</p>
+            <p class="p-0 font-weight-bold">- Jim Rohn</p>
 			<input type="button" value="SKIP" class="button skip"></button>
           </div>
         </div>
