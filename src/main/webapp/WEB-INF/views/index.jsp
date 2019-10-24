@@ -13,7 +13,10 @@
 		    <!--  <img src="<c:url value='/resources/images/main.png'/>" class="img-fluid d-none d-lg-none d-xl-block float-right" style="height:100%" id="first-main-img"/>-->		    	
 			<div class="container-fluid">
 				<div class="row">
-					<div class="p-0 col-xl-8 offset-xl-4 col-lg-12 col-md-12">
+					<div class="col-xl-4">
+						<img src="<c:url value='/resources/images/main_1.png'/>" class="img-fluid d-none d-xl-block mx-auto"/>
+					</div>
+					<div class="p-0 col-xl-8 col-lg-12 col-md-12">
 						<div class="card card-body z-depth-5" id="mainCard1">
 						
 							<div class="row mt-5 pt-5 pl-5">
@@ -21,7 +24,7 @@
 									<i class="fas fa-quote-left fa-4x"></i>
 								</div>
 								<div class="col-md-7">	
-								    <span class="font-weight-bold indigo-text text-center display-1 mb-2">운동해(偕)!</span>
+								    <span class="font-weight-bold indigo-text text-center display-2 mb-2">운동해(偕)!</span>
 								</div>
 							</div>
 							<div class="row pl-5 pt-5">
@@ -33,7 +36,7 @@
 							
 							<div class="row d-flex justify-content-center pt-5 mt-3 mx-4">
 								<!-- 카드덱 -->
-								<div class="card-deck col-md-12">
+								<div class="card-deck col">
 									<!-- 카드1 -->
 									<div class="card">
 										<div class="card-body">
@@ -79,9 +82,10 @@
 							</div>
 							
 						</div>		
-					</div>
-				</div>
-			</div>
+					</div><!-- p-0 col-xl-8 offset-xl-4 col-lg-12 col-md-12 -->
+					
+				</div><!-- row -->
+			</div><!-- container-fluid -->
 
 	    </div>
 	    <!-- section 1 끝! -->
