@@ -29,17 +29,17 @@
 					</h4>
 			</a></li>
 			<li class="nav-item col"><a class="nav-link"
-				id="pills-personalQ-tab" data-toggle="pill" href="#pills-personalQ"
-				role="tab" aria-controls="pills-personalQ" aria-selected="false">
+				id="pills-consultwrite-tab" data-toggle="pill" href="#pills-consultwrite"
+				role="tab" aria-controls="pills-consultwrite" aria-selected="false">
 					<i class='fas fa-edit fa-6x'></i>
 					<h4 class="mt-2">1:1문의</h4>
 			</a></li>
 			<li class="nav-item col"><a class="nav-link"
-				id="pills-comfirmA-tab" data-toggle="pill" href="#pills-comfirmA"
-				role="tab" aria-controls="pills-comfirmA" aria-selected="false">
+				id="pills-consultlist-tab" data-toggle="pill" href="#pills-consultlist"
+				role="tab" aria-controls="pills-consultlist" aria-selected="false">
 					<i class='fas fa-comments fa-6x'></i>
 					<h4 class="mt-2">
-						상담내역<br />확인
+						문의내역<br />확인
 					</h4>
 			</a></li>
 		</ul>
@@ -54,21 +54,21 @@
 		</div>
 		<div class="tab-pane fade" id="pills-faq" role="tabpanel"
 			aria-labelledby="pills-profile-tab">
-			<jsp:include page="/WEB-INF/views/customerService/FAQ.jsp" />
+			<jsp:include page="/WEB-INF/views/customerService/faq/FAQ.jsp" />
 		</div>
 		<div class="tab-pane fade" id="pills-noticeNevent" role="tabpanel"
 			aria-labelledby="pills-contact-tab">
 			<jsp:include page="/WEB-INF/views/customerService/NoticeNEvent.jsp" />
 		</div>
-		<div class="tab-pane fade" id="pills-personalQ" role="tabpanel"
+		<div class="tab-pane fade" id="pills-consultwrite" role="tabpanel"
 			aria-labelledby="pills-contact-tab">
-			<jsp:include page="/WEB-INF/views/customerService/consultwrite.jsp" />
+			<jsp:include page="/WEB-INF/views/customerService/consult/consultWrite.jsp" />
 		</div>
-		<div class="tab-pane fade" id="pills-comfirmA" role="tabpanel"
+		<div class="tab-pane fade" id="pills-consultlist" role="tabpanel"
 			aria-labelledby="pills-contact-tab">
-			<jsp:include page="/WEB-INF/views/customerService/consultlist.jsp" />
+			<jsp:include page="/WEB-INF/views/customerService/consult/consultList.jsp" />
 		</div>
 	</div>
 	<!-- content 끝 -->
 </div>
-<!-- container -->ㄴ
+<!-- container -->
