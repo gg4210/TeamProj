@@ -5,7 +5,6 @@
 
 
 
-
 	<div id="fullpage">
 	
 		<!-- section 1 시작 -->
@@ -180,9 +179,79 @@
 			    						<div class="col">
 			    							<p class="h2">가장 많이 찜한 헬스장</p>
 			    							
-			    							<!-- 캐러샐은 알아서해 -->		    					
-											
-			    						</div>
+			    							<!-- 캐러샐은 알아서해 -->
+
+										<!--Carousel Wrapper-->
+										<div id="carousel-example-2"
+											class="carousel slide carousel-fade pr-5" data-ride="carousel" style="height: 400px">
+											<!--Indicators-->
+											<ol class="carousel-indicators">
+												<li data-target="#carousel-example-2" data-slide-to="0"
+													class="active"></li>
+												<li data-target="#carousel-example-2" data-slide-to="1"></li>
+												<li data-target="#carousel-example-2" data-slide-to="2"></li>
+											</ol>
+											<!--/.Indicators-->
+											<!--Slides-->
+											<div class="carousel-inner" role="listbox">
+												<div class="carousel-item active">
+													<div class="view">
+														<img class="d-block w-100"
+															src="https://www.lottehotel.com/content/dam/lotte-hotel/city/mapo/facilities/spa-fitness/180708-5-2000-fac-mapo-city.jpg.thumb.768.768.jpg"
+															alt="First slide" height="400px">
+														<div class="mask rgba-black-light"></div>
+													</div>
+													<div class="carousel-caption">
+														<h3 class="h3-responsive">도레미 스포츠센터</h3>
+														<p><i class="fas fa-heart"></i>&nbsp150 &nbsp&nbsp<i class="far fa-comment-dots"></i> 30</p>
+													</div>
+												</div>
+												<div class="carousel-item">
+													<!--Mask color-->
+													<div class="view">
+														<img class="d-block w-100"
+															src="http://cdn.prestigegorilla.net/storage/editor/2018/12/a9a17040-f8f6-11e8-b8a2-19c614881e03.jpg"
+															alt="Second slide" height="400px">
+														<div class="mask rgba-black-strong"></div>
+													</div>
+													<div class="carousel-caption">
+														<h3 class="h3-responsive">파솔라 스포츠센터</h3>
+														<p><i class="fas fa-heart"></i>&nbsp280 &nbsp&nbsp<i class="far fa-comment-dots"></i> 100</p>
+													</div>
+												</div>
+												<div class="carousel-item">
+													<!--Mask color-->
+													<div class="view">
+														<img class="d-block w-100"
+															src="http://ms-housing.kr/data/file/commercial_gallery/31256570_1d4trXk6_bb1c05139a1f12061149e5d1d8ef6b209f1efb33.jpg"
+															alt="Third slide" height="400px">
+														<div class="mask rgba-black-slight"></div>
+													</div>
+													<div class="carousel-caption">
+														<h3 class="h3-responsive">시도 스포츠센터</h3>
+														<p><i class="fas fa-heart"></i>&nbsp100 &nbsp&nbsp<i class="far fa-comment-dots"></i> 20</p>
+													</div>
+												</div>
+											</div>
+											<!--/.Slides-->
+											<!--Controls-->
+											<a class="carousel-control-prev" href="#carousel-example-2"
+												role="button" data-slide="prev"> <span
+												class="carousel-control-prev-icon" aria-hidden="true"></span>
+												<span class="sr-only">Previous</span>
+											</a> <a class="carousel-control-next" href="#carousel-example-2"
+												role="button" data-slide="next"> <span
+												class="carousel-control-next-icon" aria-hidden="true"></span>
+												<span class="sr-only">Next</span>
+											</a>
+											<!--/.Controls-->
+										</div>
+										<!--/.Carousel Wrapper-->
+
+
+
+
+									</div>
 			    					</div>
 			    					
 			    				</div>
