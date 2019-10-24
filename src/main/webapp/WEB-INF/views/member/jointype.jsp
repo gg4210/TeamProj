@@ -3,11 +3,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <style>
-
 html, body, .content{
     height:100%;
 }
-
 </style>
 
 <div class="container h-100" id="jtype">

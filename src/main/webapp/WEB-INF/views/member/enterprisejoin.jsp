@@ -4,7 +4,7 @@
 	$('.file-upload').file_upload();
 </script>
 <style>
-html, body {
+html, body{
     height: 100%;
 }
 .content{
@@ -23,36 +23,102 @@ html, body {
 			    <form class="text-center border border-light p-5" action="#!">
 			    <p class="h4 mb-4">사업자 회원가입</p>
 				<!-- 아이디 -->
-				<div>
-					<div class="form-inline text-center">
-						<input type="text" id="Id" class="form-control mb-4 col-md-7" placeholder="아이디">
-						<button type="button" class="btn btn-primary mb-2 col-md-4" id="idcheck">중복확인</button>
+				<div class="form-row align-items-center col-12">
+					<div class="form-group mt-3 col-md-7">
+						<label for="Id" class="sr-only">ID</label>
+						<input type="text" id="Id" class="form-control" placeholder="아이디">
 				    </div>
+				    <button type="button" class="btn btn-primary mb-2 col-md-4" id="idcheck">중복확인</button>
 			    </div>
 			    
 			    <!-- Password -->
-			    <input type="password" id="Password" class="form-control mb-4" placeholder="비밀번호를 입력하세요.">
-			    
+			    <div class="form-row align-items-center col-12">
+			    	<div class="form-group mt-3 col">
+				    	<label for="Password" class="sr-only">Password</label>
+				    	<input type="password" id="Password" class="form-control" placeholder="비밀번호를 입력하세요.">
+				    </div>
+			    </div>
 			    <!-- Password re-->
-			    <input type="password" id="Password" class="form-control mb-4" placeholder="비밀번호를 다시 입력하세요.">
-			    
+			    <div class="form-row align-items-center col-12">
+			    	<div class="form-group mt-3 col">
+				    	<label for="Password-re" class="sr-only">Password-re</label>
+				    	<input type="password" id="Password-re" class="form-control" placeholder="비밀번호를 다시 입력하세요.">
+			    	</div>
+			    </div>
 			    <!-- 이메일 -->
-				<input type="email" id="email" class="form-control mb-4" placeholder="이메일을 입력하세요.">
-				<!-- 이메일 수신여부 -->
-				<div class="row">
-					<label class="col-md-3 text-left">이메일 수신 여부</label>
-					<div class="custom-control custom-radio">
-					  <input type="radio" class="custom-control-input" id="emailreceive" name="defaultExampleRadios">
-					  <label class="custom-control-label" for="emailreceive">받음</label>
+			    <div class="form-row align-items-center col-12">
+			    	<div class="form-group mt-3 col">
+			    		<label for="email" class="sr-only">email</label>
+						<input type="email" id="email" class="form-control mb-4" placeholder="이메일을 입력하세요.">
 					</div>
-					<div class="custom-control custom-radio">
-					  <input type="radio" class="custom-control-input" id="emailnoreceive" name="defaultExampleRadios">
-					  <label class="custom-control-label" for="emailnoreceive">받지 않음</label>
+				</div>
+				<!-- 이메일 수신여부 -->
+				<div class="form-group mt-0 mb-0">
+					<div class="row">
+						<label class="col-3 text-left">이메일 수신 여부</label>
+						<div class="custom-control custom-radio">
+						  <input type="radio" class="custom-control-input" id="emailreceive" name="emailradios">
+						  <label class="custom-control-label" for="emailreceive">받음</label>
+						</div>
+						<div class="custom-control custom-radio">
+						  <input type="radio" class="custom-control-input" id="emailnoreceive" name="emailradios">
+						  <label class="custom-control-label" for="emailnoreceive">받지 않음</label>
+						</div>
+					</div>
+				</div>
+				<!-- 사업자 등록번호 -->
+				<div class="form-inline" id="enidnum">
+					<label class="col-3 text-left">사업자등록번호</label>
+					<input type="tel" class="col-2"/>
+					<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+					<input type="tel" class="col-2"/>
+					<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+					<input type="tel" class="col-2"/>
+					<button type="button" class="btn btn-primary mb-2" id="enidcheck">중복확인</button>
+				</div>
+				<!-- 상호(법인명) -->
+				<div class="form-inline" id="enname">
+					<label class="col-3 text-left">상호(법인명)</label>
+					<input class="col-4 form-control" type="text"/>
+				</div>
+				<!-- 대표자 성명 -->
+				<div class="form-inline" id="ownername">
+					<label class="col-3 text-left">대표자 성명</label>
+					<input class="col-2 form-control" type="text"/>
+				</div>
+				<!-- 휴대폰 번호 -->
+				<div class="form-inline" id="Cel">
+					<label class="col-md-3 text-left">휴대폰번호</label>
+					<select class="browser-default custom-select col-2">
+					  <option selected value="1">010</option>
+					  <option value="2">011</option>
+					  <option value="3">016</option>
+					  <option value="4">017</option>
+					  <option value="5">018</option>
+					  <option value="6">019</option>
+					</select>
+					<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+					<input type="tel" class="form-control col-2"/>
+					<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+					<input type="tel" class="form-control col-2"/>
+				</div>
+				<!-- SMS 수신여부 -->
+				<div class="form-group mt-3 mb-3">
+					<div class="row">
+						<label class="col-md-3 text-left">SMS 수신 여부</label>
+						<div class="custom-control custom-radio">
+						  <input type="radio" class="custom-control-input" id="smsreceive" name="smsradios">
+						  <label class="custom-control-label" for="smsreceive">받음</label>
+						</div>
+						<div class="custom-control custom-radio">
+						  <input type="radio" class="custom-control-input" id="smsnoreceive" name="smsradios">
+						  <label class="custom-control-label" for="smsnoreceive">받지 않음</label>
+						</div>
 					</div>
 				</div>
 				<!-- 전화번호 -->
 				<div class="form-inline" id="Tel">
-					<label class="col-md-4 text-left">전화번호</label>
+					<label class="col-md-3 text-left">전화번호</label>
 					<select class="browser-default custom-select col-2">
 					  <option selected value="1">02)</option>
 					  <option value="2">031)</option>
@@ -73,26 +139,34 @@ html, body {
 					  <option value="17">064)</option>
 					</select>
 					<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-					<input type="tel" class="col"/>
+					<input type="tel" class="form-control col-2"/>
 					<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-					<input type="tel" class="col"/>
+					<input type="tel" class="form-control col-2"/>
 				</div>
-				
-				<!-- 휴대폰 번호 -->
-				<div class="form-inline" id="Cel">
-					<label class="col-md-4 text-left">휴대폰번호</label>
-					<select class="browser-default custom-select col-2">
-					  <option selected value="1">010</option>
-					  <option value="2">011</option>
-					  <option value="3">016</option>
-					  <option value="4">017</option>
-					  <option value="5">018</option>
-					  <option value="6">019</option>
-					</select>
+				<!-- 팩스번호 -->
+				<div class="form-inline" id="fax">
+					<label class="col-3 text-left">팩스번호</label>
+					<input type="tel" class="form-control col-2"/>
 					<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-					<input type="tel" class="col"/>
+					<input type="tel" class="form-control col-2"/>
 					<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-					<input type="tel" class="col"/>
+					<input type="tel" class="form-control col-2"/>
+				</div>
+				<!-- 사업장 소재지 -->
+				<div class="form-inline mt-10" id="address">
+					<label class="col-3 text-left">사업장소재지</label><br/>
+					<div class="col-12">
+						<div class="row justify-content-start">
+							<input type="tel" class="form-control col-2 mt-2" placeholder="우편번호" disabled="disabled"/>
+							<button type="button" class="btn btn-primary mb-2 col-4" id="findzipcode">우편번호 찾기</button>
+						</div>
+					</div>
+					<div class="col-12">
+						<div class="row">
+							<input type="text" class="form-control col-6 mt-2" placeholder="도로명주소" disabled="disabled"/>
+							<input type="text" class="form-control col-6 mt-2" placeholder="상세주소"/>
+						</div>
+					</div>
 				</div>
 			    <!-- Sign in button -->
 			    <button class="btn btn-info btn-block my-4" type="submit">가입하기</button>

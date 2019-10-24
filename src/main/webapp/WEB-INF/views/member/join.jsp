@@ -48,34 +48,6 @@ html, body {
 			    <!-- 이메일 -->
 				<input type="email" id="email" class="form-control mb-4" placeholder="이메일을 입력하세요.">
 				
-				<!-- 전화번호 -->
-				<div class="form-inline" id="Tel">
-					<label class="col-md-4 text-left">전화번호</label>
-					<select class="browser-default custom-select col-2">
-					  <option selected value="1">02)</option>
-					  <option value="2">031)</option>
-					  <option value="3">032)</option>
-					  <option value="4">033)</option>
-					  <option value="5">041)</option>
-					  <option value="6">042)</option>
-					  <option value="7">043)</option>
-					  <option value="8">044)</option>
-					  <option value="9">051)</option>
-					  <option value="10">052)</option>
-					  <option value="11">053)</option>
-					  <option value="12">054)</option>
-					  <option value="13">055)</option>
-					  <option value="14">061)</option>
-					  <option value="15">062)</option>
-					  <option value="16">063)</option>
-					  <option value="17">064)</option>
-					</select>
-					<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-					<input type="tel" class="col"/>
-					<span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
-					<input type="tel" class="col"/>
-				</div>
-				
 				<!-- 휴대폰 번호 -->
 				<div class="form-inline" id="Cel">
 					<label class="col-md-4 text-left">휴대폰번호</label>
