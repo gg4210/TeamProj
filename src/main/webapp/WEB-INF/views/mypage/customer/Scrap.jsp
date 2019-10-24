@@ -86,7 +86,7 @@ nav > ul a {
 						<th scope="col" class="text-center">스크랩 일자</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody class="text-center">
 					<tr>
 						<td class="text-center">
 							<div class="custom-control custom-checkbox">

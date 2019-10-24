@@ -7,7 +7,7 @@
 		<h2>홍보</h2>
 	</div>
 	<div class="row">
-		<div class="col-md-6" style="display:inline;">
+		<div class="col-lg-6" style="display:inline;">
 			<div class="card">
 				<div class="card-body">
 					<h3 class="card-title">홍보문구 작성</h3>	
@@ -31,27 +31,30 @@
 				</div>	
 			</div>
 		</div>
-		<div class="col-md-6" style="display:inline;">
+		<div class="col-lg-6" style="display:inline;">
 			<div>
 				<div class="card">
 					<div class="card-body">
 					<h3>홍보문구 전송내역</h3>
 				
-						<table class="table">
-							<thead>
-								<tr>
-									<th style="text-align:left; width:80%">내용</th>
-									<th style="width:20%;text-align:center;">작성일</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>스타벅스 아메리카노adslknsadnklsad nklsadnklnklsadknlsadnklsdanklsadnklsadnlksadnlkk lsadnklnsad klnsadknlsdankl</td>
-									<td style="text-align:center;">2019-10-01</td>
-								</tr>
-							</tbody>
-						</table>
-							
+					<div class="row">
+						<div class="col">
+							<table class="table">
+								<thead>
+									<tr>
+										<th style="text-align:left; width:80%">내용</th>
+										<th style="width:20%;text-align:center;">작성일</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>스타벅스 아메리카노adslknsadnklsad nklsadnklnklsadknlsadnklsdanklsadnklsadnlksadnlkk lsadnklnsad klnsadknlsdankl</td>
+										<td class="align-middle" style="text-align:center;">2019-10-01</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>		
 						<!-- 페이지네이션 시작 -->
 						<div class="row">
 							<div class="col">
