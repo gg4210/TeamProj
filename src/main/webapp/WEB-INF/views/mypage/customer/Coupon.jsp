@@ -63,7 +63,7 @@ button {
 						</thead>
 						<tbody>
 							<tr id="coupon-bbs2">
-								<td>8월 출석체크 개근상</td>
+								<td>9월 출석체크 개근상</td>
 								<td>스타벅스 아메리카노</td>
 								<td>2019-10-01~<br/>2019-10-31
 								</td>
