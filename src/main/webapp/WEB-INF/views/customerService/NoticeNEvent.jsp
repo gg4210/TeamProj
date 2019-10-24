@@ -20,6 +20,15 @@
 				<a class="nav-link" id="pills-event-tab" data-toggle="pill" href="#pills-event"
 				role="tab" aria-controls="pills-event" aria-selected="false">이벤트</a>
 			</li>
+			
+			
+			
+			<li class="nav-item">
+				<a class="nav-link" id="pills-view-tab" data-toggle="pill" href="#pills-view"
+				role="tab" aria-controls="pills-view" aria-selected="false">상세보기</a>
+			</li>
+			
+			
 		</ul>
 	</div>
 	<!-- 필메뉴 끝 -->
@@ -32,6 +41,12 @@
 		<div class="tab-pane fade" id="pills-event" role="tabpanel" aria-labelledby="pills-event-tab">
 			<jsp:include page="/WEB-INF/views/customerService/event.jsp" />
 		</div>
+		
+		
+		<div class="tab-pane fade" id="pills-view" role="tabpanel" aria-labelledby="pills-view-tab">
+			<jsp:include page="/WEB-INF/views/customerService/consultView.jsp" />
+		</div>
+		
 	</div>
 	
 </div>
