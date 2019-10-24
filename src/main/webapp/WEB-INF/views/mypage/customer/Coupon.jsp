@@ -8,6 +8,14 @@ th {
 button {
 	margin-right:5px;
 }
+
+#coupon-bbs1 td{
+	vertical-align:middle;
+}
+
+#coupon-bbs2 td{
+	vertical-align:middle;
+}
 </style>
 
 <div>
@@ -29,11 +37,10 @@ button {
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
+							<tr id="coupon-bbs1">
 								<td>OO수영장</td>
 								<td>10월 이벤트 5% 할인쿠폰</td>
-								<td>2019-10-01~<br />2019-10-31
-								</td>
+								<td>2019-10-01~<br />2019-10-31</td>
 								<td><button class="btn purple-gradient" id="coupon-use1">사용</button></td>
 							</tr>
 						</tbody>
@@ -55,7 +62,7 @@ button {
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
+							<tr id="coupon-bbs2">
 								<td>8월 출석체크 개근상</td>
 								<td>스타벅스 아메리카노</td>
 								<td>2019-10-01~<br/>2019-10-31
