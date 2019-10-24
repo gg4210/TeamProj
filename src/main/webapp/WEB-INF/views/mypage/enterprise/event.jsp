@@ -10,7 +10,7 @@
 		<div class="col-lg-6" style="display:inline;">
 			<div class="card">
 				<div class="card-body">
-					<h3 class="card-title">홍보문구 작성</h3>	
+					<h3>홍보문구 작성</h3>
 					
 					<div class="form-group row">
 						<label class="control-label pr-2 col-offset-1 col-2" for="title">제목</label>
