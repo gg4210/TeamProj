@@ -23,7 +23,7 @@ button {
 		<h2>쿠폰함</h2>
 	</div>
 	<div class="row">
-		<div class="col-md-6" style="display:inline;">
+		<div class="col-lg-6" style="display:inline;">
 			<div class="card">
 				<div class="card-body">
 					<h3>운동시설 쿠폰</h3>
@@ -48,7 +48,7 @@ button {
 				</div>	
 			</div>
 		</div>
-		<div class="col-md-6" style="display:inline;">
+		<div class="col-lg-6" style="display:inline;">
 			<div class="card">
 				<div class="card-body">
 					<h3>운동메이트 쿠폰</h3>
