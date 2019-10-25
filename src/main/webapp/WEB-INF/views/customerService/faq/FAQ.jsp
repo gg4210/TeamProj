@@ -216,7 +216,7 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 $(function(){
 	
 	$('#faq_write').click(function(){
-		location.href="customerService/FAQWrite.do";
+		location.href="FAQWrite.do";
 	});
 });
 </script>

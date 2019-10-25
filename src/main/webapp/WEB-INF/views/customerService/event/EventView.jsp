@@ -78,9 +78,9 @@
 	</div>
 	
 	<div class="row d-flex justify-content-center mt-3 mb-3">		
-		<button type="button" class="btn btn-primary" id="edit">수정</button>
-		<button type="button" class="btn btn-primary" onclick="history.back();">확인</button>
-		<button type="button" class="btn btn-primary" id="delete">삭제</button>
+		<button type="button" class="btn btn-info" id="event_edit">수정</button>
+		<button type="button" class="btn btn-primary" id="event_confirm"">확인</button>
+		<button type="button" class="btn btn-info" id="event_delete">삭제</button>
 	</div>
 	<br/>
 	<br/>
@@ -119,11 +119,15 @@
 
 <script>
 $(function(){
-	$('#edit').click(function(){
-		location.href="notice/noticeEdit.do";
+	$('#event_edit').click(function(){
+		location.href="eventEdit.do";
 	});
 	
-	$('#delete').click(function(){
+	$('#event_confirm').click(function(){
+		location.href="eventList.do";
+	});
+	
+	$('#event_delete').click(function(){
 		$('#delete-modal').modal('show');
 	});
 	
