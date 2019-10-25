@@ -76,7 +76,7 @@
 						<!-- 회원 등록,삭제 버튼 -->
 							<div class="clearfix">
 								<div class="float-right">
-									<button type="submit" class="btn btn-info px-3" id="ok">회원등록</button>
+									<button type="submit" class="btn btn-info px-3" id="newMember" data-toggle="modal" data-target="newMemberPlus">회원등록</button>
 									<button type="submit" class="btn btn-default px-3" id="update">정보수정</button>	
 									<button type="submit" class="btn btn-danger px-3" id="delete">회원삭제</button>			
 								</div>
@@ -97,6 +97,7 @@
 									<th scope="col">아이디</th>
 									<th scope="col">성별</th>
 									<th scope="col">나이</th>
+									<th scope="col">연락처</th>
 									<th scope="col">일자</th>
 								</tr>
 							</thead>
@@ -113,6 +114,7 @@
 									<td>NAA*</td>
 									<td>여</td>
 									<td>27</td>
+									<td>010-1111-2222</td>
 									<td>2019.10.24 ~ 2020.09.23</td>
 								</tr>
 								<tr>
@@ -127,6 +129,7 @@
 									<td>KIM*</td>
 									<td>여</td>
 									<td>27</td>
+									<td>010-1111-2222</td>
 									<td>2019.10.23 ~ 2020.10.22</td>
 								</tr>
 								<tr>
@@ -141,6 +144,7 @@
 									<td>PAR*</td>
 									<td>남</td>
 									<td>45</td>
+									<td>010-1111-2222</td>
 									<td>2019.10.23 ~ 2020.01.22</td>
 								</tr>
 								<tr>
@@ -155,6 +159,7 @@
 									<td>KIM*</td>
 									<td>남</td>
 									<td>30</td>
+									<td>010-1111-2222</td>
 									<td>2019.10.20 ~ 2020.01.19</td>
 								</tr>
 								<tr>
@@ -169,6 +174,7 @@
 									<td>CHO*</td>
 									<td>여</td>
 									<td>23</td>
+									<td>010-1111-2222</td>
 									<td>2019.10.15 ~ 2020.11.14</td>
 								</tr>
 								<tr>
@@ -183,6 +189,7 @@
 									<td>LEE*</td>
 									<td>여</td>
 									<td>25</td>
+									<td>010-1111-2222</td>
 									<td>2019.09.30 ~ 2020.12.29</td>
 								</tr>
 								<tr>
@@ -197,6 +204,7 @@
 									<td>KIM*</td>
 									<td>여</td>
 									<td>27</td>
+									<td>010-1111-2222</td>
 									<td>2019.10.23 ~ 2020.10.22</td>
 								</tr>
 								<tr>
@@ -211,6 +219,7 @@
 									<td>KIM*</td>
 									<td>여</td>
 									<td>27</td>
+									<td>010-1111-2222</td>
 									<td>2019.10.23 ~ 2020.10.22</td>
 								</tr>
 								<tr>
@@ -225,6 +234,7 @@
 									<td>KIM*</td>
 									<td>여</td>
 									<td>27</td>
+									<td>010-1111-2222</td>
 									<td>2019.10.23 ~ 2020.10.22</td>
 								</tr>
 								<tr>
@@ -239,6 +249,7 @@
 									<td>KIM*</td>
 									<td>여</td>
 									<td>27</td>
+									<td>010-1111-2222</td>
 									<td>2019.10.23 ~ 2020.10.22</td>
 								</tr>
 							</tbody>
@@ -268,5 +279,98 @@
 </div>
 <!-- container-fluid 끝 -->
 
+<!-- 회원등록 모달 시작 -->
+		<div class="modal fade" id="newMemberPlus" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-notify modal-primary modal-dialog-centered" role="document">
+				<!--Content-->
+				<div class="modal-content">
+					<!--Header-->
+					<div class="modal-header">
+						<p class="heading">신규회원 등록</p>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true" class="white-text">&times;</span>
+						</button>
+					</div>
+					<!--Body-->
+					<form>
+					<div class="modal-body">
+					<div class="row col-md-12">
+						<div class="form-group mr-3">
+							<label>이름</label>
+							<input type="text" id="name" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>아이디</label>
+							<input type="text" id="user" class="form-control"/>
+						</div>
+					</div>
+					<div class="row col-md-12">
+						<div class="form-group mr-3">
+								<label>종목</label>
+								<select class="browser-default custom-select">
+								  <option selected>종목</option>
+								  <option value="1">PT</option>
+								  <option value="2">필라테스</option>
+								  <option value="3">수영</option>
+								  <option value="4">헬스</option>
+								</select>
+						</div>
+						<div class="form-group mr-3">
+							<label>성별</label>
+							<select class="browser-default custom-select">
+							  <option selected>남</option>
+							  <option value="1">여</option>
+							</select>
+						</div>
+						<div class="form-group mr-3">
+								<label>나이</label>
+								<select class="browser-default custom-select">
+								  <option selected>생년</option>
+								  <option value="1">2019</option>
+								  <option value="2">2018</option>
+								  <option value="3">2017</option>
+								  <option value="4">2016</option>
+								  <option value="5">2015</option>
+								  <option value="6">2014</option>
+								  <option value="7">2013</option>
+								  <option value="8">2012</option>
+								  <option value="9">2011</option>
+								</select>
+						</div>
+					</div>
+						
+						<div class="form-group">
+							<label>연락처</label>
+							<input type="text" id="name" class="form-control"/>
+						</div>
+						<div class="form-group">
+							<label>일자</label>
+							<input type="text" id="name" class="form-control"/>
+						</div>
+							
+						</div>
+						<div class="row justify-content-center pb-4">
+							<button type="button" class="btn btn-info btn-md">등록</button>
+							<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
+						</div>
+					</div>
+					</form>
+				</div>
+				<!--/.Content-->
+			</div>
+		</div>
+		<!-- 상세보기 모달 끝 -->
+
+
+
+<script>
+$(function(){
+	$('#newMember').click(function(){
+		$('#newMemberPlus').modal('show');
+	});
+	
+})
+
+</script>
 
 <script src="<c:url value="/resources/js/mypage/enterprise/user-stats.js"/>"></script>

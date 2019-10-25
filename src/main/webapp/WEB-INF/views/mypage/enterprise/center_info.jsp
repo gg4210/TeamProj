@@ -39,10 +39,16 @@
 <div class="container-fluid">
 	
 	<!-- 페이지 헤더 시작 -->
-	<div class="page-header mb-4" style="border-bottom: 1px solid #D8D8D8;">
+	<div class="page-header mb-1" style="border-bottom: 1px solid #D8D8D8;">
 		<h2 style="font-weight: bold;">센터 관리</h2>
 	</div>
 	<!-- 페이지 헤더 끝 -->
+		<!-- 버튼 시작 -->
+		<div class="text-right p-0 mb-2">
+			<button type="submit" class="btn btn-warning px-3" id="update">수정</button>
+			<button type="submit" class="btn btn-danger px-3" id="delete">전체 삭제</button>
+		</div>
+		<!-- 버튼 끝 -->
 	
 	<!-- row 시작 -->
 	<div class="row">
@@ -259,13 +265,6 @@
 		
 		</div>
 		<!-- row 끝 -->
-		
-		<!-- 버튼 시작 -->
-		<div class="row float-right pr-3">
-			<button type="submit" class="btn btn-warning px-3" id="update">수정</button>
-			<button type="submit" class="btn btn-danger px-3" id="delete">전체 삭제</button>
-		</div>
-		<!-- 버튼 끝 -->
 
 </div>
 <!-- container-fluid -->
