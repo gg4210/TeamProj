@@ -123,12 +123,14 @@ $(function(){
 		location.href="noticeEdit.do";
 	});
 	
+
+	$('#notice_confirm').click(function(){
+		location.href="noticeList.do";
+	});
+	
 	$('#notice_delete').click(function(){
 		$('#delete-modal').modal('show');
 	});
-	
-	$('#notice_confirm').click(function(){
-		location.href="noticeList.do";
 	
 });
 </script>
