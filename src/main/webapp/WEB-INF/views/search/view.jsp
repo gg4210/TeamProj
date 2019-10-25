@@ -109,13 +109,16 @@ background-color: #4285F4; }
 									<p class="font-weight-bold h3">도레미스포츠센터</p>
 								</div>							
 								<div class="card-body">
-									<p>[주소] : 경기도 부천시 원미구~~</p>
-									<p>[전화번호] : 000-0000-0000</p>
+									<p><span class="badge badge-primary">주소</span> : 경기도 부천시 원미구 역곡동 -------</p>
+									<hr/>
+									<p><span class="badge badge-primary">전화번호</span> : 000-0000-0000</p>
+									<hr/>									
 									<p>붐비는 정도가 들어갈 공간</p>
-									<p>[운영여부] : 현재 운영중!</p>
-									<p>[종목]</p>
-									<p><i class="fas fa-swimming-pool"></i> 수영</p>
-									<p><i class="fas fa-dumbbell"></i> 헬스</p>
+									<hr/>									
+									<p><span style="font-weight: bold; color:blue;">TODAY</span> : 현재 운영중!</p>
+									<hr/>									
+									<p><span class="badge badge-primary">종목</span></p>
+									<p><i class="fas fa-swimming-pool"></i> 수영 &nbsp&nbsp<i class="fas fa-dumbbell"></i> 헬스</p>
 								</div>								
 							</div>
 						</div>
@@ -127,12 +130,39 @@ background-color: #4285F4; }
 								<div class="card-header pt-4"><p class="font-weight-bold h3">시설안내</p></div>
 								<div class="card-body">
 
-									<p>[운영시간]</p>
-									<p>- 평일 : 6:00 am ~ 12:</p>
-									<p>- 토요일</p>
-									<p>- 휴관일</p>
-									<p>[제공 서비스]</p>										
-									<p>[사진]</p>
+									<p class="h4"><span class="badge badge-primary"><i class="fas fa-clock"></i>&nbsp;운영시간</span></p>
+									<p>-평일:    08:00~22:00</p>
+									<p>-주말/공휴일: 09:00~23:00</p>
+									<p style="color: red;">※매주 2,4번째주 수요일은 휴관합니다.</p>
+									<p class="h4"><span class="badge badge-primary">제공 서비스</span></p>
+									<div class="row">
+										<div class="col-2">
+											<img src="<c:url value='/resources/images/icon/clothes.png'/>" class="img-fluid"/>
+											<br/>
+											<p class="text-center mt-2">운동복</p>
+										</div>
+										<div class="col-2">
+											<img src="<c:url value='/resources/images/icon/park.png'/>" class="img-fluid"/>
+											<br/>
+											<p class="text-center mt-2">주차</p>
+										</div>
+										<div class="col-2">
+											<img src="<c:url value='/resources/images/icon/locker.png'/>" class="img-fluid"/>
+											<br/>
+											<p class="text-center mt-2">라커</p>
+										</div>
+										<div class="col-2">
+											<img src="<c:url value='/resources/images/icon/wifi.png'/>" class="img-fluid"/>
+											<br/>
+											<p class="text-center mt-2">와이파이</p>
+										</div>
+										<div class="col-2">
+											<img src="<c:url value='/resources/images/icon/shower.png'/>" class="img-fluid"/>
+											<br/>
+											<p class="text-center mt-2">샤워실</p>
+										</div>
+									</div>																	
+									<p class="h4"><span class="badge badge-primary">사진</span></p>
 										<div class="scrolling-wrapper scrollbar scrollbar-primary">
 											<div class="card-container p-3">
 												<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
