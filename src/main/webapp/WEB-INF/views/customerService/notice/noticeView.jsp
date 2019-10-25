@@ -117,6 +117,7 @@
 	
 </div>
 
+
 <script>
 $(function(){
 	$('#notice_edit').click(function(){
