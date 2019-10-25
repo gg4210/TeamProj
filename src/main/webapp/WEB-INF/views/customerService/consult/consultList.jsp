@@ -76,6 +76,7 @@ nav > ul a {
 			</div>
 		<!-- 검색창 끝 -->		
 
+
 	<!-- 페이지네이션 시작 -->
 	<div class="row">
 		<div class="col">
