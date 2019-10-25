@@ -148,16 +148,22 @@
 												</thead>
 												<tbody>
 													<tr>
-														<th scope="row">2</th>
+														<th scope="row">3</th>
 														<td>[정기점검]</td>
 														<td class="text-left">2019-10-26 정기점검 안내</td>
 														<td>2019-10-21</td>
 													</tr>
 													<tr>
+														<th scope="row">2</th>
+														<td>[공지사항]</td>
+														<td class="text-left">운동해!偕 서비스가 정식 오픈하였습니다.</td>
+														<td>2019-10-21</td>
+													</tr>
+													<tr>
 														<th scope="row">1</th>
 														<td>[공지사항]</td>
-														<td class="text-left">운동해!偕 서비스가 오픈하였습니다.</td>
-														<td>2019-10-21</td>
+														<td class="text-left">운동해!偕 서비스가 가오픈하였습니다.</td>
+														<td>2019-10-18</td>
 													</tr>
 												</tbody>
 											</table>
@@ -176,14 +182,19 @@
 												</thead>
 												<tbody class="text-center">
 													<tr>
-														<th scope="row">2</th>
+														<th scope="row">3</th>
 														<td>일부 스포츠센터에서 10월 5% 할인쿠폰을 제공합니다</td>
 														<td>2019-10-21</td>
 													</tr>
 													<tr>
-														<th scope="row">1</th>
+														<th scope="row">2</th>
 														<td>9월 출석체크 개근 시 스타벅스 커피쿠폰을 드립니다.</td>
 														<td>2019-10-21</td>
+													</tr>
+													<tr>
+														<th scope="row">1</th>
+														<td>10월 출석이벤트! 건강도 챙기고 혜택도 챙기고!</td>
+														<td>2019-10-01</td>
 													</tr>
 												</tbody>
 											</table>
@@ -199,7 +210,7 @@
 										<!--Carousel Wrapper-->
 										<div id="carousel-example-2"
 											class="carousel slide carousel-fade" data-ride="carousel"
-											style="height: 400px">
+											style="height: 400px;">
 											<!--Indicators-->
 											<ol class="carousel-indicators">
 												<li data-target="#carousel-example-2" data-slide-to="0"
