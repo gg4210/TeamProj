@@ -13,6 +13,16 @@ public class CustomerServiceController {
 	
 	
 	
+	@RequestMapping("/moreFAQ.do")
+	public String moreFAQ() {
+		return "customerService/faq/FAQ.tiles";
+	}
+	
+	@RequestMapping("/moreNoticeView.do")
+	public String moreNotice() {
+		return "customerService/notice/noticeList.tiles";
+	}
+	
 	
 	
 	@RequestMapping("/customerService/notice/noticeList.do")
@@ -50,31 +60,40 @@ public class CustomerServiceController {
 		return "customerService/consult/consultEdit.tiles";		
 	}
 	
-	@RequestMapping("/customerService/eventView.do")
+	
+	
+	@RequestMapping("/customerService/event/eventView.do")
 	public String eventView() {
-		return "customerService/EventView.tiles";
+		return "customerService/event/EventView.tiles";
 	}
+	
+	@RequestMapping("/customerService/event/eventEdit.do")
+	public String eventEdit() {
+		return "customerService/event/eventEdit.tiles";
+	}	
+	
+	@RequestMapping("/customerService/event/eventList.do")
+	public String eventList() {
+		return "customerService/event/eventList.tiles";
+	}
+	
+	
 
 	@RequestMapping("/customerService/notice/noticeWrite.do")
 	public String noticeWrite() {
 		return "customerService/notice/noticeWrite.tiles";
 	}
 	
-	@RequestMapping("/customerService/moreFAQ.do")
-	public String moreFAQ() {
-		return "/customerServicecustomerService/FAQ.tiles";
-	}
-	
-	@RequestMapping("/moreNoticeView.do")
-	public String moreNotice() {
-		return "customerService/notice.tiles";
-	}
-	
-	@RequestMapping("/customerService/FAQWrite.do")
+	@RequestMapping("/FAQWrite.do")
 	public String faqWrite() {
-		return "customerService/FAQWrite.tiles";
+		return "customerService/faq/FAQWrite.tiles";
 	}
 	
+	@RequestMapping("/customerService/faq/FAQ.do")
+	public String goFAQ() {
+		return "customerService/faq/FAQ.tiles";
+	}
+		
 	@RequestMapping("/customerService/consult/replyWrite.do")
 	public String replyWrite() {
 		return "customerService/consult/replyWrite.tiles";
@@ -84,6 +103,8 @@ public class CustomerServiceController {
 //	public String () {
 //		return "";
 //	}
+	
+
 	
 	
 }
