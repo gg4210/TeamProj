@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <style>
 #page-header {
@@ -27,8 +28,8 @@ nav > ul a {
 
 
 <div class="container">
-	<div class="page-header">
-		<h2>상담내역</h2>
+	<div class="page-header pt-2">
+		<h2>1:1문의 내역</h2>
 	</div>
 	
 	<div class="row">
@@ -54,7 +55,7 @@ nav > ul a {
 					<tr>
 						<td class="text-center">9</td>
 						<td class="text-center">게시판 이용 관련</td>
-						<td>로그인 했는데 글을 쓸수가 없어요. 댓글은 되는데</td>
+						<td><a href="<c:url value='/customerService/consult/consultView.do'/>">로그인 했는데 글을 쓸수가 없어요. 댓글은 되는데</a></td>
 						<td class="text-center">2019-10-03</td>
 						<td class="text-center">답변완료</td>
 					</tr>

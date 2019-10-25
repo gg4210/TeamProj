@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <div class="container">
+
+	<div class="row pt-2">
+		<h3>이벤트</h3>		
+	</div>
+	
 
 	<div class="row">
 		<div class="clearfix col">
@@ -9,8 +15,8 @@
 					<select class="browser-default custom-select">
 						<option selected>검색조건</option>
 						<option value="1">전체</option>
-						<option value="2">정기점검</option>
-						<option value="3">기타</option>
+						<option value="2">정기이벤트</option>
+						<option value="3">특별이벤트</option>
 					</select>
 					<button type="button" class="btn btn-primary p-2 px-4">
 						<i class='fas fa-search'
@@ -35,21 +41,21 @@
 				<tbody>
 					<tr>
 						<td class="text-center">2</td>
-						<td class="text-center">[정기점검]</td>
+						<td class="text-center">[이벤트]</td>
 						<td>2019-10-26 정기점검 안내</td>
 						<td class="text-center">2019-10-21</td>
 					</tr>
 					<tr>
 						<td class="text-center">1</td>
-						<td class="text-center">[공지]</td>
-						<td>운동해!偕 서비스가 오픈하였습니다.</td>
+						<td class="text-center">[이벤트]</td>
+						<td><a href="<c:url value='/customerService/eventView.do'/>">운동해!偕 서비스가 오픈하였습니다.</a></td>
 						<td class="text-center">2019-10-21</td>
 					</tr>
 				</tbody>
 			</table>
-		</div>
-		<!-- col-md-12 -->
+		</div>  <!-- col-md-12 -->
 	</div>
+	
 
 	<!-- 페이지네이션 시작 -->
 	<div class="row">
@@ -71,3 +77,4 @@
 		</div>
 	</div>  <!-- 페이지네이션 끝 -->
 </div>
+
