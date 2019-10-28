@@ -36,6 +36,7 @@
 
 
 
+
 <div class="container-fluid">
    
    <!-- 페이지 헤더 시작 -->
@@ -45,7 +46,7 @@
 	<!-- 페이지 헤더 끝 -->
 		<!-- 버튼 시작 -->
 		<div class="text-right p-0 mb-2">
-			<button type="submit" class="btn btn-warning px-3" id="update">수정</button>
+			<button class="btn btn-warning px-3" id="edit">수정</button>
 			<button type="submit" class="btn btn-danger px-3" id="delete">전체 삭제</button>
 		</div>
 		<!-- 버튼 끝 -->
@@ -268,3 +269,4 @@
 
 </div>
 <!-- container-fluid -->
+

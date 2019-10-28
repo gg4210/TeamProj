@@ -8,15 +8,15 @@ public class JoinController {
 	
 	@RequestMapping("/jointype.do")
 	public String jointype(){
-		return "/member/jointype.tiles";
+		return "member/jointype.tiles";
 	}
 	@RequestMapping("/join.do")
 	public String join(){
-		return "/member/join.tiles";
+		return "member/join.tiles";
 	}
 	@RequestMapping("/enterprisejoin.do")
 	public String enterprisejoin(){
-		return "/member/enterprisejoin.tiles";
+		return "member/enterprisejoin.tiles";
 	}
 	
 	

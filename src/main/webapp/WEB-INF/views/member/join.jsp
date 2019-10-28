@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script>
-	$('.file-upload').file_upload();
-</script>
 <style>
 html, body {
     height: 100%;
@@ -16,6 +13,37 @@ html, body {
 #cujoin #curow{
 	height:100%;
 }
+.card-image-container {
+  position: relative;
+  width: 100%;
+}
+.card-img-top {
+  opacity: 1;
+  display: block table;
+  width: 50%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  margin-bottom:5px;
+}
+
+.card-img-middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.card-image-container:hover .card-img-top {
+  opacity: 0.3;
+}
+
+.card-image-container:hover .card-img-middle {
+  opacity: 1;
+}
 </style>
     <div class="container" id="cujoin">
     	<div class="row align-items-center" id="curow">
@@ -24,9 +52,11 @@ html, body {
 				
 			    <p class="h4 mb-4">개인 회원가입</p>
 				<!-- 사진 -->
-				<div class="file-upload-wrapper col-md-4 offset-md-4">
-				  <input type="file" id="input-file-now" class="file-upload" data-height="300"
-				  data-default-file="https://mdbootstrap.com/img/Photos/Others/images/89.jpg"/>
+				<div class="card-image-container p-3">
+					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 50%">
+					<div class="card-img-middle">
+						<div class="text px-3" id="text-modal">추가하기</div>
+					</div>
 				</div>
 			    <!-- 이름 -->
 			    <input type="text" id="Name" class="form-control mb-4" placeholder="이름을 입력하세요.">
