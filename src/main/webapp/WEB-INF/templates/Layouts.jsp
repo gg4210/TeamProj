@@ -16,7 +16,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title><tiles:getAsString name="Title"/></title>	
+<title><tiles:getAsString name="title"/></title>	
 	<!-- CSS -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 	<c:forEach var="css" items="${stylesheets}">
