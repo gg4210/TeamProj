@@ -6,11 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MyPageController {
 	
+	
+	
+		/*임시, 백엔드 스프링 시큐리티 적용 시 삭제 예정 시작*/
 	@RequestMapping("/mypage.do")
 	public String temp() {
 		return "mypage/temp_Index.tiles";
 	}
+		/*임시, 백엔드 스프링 시큐리티 적용 시 삭제 예정 끝*/
+
 	
+	
+		/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 시작*/
 	@RequestMapping("/mypage/customer.do")
 	public String customer(){
 		return "mypage/customer/mypage_Index.tiles";
@@ -25,5 +32,7 @@ public class MyPageController {
 	public String enterprise(){
 		return "mypage/enterprise/mypage_Index.tiles";
 	}
+		/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 끝*/
+
 
 }

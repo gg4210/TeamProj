@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
 <div class="container">
 	<!-- 탭메뉴 시작 -->
 	<div class="row d-flex justify-content-md-center text-center">
@@ -38,14 +39,22 @@
 			<div class="tab-pane fade show active pt-3 pl-1" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 				<jsp:include page="/WEB-INF/views/mypage/enterprise/enterprise_main.jsp"/>
 			</div>
-			<div class="tab-pane fade show" id="pills-user" role="tabpanel" aria-labelledby="pills-user-tab">
+			<div class="tab-pane fade" id="pills-user" role="tabpanel" aria-labelledby="pills-user-tab">
 				<jsp:include page="/WEB-INF/views/mypage/enterprise/user-stats.jsp"/>
 			</div>
 			<div class="tab-pane fade" id="pills-board" role="tabpanel" aria-labelledby="pills-board-tab">
 				<jsp:include page="/WEB-INF/views/mypage/enterprise/event.jsp"/>
 			</div>
 			<div class="tab-pane fade" id="pills-center-info" role="tabpanel" aria-labelledby="pills-customer-service-tab">
-				<jsp:include page="/WEB-INF/views/mypage/enterprise/center_info.jsp"/>
+				<div id="main_center_info">
+					<jsp:include page="/WEB-INF/views/mypage/enterprise/center_info.jsp"/>
+				</div>
+				<div id="edit_center_info">
+					<jsp:include page="/WEB-INF/views/mypage/enterprise/edit_center_info.jsp"/>					
+				</div>
 			</div>
 	  	</div>
 	<!-- 탭 컨텐츠 끝 -->
+
+<script src="<c:url value="/resources/js/mypage/enterprise/mypage_Index.js"/>"></script>
+	
