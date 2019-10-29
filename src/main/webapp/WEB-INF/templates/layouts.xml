@@ -7,7 +7,7 @@
 		
 		<!-- template에 최상위 페이지명-->
 		<definition name="layouts" template="/WEB-INF/templates/Layouts.jsp">
-		
+  			<put-attribute name="title" value="" />
 			<put-attribute name="Side" value="/WEB-INF/templates/Side.jsp"/>
 			<put-attribute name="login" value="/WEB-INF/views/member/login.jsp"/>
 			<!-- 내용은 동적으로 변하기때문에 value에 ""지정-->
@@ -28,28 +28,82 @@
         		<add-attribute value="/resources/css/member/login.css?ver=1.4" />
     		</put-list-attribute>
 		</definition>
-		
-		
-		
-		
-		<definition name="*.tiles" extends="layouts">
-			<!-- 와일드 카드 * 이 {1}에 대입됨-->
-			<!-- 즉 컨트롤러에서 index.tiles로 리턴하면 index가 {1}로 치환되서 index.jsp가 보여짐-->
-			<!-- *.tiles는 임의로 설정 가능 즉 *.daum로 가능 혹은 *.spring등  단 jsp는 제외-->
-			<put-attribute name="Body" value="/WEB-INF/views/{1}.jsp"/>
-			<!--만약 /WEB-INF/밑에 jsp가 있다면
-			<put-attribute name="body" value="/WEB-INF/{1}.jsp"/>
-			컨틀로러 클래스에서는 return "/WEB-INF/Board/List.tiles"인 경우
-			/WEB-INF생략-->
+	
+		<definition name="index.tiles" extends="layouts">
+			<put-attribute name="Body" value="/WEB-INF/views/index.jsp"/>
 		</definition>
 		
-		<!--/*/*.tiles 는 불가 즉 *앞에 /를 붙이지 않는다-->
-		
-		<definition name="*/*.tiles" extends="layouts">
-			<put-attribute name="Body" value="/WEB-INF/views/{1}/{2}.jsp"/>
+				
+		<definition name="search/*.tiles" extends="layouts">
+		  	<put-attribute name="title" value="운동해(偕)!-Search 페이지" />		
+			<put-attribute name="Body" value="/WEB-INF/views/search/{1}.jsp"/>
+			<put-list-attribute name="javascripts" inherit="true">
+			    <add-attribute value="/resources/js/search/searchList.js" />
+			</put-list-attribute>
+			<put-list-attribute name="stylesheets" inherit="true">
+				<add-attribute value="/resources/css/search/list.css" />			
+				<add-attribute value="/resources/css/search/view.css" />
+			</put-list-attribute>
 		</definition>
 		
-		<definition name="*/*/*.tiles" extends="layouts">
-			<put-attribute name="Body" value="/WEB-INF/views/{1}/{2}/{3}.jsp"/>
+		
+		<definition name="member/*.tiles" extends="layouts">
+			<put-attribute name="title" value="운동해(偕)!-가입 페이지" />		
+			<put-attribute name="Body" value="/WEB-INF/views/member/{1}.jsp"/>
+			<put-list-attribute name="stylesheets" inherit="true">
+				<add-attribute value="/resources/css/member/login.css" />		
+			</put-list-attribute>
 		</definition>
-	   </tiles-definitions>
+		
+		
+		<definition name="mypage/*.tiles" extends="layouts">
+			<put-attribute name="title" value="운동해(偕)!-임시페이지(삭제예정)" />		
+			<put-attribute name="Body" value="/WEB-INF/views/mypage/{1}.jsp"/>
+		</definition>
+		
+		
+		<definition name="mypage/*/*.tiles" extends="layouts">
+			<put-attribute name="title" value="운동해(偕)!-마이 페이지" />		
+			<put-attribute name="Body" value="/WEB-INF/views/mypage/{1}/{2}.jsp"/>
+			<put-list-attribute name="javascripts" inherit="true">
+			    <add-attribute value="/resources/js/mypage/enterprise/user-stats.js" />
+				<add-attribute value="/resources/js/mypage/enterprise/mypage_Index.js" />		
+			</put-list-attribute>
+			<put-list-attribute name="stylesheets" inherit="true">
+				<add-attribute value="/resources/css/mypage/enterprise/user-stats.css" />		
+			</put-list-attribute>
+		</definition>
+		
+		
+		<definition name="healthMate/*.tiles" extends="layouts">
+			<put-attribute name="title" value="운동해(偕)!-헬스메이트 페이지" />		
+			<put-attribute name="Body" value="/WEB-INF/views/healthMate/{1}.jsp"/>
+			<put-list-attribute name="javascripts" inherit="true">
+			    <add-attribute value="/resources/js/healthMate/healthMateMain.js" />
+				<add-attribute value="/resources/js/healthMate/healthMateWrite.js" />		
+			</put-list-attribute>
+			<put-list-attribute name="stylesheets" inherit="true">
+				<add-attribute value="/resources/css/healthMate/healthMateMain.css" />		
+				<add-attribute value="/resources/css/healthMate/healthMateWrite.css" />		
+			</put-list-attribute>
+		</definition>
+		
+		
+		<definition name="bbs/*.tiles" extends="layouts">
+			<put-attribute name="title" value="운동해(偕)!-게시판 페이지" />
+			<put-attribute name="Body" value="/WEB-INF/views/bbs/{1}.jsp"/>
+			<put-list-attribute name="stylesheets" inherit="true">
+				<add-attribute value="/resources/css/bbs/view.css" />
+				<add-attribute value="/resources/css/bbs/list.css" />		
+			</put-list-attribute>
+		</definition>
+		
+		
+		<definition name="customerService/*.tiles" extends="layouts">
+			<put-attribute name="title" value="운동해(偕)!-고객센터 페이지"/>
+			<put-attribute name="Body" value="/WEB-INF/views/customerService/{1}.jsp"/>
+		</definition>
+		
+		
+
+</tiles-definitions>

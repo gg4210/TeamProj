@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style>
+	
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="<c:url value='/resources/moment-master/min/moment.min.js'/>"></script>
+<link rel="stylesheet" href="<c:url value='/resources/versatile-date-time-month-year-picker/css/datepicker.css'/>">
+
+<script src="<c:url value='/resources/versatile-date-time-month-year-picker/js/datepicker.all.js'/>"></script>
+<script src="<c:url value='/resources/versatile-date-time-month-year-picker/js/datepicker.en.js'/>"></script>
 
     
 <div class="container">
@@ -31,6 +41,7 @@
             </div>   
          </div>
       </div>
+      <br/>
       <div class="col-lg-6" style="display:inline;">
          <div>
             <div class="card">
@@ -80,8 +91,79 @@
          </div>
       </div>
    </div>
-   
-   <!-- 홍보전송 모달 -->
+   <br/>
+	<div>
+		<div class="page-header"
+			style="margin-bottom: 25px; border-bottom: 1px solid #D8D8D8;">
+			<h2>쿠폰발급</h2>
+		</div>
+		<div class="row">
+			<div class="col-lg-12" style="display: inline;">
+				<div class="card">
+					<div class="card-body">
+						<h3>운동시설 쿠폰발급</h3>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>시설명</th>
+									<th style="text-align: left">이벤트 내역</th>
+									<th>유효기간</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr id="coupon-create">
+									<td>OO수영장</td>
+									<td><input type="text" class="form-control" name="title" id="title" placeholder="이벤트 내역을 입력하세요"/></td>
+									<td>
+										<div class="mt40">
+									        <div class="c-datepicker-date-editor  J-datepicker-range-day mt10">
+									          <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+									          <input placeholder="시작일" name="" class="c-datepicker-data-input only-date" value="">
+									          <span class="c-datepicker-range-separator">-</span>
+									          <input placeholder="종료일" name="" class="c-datepicker-data-input only-date" value="">
+									        </div>
+								      	</div>
+									</td>
+									<td><button class="btn purple-gradient" id="coupon-send">전송</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+
+		<!-- 쿠폰사용 모달 -->
+		<div class="modal fade" id="coupon-modal" tabindex="-1" role="dialog"
+			aria-labelledby="couponModalCenterTitle" aria-hidden="true">
+
+			<!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+			<div class="modal-dialog modal-dialog-centered" role="document">
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="couponModalLongTitle">쿠폰 사용</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">쿠폰을 사용하시겠습니까?</div>
+					<div class="modal-footer">
+						<button type="button" class="btn blue-gradient">바코드로 받기</button>
+						<button type="button" class="btn peach-gradient" data-dismiss="modal">사용안함</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- 홍보전송 모달 -->
    <div class="modal fade" id="event-modal" tabindex="-1"
       role="dialog" aria-labelledby="eventModalCenterTitle"
       aria-hidden="true">
@@ -105,15 +187,199 @@
          </div>
       </div>
    </div>
+   
+   <!-- 쿠폰발급 모달 -->
+	<div class="modal fade" id="couponSend-modal" tabindex="-1"
+		role="dialog" aria-labelledby="couponModalCenterTitle"
+		aria-hidden="true">
+
+		<!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+		<div class="modal-dialog modal-dialog-centered" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="couponSendModalLongTitle">쿠폰 발급</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">쿠폰을 발급하시겠습니까?</div>
+				<div class="modal-footer">
+					<button type="button" class="btn blue-gradient">바코드로 발급</button>
+					<button type="button" class="btn peach-gradient" data-dismiss="modal">사용안함</button>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
 
 </div>
 
 <script>
-<!-- 홍보전송 모달 -->
+
 $(function(){
-   $('#event-send').click(function(){
-      $('#event-modal').modal('show');
-   });
+	<!-- 홍보전송 모달 -->
+	$('#event-send').click(function(){
+		$('#event-modal').modal('show');
+	});
+	   
+	<!-- 운동시설 쿠폰발급 모달 -->
+	$('#coupon-send').click(function(){
+		$('#couponSend-modal').modal('show');
+	});
+   
 });
+
 </script>
+
+<script type="text/javascript">
+
+$(function(){       
+
+	var DATAPICKERAPI = {
+		activeMonthRange: function () {
+			return {
+				begin: moment().set({ 'date': 1, 'hour': 0, 'minute': 0, 'second': 0 }).format('YYYY-MM-DD HH:mm:ss'),
+				end: moment().set({ 'hour': 23, 'minute': 59, 'second': 59 }).format('YYYY-MM-DD HH:mm:ss')
+			}
+		},
+		shortcutMonth: function () {
+			var nowDay = moment().get('date');
+			var prevMonthFirstDay = moment().subtract(1, 'months').set({ 'date': 1 });
+			var prevMonthDay = moment().diff(prevMonthFirstDay, 'days');
+			return {
+				now: '-' + nowDay + ',0',
+				prev: '-' + prevMonthDay + ',-' + nowDay
+			}
+		},
+		shortcutPrevHours: function (hour) {
+			var nowDay = moment().get('date');
+			var prevHours = moment().subtract(hour, 'hours');
+			var prevDate=prevHours.get('date')- nowDay;
+			var nowTime=moment().format('HH:mm:ss');
+			var prevTime = prevHours.format('HH:mm:ss');
+			return {
+				day: prevDate + ',0',
+				time: prevTime+',' + nowTime,
+				name: 'Nearly '+ hour+' Hours'
+			}
+		},
+		rangeMonthShortcutOption1: function () {
+			var result = DATAPICKERAPI.shortcutMonth();
+			var resultTime= DATAPICKERAPI.shortcutPrevHours(18);
+			return [{
+				name: 'Yesterday',
+				day: '-1,-1',
+				time: '00:00:00,23:59:59'
+			}, {
+              name: 'This Month',
+              day: result.now,
+              time: '00:00:00,'
+            }, {
+              name: 'Last Month',
+              day: result.prev,
+              time: '00:00:00,23:59:59'
+            }, {
+              name: resultTime.name,
+              day: resultTime.day,
+              time: resultTime.time
+            }];
+          },
+          rangeShortcutOption1: [{
+            name: '다음 주',
+            day: '+7,0'
+          }, {
+            name: '다음 달',
+            day: '+30,0'
+          }, {
+            name: '세달 후',
+            day: '+90, 0'
+          }],
+          
+        };
+          $('.J-datepicker').datePicker({
+            hasShortcut:true,
+            min:'2018-01-01 04:00:00',
+            max:'2029-10-29 20:59:59',
+            shortcutOptions:[{
+              name: 'Today',
+              day: '0'
+            }, {
+              name: 'Yesterday',
+              day: '-1',
+              time: '00:00:00'
+            }, {
+              name: 'One Week Ago',
+              day: '-7'
+            }],
+            hide:function(){
+              console.info(this)
+            }
+          });
+
+          $('.J-datepicker-day').datePicker({
+            hasShortcut: true,
+            shortcutOptions: [{
+              name: 'Today',
+              day: '0'
+            }, {
+              name: 'Yesterday',
+              day: '-1'
+            }, {
+              name: 'One week ago',
+              day: '-7'
+            }]
+          });
+
+
+          $('.J-datepicker-range-day').datePicker({
+            hasShortcut: true,
+            format: 'YYYY-MM-DD',
+            isRange: true,
+            shortcutOptions: DATAPICKERAPI.rangeShortcutOption1
+          });
+
+
+          $('.J-datepickerTime-range').datePicker({
+            format: 'YYYY-MM-DD HH:mm',
+            isRange: true
+          });
+
+
+          $('.J-datepicker-range').datePicker({
+            hasShortcut: true,
+            min: '2018-01-01 06:00:00',
+            max: '2029-04-29 20:59:59',
+            isRange: true,
+            shortcutOptions: [{
+              name: 'Yesterday',
+              day: '-1,-1',
+              time: '00:00:00,23:59:59'
+            },{
+              name: 'Last Week',
+              day: '-7,0',
+              time:'00:00:00,'
+            }, {
+              name: 'Last Month',
+              day: '-30,0',
+              time: '00:00:00,'
+            }, {
+              name: 'Last Three Months',
+              day: '-90, 0',
+              time: '00:00:00,'
+            }],
+            
+            hide: function (type) {
+              console.info(this.$input.eq(0).val(), this.$input.eq(1).val());
+              console.info('Type:',type)
+            }
+          });
+
+
+      });
+    </script>
+
 
