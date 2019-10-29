@@ -69,6 +69,7 @@
 			    <add-attribute value="/resources/js/mypage/enterprise/user-stats.js" />
 				<add-attribute value="/resources/js/mypage/enterprise/mypage_Index.js" />		
 				<add-attribute value="/resources/js/mypage/enterprise/enterprise_main.js" />		
+				<add-attribute value="/resources/js/mypage/customer/customer_main.js" />		
 			</put-list-attribute>
 			<put-list-attribute name="stylesheets" inherit="true">
 				<add-attribute value="/resources/css/mypage/enterprise/user-stats.css" />		
