@@ -234,15 +234,7 @@ $(function(){
 	
 	var DATAPICKERAPI = {	
 	          rangeShortcutOption1: [{
-<<<<<<< HEAD
-		            name: '다음 주',
-		            day: '0,7'
-		          }, {
-		            name: '다음 달',
-		            day: '0,30'
-		          }
-	          ]};
-=======
+
 	            name: '다음 주',
 	            day: '0,7'
 	          }, {
@@ -251,8 +243,8 @@ $(function(){
 	          }, {
 	            name: '3달 후',
 	            day: '0,90'
+	            
 	}]};
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	
 	$('.J-datepicker-range-day').datePicker({
 	            hasShortcut: true,
