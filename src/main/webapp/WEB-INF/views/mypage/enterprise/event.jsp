@@ -234,14 +234,15 @@ $(function(){
 	var DATAPICKERAPI = {	
 	          rangeShortcutOption1: [{
 	            name: '다음 주',
-	            day: '+7,0'
+	            day: '0,7'
 	          }, {
 	            name: '다음 달',
-	            day: '+30,0'
+	            day: '0,30'
 	          }, {
-	            name: '세달 후',
-	            day: '+90, 0'
-	          }]};
+	            name: '3달 후',
+	            day: '0,90'
+	}]};
+	
 	$('.J-datepicker-range-day').datePicker({
 	            hasShortcut: true,
 	            format: 'YYYY-MM-DD',
