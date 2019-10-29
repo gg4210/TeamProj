@@ -2,41 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<style>
-   .scrolling-wrapper {
-   align-item:stretch;
-   display:flex;
-   flex-direction:row;
-   flex-wrap:nowrap;
-   overflow-x: scroll;
-   overflow-y: hidden;
-   
-   .scrolling-wrapper .card {
-      display: inline-block;
-      }
-   }
-
-.scrolling-wrapper .card {
-  /*float: left;*/
-  max-width: 33.333%;
-  padding: .75rem;
-  margin:10px;
-  margin-bottom: 2rem;
-  border: 0;
-  flex-basis: 33.333%;
-  flex-grow: 0;
-  flex-shrink: 0;
-}
-
-.scrolling-wrapper.card > img {
-  margin-bottom: .75rem;
-}
-
-</style>
-
-
-
-
 <div class="container-fluid">
    
    <!-- 페이지 헤더 시작 -->
