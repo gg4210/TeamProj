@@ -38,22 +38,29 @@
                   </div>
                   <div class="col-md-6">
                      <div class="card">
-                        <div class="card-header">
-                           <h3 style="font-weight: bold; margin-bottom: 0px;">도레미 스포츠센터</h3>
-                        </div>                     
-                        <div class="card-body">
-                           <p><i class="fas fa-building"></i>&nbsp;&nbsp;경기도 부천시 원미구 어디동 120</p>
-                           <p><i class="fas fa-phone-volume"></i>&nbsp;&nbsp;000-0000-0000</p>
-                           <p><i class="fas fa-car"></i>&nbsp;&nbsp;주차가능</p>
-                           <p><span style="font-weight: bold; color:blue;">TODAY</span>&nbsp;&nbsp;08:00~22:00</p>
-                           <p><i class="fas fa-clock"></i>&nbsp;운영시간</p>
-                           <p>-평일:    08:00~22:00</p>
-                           <p>-주말/공휴일: 09:00~23:00</p>
-                           <p style="color: red;">※매주 2,4번째주 수요일은 휴관합니다.</p>
-                           <p><i class="fas fa-dumbbell"></i>&nbsp;취급 종목</p>
-                              <p>-헬스, 수영, 필라테스</p>
-                        </div>                        
-                     </div>
+						<div class="card-header pt-4 font-weight-bold">
+							<p class="font-weight-bold h3">도레미스포츠센터</p>
+						</div>							
+						<div class="card-body">
+									<p><span class="badge badge-primary">주소</span> : 경기도 부천시 원미구 역곡동 -------</p>
+									<hr/>
+									<p><span class="badge badge-primary">전화번호</span> : 000-0000-0000</p>
+									<hr/>									
+									<p>붐비는 정도가 들어갈 공간</p>
+									<hr/>									
+									<p><span style="font-weight: bold; color:blue;">TODAY</span> : 현재 운영중!</p>
+									<hr/>									
+									<p><span class="badge badge-primary">종목</span> <i class="fas fa-swimming-pool"></i> 수영 &nbsp&nbsp<i class="fas fa-dumbbell"></i> 헬스</p>
+									<hr/>
+									<p>평균별점 : <span id="rateMe">
+												<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
+												<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
+												<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
+												<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
+												<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
+									</span>(3.0)</p>
+						</div>								
+						</div>
                   </div>
                </div>
                <!-- Grid column 1 첫단 끝(이미지,헬스장 정보) -->
@@ -61,11 +68,48 @@
 
                <!-- Grid column 1 두번째 단 시작(세부이미지) -->
                <div class="row">
-                  <div class="col">
+                  <div class="col">                 
                      <div class="card">
                         <div class="card-header"><h3 style="font-weight: bold; margin-bottom: 0px;">시설 안내</h3></div>
                         <div class="card-body">
+                        	<p class="h4"><span class="badge badge-primary"><i class="fas fa-clock"></i>&nbsp;운영시간</span></p>
+									<p>-평일:    08:00~22:00</p>
+									<p>-주말/공휴일: 09:00~23:00</p>
+									<p style="color: red;">※매주 2,4번째주 수요일은 휴관합니다.</p>
+									<p class="h4"><span class="badge badge-primary">제공 서비스</span></p>
+									<div class="row">
+										<div class="col-2">
+											<img src="<c:url value='/resources/images/icon/clothes.png'/>" class="img-fluid"/>
+											<br/>
+											<p class="text-center mt-2">운동복</p>
+										</div>
+										<div class="col-2">
+											<img src="<c:url value='/resources/images/icon/park.png'/>" class="img-fluid"/>
+											<br/>
+											<p class="text-center mt-2">주차</p>
+										</div>
+										<div class="col-2">
+											<img src="<c:url value='/resources/images/icon/locker.png'/>" class="img-fluid"/>
+											<br/>
+											<p class="text-center mt-2">라커</p>
+										</div>
+										<div class="col-2">
+											<img src="<c:url value='/resources/images/icon/wifi.png'/>" class="img-fluid"/>
+											<br/>
+											<p class="text-center mt-2">와이파이</p>
+										</div>
+										<div class="col-2">
+											<img src="<c:url value='/resources/images/icon/shower.png'/>" class="img-fluid"/>
+											<br/>
+											<p class="text-center mt-2">샤워실</p>
+										</div>
+									</div>
+                        
+                        
+                        
+                        
                            <!-- 이미지 시작 -->
+                           <p class="h4"><span class="badge badge-primary">사진</span></p>                        
                            <div class="scrolling-wrapper">
                               <div class="card"><img class="card-img-top" src="https://www.lottehotel.com/content/dam/lotte-hotel/lotte/samara/facilities/fitness-spa/gym/181126-5-2000-fac-LTSM.jpg.thumb.768.768.jpg" alt="Card image cap"></div>
                               <div class="card"><img class="card-img-top" src="https://www.lottehotel.com/content/dam/lotte-hotel/lotte/samara/facilities/fitness-spa/gym/181126-6-2000-fac-LTSM.jpg.thumb.1440.1440.jpg" alt="Card image cap"></div>
@@ -169,15 +213,7 @@
                      <div class="card">
                         <div class="card-header">
                            <div class="row pl-2">
-                           <h3 style="font-weight: bold; margin-bottom: 0px;">리뷰</h3>
-                              <span id="rateMe">
-                              <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-                              <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-                              <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-                              <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-                              <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-                              </span>
-                        
+                           <h3 style="font-weight: bold; margin-bottom: 0px;">이용후기</h3>                        
                            </div>
                         </div>
                         <div class="card-body">
