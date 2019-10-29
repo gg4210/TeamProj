@@ -19,22 +19,33 @@ $(function() {
 						$('#side_SearchBar').css('width', $(window).width() - 50 );
 					});
 			    /*브라우저 사이즈 조정 할때마다 search 창이 함께 조정됨 끝*/
-					
+					$("#loginMenu").fadeOut("3000");
+					$("#CustomerLoMenu").fadeOut("3000");
 				break;
 				
 			case 2://마이페이지 클릭
 				$("#loginMenu").fadeToggle("3000");
+				$("#CustomerLoMenu").fadeOut("3000");
 				break;
 			case 3:
+				$("#loginMenu").fadeOut("3000");
+				$("#CustomerLoMenu").fadeToggle("3000");
 				break;
 			
-			default: break;
+			default:
+				$("#loginMenu").fadeOut("3000");
+				$("#CustomerLoMenu").fadeOut("3000");
+				break;
 		}
 	
 	});
 	
 	$("#closelogin").click(function(){
 		$("#loginMenu").fadeOut("3000");
+	});
+	
+	$("#closeCulogin").click(function(){
+		$("#CustomerLoMenu").fadeOut("3000");
 	});
 
 	var myFullpage = new fullpage('#fullpage', {
