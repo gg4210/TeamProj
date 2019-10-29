@@ -45,6 +45,14 @@ html, body {
   opacity: 1;
 }
 </style>
+<script>
+$(function(){
+	
+	$('#uploadproimg').click(function(){
+		$('#profile-image').modal('show');
+	});
+});
+</script>
     <div class="container" id="cujoin">
     	<div class="row align-items-center" id="curow">
 		   	<div class="offset-md-2 col-md-8">
@@ -55,7 +63,7 @@ html, body {
 				<div class="card-image-container p-3">
 					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 50%">
 					<div class="card-img-middle">
-						<div class="text px-3" id="text-modal">추가하기</div>
+						<button type="button" class="btn btn-primary px-3" id="uploadproimg">추가하기</button>
 					</div>
 				</div>
 			    <!-- 이름 -->
@@ -160,3 +168,37 @@ html, body {
 			</div>
 		</div>
 	</div>
+	
+	<!-- PLUS MATE 모달 시작 -->
+		<div class="modal fade" id="profile-image" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-notify modal-info modal-dialog-centered" role="document">
+				<!--Content-->
+				<div class="modal-content">
+					<!--Header-->
+					<div class="modal-header">
+						<p class="heading">프로필 사진</p>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true" class="white-text">&times;</span>
+						</button>
+					</div>
+					<!--Body-->
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-5">
+								<img src="http://placehold.it/500x325" class="img-fluid" alt="">
+							</div>
+							<div class="col-7">
+								<p>
+									<strong>프로필 사진 추가하기</strong>
+								</p>
+								<p>선택하신 프로필 사진을<br/>추가하시겠습니까?</p>
+								<button type="button" class="btn btn-info btn-md">확인</button>
+								<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--/.Content-->
+			</div>
+		</div>
+		<!-- PLUS MATE 모달 끝 -->

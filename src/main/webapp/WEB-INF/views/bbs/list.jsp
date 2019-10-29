@@ -7,7 +7,7 @@
     
 	    <div class="jumbotron">
 	    	<div class="container">
-	    		<h1>게시판</h1>
+	    		<h1>게시판 </h1>
 	    	</div>
 	    </div>
     	

@@ -18,17 +18,17 @@ public class MyPageController {
 	
 	
 		/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 시작*/
-	@RequestMapping("/mypage/customer.do")
+	@RequestMapping("/customer.do")
 	public String customer(){
 		return "mypage/customer/mypage_Index.tiles";
 	}
 	
-	@RequestMapping("/mypage/admin.do")
+	@RequestMapping("/admin.do")
 	public String admin(){
 		return "mypage/admin/mypage_Index.tiles";
 	}
 	
-	@RequestMapping("/mypage/enterprise.do")
+	@RequestMapping("/enterprise.do")
 	public String enterprise(){
 		return "mypage/enterprise/mypage_Index.tiles";
 	}

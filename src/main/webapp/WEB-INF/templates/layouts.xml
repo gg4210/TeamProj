@@ -17,15 +17,15 @@
         		<add-attribute value="/resources/MDB-Free_4.8.10/js/popper.min.js" />
         		<add-attribute value="/resources/MDB-Free_4.8.10/js/bootstrap.min.js" />
         		<add-attribute value="/resources/MDB-Free_4.8.10/js/mdb.min.js" />
-        		<add-attribute value="/resources/js/index.js"/>
+        		<add-attribute value="/resources/js/index.js?ver=1.4"/>
         		<add-attribute value="/resources/fullPage/fullpage.js"/>
     		</put-list-attribute>
 			<put-list-attribute name="stylesheets">
         		<add-attribute value="/resources/MDB-Free_4.8.10/css/bootstrap.min.css" />
         		<add-attribute value="/resources/MDB-Free_4.8.10/css/mdb.min.css" />
         		<add-attribute value="/resources/fullPage/fullpage.css?ver=1.2" />
-        		<add-attribute value="/resources/css/index.css?ver=1.5" />
-        		<add-attribute value="/resources/css/member/login.css?ver=1.0" />
+        		<add-attribute value="/resources/css/index.css?ver=1.6" />
+        		<add-attribute value="/resources/css/member/login.css?ver=1.4" />
     		</put-list-attribute>
 		</definition>
 	
@@ -104,6 +104,10 @@
 			<put-attribute name="Body" value="/WEB-INF/views/customerService/{1}.jsp"/>
 		</definition>
 		
+		<definition name="customerService/*/*.tiles" extends="layouts">
+			<put-attribute name="title" value="운동해(偕)!-고객센터 페이지"/>
+			<put-attribute name="Body" value="/WEB-INF/views/customerService/{1}/{2}.jsp"/>
+		</definition>
 		
 
 </tiles-definitions>
