@@ -221,6 +221,7 @@
 <script>
 
 $(function(){
+	
 	//홍보전송 모달 
 	$('#event-send').click(function(){
 		$('#event-modal').modal('show');
@@ -233,22 +234,21 @@ $(function(){
 	
 	var DATAPICKERAPI = {	
 	          rangeShortcutOption1: [{
-	            name: '다음 주',
-	            day: '+7,0'
-	          }, {
-	            name: '다음 달',
-	            day: '+30,0'
-	          }, {
-	            name: '세달 후',
-	            day: '+90, 0'
-	          }]};
+		            name: '다음 주',
+		            day: '0,7'
+		          }, {
+		            name: '다음 달',
+		            day: '0,30'
+		          }
+	          ]};
+	
 	$('.J-datepicker-range-day').datePicker({
 	            hasShortcut: true,
 	            format: 'YYYY-MM-DD',
 	            isRange: true,
 	            shortcutOptions: DATAPICKERAPI.rangeShortcutOption1
+	            
 	});
-
    
 });
 
