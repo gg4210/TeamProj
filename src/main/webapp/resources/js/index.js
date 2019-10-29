@@ -32,10 +32,7 @@ $(function() {
 				$("#CustomerLoMenu").fadeToggle("3000");
 				break;
 			
-			default:
-				$("#loginMenu").fadeOut("3000");
-				$("#CustomerLoMenu").fadeOut("3000");
-				break;
+			default:break;
 		}
 	
 	});
