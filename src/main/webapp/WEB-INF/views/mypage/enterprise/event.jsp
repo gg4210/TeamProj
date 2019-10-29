@@ -37,7 +37,7 @@
                
             </div>
             <div class="d-flex justify-content-center">
-               <button style="width:20%;" class="btn purple-gradient" id="event-send">전송</button>
+               <button style="width:20%;" class="btn purple-gradient" id="event-send"  data-toggle="modal" data-target="#event-modal">전송</button>
             </div>   
          </div>
       </div>
@@ -125,7 +125,7 @@
 									        </div>
 								      	</div>
 									</td>
-									<td><button class="btn purple-gradient" id="coupon-send">전송</button></td>
+									<td><button class="btn purple-gradient" id="center-coupon-send" data-toggle="modal" data-target="#couponSend-modal">전송</button></td>
 								</tr>
 							</tbody>
 						</table>
@@ -222,27 +222,8 @@
 
 $(function(){
 	
-	//홍보전송 모달 
-	$('#event-send').click(function(){
-		$('#event-modal').modal('show');
-	});
-	   
-	//운동시설 쿠폰발급 모달
-	$('#coupon-send').click(function(){
-		$('#couponSend-modal').modal('show');
-	});
-	
 	var DATAPICKERAPI = {	
 	          rangeShortcutOption1: [{
-<<<<<<< HEAD
-		            name: '다음 주',
-		            day: '0,7'
-		          }, {
-		            name: '다음 달',
-		            day: '0,30'
-		          }
-	          ]};
-=======
 	            name: '다음 주',
 	            day: '0,7'
 	          }, {
@@ -252,7 +233,6 @@ $(function(){
 	            name: '3달 후',
 	            day: '0,90'
 	}]};
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	
 	$('.J-datepicker-range-day').datePicker({
 	            hasShortcut: true,
