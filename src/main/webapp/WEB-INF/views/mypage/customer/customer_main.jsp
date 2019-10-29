@@ -48,17 +48,17 @@
                <div class="card-body pt-1">
                <!-- 삭제 버튼 시작 -->
                <div class="row float-right pr-2">
-               		<button type="submit" class="btn btn-danger p-1 px-2" id="delete">삭제하기</button>
+               		<button type="submit" class="btn btn-danger p-1 px-2" id="center_delete">삭제하기</button>
                	</div>
                	<!-- 삭제 버튼 끝 -->
                	  <!-- 등록한 센터 테이블 시작 -->
                   <table class="table" style="text-align: center;" >
                      <thead class="bg-primary white-text">
-                        <tr>
+                        <tr class="align-middle">
                            <th scope="col" style="width: 5%">
                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="AllCheck">
-                              <label class="custom-control-label" for="AllCheck"></label>
+                              <input type="checkbox" class="custom-control-input" id="center_allCheck">
+                              <label class="custom-control-label" for="center_allCheck"></label>
                            </div>
                            </th>
                            <th scope="col" style="width: 25%">센터명</th>
@@ -68,36 +68,36 @@
                      </thead>
                      <tbody>
                         <tr>
-                           <th scope="row">
+                           <td scope="row" class="align-middle">
                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check3">
-                              <label class="custom-control-label" for="Check3"></label>
+                              <input type="checkbox" class="custom-control-input" id="center_check3">
+                              <label class="custom-control-label" for="center_check3"></label>
                            </div>
-                           </th>
+                           </td>
                            <td><a href="#">도레미</br>스포츠센터</a></td>
-                           <td>2019.10.28 ~ 2019.11.27</td>
+                           <td class="align-middle">2019.10.28 ~ 2019.11.27</td>
                            <td><i class="fas fa-circle text-danger"></i> 혼잡</br>85%</td>
                         </tr>
                         <tr>
-                           <th scope="row">
+                           <td scope="row" class="align-middle">
                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check2">
-                              <label class="custom-control-label" for="Check2"></label>
+                              <input type="checkbox" class="custom-control-input" id="center_check2">
+                              <label class="custom-control-label" for="center_check2"></label>
                            </div>
-                           </th>
+                           </td>
                            <td><a href="#">파솔라</br>스포츠센터</a></td>
-                           <td>2019.10.28 ~ 2019.11.27</td>
+                           <td class="align-middle">2019.10.28 ~ 2019.11.27</td>
                             <td><i class="fas fa-circle text-info"></i> 여유</br>30%</td>
                         </tr>
                         <tr>
-                           <th scope="row">
+                           <td scope="row" class="align-middle">
                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check1">
-                              <label class="custom-control-label" for="Check1"></label>
+                              <input type="checkbox" class="custom-control-input" id="center_check1">
+                              <label class="custom-control-label" for="center_check1"></label>
                            </div>
-                           </th>
+                           </td>
                            <td><a href="#">시도</br>스포츠센터</a></td>
-                           <td>2019.10.28 ~ 2019.11.27</td>
+                           <td class="align-middle">2019.10.28 ~ 2019.11.27</td>
                             <td><i class="fas fa-circle text-warning"></i> 보통</br>65%</td>
                         </tr>
                      </tbody>
@@ -156,7 +156,7 @@
                <div class="card-body pt-1">
                <!-- 삭제 버튼 시작 -->
                <div class="row float-right pr-2">
-               		<button type="submit" class="btn btn-danger p-1 px-2" id="delete">삭제하기</button>
+               		<button type="submit" class="btn btn-danger p-1 px-2" id="like_delete">삭제하기</button>
                	</div>
                	<!-- 삭제 버튼 끝 -->
                	  <!-- 등록한 센터 테이블 시작 -->
@@ -165,8 +165,8 @@
                         <tr>
                            <th scope="col" style="width: 5%">
                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="AllCheck">
-                              <label class="custom-control-label" for="AllCheck"></label>
+                              <input type="checkbox" class="custom-control-input" id="like_allCheck">
+                              <label class="custom-control-label" for="like_allCheck"></label>
                            </div>
                            </th>
                            <th scope="col" style="width: 25%">센터명</th>
@@ -176,58 +176,58 @@
                      </thead>
                      <tbody>
                         <tr>
-                           <th scope="row">
+                           <td scope="row" class="align-middle">
                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check3">
-                              <label class="custom-control-label" for="Check3"></label>
+                              <input type="checkbox" class="custom-control-input" id="like_check5">
+                              <label class="custom-control-label" for="like_check5"></label>
                            </div>
-                           </th>
+                           </td>
                            <td><a href="#">오늘은</br>스포츠센터</a></td>
-                           <td>서울시 금천구</td>
+                           <td class="align-middle">서울시 금천구</td>
                            <td><i class="fas fa-circle text-danger"></i> 혼잡</br>85%</td>
                         </tr>
                         <tr>
-                           <th scope="row">
+                           <td scope="row" class="align-middle">
                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check2">
-                              <label class="custom-control-label" for="Check2"></label>
+                              <input type="checkbox" class="custom-control-input" id="like_check4">
+                              <label class="custom-control-label" for="like_check4"></label>
                            </div>
-                           </th>
+                           </td>
                            <td><a href="#">월요일</br>스포츠센터</a></td>
-                           <td>서울시 금천구</td>
+                           <td class="align-middle">서울시 금천구</td>
                             <td><i class="fas fa-circle text-info"></i> 여유</br>30%</td>
                         </tr>
                         <tr>
-                           <th scope="row">
+                           <td scope="row" class="align-middle">
                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check1">
-                              <label class="custom-control-label" for="Check1"></label>
+                              <input type="checkbox" class="custom-control-input" id="like_check3">
+                              <label class="custom-control-label" for="like_check3"></label>
                            </div>
-                           </th>
+                           </td>
                            <td><a href="#">빠른</br>스포츠센터</a></td>
-                           <td>서울시 금천구</td>
+                           <td class="align-middle">서울시 금천구</td>
                             <td><i class="fas fa-circle text-warning"></i> 보통</br>65%</td>
                         </tr>
                          <tr>
-                           <th scope="row">
+                           <td scope="row" class="align-middle">
                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check2">
-                              <label class="custom-control-label" for="Check2"></label>
+                              <input type="checkbox" class="custom-control-input" id="like_check2">
+                              <label class="custom-control-label" for="like_check2"></label>
                            </div>
-                           </th>
+                           </td>
                            <td><a href="#">귀가</br>스포츠센터</a></td>
-                           <td>서울시 금천구</td>
+                           <td class="align-middle">서울시 금천구</td>
                              <td><i class="fas fa-circle text-warning"></i> 보통</br>70%</td>
                         </tr>
                          <tr>
-                           <th scope="row">
+                           <td scope="row" class="align-middle">
                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check2">
-                              <label class="custom-control-label" for="Check2"></label>
+                              <input type="checkbox" class="custom-control-input" id="like_check1">
+                              <label class="custom-control-label" for="like_check1"></label>
                            </div>
-                           </th>
+                           </td>
                            <td><a href="#">부탁</br>스포츠센터</a></td>
-                           <td>서울시 강남구</td>
+                           <td class="align-middle">서울시 강남구</td>
                             <td><i class="fas fa-circle text-info"></i> 여유</br>15%</td>
                         </tr>
                      </tbody>
@@ -275,7 +275,7 @@
                         </div>
                         <div class="row">
                            <p class="text-left text-white">
-                              <span class="badge badge-pill badge-primary"><i class="fas fa-plus"></i></span>
+                              <span class="badge badge-pill badge-primary">with</span>
                               	나의 운동메이트들을 확인하세요!
                            </p>
                         </div>
@@ -289,43 +289,68 @@
                <div class="card-body pt-1">
                	  <!-- 더보기  시작 -->
                	  	<div class="row float-right pr-2">
-               		<button type="submit" class="btn btn-info p-1 px-2" id="select"><i class="fas fa-plus"></i> 더보기</button>
+               	  	<button type="submit" class="btn btn-danger p-1 px-2" id="mate_delete">삭제하기</button>
+               		<button type="submit" class="btn btn-info p-1 px-2" id="mate_select"><i class="fas fa-plus"></i> 더보기</button>
                	</div>               	  
                	<!-- 더보기 끝 -->
                   <!-- 테이블 시작 -->
                   <table class="table" style="text-align: center;">
                      <thead class="bg-primary white-text">
                         <tr>
-                           <th scope="col"></th>
-                           <th scope="col">아이디</th>
+                           <th scope="col" style="width: 5%">
+                           <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="mate_allCheck">
+                              <label class="custom-control-label" for="mate_allCheck"></label>
+                           </div>
+                           </th>
+                           <th scope="col">이미지</th>
+                           <th scope="col" style="width: 15%">아이디</th>
                            <th scope="col">메이트 등록일</th>
-                           <th scope="col">상세보기</th>
+                           <th scope="col" style="width: 10%">상세보기</th>
                         </tr>
                      </thead>
                      <tbody>
                         <tr>
-                           <th scope="row">
+                          <td scope="row" class="align-middle">
+                           <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="mate_check1">
+                              <label class="custom-control-label" for="mate_check1"></label>
+                           </div>
+                           </td>
+                           <td scope="row">
                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" alt="avatar mx-auto white" class="rounded-circle img-fluid">
-                           </th>
-                           <td>KIM**</td>
-                           <td>2019.10.28</td>
-                           <td><button type="button" class="btn btn-default btn-rounded p-1 px-3">Click!</button></td>
+                           </td>
+                           <td class="align-middle">KIM**</td>
+                           <td class="align-middle">2019.10.28</td>
+                           <td class="align-middle"><button type="button" class="btn btn-default btn-rounded p-1 px-3">Click!</button></td>
                         </tr>
                         <tr>
-                           <th scope="row">
+                           <td scope="row" class="align-middle">
+                           <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="mate_check2">
+                              <label class="custom-control-label" for="mate_check2"></label>
+                           </div>
+                           </td>
+                           <td scope="row">
                            	<img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" alt="avatar mx-auto white" class="rounded-circle img-fluid">
-                           </th>
-                           <td>LEE**</td>
-                           <td>2019.10.20</td>
-                       	   <td><button type="button" class="btn btn-default btn-rounded p-1 px-3">Click!</button></td>
+                           </td>
+                           <td class="align-middle">LEE**</td>
+                           <td class="align-middle">2019.10.20</td>
+                       	   <td class="align-middle"><button type="button" class="btn btn-default btn-rounded p-1 px-3">Click!</button></td>
                         </tr>
                         <tr>
-                           <th scope="row">
+                        	<td scope="row" class="align-middle">
+                           <div class="custom-control custom-checkbox">
+                              <input type="checkbox" class="custom-control-input" id="mate_check3">
+                              <label class="custom-control-label" for="mate_check3"></label>
+                           </div>
+                           </td>
+                           <td scope="row">
                            	<img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg" alt="avatar mx-auto white" class="rounded-circle img-fluid">
-                           </th>
-                           <td>PAR**</td>
-                           <td>2019.10.01</td>
-                           <td><button type="button" class="btn btn-default btn-rounded p-1 px-3">Click!</button></td>
+                           </td>
+                           <td class="align-middle">PAR**</td>
+                           <td class="align-middle">2019.10.01</td>
+                           <td class="align-middle"><button type="button" class="btn btn-default btn-rounded p-1 px-3">Click!</button></td>
                         </tr>
                      </tbody>
                   </table>
@@ -362,8 +387,7 @@
                      </div>
                      <div class="col">
                         <div class="row">
-                           <h5 class="text-left font-weight-bold text-white">
-                                 	받은 쪽지함
+                           <h5 class="text-left font-weight-bold text-white">받은 쪽지함
                            </h5>
                         </div>
                         <div class="row">
@@ -381,7 +405,8 @@
             <div class="card-body pt-1">
             	<!-- 더보기  시작 -->
                	  	<div class="row float-right pr-2">
-               		<button type="submit" class="btn btn-info p-1 px-2" id="plus"><i class="fas fa-plus"></i> 더보기</button>
+               	  	<button type="submit" class="btn btn-danger p-1 px-2" id="msg_delete">삭제하기</button>
+               		<button type="submit" class="btn btn-info p-1 px-2" id="msg_plus"><i class="fas fa-plus"></i> 더보기</button>
                	</div>               	  
                	<!-- 더보기 끝 -->
                <!-- 쪽지함 테이블 시작 -->
@@ -390,8 +415,8 @@
                         <tr>
                            <th scope="col" style="width: 5%">
                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="AllCheck">
-                              <label class="custom-control-label" for="AllCheck"></label>
+                              <input type="checkbox" class="custom-control-input" id="msg_allCheck">
+                              <label class="custom-control-label" for="msg_allCheck"></label>
                            </div>
                            </th>
                            <th scope="col" style="width: 25%">보낸사람</th>
@@ -401,37 +426,37 @@
                      </thead>
                      <tbody>
                         <tr>
-                           <th scope="row">
+                           <td scope="row">
                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check3">
-                              <label class="custom-control-label" for="Check3"></label>
+                              <input type="checkbox" class="custom-control-input" id="msg_check3">
+                              <label class="custom-control-label" for="msg_check3"></label>
                            </div>
-                           </th>
-                           <td><a href="#">도레미</br>스포츠센터</a></td>
-                           <td>2019.10.28 ~ 2019.11.27</td>
-                           <td><i class="fas fa-circle text-danger"></i> 혼잡</br>85%</td>
+                           </td>
+                           <td><a href="#">KIM**</a></td>
+                           <td>2019.10.28</td>
+                           <td><span style="color: red;">읽지않음</span></td>
                         </tr>
                         <tr>
-                           <th scope="row">
+                           <td scope="row">
                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check2">
-                              <label class="custom-control-label" for="Check2"></label>
+                              <input type="checkbox" class="custom-control-input" id="msg_check2">
+                              <label class="custom-control-label" for="msg_check2"></label>
                            </div>
-                           </th>
-                           <td><a href="#">파솔라</br>스포츠센터</a></td>
-                           <td>2019.10.28 ~ 2019.11.27</td>
-                            <td><i class="fas fa-circle text-info"></i> 여유</br>30%</td>
+                           </td>
+                           <td><a href="#">KIM**</a></td>
+                           <td>2019.10.25</td>
+                           <td><span style="color: red;">읽지않음</span></td>
                         </tr>
                         <tr>
-                           <th scope="row">
+                           <td scope="row">
                            <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check1">
-                              <label class="custom-control-label" for="Check1"></label>
+                              <input type="checkbox" class="custom-control-input" id="msg_check1">
+                              <label class="custom-control-label" for="msg_check1"></label>
                            </div>
-                           </th>
-                           <td><a href="#">시도</br>스포츠센터</a></td>
-                           <td>2019.10.28 ~ 2019.11.27</td>
-                            <td><i class="fas fa-circle text-warning"></i> 보통</br>65%</td>
+                           </td>
+                           <td><a href="#">LEE**</a></td>
+                           <td>2019.10.15</td>
+                           <td><span style="color: blue;">읽음</span></td>
                         </tr>
                      </tbody>
                   </table>

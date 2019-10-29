@@ -36,7 +36,7 @@
 			<div class="tab-pane fade show active mt-4" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 				<jsp:include page="/WEB-INF/views/mypage/customer/customer_main.jsp"/>
 			</div>
-			<div class="tab-pane fade active mt-4" id="pills-mate" role="tabpanel" aria-labelledby="pills-mate-tab">
+			<div class="tab-pane fade mt-4" id="pills-mate" role="tabpanel" aria-labelledby="pills-mate-tab">
 				<jsp:include page="/WEB-INF/views/mypage/customer/healthmatelist.jsp"/>
 			</div>
 			<div class="tab-pane fade mt-4" id="pills-message" role="tabpanel" aria-labelledby="pills-profile-tab">

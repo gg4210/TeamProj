@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/mypage/enterprise/user-stats.css'/>" />
 
     
 <div class="container-fluid">
@@ -72,7 +71,6 @@
          <div class="card">
             <div class="card-body">
                <h2 class="card-title" style="font-weight: bold;">회원 상세 관리</h2>
-               <hr/>
                   <!-- 회원 등록,삭제 버튼 -->
                      <div class="clearfix">
                         <div class="float-right">
@@ -267,6 +265,3 @@
    <!-- row 끝 -->
 </div>
 <!-- container-fluid 끝 -->
-
-
-<script src="<c:url value="/resources/js/mypage/enterprise/user-stats.js"/>"></script>
