@@ -223,6 +223,7 @@
 $(function(){
 	
 	var DATAPICKERAPI = {	
+
 	          rangeShortcutOption1: [{
 	            name: '다음 주',
 	            day: '0,7'
@@ -232,6 +233,7 @@ $(function(){
 	          }, {
 	            name: '3달 후',
 	            day: '0,90'
+
 	}]};
 	
 	$('.J-datepicker-range-day').datePicker({
