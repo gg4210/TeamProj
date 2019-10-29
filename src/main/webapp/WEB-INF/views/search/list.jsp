@@ -2,13 +2,13 @@
    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 
+<!-- 카카오맵 키 시작-->
 <script type="text/javascript"
    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ca8bd5c2c6fb77c9d67c44b5c3d04f58&libraries=services,drawing"></script>
-<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/search/list.css"/>">
-<script src="<c:url value="/resources/js/search/searchList.js"/>"></script>
+<!-- 카카오맵 키 끝 -->
+
 
 <!-- 모달 -->
-
 	<div class="modal fade" id="#warningModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-notify modal-warning" role="document">
 	    <div class="modal-content">

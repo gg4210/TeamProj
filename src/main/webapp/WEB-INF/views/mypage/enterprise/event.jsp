@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style>
+	
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="<c:url value='/resources/datePicker/moment/moment.min.js'/>"></script>
+<link rel="stylesheet" href="<c:url value='/resources/datePicker/versatile-date-time-month-year-picker/css/datepicker.css'/>">
+
+<script src="<c:url value='/resources/datePicker/versatile-date-time-month-year-picker/js/datepicker.all.js'/>"></script>
+<script src="<c:url value='/resources/datePicker/versatile-date-time-month-year-picker/js/datepicker.en.js'/>"></script>
 
     
 <div class="container">
@@ -27,10 +37,11 @@
                
             </div>
             <div class="d-flex justify-content-center">
-               <button style="width:20%;" class="btn purple-gradient" id="event-send">전송</button>
+               <button style="width:20%;" class="btn purple-gradient" id="event-send"  data-toggle="modal" data-target="#event-modal">전송</button>
             </div>   
          </div>
       </div>
+      <br/>
       <div class="col-lg-6" style="display:inline;">
          <div>
             <div class="card">
@@ -80,8 +91,79 @@
          </div>
       </div>
    </div>
-   
-   <!-- 홍보전송 모달 -->
+   <br/>
+	<div>
+		<div class="page-header"
+			style="margin-bottom: 25px; border-bottom: 1px solid #D8D8D8;">
+			<h2>쿠폰발급</h2>
+		</div>
+		<div class="row">
+			<div class="col-lg-12" style="display: inline;">
+				<div class="card">
+					<div class="card-body">
+						<h3>운동시설 쿠폰발급</h3>
+						<table class="table">
+							<thead>
+								<tr>
+									<th>시설명</th>
+									<th style="text-align: left">이벤트 내역</th>
+									<th>유효기간</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr id="coupon-create">
+									<td>OO수영장</td>
+									<td><input type="text" class="form-control" name="title" id="title" placeholder="이벤트 내역을 입력하세요"/></td>
+									<td>
+										<div class="mt40">
+									        <div class="c-datepicker-date-editor  J-datepicker-range-day mt10">
+									          <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+									          <input placeholder="시작일" name="" class="c-datepicker-data-input only-date" value="">
+									          <span class="c-datepicker-range-separator">-</span>
+									          <input placeholder="종료일" name="" class="c-datepicker-data-input only-date" value="">
+									        </div>
+								      	</div>
+									</td>
+									<td><button class="btn purple-gradient" id="center-coupon-send" data-toggle="modal" data-target="#couponSend-modal">전송</button></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+
+		<!-- 쿠폰사용 모달 -->
+		<div class="modal fade" id="coupon-modal" tabindex="-1" role="dialog"
+			aria-labelledby="couponModalCenterTitle" aria-hidden="true">
+
+			<!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+			<div class="modal-dialog modal-dialog-centered" role="document">
+
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="couponModalLongTitle">쿠폰 사용</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">쿠폰을 사용하시겠습니까?</div>
+					<div class="modal-footer">
+						<button type="button" class="btn blue-gradient">바코드로 받기</button>
+						<button type="button" class="btn peach-gradient" data-dismiss="modal">사용안함</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- 홍보전송 모달 -->
    <div class="modal fade" id="event-modal" tabindex="-1"
       role="dialog" aria-labelledby="eventModalCenterTitle"
       aria-hidden="true">
@@ -105,15 +187,67 @@
          </div>
       </div>
    </div>
+   
+   <!-- 쿠폰발급 모달 -->
+	<div class="modal fade" id="couponSend-modal" tabindex="-1"
+		role="dialog" aria-labelledby="couponModalCenterTitle"
+		aria-hidden="true">
+
+		<!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+		<div class="modal-dialog modal-dialog-centered" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="couponSendModalLongTitle">쿠폰 발급</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">쿠폰을 발급하시겠습니까?</div>
+				<div class="modal-footer">
+					<button type="button" class="btn blue-gradient">바코드로 발급</button>
+					<button type="button" class="btn peach-gradient" data-dismiss="modal">사용안함</button>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	
 
 </div>
 
 <script>
-<!-- 홍보전송 모달 -->
+
 $(function(){
-   $('#event-send').click(function(){
-      $('#event-modal').modal('show');
-   });
+	
+	var DATAPICKERAPI = {	
+
+	          rangeShortcutOption1: [{
+	            name: '다음 주',
+	            day: '0,7'
+	          }, {
+	            name: '다음 달',
+	            day: '0,30'
+	          }, {
+	            name: '3달 후',
+	            day: '0,90'
+
+	}]};
+	
+	$('.J-datepicker-range-day').datePicker({
+	            hasShortcut: true,
+	            format: 'YYYY-MM-DD',
+	            isRange: true,
+	            shortcutOptions: DATAPICKERAPI.rangeShortcutOption1
+	            
+	});
+   
 });
+
 </script>
+
+
+
 

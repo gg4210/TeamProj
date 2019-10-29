@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script src="<c:url value="/resources/MDB-Free_4.8.10/js/addons/rating.js"/>"></script>
-   
    
 <div class="container">
 
@@ -104,7 +102,7 @@
                      <i class="fas fa-user-friends"></i>&nbsp&nbsp이번달 신규회원: 7명
                   </p>
                   <!-- 테이블 시작 -->
-                  <table class="table">
+                  <table class="table" style="text-align: center;">
                      <thead class="bg-primary white-text">
                         <tr>
                            <th scope="col">NO</th>
@@ -115,19 +113,19 @@
                      </thead>
                      <tbody>
                         <tr>
-                           <th scope="row">7</th>
+                           <td scope="row">7</td>
                            <td>김민지</td>
                            <td>여</td>
                            <td>2019.10.20 ~ 2019.12.19</td>
                         </tr>
                         <tr>
-                           <th scope="row">6</th>
+                           <td scope="row">6</td>
                            <td>김철수</td>
                            <td>남</td>
                            <td>2019.10.20 ~ 2019.01.19</td>
                         </tr>
                         <tr>
-                           <th scope="row">5</th>
+                           <td scope="row">5</td>
                            <td>최철수</td>
                            <td>남</td>
                            <td>2019.10.20 ~ 2019.11.19</td>
@@ -195,7 +193,7 @@
                data-parent="#accordion3">
                <div class="card-body">
                   <!-- 테이블 시작 -->
-                  <table class="table">
+                  <table class="table" style="text-align: center;">
                      <thead class="bg-primary white-text">
                         <tr>
                            <th scope="col">NO</th>
@@ -206,19 +204,19 @@
                      </thead>
                      <tbody>
                         <tr>
-                           <th scope="row">3</th>
+                           <td scope="row">3</td>
                            <td>10/20</td>
                            <td>10% 할인 이벤트</td>
                            <td><span style="color: red">검토 중</span></td>
                         </tr>
                         <tr>
-                           <th scope="row">2</th>
+                           <td scope="row">2</td>
                            <td>09/05</td>
                            <td>'함께하자' 이벤트</td>
                            <td><span style="color: blue">등록 완료</span></td>
                         </tr>
                         <tr>
-                           <th scope="row">1</th>
+                           <td scope="row">1</td>
                            <td>07/01</td>
                            <td>필라테스 과정 신설</td>
                            <td><span style="color: green">기한 만료</span></td>
@@ -275,7 +273,7 @@
             </div>
             <div id="info" class="collapse" aria-labelledby="board" data-parent="#accordion4">
             <div class="card-body">
-               <table class="table table-hover">
+               <table class="table table-hover" style="text-align: center;">
                   <thead class="bg-primary text-white">
                       <tr>
                         <th scope="col">아이디</th>
@@ -285,8 +283,8 @@
                     </thead>
                       <tbody>
                       <tr>
-                        <th scope="row">KIM*</th>
-                         <th scope="row">
+                        <td scope="row">KIM*</td>
+                         <td scope="row">
                                <span id="rateMe">
                            <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
                            <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
@@ -294,12 +292,12 @@
                            <i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
                            <i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
                            </span>
-                        </th>
+                        </td>
                         <td class="text-right"><i class="fas fa-chevron-circle-right"></i></td>
                       </tr>
                       <tr>
-                        <th scope="row">LEE*</th>
-                        <th scope="row">
+                        <td scope="row">LEE*</td>
+                        <td scope="row">
                                <span id="rateMe">
                            <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
                            <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
@@ -307,12 +305,12 @@
                            <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
                            <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
                            </span>
-                        </th>
+                        </td>
                         <td class="text-right"><i class="fas fa-chevron-circle-right"></i></td>
                       </tr>
                       <tr>
-                        <th scope="row">CHO*</th>
-                       <th scope="row">
+                        <td scope="row">CHO*</td>
+                       <td scope="row">
                                <span id="rateMe">
                            <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
                            <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
@@ -320,7 +318,7 @@
                            <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
                            <i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
                            </span>
-                        </th>
+                        </td>
                         <td class="text-right"><i class="fas fa-chevron-circle-right"></i></td>
                       </tr>
                   </tbody>
@@ -336,86 +334,3 @@
 </div>
 <!-- container -->
 
-
-<script>
-
-//line
-var ctxL = document.getElementById("lineChart").getContext('2d');
-var myLineChart = new Chart(ctxL, {
-type: 'line',
-data: {
-labels: ["October","November","December"],
-datasets: [{
-label: "회원 증감 추이",
-data: [185, 178, 200],
-backgroundColor: [
-'rgba(134, 178, 249, 1)',
-],
-borderColor: [
-'rgba(22, 107, 243, 1)',
-],
-borderWidth: 1
-}]
-},
-options: {
-responsive: true
-}
-});
-
-//평점
-var $stars;
-
-jQuery(document).ready(function ($) {
-
-  // Custom whitelist to allow for using HTML tags in popover content
-  var myDefaultWhiteList = $.fn.tooltip.Constructor.Default.whiteList
-  myDefaultWhiteList.textarea = [];
-  myDefaultWhiteList.button = [];
-
-  $stars = $('.rate-popover');
-  
-  function markStarsAsActive(index) {
-    unmarkActive();
-    for (var i = 0; i <= index; i++) {
-      $($stars.get(i)).addClass('amber-text');
-    }
-  }
-
-  function unmarkActive() {
-    $stars.removeClass('amber-text');
-  }
-  
-  /*
-  
-  $stars.on('click', function () {
-    $stars.popover('hide');
-  });
-  // Submit, you can add some extra custom code here
-  // ex. to send the information to the server
-  $('#rateMe').on('click', '#voteSubmitButton',  function() {
-    $stars.popover('hide');
-  });
-
-  // Cancel, just close the popover
-  $('#rateMe').on('click', '#closePopoverButton', function() {
-    $stars.popover('hide');
-  });
-
-
-});
-
-$(function () {
-  $('.rate-popover').popover({
-    // Append popover to #rateMe to allow handling form inside the popover
-    container: '#rateMe',
-    // Custom content for popover
-    content: `<div class="my-0 py-0"> <textarea type="text" style="font-size: 0.78rem" class="md-textarea form-control py-0" placeholder="Write us what can we improve" rows="3"></textarea> <button id="voteSubmitButton" type="submit" class="btn btn-sm btn-primary">Submit!</button> <button id="closePopoverButton" class="btn btn-flat btn-sm">Close</button>  </div>`
-  });
-  $('.rate-popover').tooltip();
-  */
-  
-});
-
-
-
-</script>

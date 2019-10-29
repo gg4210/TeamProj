@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet" type="text/css" href="<c:url value='/resources/css/healthMate/healthMateWrite.css'/>" />
 <title>HealthMate Write</title>
 
 <!-- 실제 내용 시작 -->
@@ -137,13 +136,3 @@
 <!-- container -->
 <!-- 실제 내용 끝 -->
 
-
-
-
-<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요합니다) -->
-<!-- 제이쿼리 코어용 라이브러리 임베드 -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- 제이쿼리 UI용 라이브러리 임베드 -->
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<!-- 모든 컴파일된 플러그인을 포함합니다 (아래), 원하지 않는다면 필요한 각각의 파일을 포함하세요 -->
-<script src="<c:url value="/resources/js/healthMate/healthMateWrite.js"/>"></script>

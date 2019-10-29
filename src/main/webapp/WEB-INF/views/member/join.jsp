@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script>
-	$('.file-upload').file_upload();
-</script>
 <style>
 html, body {
     height: 100%;
@@ -16,7 +13,46 @@ html, body {
 #cujoin #curow{
 	height:100%;
 }
+.card-image-container {
+  position: relative;
+  width: 100%;
+}
+.card-img-top {
+  opacity: 1;
+  display: block table;
+  width: 50%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+  margin-bottom:5px;
+}
+
+.card-img-middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.card-image-container:hover .card-img-top {
+  opacity: 0.3;
+}
+
+.card-image-container:hover .card-img-middle {
+  opacity: 1;
+}
 </style>
+<script>
+$(function(){
+	
+	$('#uploadproimg').click(function(){
+		$('#profile-image').modal('show');
+	});
+});
+</script>
     <div class="container" id="cujoin">
     	<div class="row align-items-center" id="curow">
 		   	<div class="offset-md-2 col-md-8">
@@ -24,9 +60,11 @@ html, body {
 				
 			    <p class="h4 mb-4">개인 회원가입</p>
 				<!-- 사진 -->
-				<div class="file-upload-wrapper col-md-4 offset-md-4">
-				  <input type="file" id="input-file-now" class="file-upload" data-height="300"
-				  data-default-file="https://mdbootstrap.com/img/Photos/Others/images/89.jpg"/>
+				<div class="card-image-container p-3">
+					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 50%">
+					<div class="card-img-middle">
+						<button type="button" class="btn btn-primary px-3" id="uploadproimg">추가하기</button>
+					</div>
 				</div>
 			    <!-- 이름 -->
 			    <input type="text" id="Name" class="form-control mb-4" placeholder="이름을 입력하세요.">
@@ -130,3 +168,37 @@ html, body {
 			</div>
 		</div>
 	</div>
+	
+	<!-- PLUS MATE 모달 시작 -->
+		<div class="modal fade" id="profile-image" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-notify modal-info modal-dialog-centered" role="document">
+				<!--Content-->
+				<div class="modal-content">
+					<!--Header-->
+					<div class="modal-header">
+						<p class="heading">프로필 사진</p>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true" class="white-text">&times;</span>
+						</button>
+					</div>
+					<!--Body-->
+					<div class="modal-body">
+						<div class="row">
+							<div class="col-5">
+								<img src="http://placehold.it/500x325" class="img-fluid" alt="">
+							</div>
+							<div class="col-7">
+								<p>
+									<strong>프로필 사진 추가하기</strong>
+								</p>
+								<p>선택하신 프로필 사진을<br/>추가하시겠습니까?</p>
+								<button type="button" class="btn btn-info btn-md">확인</button>
+								<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--/.Content-->
+			</div>
+		</div>
+		<!-- PLUS MATE 모달 끝 -->
