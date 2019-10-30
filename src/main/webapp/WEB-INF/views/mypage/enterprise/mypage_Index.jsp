@@ -46,12 +46,7 @@
 				<jsp:include page="/WEB-INF/views/mypage/enterprise/event.jsp"/>
 			</div>
 			<div class="tab-pane fade" id="pills-center-info" role="tabpanel" aria-labelledby="pills-customer-service-tab">
-				<div id="main_center_info">
-					<jsp:include page="/WEB-INF/views/mypage/enterprise/center_info.jsp"/>
-				</div>
-				<div id="edit_center_info">
-					<jsp:include page="/WEB-INF/views/mypage/enterprise/edit_center_info.jsp"/>					
-				</div>
+				<jsp:include page="/WEB-INF/views/mypage/enterprise/center_info.jsp"/>
 			</div>
 	  	</div>
 	<!-- 탭 컨텐츠 끝 -->

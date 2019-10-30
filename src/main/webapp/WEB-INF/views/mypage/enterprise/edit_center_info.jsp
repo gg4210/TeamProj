@@ -2,15 +2,38 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
+
+
+
 <div class="container">
 	<div class="card card-body">
-	
-		<!-- 수정하기 title 들어갈 공간-->
-				
-		<form>
+		<div>
+		
+			<h2>수정하기</h2>
+			
 			<div class="form-group">
-				<!-- 종목 선택 들어갈 공간 -->
+				운영시간
+				
 			</div>
+			<div class="form-group">
+				<label for="kinds_of_sport">운동종목</label>
+				<select name="work-condition" id="kinds_of_sport" class="form-control">
+					<option value="1" icon="iw-way">헬스</option>
+					<option value="2" icon="iw-crane">필라테스</option>
+					<option value="3" icon="iw-scope">수영</option>
+					<option value="4" icon="iw-excavator">크로스핏</option>
+					<option value="5" icon="iw-key">복싱</option>
+					<option value="6" icon="iw-warning">클라이밍</option>
+					<option value="7" icon="iw-bag">요가</option>
+					<option value="8" icon="iw-dozer">에어로빅</option>
+					<option value="9" icon="iw-pickup">GX</option>
+					<option value="10" icon="iw-hammer">골프</option>
+					<option value="11" icon="iw-drill">스피닝</option>
+					<option value="12" icon="iw-note">기타</option>
+				</select>
+			</div>
+			
 			<div class="form-group">
 				 <label for="center-info-textarea">센터소개</label>
 				 <textarea class="form-control" id="center-info-textarea" rows="7"></textarea>
@@ -45,14 +68,18 @@
 						    <input type="checkbox" class="custom-control-input form-check-input" id="shower">
 						    <label class="custom-control-label" for="shower">샤워실</label>
 						</div>
+						<div class="custom-control custom-checkbox">
+						    <input type="checkbox" class="custom-control-input form-check-input" id="sauna">
+						    <label class="custom-control-label" for="sauna">찜질방</label>
+						</div>
 					</div>
 					</div>
 				</div>
 			</div>
 			
 			<div class="form-group">
-				<p>태그</p>
-					<!-- 태그 입력란이 들어갈 공간 -->
+				 <label for="tag-input">태그</label>
+				 <input type="text" class="form-control" name="work-tag" id="work-tag">
 			</div>
 			
 			<div class="row">
@@ -60,6 +87,23 @@
 					<button class="btn btn-primary">확인</button>
 				</div>
 			</div>
-		</form>
+			
+		</div>
 	</div>
 </div>
+
+
+<script>
+
+$(function(){
+	$('input[name="work-tag"]').amsifySuggestags({
+		  type :'bootstrap',tagLimit: 5
+	});
+	var beauty = new SelectBeauty({
+		el: '#kinds_of_sport',
+		length: 5,
+		max: 10
+	});
+});
+
+</script>

@@ -11,7 +11,7 @@
 	<!-- 페이지 헤더 끝 -->
 		<!-- 버튼 시작 -->
 		<div class="text-right p-0 mb-2">
-			<button class="btn btn-warning px-3" id="edit">수정</button>
+			<a class="btn btn-warning px-3" id="edit" href="<c:url value='/enterprise/edit_center_info.do'/>">수정</a>
 			<button type="submit" class="btn btn-danger px-3" id="delete">전체 삭제</button>
 		</div>
 		<!-- 버튼 끝 -->
