@@ -1,4 +1,5 @@
 $(function() {
+	
 		//photoUpload
 		$('input[type="file"]').each(function(){		
 			  var $file = $(this),
@@ -21,15 +22,6 @@ $(function() {
 			  });
 			  
 			});////////////
-			
-		/*
-		//datePicker
-			$('#datepicker').datepicker({
-				showAnim : "fold",
-				dateFormat : "yy-mm-dd",
-				minDate : new Date(2019, 10, 17)
-			});/////////
-			*/
 
 			
 });
