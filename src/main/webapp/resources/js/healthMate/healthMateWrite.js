@@ -1,4 +1,5 @@
 $(function() {
+	
 		//photoUpload
 		$('input[type="file"]').each(function(){		
 			  var $file = $(this),

@@ -83,11 +83,11 @@
 			<put-attribute name="Body" value="/WEB-INF/views/healthMate/{1}.jsp"/>
 			<put-list-attribute name="javascripts" inherit="true">
 			    <add-attribute value="/resources/js/healthMate/healthMateMain.js" />
-				<add-attribute value="/resources/js/healthMate/healthMateWrite.js" />		
+				<add-attribute value="/resources/js/healthMate/healthMateWrite.js" />			
 			</put-list-attribute>
 			<put-list-attribute name="stylesheets" inherit="true">
 				<add-attribute value="/resources/css/healthMate/healthMateMain.css" />		
-				<add-attribute value="/resources/css/healthMate/healthMateWrite.css" />		
+				<add-attribute value="/resources/css/healthMate/healthMateWrite.css" />				
 			</put-list-attribute>
 		</definition>
 		

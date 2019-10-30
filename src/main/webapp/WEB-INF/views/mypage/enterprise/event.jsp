@@ -4,7 +4,7 @@
 <style>
 	
 </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <script src="<c:url value='/resources/datePicker/moment/moment.min.js'/>"></script>
 <link rel="stylesheet" href="<c:url value='/resources/datePicker/versatile-date-time-month-year-picker/css/datepicker.css'/>">
 

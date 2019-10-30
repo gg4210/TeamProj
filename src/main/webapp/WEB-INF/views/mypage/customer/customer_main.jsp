@@ -471,6 +471,72 @@
    
 </div>
 <!-- container -->
+		
+		
+		<!-- 등록한 센터 삭제하기 모달 시작 -->
+		<div class="modal fade" id="centerDeleteCheck" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-notify modal-sm modal-danger modal-dialog-centered" role="document">
+				<!--Content-->
+				<div class="modal-content">
+					<!--Header-->
+					<div class="modal-header text-center">
+						<p class="heading font-weight-bold">등록한 센터 삭제</p>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true" class="white-text">&times;</span>
+						</button>
+					</div>
+					<!--Body-->
+					<div class="modal-body">
+						<div class="row justify-content-center">
+								<p>
+									<strong>선택한 센터를 삭제하시겠습니까?</strong>
+								</p>				
+						</div>
+						<div class="row justify-content-center">
+							<button type="button" class="btn btn-danger btn-md">삭제하기</button>
+							<button type="button" class="btn btn-info btn-md" data-dismiss="modal">취소</button>
+						</div>
+					</div>
+				</div>
+				<!--/.Content-->
+			</div>
+		</div>
+		<!-- 등록한 센터 삭제하기 모달 끝 -->
+		
+		
+		<!-- 찜한 센터 삭제하기 모달 시작 -->
+		<div class="modal fade" id="likeCenterDeleteCheck" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-notify modal-sm modal-danger modal-dialog-centered" role="document">
+				<!--Content-->
+				<div class="modal-content">
+					<!--Header-->
+					<div class="modal-header text-center">
+						<p class="heading font-weight-bold">찜한 센터 삭제</p>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true" class="white-text">&times;</span>
+						</button>
+					</div>
+					<!--Body-->
+					<div class="modal-body">
+						<div class="row justify-content-center">
+								<p>
+									<strong>선택한 센터를 삭제하시겠습니까?</strong>
+								</p>				
+						</div>
+						<div class="row justify-content-center">
+							<button type="button" class="btn btn-danger btn-md">삭제하기</button>
+							<button type="button" class="btn btn-info btn-md" data-dismiss="modal">취소</button>
+						</div>
+					</div>
+				</div>
+				<!--/.Content-->
+			</div>
+		</div>
+		<!-- 등록한 센터 삭제하기 모달 끝 -->
+
+
+
+
 
 
 
@@ -490,7 +556,7 @@
 					<div class="modal-body">
 						<div class="row justify-content-center">
 								<p>
-									<strong>메이트를 삭제하시겠습니까?</strong>
+									<strong>선택한 메이트를 삭제하시겠습니까?</strong>
 								</p>				
 						</div>
 						<div class="row justify-content-center">
@@ -503,6 +569,38 @@
 			</div>
 		</div>
 		<!-- 메이트 삭제하기 모달 끝 -->
+		
+		
+		
+		<!-- 쪽지 삭제하기 모달 시작 -->
+		<div class="modal fade" id="msgDeleteCheck" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-notify modal-sm modal-danger modal-dialog-centered" role="document">
+				<!--Content-->
+				<div class="modal-content">
+					<!--Header-->
+					<div class="modal-header text-center">
+						<p class="heading font-weight-bold">쪽지 삭제</p>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true" class="white-text">&times;</span>
+						</button>
+					</div>
+					<!--Body-->
+					<div class="modal-body">
+						<div class="row justify-content-center">
+								<p>
+									<strong>선택한 쪽지를 삭제하시겠습니까?</strong>
+								</p>				
+						</div>
+						<div class="row justify-content-center">
+							<button type="button" class="btn btn-danger btn-md">삭제하기</button>
+							<button type="button" class="btn btn-info btn-md" data-dismiss="modal">취소</button>
+						</div>
+					</div>
+				</div>
+				<!--/.Content-->
+			</div>
+		</div>
+		<!-- 쪽지 삭제하기 모달 끝 -->
 		
 	
 
