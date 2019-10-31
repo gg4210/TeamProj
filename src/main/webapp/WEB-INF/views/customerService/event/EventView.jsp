@@ -79,7 +79,7 @@
 	
 	<div class="row d-flex justify-content-center mt-3 mb-3">		
 		<button type="button" class="btn btn-info" id="event_edit">수정</button>
-		<button type="button" class="btn btn-primary" id="event_confirm"">확인</button>
+		<button type="button" class="btn btn-primary" id="event_confirm">목록</button>
 		<button type="button" class="btn btn-info" id="event_delete">삭제</button>
 	</div>
 	<br/>

@@ -13,10 +13,10 @@ public class CustomerServiceController {
 	
 	
 	
-	@RequestMapping("/moreFAQ.do")
-	public String moreFAQ() {
-		return "customerService/faq/FAQ.tiles";
-	}
+//	@RequestMapping("/moreFAQ.do")
+//	public String moreFAQ() {
+//		return "customerService/faq/FAQ.tiles";
+//	}
 	
 	@RequestMapping("/moreNoticeView.do")
 	public String moreNotice() {
@@ -75,6 +75,11 @@ public class CustomerServiceController {
 	@RequestMapping("/customerService/event/eventList.do")
 	public String eventList() {
 		return "customerService/event/eventList.tiles";
+	}
+	
+	@RequestMapping("/customerService/event/eventWrite.do")
+	public String eventWrite() {
+		return "customerService/event/eventWrite.tiles";
 	}
 	
 	

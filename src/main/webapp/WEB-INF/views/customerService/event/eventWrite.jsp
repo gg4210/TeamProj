@@ -4,7 +4,7 @@
 <div class="containter">
 	<div class="col-md-10 offset-1">
 		<div class="row pt-2">
-			<h3>공지사항</h3>
+			<h3>이벤트</h3>
 		</div><hr/>
 		<div class="row">
 			<div class="col-md-12">
@@ -12,12 +12,11 @@
 					action="/workout/customerService/notice/noticeView.do">
 					<div class="form-group row" id="category">
 						<label class="control-label pr-4">분류</label>
-						<div class="col-2">
+						<div>
 							<select name="selectCategory" class="form-control custom-select">
 								<option selected value="1">-카테고리를 선택해주세요.</option>
-								<option value="2">헬스클럽 관련</option>
-								<option value="3">앱 사용 관련</option>
-								<option value="4">기타</option>
+								<option value="2">정기이벤트</option>
+								<option value="3">특별이벤트</option>
 							</select>
 						</div>
 					</div>

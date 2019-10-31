@@ -79,7 +79,7 @@
 	
 	<div class="row d-flex justify-content-center mt-3 mb-3">		
 		<button type="button" class="btn btn-info" id="notice_edit">수정</button>
-		<button type="button" class="btn btn-primary" id="notice_confirm">확인</button>
+		<button type="button" class="btn btn-primary" id="notice_confirm">목록</button>
 		<button type="button" class="btn btn-info" id="notice_delete">삭제</button>
 	</div>
 	<br/>
@@ -87,12 +87,12 @@
 	
 	<!-- 삭제 모달 시작 -->
 	<div class="modal fade" id="delete-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-			<div class="modal-dialog modal-notify modal-primary modal-dialog-centered" role="document">
+			<div class="modal-sm modal-dialog modal-notify modal-primary modal-dialog-centered" role="document">
 				<!--Content-->
 				<div class="modal-content">
 					<!--Header-->
 					<div class="modal-header">
-						<p class="heading">삭제 확인</p>
+						<p class="heading py-0">삭제 확인</p>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true" class="white-text">&times;</span>
 						</button>
@@ -100,11 +100,11 @@
 					<!--Body-->
 					<div class="modal-body">
 						<div class="row d-flex justify-content-center my-3">
-							<h4>정말로 삭제하시겠습니까?</h4>
+							<h5>정말로 삭제하시겠습니까?</h5>
 						</div>
 						<div class="row d-flex justify-content-center">	
-							<button type="button" class="btn btn-primary btn-md">삭제</button>
-							<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
+							<button type="button" class="btn btn-primary">삭제</button>
+							<button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
 							
 						</div>
 					</div>

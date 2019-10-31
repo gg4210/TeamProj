@@ -7,7 +7,6 @@
 	<!-- pill menu -->
 	<div class="row justify-content-md-center text-center">
 		<ul class="nav nav-pills mb-4 mt-5" id="pills-tab" role="tablist">
-<<<<<<< HEAD
 			<li class="nav-item col">
 				<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
 					aria-controls="pills-home" aria-selected="true"><i class='fas fa-headphones fa-6x'></i><h4 class="mt-2">고객센터 홈</h4></a>
@@ -28,43 +27,6 @@
 				<a class="nav-link"	id="pills-consultlist-tab" data-toggle="pill" href="#pills-consultlist" role="tab"
 					aria-controls="pills-consultlist" aria-selected="false"><i class='fas fa-comments fa-6x'></i><h4 class="mt-2">문의내역<br />확인</h4></a>
 			</li>
-=======
-			<!-- mb-숫자 : margine bottom 숫자(최대 5까지 먹는 듯.)만큼 띄운다. -->
-			<li class="nav-item col"><a class="nav-link active"
-				id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-				aria-controls="pills-home" aria-selected="true"> <i
-					class='fas fa-headphones fa-6x'></i>
-					<h4 class="mt-2">고객센터 홈</h4>
-			</a></li>
-			<li class="nav-item col"><a class="nav-link" id="pills-faq-tab"
-				data-toggle="pill" href="#pills-faq" role="tab"
-				aria-controls="pills-faq" aria-selected="false"> <i
-					class='fas fa-edit fa-6x'></i>
-					<h4 class="mt-2">자주 묻는 질문</h4>
-			</a></li>
-			<li class="nav-item col"><a class="nav-link"
-				id="pills-notice-tab" data-toggle="pill" href="#pills-noticeNevent"
-				role="tab" aria-controls="pills-notice" aria-selected="false"> <i
-					class="fas fa-bullhorn fa-6x"></i>
-					<h4 class="mt-2">
-						공지<br/>이벤트
-					</h4>
-			</a></li>
-			<li class="nav-item col"><a class="nav-link"
-				id="pills-consultwrite-tab" data-toggle="pill" href="#pills-consultwrite"
-				role="tab" aria-controls="pills-consultwrite" aria-selected="false">
-					<i class='fas fa-edit fa-6x'></i>
-					<h4 class="mt-2">1:1문의</h4>
-			</a></li>
-			<li class="nav-item col"><a class="nav-link"
-				id="pills-consultlist-tab" data-toggle="pill" href="#pills-consultlist"
-				role="tab" aria-controls="pills-consultlist" aria-selected="false">
-					<i class='fas fa-comments fa-6x'></i>
-					<h4 class="mt-2">
-						문의내역<br />확인
-					</h4>
-			</a></li>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 		</ul>
 	</div>
 	<!-- pill menu 끝 -->

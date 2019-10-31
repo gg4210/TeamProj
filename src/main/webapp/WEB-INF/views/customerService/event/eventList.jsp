@@ -56,6 +56,15 @@
 		</div>  <!-- col-md-12 -->
 	</div>
 	
+	<div class="row">
+		<div class="clearfix col">
+			<div class="float-right">
+				<div class="form-inline">
+					<button type="button" class="btn btn-info p-2 px-4" id="event_write">이벤트 작성</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- 페이지네이션 시작 -->
 	<div class="row">
@@ -78,3 +87,11 @@
 	</div>  <!-- 페이지네이션 끝 -->
 </div>
 
+<script>
+	$(function(){
+		
+		$('#event_write').click(function(){
+			location.href="customerService/event/eventWrite.do";
+		});
+	});
+</script>
