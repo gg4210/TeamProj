@@ -7,7 +7,6 @@
 
    <!-- row1 시작 -->
    <div class="row">
-   
       <!-- col1 등록한 센터 시작 -->
       <div class="accordion col" id="accordion1">
          <div class="card">
