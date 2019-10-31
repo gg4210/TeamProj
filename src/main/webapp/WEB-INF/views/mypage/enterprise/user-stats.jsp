@@ -2,6 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<script src="<c:url value='/resources/datePicker/moment/moment.min.js'/>"></script>
+<link rel="stylesheet" href="<c:url value='/resources/datePicker/versatile-date-time-month-year-picker/css/datepicker.css'/>">
+
+<script src="<c:url value='/resources/datePicker/versatile-date-time-month-year-picker/js/datepicker.all.js'/>"></script>
+<script src="<c:url value='/resources/datePicker/versatile-date-time-month-year-picker/js/datepicker.en.js'/>"></script>
+
     
 <div class="container-fluid">
 
@@ -74,9 +80,9 @@
                   <!-- 회원 등록,삭제 버튼 -->
                      <div class="clearfix">
                         <div class="float-right">
-                           <button type="submit" class="btn btn-info px-3" id="ok">회원등록</button>
-                           <button type="submit" class="btn btn-default px-3" id="update">정보수정</button>   
-                           <button type="submit" class="btn btn-danger px-3" id="delete">회원삭제</button>         
+                           <button type="submit" class="btn btn-info px-3" id="memberPlus">회원등록</button>
+                           <button type="submit" class="btn btn-default px-3" id="memberupdate">정보수정</button>   
+                           <button type="submit" class="btn btn-danger px-3" id="memberDelete">회원삭제</button>         
                         </div>
                      </div>
                <!-- 회원 등록,삭제 버튼 -->
@@ -265,3 +271,147 @@
    <!-- row 끝 -->
 </div>
 <!-- container-fluid 끝 -->
+
+
+		<!-- 회원 등록하기 모달 시작 -->
+		<div class="modal fade" id="memberPlusWrite" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-notify modal-info modal-dialog-centered" role="document">
+				<!--Content-->
+				<div class="modal-content">
+					<!--Header-->
+					<div class="modal-header text-center">
+						<p class="heading font-weight-bold">찜한 센터 삭제</p>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true" class="white-text">&times;</span>
+						</button>
+					</div>
+					<!--Body-->
+					<div class="modal-body">
+						<!-- 회원 등록 폼 시작 -->
+						<div class="row justify-content-center">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="basic-addon1">이름</span>
+								</div>
+								<input type="text" class="form-control" placeholder="이름을 입력하세요" aria-describedby="basic-addon1">
+							</div>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="basic-addon2">아이디</span>
+								</div>
+								<input type="text" class="form-control" placeholder="아이디를 입력하세요" aria-describedby="basic-addon2">
+							</div>
+		
+							<div class="input-group mb-3">
+								<select class="browser-default custom-select mr-3">
+									<option selected>성별</option>
+									<option value="1">남</option>
+									<option value="2">여</option>
+								</select>
+								<select class="browser-default custom-select">
+									<option selected>나이</option>
+									<option value="1">10대</option>
+									<option value="2">20대</option>
+									<option value="3">30대</option>
+									<option value="4">40대</option>
+									<option value="5">50대</option>
+									<option value="6">60대</option>
+									<option value="7">70대</option>
+								</select>
+							</div>
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="basic-addon3">등록일</span>
+								</div>
+								<!-- 날짜 입력란 시작 -->
+								<div class="c-datepicker-date-editor  J-datepicker-range-day mt10">
+									<i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+									<input placeholder="시작일" name="" class="c-datepicker-data-input only-date" value="">
+									<span class="c-datepicker-range-separator">-</span>
+									<input placeholder="종료일" name="" class="c-datepicker-data-input only-date" value="">
+								</div>
+								<!-- 날짜 입력란 끝 -->
+							</div>
+
+
+				</div>
+						
+						
+						
+						<div class="row justify-content-center">
+							<button type="button" class="btn btn-danger btn-md">삭제하기</button>
+							<button type="button" class="btn btn-info btn-md" data-dismiss="modal">취소</button>
+						</div>
+					</div>
+				</div>
+				<!--/.Content-->
+			</div>
+		</div>
+		<!-- 회원 등록하기 모달 끝 -->
+		
+		<!-- 회원 삭제 모달 시작 -->
+		<div class="modal fade" id="member_delete" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-notify modal-sm modal-danger modal-dialog-centered" role="document">
+				<!--Content-->
+				<div class="modal-content">
+					<!--Header-->
+					<div class="modal-header text-center">
+						<p class="heading font-weight-bold">회원 삭제</p>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true" class="white-text">&times;</span>
+						</button>
+					</div>
+					<!--Body-->
+					<div class="modal-body">
+						<div class="row justify-content-center">
+								<p>
+									<strong>선택한 회원을 삭제하시겠습니까?</strong>
+								</p>				
+						</div>
+						<div class="row justify-content-center">
+							<button type="button" class="btn btn-danger btn-md">삭제하기</button>
+							<button type="button" class="btn btn-info btn-md" data-dismiss="modal">취소</button>
+						</div>
+					</div>
+				</div>
+				<!--/.Content-->
+			</div>
+		</div>
+		<!-- 등록한 센터 삭제하기 모달 끝 -->
+		
+		
+		
+		<!-- 데이트 피커 스크립트 -->
+<script>
+
+$(function(){
+	
+	//데이트 피커
+	var DATAPICKERAPI = {	
+
+	          rangeShortcutOption1: [{
+	            name: '다음 주',
+	            day: '0,7'
+	          }, {
+	            name: '다음 달',
+	            day: '0,30'
+	          }, {
+	            name: '3달 후',
+	            day: '0,90'
+
+	}]};
+	
+	$('.J-datepicker-range-day').datePicker({
+	            hasShortcut: true,
+	            format: 'YYYY-MM-DD',
+	            isRange: true,
+	            shortcutOptions: DATAPICKERAPI.rangeShortcutOption1
+	            
+	});
+	
+	
+	
+})
+
+
+</script>

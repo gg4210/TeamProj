@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+<script src="<c:url value='/resources/datePicker/moment/moment.min.js'/>"></script>
+<link rel="stylesheet" href="<c:url value='/resources/datePicker/versatile-date-time-month-year-picker/css/datepicker.css'/>">
+
+<script src="<c:url value='/resources/datePicker/versatile-date-time-month-year-picker/js/datepicker.all.js'/>"></script>
+<script src="<c:url value='/resources/datePicker/versatile-date-time-month-year-picker/js/datepicker.en.js'/>"></script>
+
 <title>HealthMate Write</title>
 
 <!-- 실제 내용 시작 -->
@@ -12,7 +20,7 @@
     </header>
     
     <!-- row 시작 -->
-<form action="/workout/healthMateMain.do" method="get">
+	<form action="/workout/healthMateMain.do" method="get">
   	<div class="form-row">
 	  	<!-- 사진 등록 시작 -->
 	  	<div class="col-md-3">
@@ -63,7 +71,7 @@
 						<option value="6">기타</option>
 					</select>
 				</div>
-				<div class="col-md-auto">
+				<div class="col-md-auto pr-1">
 					<select class="browser-default custom-select">
 						<option selected>운동시간</option>
 						<option value="1">오전</option>
@@ -78,11 +86,14 @@
 					</select>
 				</div>
 				
-				<!-- 날짜 -->
-					<div class="py-1 col-md-4">
-						<input type="text" id="datepicker" placeholder="날짜를 선택하세요" />
+				<!-- 날짜 입력란 시작 -->
+					<div class="c-datepicker-date-editor  J-datepicker-range-day mt10">
+						<i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+						<input placeholder="시작일" name="" class="c-datepicker-data-input only-date" value="">
+						<span class="c-datepicker-range-separator">-</span>
+						<input placeholder="종료일" name="" class="c-datepicker-data-input only-date" value="">
 					</div>
-				<!-- 날짜 -->
+				<!-- 날짜 입력란 끝 -->
 				
 			</div>
 				<!-- 셀렉트박스, 날짜 row 끝 -->
@@ -135,4 +146,40 @@
 </div>
 <!-- container -->
 <!-- 실제 내용 끝 -->
+
+
+<!-- 데이트 피커 스크립트 -->
+<script>
+
+$(function(){
+	
+	//데이트 피커
+	var DATAPICKERAPI = {	
+
+	          rangeShortcutOption1: [{
+	            name: '다음 주',
+	            day: '0,7'
+	          }, {
+	            name: '다음 달',
+	            day: '0,30'
+	          }, {
+	            name: '3달 후',
+	            day: '0,90'
+
+	}]};
+	
+	$('.J-datepicker-range-day').datePicker({
+	            hasShortcut: true,
+	            format: 'YYYY-MM-DD',
+	            isRange: true,
+	            shortcutOptions: DATAPICKERAPI.rangeShortcutOption1
+	            
+	});
+	
+	
+	
+})
+
+
+</script>
 

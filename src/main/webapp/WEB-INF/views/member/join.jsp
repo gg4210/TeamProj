@@ -44,6 +44,76 @@ html, body {
 .card-image-container:hover .card-img-middle {
   opacity: 1;
 }
+.wrap-custom-file {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 250px;
+  margin: 0 0.5rem 1rem;
+  text-align: center;
+}
+
+.wrap-custom-file input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.wrap-custom-file label {
+  border:1px solid #c7c7c7;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 4px;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+}
+
+.wrap-custom-file label span {
+  display: block;
+  margin-top: 5rem;
+  font-size: 1.4rem;
+  color: #a8a8a8;
+  -webkit-transition: color 0.4s;
+  transition: color 0.4s;
+}
+
+.wrap-custom-file label:hover {
+
+}
+
+.wrap-custom-file label:hover span { color: #ff0000; }
+
+.wrap-custom-file label.file-ok {
+  background-size: cover;
+  background-position: center;
+  border: none;
+}
+
+.wrap-custom-file label.file-ok span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.3rem;
+  font-size: 1.1rem;
+  color: #000;
+  background-color: rgba(255, 255, 255, 0.7);
+}
 </style>
 <script>
 $(function(){
@@ -51,6 +121,28 @@ $(function(){
 	$('#uploadproimg').click(function(){
 		$('#profile-image').modal('show');
 	});
+	
+	$('input[type="file"]').each(function(){		
+		  var $file = $(this),
+		      $label = $file.next('label'),
+		      $labelText = $label.find('span'),
+		      labelDefault = $labelText.text();
+	
+		  $file.on('change', function(event){
+		    var fileName = $file.val().split( '\\' ).pop(),
+		        tmppath = URL.createObjectURL(event.target.files[0]);
+		    if( fileName ){
+		      $label
+		        .addClass('file-ok')
+		        .css('background-image', 'url(' + tmppath + ')');
+		      $labelText.text(fileName);
+		    }else{
+		      $label.removeClass('file-ok');
+		      $labelText.text(labelDefault);
+		    }
+		  });
+		  
+		});
 });
 </script>
     <div class="container" id="cujoin">
@@ -60,12 +152,14 @@ $(function(){
 				
 			    <p class="h4 mb-4">개인 회원가입</p>
 				<!-- 사진 -->
-				<div class="card-image-container p-3">
-					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 50%">
-					<div class="card-img-middle">
-						<button type="button" class="btn btn-primary px-3" id="uploadproimg">추가하기</button>
+				<div class="col">
+					<div class="wrap-custom-file">
+						<input type="file" name="image1" id="image1" accept=".gif, .jpg, .png"/>
+						<label for="image1"> 
+							<span>사진 등록하기<br/>Click</span>
+						</label>
 					</div>
-				</div>
+			  	</div>
 			    <!-- 이름 -->
 			    <input type="text" id="Name" class="form-control mb-4" placeholder="이름을 입력하세요.">
 				
@@ -158,7 +252,15 @@ $(function(){
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 						  <input type="checkbox" class="custom-control-input" id="defaultInline10">
-						  <label class="custom-control-label" for="defaultInline10">기타</label>
+						  <label class="custom-control-label" for="defaultInline10">복싱</label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+						  <input type="checkbox" class="custom-control-input" id="defaultInline11">
+						  <label class="custom-control-label" for="defaultInline11">크로스핏</label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+						  <input type="checkbox" class="custom-control-input" id="defaultInline12">
+						  <label class="custom-control-label" for="defaultInline12">기타</label>
 						</div>
 					</div>
 				</div>
@@ -175,12 +277,14 @@ $(function(){
 				<!--Content-->
 				<div class="modal-content">
 					<!--Header-->
-					<div class="modal-header">
-						<p class="heading">프로필 사진</p>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true" class="white-text">&times;</span>
-						</button>
-					</div>
+					<div class="col">
+						<div class="wrap-custom-file">
+							<input type="file" name="image1" id="image1" accept=".gif, .jpg, .png"/>
+							<label for="image1"> 
+								<span>사진 등록하기<br/>Click</span>
+							</label>
+						</div>
+				  	</div>
 					<!--Body-->
 					<div class="modal-body">
 						<div class="row">

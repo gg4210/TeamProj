@@ -5,7 +5,7 @@ th {
 	width:90px;
 }
 
-button {
+#coupon-base button {
 	margin-right:5px;
 }
 
@@ -100,7 +100,6 @@ button {
 			</div>
 		</div>
 	</div>
-
 </div>
 
 <script>

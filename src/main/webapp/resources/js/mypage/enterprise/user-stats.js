@@ -149,5 +149,19 @@ beginAtZero: true
 }
 });
 
+//등록한 센터 삭제
+$('#memberPlus').click(function(){
+	console.log('등록버튼 클릭');
+	$('#memberPlusWrite').modal('show');
 });
+
+//찜한 센터 삭제
+$('#memberDelete').click(function(){
+	console.log('삭제버튼 클릭');
+	$('#member_delete').modal('show');
+});
+
+
+});
+
 
