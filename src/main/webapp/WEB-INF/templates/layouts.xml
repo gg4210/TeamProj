@@ -62,29 +62,25 @@
 		</definition>
 		
 		
-		<definition name="mypage/*/*.tiles" extends="layouts">
-			<put-attribute name="title" value="운동해(偕)!-마이 페이지" />		
-			<put-attribute name="Body" value="/WEB-INF/views/mypage/{1}/{2}.jsp"/>
-			<put-list-attribute name="javascripts" inherit="true">
-			    <add-attribute value="/resources/js/mypage/enterprise/user-stats.js" />
-				<add-attribute value="/resources/js/mypage/enterprise/enterprise_main.js" />
-				<add-attribute value="/resources/utils/tagInput/jquery.amsify.suggestags.js" />
-				<add-attribute value="/resources/utils/multiSelect/js/select-beauty.js" />
-				<add-attribute value="/resources/js/mypage/enterprise/mypage_Index.js" />		
-				<add-attribute value="/resources/js/mypage/enterprise/enterprise_main.js" />		
-				<add-attribute value="/resources/js/mypage/customer/customer_main.js" />		
-				<add-attribute value="/resources/datePicker/moment/moment.min.js" />		
-				<add-attribute value="/resources/datePicker/versatile-date-time-month-year-picker/js/datepicker.all.js" />		
-				<add-attribute value="/resources/datePicker/versatile-date-time-month-year-picker/js/datepicker.en.js" />		
-			</put-list-attribute>
-			<put-list-attribute name="stylesheets" inherit="true">
-				<add-attribute value="/resources/css/mypage/enterprise/user-stats.css" />
-				<add-attribute value="/resources/css/mypage/enterprise/center_info.css" />
-				<add-attribute value="/resources/datePicker/versatile-date-time-month-year-picker/css/datepicker.css" />
-				<add-attribute value="/resources/utils/tagInput/amsify.suggestags.css" />
-				<add-attribute value="/resources/utils/multiSelect/css/select-beauty.css" />
-			</put-list-attribute>
-		</definition>
+      <definition name="mypage/*/*.tiles" extends="layouts">
+         <put-attribute name="title" value="운동해(偕)!-마이 페이지" />      
+         <put-attribute name="Body" value="/WEB-INF/views/mypage/{1}/{2}.jsp"/>
+         <put-list-attribute name="javascripts" inherit="true">
+            <add-attribute value="/resources/js/mypage/enterprise/user-stats.js" />
+            <add-attribute value="/resources/js/mypage/enterprise/enterprise_main.js" />
+            <add-attribute value="/resources/utils/tagInput/jquery.amsify.suggestags.js" />
+            <add-attribute value="/resources/utils/multiSelect/js/select-beauty.js" />
+            <add-attribute value="/resources/js/mypage/enterprise/mypage_Index.js" />      
+            <add-attribute value="/resources/js/mypage/enterprise/enterprise_main.js" />      
+            <add-attribute value="/resources/js/mypage/customer/customer_main.js" />      
+         </put-list-attribute>
+         <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="/resources/css/mypage/enterprise/user-stats.css" />      
+            <add-attribute value="/resources/css/mypage/enterprise/center_info.css" />
+            <add-attribute value="/resources/utils/tagInput/amsify.suggestags.css" />
+            <add-attribute value="/resources/utils/multiSelect/css/select-beauty.css" />
+         </put-list-attribute>
+      </definition>
 		
 		
 		<definition name="healthMate/*.tiles" extends="layouts">
