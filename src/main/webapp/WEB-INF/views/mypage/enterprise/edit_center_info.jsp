@@ -14,7 +14,13 @@
 			
 			<div class="form-group">
 				운영시간
-				
+				<div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-time-range mt10">
+		          <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+		          <input placeholder="Start" name="" class="c-datepicker-data-input only-time" value="">
+		          <span class="c-datepicker-range-separator">-</span>
+		          <input placeholder="End" name="" class="c-datepicker-data-input only-time" value="">
+		        </div>
+		        
 			</div>
 			<div class="form-group">
 				<label for="kinds_of_sport">운동종목</label>
@@ -96,9 +102,17 @@
 <script>
 
 $(function(){
+	 $('.J-datepicker-time-range').datePicker({
+         format: 'HH:mm:ss',
+         isRange: true,
+         min: '04:23:11',
+         max: '20:59:59'
+       });
+	 
 	$('input[name="work-tag"]').amsifySuggestags({
 		  type :'bootstrap',tagLimit: 5
 	});
+	
 	var beauty = new SelectBeauty({
 		el: '#kinds_of_sport',
 		length: 5,
