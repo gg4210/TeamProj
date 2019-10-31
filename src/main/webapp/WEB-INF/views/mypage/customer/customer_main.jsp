@@ -4,7 +4,6 @@
    
    
 <div class="container">
-
    <!-- row1 시작 -->
    <div class="row">
       <!-- col1 등록한 센터 시작 -->
@@ -289,7 +288,7 @@
                	  <!-- 더보기  시작 -->
                	  	<div class="row float-right pr-2">
                	  	<button type="submit" class="btn btn-danger p-1 px-2" id="mate_delete">삭제하기</button>
-               		<button type="submit" value="<" class="btn btn-info p-1 px-2" id="mate_select"><i class="fas fa-plus"></i> 더보기</button>
+               		<button type="button" class="btn btn-info p-1 px-2" id="mate_select"><i class="fas fa-plus"></i> 더보기</button>
                	</div>               	  
                	<!-- 더보기 끝 -->
                   <!-- 테이블 시작 -->
@@ -405,7 +404,7 @@
             	<!-- 더보기  시작 -->
                	  	<div class="row float-right pr-2">
                	  	<button type="submit" class="btn btn-danger p-1 px-2" id="msg_delete">삭제하기</button>
-               		<button type="submit" class="btn btn-info p-1 px-2" id="msg_plus"><i class="fas fa-plus"></i> 더보기</button>
+               		<button type="button" class="btn btn-info p-1 px-2" id="msg_plus"><i class="fas fa-plus"></i>더보기</button>
                	</div>               	  
                	<!-- 더보기 끝 -->
                <!-- 쪽지함 테이블 시작 -->

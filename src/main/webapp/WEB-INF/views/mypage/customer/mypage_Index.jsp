@@ -2,28 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
-<script>
-$(function () {
-	var durl = window.location.hash;
-	var dactiveTab = durl.substring(durl.indexOf("#") + 1);
-	console.log(dactiveTab);
-	if (durl !='') {
-		$(".tab-pane fade").removeClass("show active");
-		$(".tab-pane fade").removeClass("active show");
-		$('a[href="#'+ dactiveTab +'"]').tab('show');
-	}
-	$('#customerLinks a').click(function(){
-		var link = $(this).attr('href');
-		var sactiveTab = link.substring(link.indexOf("#") + 1);
-		$('#customerLinks a').removeClass("active");
-		$(this).addClass("active");
-		$(".tab-pane fade").removeClass("show active");
-		$(".tab-pane fade").removeClass("active show");
-		$('a[href="#'+ sactiveTab +'"]').tab('show');
-	});
-});
-
-</script>
 	<div class="container">
 		<!-- 탭메뉴 시작 -->
 		<div class="row justify-content-md-center text-center">

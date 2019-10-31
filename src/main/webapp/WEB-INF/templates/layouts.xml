@@ -19,6 +19,8 @@
         		<add-attribute value="/resources/MDB-Free_4.8.10/js/mdb.min.js" />
         		<add-attribute value="/resources/js/index.js?ver=1.1"/>
         		<add-attribute value="/resources/fullPage/fullpage.js"/>
+        		<add-attribute value="/resources/js/member/join.js?ver=1.3" />
+        		<add-attribute value="/resources/js/member/enterprisejoin.js?ver=1.3" />
     		</put-list-attribute>
 			<put-list-attribute name="stylesheets">
         		<add-attribute value="/resources/MDB-Free_4.8.10/css/bootstrap.min.css" />
@@ -26,6 +28,8 @@
         		<add-attribute value="/resources/fullPage/fullpage.css?ver=1.2" />
         		<add-attribute value="/resources/css/index.css?ver=1.3" />
         		<add-attribute value="/resources/css/member/login.css?ver=1.1" />
+        		<add-attribute value="/resources/css/member/join.css?ver=1.4" />
+        		<add-attribute value="/resources/css/member/enterprisejoin.css?ver=1.5" />
     		</put-list-attribute>
 		</definition>
 	
@@ -72,7 +76,8 @@
 				<add-attribute value="/resources/utils/multiSelect/js/select-beauty.js" />
 				<add-attribute value="/resources/js/mypage/enterprise/mypage_Index.js" />		
 				<add-attribute value="/resources/js/mypage/enterprise/enterprise_main.js" />		
-				<add-attribute value="/resources/js/mypage/customer/customer_main.js" />		
+				<add-attribute value="/resources/js/mypage/customer/customer_main.js" />
+				<add-attribute value="/resources/js/mypage/customer/mypage_Index.js?ver=1.1" />	
 			</put-list-attribute>
 			<put-list-attribute name="stylesheets" inherit="true">
 				<add-attribute value="/resources/css/mypage/enterprise/user-stats.css" />		
