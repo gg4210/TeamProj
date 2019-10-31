@@ -3,25 +3,67 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
+<script>
+
+$(function(){
+	
+	$('#weekday').datePicker({
+        format: 'HH:mm:ss',
+        isRange: true,
+        min: '04:23:11',
+        max: '20:59:59'
+      });
+
+	
+	$('#weekend').datePicker({
+        format: 'HH:mm:ss',
+        isRange: true,
+        min: '04:23:11',
+        max: '20:59:59'
+      });
+
+	var beauty = new SelectBeauty({
+		el: '#kinds_of_sport',
+		length: 5,
+		max: 10
+	});
+	
+	$('input[name="work-tag"]').amsifySuggestags({
+		  type :'bootstrap',tagLimit: 5
+	});
+	
+});
+
+</script>
 
 
-
-<div class="container">
 	<div class="card card-body">
 		<div>
 		
 			<h2>수정하기</h2>
 			
 			<div class="form-group">
-				운영시간
-				<div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-time-range mt10">
-		          <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
-		          <input placeholder="Start" name="" class="c-datepicker-data-input only-time" value="">
-		          <span class="c-datepicker-range-separator">-</span>
-		          <input placeholder="End" name="" class="c-datepicker-data-input only-time" value="">
+				<p>운영시간</p>
+				<!-- 주중 -->
+				<div class="mt40">
+					<div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-time-range" id="weekday">
+			          <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+			          <input placeholder="시작일" name="" class="c-datepicker-data-input only-time" value="">
+			          <span class="c-datepicker-range-separator">-</span>
+			          <input placeholder="종료일" name="" class="c-datepicker-data-input only-time" value="">
+			        </div>
 		        </div>
-		        
+				<!-- 주말 -->
+				<div class="mt40">
+					<div class="c-datepicker-date-editor c-datepicker-single-editor J-datepicker-time-range" id="weekend">
+			          <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+			          <input placeholder="시작일" name="" class="c-datepicker-data-input only-time" value="">
+			          <span class="c-datepicker-range-separator">-</span>
+			          <input placeholder="종료일" name="" class="c-datepicker-data-input only-time" value="">
+			        </div>
+		        </div>
 			</div>
+			
 			<div class="form-group">
 				<label for="kinds_of_sport">운동종목</label>
 				<select name="work-condition" id="kinds_of_sport" class="form-control">
@@ -96,28 +138,5 @@
 			
 		</div>
 	</div>
-</div>
 
 
-<script>
-
-$(function(){
-	 $('.J-datepicker-time-range').datePicker({
-         format: 'HH:mm:ss',
-         isRange: true,
-         min: '04:23:11',
-         max: '20:59:59'
-       });
-	 
-	$('input[name="work-tag"]').amsifySuggestags({
-		  type :'bootstrap',tagLimit: 5
-	});
-	
-	var beauty = new SelectBeauty({
-		el: '#kinds_of_sport',
-		length: 5,
-		max: 10
-	});
-});
-
-</script>
