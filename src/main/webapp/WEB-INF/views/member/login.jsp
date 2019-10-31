@@ -121,7 +121,9 @@
 				         <!-- 카드 바디 끝 -->
 				      </div>
 				   </div>
-				   <div class="card">
+				</div>
+				<div class="accordion col" id="customeraccordion2">
+					<div class="card">
 						<div class="card-header mdb-color darken-3 pb-0" id="heading1" style="padding:0px;">
 							<button class="btn btn-link" type="button" data-toggle="collapse"
 				               data-target="#center2" aria-expanded="true"
@@ -146,7 +148,7 @@
 							</button>
 						</div>
 						<div id="center2" class="collapse" aria-labelledby="heading1"
-				         data-parent="#customeraccordion">
+				         data-parent="#customeraccordion2">
 				         <!-- 카드 바디 시작 -->
 				         	<div class="card-body" style="padding:0px">
 				         		<div class="list-group" id="customerLinks">

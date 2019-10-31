@@ -289,7 +289,7 @@
                	  <!-- 더보기  시작 -->
                	  	<div class="row float-right pr-2">
                	  	<button type="submit" class="btn btn-danger p-1 px-2" id="mate_delete">삭제하기</button>
-               		<button type="submit" class="btn btn-info p-1 px-2" id="mate_select"><i class="fas fa-plus"></i> 더보기</button>
+               		<button type="submit" value="<" class="btn btn-info p-1 px-2" id="mate_select"><i class="fas fa-plus"></i> 더보기</button>
                	</div>               	  
                	<!-- 더보기 끝 -->
                   <!-- 테이블 시작 -->
