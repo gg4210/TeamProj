@@ -158,7 +158,7 @@
 			    	</th>
 			    	<td><img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/20.jpg" alt="Card image cap"></td>
 					<td>
-						<p><a href="<c:url value='#'/>">KIM**</a></p>
+						<p><a href="<c:url value='#'/>">KIM***</a></p>
 					</td>
 					<td scope="col" style="text-align:center;">2019-10-25</td>
 					<td style="text-align:center;"><span style="color: red;">읽지않음</span></td>
