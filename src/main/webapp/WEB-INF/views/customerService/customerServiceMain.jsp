@@ -25,7 +25,7 @@
 				role="tab" aria-controls="pills-notice" aria-selected="false"> <i
 					class="fas fa-bullhorn fa-6x"></i>
 					<h4 class="mt-2">
-						공지<br />/이벤트
+						공지<br/>이벤트
 					</h4>
 			</a></li>
 			<li class="nav-item col"><a class="nav-link"
