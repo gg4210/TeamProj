@@ -252,7 +252,15 @@ $(function(){
 						</div>
 						<div class="custom-control custom-checkbox custom-control-inline">
 						  <input type="checkbox" class="custom-control-input" id="defaultInline10">
-						  <label class="custom-control-label" for="defaultInline10">기타</label>
+						  <label class="custom-control-label" for="defaultInline10">복싱</label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+						  <input type="checkbox" class="custom-control-input" id="defaultInline11">
+						  <label class="custom-control-label" for="defaultInline11">크로스핏</label>
+						</div>
+						<div class="custom-control custom-checkbox custom-control-inline">
+						  <input type="checkbox" class="custom-control-input" id="defaultInline12">
+						  <label class="custom-control-label" for="defaultInline12">기타</label>
 						</div>
 					</div>
 				</div>
