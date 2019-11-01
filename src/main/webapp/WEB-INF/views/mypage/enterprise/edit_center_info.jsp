@@ -99,6 +99,7 @@ $(function(){
    $('input[name="work-tag"]').amsifySuggestags({
         type :'bootstrap',tagLimit: 5
    });
+   
    var beauty = new SelectBeauty({
       el: '#kinds_of_sport',
       length: 5,
