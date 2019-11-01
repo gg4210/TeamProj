@@ -68,7 +68,7 @@
          <put-list-attribute name="javascripts" inherit="true">
             <add-attribute value="/resources/js/mypage/enterprise/user-stats.js" />
             <add-attribute value="/resources/js/mypage/enterprise/enterprise_main.js" />
-            <add-attribute value="/resources/utils/timePicker/jquery.datetimepicker.js" />                  
+            <add-attribute value="/resources/utils/timePicker/dist/jquery.datetimepicker.min.js" />                  
             <add-attribute value="/resources/utils/tagInput/jquery.amsify.suggestags.js" />
             <add-attribute value="/resources/utils/multiSelect/js/select-beauty.js" />
             <add-attribute value="/resources/js/mypage/enterprise/mypage_Index.js" />      
@@ -81,7 +81,7 @@
             <add-attribute value="/resources/css/mypage/enterprise/center_info.css" />
             <add-attribute value="/resources/utils/tagInput/amsify.suggestags.css" />
             <add-attribute value="/resources/utils/multiSelect/css/select-beauty.css" />
-            <add-attribute value="/resources/utils/timePicker/jquery.datetimepicker.css" />
+            <add-attribute value="/resources/utils/timePicker/dist/jquery.datetimepicker.css" />
          </put-list-attribute>
       </definition>
 		

@@ -746,8 +746,8 @@
                     $table.focus = $(this);
                 });
                 $table.focus = $table.$m;
-                var $add = $('<td/>').append($('<i class="fas fa-angle-up fa-sm"/>')).data('nav', NAV['plus']);
-                var $min = $('<td/>').append($('<i class="fas fa-angle-down fa-sm"/>')).data('nav', NAV['minus']);
+                var $add = $('<td/>').append($('<i class="icon-datepicker-plus"/>')).data('nav', NAV['plus']);
+                var $min = $('<td/>').append($('<i class="icon-datepicker-minus"/>')).data('nav', NAV['minus']);
                 var $row = $('<tr/>').append($('<td rowspan="2"/>').text(I18N.TIME))
                     .append($('<td rowspan="2"/>').append($table.$h))
                     .append($('<td class="common" rowspan="2"/>').text(':'))
@@ -1039,12 +1039,12 @@
                 SDN: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
                 MN: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
                 DN: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                CALENDAR: "달력",
-                CLEAR: "초기화",
-                TODAY: "오늘",
-                OK: "확인",
-                CURRENT: "현재",
-                TIME: "시간"
+                CALENDAR: "Calendar",
+                CLEAR: "Clear",
+                TODAY: "Today",
+                OK: "OK",
+                CURRENT: "Now",
+                TIME: "Time"
             },
             de: {
                 SDN: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
