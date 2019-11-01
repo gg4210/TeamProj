@@ -212,7 +212,7 @@
     },
     timeVal: function (_this, type) {
       var timeFormat = _this.onlyTime ? _this.config.format : _this.config.format.split(' ')[1];
-      return type === 'min' ? timeFormat.replace(/HH/, '00').replace(/mm/, '00').replace(/ss/, '00') : timeFormat.replace(/HH/, '23').replace(/mm/, '59').replace(/ss/, '59');
+      return type === 'min' ? timeFormat.replace(/HH/, '00').replace(/mm/, '00') : timeFormat.replace(/HH/, '23').replace(/mm/, '59');
     },
     getScrollBarWidth: function () {
       var inner = document.createElement('p');
@@ -1452,15 +1452,15 @@
     hide: function () {
       this.picker.$container.find('.c-datepicker-time-panel').hide();
     },
-    render: function (type, hour, minute, second) {
+    render: function (type, hour, minute) {
       if (this.picker.config.isRange) {
-        this.renderRange(type, hour, minute, second);
+        this.renderRange(type, hour, minute);
       } else {
-        this.renderSingle(type, hour, minute, second);
+        this.renderSingle(type, hour, minute);
       }
     },
-    renderSingle: function (type, hour, minute, second) {
-      var html = this.renderHtml(type, hour, minute, second);
+    renderSingle: function (type, hour, minute) {
+      var html = this.renderHtml(type, hour, minute);
       var $time = this.picker.activeTimeWrap.find('.c-datepicker-time-panel');
       // 初始化，添加html
       if (!$time.length) {
@@ -1473,7 +1473,7 @@
         this.show();
       }
     },
-    renderRange: function (type, hour, minute, second) {
+    renderRange: function (type, hour, minute) {
       var html = this.renderHtml(type, hour, minute, second);
       var $time = this.picker.activeTimeWrap.find('.c-datepicker-time-panel');
       // 初始化，添加html
@@ -1708,12 +1708,12 @@
     hide: function () {
       this.picker.$container.find('.c-datepicker-time-panel').hide();
     },
-    render: function (type, hour, minute, second) {
+    render: function (type, hour, minute) {
       if (this.picker.config.isRange) {
-        this.renderRange(type, hour, minute, second);
+        this.renderRange(type, hour, minute);
         this.picker.$container.find('.c-datepicker-time-panel__btn.cancel,.c-datepicker-time-panel__btn.confirm').remove();
       } else {
-        this.renderSingle(type, hour, minute, second);
+        this.renderSingle(type, hour, minute);
       }
     },
     renderSingle: function (type) {
@@ -1741,13 +1741,13 @@
       this.prevValue = valBegin + ',' + valEnd;
       var time1 = valBegin ? valBegin.split(':') : API.getOnlyTimeFormat(moment());
       var time2 = valEnd ? valEnd.split(':') : API.getOnlyTimeFormat(moment());
-      this.picker.$inputBegin.val(API.getConcatTime(time1[0], time1[1], time1[2]));
-      this.picker.$inputEnd.val(API.getConcatTime(time2[0], time2[1], time2[2]));
+      this.picker.$inputBegin.val(API.getConcatTime(time1[0], time1[1]));
+      this.picker.$inputEnd.val(API.getConcatTime(time2[0], time2[1]));
       var $time = this.picker.$container.find('.c-datepicker-time-panel');
       // 初始化，添加html
       if (!$time.length) {
-        var html1 = DATEPICKERAPI.renderTimePanelHtml(this.picker, type, time1[0], time1[1], time1[2]);
-        var html2 = DATEPICKERAPI.renderTimePanelHtml(this.picker, type, time2[0], time2[1], time2[2]);
+        var html1 = DATEPICKERAPI.renderTimePanelHtml(this.picker, type, time1[0], time1[1]);
+        var html2 = DATEPICKERAPI.renderTimePanelHtml(this.picker, type, time2[0], time2[1]);
         var $content = this.picker.$container.find('.c-datepicker-date-range-picker__time-content');
         $content.eq(0).find('.c-datepicker-date-range-picker__editor-wrap').append(html1);
         $content.eq(1).find('.c-datepicker-date-range-picker__editor-wrap').append(html2);
