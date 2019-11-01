@@ -2,16 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<script src="<c:url value='/resources/datePicker/moment/moment.min.js'/>"></script>
-<link rel="stylesheet" href="<c:url value='/resources/datePicker/versatile-date-time-month-year-picker/css/datepicker.css'/>">
 
-<script src="<c:url value='/resources/datePicker/versatile-date-time-month-year-picker/js/datepicker.all.js'/>"></script>
-<script src="<c:url value='/resources/datePicker/versatile-date-time-month-year-picker/js/datepicker.en.js'/>"></script>
+<script src="<c:url value='/resources/utils/datePicker/moment/moment.min.js'/>"></script>
+<link rel="stylesheet" href="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/css/datepicker.css'/>">
+
+<script src="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/js/datepicker.all.js'/>"></script>
+<script src="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/js/datepicker.en.js'/>"></script>
 
     
 <div class="container-fluid">
 
-   <!-- 페이지 헤더 -->
+   <!-- 페이지 헤더 시작 -->
    <div class="page-header mb-4" style="border-bottom: 1px solid #D8D8D8;">
          <h2 style="font-weight: bold;">회원 관리</h2>
    </div>
@@ -280,7 +281,7 @@
 				<div class="modal-content">
 					<!--Header-->
 					<div class="modal-header text-center">
-						<p class="heading font-weight-bold">찜한 센터 삭제</p>
+						<p class="heading font-weight-bold">회원 등록하기</p>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true" class="white-text">&times;</span>
 						</button>
@@ -294,12 +295,10 @@
 									<span class="input-group-text" id="basic-addon1">이름</span>
 								</div>
 								<input type="text" class="form-control" placeholder="이름을 입력하세요" aria-describedby="basic-addon1">
-							</div>
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
+								<div class="input-group-prepend pl-2">
 									<span class="input-group-text" id="basic-addon2">아이디</span>
 								</div>
-								<input type="text" class="form-control" placeholder="아이디를 입력하세요" aria-describedby="basic-addon2">
+								<input type="text" class="form-control" placeholder="아이디를 입력하세요" aria-describedby="basic-addon2">		
 							</div>
 		
 							<div class="input-group mb-3">
@@ -332,15 +331,10 @@
 								</div>
 								<!-- 날짜 입력란 끝 -->
 							</div>
-
-
-				</div>
-						
-						
-						
-						<div class="row justify-content-center">
-							<button type="button" class="btn btn-danger btn-md">삭제하기</button>
-							<button type="button" class="btn btn-info btn-md" data-dismiss="modal">취소</button>
+					</div>
+						<div class="row justify-content-center mt-4">
+							<button type="button" class="btn btn-info btn-md">등록하기</button>
+							<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
 						</div>
 					</div>
 				</div>
@@ -381,8 +375,9 @@
 		
 		
 		
-		<!-- 데이트 피커 스크립트 -->
+<!-- 데이트 피커 스크립트-->
 <script>
+
 
 $(function(){
 	
