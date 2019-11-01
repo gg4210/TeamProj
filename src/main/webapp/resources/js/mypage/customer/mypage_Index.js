@@ -1,11 +1,7 @@
 $(function() {
 	var durl = window.location.hash;
-	var dactiveTab = durl.substring(durl.indexOf("#") + 1);
-	console.log(dactiveTab);
 	if (durl !='') {
-		$(".tab-pane fade").removeClass("show active");
-		$(".tab-pane fade").removeClass("active show");
-		$('a[href="#'+ dactiveTab +'"]').tab('show');
+		$(durl).tab('show');
 	}
 	$('#customerLinks a').click(function(){
 		var link = $(this).attr('href');
