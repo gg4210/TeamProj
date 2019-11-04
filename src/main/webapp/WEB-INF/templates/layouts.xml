@@ -102,7 +102,6 @@
             <add-attribute value="/resources/js/mypage/customer/mypage_Index.js?ver=1.1" />     
          </put-list-attribute>
          <put-list-attribute name="stylesheets" inherit="true">
-         	
          </put-list-attribute>
       </definition>
       

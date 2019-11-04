@@ -42,12 +42,11 @@ body{
     
 </head>
 <body>
+
 	<tiles:insertAttribute name="Side" />
 	<tiles:insertAttribute name="login"/>
 	<div class="content">
 		<tiles:insertAttribute name="Body" />
 	</div>
-	
-	
 </body>
 </html>

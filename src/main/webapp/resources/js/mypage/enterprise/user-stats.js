@@ -1,5 +1,6 @@
 //셀렉트박스 선택 시, 차트 보이기 숨기기 기능
 $(function(){
+	
 	$('.month').show();	
 	$('.quarter').hide();
 	$('.year').hide();
