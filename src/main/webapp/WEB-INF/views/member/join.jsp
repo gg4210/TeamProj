@@ -87,7 +87,7 @@
 							<input type="text" class="form-control offset-1 col-4 mt-2 md-2" id="Daum_extraAddress" placeholder="참고항목" disabled="disabled">
 						</div>
 					</div>
-				</div> 
+				</div>  
 					
 				<div class="form-inline mb-3" id="favorite">
 					<label class="col-md-3 text-left">관심 운동:</label>
