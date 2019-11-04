@@ -200,15 +200,20 @@ function displayCustomOverlay(marker, title, address, road_address, phone) {
    '<div class="wrap">' + 
    '    <div class="info">' + 
    
-   '        <div class="title">' + title + 
+   '<div class="card mb-3" style="max-width:570px;">'+
+   '<div class="row no-gutters">'+
+   '  <div class="col-md-4" style="align-self:center;">'+
+   '    <img src="https://www.stylermag.co.kr/wp-content/uploads/2018/11/1-23.jpg" width="190" height="230" class="card-img" alt="...">'+
+   '  </div>'+
+   '  <div class="col-md-8">'+
+   '        <div class="card-header">' + 
    '            <div class="close" title="닫기"></div>' + 
    '        </div>' + 
-   
-   '        <div class="body">' + 
-   '            <div class="img">' +
-   '                <img src="http://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
-   '            </div>' + 
-   '            <div class="desc">';
+   '    <div class="card-body" id="searchPreview" style="margin-left:30px;">'+
+       	
+   '      <h5 class="card-title">'+'<a href="/workout/searchView.do">'+title+'</a>'+'</h5>'+
+   '      <img src="https://img.icons8.com/color/48/000000/open-sign.png">'+
+   '      <img src="https://img.icons8.com/color/48/000000/close-sign.png">'
 	if(road_address!=null){
 		content+='                <div class="ellipsis">'+address+'</div>' + 
 				 '                <div class="jibun ellipsis">'+road_address+'</div>';
@@ -217,11 +222,33 @@ function displayCustomOverlay(marker, title, address, road_address, phone) {
 		content+='                <div class="ellipsis">'+address+'</div>';
 
 	}
-   content+='                <div><span class="tel">'+phone+'</span></div>' + 
-					   '<form action="/workout/searchView.do">'+
-					   '<button class="btn btn-primary" type="submit">뷰페이지 확인</button></form>'+
-   '            </div>' + 
-   '        </div>' + 
+   content+='                <div><span class="tel">'+phone+'</span></div>' +
+   '      <p class="card-text">[평일] 06:00 ~ 24:00</p>'+
+         
+   '      <span id="rateMe">'+
+   '      	<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>'+
+   '      	<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>'+
+   '      	<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>'+
+   '      	<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>'+
+   '      	<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>'+
+   '      </span>(5.0)'+
+         
+   '      <div class="row">'+
+   '        <div class="col-md-10">'+
+   '            <h7 class="progress-title">혼잡도</h7>'+
+   '            <div class="progress orange">'+
+   '	                <div class="progress-bar" style="width:70%; background:#fe3b3b;">'+
+   '	                    <div class="progress-value">70%</div>'+
+   '	                </div>'+
+   '	            </div>'+
+   '	        </div>'+
+   '	    </div>'+
+   '      <p class="card-text">현재 51명이 이용중입니다</p>'+
+   '    </div>'+
+   '  </div>'+
+   '</div>'+
+ '</div>';
+   
    '    </div>' +    
    '</div>';
 

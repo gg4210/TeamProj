@@ -1,93 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	   <!DOCTYPE tiles-definitions PUBLIC
+      <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
        
  <tiles-definitions>
-		
-		<!-- template에 최상위 페이지명-->
-		<definition name="layouts" template="/WEB-INF/templates/Layouts.jsp">
-  			<put-attribute name="title" value="" />
-			<put-attribute name="Side" value="/WEB-INF/templates/Side.jsp"/>
-			<put-attribute name="login" value="/WEB-INF/views/member/login.jsp"/>
-			<!-- 내용은 동적으로 변하기때문에 value에 ""지정-->
-			<put-attribute name="Body" value=""/>
-			<put-list-attribute name="javascripts">
-        		<add-attribute value="/resources/MDB-Free_4.8.10/js/jquery-3.4.1.min.js" />
-        		<add-attribute value="/resources/MDB-Free_4.8.10/js/popper.min.js" />
-        		<add-attribute value="/resources/MDB-Free_4.8.10/js/bootstrap.min.js" />
-        		<add-attribute value="/resources/MDB-Free_4.8.10/js/mdb.min.js" />
-        		<add-attribute value="/resources/js/index.js?ver=1.1"/>
-        		<add-attribute value="/resources/fullPage/fullpage.js"/>
-    		</put-list-attribute>
-			<put-list-attribute name="stylesheets">
-        		<add-attribute value="/resources/MDB-Free_4.8.10/css/bootstrap.min.css" />
-        		<add-attribute value="/resources/MDB-Free_4.8.10/css/mdb.min.css" />
-        		<add-attribute value="/resources/fullPage/fullpage.css?ver=1.2" />
-        		<add-attribute value="/resources/css/index.css?ver=1.3" />
-        		<add-attribute value="/resources/css/member/login.css?ver=1.1" />
-    		</put-list-attribute>
-		</definition>
-	
-		<definition name="index.tiles" extends="layouts">
-			<put-attribute name="Body" value="/WEB-INF/views/index.jsp"/>
-		</definition>
-		
-				
-		<definition name="search/*.tiles" extends="layouts">
-		  	<put-attribute name="title" value="운동해(偕)!-Search 페이지" />		
-			<put-attribute name="Body" value="/WEB-INF/views/search/{1}.jsp"/>
-			<put-list-attribute name="javascripts" inherit="true">
-			    <add-attribute value="/resources/js/search/searchList.js" />
-			</put-list-attribute>
-			<put-list-attribute name="stylesheets" inherit="true">
-				<add-attribute value="/resources/css/search/list.css?ver=1.5" />			
-				<add-attribute value="/resources/css/search/view.css" />
-			</put-list-attribute>
-		</definition>
-		
-		
-		<definition name="member/*.tiles" extends="layouts">
-			<put-attribute name="title" value="운동해(偕)!-가입 페이지" />		
-			<put-attribute name="Body" value="/WEB-INF/views/member/{1}.jsp"/>
-			<put-list-attribute name="stylesheets" inherit="true">
-				<add-attribute value="/resources/css/member/login.css" />		
-			</put-list-attribute>
-		</definition>
-		
-		
-		<definition name="mypage/*.tiles" extends="layouts">
-			<put-attribute name="title" value="운동해(偕)!-임시페이지(삭제예정)" />		
-			<put-attribute name="Body" value="/WEB-INF/views/mypage/{1}.jsp"/>
-		</definition>
-		
-		
-		<definition name="mypage/admin/*.tiles" extends="layouts">
-			<put-attribute name="title" value="운동해(偕)!-마이 페이지" />      
-        	<put-attribute name="Body" value="/WEB-INF/views/mypage/admin/{1}.jsp"/>
-		</definition>
-		
-		<definition name="mypage/enterprise/*.tiles" extends="layouts">
-			<put-attribute name="title" value="운동해(偕)!-마이 페이지" />      
-        	<put-attribute name="Body" value="/WEB-INF/views/mypage/enterprise/{1}.jsp"/>
-        	<put-list-attribute name="javascripts" inherit="true">
-        		<add-attribute value="/resources/js/mypage/enterprise/mypage_Index.js" />     		  	
-        		<add-attribute value="/resources/js/mypage/enterprise/user-stats.js" />
-            	<add-attribute value="/resources/js/mypage/enterprise/enterprise_main.js" />
-            	<add-attribute value="/resources/utils/tagInput/jquery.amsify.suggestags.js" />
-	            <add-attribute value="/resources/utils/multiSelect/js/select-beauty.js" />
-	            <add-attribute value="/resources/js/mypage/enterprise/edit_center_info.js" />
-	            <add-attribute value="/resources/utils/timePicker/dist/jquery.datetimepicker.min.js" />   	            
-        	</put-list-attribute>
-        	<put-list-attribute name="stylesheets" inherit="true">
-        		<add-attribute value="/resources/css/mypage/enterprise/user-stats.css" />      
-            	<add-attribute value="/resources/css/mypage/enterprise/center_info.css" />
-            	<add-attribute value="/resources/utils/tagInput/amsify.suggestags.css" />
-            	<add-attribute value="/resources/utils/multiSelect/css/select-beauty.css" />
-            	<add-attribute value="/resources/utils/timePicker/dist/jquery.datetimepicker.css" />
-        	</put-list-attribute>        	
-		</definition>
-	
+      
+      <!-- template에 최상위 페이지명-->
+      <definition name="layouts" template="/WEB-INF/templates/Layouts.jsp">
+           <put-attribute name="title" value="" />
+         <put-attribute name="Side" value="/WEB-INF/templates/Side.jsp"/>
+         <put-attribute name="login" value="/WEB-INF/views/member/login.jsp"/>
+         <!-- 내용은 동적으로 변하기때문에 value에 ""지정-->
+         <put-attribute name="Body" value=""/>
+         <put-list-attribute name="javascripts">
+              <add-attribute value="/resources/MDB-Free_4.8.10/js/jquery-3.4.1.min.js" />
+              <add-attribute value="/resources/MDB-Free_4.8.10/js/popper.min.js" />
+              <add-attribute value="/resources/MDB-Free_4.8.10/js/bootstrap.min.js" />
+              <add-attribute value="/resources/MDB-Free_4.8.10/js/mdb.min.js" />
+              <add-attribute value="/resources/js/index.js?ver=1.1"/>
+              <add-attribute value="/resources/fullPage/fullpage.js"/>
+          </put-list-attribute>
+         <put-list-attribute name="stylesheets">
+              <add-attribute value="/resources/MDB-Free_4.8.10/css/bootstrap.min.css" />
+              <add-attribute value="/resources/MDB-Free_4.8.10/css/mdb.min.css" />
+              <add-attribute value="/resources/fullPage/fullpage.css?ver=1.2" />
+              <add-attribute value="/resources/css/index.css?ver=1.3" />
+              <add-attribute value="/resources/css/member/login.css?ver=1.1" />
+          </put-list-attribute>
+      </definition>
+   
+      <definition name="index.tiles" extends="layouts">
+         <put-attribute name="Body" value="/WEB-INF/views/index.jsp"/>
+      </definition>
+      
+            
+      <definition name="search/*.tiles" extends="layouts">
+           <put-attribute name="title" value="운동해(偕)!-Search 페이지" />      
+         <put-attribute name="Body" value="/WEB-INF/views/search/{1}.jsp"/>
+         <put-list-attribute name="javascripts" inherit="true">
+             <add-attribute value="/resources/js/search/searchList.js" />
+         </put-list-attribute>
+         <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="/resources/css/search/list.css?ver=1.5" />         
+            <add-attribute value="/resources/css/search/view.css" />
+         </put-list-attribute>
+      </definition>
+      
+      
+      <definition name="member/*.tiles" extends="layouts">
+         <put-attribute name="title" value="운동해(偕)!-가입 페이지" />      
+         <put-attribute name="Body" value="/WEB-INF/views/member/{1}.jsp"/>
+         <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="/resources/css/member/login.css" />      
+         </put-list-attribute>
+      </definition>
+      
+      
+      <definition name="mypage/*.tiles" extends="layouts">
+         <put-attribute name="title" value="운동해(偕)!-임시페이지(삭제예정)" />      
+         <put-attribute name="Body" value="/WEB-INF/views/mypage/{1}.jsp"/>
+      </definition>
+      
+      
+      <definition name="mypage/admin/*.tiles" extends="layouts">
+         <put-attribute name="title" value="운동해(偕)!-마이 페이지" />      
+           <put-attribute name="Body" value="/WEB-INF/views/mypage/admin/{1}.jsp"/>
+      </definition>
+      
+      <definition name="mypage/enterprise/*.tiles" extends="layouts">
+         <put-attribute name="title" value="운동해(偕)!-마이 페이지" />      
+           <put-attribute name="Body" value="/WEB-INF/views/mypage/enterprise/{1}.jsp"/>
+           <put-list-attribute name="javascripts" inherit="true">
+              <add-attribute value="/resources/js/mypage/enterprise/mypage_Index.js" />                
+              <add-attribute value="/resources/js/mypage/enterprise/user-stats.js" />
+               <add-attribute value="/resources/js/mypage/enterprise/enterprise_main.js" />
+               <add-attribute value="/resources/utils/tagInput/jquery.amsify.suggestags.js" />
+               <add-attribute value="/resources/utils/multiSelect/js/select-beauty.js" />
+               <add-attribute value="/resources/js/mypage/enterprise/edit_center_info.js" />
+               <add-attribute value="/resources/utils/timePicker/dist/jquery.datetimepicker.min.js" />                  
+           </put-list-attribute>
+           <put-list-attribute name="stylesheets" inherit="true">
+              <add-attribute value="/resources/css/mypage/enterprise/user-stats.css" />      
+               <add-attribute value="/resources/css/mypage/enterprise/center_info.css" />
+               <add-attribute value="/resources/utils/tagInput/amsify.suggestags.css" />
+               <add-attribute value="/resources/utils/multiSelect/css/select-beauty.css" />
+               <add-attribute value="/resources/utils/timePicker/dist/jquery.datetimepicker.css" />
+           </put-list-attribute>           
+      </definition>
+   
       <definition name="mypage/customer/*.tiles" extends="layouts">
          <put-attribute name="title" value="운동해(偕)!-마이 페이지" />      
          <put-attribute name="Body" value="/WEB-INF/views/mypage/customer/{1}.jsp"/>
@@ -97,41 +97,41 @@
       </definition>
       
       
-		
-		
-		<definition name="healthMate/*.tiles" extends="layouts">
-			<put-attribute name="title" value="운동해(偕)!-헬스메이트 페이지" />		
-			<put-attribute name="Body" value="/WEB-INF/views/healthMate/{1}.jsp"/>
-			<put-list-attribute name="javascripts" inherit="true">
-			    <add-attribute value="/resources/js/healthMate/healthMateMain.js" />
-				<add-attribute value="/resources/js/healthMate/healthMateWrite.js" />			
-			</put-list-attribute>
-			<put-list-attribute name="stylesheets" inherit="true">
-				<add-attribute value="/resources/css/healthMate/healthMateMain.css" />		
-				<add-attribute value="/resources/css/healthMate/healthMateWrite.css" />				
-			</put-list-attribute>
-		</definition>
-		
-		
-		<definition name="bbs/*.tiles" extends="layouts">
-			<put-attribute name="title" value="운동해(偕)!-게시판 페이지" />
-			<put-attribute name="Body" value="/WEB-INF/views/bbs/{1}.jsp"/>
-			<put-list-attribute name="stylesheets" inherit="true">
-				<add-attribute value="/resources/css/bbs/view.css" />
-				<add-attribute value="/resources/css/bbs/list.css" />		
-			</put-list-attribute>
-		</definition>
-		
-		
-		<definition name="customerService/*.tiles" extends="layouts">
-			<put-attribute name="title" value="운동해(偕)!-고객센터 페이지"/>
-			<put-attribute name="Body" value="/WEB-INF/views/customerService/{1}.jsp"/>
-		</definition>
-		
-		<definition name="customerService/*/*.tiles" extends="layouts">
-			<put-attribute name="title" value="운동해(偕)!-고객센터 페이지"/>
-			<put-attribute name="Body" value="/WEB-INF/views/customerService/{1}/{2}.jsp"/>
-		</definition>
-		
+      
+      
+      <definition name="healthMate/*.tiles" extends="layouts">
+         <put-attribute name="title" value="운동해(偕)!-헬스메이트 페이지" />      
+         <put-attribute name="Body" value="/WEB-INF/views/healthMate/{1}.jsp"/>
+         <put-list-attribute name="javascripts" inherit="true">
+             <add-attribute value="/resources/js/healthMate/healthMateMain.js" />
+            <add-attribute value="/resources/js/healthMate/healthMateWrite.js" />         
+         </put-list-attribute>
+         <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="/resources/css/healthMate/healthMateMain.css" />      
+            <add-attribute value="/resources/css/healthMate/healthMateWrite.css" />            
+         </put-list-attribute>
+      </definition>
+      
+      
+      <definition name="bbs/*.tiles" extends="layouts">
+         <put-attribute name="title" value="운동해(偕)!-게시판 페이지" />
+         <put-attribute name="Body" value="/WEB-INF/views/bbs/{1}.jsp"/>
+         <put-list-attribute name="stylesheets" inherit="true">
+            <add-attribute value="/resources/css/bbs/view.css" />
+            <add-attribute value="/resources/css/bbs/list.css" />      
+         </put-list-attribute>
+      </definition>
+      
+      
+      <definition name="customerService/*.tiles" extends="layouts">
+         <put-attribute name="title" value="운동해(偕)!-고객센터 페이지"/>
+         <put-attribute name="Body" value="/WEB-INF/views/customerService/{1}.jsp"/>
+      </definition>
+      
+      <definition name="customerService/*/*.tiles" extends="layouts">
+         <put-attribute name="title" value="운동해(偕)!-고객센터 페이지"/>
+         <put-attribute name="Body" value="/WEB-INF/views/customerService/{1}/{2}.jsp"/>
+      </definition>
+      
 
 </tiles-definitions>
