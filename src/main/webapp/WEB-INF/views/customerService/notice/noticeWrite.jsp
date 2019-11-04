@@ -9,7 +9,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<form class="form-horizontal" method="post"
-					action="#">
+					action="/workout/customerService/notice/noticeView.do">
 					<div class="form-group row" id="category">
 						<label class="control-label pr-4">키워드</label>
 						<div>
@@ -34,14 +34,9 @@
 								class="form-control" placeholder="내용을 입력하세요"></textarea>
 						</div>
 					</div>
+					
 					<div class="form-group row">
-						<label class="control-label pr-1" for="attachedFile">첨부파일</label>
-						<div class="col-10">
-							<input type="file" id="attachedFile">
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-md-offset-2 col-md-10">
+						<div class="col-md-2 offset-md-9 pl-5">
 							<button type="submit" class="btn btn-info">등록</button>
 						</div>
 					</div>

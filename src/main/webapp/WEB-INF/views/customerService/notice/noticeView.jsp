@@ -27,7 +27,7 @@
 					<tr>
 						<th class="blue-text" style="text-align: center;font-weight: bold">내용</th>
 						<td colspan="3">내용입니다<br/>
-										내용의 길이에 따라 영역의 크기가 변합니다.<br/> 
+										내용의 길이에 따라 영역의 크기가 변합니다.<br/>
 										내용입니다<br/>
 										내용입니다<br/>
 										내용입니다<br/>
@@ -117,18 +117,21 @@
 	
 </div>
 
+
 <script>
 $(function(){
 	$('#notice_edit').click(function(){
 		location.href="noticeEdit.do";
 	});
 	
+
+	$('#notice_confirm').click(function(){
+		location.href="noticeList.do";
+	});
+	
 	$('#notice_delete').click(function(){
 		$('#delete-modal').modal('show');
 	});
-	
-	$('#notice_confirm').click(function(){
-		location.href="noticeList.do";
 	
 });
 </script>

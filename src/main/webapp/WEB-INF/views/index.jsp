@@ -1,10 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>	
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
-
-
+<style>
+.section{
+ 	background-image: url('<c:url value="/resources/images/1.png"/>');
+	background-repeat:repeat;
+	/*background-size: 30% 30%;*/
+	background-size: auto;
+}
+</style>
 <div id="fullpage">
 
 	<!-- section 1 시작 -->
@@ -13,7 +16,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-xl-4">
-					<img src="<c:url value='/resources/images/main_1.png'/>"
+					<img src="<c:url value='/resources/images/logo1.png'/>"
 						class="img-fluid d-none d-xl-block mx-auto pt-5" />
 				</div>
 				<div class="p-0 col-xl-8 col-lg-12 col-md-12">
@@ -145,16 +148,22 @@
 												</thead>
 												<tbody>
 													<tr>
-														<th scope="row">2</th>
+														<th scope="row">3</th>
 														<td>[정기점검]</td>
 														<td class="text-left">2019-10-26 정기점검 안내</td>
 														<td>2019-10-21</td>
 													</tr>
 													<tr>
+														<th scope="row">2</th>
+														<td>[공지사항]</td>
+														<td class="text-left">운동해!偕 서비스가 정식 오픈하였습니다.</td>
+														<td>2019-10-21</td>
+													</tr>
+													<tr>
 														<th scope="row">1</th>
 														<td>[공지사항]</td>
-														<td class="text-left">운동해!偕 서비스가 오픈하였습니다.</td>
-														<td>2019-10-21</td>
+														<td class="text-left">운동해!偕 서비스가 가오픈하였습니다.</td>
+														<td>2019-10-18</td>
 													</tr>
 												</tbody>
 											</table>
@@ -173,14 +182,19 @@
 												</thead>
 												<tbody class="text-center">
 													<tr>
-														<th scope="row">2</th>
+														<th scope="row">3</th>
 														<td>일부 스포츠센터에서 10월 5% 할인쿠폰을 제공합니다</td>
 														<td>2019-10-21</td>
 													</tr>
 													<tr>
-														<th scope="row">1</th>
+														<th scope="row">2</th>
 														<td>9월 출석체크 개근 시 스타벅스 커피쿠폰을 드립니다.</td>
 														<td>2019-10-21</td>
+													</tr>
+													<tr>
+														<th scope="row">1</th>
+														<td>10월 출석이벤트! 건강도 챙기고 혜택도 챙기고!</td>
+														<td>2019-10-01</td>
 													</tr>
 												</tbody>
 											</table>
@@ -196,7 +210,7 @@
 										<!--Carousel Wrapper-->
 										<div id="carousel-example-2"
 											class="carousel slide carousel-fade" data-ride="carousel"
-											style="height: 400px">
+											style="height: 400px;">
 											<!--Indicators-->
 											<ol class="carousel-indicators">
 												<li data-target="#carousel-example-2" data-slide-to="0"
@@ -294,7 +308,7 @@
 								<div class="row mb-5">
 
 									<div class="col-md-6 pt-4 pr-2">
-										<p class="h2 mt-4 pt-4 text-right">오늘의 팁</p>
+										<p class="h2 mt-4 pt-4 text-center pb-4">오늘의 팁</p>
 
 										<!-- Image -->
 										<div class="view overlay rounded z-depth-1-half mb-4">
@@ -396,7 +410,7 @@
 
 									<div class="col-md-6 mt-0 pl-5 pr-4 pt-2">
 										<div class="row">
-											<p class="h2">추천 운동 메이트</p>
+											<p class="h2 mb-4 col text-center">추천 운동 메이트</p>
 											<ul class="list-group list-group-flush py-0 my-0 bg-transparent">
 												<li class="list-group-item pb-0 mb-0">
 													<div class="row">
@@ -408,7 +422,7 @@
 														</div>
 														<div class="col">
 															<h5 class="font-weight-bold">Anna Williams</h5>
-															<p class="text-uppercase blue-text py-0 my-0">
+															<p class="text-uppercase blue-text">
 																<h5><span class="badge badge-pill badge-default">#태그</span></h5>
 															</p>
 															<p class="grey-text">Neque porro quisquam est, qui

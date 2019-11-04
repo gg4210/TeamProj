@@ -1,5 +1,6 @@
 //셀렉트박스 선택 시, 차트 보이기 숨기기 기능
 $(function(){
+	
 	$('.month').show();	
 	$('.quarter').hide();
 	$('.year').hide();
@@ -109,31 +110,31 @@ label: '월별 신규 회원',
 data: [10,15,18,20,21,14,10,30,35,20,40,12],
 backgroundColor: [
 'rgba(255, 99, 132, 0.2)',
-'rgba(54, 162, 235, 0.2)',
-'rgba(255, 206, 86, 0.2)',
-'rgba(75, 192, 192, 0.2)',
-'rgba(153, 102, 255, 0.2)',
-'rgba(255, 159, 64, 0.2)',
 'rgba(255, 99, 132, 0.2)',
-'rgba(54, 162, 235, 0.2)',
-'rgba(255, 206, 86, 0.2)',
-'rgba(75, 192, 192, 0.2)',
-'rgba(153, 102, 255, 0.2)',
-'rgba(255, 159, 64, 0.2)'
+'rgba(255, 99, 132, 0.2)',
+'rgba(255, 99, 132, 0.2)',
+'rgba(255, 99, 132, 0.2)',
+'rgba(255, 99, 132, 0.2)',
+'rgba(255, 99, 132, 0.2)',
+'rgba(255, 99, 132, 0.2)',
+'rgba(255, 99, 132, 0.2)',
+'rgba(255, 99, 132, 0.2)',
+'rgba(255, 99, 132, 0.2)',
+'rgba(255, 99, 132, 0.2)'
 ],
 borderColor: [
 'rgba(255,99,132,1)',
-'rgba(54, 162, 235, 1)',
-'rgba(255, 206, 86, 1)',
-'rgba(75, 192, 192, 1)',
-'rgba(153, 102, 255, 1)',
-'rgba(255, 159, 64, 1)',
 'rgba(255,99,132,1)',
-'rgba(54, 162, 235, 1)',
-'rgba(255, 206, 86, 1)',
-'rgba(75, 192, 192, 1)',
-'rgba(153, 102, 255, 1)',
-'rgba(255, 159, 64, 1)'
+'rgba(255,99,132,1)',
+'rgba(255,99,132,1)',,
+'rgba(255,99,132,1)',
+'rgba(255,99,132,1)',
+'rgba(255,99,132,1)',
+'rgba(255,99,132,1)',
+'rgba(255,99,132,1)',
+'rgba(255,99,132,1)',
+'rgba(255,99,132,1)',
+'rgba(255,99,132,1)'
 ],
 borderWidth: 1
 }]
@@ -149,4 +150,44 @@ beginAtZero: true
 }
 });
 
+//등록한 센터 삭제
+$('#memberPlus').click(function(){
+	console.log('등록버튼 클릭');
+	$('#memberPlusWrite').modal('show');
 });
+
+//찜한 센터 삭제
+$('#memberDelete').click(function(){
+	console.log('삭제버튼 클릭');
+	$('#member_delete').modal('show');
+});
+
+//데이트 피커
+var DATAPICKERAPI = {	
+
+          rangeShortcutOption1: [{
+            name: '다음 주',
+            day: '0,7'
+          }, {
+            name: '다음 달',
+            day: '0,30'
+          }, {
+            name: '3달 후',
+            day: '0,90'
+
+}]};
+
+$('.J-datepicker-range-day').datePicker({
+            hasShortcut: true,
+            format: 'YYYY-MM-DD',
+            isRange: true,
+            shortcutOptions: DATAPICKERAPI.rangeShortcutOption1
+            
+});
+
+
+
+
+});
+
+

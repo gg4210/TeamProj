@@ -9,11 +9,7 @@ button {
 	margin-right:5px;
 }
 
-#coupon-bbs1 td{
-	vertical-align:middle;
-}
-
-#coupon-bbs2 td{
+#coupon-bbs td{
 	vertical-align:middle;
 }
 </style>
@@ -23,7 +19,7 @@ button {
 		<h2>쿠폰함</h2>
 	</div>
 	<div class="row">
-		<div class="col-lg-6" style="display:inline;">
+		<div class="col-lg-12" style="display:inline;">
 			<div class="card">
 				<div class="card-body">
 					<h3>운동시설 쿠폰</h3>
@@ -37,41 +33,15 @@ button {
 							</tr>
 						</thead>
 						<tbody>
-							<tr id="coupon-bbs1">
+							<tr id="coupon-bbs">
 								<td>OO수영장</td>
 								<td>10월 이벤트 5% 할인쿠폰</td>
-								<td>2019-10-01~<br />2019-10-31</td>
-								<td><button class="btn purple-gradient" id="coupon-use1">사용</button></td>
+								<td>2019-11-01~<br />2019-11-31</td>
+								<td><button class="btn purple-gradient" id="coupon-use">사용</button></td>
 							</tr>
 						</tbody>
 					</table>
 				</div>	
-			</div>
-		</div>
-		<div class="col-lg-6" style="display:inline;">
-			<div class="card">
-				<div class="card-body">
-					<h3>운동메이트 쿠폰</h3>
-					<table class="table">
-						<thead>
-							<tr>
-								<th>쿠폰이름</th>
-								<th style="text-align:left">적용상품</th>
-								<th>유효기간</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr id="coupon-bbs2">
-								<td>9월 출석체크 개근상</td>
-								<td>스타벅스 아메리카노</td>
-								<td>2019-10-01~<br/>2019-10-31
-								</td>
-								<td><button class="btn purple-gradient" id="coupon-use2">사용</button></td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -94,7 +64,6 @@ button {
 				<div class="modal-body">쿠폰을 사용하시겠습니까?</div>
 				<div class="modal-footer">
 					<button type="button" class="btn blue-gradient">바코드로 받기</button>
-					<button type="button" class="btn blue-gradient">QR코드로 받기</button>
 					<button type="button" class="btn peach-gradient" data-dismiss="modal">사용안함</button>
 					
 				</div>
@@ -107,11 +76,7 @@ button {
 <script>
 <!-- 쿠폰사용 모달 -->
 $(function(){
-	$('#coupon-use1').click(function(){
-		$('#coupon-modal').modal('show');
-	});
-	
-	$('#coupon-use2').click(function(){
+	$('#coupon-use').click(function(){
 		$('#coupon-modal').modal('show');
 	});
 });

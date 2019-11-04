@@ -1,7 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%--@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"--%>
-
+<script>
+$(function() {
+	var durl = window.location.hash;
+	if (durl !='') {
+		$(durl).tab('show');
+	}
+	$('#serviceLinks a').click(function(){
+		var link = $(this).attr('href');
+		var sactiveTab = link.substring(link.indexOf("#") + 1);
+		console.log(sactiveTab);
+		$('#serviceLinks a').removeClass("active");
+		$(this).addClass("active");
+		$('#'+sactiveTab).tab('show');
+	});
+});
+</script>
 
 <div class="container">
 	<!-- pill menu -->
@@ -25,7 +40,7 @@
 				role="tab" aria-controls="pills-notice" aria-selected="false"> <i
 					class="fas fa-bullhorn fa-6x"></i>
 					<h4 class="mt-2">
-						공지<br />/이벤트
+						공지<br/>이벤트
 					</h4>
 			</a></li>
 			<li class="nav-item col"><a class="nav-link"

@@ -7,7 +7,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<form class="form-horizontal" method="post"
-				action="/workout/customerService/consult/consultView.do"><!-- 이거 맞다고 생각해서 넣었는데 오류납니다. -->
+				action="/workout/customerService/consult/consultView.do">
 				<div class="form-group row" id="category">
 					<label class="control-label pr-4">키워드</label>
 					<div>

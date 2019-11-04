@@ -1,22 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<script>
-	$('.file-upload').file_upload();
-</script>
-<style>
-html, body{
-    height: 100%;
-}
-.content{
-	height:100%;
-}
-#enjoin{
-	height:100%;
-}
-#enjoin #enrow{
-	height:100%;
-}
-</style>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <div class="container" id="enjoin">
     	<div class="row align-items-center" id="enrow">
 		   	<div class="offset-md-2 col-md-8 align-items-center">
@@ -157,14 +142,15 @@ html, body{
 					<label class="col-3 text-left">사업장 소재지</label><br/>
 					<div class="col-12">
 						<div class="row justify-content-start">
-							<input type="tel" class="form-control col-2 mt-2" placeholder="우편번호" disabled="disabled"/>
-							<button type="button" class="btn btn-primary mb-2 col-4" id="findzipcode">우편번호 찾기</button>
+							<input type="text" class="form-control col-2 mt-2" id="Daum_postcode" placeholder="우편번호" disabled="disabled">
+							<button type="button" class="btn btn-primary mb-2 col-4" onclick="DaumPostcode()" value="우편번호 찾기">우편번호</button>
 						</div>
 					</div>
 					<div class="col-12">
 						<div class="row">
-							<input type="text" class="form-control col-6 mt-2" placeholder="도로명주소" disabled="disabled"/>
-							<input type="text" class="form-control col-6 mt-2" placeholder="상세주소"/>
+							<input type="text" class="form-control col-11 mt-2" id="Daum_address" placeholder="주소" disabled="disabled"><br>
+							<input type="text" class="form-control col-6 mt-2" id="Daum_detailAddress" placeholder="상세주소">
+							<input type="text" class="form-control col-6 mt-2" id="Daum_extraAddress" placeholder="참고항목" disabled="disabled">
 						</div>
 					</div>
 				</div>

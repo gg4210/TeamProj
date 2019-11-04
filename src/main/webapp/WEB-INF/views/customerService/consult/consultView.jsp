@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <div class="container">
 
 	<div class="row pt-5">
@@ -95,7 +95,7 @@
 	<div class="row d-flex justify-content-center mt-3 mb-3">		
 		<button type="button" class="btn btn-info" id="reply_write">답변</button>
 		<button type="button" class="btn btn-primary" id="question_edit">수정</button>
-		<button type="button" class="btn btn-primary" id="consultList"">확인</button>
+		<button type="button" class="btn btn-primary" id="consultList">확인</button>
 		<button type="button" class="btn btn-primary" id="delete">삭제</button>
 	</div>
 	<br/>
@@ -145,7 +145,7 @@ $(function(){
 	});
 	
 	$('#consultList').click(function(){
-		location.href="consultList.do";
+		location.href="/workout/customerServiceMain.do#pills-consultlist-tab";
 	});	
 	
 	$('#delete').click(function(){

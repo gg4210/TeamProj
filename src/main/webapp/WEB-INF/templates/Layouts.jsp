@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
@@ -17,7 +16,8 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	
+<title><tiles:getAsString name="title"/></title>	
+
 	<!-- CSS -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 	<c:forEach var="css" items="${stylesheets}">
@@ -30,6 +30,15 @@
         <script src="<c:url value="${script}"/>"></script>
     </c:forEach>
     <!-- end scripts -->
+
+<style>
+body{
+	height:auto;
+	width:100%;
+	background-image: url("/resources/images/cobackground.png");
+	background-size:cover;
+}
+</style>
     
 </head>
 <body>

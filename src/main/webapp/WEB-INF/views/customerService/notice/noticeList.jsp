@@ -61,7 +61,7 @@
 		<div class="clearfix col">
 			<div class="float-right">
 				<div class="form-inline">
-					<button type="button" class="btn btn-primary p-2 px-4" id="notice_write">공지 작성</button>
+					<button type="button" class="btn btn-info p-2 px-4" id="notice_write">공지 작성</button>
 				</div>
 			</div>
 		</div>

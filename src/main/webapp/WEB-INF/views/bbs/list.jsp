@@ -2,22 +2,12 @@
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<style>
-
-.content{
-	padding-top:30px;
-}
-
-
-
-</style>
-
 
     <div class="container">
     
 	    <div class="jumbotron">
 	    	<div class="container">
-	    		<h1>게시판</h1>
+	    		<h1>게시판 </h1>
 	    	</div>
 	    </div>
     	
