@@ -2,6 +2,22 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<style>
+
+#weekday_open_text{
+	display:inline;
+}
+#weekday_end_text{
+	display:inline;
+}
+#weekend_open_text{
+	display:inline;
+}
+#weekend_end_text{
+	display:inline;
+}
+
+</style>
 
 <div class="container">
 	<div class="card card-body">
@@ -10,20 +26,23 @@
 		<div class="row">
 			<div class="col">
 				<p>운영시간</p>
-				<p>주중</p>
-			        <div>
-			            <span>getText(): </span>
-			            <span id="date-text4-2"></span>
+			        <p>주중</p>				        
+
+			        <div class="row form-inline ml-1">
+			            <input type="text" class="form-control" id="weekday_open_text">&nbsp&nbsp-&nbsp&nbsp<input type="text" class="form-control" id="weekday_end_text">
 			        </div>
-			        <div>
-			            <span>getText('yyyy-MM-dd'): </span>
-			            <span id="date-text-ymd4-2"></span>
+			        <div class="row ml-1">
+			        	<div id="weekday_open_timePicker"></div><div id="weekday_end_timePicker"></div>
 			        </div>
-			        <div>
-			            <span>getValue(): </span>
-			            <span id="date-value4-2"></span>
+			         
+			        <p>주말</p>
+
+			        <div class="row form-inline ml-1">
+			            <input type="text" id="weekend_open_text" class="form-control">&nbsp&nbsp-&nbsp&nbsp<input type="text" id="weekend_end_text" class="form-control">
 			        </div>
-			        <div id="demo4-2"></div>
+			        <div class="row ml-1">
+			        	<div id="weekend_open_timePicker"></div><div id="weekend_end_timePicker"></div>
+			        </div>	        
 			</div>
 		</div>
 		<div class="row">

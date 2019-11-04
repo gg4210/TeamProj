@@ -15,7 +15,7 @@
 			      aria-controls="pills-mate" aria-selected="false"><i class="fa fa-users fa-6x"></i><h4 class="mt-2">운동메이트</h4></a>
 			  </li>
 			  <li class="nav-item col">
-			    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-coupon" role="tab"
+			    <a class="nav-link" id="pills-coupon-tab" data-toggle="pill" href="#pills-coupon" role="tab"
 			      aria-controls="pills-coupon" aria-selected="false"><i class="fa fa-ticket-alt fa-6x"></i><h4 class="mt-2">쿠폰함</h4></a>
 			  </li>
 			  <li class="nav-item col">
@@ -45,7 +45,7 @@
 				<jsp:include page="/WEB-INF/views/mypage/customer/Scrap.jsp"/>
 			</div>
 			<div class="tab-pane fade mt-4" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
-				<jsp:include page="/WEB-INF/views/mypage/customer/Info.jsp"/>
+				<jsp:include page="/WEB-INF/views/mypage/customer/Infochange.jsp"/>
 			</div>
 	  	</div>
 	  	<!-- tab content 끝-->

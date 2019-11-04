@@ -202,7 +202,7 @@
 				         data-parent="#customeraccordion3">
 				         <!-- 카드 바디 시작 -->
 				         	<div class="card-body" style="padding:0px">
-				         		<div class="list-group" id="customerLinks">
+				         		<div class="list-group" id="serviceLinks">
 									<a class="list-group-item list-group-item-action" href="<c:url value='/customerServiceMain.do#pills-home-tab'/>" id="lpills-home">
 										<span>고객센터 홈</span>
 									</a>

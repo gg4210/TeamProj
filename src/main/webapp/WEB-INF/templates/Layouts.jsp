@@ -24,6 +24,12 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value="${css}"/>">
 	</c:forEach>
 	<!-- end CSS -->
+	
+	<!-- scripts -->
+    <c:forEach var="script" items="${javascripts}">
+        <script src="<c:url value="${script}"/>"></script>
+    </c:forEach>
+    <!-- end scripts -->
 
 <style>
 body{
@@ -42,11 +48,6 @@ body{
 		<tiles:insertAttribute name="Body" />
 	</div>
 	
-	<!-- scripts -->
-    <c:forEach var="script" items="${javascripts}">
-        <script src="<c:url value="${script}"/>"></script>
-    </c:forEach>
-    <!-- end scripts -->
 	
 </body>
 </html>
