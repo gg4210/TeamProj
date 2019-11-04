@@ -1,7 +1,7 @@
 $(function() {
 	
 		//photoUpload
-		$('input[type="file"]').each(function(){		
+		$('input[type="file"]').each(function(){
 			  var $file = $(this),
 			      $label = $file.next('label'),
 			      $labelText = $label.find('span'),

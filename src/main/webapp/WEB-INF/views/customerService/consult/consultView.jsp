@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <div class="container">
 
 	<div class="row pt-5">
@@ -145,7 +145,7 @@ $(function(){
 	});
 	
 	$('#consultList').click(function(){
-		location.href="consultList.do";
+		location.href="/workout/customerServiceMain.do#pills-consultlist-tab";
 	});	
 	
 	$('#delete').click(function(){
