@@ -45,12 +45,10 @@
    <div class="card">
       <div class="map_wrap card-body">
          <div id="map"></div>
-         <div id="menu_wrap" class="card scrollbar scrollbar-primary">
-            <div class="card-body">
-               <table class="table table-hover"><tbody id="placesList"></tbody></table>
+            <div class="card card-body scrollbar scrollbar-primary" id="menu_wrap">
+               <div class="list-group list-group-flush"><div id="placesList"></div></div>
                <ul class="pagination pg-blue row justify-content-center mt-2" id="pagination"></ul>
             </div>
-         </div>
       </div>
    </div>
    

@@ -23,7 +23,7 @@ searchPlaces();
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
 	
-	url=window.location.href;	
+	url=window.location.href;
     var keyword=getParameterByName("searchWord");
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
     	//setWarningModal('키워드를 입력해주세요!');
@@ -90,15 +90,16 @@ function displayPlaces(places) {
         // 마커와 검색결과 항목에 클릭 했을때
         // 해당 장소에 커스텀 오버레이에 장소명을 표시합니다
         // 토글속성을 부여하였습니다
-        (function(marker, title, address, road_address, phone) {
+        (function(marker, title, address, road_address, phone, id) {
             kakao.maps.event.addListener(marker, 'click', function() {
-            	displayCustomOverlay(marker, title, address, road_address, phone);
+            	displayCustomOverlay(marker, title, address, road_address, phone, id);
             });
 
             itemEl.onclick =  function () {
-            	displayCustomOverlay(marker, title, address, road_address, phone);
+            	//itemEl.className="list-group-item active";
+            	displayCustomOverlay(marker, title, address, road_address, phone, id);
             };            
-        })(marker, places[i].place_name, places[i].address_name, places[i].road_address_name, places[i].phone);
+        })(marker, places[i].place_name, places[i].address_name, places[i].road_address_name, places[i].phone, places[i].id);
 
         fragment.appendChild(itemEl);
     }
@@ -114,14 +115,13 @@ function displayPlaces(places) {
 // 검색결과 항목을 Element로 반환하는 함수입니다
 function getListItem(index, places) {
 
-    var el = document.createElement('tr'),
-    itemStr = '<th scope="row"><span class="markerbg marker_' + (index+1) + '"></span>' +
+    var el = document.createElement('li'),
+    itemStr = '<span class="markerbg marker_' + (index+1) + '"></span>' +
                 '<div class="place_name">' +
-                '   <h5>' + places.place_name + '</h5>';
-                '</div>'+
-    			'</th>';
+                '<h6>' + places.place_name + '</h6>'+
+                '</div>';
     el.innerHTML=itemStr;
-    el.className='item';
+    el.className='list-group-item';
     return el;
 }
 
@@ -159,7 +159,7 @@ function displayPagination(pagination) {
  var paginationEl = document.getElementById('pagination'),
      fragment = document.createDocumentFragment(),
      i; 
-
+ 
  // 기존에 추가된 페이지번호를 삭제합니다
  while (paginationEl.hasChildNodes()) {
      paginationEl.removeChild (paginationEl.lastChild);
@@ -190,7 +190,7 @@ function displayPagination(pagination) {
 // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
 // 인포윈도우에 장소명을 표시합니다
 
-function displayCustomOverlay(marker, title, address, road_address, phone) {
+function displayCustomOverlay(marker, title, address, road_address, phone, id) {
 	if(customOverlay.getMap()!=null){
 	    customOverlay.setMap(null);
 	    return;
@@ -209,9 +209,8 @@ function displayCustomOverlay(marker, title, address, road_address, phone) {
    '        <div class="card-header">' + 
    '            <div class="close" title="닫기"></div>' + 
    '        </div>' + 
-   '    <div class="card-body" id="searchPreview" style="margin-left:30px;">'+
-       	
-   '      <h5 class="card-title">'+'<a href="/workout/searchView.do">'+title+'</a>'+'</h5>'+
+   '    <div class="card-body" id="searchPreview" style="margin-left:30px;">'+       	
+   '      <h5 class="card-title"><a href="/workout/searchView.do?'+id+'">'+title+'</a></h5>'+
    '      <img src="https://img.icons8.com/color/48/000000/open-sign.png">'+
    '      <img src="https://img.icons8.com/color/48/000000/close-sign.png">'
 	if(road_address!=null){
@@ -231,8 +230,7 @@ function displayCustomOverlay(marker, title, address, road_address, phone) {
    '      	<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>'+
    '      	<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>'+
    '      	<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>'+
-   '      </span>(5.0)'+
-         
+   '      </span>(5.0)'+         
    '      <div class="row">'+
    '        <div class="col-md-10">'+
    '            <h7 class="progress-title">혼잡도</h7>'+
@@ -247,9 +245,8 @@ function displayCustomOverlay(marker, title, address, road_address, phone) {
    '    </div>'+
    '  </div>'+
    '</div>'+
- '</div>';
-   
-   '    </div>' +    
+   '</div>'+
+   '</div>'+    
    '</div>';
 
     customOverlay = new kakao.maps.CustomOverlay({
