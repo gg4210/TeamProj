@@ -38,7 +38,7 @@
            <put-attribute name="title" value="운동해(偕)!-Search 페이지" />      
          <put-attribute name="Body" value="/WEB-INF/views/search/{1}.jsp"/>
          <put-list-attribute name="javascripts" inherit="true">
-             <add-attribute value="/resources/js/search/searchList.js" />
+             <add-attribute value="/resources/js/search/searchList.js?ver=1.2" />
          </put-list-attribute>
          <put-list-attribute name="stylesheets" inherit="true">
             <add-attribute value="/resources/css/search/list.css?ver=1.5" />         
