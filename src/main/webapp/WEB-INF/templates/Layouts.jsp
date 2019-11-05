@@ -48,6 +48,5 @@ body{
 	<div class="content">
 		<tiles:insertAttribute name="Body" />
 	</div>
-	
 </body>
 </html>
