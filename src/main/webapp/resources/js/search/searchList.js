@@ -88,15 +88,17 @@ function displayPlaces(places) {
     for ( var i=0; i<places.length; i++ ) {
     	
     		//console.log(places[i].category_name);
-	    	//스포츠,레저 > 스포츠시설 > 스포츠센터
-	    	//스포츠,레저 > 요가,필라테스 > 필라테스
-	    	//스포츠,레저 > 스포츠시설 > 헬스클럽 
-	    	//스포츠,레저 > 클라이밍
-	    	//스포츠,레저 > 복싱,권투 > 복싱,권투장
-	    	//스포츠,레저 > 스포츠시설 > 에어로빅
-	    	//스포츠,레저 > 골프 > 골프장
+    	
+	    	//스포츠,레저 > 스포츠시설 > 스포츠센터 			"스포츠센터"
+	    	//스포츠,레저 > 요가,필라테스 > 필라테스 		"필라테스"
+	    	//스포츠,레저 > 스포츠시설 > 헬스클럽			"헬스클럽"
+	    	//스포츠,레저 > 클라이밍 						"클라이밍"
+	    	//스포츠,레저 > 복싱,권투 > 복싱,권투장			"복싱"
+	    	//스포츠,레저 > 스포츠시설 > 에어로빅 			"에어로빅"
+	    	//스포츠,레저 > 골프 > 골프장 					"골프장"
     	
     		//console.log(places[i].category_name.indexOf("스포츠,레저"));
+    	
 	        	// 마커를 생성하고 지도에 표시합니다
 		        var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
 		        	marker = addMarker(placePosition, i), 
@@ -288,6 +290,7 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
     $('.card-img').css('height',heightOverlay);
     customOverlay.setMap(map);
     
+    //커스텀 오버레이가 생성될 때, 지도를 커스텀 오버레이가 위치한 곳으로 이동.
     var replacePosition = new kakao.maps.LatLng(y,x);
     map.panTo(replacePosition);
 
