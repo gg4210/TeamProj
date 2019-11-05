@@ -36,7 +36,7 @@ function searchPlaces() {
     var keyword=getParameterByName("searchWord");
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
     	//setWarningModal('키워드를 입력해주세요!');
-    	warningModalOpen();
+    	//warningModalOpen();
         return false;
     }
     // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
@@ -86,34 +86,46 @@ function displayPlaces(places) {
     removeMarker();
     
     for ( var i=0; i<places.length; i++ ) {
-
-        // 마커를 생성하고 지도에 표시합니다
-        var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
-            marker = addMarker(placePosition, i), 
-            itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
-
-        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-        // LatLngBounds 객체에 좌표를 추가합니다
-        bounds.extend(placePosition);
-
-        // 마커와 검색결과 항목에 클릭 했을때
-        // 해당 장소에 커스텀 오버레이에 장소명을 표시합니다
-        // 토글속성을 부여하였습니다
-        (function(marker, title, address, road_address, phone, id) {
-            kakao.maps.event.addListener(marker, 'click', function() {
-            	displayCustomOverlay(marker, title, address, road_address, phone, id);
-            });
-
-            itemEl.onclick =  function () {
-            	displayCustomOverlay(marker, title, address, road_address, phone, id);
-            };          
-            
-        })(marker, places[i].place_name, places[i].address_name, places[i].road_address_name, places[i].phone, places[i].id);
-
-        fragment.appendChild(itemEl);
+    	
+    		//console.log(places[i].category_name);
+	    	//스포츠,레저 > 스포츠시설 > 스포츠센터
+	    	//스포츠,레저 > 요가,필라테스 > 필라테스
+	    	//스포츠,레저 > 스포츠시설 > 헬스클럽 
+	    	//스포츠,레저 > 클라이밍
+	    	//스포츠,레저 > 복싱,권투 > 복싱,권투장
+	    	//스포츠,레저 > 스포츠시설 > 에어로빅
+	    	//스포츠,레저 > 골프 > 골프장
+    	
+    		//console.log(places[i].category_name.indexOf("스포츠,레저"));
+	        	// 마커를 생성하고 지도에 표시합니다
+		        var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
+		        	marker = addMarker(placePosition, i), 
+		            itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
+    		
+		        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+		        // LatLngBounds 객체에 좌표를 추가합니다
+		        bounds.extend(placePosition);
+    		
+		        // 마커와 검색결과 항목에 클릭 했을때
+		        // 해당 장소에 커스텀 오버레이에 장소명을 표시합니다
+		        // 토글속성을 부여하였습니다
+		        
+		        (function(marker, title, address, road_address, phone, id,x,y) {
+		            kakao.maps.event.addListener(marker, 'click', function() {
+		            	displayCustomOverlay(marker, title, address, road_address, phone, id,x,y);
+		            });
+		
+		            itemEl.onclick =  function () {
+		            	displayCustomOverlay(marker, title, address, road_address, phone, id,x,y);   	
+		            };          
+		            
+		        })(marker, places[i].place_name, places[i].address_name, places[i].road_address_name, places[i].phone, places[i].id, places[i].x,places[i].y);
+		
+		        fragment.appendChild(itemEl);
+    		
     }
 
-    // 검색결과 항목들을 검색결과 목록 Elemnet에 추가합니다
+    // 검색결과 항목들을 검색결과 목록 Element에 추가합니다
     listEl.appendChild(fragment);
     menuEl.scrollTop = 0;
 
@@ -198,17 +210,18 @@ function displayPagination(pagination) {
 // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
 // 인포윈도우에 장소명을 표시합니다
 
-function displayCustomOverlay(marker, title, address, road_address, phone, id) {
+function displayCustomOverlay(marker, title, address, road_address, phone, id, x, y) {
+	
 	if(customOverlay.getMap()!=null){
 	    customOverlay.setMap(null);
 	    return;
 	}
 	
    var content = 
-   '<div class="wrap card">' + 
+   '<div class="wrap card" id="customOverlay_content">' + 
    '<div class="row no-gutters">'+
    '  <div class="col-md-4">'+
-   '    <img src="https://www.stylermag.co.kr/wp-content/uploads/2018/11/1-23.jpg" class="img-fluid" alt="...">'+
+   '    <img src="https://www.stylermag.co.kr/wp-content/uploads/2018/11/1-23.jpg" class="card-img" alt="...">'+
    '  </div>'+
    '  <div class="col-md-8">'+
    '  	<div class="card-header indigo">' +
@@ -271,9 +284,13 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id) {
 		    	    zIndex: 1
 		    	});
     
-    var heightOverlay=$('.wrap').height();    
-    $('.img-fluid').css('height',heightOverlay);
+    var heightOverlay=$('#customOverlay_content').height();    
+    $('.card-img').css('height',heightOverlay);
     customOverlay.setMap(map);
+    
+    var replacePosition = new kakao.maps.LatLng(y,x);
+    map.panTo(replacePosition);
+
     
     $('.close').click(function(){
     	//클로즈 클릭시 
