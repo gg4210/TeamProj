@@ -87,7 +87,6 @@
            </put-list-attribute>
            <put-list-attribute name="stylesheets" inherit="true">
               <add-attribute value="/resources/css/mypage/enterprise/user-stats.css" />      
-               <add-attribute value="/resources/css/mypage/enterprise/center_info.css" />
                <add-attribute value="/resources/utils/tagInput/amsify.suggestags.css" />
                <add-attribute value="/resources/utils/multiSelect/css/select-beauty.css" />
                <add-attribute value="/resources/utils/timePicker/dist/jquery.datetimepicker.css" />
@@ -112,12 +111,12 @@
          <put-attribute name="title" value="운동해(偕)!-헬스메이트 페이지" />      
          <put-attribute name="Body" value="/WEB-INF/views/healthMate/{1}.jsp"/>
          <put-list-attribute name="javascripts" inherit="true">
-             <add-attribute value="/resources/js/healthMate/healthMateMain.js" />
-            <add-attribute value="/resources/js/healthMate/healthMateWrite.js" />         
+            <add-attribute value="/resources/js/healthMate/healthMateMain.js" />
+            <add-attribute value="/resources/js/healthMate/healthMateWrite.js" />        
          </put-list-attribute>
          <put-list-attribute name="stylesheets" inherit="true">
             <add-attribute value="/resources/css/healthMate/healthMateMain.css" />      
-            <add-attribute value="/resources/css/healthMate/healthMateWrite.css" />            
+            <add-attribute value="/resources/css/healthMate/healthMateWrite.css" />     
          </put-list-attribute>
       </definition>
       
