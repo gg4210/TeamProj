@@ -5,9 +5,15 @@
 
 <script src="<c:url value='/resources/utils/datePicker/moment/moment.min.js'/>"></script>
 <link rel="stylesheet" href="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/css/datepicker.css'/>">
+<!-- 아래는 태그에 필요한 css였는데...안먹어
+<link rel="stylesheet" href="<c:url value='/resources/utils/tagInput/amsify.suggestags.css'/>">
+-->
 
 <script src="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/js/datepicker.all.js'/>"></script>
 <script src="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/js/datepicker.en.js'/>"></script>
+<!-- 아래는 태그에 필요한 js였는데...안먹어
+<script src="<c:url value='/resources/utils/tagInput/jquery.amsify.suggestags.js'/>"></script>
+-->
 
 
 
@@ -71,7 +77,7 @@
 						<option value="6">기타</option>
 					</select>
 				</div>
-				<div class="col-md-auto pr-1">
+				<div class="col-md-auto">
 					<select class="browser-default custom-select">
 						<option selected>운동시간</option>
 						<option value="1">오전</option>
@@ -87,32 +93,44 @@
 				</div>
 				
 				<!-- 날짜 입력란 시작 -->
-					<div class="c-datepicker-date-editor  J-datepicker-range-day mt10">
+					<div class="c-datepicker-date-editor J-datepicker-range-day" style="margin-top: 3px; margin-left: 5px">
 						<i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
 						<input placeholder="시작일" name="" class="c-datepicker-data-input only-date" value="">
 						<span class="c-datepicker-range-separator">-</span>
 						<input placeholder="종료일" name="" class="c-datepicker-data-input only-date" value="">
 					</div>
-				<!-- 날짜 입력란 끝 -->
-				
+				<!-- 날짜 입력란 끝 -->		
 			</div>
-				<!-- 셀렉트박스, 날짜 row 끝 -->
+			<!-- 셀렉트박스, 날짜 row 끝 -->
 				
 				
 				<!-- 태그 row 시작 -->
-				<label>대표 TAG</label>
-				<div class="form-row mb-5">
-					<div class="col-md-3">
-						<input type="text" class="form-control" name="tag1" id="tag1" placeholder="태그입력" value="#"/>
-					</div>
-					<div class="col-md-3">
-						<input type="text" class="form-control" name="tag2" id="tag2" placeholder="태그입력"/>
-					</div>
-					<div class="col-md-3">
-						<input type="text" class="form-control" name="tag3" id="tag3" placeholder="태그입력"/>
+				<!--
+				<div class="row mb-3">
+					<div class="col">
+						<label for="tag-input">대표 TAG</label> 
+						<input type="text" class="form-control" name="mate_tag" id="mate_tag">
 					</div>
 				</div>
+				 -->
 				<!-- 태그 row 끝 -->
+				
+				
+				<!-- 기존 태그 row 시작 -->
+				<label>대표 TAG</label>
+				<div class="form-row mb-3">
+					<div class="col-md-3">
+						<input type="text" class="form-control" name="tag1" id="tag1" placeholder="태그입력" value=""/>
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" name="tag2" id="tag2" placeholder="태그입력" value=""/>
+					</div>
+					<div class="col-md-3">
+						<input type="text" class="form-control" name="tag3" id="tag3" placeholder="태그입력" value=""/>
+					</div>
+				</div>
+				<!-- 기존 태그 row 끝 -->
+			
 				
 				
 				<!-- 제목 row 시작 -->
@@ -153,6 +171,13 @@
 
 $(function(){
 	
+	//태그
+	/*
+	$('input[name="mate_tag"]').amsifySuggestags({
+        type :'bootstrap',tagLimit: 3
+   });
+	*/
+	
 	//데이트 피커
 	var DATAPICKERAPI = {	
 
@@ -175,7 +200,6 @@ $(function(){
 	            shortcutOptions: DATAPICKERAPI.rangeShortcutOption1
 	            
 	});
-	
 	
 	
 })
