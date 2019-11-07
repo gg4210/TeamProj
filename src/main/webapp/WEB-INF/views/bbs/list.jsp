@@ -70,8 +70,8 @@
 		    					<i class="fas fa-hashtag"></i>&nbsp<span class="badge badge-pill badge-primary"># 요가</span>
 		    				</div>
 		    				<div class="card-footer">
-		    					<i class="far fa-heart"></i>&nbsp2 &nbsp&nbsp<i class="far fa-comment-dots"></i> 12
-		    				</div>
+		    					<i class="far fa-heart"></i>&nbsp2 &nbsp&nbsp<i class="far fa-comment-dots"></i> 12 
+	    					</div>
 		    				</div>
 	    				</div>
 	    			</div>
