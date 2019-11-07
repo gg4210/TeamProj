@@ -14,6 +14,13 @@ $(function(){
       max: 10
    });
    /*종목선택 끝*/
+   
+   var beauty2=new SelectBeauty({
+	  el:'#center_service',
+	  placeholder:'음냐',
+	  length:5,
+	  max:5
+   });
 
    
    /*이미지업로드 시작*/

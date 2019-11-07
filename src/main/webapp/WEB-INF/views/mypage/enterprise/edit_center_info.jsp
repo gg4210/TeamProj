@@ -5,11 +5,6 @@
 <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 
-<link rel="stylesheet" href="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/css/datepicker.css'/>">
-<script src="<c:url value='/resources/utils/datePicker/moment/moment.min.js'/>"></script>
-<script src="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/js/datepicker.all.js'/>"></script>
-<script src="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/js/datepicker.en.js'/>"></script>
-
 <script src='<c:url value="/resources/js/mypage/enterprise/edit_center_info.js"/>'></script>
 
 
@@ -20,12 +15,7 @@
 	
 		<!-- 운영시간 시작 -->
 		<div class="form-group">
-			<div class="c-datepicker-date-editor c-datepicker-single-editor openClose">
-	          <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
-	          <input placeholder="Start" name="" class="c-datepicker-data-input only-time" value="">
-	          <span class="c-datepicker-range-separator">-</span>
-	          <input placeholder="End" name="" class="c-datepicker-data-input only-time" value="">
-        	</div>
+			
 		</div>
 		<!-- 운영시간 끝-->
 		
@@ -60,7 +50,7 @@
 		<div class="form-group">	
 		
 			<label for="service">제공 서비스</label>	
-			<select name="center_service" id="service" class="form-control">
+			<select name="center_service" id="center_service" class="form-control">
 				<option value="clothes" icon="">운동복</option>
 				<option value="towel" icon="">타월</option>
 				<option value="parking-lot" icon="">주차</option>
