@@ -19,6 +19,8 @@ public class SearchController {
 	
 	@RequestMapping("/searchView.do")
 	public String searchView(@RequestParam Map map) {
+		
+		
 		return "search/view.tiles";
 	}
 	

@@ -8,6 +8,7 @@
 
 <script src="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/js/datepicker.all.js'/>"></script>
 <script src="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/js/datepicker.en.js'/>"></script>
+<script src="<c:url value='/resources/js/mypage/enterprise/user-stats.js'/>" /></script>
 
     
 <div class="container-fluid">
