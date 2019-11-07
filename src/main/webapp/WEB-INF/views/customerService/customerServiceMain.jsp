@@ -1,7 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%--@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"--%>
+<script>
+$(function () {
+	////다른페이지에 있다가 눌렀을 때
+	var durl = window.location.hash;////console.log(durl); = #id
+	//var dactiveTab = durl.substring(durl.indexOf("#") + 1);////id ////의미없는 코드인 듯.
+	console.log(durl);
+	if (durl !='') {
+		/* if(durl.lastIndexOf("#")!=0){//#id#id
+			console.log("두 개다!!");
+			var idArr = durl.split('#');
+			$('#'+idArr[0]).tab('show');
+		} 
+		else */ $(durl).tab('show');
+	}
+	////같은 페이지에 있다가 눌렀을 때
+	$('#customerLinks a').click(function(){
+		var link = $(this).attr('href');////console.log('link:',link);=>/workout/customer.do#pills-scrap-tab
+		var sactiveTab = link.substring(link.indexOf("#"));////내가 +1지움 ////console.log('sactiveTab:',sactiveTab);=>sactiveTab: #pills-scrap-tab	
+		$('#customerLinks a').removeClass("active");
+		$(this).addClass("active");
+		$('#'+sactiveTab).tab('show');
+	});
+});
 
+</script>
 
 <div class="container">
 	<!-- pill menu -->

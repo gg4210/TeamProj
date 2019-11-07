@@ -126,7 +126,7 @@ $(function(){
 	
 
 	$('#notice_confirm').click(function(){
-		location.href="noticeList.do";
+		$('#pills-noticeNevent').tab('show');
 	});
 	
 	$('#notice_delete').click(function(){

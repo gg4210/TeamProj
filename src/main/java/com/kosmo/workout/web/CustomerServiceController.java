@@ -109,7 +109,11 @@ public class CustomerServiceController {
 //		return "";
 //	}
 	
-
-	
+//	////필메뉴 제어 하려고... 2019.10.31
+//	/* 고객센터 메인으로 이동하게 하는 Controller 시작*/
+//	@RequestMapping("/customerService.do")
+//	public String customer(){
+//		return "mypage/customer/mypage_Index.tiles";
+//	}
 	
 }
