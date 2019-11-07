@@ -14,6 +14,15 @@ $(function(){
       max: 10
    });
    /*종목선택 끝*/
+   
+   /*제공서비스 선택 시작*/
+   var service = new SelectBeauty({
+      el: '#kind_of_service',
+      placeholder: "제공하는 서비스를 선택하세요",
+      length: 5,
+      max: 7
+   });
+   /*제공서비스 선택 끝*/
 
    
    /*이미지업로드 시작*/
