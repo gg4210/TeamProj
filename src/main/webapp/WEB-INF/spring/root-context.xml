@@ -3,7 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
+<<<<<<< HEAD
 	<!-- Root Context: defines shared resources visible to all other web components 
+=======
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	<bean id="datasource"
 		class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName" value="WORKOUT" />
@@ -11,5 +16,9 @@
 			<value>true</value>
 		</property>
 	</bean>
+<<<<<<< HEAD
 	-->
+=======
+	 -->
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 </beans>

@@ -51,16 +51,16 @@
 		<!-- 제공서비스 시작 -->
 		<div class="form-group">	
 		
-			<label for="service">제공 서비스</label>	
-			<select name="center_service" id="center_service" class="form-control">
-				<option value="clothes" icon="">운동복</option>
-				<option value="towel" icon="">타월</option>
-				<option value="parking-lot" icon="">주차</option>
-				<option value="locker" icon="">라커</option>
-				<option value="wifi" icon="">와이파이</option>
-				<option value="shower-room" icon="">샤워실</option>
-				<option value="sauna" icon="">찜질방</option>
-				<option value="etc" icon="">기타</option>
+			<label for="kind_of_service">제공 서비스</label>			
+			<select name="kind_of_service" id="kind_of_service" class="form-control">
+				<option value="clothes" icon="iw-uniform">운동복</option>
+				<option value="towel" icon="iw-tower">타월</option>
+				<option value="parking-lot" icon="iw-park">주차</option>
+				<option value="locker" icon="iw-locker">라커</option>
+				<option value="wifi" icon="iw-wifi">와이파이</option>
+				<option value="shower-room" icon="iw-shower">샤워실</option>
+				<option value="sauna" icon="iw-sauna">찜질방</option>
+				<option value="etc" icon="iw-etc">기타</option>
 			</select>
 							
 		</div>
