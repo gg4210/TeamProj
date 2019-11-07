@@ -75,7 +75,7 @@
       
       <definition name="mypage/enterprise/*.tiles" extends="layouts">
          <put-attribute name="title" value="운동해(偕)!-마이 페이지" />      
-           <put-attribute name="Body" value="/WEB-INF/views/mypage/enterprise/mypage_Index.jsp"/>
+           <put-attribute name="Body" value="/WEB-INF/views/mypage/enterprise/{1}.jsp"/>
            <put-list-attribute name="javascripts" inherit="true">
               <add-attribute value="/resources/js/mypage/enterprise/mypage_Index.js" />                
               <add-attribute value="/resources/js/mypage/enterprise/enterprise_main.js" />
