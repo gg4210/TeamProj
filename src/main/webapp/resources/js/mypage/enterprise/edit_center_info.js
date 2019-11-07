@@ -1,8 +1,6 @@
 $(function(){
 	
 	
-	$('#time').calendricalTime();
-
 	
 	/*태그 입력 시작*/
    $('input[name="work-tag"]').amsifySuggestags({

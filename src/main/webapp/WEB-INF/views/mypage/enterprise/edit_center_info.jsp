@@ -2,12 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link type="text/css" rel="stylesheet" href="/resources/utils/timeRangePicker/calenrical.css">
 
 
-<script src='<c:url value="/resources/utils/timeRangePicker/jquery.calendrical.js"/>'></script>
 <script src='<c:url value="/resources/js/mypage/enterprise/edit_center_info.js"/>'></script>
-
 
 
 
@@ -18,10 +15,12 @@
 	
 		<!-- 운영시간 시작 -->
 		<div class="form-group">
-			<input id="time" type="text" class="form-control">
+			<input type="text" class="form-control" name="name" value="" data-timepicker id="weekday-start">
+			<input type="text" class="form-control" name="name" value="" data-timepicker id="weekday-end">
+			<input type="text" class="form-control" name="name" value="" data-timepicker id="weekend-start">
+			<input type="text" class="form-control" name="name" value="" data-timepicker id="weekend-end">
 		</div>
 		<!-- 운영시간 끝-->
-		
 		<!-- 종목 시작 -->	
   		<div class="form-group">
 			<label for="kinds_of_sport">운동종목</label> 
