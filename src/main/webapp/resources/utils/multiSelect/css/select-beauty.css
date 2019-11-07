@@ -210,9 +210,16 @@ select #work-condition {
 	background-position: 0px -1548px;
 }
 
-.iw-etc {
+.iw-tower {
 	background-position: 0px -1580px;
 }
-.iw-etc:hover, .select-beauty ul li a:hover .iw-etc, .select-beauty ul li.active a .iw-etc {
+.iw-tower:hover, .select-beauty ul li a:hover .iw-tower, .select-beauty ul li.active a .iw-tower {
 	background-position: 0px -1610px;
+}
+
+.iw-etc {
+	background-position: 0px -1646px;
+}
+.iw-etc:hover, .select-beauty ul li a:hover .iw-etc, .select-beauty ul li.active a .iw-etc {
+	background-position: 0px -1666px;
 }
