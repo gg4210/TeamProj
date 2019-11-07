@@ -4,7 +4,7 @@
 <div class="container pt-20" id="cujoin">
    	<div class="row align-self-center" id="curow">
    		<form class="text-center border border-light pt-5 pl-5 pr-5 pb-4" action="#!">
-   			<p class="h4 mb-4">개인 회원가입</p>
+   			<p class="h4 mb-4">개인 회원가입1</p>
     			<div class="row">
 			   	<!-- 사진 -->
 				<div class="col-3" style="margin-top:5%;">
