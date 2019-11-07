@@ -12,25 +12,29 @@
 	<div class="row no-gutters">
 	<div class="card card-body">
 	<form action="#" enctype="multipart/form-data" method="post">
+	
 		<!-- 운영시간 시작 -->
+		<div class="form-group">
+			
+		</div>
 		<!-- 운영시간 끝-->
 		
 		<!-- 종목 시작 -->	
   		<div class="form-group">
 			<label for="kinds_of_sport">운동종목</label> 
-				<select name="work-condition" id="kinds_of_sport" class="form-control">
-					<option value="1" icon="iw-way">헬스</option>
-					<option value="2" icon="iw-crane">필라테스</option>
-					<option value="3" icon="iw-scope">수영</option>
-					<option value="4" icon="iw-excavator">크로스핏</option>
-					<option value="5" icon="iw-key">복싱</option>
-					<option value="6" icon="iw-warning">클라이밍</option>
-					<option value="7" icon="iw-bag">요가</option>
-					<option value="8" icon="iw-dozer">에어로빅</option>
-					<option value="9" icon="iw-pickup">GX</option>
-					<option value="10" icon="iw-hammer">골프</option>
-					<option value="11" icon="iw-drill">스피닝</option>
-					<option value="12" icon="iw-note">기타</option>
+				<select name="kinds_of_sport" id="kinds_of_sport" class="form-control">
+					<option value="Health" icon="iw-way">헬스</option>
+					<option value="Pilates" icon="iw-crane">필라테스</option>
+					<option value="Swimming" icon="iw-scope">수영</option>
+					<option value="Crossfit" icon="iw-excavator">크로스핏</option>
+					<option value="Boxing" icon="iw-key">복싱</option>
+					<option value="Climbing" icon="iw-warning">클라이밍</option>
+					<option value="Yoga" icon="iw-bag">요가</option>
+					<option value="Aerobics" icon="iw-dozer">에어로빅</option>
+					<option value="Group_Exercise" icon="iw-pickup">GX</option>
+					<option value="Golf" icon="iw-hammer">골프</option>
+					<option value="Spinning" icon="iw-drill">스피닝</option>
+					<option value="Something_else" icon="iw-note">기타</option>
 				</select>
 		</div>
 		<!-- 종목 끝 -->	
@@ -45,9 +49,10 @@
 		<!-- 제공서비스 시작 -->
 		<div class="form-group">	
 		
-			<label for="service">제공 서비스</label>			
-			<select name="work-condition" id="service" class="form-control">
+			<label for="service">제공 서비스</label>	
+			<select name="center_service" id="service" class="form-control">
 				<option value="clothes" icon="">운동복</option>
+				<option value="towel" icon="">타월</option>
 				<option value="parking-lot" icon="">주차</option>
 				<option value="locker" icon="">라커</option>
 				<option value="wifi" icon="">와이파이</option>

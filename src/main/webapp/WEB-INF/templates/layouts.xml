@@ -69,13 +69,13 @@
       
       
       <definition name="mypage/admin/*.tiles" extends="layouts">
-         <put-attribute name="title" value="운동해(偕)!-마이 페이지" />      
-           <put-attribute name="Body" value="/WEB-INF/views/mypage/admin/{1}.jsp"/>
+         <put-attribute name="title" value="운동해(偕)!-마이 페이지" />
+           <put-attribute name="Body" value="/WEB-INF/views/mypage/admin/mypage_Index.jsp"/>
       </definition>
       
       <definition name="mypage/enterprise/*.tiles" extends="layouts">
          <put-attribute name="title" value="운동해(偕)!-마이 페이지" />      
-           <put-attribute name="Body" value="/WEB-INF/views/mypage/enterprise/{1}.jsp"/>
+           <put-attribute name="Body" value="/WEB-INF/views/mypage/enterprise/mypage_Index.jsp"/>
            <put-list-attribute name="javascripts" inherit="true">
               <add-attribute value="/resources/js/mypage/enterprise/mypage_Index.js" />                
               <add-attribute value="/resources/js/mypage/enterprise/enterprise_main.js" />
@@ -95,7 +95,7 @@
    
       <definition name="mypage/customer/*.tiles" extends="layouts">
          <put-attribute name="title" value="운동해(偕)!-마이 페이지" />      
-         <put-attribute name="Body" value="/WEB-INF/views/mypage/customer/{1}.jsp"/>
+         <put-attribute name="Body" value="/WEB-INF/views/mypage/customer/mypage_Index.jsp"/>
          <put-list-attribute name="javascripts" inherit="true">
             <add-attribute value="/resources/js/mypage/customer/customer_main.js" /> 
             <add-attribute value="/resources/js/mypage/customer/mypage_Index.js?ver=1.1" />     
