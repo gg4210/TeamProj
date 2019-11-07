@@ -34,6 +34,9 @@ function searchPlaces() {
 	
 	url=window.location.href;
     var keyword=getParameterByName("searchWord");
+    
+    //키워드를 배열로 만들어서 for문 돌리고 나온 데이터 쌓기    
+    
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
     	//setWarningModal('키워드를 입력해주세요!');
     	//warningModalOpen();
@@ -73,6 +76,8 @@ function placesSearchCB(data, status, pagination) {
 // 검색 결과 목록과 마커를 표출하는 함수입니다
 function displayPlaces(places) {
 
+	console.log(places);
+	
     var listEl = document.getElementById('placesList'), 
     menuEl = document.getElementById('menu_wrap'),
     fragment = document.createDocumentFragment(), 
@@ -96,6 +101,7 @@ function displayPlaces(places) {
 	    	//스포츠,레저 > 복싱,권투 > 복싱,권투장			"복싱"
 	    	//스포츠,레저 > 스포츠시설 > 에어로빅 			"에어로빅"
 	    	//스포츠,레저 > 골프 > 골프장 					"골프장"
+    		//스포츠,레저 > 수영,수상 > 수영장 				"수영장"
     	
     		//console.log(places[i].category_name.indexOf("스포츠,레저"));
     	
