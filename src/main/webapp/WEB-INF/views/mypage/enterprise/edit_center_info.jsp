@@ -2,10 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link type="text/css" rel="stylesheet" href="/resources/utils/timeRangePicker/calenrical.css">
 
 
+<script src='<c:url value="/resources/utils/timeRangePicker/jquery.calendrical.js"/>'></script>
 <script src='<c:url value="/resources/js/mypage/enterprise/edit_center_info.js"/>'></script>
+
+
 
 
 <div class="container">
@@ -15,7 +18,7 @@
 	
 		<!-- 운영시간 시작 -->
 		<div class="form-group">
-			
+			<input id="time" type="text" class="form-control">
 		</div>
 		<!-- 운영시간 끝-->
 		
@@ -50,7 +53,7 @@
 		<div class="form-group">	
 		
 			<label for="service">제공 서비스</label>	
-			<select name="center_service" id="service" class="form-control">
+			<select name="center_service" id="center_service" class="form-control">
 				<option value="clothes" icon="">운동복</option>
 				<option value="towel" icon="">타월</option>
 				<option value="parking-lot" icon="">주차</option>
