@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%--@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"--%>
 <script>
+<<<<<<< HEAD
 $(function () {
 	////다른페이지에 있다가 눌렀을 때
 	var durl = window.location.hash;////console.log(durl); = #id
@@ -25,6 +26,22 @@ $(function () {
 	});
 });
 
+=======
+$(function() {
+	var durl = window.location.hash;
+	if (durl !='') {
+		$(durl).tab('show');
+	}
+	$('#serviceLinks a').click(function(){
+		var link = $(this).attr('href');
+		var sactiveTab = link.substring(link.indexOf("#") + 1);
+		console.log(sactiveTab);
+		$('#serviceLinks a').removeClass("active");
+		$(this).addClass("active");
+		$('#'+sactiveTab).tab('show');
+	});
+});
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 </script>
 
 <div class="container">

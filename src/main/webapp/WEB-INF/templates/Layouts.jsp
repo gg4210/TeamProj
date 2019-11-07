@@ -17,6 +17,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title><tiles:getAsString name="title"/></title>	
+
 	<!-- CSS -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 	<c:forEach var="css" items="${stylesheets}">
@@ -29,6 +30,7 @@
         <script src="<c:url value="${script}"/>"></script>
     </c:forEach>
     <!-- end scripts -->
+
 <style>
 body{
 	height:auto;
@@ -40,6 +42,7 @@ body{
     
 </head>
 <body>
+
 	<tiles:insertAttribute name="Side" />
 	<tiles:insertAttribute name="login"/>
 	<div class="content">

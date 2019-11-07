@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+
+
    
 <div class="container">
 
@@ -12,7 +16,7 @@
          <div class="card">
             <div class="card-header mdb-color darken-3 pb-0" id="heading1">
                <button class="btn btn-link" type="button" data-toggle="collapse"
-                     data-target="#user" aria-expanded="true"
+                     data-target="#member_main" aria-expanded="true"
                      aria-controls="collapseOne">
                      
                      <div class="row">
@@ -39,7 +43,7 @@
                </button>
             </div>
 
-            <div id="user" class="collapse" aria-labelledby="heading1"
+            <div id="member_main" class="collapse" aria-labelledby="heading1"
                data-parent="#accordion1">
                <div class="card-body">
                   <p class="py-1">
@@ -50,7 +54,7 @@
                      <i class="fas fa-angle-right indigo-text"></i>&nbsp&nbsp
                      <i class="fas fa-user-minus"></i>&nbsp&nbsp이번달 만료회원 : 17명
                   </p>
-                  <canvas id="lineChart"></canvas>
+                  <canvas id="memberChart" style="max-width: 500px;"></canvas>
                   
                </div>
             </div>
@@ -207,7 +211,7 @@
                            <td scope="row">3</td>
                            <td>10/20</td>
                            <td>10% 할인 이벤트</td>
-                           <td><span style="color: red">검토 중</span></td>
+                           <td><span style="color: blue">등록 완료</span></td>
                         </tr>
                         <tr>
                            <td scope="row">2</td>
@@ -334,3 +338,43 @@
 </div>
 <!-- container -->
 
+<script>
+$(function(){
+	var ctx = document.getElementById("memberChart").getContext('2d');
+	var myChart = new Chart(ctx, {
+	type: 'bar',
+	data: {
+	labels: ["10월", "11월", "12월"],
+	datasets: [{
+	label: '월별 회원수',
+	data: [150, 180, 130],
+	backgroundColor: [
+	'rgba(54, 162, 235, 0.2)',
+	'rgba(54, 162, 235, 0.2)',
+	'rgba(54, 162, 235, 0.2)'
+	],
+	borderColor: [
+	'rgba(54, 162, 235, 1)',
+	'rgba(54, 162, 235, 1)',
+	'rgba(54, 162, 235, 1)'
+	],
+	borderWidth: 1
+	}]
+	},
+	options: {
+	scales: {
+	yAxes: [{
+	ticks: {
+	beginAtZero: true
+	}
+	}]
+	}
+	}
+	});
+	
+	
+	
+})
+
+
+</script>

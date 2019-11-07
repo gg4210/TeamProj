@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+<<<<<<< HEAD
 <script>
 $(function () {
 	////다른페이지에 있다가 눌렀을 때
@@ -22,6 +23,8 @@ $(function () {
 });
 
 </script>
+=======
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	<div class="container">
 		<!-- 탭메뉴 시작 -->
 		<div class="row justify-content-md-center text-center">
@@ -35,7 +38,7 @@ $(function () {
 			      aria-controls="pills-mate" aria-selected="false"><i class="fa fa-users fa-6x"></i><h4 class="mt-2">운동메이트</h4></a>
 			  </li>
 			  <li class="nav-item col">
-			    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-coupon" role="tab"
+			    <a class="nav-link" id="pills-coupon-tab" data-toggle="pill" href="#pills-coupon" role="tab"
 			      aria-controls="pills-coupon" aria-selected="false"><i class="fa fa-ticket-alt fa-6x"></i><h4 class="mt-2">쿠폰함</h4></a>
 			  </li>
 			  <li class="nav-item col">
@@ -65,7 +68,7 @@ $(function () {
 				<jsp:include page="/WEB-INF/views/mypage/customer/Scrap.jsp"/>
 			</div>
 			<div class="tab-pane fade mt-4" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
-				<jsp:include page="/WEB-INF/views/mypage/customer/Info.jsp"/>
+				<jsp:include page="/WEB-INF/views/mypage/customer/Infochange.jsp"/>
 			</div>
 	  	</div>
 	  	<!-- tab content 끝-->

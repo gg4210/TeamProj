@@ -1,5 +1,6 @@
 //셀렉트박스 선택 시, 차트 보이기 숨기기 기능
 $(function(){
+	
 	$('.month').show();	
 	$('.quarter').hide();
 	$('.year').hide();
@@ -77,10 +78,10 @@ var ctxL = document.getElementById("yearLineChart").getContext('2d');
 var myLineChart = new Chart(ctxL, {
 type: 'line',
 data: {
-labels: ["2015","2016", "2017", "2018", "2019"],
+labels: ["2017", "2018", "2019"],
 datasets: [{
 label: "년도별 회원 증감 추이",
-data: [200,250,200,300,350],
+data: [200,300,350],
 backgroundColor: [
 	'rgba(153, 102, 255, 0.2)',
 	],
@@ -160,6 +161,31 @@ $('#memberDelete').click(function(){
 	console.log('삭제버튼 클릭');
 	$('#member_delete').modal('show');
 });
+
+//데이트 피커
+var DATAPICKERAPI = {	
+
+          rangeShortcutOption1: [{
+            name: '다음 주',
+            day: '0,7'
+          }, {
+            name: '다음 달',
+            day: '0,30'
+          }, {
+            name: '3달 후',
+            day: '0,90'
+
+}]};
+
+$('.J-datepicker-range-day').datePicker({
+            hasShortcut: true,
+            format: 'YYYY-MM-DD',
+            isRange: true,
+            shortcutOptions: DATAPICKERAPI.rangeShortcutOption1
+            
+});
+
+
 
 
 });

@@ -158,7 +158,11 @@
 									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-mate-tab'/>" id="lpills-mate">
 										<span>운동메이트</span>
 									</a>
+<<<<<<< HEAD
 									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-contact-tab'/>" id="lpills-coupon">
+=======
+									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-coupon-tab'/>" id="lpills-coupon">
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 										<span>쿠폰함</span>
 									</a>
 									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-scrap-tab'/>">
@@ -172,7 +176,58 @@
 				         </div>
 					</div>
 				</div>
-				<!-- col1 끝 -->
+				<!-- col2 끝 -->
+				<div class="accordion col" id="customeraccordion3">
+					<div class="card">
+						<div class="card-header mdb-color darken-3 pb-0" id="heading1" style="padding:0px;">
+							<button class="btn btn-link" type="button" data-toggle="collapse"
+				               data-target="#center3" aria-expanded="true"
+				               aria-controls="collapseOne" style="margin:0px;">
+				               <div class="row">
+				                  <div class="col-2 mr-5">
+				                     <h4>
+				                     	  <span class="fa-stack">
+					                        <i class="far fa-circle fa-stack-2x text-white"></i>
+					                        <i class="fas fa-heart fa-stack-1x text-white"></i>
+				                     	  </span>
+				                     </h4>               
+				                  </div>
+				                  <div class="col" style="align-self:center;">
+				                     <div class="row">
+				                        <h5 class="text-left font-weight-bold text-white">
+				                          	고객센터 메뉴
+				                        </h5>
+				                     </div>
+				                  </div>
+				               </div>
+							</button>
+						</div>
+						<div id="center3" class="collapse" aria-labelledby="heading1"
+				         data-parent="#customeraccordion3">
+				         <!-- 카드 바디 시작 -->
+				         	<div class="card-body" style="padding:0px">
+				         		<div class="list-group" id="serviceLinks">
+									<a class="list-group-item list-group-item-action" href="<c:url value='/customerServiceMain.do#pills-home-tab'/>" id="lpills-home">
+										<span>고객센터 홈</span>
+									</a>
+									<a class="list-group-item list-group-item-action" href="<c:url value='/customerServiceMain.do#pills-faq-tab'/>" id="lpills-mate">
+										<span>자주 묻는 질문</span>
+									</a>
+									<a class="list-group-item list-group-item-action" href="<c:url value='/customerServiceMain.do#pills-notice-tab'/>" id="lpills-coupon">
+										<span>공지 이벤트</span>
+									</a>
+									<a class="list-group-item list-group-item-action" href="<c:url value='/customerServiceMain.do#pills-consultwrite-tab'/>">
+										<span>1:1 문의</span>
+									</a>
+									<a class="list-group-item list-group-item-action" href="<c:url value='/customerServiceMain.do#pills-consultlist-tab'/>">
+										<span>문의내역 확인</span>
+									</a>
+								</div>
+				         	</div>
+				         </div>
+					</div>
+				</div>
+				<!-- col3 끝 -->
 			</div>
 		</div>
 	</div>
