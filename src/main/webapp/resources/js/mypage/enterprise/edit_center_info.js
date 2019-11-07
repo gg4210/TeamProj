@@ -1,6 +1,6 @@
-
 $(function(){
-
+	
+	
 	/*태그 입력 시작*/
    $('input[name="work-tag"]').amsifySuggestags({
         type :'bootstrap',tagLimit: 5
@@ -23,7 +23,7 @@ $(function(){
 	    maxFiles: 5	   
    });
    /*이미지업로드 끝*/
-
+   
    
 });
 
