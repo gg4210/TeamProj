@@ -20,7 +20,7 @@ $(function(){
       el: '#kind_of_service',
       placeholder: "제공하는 서비스를 선택하세요",
       length: 5,
-      max: 7
+      max: 10
    });
    /*제공서비스 선택 끝*/
 

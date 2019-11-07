@@ -33,7 +33,6 @@ public class MyPageController {
 		return "mypage/enterprise/mypage_Index.tiles";
 	}
 		/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 끝*/
-
 	@RequestMapping("/enterprise/edit_center_info.do")
 	public String edit_center_info() {
 		return "mypage/enterprise/edit_center_info.tiles";

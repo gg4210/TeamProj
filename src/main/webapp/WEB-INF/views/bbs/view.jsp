@@ -3,17 +3,16 @@
 
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<link rel="stylesheet" type="text/css" href="<c:url value="/resources/css/bbs/view.css"/>">
-	
-    
+
     	<div class="container">
-    	
-			<div class="row mt-3">
+    		<div class="row mt-3">
 				<div class="col">
 					<div class="card">
 					  	<div class="card-body">
 							<h2 class="card-title">제목</h2>
 							<hr>
 							<i class="fas fa-clock"></i> 올린날짜<i class="fas fa-eye pl-2"></i> 조회수
+							<i class="fas fa-heart" id="cardLike"></i> 좋아요 <i class="fas fa-share-square" id="cardShare"></i>스크랩
 						</div>
 					</div>
 				</div>
