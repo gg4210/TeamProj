@@ -10,7 +10,9 @@ public class MemberDTO {
 	private String Authority;
 	private String MyComment;
 	private String Picture;
+	p
 	private java.sql.Date JoinDate;
+	
 	
 	
 }
