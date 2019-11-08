@@ -31,7 +31,11 @@ $(function(){
 	    maxFiles: 5	   
    });
    /*이미지업로드 끝*/
-
+   
+   $('#weekday_start').timepicki();
+   $('#weekday_end').timepicki();
+   $('#weekend_start').timepicki();
+   $('#weekend_end').timepicki();
    
 });
 
