@@ -186,9 +186,13 @@
 		    <version>1.12.1</version>
 		</dependency>
 		<!-- 웹크롤링을 위한 jsoup 끝-->
-		
-		
-		
+		<!-- 셀레니움 시작 -->
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-java</artifactId>
+		    <version>3.141.59</version>
+		</dependency>
+		<!-- 셀레니움 끝 -->
 		        
 	</dependencies>
     <build>

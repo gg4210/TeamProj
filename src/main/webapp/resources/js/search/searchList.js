@@ -235,7 +235,7 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    '  	<div class="card-header indigo">' +
    '	<div class="row">'+
    '	<div class="clearfix col">'+
-   '      	<a href="/workout/searchView.do?'+id+'" class="h6 float-left text-white">'+title+'</a>'+
+   '      	<a href="/workout/searchView.do?mapkey='+id+'" class="h6 float-left text-white">'+title+'</a>'+
    '		<div class="float-right">'+
    '			<button type="button" class="close text-white" aria-label="Close">'+
    '				<span aria-hidden="true">&times;</span>'+
