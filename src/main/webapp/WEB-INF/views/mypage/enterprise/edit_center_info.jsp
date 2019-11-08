@@ -3,9 +3,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-
+<script src='<c:url value="/resources/utils/timepicker/timepicki.js"/>'></script>
+<link rel="stylesheet" type="text/css" href="<c:url value='/resources/utils/timepicker/timepicki.css'/>">
 <script src='<c:url value="/resources/js/mypage/enterprise/edit_center_info.js"/>'></script>
-<script src='<c:url value="/resources/utils/timepicker/timepicker.js"/>'></script>
 
 
 
@@ -15,14 +15,20 @@
 	<form action="#" enctype="multipart/form-data" method="post">
 	
 		<!-- 운영시간 시작 -->
-		<div class="form-group">
-			<input type="text" class="form-control" name="name" value="" data-timepicker id="weekday-start">
-			<input type="text" class="form-control" name="name" value="" data-timepicker id="weekday-end">
-			<input type="text" class="form-control" name="name" value="" data-timepicker id="weekend-start">
-			<input type="text" class="form-control" name="name" value="" data-timepicker id="weekend-end">
-		</div>
-		
+			<div class="form-group">
+				<label for="weekday">주중</label>
+				<div class="form-inline" id="weekday">
+					<input type="text" id="weekday_start" class="form-control"/>~
+					<input type="text" id="weekday_end" class="form-control"/>
+				</div>
+				<label for="weekend">주말</label>
+				<div class="form-inline" id="weekend">
+					<input type="text" id="weekend_start" class="form-control"/>~
+					<input type="text" id="weekend_end" class="form-control"/>
+				</div>
+			</div>
 		<!-- 운영시간 끝-->
+		
 		<!-- 종목 시작 -->	
   		<div class="form-group">
 			<label for="kinds_of_sport">운동종목</label> 
