@@ -78,10 +78,10 @@ var ctxL = document.getElementById("yearLineChart").getContext('2d');
 var myLineChart = new Chart(ctxL, {
 type: 'line',
 data: {
-labels: ["2015","2016", "2017", "2018", "2019"],
+labels: ["2017", "2018", "2019"],
 datasets: [{
 label: "년도별 회원 증감 추이",
-data: [200,250,200,300,350],
+data: [200,300,350],
 backgroundColor: [
 	'rgba(153, 102, 255, 0.2)',
 	],

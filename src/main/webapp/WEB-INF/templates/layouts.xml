@@ -38,7 +38,7 @@
            <put-attribute name="title" value="운동해(偕)!-Search 페이지" />      
          <put-attribute name="Body" value="/WEB-INF/views/search/{1}.jsp"/>
          <put-list-attribute name="javascripts" inherit="true">
-             <add-attribute value="/resources/js/search/searchList.js?ver=1.2" />
+             <add-attribute value="/resources/js/search/searchList.js" />
          </put-list-attribute>
          <put-list-attribute name="stylesheets" inherit="true">
             <add-attribute value="/resources/css/search/list.css?ver=1.5" />         
@@ -51,8 +51,8 @@
          <put-attribute name="title" value="운동해(偕)!-가입 페이지" />      
          <put-attribute name="Body" value="/WEB-INF/views/member/{1}.jsp"/>
          <put-list-attribute name="javascripts" inherit="true">
-         	<add-attribute value="/resources/js/member/enterprisejoin.js" />
-         	<add-attribute value="/resources/js/member/join.js" />
+            <add-attribute value="/resources/js/member/enterprisejoin.js" />
+            <add-attribute value="/resources/js/member/join.js" />
          </put-list-attribute>
          <put-list-attribute name="stylesheets" inherit="true">
             <add-attribute value="/resources/css/member/login.css" />
@@ -69,8 +69,8 @@
       
       
       <definition name="mypage/admin/*.tiles" extends="layouts">
-         <put-attribute name="title" value="운동해(偕)!-마이 페이지" />      
-           <put-attribute name="Body" value="/WEB-INF/views/mypage/admin/{1}.jsp"/>
+         <put-attribute name="title" value="운동해(偕)!-마이 페이지" />
+           <put-attribute name="Body" value="/WEB-INF/views/mypage/admin/mypage_Index.jsp"/>
       </definition>
       
       <definition name="mypage/enterprise/*.tiles" extends="layouts">
@@ -78,25 +78,23 @@
            <put-attribute name="Body" value="/WEB-INF/views/mypage/enterprise/{1}.jsp"/>
            <put-list-attribute name="javascripts" inherit="true">
               <add-attribute value="/resources/js/mypage/enterprise/mypage_Index.js" />                
-              <add-attribute value="/resources/js/mypage/enterprise/user-stats.js" />
-               <add-attribute value="/resources/js/mypage/enterprise/enterprise_main.js" />
-               <add-attribute value="/resources/utils/tagInput/jquery.amsify.suggestags.js" />
-               <add-attribute value="/resources/utils/multiSelect/js/select-beauty.js" />
-               <add-attribute value="/resources/js/mypage/enterprise/edit_center_info.js" />
-               <add-attribute value="/resources/utils/timePicker/dist/jquery.datetimepicker.min.js" />                  
+              <add-attribute value="/resources/js/mypage/enterprise/enterprise_main.js" />
+              <add-attribute value="/resources/utils/tagInput/jquery.amsify.suggestags.js" />
+              <add-attribute value="/resources/utils/multiSelect/js/select-beauty.js" />
+              <add-attribute value="/resources/utils/multifile_upload/image-uploader.min.js" />
            </put-list-attribute>
            <put-list-attribute name="stylesheets" inherit="true">
               <add-attribute value="/resources/css/mypage/enterprise/user-stats.css" />      
-               <add-attribute value="/resources/css/mypage/enterprise/center_info.css" />
                <add-attribute value="/resources/utils/tagInput/amsify.suggestags.css" />
                <add-attribute value="/resources/utils/multiSelect/css/select-beauty.css" />
-               <add-attribute value="/resources/utils/timePicker/dist/jquery.datetimepicker.css" />
+               <add-attribute value="/resources/utils/multifile_upload/image-uploader.min.css" />
            </put-list-attribute>           
-      </definition>
+      </definition>      
+  
    
       <definition name="mypage/customer/*.tiles" extends="layouts">
          <put-attribute name="title" value="운동해(偕)!-마이 페이지" />      
-         <put-attribute name="Body" value="/WEB-INF/views/mypage/customer/{1}.jsp"/>
+         <put-attribute name="Body" value="/WEB-INF/views/mypage/customer/mypage_Index.jsp"/>
          <put-list-attribute name="javascripts" inherit="true">
             <add-attribute value="/resources/js/mypage/customer/customer_main.js" /> 
             <add-attribute value="/resources/js/mypage/customer/mypage_Index.js?ver=1.1" />     
@@ -106,18 +104,18 @@
       </definition>
       
       
-      
+
       
       <definition name="healthMate/*.tiles" extends="layouts">
          <put-attribute name="title" value="운동해(偕)!-헬스메이트 페이지" />      
          <put-attribute name="Body" value="/WEB-INF/views/healthMate/{1}.jsp"/>
          <put-list-attribute name="javascripts" inherit="true">
-             <add-attribute value="/resources/js/healthMate/healthMateMain.js" />
-            <add-attribute value="/resources/js/healthMate/healthMateWrite.js" />         
+            <add-attribute value="/resources/js/healthMate/healthMateMain.js" />
+            <add-attribute value="/resources/js/healthMate/healthMateWrite.js" />        
          </put-list-attribute>
          <put-list-attribute name="stylesheets" inherit="true">
             <add-attribute value="/resources/css/healthMate/healthMateMain.css" />      
-            <add-attribute value="/resources/css/healthMate/healthMateWrite.css" />            
+            <add-attribute value="/resources/css/healthMate/healthMateWrite.css" />     
          </put-list-attribute>
       </definition>
       
