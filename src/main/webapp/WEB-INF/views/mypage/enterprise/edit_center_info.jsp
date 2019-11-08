@@ -5,6 +5,7 @@
 
 
 <script src='<c:url value="/resources/js/mypage/enterprise/edit_center_info.js"/>'></script>
+<script src='<c:url value="/resources/utils/timepicker/timepicker.js"/>'></script>
 
 
 
@@ -20,6 +21,7 @@
 			<input type="text" class="form-control" name="name" value="" data-timepicker id="weekend-start">
 			<input type="text" class="form-control" name="name" value="" data-timepicker id="weekend-end">
 		</div>
+		
 		<!-- 운영시간 끝-->
 		<!-- 종목 시작 -->	
   		<div class="form-group">

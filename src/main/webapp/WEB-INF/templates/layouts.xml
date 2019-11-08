@@ -89,8 +89,7 @@
                <add-attribute value="/resources/utils/multiSelect/css/select-beauty.css" />
                <add-attribute value="/resources/utils/multifile_upload/image-uploader.min.css" />
            </put-list-attribute>           
-      </definition>
-      
+      </definition>      
   
    
       <definition name="mypage/customer/*.tiles" extends="layouts">
