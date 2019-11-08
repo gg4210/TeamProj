@@ -29,7 +29,7 @@ public class SearchController {
 		Elements first=doc.select("head > meta:nth-child(4)");
 		String title=first.get(0).attr("content");
 		System.out.println(title);
-				
+		
 		return "search/view.tiles";
 	}
 	
