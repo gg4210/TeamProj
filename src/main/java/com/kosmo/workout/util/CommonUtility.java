@@ -70,7 +70,7 @@ public class CommonUtility {
 		}
 		driver.close();
 
-		mapinfo.put("img_url_StringArray", img_urls);
+		mapinfo.put("img_urls", img_urls);
 		
 		//이미지 URL 뽑아내기 끝
 		
