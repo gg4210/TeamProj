@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,7 +24,8 @@ public class SearchController {
 	@RequestMapping("/searchView.do")
 	public String searchView(@RequestParam("mapkey") String mapkey, HttpServletRequest req) throws IOException {
 		
-		CommonUtility.mapkeyCrawling(mapkey,req);
+		JSONObject mapinfo=CommonUtility.mapkeyCrawling(mapkey,req);
+		//System.out.println(mapinfo); 잘 받아옵니다... 이제 파싱하면 웹크롤링 끝.
 		
 		return "search/view.tiles";
 	}
