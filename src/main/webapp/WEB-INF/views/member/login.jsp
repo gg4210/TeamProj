@@ -27,7 +27,6 @@
 				<img src="<c:url value='/resources/images/loginLogo.png'/>"/>
 			</div>
 		</div>
-<<<<<<< HEAD
 		<!--<div class="h3 text-white pt-4">운동해</div> -->
 			<div class="md-form">
 				<input type="text" id="id" class="form-control text-white"> 
@@ -40,7 +39,6 @@
 		<div class="text-right" id="submit">
 			<a href="<c:url value='mypage.do'/>"><button class="btn btn-primary">로그인</button></a>
 		</div>
-=======
 		<div class="h3 text-white">운동메이트</div>
 		
 			<form action="<c:url value='/templogin.do'/>" method="post">
@@ -60,7 +58,6 @@
 				<a href="<c:url value='/mypage.do'/>"><button type="button" class="btn btn-primary">임시페이지</button></a>
 			</div>
 			
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 		<div class="text-center pt-3">
 			<span class="text-white">회원이 아니신가요? <a href="<c:url value='jointype.do'/>">회원가입</a></span>
 		</div>
