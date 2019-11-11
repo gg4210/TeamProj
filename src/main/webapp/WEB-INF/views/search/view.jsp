@@ -106,12 +106,13 @@ background-color: #4285F4; }
 						<div class="col-md-6 pb-3">
 							<div class="card">
 								<div class="card-header pt-4 font-weight-bold">
-									<p class="font-weight-bold h3">도레미스포츠센터</p>
+									<p class="font-weight-bold h3">${viewinfo.title }</p>
 								</div>							
 								<div class="card-body">
-									<p><span class="badge badge-primary">주소</span> : 경기도 부천시 원미구 역곡동 -------</p>
+									<p><span class="badge badge-primary">주소</span> : ${viewinfo.addr }</p>
+									<p><span class="badge badge-primary">지번</span> : ${viewinfo.jibunAddr }</p>
 									<hr/>
-									<p><span class="badge badge-primary">전화번호</span> : 000-0000-0000</p>
+									<p><span class="badge badge-primary">전화번호</span> : ${viewinfo.tel }</p>
 									<hr/>									
 									<p>붐비는 정도가 들어갈 공간</p>
 									<hr/>									
@@ -138,63 +139,16 @@ background-color: #4285F4; }
 								<div class="card-body">
 
 									<p class="h4"><span class="badge badge-primary"><i class="fas fa-clock"></i>&nbsp;운영시간</span></p>
-									<p>-평일:    08:00~22:00</p>
-									<p>-주말/공휴일: 09:00~23:00</p>
-									<p style="color: red;">※매주 2,4번째주 수요일은 휴관합니다.</p>
+									${viewinfo.otime }
 									<p class="h4"><span class="badge badge-primary">제공 서비스</span></p>
-									<div class="row">
-										<div class="col-2">
-											<img src="<c:url value='/resources/images/icon/clothes.png'/>" class="img-fluid"/>
-											<br/>
-											<p class="text-center mt-2">운동복</p>
-										</div>
-										<div class="col-2">
-											<img src="<c:url value='/resources/images/icon/park.png'/>" class="img-fluid"/>
-											<br/>
-											<p class="text-center mt-2">주차</p>
-										</div>
-										<div class="col-2">
-											<img src="<c:url value='/resources/images/icon/locker.png'/>" class="img-fluid"/>
-											<br/>
-											<p class="text-center mt-2">라커</p>
-										</div>
-										<div class="col-2">
-											<img src="<c:url value='/resources/images/icon/wifi.png'/>" class="img-fluid"/>
-											<br/>
-											<p class="text-center mt-2">와이파이</p>
-										</div>
-										<div class="col-2">
-											<img src="<c:url value='/resources/images/icon/shower.png'/>" class="img-fluid"/>
-											<br/>
-											<p class="text-center mt-2">샤워실</p>
-										</div>
-									</div>																	
+									${viewinfo.service }
 									<p class="h4"><span class="badge badge-primary">사진</span></p>
 										<div class="scrolling-wrapper scrollbar scrollbar-primary">
+										<c:forEach items="${viewinfo.img_urls }" var="img_url" varStatus="loop">
 											<div class="card-container p-3">
-												<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
-												<div class="card-img-middle">
-													<div class="text px-3" id="tex	t-modal">추가하기</div>
-												</div>
+												<img class="card-img-top" src="${img_url }" alt="" style="width: 100%">
 											</div>
-											<div class="card-container p-3">
-												<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
-												<div class="card-img-middle">
-													<div class="text px-3" id="text-modal">추가하기</div>
-												</div>
-											</div>
-											<div class="card-container p-3">
-												<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
-												<div class="card-img-middle">
-													<div class="text px-3" id="text-modal">추가하기</div>
-												</div>
-											</div>
-											<div class="card-container p-3">
-												<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
-												<div class="card-img-middle">
-													<div class="text px-3" id="text-modal">추가하기</div>
-												</div>
-											</div>
+										</c:forEach>	
 									</div>
 									
 								</div>
@@ -252,11 +206,7 @@ background-color: #4285F4; }
 								<div class="card-body">
 								
 									<!--Text-->
-									<p>Sed ut perspiciatis unde omnis
-										iste natus error sit voluptatem accusantium doloremque laudantium,
-										totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
-										quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-										ipsam voluptatem quia voluptas.</p>
+									<p>${viewinfo.content }</p>
 										
 								</div>
 							</div>
