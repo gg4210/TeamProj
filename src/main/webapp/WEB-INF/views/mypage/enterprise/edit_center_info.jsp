@@ -20,31 +20,46 @@
 		    </div>
 		</div>
 		
-		<div class="form-group">
-		  <label for="edit-centername">센터명</label>
-		  <input type="text" class="form-control col-5" id="edit-centername">
-		</div>
+		<div class="row">
+			<div class="col-6">
+				<!-- 센터명 시작 -->
+				<div class="form-group">
+				  <label for="edit-centername">센터명</label>
+				  <input type="text" class="form-control col-5" id="edit-centername">
+				</div>
+				<!-- 센터명 끝 -->
 	
-		<!-- 운영시간 시작 -->
-			<div class="form-group">
-				<label for="weekday">주중</label>
-				<div class="form-inline" id="weekday">
-					<input type="text" id="weekday_start" class="form-control"/>~
-					<input type="text" id="weekday_end" class="form-control"/>
+				<!-- 운영시간 시작 -->
+				<div class="form-group">
+					<label for="weekday">주중</label>
+					<div class="form-inline" id="weekday">
+						<input type="text" id="weekday_start" class="form-control"/>~
+						<input type="text" id="weekday_end" class="form-control"/>
+					</div>
+					<label for="weekend" class="mt-3">주말</label>
+					<div class="form-inline" id="weekend">
+						<input type="text" id="weekend_start" class="form-control"/>~
+						<input type="text" id="weekend_end" class="form-control"/>
+					</div>
 				</div>
-				<label for="weekend" class="mt-3">주말</label>
-				<div class="form-inline" id="weekend">
-					<input type="text" id="weekend_start" class="form-control"/>~
-					<input type="text" id="weekend_end" class="form-control"/>
-				</div>
-			</div>
-		<!-- 운영시간 끝-->
+				<!-- 운영시간 끝-->
 		
-		<div class="form-group">
-		  <label for="edit-centername mt-1">정원</label>
-		  <div class="form-row">
-		  	<input type="text" class="form-control col-1" id="edit-centername"><span class="mt-2">&nbsp명</span>
-		  </div>
+				<!-- 정원 시작 -->
+				<div class="form-group">
+				  <label for="edit-centername mt-1">정원</label>
+				  <div class="form-inline">
+				  	<input type="text" class="form-control col-3" id="max" style="text-align:right;"><span class="mt-2">&nbsp명</span>
+				  </div>
+				</div>
+				<!-- 정원 끝 -->
+			</div>
+			<!-- 센터소개 시작 -->			
+			<div class="form-group col-lg-6">
+				<label for="center-info-textarea">센터소개</label>
+				<textarea class="form-control" id="center-info-textarea" rows="11"></textarea>
+			</div>
+			<!-- 센터소개 끝 -->
+			
 		</div>
 		
 		<!-- 종목 시작 -->	
@@ -65,14 +80,7 @@
 					<option value="Something_else" icon="iw-note">기타</option>
 				</select>
 		</div>
-		<!-- 종목 끝 -->	
-		
-		<!-- 센터소개 시작 -->			
-		<div class="form-group">
-			<label for="center-info-textarea">센터소개</label>
-			<textarea class="form-control" id="center-info-textarea" rows="7"></textarea>
-		</div>
-		<!-- 센터소개 끝 -->
+		<!-- 종목 끝 -->
 		
 		<!-- 제공서비스 시작 -->
 		<div class="form-group">	
