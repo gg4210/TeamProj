@@ -32,7 +32,7 @@
 					<input type="text" id="weekday_start" class="form-control"/>~
 					<input type="text" id="weekday_end" class="form-control"/>
 				</div>
-				<label for="weekend">주말</label>
+				<label for="weekend" class="mt-3">주말</label>
 				<div class="form-inline" id="weekend">
 					<input type="text" id="weekend_start" class="form-control"/>~
 					<input type="text" id="weekend_end" class="form-control"/>
