@@ -22,13 +22,12 @@ $(function() {
 				break;
 				
 			case 2://마이페이지 클릭
-				$("#CustomerLoMenu").hide();
-				$("#loginMenu").fadeToggle("3000");
-				break;
-			case 3:
-				$("#loginMenu").hide();
-				$("#CustomerLoMenu").fadeToggle("3000");
-				break;
+				if($(this).attr("id")==='login'){
+					$("#loginMenu").fadeToggle("3000");
+				}
+				else{
+					$("#CustomerLoMenu").fadeToggle("3000");
+				}
 			default:break;
 		}
 	

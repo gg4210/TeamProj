@@ -5,9 +5,13 @@
 <!-- 왼쪽 사이드 고정된 sidebar -->
 <div class="sidebar z-depth-5">
 	<a href="<c:url value='/main.do'/>"><i class="fa fa-home"></i></a>
-	<a href="#"><i class="fas fa-search"></i></a> 		
-	<a href="#" id="member"><i class="fas fa-user"></i></a>
-	<a href="#" id="login" style="display:block"><i class="fas fa-user"></i></a>
+	<a href="#"><i class="fas fa-search"></i></a> 	
+	<c:if test="${! empty sessionScope.id }" var ="isLogin">	
+		<a href="#" id="member"><i class="fas fa-user"></i></a>
+	</c:if>
+	<c:if test="${!isLogin}">
+		<a href="#" id="login" style="display:block"><i class="fas fa-user"></i></a>
+	</c:if>
 	<a href="<c:url value='/healthMateMain.do'/>"><i class="fas fa-user-friends"></i></a> 
 	<a href="<c:url value='/bbsList.do'/>"><i class="fas fa-clipboard-list"></i></a> 
 	<a href="<c:url value='/customerServiceMain.do'/>"><i class="fas fa-info-circle"></i></a>
