@@ -73,7 +73,7 @@
 			<div class="col-6" style="margin-bottom:15px;">
 				<img class="col-12" src="<c:url value='/resources/images/girl.png'/>" />
 			</div>
-			<div class="h5 text-white col-6" style="align-self:center;">ooo님,<br/>반갑습니다</div>
+			<div class="h5 text-white col-6" style="align-self:center;">${sessionScope.id }님,<br/>반갑습니다</div>
 			
 			<div class="row">
 				<!-- col1 등록한 센터 시작 -->
