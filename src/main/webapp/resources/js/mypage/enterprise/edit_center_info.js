@@ -1,9 +1,5 @@
 $(function(){
-	
-	
-	$('#time').calendricalTime();
 
-	
 	/*태그 입력 시작*/
    $('input[name="work-tag"]').amsifySuggestags({
         type :'bootstrap',tagLimit: 5
@@ -18,12 +14,14 @@ $(function(){
    });
    /*종목선택 끝*/
    
-   var beauty2=new SelectBeauty({
-	  el:'#center_service',
-	  placeholder:'음냐',
-	  length:5,
-	  max:5
+   /*제공서비스 선택 시작*/
+   var service = new SelectBeauty({
+      el: '#kind_of_service',
+      placeholder: "제공하는 서비스를 선택하세요",
+      length: 5,
+      max: 10
    });
+   /*제공서비스 선택 끝*/
 
    
    /*이미지업로드 시작*/
@@ -34,6 +32,10 @@ $(function(){
    });
    /*이미지업로드 끝*/
    
+   $('#weekday_start').timepicki();
+   $('#weekday_end').timepicki();
+   $('#weekend_start').timepicki();
+   $('#weekend_end').timepicki();
    
 });
 

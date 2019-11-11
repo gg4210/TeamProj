@@ -2,12 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<link type="text/css" rel="stylesheet" href="/resources/utils/timeRangePicker/calenrical.css">
 
-
-<script src='<c:url value="/resources/utils/timeRangePicker/jquery.calendrical.js"/>'></script>
+<script src='<c:url value="/resources/utils/timepicker/timepicki.js"/>'></script>
+<link rel="stylesheet" type="text/css" href="<c:url value='/resources/utils/timepicker/timepicki.css'/>">
 <script src='<c:url value="/resources/js/mypage/enterprise/edit_center_info.js"/>'></script>
-
 
 
 
@@ -17,9 +15,18 @@
 	<form action="#" enctype="multipart/form-data" method="post">
 	
 		<!-- 운영시간 시작 -->
-		<div class="form-group">
-			<input id="time" type="text" class="form-control">
-		</div>
+			<div class="form-group">
+				<label for="weekday">주중</label>
+				<div class="form-inline" id="weekday">
+					<input type="text" id="weekday_start" class="form-control"/>~
+					<input type="text" id="weekday_end" class="form-control"/>
+				</div>
+				<label for="weekend">주말</label>
+				<div class="form-inline" id="weekend">
+					<input type="text" id="weekend_start" class="form-control"/>~
+					<input type="text" id="weekend_end" class="form-control"/>
+				</div>
+			</div>
 		<!-- 운영시간 끝-->
 		
 		<!-- 종목 시작 -->	
@@ -52,16 +59,16 @@
 		<!-- 제공서비스 시작 -->
 		<div class="form-group">	
 		
-			<label for="service">제공 서비스</label>	
-			<select name="center_service" id="center_service" class="form-control">
-				<option value="clothes" icon="">운동복</option>
-				<option value="towel" icon="">타월</option>
-				<option value="parking-lot" icon="">주차</option>
-				<option value="locker" icon="">라커</option>
-				<option value="wifi" icon="">와이파이</option>
-				<option value="shower-room" icon="">샤워실</option>
-				<option value="sauna" icon="">찜질방</option>
-				<option value="etc" icon="">기타</option>
+			<label for="kind_of_service">제공 서비스</label>			
+			<select name="kind_of_service" id="kind_of_service" class="form-control">
+				<option value="clothes" icon="iw-uniform">운동복</option>
+				<option value="towel" icon="iw-tower">타월</option>
+				<option value="parking-lot" icon="iw-park">주차</option>
+				<option value="locker" icon="iw-locker">라커</option>
+				<option value="wifi" icon="iw-wifi">와이파이</option>
+				<option value="shower-room" icon="iw-shower">샤워실</option>
+				<option value="sauna" icon="iw-sauna">찜질방</option>
+				<option value="etc" icon="iw-etc">기타</option>
 			</select>
 							
 		</div>
