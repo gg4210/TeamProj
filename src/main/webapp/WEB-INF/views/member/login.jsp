@@ -25,18 +25,24 @@
 			</div>
 		</div>
 		<div class="h3 text-white">운동메이트</div>
-			<div class="md-form">
-				<input type="text" id="id" class="form-control text-white"> 
-					<label for="id"><span class="text-white" id="labelId">아이디</span></label>
-			</div>
-			<div class="md-form">
-				<input type="password" id="password" class="form-control text-white"> 
-					<label for="password"><span class="text-white" id="labelPwd">비밀번호</span></label>
-			</div>
-		<div class="text-right" id="submit">
-			<a href="<c:url value='mypage.do'/>"><button class="btn btn-primary">들어가기</button></a>
-		</div>
 		
+			<form action="<c:url value='/templogin.do'/>" method="post">
+				<div class="md-form">
+					<input type="text" id="id" name="id" class="form-control text-white"> 
+						<label for="id"><span class="text-white" id="labelId">아이디</span></label>
+				</div>
+				<div class="md-form">
+					<input type="password" id="password" name="password" class="form-control text-white"> 
+					<label for="password"><span class="text-white" id="labelPwd">비밀번호</span></label>
+				</div>
+				<div class="text-right">
+					<button type="submit" value="submit" class="btn btn-primary">들어가기</button>
+				</div>
+			</form>
+			<div class="text-right">
+				<a href="<c:url value='/mypage.do'/>"><button type="button" class="btn btn-primary">임시페이지</button></a>
+			</div>
+			
 		<div class="text-center pt-3">
 			<span class="text-white">회원이 아니신가요? <a href="<c:url value='jointype.do'/>">회원가입</a></span>
 		</div>
