@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- 구글 로그인에 필요한 소스 시작 -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="471338080176-g046e95v00o1np1q8glj03ghqf97mjra.apps.googleusercontent.com">
+<!-- 구글 로그인에 필요한 소스 끝 -->
 <!-- 비로그인시 로그인 사이드바 -->
 <style>
 #customerLinks a{
@@ -21,18 +25,24 @@
 			</div>
 		</div>
 		<div class="h3 text-white">운동메이트</div>
-			<div class="md-form">
-				<input type="text" id="id" class="form-control text-white"> 
-					<label for="id"><span class="text-white" id="labelId">아이디</span></label>
-			</div>
-			<div class="md-form">
-				<input type="password" id="password" class="form-control text-white"> 
-					<label for="password"><span class="text-white" id="labelPwd">비밀번호</span></label>
-			</div>
-		<div class="text-right" id="submit">
-			<a href="<c:url value='mypage.do'/>"><button class="btn btn-primary">들어가기</button></a>
-		</div>
 		
+			<form action="<c:url value='/templogin.do'/>" method="post">
+				<div class="md-form">
+					<input type="text" id="id" name="id" class="form-control text-white"> 
+						<label for="id"><span class="text-white" id="labelId">아이디</span></label>
+				</div>
+				<div class="md-form">
+					<input type="password" id="password" name="password" class="form-control text-white"> 
+					<label for="password"><span class="text-white" id="labelPwd">비밀번호</span></label>
+				</div>
+				<div class="text-right">
+					<button type="submit" value="submit" class="btn btn-primary">들어가기</button>
+				</div>
+			</form>
+			<div class="text-right">
+				<a href="<c:url value='/mypage.do'/>"><button type="button" class="btn btn-primary">임시페이지</button></a>
+			</div>
+			
 		<div class="text-center pt-3">
 			<span class="text-white">회원이 아니신가요? <a href="<c:url value='jointype.do'/>">회원가입</a></span>
 		</div>
@@ -41,7 +51,11 @@
 			<span class="text-white"><a href="<c:url value='join.do'/>">아이디/비밀번호 찾기</a></span>
 		</div>
 		
-		<button class="btn btn-indigo btn-block mx-auto mt-2 font-weight-bold">페이스북 로그인</button>
+		<!-- 구글 로그인 버튼 시작 -->
+		<div class="row justify-content-center mt-4">
+			<div class="g-signin2" data-onsuccess="onSignIn"></div>
+		</div>
+		<!-- 구글 로그인 버튼 끝 -->
 		<button class="btn btn-yellow btn-block mx-auto mt-2 font-weight-bold">카카오톡 로그인</button>
 		<button class="btn btn-success btn-block mx-auto mt-2 font-weight-bold">네이버 로그인</button>
 		
@@ -232,4 +246,15 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	//구글 로그인 후, 호출되는 함수
+	function onSignIn(googleUser) {
+		var profile = googleUser.getBasicProfile();
+		console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+		console.log('Name: ' + profile.getName());
+		console.log('Image URL: ' + profile.getImageUrl());
+		console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+	}
+</script>
 

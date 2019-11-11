@@ -51,8 +51,8 @@
          <put-attribute name="title" value="운동해(偕)!-가입 페이지" />      
          <put-attribute name="Body" value="/WEB-INF/views/member/{1}.jsp"/>
          <put-list-attribute name="javascripts" inherit="true">
-         	<add-attribute value="/resources/js/member/enterprisejoin.js" />
-         	<add-attribute value="/resources/js/member/join.js" />
+            <add-attribute value="/resources/js/member/enterprisejoin.js" />
+            <add-attribute value="/resources/js/member/join.js" />
          </put-list-attribute>
          <put-list-attribute name="stylesheets" inherit="true">
             <add-attribute value="/resources/css/member/login.css" />
@@ -89,8 +89,7 @@
                <add-attribute value="/resources/utils/multiSelect/css/select-beauty.css" />
                <add-attribute value="/resources/utils/multifile_upload/image-uploader.min.css" />
            </put-list-attribute>           
-      </definition>
-      
+      </definition>      
   
    
       <definition name="mypage/customer/*.tiles" extends="layouts">
