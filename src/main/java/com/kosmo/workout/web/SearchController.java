@@ -7,9 +7,11 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kosmo.workout.service.search.SearchBBSDTO;
 import com.kosmo.workout.util.CommonUtility;
 
 @Controller
@@ -22,11 +24,10 @@ public class SearchController {
 	}
 	
 	@RequestMapping("/searchView.do")
-	public String searchView(@RequestParam("mapkey") String mapkey, HttpServletRequest req) throws IOException {
+	public String searchView(@RequestParam("mapkey") String mapkey, HttpServletRequest req, Model model) throws IOException {
 		
-		JSONObject mapinfo=CommonUtility.mapkeyCrawling(mapkey,req);
-		//System.out.println(mapinfo); 잘 받아옵니다... 이제 파싱하면 웹크롤링 끝.
-		
+		SearchBBSDTO viewinfo=CommonUtility.mapkeyCrawling(mapkey,req);
+		model.addAttribute("viewinfo",viewinfo);
 		return "search/view.tiles";
 	}
 	
