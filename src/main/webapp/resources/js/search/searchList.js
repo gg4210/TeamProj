@@ -256,7 +256,7 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
 
 	}
    content+='<span class="tel">'+phone+'</span>' +
-   '      <p class="mb-0">[평일] 06:00 ~ 24:00</p>'+         
+   '      <p class="mb-0">[평일] 06:00 ~ 24:00</p>'+
    '      <span id="rateMe">'+
    '      	<i class="fas fa-star py-0 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>'+
    '      	<i class="fas fa-star py-0 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>'+
