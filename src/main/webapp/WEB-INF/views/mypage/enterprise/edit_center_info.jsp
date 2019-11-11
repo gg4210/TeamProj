@@ -20,7 +20,7 @@
 		    </div>
 		</div>
 		
-		<div class="form-group form/row">
+		<div class="form-group">
 		  <label for="edit-centername">센터명</label>
 		  <input type="text" class="form-control col-5" id="edit-centername">
 		</div>
@@ -39,6 +39,13 @@
 				</div>
 			</div>
 		<!-- 운영시간 끝-->
+		
+		<div class="form-group">
+		  <label for="edit-centername mt-1">정원</label>
+		  <div class="form-row">
+		  	<input type="text" class="form-control col-1" id="edit-centername"><span class="mt-2">명</span>
+		  </div>
+		</div>
 		
 		<!-- 종목 시작 -->	
   		<div class="form-group">
