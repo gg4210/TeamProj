@@ -22,7 +22,7 @@
 		
 		<div class="form-group form/row">
 		  <label for="edit-centername">센터명</label>
-		  <input type="text" class="form-control col-5" id="edit-centername" placeholder="센터명을 입력하세요">
+		  <input type="text" class="form-control col-5" id="edit-centername">
 		</div>
 	
 		<!-- 운영시간 시작 -->
