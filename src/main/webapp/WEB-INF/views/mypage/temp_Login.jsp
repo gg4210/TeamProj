@@ -46,7 +46,7 @@
                  <label for="password" class="col-sm-2  control-label">비밀번호</label>
                  <div class="col-sm-3">
                     <input type="password" class="form-control" id="password" name="password"
-                       placeholder="비밀번호를 입력하세요">
+                       placeholder="비밀번호를 입력하세요!">
                  </div>
               </div>
               <div class="form-group">
