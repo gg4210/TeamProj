@@ -43,7 +43,7 @@
 		<div class="form-group">
 		  <label for="edit-centername mt-1">정원</label>
 		  <div class="form-row">
-		  	<input type="text" class="form-control col-1" id="edit-centername"><span class="mt-2">명</span>
+		  	<input type="text" class="form-control col-1" id="edit-centername"><span class="mt-2">&nbsp명</span>
 		  </div>
 		</div>
 		
