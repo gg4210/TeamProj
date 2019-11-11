@@ -13,6 +13,17 @@
 	<div class="row no-gutters">
 	<div class="card card-body">
 	<form action="#" enctype="multipart/form-data" method="post">
+		
+		<div class="jumbotron">
+		    <div class="" style="font-size:4em;">
+		       	센터 정보수정
+		    </div>
+		</div>
+		
+		<div class="form-group form/row">
+		  <label for="edit-centername">센터명</label>
+		  <input type="text" class="form-control col-5" id="edit-centername">
+		</div>
 	
 		<!-- 운영시간 시작 -->
 			<div class="form-group">
@@ -21,7 +32,7 @@
 					<input type="text" id="weekday_start" class="form-control"/>~
 					<input type="text" id="weekday_end" class="form-control"/>
 				</div>
-				<label for="weekend">주말</label>
+				<label for="weekend" class="mt-3">주말</label>
 				<div class="form-inline" id="weekend">
 					<input type="text" id="weekend_start" class="form-control"/>~
 					<input type="text" id="weekend_end" class="form-control"/>
