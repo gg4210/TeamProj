@@ -13,6 +13,17 @@
 	<div class="row no-gutters">
 	<div class="card card-body">
 	<form action="#" enctype="multipart/form-data" method="post">
+		
+		<div class="jumbotron">
+		    <div class="" style="font-size:4em;">
+		       	센터 정보수정
+		    </div>
+		</div>
+		
+		<div class="form-group form/row">
+		  <label for="edit-centername">센터명</label>
+		  <input type="text" class="form-control col-5" id="edit-centername" placeholder="센터명을 입력하세요">
+		</div>
 	
 		<!-- 운영시간 시작 -->
 			<div class="form-group">
