@@ -4,7 +4,6 @@
 .section{
  	background-image: url('<c:url value="/resources/images/1.png"/>');
 	background-repeat:repeat;
-	/*background-size: 30% 30%;*/
 	background-size: auto;
 }
 </style>
