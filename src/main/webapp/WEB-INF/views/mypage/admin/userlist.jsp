@@ -51,7 +51,7 @@
 						<td>kim</td>
 						<td>김길동</td>
 						<td>kim@kim.com</td>
-						<td>000-0000-0000</td>
+						<td>000-0000-0001</td>
 						<td>2019-10-21</td>
 						<td>-</td>
 					</tr>
