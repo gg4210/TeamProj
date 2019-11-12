@@ -14,6 +14,7 @@ public class MemberDTO {
 	private String picture;
 	private String[] inter_sports;
 	private java.sql.Date joinDate;
+	private String nick;
 
 	public String getId() {
 		return id;
@@ -29,6 +30,14 @@ public class MemberDTO {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getNick() {
+		return nick;
+	}
+
+	public void setNick(String nick) {
+		this.nick = nick;
 	}
 
 	public String getName() {

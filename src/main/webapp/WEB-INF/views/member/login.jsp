@@ -27,21 +27,7 @@
 				<img src="<c:url value='/resources/images/loginLogo.png'/>"/>
 			</div>
 		</div>
-		<!--<div class="h3 text-white pt-4">운동해</div> -->
-			<div class="md-form">
-				<input type="text" id="id" class="form-control text-white"> 
-					<label for="id"><span class="text-white" id="labelId">아이디</span></label>
-			</div>
-			<div class="md-form">
-				<input type="password" id="password" class="form-control text-white"> 
-					<label for="password"><span class="text-white" id="labelPwd">비밀번호</span></label>
-			</div>
-		<div class="text-right" id="submit">
-			<a href="<c:url value='mypage.do'/>"><button class="btn btn-primary">로그인</button></a>
-		</div>
-		<div class="h3 text-white">운동메이트</div>
-		
-			<form action="<c:url value='/templogin.do'/>" method="post">
+		<form action="<c:url value='/templogin.do'/>" method="post">
 				<div class="md-form">
 					<input type="text" id="id" name="id" class="form-control text-white"> 
 						<label for="id"><span class="text-white" id="labelId">아이디</span></label>
@@ -92,7 +78,7 @@
 			<div class="col-6" style="margin-bottom:15px;">
 				<img class="col-12" src="<c:url value='/resources/images/girl.png'/>" />
 			</div>
-			<div class="h5 text-white col-6" style="align-self:center;">ooo님,<br/>반갑습니다</div>
+			<div class="h5 text-white col-6" style="align-self:center;">${sessionScope.id }님,<br/>반갑습니다</div>
 			
 			<div class="row">
 				<!-- col1 등록한 센터 시작 -->

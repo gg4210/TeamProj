@@ -11,7 +11,7 @@ public interface MemberService {
 	List<Map> selectList(Map map);
 	//로그인/입력/수정/삭제]
 	
-	void insert(Map map);
+	int insertJoin(Map map);
 	void delete(Map map);
 	void update(Map map);
 }
