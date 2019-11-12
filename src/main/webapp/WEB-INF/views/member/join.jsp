@@ -58,7 +58,7 @@
 							<input type="text" disabled class="form-control col-md-12" id="emailhost" value="naver.com">
 						</div>
 						<select class="browser-default custom-select mb-2">
-							<option selected>-이메일 유형-</option>
+							<option selected>-이메일 유형- </option>
 							<option value="1">네이버</option>
 							<option value="2">다음</option>
 							<option value="3">구글</option>
