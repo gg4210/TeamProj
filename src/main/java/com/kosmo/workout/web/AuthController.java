@@ -4,6 +4,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,9 +23,11 @@ public class AuthController {
 	private MemberService MemberService;
 	
 	@RequestMapping("/templogin.do")
-	public String tempmylogin(@RequestParam Map map,Model model) {
+	public String tempmylogin(@RequestParam Map map, Model model) {
 		System.out.println(map);
 		boolean isLogin=MemberService.login(map);
+		JSONObject login=new JSONObject();
+		
 		if(isLogin==true) {
 			model.addAllAttributes(map);
 			System.out.println(map);
@@ -33,13 +36,16 @@ public class AuthController {
 			model.addAttribute("NotMember", "아이디와 비번인 일치하지 않아요");
 			System.out.println("아이디와 비번인 일치하지 않아요");
 		}
+		login.put("isLogin", isLogin?"Y":"N");
+		model.addAttribute(login.toJSONString());
 		System.out.println("model:"+model);
 		return "index.tiles";
 	}
 	
-	@RequestMapping("/joincomplete.do")
-	public String joincomp(@RequestParam Map map,Model model){
-		
+	@RequestMapping(value="/joincomplete.do",method=RequestMethod.POST)
+	public String joincomplete(@RequestParam Map map,Model model){
+		System.out.println(map);
+		MemberService.insertJoin(map);
 		return "index.tiles";
 	}
 	
