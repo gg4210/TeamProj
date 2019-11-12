@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
-    
 <script src='<c:url value="/resources/utils/table_edit/jquery.tabledit.js"/>'></script>
-
     
 <div class="container">
 
@@ -133,8 +131,6 @@ $('#user-datatable').Tabledit({
         editable: [[1, '구분'], [2, '아이디'], [3, '이름'], [4, '이메일'], [5, '휴대폰번호'], [6, '가입일'], [7, '권한']]
     }
 });
-
-
 
 </script>
 
