@@ -303,20 +303,14 @@
 							</div>
 		
 							<div class="input-group mb-3">
-								<select class="browser-default custom-select mr-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text" id="basic-addon2">나이</span>
+								</div>
+								<input type="text" class="form-control" placeholder="나이를 입력하세요" aria-describedby="basic-addon2">		
+								<select class="browser-default custom-select ml-3">
 									<option selected>성별</option>
 									<option value="1">남</option>
 									<option value="2">여</option>
-								</select>
-								<select class="browser-default custom-select">
-									<option selected>나이</option>
-									<option value="1">10대</option>
-									<option value="2">20대</option>
-									<option value="3">30대</option>
-									<option value="4">40대</option>
-									<option value="5">50대</option>
-									<option value="6">60대</option>
-									<option value="7">70대</option>
 								</select>
 							</div>
 							<div class="input-group">
