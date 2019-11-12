@@ -28,8 +28,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public void insert(Map map) {
-		// TODO Auto-generated method stub
+	public int insertJoin(Map map) {
+		return dao.insertJoin(map);
 		
 	}
 

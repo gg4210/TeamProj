@@ -27,10 +27,7 @@ public class SearchController {
 	@RequestMapping(value="/searchView.do", method=RequestMethod.POST)
 	public String searchView(@RequestParam Map map, HttpServletRequest req, Model model) throws IOException {
 		
-		//SearchBBSDTO viewinfo=CommonUtility.mapkeyCrawling(mapkey,req);
-		//model.addAttribute("viewinfo",viewinfo);
-
-		SearchBBSDTO viewinfo=new SearchBBSDTO();
+		SearchBBSDTO viewinfo=CommonUtility.mapkeyCrawling(map.get("mapkey").toString(), map.get("tel").toString(), req);
 
 		viewinfo.setTitle(map.get("title").toString());
 		viewinfo.setTel(map.get("tel").toString());
@@ -40,6 +37,13 @@ public class SearchController {
 			viewinfo.setJibunAddr(map.get("jibunAddr").toString());
 		}
 		
+		/*확인용 =null
+		System.out.println(viewinfo.getContent());
+		System.out.println(viewinfo.getOtime());
+		System.out.println(viewinfo.getImg_urls());
+		System.out.println(viewinfo.getService());
+		*/
+
 		model.addAttribute("viewinfo",viewinfo);
 		
 		return "search/view.tiles";
