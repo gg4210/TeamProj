@@ -30,15 +30,6 @@
         <script src="<c:url value="${script}"/>"></script>
     </c:forEach>
     <!-- end scripts -->
-
-<style>
-body{
-	height:auto;
-	width:100%;
-	background-image: url("/resources/images/cobackground.png");
-	background-size:cover;
-}
-</style>
     
 </head>
 <body>
