@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -25,9 +26,7 @@ public class AuthController {
 	@RequestMapping("/templogin.do")
 	public String tempmylogin(@RequestParam Map map, Model model) {
 		System.out.println(map);
-		boolean isLogin=MemberService.login(map);
-		JSONObject login=new JSONObject();
-		
+		boolean isLogin=MemberService.login(map);	
 		if(isLogin==true) {
 			model.addAllAttributes(map);
 			System.out.println(map);
@@ -36,10 +35,19 @@ public class AuthController {
 			model.addAttribute("NotMember", "아이디와 비번인 일치하지 않아요");
 			System.out.println("아이디와 비번인 일치하지 않아요");
 		}
-		login.put("isLogin", isLogin?"Y":"N");
-		model.addAttribute(login.toJSONString());
 		System.out.println("model:"+model);
 		return "index.tiles";
+	}
+	
+	@RequestMapping(value="/appLogin.do", produces = "text/html; charset=UTF-8")
+	@ResponseBody
+	public String AppLogin(@RequestParam Map map) {
+
+		boolean isLogin=MemberService.login(map);
+		JSONObject login=new JSONObject();
+		login.put("isLogin",isLogin?"Y":"N");
+		return login.toJSONString();
+		
 	}
 	
 	@RequestMapping(value="/joincomplete.do",method=RequestMethod.POST)
