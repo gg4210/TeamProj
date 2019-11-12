@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
     
-<script src="<c:url value="/resources/MDB-Free_4.8.10/js/addons/datatables.min.js"/>"></script>
+<script src='<c:url value="/resources/utils/table_edit/jquery.tabledit.js"/>'></script>
 
     
 <div class="container">
@@ -35,17 +36,11 @@
 			<table class="col table table-hover text-center" id="user-datatable">
 				<thead>
 					<tr>
-						<th>
-							<div class="custom-control custom-checkbox">
-							  <input type="checkbox" class="custom-control-input" id="userCheckAll">
-							  <label class="custom-control-label" for="userCheckAll"></label>
-							</div>						
-						</th>
 						<th>no</th>
-						<th width="8%">구분</th>
-						<th width="15%">ID</th>
-						<th>이름</th>
-						<th width="30%">이메일</th>
+						<th width="6%">구분</th>
+						<th width="10%">ID</th>
+						<th width="8%">이름</th>
+						<th width="20%">이메일</th>
 						<th>휴대폰 번호</th>
 						<th>가입일</th>
 						<th width="10%">권한</th>
@@ -53,30 +48,18 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>
-							<div class="custom-control custom-checkbox">
-							  <input type="checkbox" class="custom-control-input" id="customCheck1">
-							  <label class="custom-control-label" for="customCheck1"></label>
-							</div>	
-						</td>
 						<td>4</td>
-						<td>일반회원</td>
+						<td>일반</td>
 						<td>kim</td>
 						<td>김길동</td>
 						<td>kim@kim.com</td>
 						<td>000-0000-0000</td>
 						<td>2019-10-21</td>
-						<td></td>
+						<td>-</td>
 					</tr>
 					<tr>
-						<td>
-							<div class="custom-control custom-checkbox">
-							  <input type="checkbox" class="custom-control-input" id="customCheck2">
-							  <label class="custom-control-label" for="customCheck2"></label>
-							</div>	
-						</td>
 						<td>3</td>						
-						<td>기업회원</td>
+						<td>기업</td>
 						<td>lee</td>
 						<td>이길동</td>
 						<td>lee@lee.com</td>
@@ -85,36 +68,24 @@
 						<td>mapkey1</td>
 					</tr>
 					<tr>
-						<td>
-							<div class="custom-control custom-checkbox">
-							  <input type="checkbox" class="custom-control-input" id="customCheck3">
-							  <label class="custom-control-label" for="customCheck3"></label>
-							</div>	
-						</td>
 						<td>2</td>
-						<td>기업회원</td>
+						<td>기업</td>
 						<td>park</td>
 						<td>박길동</td>
 						<td>park@pakr.com</td>
 						<td>222-2222-2222</td>
 						<td>2019-10-25</td>						
-						<td><button class="btn btn-warning p-2 px-4">승인요청</button></td>
+						<td><button class="btn btn-warning p-2 px-4">승인처리</button></td>
 					</tr>
 					<tr>
-						<td>
-							<div class="custom-control custom-checkbox text-center">
-							  <input type="checkbox" class="custom-control-input" id="customCheck4">
-							  <label class="custom-control-label" for="customCheck4"></label>
-							</div>	
-						</td>
 						<td>1</td>
-						<td>일반회원</td>
+						<td>일반</td>
 						<td>woo</td>
 						<td>우길동</td>
 						<td>woo@woo.com</td>
 						<td>333-3333-3333</td>
 						<td>2019-10-21</td>
-						<td></td>
+						<td>-</td>
 					</tr>
 				</tbody>
 			</table>
@@ -154,6 +125,15 @@
 
 
 <script type="text/javascript">
+
+$('#user-datatable').Tabledit({
+    url: 'example.php',
+    columns: {
+        identifier: [0, 'id'],
+        editable: [[1, '구분'], [2, '아이디'], [3, '이름'], [4, '이메일'], [5, '휴대폰번호'], [6, '가입일'], [7, '권한']]
+    }
+});
+
 
 
 </script>
