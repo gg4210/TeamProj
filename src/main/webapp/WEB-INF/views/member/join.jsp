@@ -5,22 +5,18 @@
 <script>
 function submit_join(){
 	cellphone1base=document.getElementById('cellphone1');
-	console.log(cellphone1base);
 	var i=cellphone1base.options.selectedIndex;
 	var cellphone1=cellphone1base.options[i].text;
-	console.log(cellphone1);
 	
 	cellphone2base=document.getElementById('cellphone2');
 	var cellphone2=cellphone2base.value;
-	console.log(cellphone2);
 	
 	cellphone3base=document.getElementById('cellphone3');
 	var cellphone3=cellphone3base.value;
-	console.log(cellphone3);
+	
 	cellphone_totalbase=document.getElementById('cellphone_total');
-	var cellphone_total=cellphone1+'-'+cellphone2+'-'+cellphone3;
-	cellphone_totalbase.value=cellphone_total;
-	console.log(cellphone_total);
+	//var cellphone_total=cellphone1+'-'+cellphone2+'-'+cellphone3;
+	cellphone_totalbase.value=cellphone1+'-'+cellphone2+'-'+cellphone3;
 	
 	var formbase=document.getElementById('joinform');
 	
@@ -28,15 +24,12 @@ function submit_join(){
 	var idvalue=document.getElementById('id').value;
 	var passwordvalue=document.getElementById('password').value;
 	var nickvalue=document.getElementById('nick').value;
-	console.log(namevalue);
-	console.log(idvalue);
-	console.log(passwordvalue);
-	console.log(nickvalue);
+	
 	if( isNaN(namevalue) || isNaN(idvalue) || isNaN(passwordvalue) || isNaN(nickvalue)){
 		formbase.submit();
 	}
 	else{
-		console.log("필수 입력사항을 입력하세요.")
+		console.log("필수 입력사항을 입력하세요.");
 	}
 }
 </script>
