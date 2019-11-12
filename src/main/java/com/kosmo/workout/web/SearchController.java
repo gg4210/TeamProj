@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kosmo.workout.service.search.SearchBBSDTO;
@@ -23,11 +24,24 @@ public class SearchController {
 		return "search/list.tiles";	
 	}
 	
-	@RequestMapping("/searchView.do")
-	public String searchView(@RequestParam("mapkey") String mapkey, HttpServletRequest req, Model model) throws IOException {
+	@RequestMapping(value="/searchView.do", method=RequestMethod.POST)
+	public String searchView(@RequestParam Map map, HttpServletRequest req, Model model) throws IOException {
 		
-		SearchBBSDTO viewinfo=CommonUtility.mapkeyCrawling(mapkey,req);
+		//SearchBBSDTO viewinfo=CommonUtility.mapkeyCrawling(mapkey,req);
+		//model.addAttribute("viewinfo",viewinfo);
+
+		SearchBBSDTO viewinfo=new SearchBBSDTO();
+
+		viewinfo.setTitle(map.get("title").toString());
+		viewinfo.setTel(map.get("tel").toString());
+		viewinfo.setAddr(map.get("addr").toString());
+		
+		if(map.get("jibunAddr")!=null) {
+			viewinfo.setJibunAddr(map.get("jibunAddr").toString());
+		}
+		
 		model.addAttribute("viewinfo",viewinfo);
+		
 		return "search/view.tiles";
 	}
 	

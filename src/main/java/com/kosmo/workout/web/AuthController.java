@@ -37,6 +37,12 @@ public class AuthController {
 		return "index.tiles";
 	}
 	
+	@RequestMapping("/joincomplete.do")
+	public String joincomp(@RequestParam Map map,Model model){
+		
+		return "index.tiles";
+	}
+	
 	@RequestMapping("/logout.do")
 	public String logout(SessionStatus status) {
 		//로그 아웃처리-세션영역에 속성 삭제]

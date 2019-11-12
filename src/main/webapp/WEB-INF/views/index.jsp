@@ -17,7 +17,7 @@
 			<div class="row">
 				<div class="col-xl-4">
 					<img src="<c:url value='/resources/images/logo1.png'/>"
-						class="img-fluid d-none d-xl-block mx-auto pt-5" />
+						class="img-fluid" />
 				</div>
 				<div class="p-0 col-xl-8 col-lg-12 col-md-12">
 					<div class="card card-body z-depth-5" id="mainCard1">
