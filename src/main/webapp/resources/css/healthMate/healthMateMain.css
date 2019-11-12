@@ -16,6 +16,9 @@
 }
 
 .card-img-top {
+  width: auto; height: auto;
+  max-width: 350px;
+  max-height: 380px;
   opacity: 1;
   display: block table;
   width: 100%;
@@ -47,6 +50,7 @@
   background-color: #67d0fe;
   color: white;
   font-size: 16px;
+  font-weight:bold;
   padding: 16px 32px;
   
 }

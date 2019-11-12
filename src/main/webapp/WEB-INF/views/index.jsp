@@ -4,7 +4,6 @@
 .section{
  	background-image: url('<c:url value="/resources/images/1.png"/>');
 	background-repeat:repeat;
-	/*background-size: 30% 30%;*/
 	background-size: auto;
 }
 </style>
@@ -311,13 +310,19 @@
 										<p class="h2 mt-4 pt-4 text-center pb-4">오늘의 팁</p>
 
 										<!-- Image -->
-										<div class="view overlay rounded z-depth-1-half mb-4">
+										<div class="embed-responsive embed-responsive-16by9">
+											<iframe class="embed-responsive-item"
+												src="https://www.youtube.com/embed/K7WkGULlgJc"
+												allowfullscreen></iframe>
+										</div>
+										<!-- <div class="view overlay rounded z-depth-1-half mb-4">
 											<img class="img-fluid"
 												src="https://mdbootstrap.com/img/Photos/Slides/1.jpg"
 												alt="Sample image"> <a>
 												<div class="mask rgba-white-slight"></div>
 											</a>
 										</div>
+										-->
 
 										<div class="row d-flex justify-content-between mx-2">
 											<a href="#!" class="light-blue-text">
