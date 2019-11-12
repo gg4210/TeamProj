@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <title>HealthMate Main</title>
 
   <!-- Page Content -->
@@ -23,12 +24,12 @@
 			<div class="card h-100">
 				<h2 class="card-title m-0 p-2 mdb-color darken-3" style="color: white">TITLE</h2>
 				<div class="card-image-container p-3">
-					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
+					<img class="card-img-top" src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F9909CB415A87C79932" alt="" style="width: 100%">
 					<div class="card-img-middle">
 						<div class="text px-3" id="text-modal">추가하기</div>
 					</div>
 				</div>
-				<div class="card-body">
+				<div class="card-body p-0">
 				<div class="row justify-content-center">
 					<div class="row tag pb-3">
 							<div class="mr-3">
@@ -42,11 +43,11 @@
 							</div>
 					</div>
 				</div>
-					<div class="row justify-content-center"><strong>지역: 어딘가</strong></div>
-					<div class="row justify-content-center"><strong>종목: 기타</strong></div>
-					<div class="row justify-content-center"><strong>운동시간: 협의</strong></div>
-					<div class="row justify-content-center"><strong>일자: 협의</strong></div>
-					</div>
+					<div class="row justify-content-center pb-1"><strong><i class="fas fa-search-location"></i>지역: 어딘가</strong></div>
+					<div class="row justify-content-center pb-1"><strong><i class="fas fa-heart"></i>관심 종목: 기타</strong></div>
+					<div class="row justify-content-center pb-1"><strong><i class="far fa-clock"></i>운동시간: 협의</strong></div>
+					<div class="row justify-content-center pb-3"><strong><i class="far fa-calendar-plus"></i>일자: 협의</strong></div>
+				</div>
 					
 				<div class="card-footer">
 					<button button type="submit" class="detail btn btn-info px-3">상세보기</button>
@@ -60,12 +61,12 @@
 			<div class="card h-100">
 				<h2 class="card-title m-0 p-2 mdb-color darken-3" style="color: white">TITLE</h2>
 				<div class="card-image-container p-3">
-					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
+					<img class="card-img-top" src="https://i.pinimg.com/originals/05/23/7d/05237daed52cbcc8a09cc659fefd055a.jpg" alt="" style="width: 100%">
 					<div class="card-img-middle">
 						<div class="text px-3" id="text-modal">추가하기</div>
 					</div>
 				</div>
-				<div class="card-body">
+				<div class="card-body p-0">
 				<div class="row justify-content-center">
 					<div class="row tag pb-3">
 							<div class="mr-3">
@@ -79,11 +80,11 @@
 							</div>
 					</div>
 				</div>
-					<div class="row justify-content-center"><strong>지역: 어딘가</strong></div>
-					<div class="row justify-content-center"><strong>종목: 기타</strong></div>
-					<div class="row justify-content-center"><strong>운동시간: 협의</strong></div>
-					<div class="row justify-content-center"><strong>일자: 협의</strong></div>
-					</div>
+					<div class="row justify-content-center pb-1"><strong><i class="fas fa-search-location"></i>지역: 어딘가</strong></div>
+					<div class="row justify-content-center pb-1"><strong><i class="fas fa-heart"></i>관심 종목: 기타</strong></div>
+					<div class="row justify-content-center pb-1"><strong><i class="far fa-clock"></i>운동시간: 협의</strong></div>
+					<div class="row justify-content-center pb-3"><strong><i class="far fa-calendar-plus"></i>일자: 협의</strong></div>
+				</div>
 					
 				<div class="card-footer">
 					<button button type="submit" class="detail btn btn-info px-3">상세보기</button>
@@ -97,12 +98,12 @@
 			<div class="card h-100">
 				<h2 class="card-title m-0 p-2 mdb-color darken-3" style="color: white">TITLE</h2>
 				<div class="card-image-container p-3">
-					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
+					<img class="card-img-top" src="http://file3.instiz.net/data/cached_img/upload/2019/01/12/2/bac13a8318021766d23e4baffb8b2da9.jpg" alt="" style="width: 100%">
 					<div class="card-img-middle">
 						<div class="text px-3" id="text-modal">추가하기</div>
 					</div>
 				</div>
-				<div class="card-body">
+				<div class="card-body p-0">
 				<div class="row justify-content-center">
 					<div class="row tag pb-3">
 							<div class="mr-3">
@@ -116,11 +117,11 @@
 							</div>
 					</div>
 				</div>
-					<div class="row justify-content-center"><strong>지역: 어딘가</strong></div>
-					<div class="row justify-content-center"><strong>종목: 기타</strong></div>
-					<div class="row justify-content-center"><strong>운동시간: 협의</strong></div>
-					<div class="row justify-content-center"><strong>일자: 협의</strong></div>
-					</div>
+					<div class="row justify-content-center pb-1"><strong><i class="fas fa-search-location"></i>지역: 어딘가</strong></div>
+					<div class="row justify-content-center pb-1"><strong><i class="fas fa-heart"></i>관심 종목: 기타</strong></div>
+					<div class="row justify-content-center pb-1"><strong><i class="far fa-clock"></i>운동시간: 협의</strong></div>
+					<div class="row justify-content-center pb-3"><strong><i class="far fa-calendar-plus"></i>일자: 협의</strong></div>
+				</div>
 					
 				<div class="card-footer">
 					<button button type="submit" class="detail btn btn-info px-3">상세보기</button>
@@ -134,12 +135,12 @@
 			<div class="card h-100">
 				<h2 class="card-title m-0 p-2 mdb-color darken-3" style="color: white">TITLE</h2>
 				<div class="card-image-container p-3">
-					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
+					<img class="card-img-top" src="http://file3.instiz.net/data/cached_img/upload/2018/10/09/19/f5b3efe432a7408a6621560452a46278.jpg" alt="" style="width: 100%">
 					<div class="card-img-middle">
 						<div class="text px-3" id="text-modal">추가하기</div>
 					</div>
 				</div>
-				<div class="card-body">
+				<div class="card-body p-0">
 				<div class="row justify-content-center">
 					<div class="row tag pb-3">
 							<div class="mr-3">
@@ -153,11 +154,11 @@
 							</div>
 					</div>
 				</div>
-					<div class="row justify-content-center"><strong>지역: 어딘가</strong></div>
-					<div class="row justify-content-center"><strong>종목: 기타</strong></div>
-					<div class="row justify-content-center"><strong>운동시간: 협의</strong></div>
-					<div class="row justify-content-center"><strong>일자: 협의</strong></div>
-					</div>
+					<div class="row justify-content-center pb-1"><strong><i class="fas fa-search-location"></i>지역: 어딘가</strong></div>
+					<div class="row justify-content-center pb-1"><strong><i class="fas fa-heart"></i>관심 종목: 기타</strong></div>
+					<div class="row justify-content-center pb-1"><strong><i class="far fa-clock"></i>운동시간: 협의</strong></div>
+					<div class="row justify-content-center pb-3"><strong><i class="far fa-calendar-plus"></i>일자: 협의</strong></div>
+				</div>
 					
 				<div class="card-footer">
 					<button button type="submit" class="detail btn btn-info px-3">상세보기</button>
