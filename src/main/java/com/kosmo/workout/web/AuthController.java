@@ -37,9 +37,10 @@ public class AuthController {
 		return "index.tiles";
 	}
 	
-	@RequestMapping("/joincomplete.do")
-	public String joincomp(@RequestParam Map map,Model model){
-		
+	@RequestMapping(value="/joincomplete.do",method=RequestMethod.POST)
+	public String joincomplete(@RequestParam Map map,Model model){
+		System.out.println(map);
+		MemberService.insertJoin(map);
 		return "index.tiles";
 	}
 	

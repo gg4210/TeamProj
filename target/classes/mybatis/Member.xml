@@ -13,6 +13,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<insert id="MemberJoin" parameterType="java.util.Map">
 		INSERT INTO H_MEMBER
   		VALUES(#{id},#{password},#{name},#{email},#{address},#{cellphone},
-  		#{authority},#{my_comment},#{picture},#{inter_sports},#{joinDate},#{nick})
+  		#{authority},null,#{picture},#{inter_sports},SYSDATE,#{nick})
 	</insert>
 </mapper>
