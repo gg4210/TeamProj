@@ -5,7 +5,7 @@
 **/
 (function($){
 	$.fn.tableSearch = function(options){
-		if(!$(this).is('table')){
+		if(!$(this).is('#user-datatable')){
 			return;
 		}
 		var tableObj = $(this),
