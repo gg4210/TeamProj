@@ -20,13 +20,5 @@ $(function() {
 		$('#pills-mate-tab').tab('show');
 	});
 	
-	//알림 테스트
-	window.addEventListener('load', function () {
-		Notification.requestPermission(function (status) {
-			// This allows to use Notification.permission with Chrome/Safari
-			if (Notification.permission !== status) {
-				Notification.permission = status;
-			}
-		});
-	});
+	
 });

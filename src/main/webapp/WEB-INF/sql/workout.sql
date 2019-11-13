@@ -222,6 +222,7 @@ CREATE TABLE H_MEMBER
 	picture nvarchar2(100),
 	joindate date DEFAULT SYSDATE NOT NULL,
 	NICK_NAME nvarchar2(20) NOT NULL,
+	CENTER_NAME nvarchar2(50),
 	PRIMARY KEY (ID)
 );
 
