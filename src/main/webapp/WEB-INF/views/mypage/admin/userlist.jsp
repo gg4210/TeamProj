@@ -95,8 +95,11 @@ $(function(){
 					<td>박길동</td>
 					<td>park@park.com</td>
 					<td>222-2222-2222</td>
-					<td>2019-10-25</td>						
+					<td>2019-10-25</td>
+					<td><a href="#" data-toggle="modal" data-target="#permit-power-modal" id="permit-power">승인처리</a></td>
+					<!-- 
 					<td><button class="btn btn-warning p-2 px-4">승인처리</button></td>
+					-->
 				</tr>
 				<tr>
 					<td>1</td>
@@ -143,31 +146,45 @@ $(function(){
 	</div>
 	<!--  row 2 끝 -->
 	
-	<!-- 승인처리 Modal -->
-	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-	  aria-hidden="true">
-	
-	  <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
-	  <div class="modal-dialog modal-dialog-centered" role="document">
-	
-	
+	<!-- 센터관리 승인처리 모달 -->
+	<div id="permit-power-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalPopoversLabel">
+	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+	        <h5 class="modal-title" id="exampleModalPopoversLabel">센터관리 권한 승인 요청</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
+	          <span aria-hidden="true">×</span>
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        ...
+	        <h5>센터 찾기</h5>
+	        <p>이
+	          <a role="button" class="btn btn-secondary popover-test" title="" data-content="Popover body content is set in this attribute."
+	            data-original-title="Popover title" data-toggle="popover">button</a> 버튼을 눌러 센터를 검색합니다</p>
+	        <hr>
+	        <h5>센터의 맵키</h5>
+	        <p>123456789</p>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
+	        <button type="button" class="btn btn-primary">확인</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
 	      </div>
 	    </div>
 	  </div>
 	</div>
 	
 </div>
+
+
+<script>
+<!-- 센터관리 승인처리 모달 -->
+$(function(){
+	$('#permit-power').click(function(){
+		if($(this).val() === '승인처리'){
+			$('#permit-power-modal').modal('show');
+		}
+		
+	});
+});
+</script>
 
