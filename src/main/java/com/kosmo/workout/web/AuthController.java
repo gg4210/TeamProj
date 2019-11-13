@@ -4,11 +4,13 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -22,9 +24,9 @@ public class AuthController {
 	private MemberService MemberService;
 	
 	@RequestMapping("/templogin.do")
-	public String tempmylogin(@RequestParam Map map,Model model) {
+	public String tempmylogin(@RequestParam Map map, Model model) {
 		System.out.println(map);
-		boolean isLogin=MemberService.login(map);
+		boolean isLogin=MemberService.login(map);	
 		if(isLogin==true) {
 			model.addAllAttributes(map);
 			System.out.println(map);
@@ -37,9 +39,21 @@ public class AuthController {
 		return "index.tiles";
 	}
 	
-	@RequestMapping("/joincomplete.do")
-	public String joincomp(@RequestParam Map map,Model model){
+	@RequestMapping(value="/appLogin.do", produces = "text/html; charset=UTF-8")
+	@ResponseBody
+	public String AppLogin(@RequestParam Map map) {
+
+		boolean isLogin=MemberService.login(map);
+		JSONObject login=new JSONObject();
+		login.put("isLogin",isLogin?"Y":"N");
+		return login.toJSONString();
 		
+	}
+	
+	@RequestMapping(value="/joincomplete.do",method=RequestMethod.POST)
+	public String joincomplete(@RequestParam Map map,Model model){
+		System.out.println(map);
+		MemberService.insertJoin(map);
 		return "index.tiles";
 	}
 	
