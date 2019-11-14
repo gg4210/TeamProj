@@ -34,7 +34,8 @@ public class CommonUtility {
 		doc=Jsoup.connect(base_url).get();
 		result=doc.select("#lcs_greenmap > div.local_map > div.detail");
 		
-		if(result.isEmpty()) { //검색결과가 없는 경우		
+		
+		if(result.isEmpty() || tel=="" ) { //검색결과 혹은 전화번호가 없는 경우
 			return mapinfo;			
 		}
 		
