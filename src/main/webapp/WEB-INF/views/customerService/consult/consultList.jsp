@@ -29,7 +29,7 @@ nav > ul a {
 
 <div class="container">
 	<div class="page-header pt-2">
-		<h2>1:1문의 내역</h2>
+		<h2>문의내역 확인</h2>
 	</div>
 	
 	<div class="row">

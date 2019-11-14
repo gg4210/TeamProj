@@ -177,7 +177,11 @@
 									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-mate-tab'/>" id="lpills-mate">
 										<span>운동메이트</span>
 									</a>
+<<<<<<< HEAD
+									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-contact-tab'/>" id="lpills-coupon">
+=======
 									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-coupon-tab'/>" id="lpills-coupon">
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 										<span>쿠폰함</span>
 									</a>
 									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-scrap-tab'/>">

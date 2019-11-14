@@ -67,7 +67,7 @@
 		<div class="col-md-4 pt-4">
 			<div class="card">
 				<div class="card-body">
-					<h3 class="card-title" style="text-align: center"><br/>운동해!偕 고객센터<br/></h3>
+					<h3 class="card-title" style="text-align: center"><br/>운동해(偕)! 고객센터<br/></h3>
 					<p class="card-text" style="font-size: 1.5em;text-align: center"><i class="fas fa-phone"></i>02)5959-5959<br/>
 					</p>
 					<h3 class="card-title" style="text-align: center"><br/>고객센터 운영시간<br/></h3>
@@ -132,11 +132,11 @@
 <script>
 $(function(){
 	$('#FAQ').click(function(){
-		location.href="moreFAQ.do";
+		$('#pills-faq-tab').tab('show');
 	});
 	
 	$('#notice').click(function(){
-		location.href="moreNoticeView.do";
+		$('#pills-notice-tab').tab('show');
 	});
 	
 });

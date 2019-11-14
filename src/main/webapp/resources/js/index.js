@@ -1,8 +1,7 @@
 
 $(function() {
 	
-	
-					//사이드바 관련 자바 스크립트.
+	//사이드바 관련 자바 스크립트.
 	var sidebarIndex = $('a').click(function() {
 		switch(sidebarIndex.index(this)){
 		
@@ -70,6 +69,16 @@ $(function() {
 			setMargin(width);
 		});
 	//메인페이지의 카드 높이 조절용 끝//
+		
+	//알림 권한 허용
+	window.addEventListener('load', function () {
+		Notification.requestPermission(function (status) {
+			// This allows to use Notification.permission with Chrome/Safari
+			if (Notification.permission !== status) {
+				Notification.permission = status;
+			}
+		});
+	});
 	
 });
 //마진속성 주는 function//
