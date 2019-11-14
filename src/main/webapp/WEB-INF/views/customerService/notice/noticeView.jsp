@@ -1,43 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<div class="container">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<script>
+//현재 글 번호에 대한 코멘트 목록을 가져오는 함수 - Ajax로 처리
+var showComment = function(){
+	$.ajax({
+		url:"<c:url value='/MemoComment/BBS/Write.bbs'/>",
+	});
+};/////////////////////////////////////////////////////url주소 바꿔야 함.
+
+</script>    
+<!-- 실제 내용 시작 -->
+<div class="container">
 	<div class="row pt-5">
 		<div class="col">
 			<h1><strong>공지사항 </strong><small><small> 상세보기 페이지</small></small></h1>
 		</div>	
 	</div>
 	<hr />
-
+	
 	<div class="row pt-2">
 		<div class="col">
 			<table class="table table-bordered">
 				<tbody>
 					<tr>
 						<th class="blue-text" style="width:20%;text-align: center;font-weight: bold">카테고리</th>
-						<td colspan="3">카테고리 선택 내용입니다.</td>
+						<td colspan="3">${record.category}</td>
 					</tr>
 					<tr>
 						<th class="blue-text" style="text-align: center;font-weight: bold">제목</th>
-						<td style="width:40%">제목입니다.</td>
+						<td style="width:40%">${record.title}</td>
 						<th class="blue-text" style="width:20%;text-align: center;font-weight: bold">작성일</th>
-						<td style="width:20%;text-align: center">2019-10-23</td>
+						<td style="width:20%;text-align: center">${record.postDate}</td>
 					</tr>
 					<tr>
 						<th class="blue-text" style="text-align: center;font-weight: bold">내용</th>
-						<td colspan="3">내용입니다<br/>
-										내용의 길이에 따라 영역의 크기가 변합니다.<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-						</td>
+						<td colspan="3">${record.content}</td>
 					</tr>
 				</tbody>
 			</table>

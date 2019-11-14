@@ -48,7 +48,7 @@
 					<tr>
 						<td class="text-center">1</td>
 						<td class="text-center">[이벤트]</td>
-						<td><a href="<c:url value='/customerService/event/eventView.do'/>">운동해!偕 서비스가 오픈하였습니다.</a></td>
+						<td><a href="<c:url value='/customerService/event/eventView.do'/>">첫 이벤트.</a></td>
 						<td class="text-center">2019-10-21</td>
 					</tr>
 				</tbody>
