@@ -15,8 +15,9 @@
 					<select class="browser-default custom-select">
 						<option selected>검색조건</option>
 						<option value="1">전체</option>
-						<option value="2">정기점검</option>
-						<option value="3">기타</option>
+						<option value="2">공지</option>
+						<option value="3">점검</option>
+						<option value="4">기타</option>
 					</select>
 					<button type="button" class="btn btn-primary p-2 px-4">
 						<i class='fas fa-search'
@@ -64,10 +65,8 @@
 	
 	<div class="row">
 		<div class="clearfix col">
-			<div class="float-right">
-				<div class="form-inline">
-					<button type="button" class="btn btn-info p-2 px-4" id="notice_write">공지 작성</button>
-				</div>
+			<div class="float-right">				
+				<button type="button" class="btn btn-info p-2 px-4" id="notice_write">공지 작성</button>
 			</div>
 		</div>
 	</div>

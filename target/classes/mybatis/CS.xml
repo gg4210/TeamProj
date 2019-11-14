@@ -19,4 +19,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM customerService WHERE no = #{no}
 	</select>
 	
+	<insert id="noticeInsert" parameterType="java.util.Map">
+		INSERT INTO customerService(no,id,menu,category,title,content,postdate)
+		VALUES(SEQ_CS.NEXTVAL,#{id},'NOTICE',#{selectCategory},#{title},#{content},default)
+	</insert>
+	
 </mapper>

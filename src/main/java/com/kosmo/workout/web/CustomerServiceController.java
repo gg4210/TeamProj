@@ -8,13 +8,16 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.kosmo.workout.service.CSDTO;
 import com.kosmo.workout.service.CSService;
 
+@SessionAttributes("id")
 @Controller
 public class CustomerServiceController {
 	
@@ -63,17 +66,41 @@ public class CustomerServiceController {
 //		//int totalPage = (int)Math.ceil((double)noticeRecordCount/pageSize);
 //		//시작 및 끝 ROWNUM 구하기]
 //		//페이징을 위한 로직 끝]
-//		List<CSDTO> list = CSService.selectList(map);
+		List<CSDTO> list = CSService.selectList(map);
 //		
 //		//데이터 저장]
-//		model.addAttribute("list", list);
+		model.addAttribute("list", list);
 //		//뷰 정보 반환]
 		return "customerService/notice/noticeList.tiles";
 	}
 
-	//작성폼으로 이동]
+	//공지사항 작성폼으로 이동]
+	@RequestMapping(value="/customerService/notice/noticeWrite.do",method = RequestMethod.GET)
+	public String noticeWrite(@ModelAttribute("id") String id) {
+		return "customerService/notice/noticeWrite.tiles";
+	}	
+	//공지사항 작성 처리] ////아직 시큐리티 사용 전 상태 입니다.
+		@RequestMapping(value = "/customerService/notice/noticeWrite.do",method=RequestMethod.POST)
+		public String noticeWriteOk(@ModelAttribute("id") String id,@RequestParam Map map) {
+			//서비스 호출]
+			//스프링 시큐리티 사용 시 아래에 코드 추가
+			//호출 전 아이디 맵에 저장
+			System.out.println("id : "+id);
+			map.put("id", id);
+			
+			
+			CSService.insert(map);
+			
+			
+			return "forward:/customerService/notice/noticeList.do";////포워드 했으면 정보 가져가야 하는 거 아냐?
+		}
+//	//수정 전 연결페이지
+//	@RequestMapping("/customerService/notice/noticeWrite.do")
+//	public String noticeWrite() {
+//		return "customerService/notice/noticeWrite.tiles";////포스트 방식으로 했으니 바꿔줘야 함.
+//	}
 	
-	//작성 처리]
+	
 	
 	//상세보기]
 	//공지사항 상세보기]/////////////////////////////////////////////////작업중///////////////////////////////////////////////////
@@ -189,10 +216,7 @@ public class CustomerServiceController {
 	
 	
 
-	@RequestMapping("/customerService/notice/noticeWrite.do")
-	public String noticeWrite() {
-		return "customerService/notice/noticeWrite.tiles";
-	}
+
 	
 	@RequestMapping("/FAQWrite.do")
 	public String faqWrite() {

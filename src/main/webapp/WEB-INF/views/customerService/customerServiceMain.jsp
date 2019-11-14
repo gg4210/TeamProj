@@ -5,8 +5,7 @@
 <script>
 $(function () {
 	////다른페이지에 있다가 눌렀을 때
-	var durl = window.location.hash;////console.log(durl); = #id
-	//var dactiveTab = durl.substring(durl.indexOf("#") + 1);////id ////의미없는 코드인 듯.
+	var durl = window.location.hash;////console.log(durl); => #id
 	console.log(durl);
 	if (durl !='') {
 		/* if(durl.lastIndexOf("#")!=0){//#id#id
@@ -16,15 +15,15 @@ $(function () {
 		} 
 		else */ $(durl).tab('show');
 	}
-	////같은 페이지에 있다가 눌렀을 때
-	$('#customerLinks a').click(function(){
-		var link = $(this).attr('href');////console.log('link:',link);=>/workout/customer.do#pills-scrap-tab
-		var sactiveTab = link.substring(link.indexOf("#"));////내가 +1지움 ////console.log('sactiveTab:',sactiveTab);=>sactiveTab: #pills-scrap-tab	
-		console.log('link:',link);
-		console.log('sactiveTab:',sactiveTab);
-		$('#customerLinks a').removeClass("active");
+	////같은 페이지에 있다가 눌렀을 때 ////serviceLinks는 login.jsp에 있는 div태그의 id속성의 값이다.
+	$('#serviceLinks a').click(function(){
+		var link = $(this).attr('href');////console.log('link:',link);=> link :  /workout/customerServiceMain.do#pills-notice-tab
+		var sactiveTab = link.substring(link.indexOf("#"));////내가 +1지움 그래서 .tab('show')에서 선택자 앞에 # 안 더해줌.
+		console.log('link : ',link);
+		console.log('sactiveTab : ',sactiveTab);
+		$('#serviceLinks a').removeClass("active");
 		$(this).addClass("active");
-		$('#'+sactiveTab).tab('show');
+		$(sactiveTab).tab('show');
 	});
 });
 </script>
