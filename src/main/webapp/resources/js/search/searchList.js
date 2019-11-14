@@ -220,6 +220,8 @@ function displayPagination(pagination) {
 
 function displayCustomOverlay(marker, title, address, road_address, phone, id, x, y) {
 	
+	
+	
 	if(customOverlay.getMap()!=null){
 	    customOverlay.setMap(null);
 	    return;
@@ -235,7 +237,19 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    '  	<div class="card-header indigo">' +
    '	<div class="row">'+
    '	<div class="clearfix col">'+
-   '      	<a href="/workout/searchView.do?mapkey='+id+'" class="h6 float-left text-white">'+title+'</a>'+
+   '		<form action="/workout/searchView.do" method="post" id="info_form">'+
+   '			<input type="hidden" name="title" value="'+title+'">'+
+   '			<input type="hidden" name="mapkey" value="'+id+'">'
+   if(road_address!=null){
+   content+='	<input type="hidden" name="addr" value="'+road_address+'">'+
+   			'	<input type="hidden" name="jibunAddr" value="'+address+'">';
+   }
+   else{
+	   content+='<input type="hidden" name="jibunAddr" value="'+address+'">';
+   }
+   		content+='<input type="hidden" name="tel" value="'+phone+'">'+
+   '      		<a class="h6 float-left text-white" href="javascript:info_form.submit()" id="title">'+title+'</a>'+
+   '		</form>'+   
    '		<div class="float-right">'+
    '			<button type="button" class="close text-white" aria-label="Close">'+
    '				<span aria-hidden="true">&times;</span>'+
@@ -263,7 +277,7 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    '      	<i class="fas fa-star py-0 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>'+
    '      	<i class="fas fa-star py-0 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>'+
    '      	<i class="fas fa-star py-0 rate-popover amber-text" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>'+
-   '      </span>(5.0)'+     
+   '      </span>(0.0)'+     
    '      <div class="row">'+
    '		<div class="col">'+
    '            <h7 class="progress-title">혼잡도</h7>'+
@@ -280,7 +294,6 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    '</div>'+
    '</div>'+    
    '</div>';
-   
 
    
 

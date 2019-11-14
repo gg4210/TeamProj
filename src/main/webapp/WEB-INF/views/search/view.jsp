@@ -121,12 +121,12 @@ background-color: #4285F4; }
 									<p><span class="badge badge-primary">종목</span> <i class="fas fa-swimming-pool"></i> 수영 &nbsp&nbsp<i class="fas fa-dumbbell"></i> 헬스</p>
 									<hr/>
 									<p>평균별점 : <span id="rateMe">
-												<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-												<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-												<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
+												<i class="fas fa-star py-2 px-1 rate-popover" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
+												<i class="fas fa-star py-2 px-1 rate-popover" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
+												<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
 												<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
 												<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-									</span>(3.0)</p>
+									</span>(0.0)</p>
 								</div>								
 							</div>
 						</div>
@@ -138,19 +138,35 @@ background-color: #4285F4; }
 								<div class="card-header pt-4"><p class="font-weight-bold h3">시설안내</p></div>
 								<div class="card-body">
 
-									<p class="h4"><span class="badge badge-primary"><i class="fas fa-clock"></i>&nbsp;운영시간</span></p>
-									${viewinfo.otime }
+									<p class="h4"><span class="badge badge-primary"><i class="fas fa-clock"></i>&nbsp;운영시간</span></p>	
+									<c:if test="${empty viewinfo.otime }" var="otime">
+										기업회원이 정보를 제공하지 않았습니다.
+									</c:if>
+									<c:if test="${not otime }">
+										${viewinfo.otime }
+									</c:if>
 									<p class="h4"><span class="badge badge-primary">제공 서비스</span></p>
-									${viewinfo.service }
+									<c:if test="${empty viewinfo.service }" var="service">
+										<p>기업회원이 정보를 제공하지 않았습니다.</p>
+									</c:if>
+									<c:if test="${not service }">
+										<p>${viewinfo.service }</p>
+									</c:if>
 									<p class="h4"><span class="badge badge-primary">사진</span></p>
 										<div class="scrolling-wrapper scrollbar scrollbar-primary">
-										<c:forEach items="${viewinfo.img_urls }" var="img_url" varStatus="loop">
-											<div class="card-container p-3">
-												<img class="card-img-top" src="${img_url }" alt="" style="width: 100%">
-											</div>
-										</c:forEach>	
-									</div>
-									
+											<c:if test="${empty viewinfo.img_urls }" var="img_urls">
+												<div class="card-container p-3">
+													<img class="card-img-top" src="" alt="기업회원이 이미지를 등록하지 않았습니다." style="width: 100%">
+												</div>											
+											</c:if>
+											<c:if test="${not img_urls }">												
+												<c:forEach items="${viewinfo.img_urls }" var="img_url" varStatus="loop">
+													<div class="card-container p-3">
+														<img class="card-img-top" src="${img_url }" alt="" style="width: 100%">
+													</div>
+												</c:forEach>
+											</c:if>										
+										</div>
 								</div>
 							</div>
 						</div>		
@@ -205,8 +221,12 @@ background-color: #4285F4; }
 								</div>
 								<div class="card-body">
 								
-									<!--Text-->
-									<p>${viewinfo.content }</p>
+									<c:if test="${empty viewinfo.content }" var="content">
+										<p>기업회원이 정보를 제공하지 않았습니다.</p>
+									</c:if>
+									<c:if test="${not content }">
+										<p>${viewinfo.content }</p>									
+									</c:if>
 										
 								</div>
 							</div>
@@ -225,9 +245,9 @@ background-color: #4285F4; }
 										
 											<div class="form" action="#">
 												<span id="rateMe">
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
+													<i class="fas fa-star py-2 px-1 rate-popover" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
+													<i class="fas fa-star py-2 px-1 rate-popover" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
+													<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
 													<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
 													<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
 												</span>

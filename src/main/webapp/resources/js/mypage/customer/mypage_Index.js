@@ -19,4 +19,6 @@ $(function() {
 	$('#msg_plus').click(function(){
 		$('#pills-mate-tab').tab('show');
 	});
+	
+	
 });

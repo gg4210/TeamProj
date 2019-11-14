@@ -5,6 +5,9 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <meta name="google-signin-client_id" content="471338080176-g046e95v00o1np1q8glj03ghqf97mjra.apps.googleusercontent.com">
 <!-- 구글 로그인에 필요한 소스 끝 -->
+<!-- 네이버 로그인에 필요한 소스 시작 -->
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+<!-- 네이버 로그인에 필요한 소스 끝 -->
 <!-- 비로그인시 로그인 사이드바 -->
 <style>
 #customerLinks a{
@@ -12,7 +15,7 @@
 	padding-bottom:10px;
 }
 </style>
-<div class="login bg-dark" id="loginMenu">
+<div class="login bg-dark" id="loginMenu" style="width: 450px">
 	<!-- close button 시작 -->
 	<button type="button" class="close text-white mt-2" aria-label="Close" id="closelogin">
 		 <span aria-hidden="true">×</span>
@@ -20,13 +23,11 @@
 	<!-- close button 끝 -->
 	<div class="container text-center">
 		<div class="row">
-			<div class="col">
-				<img src="<c:url value='/resources/images/loginImage.png'/>" />
+			<div class="col" style="margin-bottom: 50px; margin-top: 40px">
+				<img src="<c:url value='/resources/images/loginLogo.png'/>"/>
 			</div>
 		</div>
-		<div class="h3 text-white">운동메이트</div>
-		
-			<form action="<c:url value='/templogin.do'/>" method="post">
+		<form action="<c:url value='/templogin.do'/>" method="post">
 				<div class="md-form">
 					<input type="text" id="id" name="id" class="form-control text-white"> 
 						<label for="id"><span class="text-white" id="labelId">아이디</span></label>
@@ -52,12 +53,16 @@
 		</div>
 		
 		<!-- 구글 로그인 버튼 시작 -->
-		<div class="row justify-content-center mt-4">
-			<div class="g-signin2" data-onsuccess="onSignIn"></div>
+		<div class="row justify-content-center mt-3">
+			<div class="g-signin2" data-onsuccess="onSignIn"></div><!-- data-onsucess: 로그인 성공시 onSignIn함수실행  -->
 		</div>
 		<!-- 구글 로그인 버튼 끝 -->
-		<button class="btn btn-yellow btn-block mx-auto mt-2 font-weight-bold">카카오톡 로그인</button>
-		<button class="btn btn-success btn-block mx-auto mt-2 font-weight-bold">네이버 로그인</button>
+		<!-- 네이버 로그인 버튼 시작 -->
+		<div class="row justify-content-center mt-3">
+			<div id="naverIdLogin"></div>
+		</div>
+		<!-- 네이버 로그인 버튼 끝 -->
+		<button class="btn btn-yellow btn-block mx-auto mt-3 font-weight-bold">카카오톡 로그인</button>
 		
 	</div>
 </div>
@@ -73,7 +78,7 @@
 			<div class="col-6" style="margin-bottom:15px;">
 				<img class="col-12" src="<c:url value='/resources/images/girl.png'/>" />
 			</div>
-			<div class="h5 text-white col-6" style="align-self:center;">ooo님,<br/>반갑습니다</div>
+			<div class="h5 text-white col-6" style="align-self:center;">${sessionScope.id }님,<br/>반갑습니다</div>
 			
 			<div class="row">
 				<!-- col1 등록한 센터 시작 -->
@@ -256,5 +261,38 @@
 		console.log('Image URL: ' + profile.getImageUrl());
 		console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 	}
+	
+	//네이버 로그인 자바스크립트 코드
+	var naverLogin = new naver.LoginWithNaverId(
+			{
+				clientId: "Lfogv2spxFwP6Q1uKP9I",
+				callbackUrl: "http://localhost:8080/workout/main.do",
+				isPopup: false, /* 팝업을 통한 연동처리 여부 */
+				loginButton: {color: "green", type: 3, height: 40} /* 로그인 버튼의 타입을 지정 */
+			}
+		);
+		
+		/* 설정정보를 초기화하고 연동을 준비 */
+		naverLogin.init();
+		
+		window.addEventListener('load', function () {
+			naverLogin.getLoginStatus(function (status) {
+				if (status) {
+					/* (5) 필수적으로 받아야하는 프로필 정보가 있다면 callback처리 시점에 체크 */
+					var name = naverLogin.user.getNickName();
+					if( name == undefined || name == null) {
+						alert("이름은 필수정보입니다. 정보제공을 동의해주세요.");
+						naverLogin.reprompt();
+						//return;
+					}
+					console.log(name);
+					window.location.replace("http://localhost:8080/workout/main.do");
+				} else {
+					console.log("callback 처리에 실패하였습니다.");
+				}
+			});
+		});
+	
+	
 </script>
 

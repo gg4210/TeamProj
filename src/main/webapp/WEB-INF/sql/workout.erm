@@ -11,8 +11,18 @@
 	</page_setting>
 	<category_index>0</category_index>
 	<zoom>1.0</zoom>
+<<<<<<< HEAD
 	<x>38</x>
 	<y>0</y>
+=======
+<<<<<<< HEAD
+	<x>0</x>
+	<y>681</y>
+=======
+	<x>196</x>
+	<y>640</y>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	<default_color>
 		<r>128</r>
 		<g>128</g>
@@ -135,7 +145,15 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2019-10-04 16:01:24</creation_date>
+<<<<<<< HEAD
 			<updated_date>2019-11-13 18:05:13</updated_date>
+=======
+<<<<<<< HEAD
+			<updated_date>2019-11-13 15:59:58</updated_date>
+=======
+			<updated_date>2019-11-13 16:42:31</updated_date>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -2248,7 +2266,11 @@
 			<connections>
 				<relation>
 					<id>2</id>
+<<<<<<< HEAD
 					<source>8</source>
+=======
+					<source>9</source>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<target>3</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -2292,7 +2314,11 @@
 				</relation>
 				<relation>
 					<id>4</id>
+<<<<<<< HEAD
 					<source>9</source>
+=======
+					<source>8</source>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<target>3</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -2323,6 +2349,7 @@
 				<normal_column>
 					<id>17</id>
 					<referenced_column>52</referenced_column>
+<<<<<<< HEAD
 					<relation>4</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -2391,6 +2418,8 @@
 				<normal_column>
 					<id>19</id>
 					<referenced_column>49</referenced_column>
+=======
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<relation>2</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -2422,6 +2451,77 @@
 						<decimal_size>0</decimal_size>
 					</sequence>
 				</normal_column>
+<<<<<<< HEAD
+=======
+				<normal_column>
+					<id>18</id>
+					<referenced_column>59</referenced_column>
+					<relation>3</relation>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>decimal</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>true</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<id>19</id>
+					<referenced_column>49</referenced_column>
+					<relation>4</relation>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>decimal</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>true</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 			</columns>
 			<indexes>
 			</indexes>
@@ -2447,7 +2547,11 @@
 			<connections>
 				<relation>
 					<id>5</id>
+<<<<<<< HEAD
 					<source>0</source>
+=======
+					<source>17</source>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<target>4</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -2469,7 +2573,11 @@
 				</relation>
 				<relation>
 					<id>6</id>
+<<<<<<< HEAD
 					<source>17</source>
+=======
+					<source>0</source>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<target>4</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -2533,7 +2641,11 @@
 				<normal_column>
 					<id>21</id>
 					<referenced_column>94</referenced_column>
+<<<<<<< HEAD
 					<relation>6</relation>
+=======
+					<relation>5</relation>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -2633,7 +2745,7 @@
 				<normal_column>
 					<id>24</id>
 					<referenced_column>0</referenced_column>
-					<relation>5</relation>
+					<relation>6</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3358,6 +3470,7 @@
 			<connections>
 				<relation>
 					<id>9</id>
+<<<<<<< HEAD
 					<source>6</source>
 					<target>7</target>
 						<source_xp>-1</source_xp>
@@ -3611,6 +3724,261 @@
 					<id>48</id>
 					<referenced_column>94</referenced_column>
 					<relation>10</relation>
+=======
+					<source>17</source>
+					<target>7</target>
+						<source_xp>-1</source_xp>
+						<source_yp>-1</source_yp>
+						<target_xp>-1</target_xp>
+						<target_yp>-1</target_yp>
+						<color>
+							<r>0</r>
+							<g>0</g>
+							<b>0</b>
+						</color>
+					<child_cardinality>1..n</child_cardinality>
+					<parent_cardinality>1</parent_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<name></name>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+					<referenced_column>null</referenced_column>
+					<referenced_complex_unique_key>null</referenced_complex_unique_key>
+				</relation>
+				<relation>
+					<id>10</id>
+					<source>6</source>
+					<target>7</target>
+						<source_xp>-1</source_xp>
+						<source_yp>-1</source_yp>
+						<target_xp>-1</target_xp>
+						<target_yp>-1</target_yp>
+						<color>
+							<r>0</r>
+							<g>0</g>
+							<b>0</b>
+						</color>
+					<child_cardinality>1..n</child_cardinality>
+					<parent_cardinality>1</parent_cardinality>
+					<reference_for_pk>true</reference_for_pk>
+					<name></name>
+					<on_delete_action>RESTRICT</on_delete_action>
+					<on_update_action>RESTRICT</on_update_action>
+					<referenced_column>null</referenced_column>
+					<referenced_complex_unique_key>null</referenced_complex_unique_key>
+				</relation>
+			</connections>
+			<physical_name>BBS_Comment</physical_name>
+			<logical_name>댓글 테이블</logical_name>
+			<description></description>
+			<constraint></constraint>
+			<primary_key_name></primary_key_name>
+			<option></option>
+			<columns>
+				<normal_column>
+					<word_id>14</word_id>
+					<id>42</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>decimal</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>true</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>true</not_null>
+					<primary_key>true</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<id>43</id>
+					<referenced_column>34</referenced_column>
+					<relation>10</relation>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>decimal</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>true</foreign_key>
+					<not_null>true</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>37</word_id>
+					<id>44</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>nvarchar(n)</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>true</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>21</word_id>
+					<id>45</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>date</type>
+					<constraint></constraint>
+					<default_value>&lt;현재일자&gt;</default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>true</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>77</word_id>
+					<id>46</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>decimal(p)</type>
+					<constraint></constraint>
+					<default_value>0</default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>true</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<word_id>15</word_id>
+					<id>47</id>
+					<description></description>
+					<unique_key_name></unique_key_name>
+					<logical_name></logical_name>
+					<physical_name></physical_name>
+					<type>nvarchar(n)</type>
+					<constraint></constraint>
+					<default_value></default_value>
+					<auto_increment>false</auto_increment>
+					<foreign_key>false</foreign_key>
+					<not_null>false</not_null>
+					<primary_key>false</primary_key>
+					<unique_key>false</unique_key>
+					<character_set></character_set>
+					<collation></collation>
+					<sequence>
+						<name></name>
+						<schema></schema>
+						<increment></increment>
+						<min_value></min_value>
+						<max_value></max_value>
+						<start></start>
+						<cache></cache>
+						<nocache>false</nocache>
+						<cycle>false</cycle>
+						<order>false</order>
+						<description></description>
+						<data_type></data_type>
+						<decimal_size>0</decimal_size>
+					</sequence>
+				</normal_column>
+				<normal_column>
+					<id>48</id>
+					<referenced_column>94</referenced_column>
+					<relation>9</relation>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -4959,7 +5327,11 @@
 			<connections>
 				<relation>
 					<id>16</id>
+<<<<<<< HEAD
 					<source>0</source>
+=======
+					<source>17</source>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<target>13</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -4981,7 +5353,11 @@
 				</relation>
 				<relation>
 					<id>17</id>
+<<<<<<< HEAD
 					<source>17</source>
+=======
+					<source>0</source>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<target>13</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -5111,7 +5487,11 @@
 				<normal_column>
 					<id>83</id>
 					<referenced_column>94</referenced_column>
+<<<<<<< HEAD
 					<relation>17</relation>
+=======
+					<relation>16</relation>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -5145,7 +5525,7 @@
 				<normal_column>
 					<id>84</id>
 					<referenced_column>0</referenced_column>
-					<relation>16</relation>
+					<relation>17</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -5177,7 +5557,15 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
+<<<<<<< HEAD
 					<word_id>48</word_id>
+=======
+<<<<<<< HEAD
+					<word_id>49</word_id>
+=======
+					<word_id>48</word_id>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<id>85</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -5285,7 +5673,11 @@
 			<option></option>
 			<columns>
 				<normal_column>
+<<<<<<< HEAD
 					<word_id>49</word_id>
+=======
+					<word_id>48</word_id>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<id>86</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -6164,52 +6556,7 @@
 			<decimal_size>0</decimal_size>
 		</sequence>
 		<sequence>
-			<name>SEQ_BBS_Comment_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
 			<name>SEQ_BBS_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_BmarkedCenter_BMARKED_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_BmarkedCenter_NO</name>
 			<schema></schema>
 			<increment>1</increment>
 			<min_value></min_value>
@@ -6254,97 +6601,7 @@
 			<decimal_size>0</decimal_size>
 		</sequence>
 		<sequence>
-			<name>SEQ_CENTER_KIND_LIST_CENTER_LIST_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_CENTER_KIND_LIST_C_LIST_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_CENTER_KIND_LIST_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
 			<name>SEQ_COUPON_CNO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_COUPON_EVENT_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_COUPON_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_CustomerService_CSERVICE_NO</name>
 			<schema></schema>
 			<increment>1</increment>
 			<min_value></min_value>
@@ -6389,66 +6646,6 @@
 			<decimal_size>0</decimal_size>
 		</sequence>
 		<sequence>
-			<name>SEQ_C_Review_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_GYM_LIST_GYM_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_GYM_MEMBER_LIST_MEMBER_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_healthMate_HEALTHMATE_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
 			<name>SEQ_healthMate_NO</name>
 			<schema></schema>
 			<increment>1</increment>
@@ -6464,67 +6661,7 @@
 			<decimal_size>0</decimal_size>
 		</sequence>
 		<sequence>
-			<name>SEQ_MESSAGE_TABLE_MESSAGE_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
 			<name>SEQ_MESSAGE_TABLE_MNO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_MESSAGE_TABLE_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_MY_MATE_MATE_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_MY_MATE_NO</name>
 			<schema></schema>
 			<increment>1</increment>
 			<min_value></min_value>
@@ -6569,82 +6706,7 @@
 			<decimal_size>0</decimal_size>
 		</sequence>
 		<sequence>
-			<name>SEQ_RegisteredCenter_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_RegisteredCenter_REG_No</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
 			<name>SEQ_SCRAP_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_SCRAP_SC_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_searchBBSReview_NO</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_searchBBSReview_REVIEW_NO</name>
 			<schema></schema>
 			<increment>1</increment>
 			<min_value></min_value>
@@ -6673,27 +6735,9 @@
 			<description></description>
 		</trigger>
 		<trigger>
-			<name>TRI_BBS_Comment_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON BBS_Comment&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_BBS_Comment_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
 			<name>TRI_BBS_NO</name>
 			<schema></schema>
 			<sql>BEFORE INSERT ON BBS&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_BBS_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_BmarkedCenter_BMARKED_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON BmarkedCenter&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_BmarkedCenter_BMARKED_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.BMARKED_NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_BmarkedCenter_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON BmarkedCenter&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_BmarkedCenter_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
 			<description></description>
 		</trigger>
 		<trigger>
@@ -6709,45 +6753,9 @@
 			<description></description>
 		</trigger>
 		<trigger>
-			<name>TRI_CENTER_KIND_LIST_CENTER_LIST_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON CENTER_KIND_LIST&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_CENTER_KIND_LIST_CENTER_LIST_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.CENTER_LIST_NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_CENTER_KIND_LIST_C_LIST_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON CENTER_KIND_LIST&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_CENTER_KIND_LIST_C_LIST_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.C_LIST_NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_CENTER_KIND_LIST_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON CENTER_KIND_LIST&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_CENTER_KIND_LIST_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
 			<name>TRI_COUPON_CNO</name>
 			<schema></schema>
 			<sql>BEFORE INSERT ON COUPON&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_COUPON_CNO.nextval&#x0D;&#x0A;&#x09;INTO :new.CNO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_COUPON_EVENT_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON COUPON&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_COUPON_EVENT_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.EVENT_NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_COUPON_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON COUPON&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_COUPON_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_CustomerService_CSERVICE_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON CustomerService&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_CustomerService_CSERVICE_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.CSERVICE_NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
 			<description></description>
 		</trigger>
 		<trigger>
@@ -6763,63 +6771,15 @@
 			<description></description>
 		</trigger>
 		<trigger>
-			<name>TRI_C_Review_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON C_Review&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_C_Review_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_GYM_LIST_GYM_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON GYM_LIST&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_GYM_LIST_GYM_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.GYM_NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_GYM_MEMBER_LIST_MEMBER_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON GYM_MEMBER_LIST&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_GYM_MEMBER_LIST_MEMBER_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.MEMBER_NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_healthMate_HEALTHMATE_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON healthMate&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_healthMate_HEALTHMATE_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.HEALTHMATE_NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
 			<name>TRI_healthMate_NO</name>
 			<schema></schema>
 			<sql>BEFORE INSERT ON healthMate&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_healthMate_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
 			<description></description>
 		</trigger>
 		<trigger>
-			<name>TRI_MESSAGE_TABLE_MESSAGE_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON MESSAGE_TABLE&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_MESSAGE_TABLE_MESSAGE_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.MESSAGE_NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
 			<name>TRI_MESSAGE_TABLE_MNO</name>
 			<schema></schema>
 			<sql>BEFORE INSERT ON MESSAGE_TABLE&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_MESSAGE_TABLE_MNO.nextval&#x0D;&#x0A;&#x09;INTO :new.MNO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_MESSAGE_TABLE_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON MESSAGE_TABLE&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_MESSAGE_TABLE_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_MY_MATE_MATE_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON MY_MATE&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_MY_MATE_MATE_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.MATE_NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_MY_MATE_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON MY_MATE&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_MY_MATE_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
 			<description></description>
 		</trigger>
 		<trigger>
@@ -6835,39 +6795,9 @@
 			<description></description>
 		</trigger>
 		<trigger>
-			<name>TRI_RegisteredCenter_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON RegisteredCenter&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_RegisteredCenter_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_RegisteredCenter_REG_No</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON RegisteredCenter&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_RegisteredCenter_REG_No.nextval&#x0D;&#x0A;&#x09;INTO :new.REG_No&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
 			<name>TRI_SCRAP_NO</name>
 			<schema></schema>
 			<sql>BEFORE INSERT ON SCRAP&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_SCRAP_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_SCRAP_SC_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON SCRAP&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_SCRAP_SC_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.SC_NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_searchBBSReview_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON searchBBSReview&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_searchBBSReview_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_searchBBSReview_REVIEW_NO</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON searchBBSReview&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_searchBBSReview_REVIEW_NO.nextval&#x0D;&#x0A;&#x09;INTO :new.REVIEW_NO&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
 			<description></description>
 		</trigger>
 	</trigger_set>

@@ -9,6 +9,7 @@ import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.kosmo.workout.service.search.SearchBBSDTO;
@@ -23,11 +24,28 @@ public class SearchController {
 		return "search/list.tiles";	
 	}
 	
-	@RequestMapping("/searchView.do")
-	public String searchView(@RequestParam("mapkey") String mapkey, HttpServletRequest req, Model model) throws IOException {
+	@RequestMapping(value="/searchView.do", method=RequestMethod.POST)
+	public String searchView(@RequestParam Map map, HttpServletRequest req, Model model) throws IOException {
 		
-		SearchBBSDTO viewinfo=CommonUtility.mapkeyCrawling(mapkey,req);
+		SearchBBSDTO viewinfo=CommonUtility.mapkeyCrawling(map.get("mapkey").toString(), map.get("tel").toString(), req);
+
+		viewinfo.setTitle(map.get("title").toString());
+		viewinfo.setTel(map.get("tel").toString());
+		viewinfo.setAddr(map.get("addr").toString());
+		
+		if(map.get("jibunAddr")!=null) {
+			viewinfo.setJibunAddr(map.get("jibunAddr").toString());
+		}
+		
+		/*확인용 =null
+		System.out.println(viewinfo.getContent());
+		System.out.println(viewinfo.getOtime());
+		System.out.println(viewinfo.getImg_urls());
+		System.out.println(viewinfo.getService());
+		*/
+
 		model.addAttribute("viewinfo",viewinfo);
+		
 		return "search/view.tiles";
 	}
 	

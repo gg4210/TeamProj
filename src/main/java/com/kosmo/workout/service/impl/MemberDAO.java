@@ -25,8 +25,8 @@ public class MemberDAO implements MemberService{
 	}
 
 	@Override
-	public void insert(Map map) {
-		// TODO Auto-generated method stub
+	public int insertJoin(Map map) {
+		return template.insert("MemberJoin",map);
 		
 	}
 
