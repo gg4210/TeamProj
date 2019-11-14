@@ -11,12 +11,13 @@
 				<form class="form-horizontal" method="post"
 					action="/workout/customerService/notice/noticeView.do">
 					<div class="form-group row" id="category">
-						<label class="control-label pr-4">키워드</label>
-						<div>
+						<label class="control-label pr-4">분류</label>
+						<div class="col-2">
 							<select name="selectCategory" class="form-control custom-select">
 								<option selected value="1">-카테고리를 선택해주세요.</option>
 								<option value="2">헬스클럽 관련</option>
 								<option value="3">앱 사용 관련</option>
+								<option value="4">기타</option>
 							</select>
 						</div>
 					</div>

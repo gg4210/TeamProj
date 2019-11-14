@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
+
 
     <div class="container">
     
@@ -18,8 +16,7 @@
     	<div class="row">
     		<div class="col clearfix">
     			<div class="float-right">
-    			
-    				<div class="btn-group" role="group" aria-label="Basic example">
+    				<div class="btn-group" role="group" aria-label="Basic example" style="float: left;">
 					  <button type="button" class="btn btn-primary">최신순</button>
 					  <button type="button" class="btn btn-primary">추천순</button>
 					  <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -30,9 +27,11 @@
 							<a class="dropdown-item" href="#">요가</a>
 							<a class="dropdown-item" href="#">런닝</a>
 						</div>
+						
   					</div>
+  					<a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalWriteForm" style="clear: both;margin-left: 1px;">글쓰기</a>
 					
-    		    	<a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalWriteForm">글쓰기</a>
+    		    	
     		    	
     		    </div>
     		</div>
@@ -189,9 +188,10 @@
 			</div>
 		</div>
 	</div>
+
 <script>
 	$('#summernote').summernote({
 		tabsize: 2,
-		height: 100
+		height: 300
 	});
 </script>
