@@ -319,7 +319,7 @@ function dataget(){
 			
 			<div class="row">
 				<!-- col1 등록한 센터 시작 -->
-				<div class="accordion col" id="customeraccordion">
+				<div class="accordion col" id="centeraccordion">
 				   <div class="card">
 				      <div class="card-header mdb-color darken-3 pb-0" id="heading1" style="padding:0px;">
 				         <button class="btn btn-link" type="button" data-toggle="collapse"
