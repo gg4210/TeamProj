@@ -126,7 +126,7 @@ public class CustomerServiceController {
 	
 	/////////////////////////////////////////////////////////////////
 	
-	@RequestMapping("/customerServiceMain.do")
+	@RequestMapping("/member/customerServiceMain.do")
 	public String mainPage(@RequestParam Map map,Model model) {
 		//서비스 호출]
 		//페이징을 위한 로직 시작]

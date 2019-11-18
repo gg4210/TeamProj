@@ -2,6 +2,7 @@ package com.kosmo.workout.service.search;
 
 public class SearchBBSDTO {
 
+	
 	String title;
 	String mapkey;
 	String tel;
@@ -12,7 +13,6 @@ public class SearchBBSDTO {
 	String[] img_urls;
 	String service;
 
-	
 	
 	public String getJibunAddr() {
 		return jibunAddr;

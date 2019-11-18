@@ -3,6 +3,28 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
+<script>
+$(function () {
+	////다른페이지에 있다가 눌렀을 때
+	var durl = window.location.hash;////console.log(durl); = #id
+	//var dactiveTab = durl.substring(durl.indexOf("#") + 1);////id ////의미없는 코드인 듯.
+	//console.log(dactiveTab);	
+	if (durl !='') {
+		$(durl).tab('show');
+	}
+	////같은 페이지에 있다가 눌렀을 때
+	$('#customerLinks a').click(function(){
+		var link = $(this).attr('href');////console.log('link:',link);=>/workout/customer.do#pills-scrap-tab
+		var sactiveTab = link.substring(link.indexOf("#"));////내가 +1지움 ////console.log('sactiveTab:',sactiveTab);=>sactiveTab: #pills-scrap-tab	
+		$('#customerLinks a').removeClass("active");
+		$(this).addClass("active");
+		$(sactiveTab).tab('show');
+	});
+});
+
+</script>
+
+
 	<div class="container">
 		<!-- 탭메뉴 시작 -->
 		<div class="row justify-content-md-center text-center">
