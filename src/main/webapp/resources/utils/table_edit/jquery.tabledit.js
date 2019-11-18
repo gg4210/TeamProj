@@ -94,10 +94,10 @@ if (typeof jQuery === 'undefined') {
                     var $td = $table.find('tbody td:nth-child(' + (parseInt(settings.columns.identifier[0]) + 1) + ')');
 
                     $td.each(function() {
-                        // Create hidden input with row identifier.
-                        var span = '<span class="tabledit-span tabledit-identifier">' + $(this).text() + '</span>';
-                        var input = '<input class="tabledit-input tabledit-identifier" type="hidden" name="' + settings.columns.identifier[1] + '" value="' + $(this).text() + '" disabled>';
-
+	                    // Create hidden input with row identifier.
+	            		var span = '<span class="tabledit-span tabledit-identifier">' + $(this).text() + '</span>';
+	                    var input = '<input class="tabledit-input tabledit-identifier" type="hidden" name="' + settings.columns.identifier[1] + '" value="' + $(this).text() + '" disabled>';
+                    	
                         // Add elements to table cell.
                         $(this).html(span + input);
 
@@ -106,7 +106,7 @@ if (typeof jQuery === 'undefined') {
                     });
                 },
                 editable: function() {
-                    for (var i = 0; i < settings.columns.editable.length; i++) {
+                    for (var i = 0; i < settings.columns.editable.length-1; i++) {
                         var $td = $table.find('tbody td:nth-child(' + (parseInt(settings.columns.editable[i][0]) + 1) + ')');
 
                         $td.each(function() {

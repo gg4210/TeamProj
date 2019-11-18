@@ -1,12 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
-
-
    
 <div class="container">
+
+	<!-- QR코드 생성버튼 시작 -->
+	<div class="row col">
+		 <button type="submit" class="btn btn-info px-3" id="makeQRCode">QR코드생성</button>
+		 <img id="img" alt="QR코드">
+	</div>
+	<div id="qrcode"></div>
+	<!-- QR코드 생성버튼 끝 -->
 
    <!-- row1 시작 -->
    <div class="row">
@@ -371,10 +375,8 @@ $(function(){
 	}
 	}
 	});
-	
-	
-	
-})
 
+
+})
 
 </script>

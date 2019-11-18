@@ -223,7 +223,10 @@ CREATE TABLE H_MEMBER
 	joindate date DEFAULT SYSDATE NOT NULL,
 	NICK_NAME nvarchar2(20) NOT NULL,
 	CENTER_NAME NVARCHAR2(50),
+<<<<<<< HEAD
 	DETAIL_ADDRESS NVARCHAR2(50),
+=======
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	PRIMARY KEY (ID)
 );
 

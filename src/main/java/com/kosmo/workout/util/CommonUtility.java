@@ -34,7 +34,8 @@ public class CommonUtility {
 		doc=Jsoup.connect(base_url).get();
 		result=doc.select("#lcs_greenmap > div.local_map > div.detail");
 		
-		if(result.isEmpty()) { //검색결과가 없는 경우		
+		
+		if(result.isEmpty() || tel=="" ) { //검색결과 혹은 전화번호가 없는 경우
 			return mapinfo;			
 		}
 		
@@ -72,13 +73,7 @@ public class CommonUtility {
 		SearchBBSDTO mapinfo=new SearchBBSDTO();
 		
 		//셀레니움 드라이버 path 알아내서 드라이버에 셋팅하기
-		String path=req.getSession().getServletContext().getRealPath("/");
-		String webDriverPath=path+"resources"+File.separator+"webdriver"+File.separator+"chromedriver.exe";
-        ChromeOptions options = new ChromeOptions();
-        options.setCapability("ignoreProtectedModeSettings", true);
-        options.setHeadless(true);
-		System.setProperty("webdriver.chrome.driver", webDriverPath);
-        WebDriver driver= new ChromeDriver(options);
+		WebDriver driver=getWebDriver(req);
 		//셀레니움 드라이버 path 알아내서 드라이버에 셋팅하기 끝
         
 		//드라이버로 네이버 지도 뷰페이지 href 열게 함
@@ -105,6 +100,17 @@ public class CommonUtility {
 		
 		return mapinfo;
 		
+	}
+	
+	public static WebDriver getWebDriver(HttpServletRequest req) {
+		String path=req.getSession().getServletContext().getRealPath("/");
+		String webDriverPath=path+"resources"+File.separator+"webdriver"+File.separator+"chromedriver.exe";
+        ChromeOptions options = new ChromeOptions();
+        options.setCapability("ignoreProtectedModeSettings", true);
+        options.setHeadless(true);
+		System.setProperty("webdriver.chrome.driver", webDriverPath);
+        WebDriver driver= new ChromeDriver(options);
+		return driver;
 	}
 	
 	 

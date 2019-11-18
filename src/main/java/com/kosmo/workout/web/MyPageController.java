@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kosmo.workout.service.MemberService;
 
@@ -45,6 +46,11 @@ public class MyPageController {
 	@RequestMapping("/member/enterprise/edit_center_info.do")
 	public String edit_center_info() {
 		return "mypage/enterprise/edit_center_info.tiles";
+	}
+	
+	@RequestMapping("/makeQRCode.do")
+	public ModelAndView createCode(@RequestParam String content) {
+		return new ModelAndView("qrcodeview", "content", content);
 	}
 	
 
