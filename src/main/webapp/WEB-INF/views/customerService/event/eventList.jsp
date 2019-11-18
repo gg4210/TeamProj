@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
-<div class="container">
+
+
+<div class="container" id="herejqueryajax">
 
 	<div class="row pt-2">
 		<h3>이벤트</h3>		
@@ -61,6 +63,7 @@
 			<div class="float-right">
 				<div class="form-inline">
 					<button type="button" class="btn btn-info p-2 px-4" id="event_write">이벤트 작성</button>
+					<button type="button" class="btn btn-info p-2 px-4" id="test_load">.load()</button>
 				</div>
 			</div>
 		</div>
@@ -85,6 +88,13 @@
 			</nav>
 		</div>
 	</div>  <!-- 페이지네이션 끝 -->
+	
+	
+	<div id="test_ing">
+	
+	</div>
+	
+	
 </div>
 
 <script>
@@ -93,5 +103,24 @@
 		$('#event_write').click(function(){
 			location.href="customerService/event/eventWrite.do";
 		});
+		
+		$("#test_load").on("click", function() {
+			//$(".row").hide();
+			// URL 주소에 존재하는 HTML 코드에서 <li>요소를 읽은 후에 id가 "test_ing"인 요소에 배치함.
+			//$("#test_ing").load("noticeList.jsp #container");//태그만 읽어오네... 아이디는 못읽고...
+			//$("#test_ing").load("consultList.jsp .container");//통과!
+			//$(".row").load("noticeList.jsp .container");//row가 너무 많아서 여러개 들어와서 패스-
+			//document.write("되는 중인가?");
+			//$("#test_ing").load("test.txt .container");
+			
+			//$("#test_ing").load("noticeList.jsp .ganadara");
+			
+			//$("#herejqueryajax").load("http://localhost:8080/workout/customerService/notice/noticeList.do");
+			$("#herejqueryajax").load("/workout/customerService/notice/noticeList.do");//이거 된다!
+			
+			
+			//위치 경로설정 어떻게 하는지만 되면, #pills-consultlist-tab 이용도 해보고 싶어!
+		});
+		
 	});
 </script>
