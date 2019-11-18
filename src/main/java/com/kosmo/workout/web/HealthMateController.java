@@ -20,13 +20,12 @@ public class HealthMateController {
 	//서비스 주입]
 	@Resource(name = "HealthMateService")
 	private HealthMateService HealthMateService;
-	
-	@RequestMapping("/healthMateMain.do")
+	@RequestMapping("/member/healthMateMain.do")
 	public String mainPage() {
 		return "healthMate/healthMateMain.tiles";
 	}
 	
-	@RequestMapping("/healthMateWrite.do")
+	@RequestMapping("/member/healthMateWrite.do")
 	public String wirtePage() {
 		return "healthMate/healthMateWrite.tiles";
 	}

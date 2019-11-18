@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
+<!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
+
+<mapper namespace="mybatis.Notification">
+	<select id="NotificationSelectList" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM NOTIFICATION WHERE ID=#{id}
+	</select>
+	<insert id="NotificationInsert" parameterType="java.util.Map">
+		INSERT INTO Notification(ID,cno) VALUES(#{id},#{cno})
+	</insert>
+	<insert id="NotificationInsert2" parameterType="java.util.Map">
+		INSERT INTO Notification(ID,mno) VALUES(#{id},#{mno})
+	</insert>
+	<insert id="NotificationInsert3" parameterType="java.util.Map">
+		INSERT INTO Notification(ID,yno) VALUES(#{id},#{yno})
+	</insert>
+	<delete id="NotificationDelete" parameterType="java.util.Map">
+		DELETE Notification WHERE ID=#{id}
+	</delete>
+</mapper>

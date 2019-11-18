@@ -55,7 +55,7 @@
 			      		<div class="col">
 				      		<div class="card">
 				    			<div class="card-body mr-3">
-				    				<h3 class="card-title font-weight-bold mt-2"><a href="<c:url value='/bbsView.do?nowPage=&no='/>">마음이 안정되는</a></h3>
+				    				<h3 class="card-title font-weight-bold mt-2"><a href="<c:url value='/member/bbsView.do?nowPage=&no='/>">마음이 안정되는</a></h3>
 				    				<hr>
 				    				<p class="mb-0"><span class="badge badge-primary">글쓴이</span>&nbsp김길동</p>
 				    			</div>
@@ -103,7 +103,7 @@
 			      		<div class="col">
 				      		<div class="card">
 				    			<div class="card-body mr-3">
-				    				<h3 class="card-title font-weight-bold mt-2"><a href="<c:url value='/bbsView.do?nowPage=&no='/>">런닝중</a></h3>
+				    				<h3 class="card-title font-weight-bold mt-2"><a href="<c:url value='/member/bbsView.do?nowPage=&no='/>">런닝중</a></h3>
 				    				<hr>
 				    				<p class="mb-0"><span class="badge badge-primary">글쓴이</span>&nbsp조길동</p>
 				    			</div>

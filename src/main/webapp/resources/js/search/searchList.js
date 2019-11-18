@@ -1,6 +1,12 @@
 $(function(){
 //마커를 담을 배열입니다
-var mapheight=$(window).height();	
+var mapheight=$(window).height();
+
+var token = $("meta[name='_csrf']").attr("content");
+var header = $("meta[name='_csrf_header']").attr("content");
+console.log(token);//value
+console.log(header);//name
+
 
 //map 높이를 동적으로 가져가기 위한 로직 시작
 $('.map_wrap').css('height',mapheight);
@@ -221,13 +227,13 @@ function displayPagination(pagination) {
 function displayCustomOverlay(marker, title, address, road_address, phone, id, x, y) {
 	
 	
-	
 	if(customOverlay.getMap()!=null){
 	    customOverlay.setMap(null);
 	    return;
 	}
 	
-   var content = 
+   var content =
+   '<sec:authorize access="isAnonymous()">'+
    '<div class="wrap card" id="customOverlay_content">' + 
    '<div class="row no-gutters">'+
    '  <div class="col-md-4">'+
@@ -239,7 +245,7 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    '	<div class="clearfix col">'+
    '		<form action="/workout/searchView.do" method="post" id="info_form">'+
    '			<input type="hidden" name="title" value="'+title+'">'+
-   '			<input type="hidden" name="mapkey" value="'+id+'">'
+   '			<input type="hidden" name="mapkey" value="'+id+'">';
    if(road_address!=null){
    content+='	<input type="hidden" name="addr" value="'+road_address+'">'+
    			'	<input type="hidden" name="jibunAddr" value="'+address+'">';
@@ -249,6 +255,7 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    }
    		content+='<input type="hidden" name="tel" value="'+phone+'">'+
    '      		<a class="h6 float-left text-white" href="javascript:info_form.submit()" id="title">'+title+'</a>'+
+   '			<input type="hidden" name="'+header+'" value="'+token+'"/>'+
    '		</form>'+   
    '		<div class="float-right">'+
    '			<button type="button" class="close text-white" aria-label="Close">'+
@@ -293,7 +300,8 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    '  </div>'+
    '</div>'+
    '</div>'+    
-   '</div>';
+   '</div>'+
+   '</sec:authorize>';
 
    
 

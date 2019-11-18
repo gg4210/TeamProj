@@ -26,6 +26,7 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="2" />
 	</beans:bean>
 	
 	
@@ -50,5 +51,8 @@
 			value="org.springframework.web.servlet.view.tiles3.TilesView" />
 	</beans:bean>
 
+	<!-- 리소스파일(.properties) 사용을 위한 설정 -->
+	<context:property-placeholder
+		location="classpath:memo/memo.properties" />
 	
 </beans:beans>

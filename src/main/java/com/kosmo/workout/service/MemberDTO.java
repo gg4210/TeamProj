@@ -5,9 +5,11 @@ import java.sql.Date;
 public class MemberDTO {
 	private String id;
 	private String password;
+	private String password_re;
 	private String name;
 	private String email;
 	private String address;
+	private String addressdetail;
 	private String cellphone;
 	private String authority;
 	private String my_comment;
@@ -15,6 +17,8 @@ public class MemberDTO {
 	private String[] inter_sports;
 	private java.sql.Date joinDate;
 	private String nick;
+	private String enabled;
+	
 
 	public String getId() {
 		return id;
@@ -32,6 +36,14 @@ public class MemberDTO {
 		this.password = password;
 	}
 	
+	public String getPassword_re() {
+		return password_re;
+	}
+
+	public void setPassword_re(String password_re) {
+		this.password_re = password_re;
+	}
+
 	public String getNick() {
 		return nick;
 	}
@@ -62,6 +74,14 @@ public class MemberDTO {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	
+	public String getAddressdetail() {
+		return addressdetail;
+	}
+
+	public void setAddressdetail(String addressdetail) {
+		this.addressdetail = addressdetail;
 	}
 
 	public String getCellphone() {
@@ -111,4 +131,14 @@ public class MemberDTO {
 	public void setJoinDate(java.sql.Date joinDate) {
 		this.joinDate = joinDate;
 	}
+
+	public String getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(String enabled) {
+		this.enabled = enabled;
+	}
+	
+	
 }

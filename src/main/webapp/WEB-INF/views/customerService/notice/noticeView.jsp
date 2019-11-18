@@ -11,6 +11,7 @@ var showComment = function(){
 };/////////////////////////////////////////////////////url주소 바꿔야 함.
 
 </script>    
+
 <!-- 실제 내용 시작 -->
 <div class="container">
 	<div class="row pt-5">
