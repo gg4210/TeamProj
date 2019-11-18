@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!-- 실제 내용 시작 -->
 <div class="containter">
 	<div class="col-md-10 offset-1">
 		<div class="row pt-2">
@@ -9,15 +11,16 @@
 		<div class="row">
 			<div class="col-md-12">
 				<form class="form-horizontal" method="post"
-					action="/workout/customerService/notice/noticeView.do">
+					action="<c:url value='/customerService/notice/noticeWrite.do'/>">
+					
 					<div class="form-group row" id="category">
 						<label class="control-label pr-4">분류</label>
 						<div class="col-2">
 							<select name="selectCategory" class="form-control custom-select">
 								<option selected value="1">-카테고리를 선택해주세요.</option>
-								<option value="2">헬스클럽 관련</option>
-								<option value="3">앱 사용 관련</option>
-								<option value="4">기타</option>
+								<option value="공지">공지</option>
+								<option value="점검">점검</option>
+								<option value="기타">기타</option>
 							</select>
 						</div>
 					</div>

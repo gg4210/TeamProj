@@ -19,7 +19,7 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Override
 	public boolean login(Map map) {
-		return dao.isLogin(map);
+		return dao.login(map);
 	}
 	
 	@Override
@@ -32,6 +32,10 @@ public class MemberServiceImpl implements MemberService{
 		return dao.insertJoin(map);
 		
 	}
+	
+	public void authjoin(Map map) {
+		dao.authjoin(map);
+	}
 
 	@Override
 	public void delete(Map map) {
@@ -43,6 +47,11 @@ public class MemberServiceImpl implements MemberService{
 	public void update(Map map) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int Isdata(Map map) {
+		return dao.Isdata(map);
 	}
 
 }

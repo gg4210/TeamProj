@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HealthMateController {
 	
-	@RequestMapping("/healthMateMain.do")
+	@RequestMapping("/member/healthMateMain.do")
 	public String mainPage() {
 		return "healthMate/healthMateMain.tiles";
 	}
 	
-	@RequestMapping("/healthMateWrite.do")
+	@RequestMapping("/member/healthMateWrite.do")
 	public String wirtePage() {
 		return "healthMate/healthMateWrite.tiles";
 	}

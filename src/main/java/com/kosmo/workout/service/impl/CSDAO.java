@@ -34,10 +34,10 @@ public class CSDAO implements CSService {
 		return template.selectOne("noticeSelectOne", map);
 	}
 
+	//입력용]-일단 공지사항부터...
 	@Override
 	public int insert(Map map) {
-		// TODO Auto-generated method stub
-		return 0;
+		return template.insert("noticeInsert", map);
 	}
 
 	@Override

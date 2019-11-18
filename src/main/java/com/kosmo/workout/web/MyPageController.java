@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kosmo.workout.service.MemberService;
 
@@ -27,7 +28,7 @@ public class MyPageController {
 	
 	
 		/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 시작*/
-	@RequestMapping("/customer.do")
+	@RequestMapping("/member/customer.do")
 	public String customer(){
 		return "mypage/customer/mypage_Index.tiles";
 	}
@@ -42,9 +43,14 @@ public class MyPageController {
 		return "mypage/enterprise/mypage_Index.tiles";
 	}
 		/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 끝*/
-	@RequestMapping("/enterprise/edit_center_info.do")
+	@RequestMapping("/member/enterprise/edit_center_info.do")
 	public String edit_center_info() {
 		return "mypage/enterprise/edit_center_info.tiles";
+	}
+	
+	@RequestMapping("/makeQRCode.do")
+	public ModelAndView createCode(@RequestParam String content) {
+		return new ModelAndView("qrcodeview", "content", content);
 	}
 	
 

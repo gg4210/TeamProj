@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
+
 <script>
 $(function () {
 	////다른페이지에 있다가 눌렀을 때
@@ -22,6 +23,7 @@ $(function () {
 });
 
 </script>
+
 
 	<div class="container">
 		<!-- 탭메뉴 시작 -->

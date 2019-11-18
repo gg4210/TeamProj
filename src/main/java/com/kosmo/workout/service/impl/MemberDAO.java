@@ -16,9 +16,15 @@ public class MemberDAO implements MemberService{
 	@Resource(name="template")
 	private SqlSessionTemplate template;
 	
-	public boolean isLogin(Map map) {
-		return (Integer)template.selectOne("Islogin",map)==0?false:true;
+	@Override
+	public boolean login(Map map) {
+		return (Integer)template.selectOne("IsLogin",map)==0?false:true;
 	}
+	
+	public int Isdata(Map map) {
+		return template.selectOne("Isdata",map);
+	}
+	
 	
 	public List<Map> selectList(Map map) {
 		return template.selectList("MemberSelectList", map);
@@ -28,6 +34,9 @@ public class MemberDAO implements MemberService{
 	public int insertJoin(Map map) {
 		return template.insert("MemberJoin",map);
 		
+	}
+	public void authjoin(Map map) {
+		template.insert("AuthJoin",map);
 	}
 
 	@Override
@@ -42,9 +51,8 @@ public class MemberDAO implements MemberService{
 		
 	}
 
-	@Override
-	public boolean login(Map map) {
-		return (Integer)template.selectOne("IsLogin",map)==0?false:true;
-	}
+	
+
+	
 	
 }

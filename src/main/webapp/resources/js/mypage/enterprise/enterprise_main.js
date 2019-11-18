@@ -1,5 +1,6 @@
 $(function(){
 
+
 	//평점
 	var $stars;
 
@@ -25,5 +26,10 @@ $(function(){
 	  
 	});
 	
+	$('#makeQRCode').click(function(){
+		url="makeQRCode.do";
+		$('#img').attr("src",url);
+		console.log("여기는 js파일인데 들어왔니?")
+	})
 	
 })
