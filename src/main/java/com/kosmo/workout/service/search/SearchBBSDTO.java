@@ -1,5 +1,7 @@
 package com.kosmo.workout.service.search;
 
+import org.springframework.security.core.userdetails.UserDetails;
+
 public class SearchBBSDTO {
 
 	String title;
@@ -11,6 +13,7 @@ public class SearchBBSDTO {
 	String content;
 	String[] img_urls;
 	String service;
+	String id;
 
 	
 	
@@ -69,6 +72,10 @@ public class SearchBBSDTO {
 	public void setService(String service) {
 		this.service = service;
 	}
-	
-	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 }

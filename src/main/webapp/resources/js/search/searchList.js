@@ -237,7 +237,7 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    '  	<div class="card-header indigo">' +
    '	<div class="row">'+
    '	<div class="clearfix col">'+
-   '		<form action="/workout/searchView.do" method="post" id="info_form">'+
+   '		<form action="/workout/searchView.do" method="post" id="info_form" enctype="multipart/form-data>'+
    '			<input type="hidden" name="title" value="'+title+'">'+
    '			<input type="hidden" name="mapkey" value="'+id+'">';
    if(road_address!=null){
@@ -248,8 +248,8 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
 	   content+='<input type="hidden" name="jibunAddr" value="'+address+'">';
    }
    		content+='<input type="hidden" name="tel" value="'+phone+'">'+
-   '      		<a class="h6 float-left text-white" href="javascript:info_form.submit()" id="title">'+title+'</a>'+
-   '			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>'+
+   '      		<a class="h6 float-left text-white" href="java	script:info_form.submit()" id="title">'+title+'</a>'+
+   '			<input type="" name="" value=""/>'+
    '		</form>'+   
    '		<div class="float-right">'+
    '			<button type="button" class="close text-white" aria-label="Close">'+

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!-- 구글 로그인에 필요한 소스 시작 -->
@@ -27,6 +26,10 @@
 <script>
 	function loginformOpen(){
 		$("#loginMenu").fadeToggle("3000");
+	}
+	function csrfCheck(){
+		console.log("${_csrf.token}");
+		console.log("${_csrf.parameterName}");
 	}
 </script>
 
@@ -59,6 +62,9 @@
 		</form>
 		<div class="text-right">
 			<a href="<c:url value='/mypage.do'/>"><button type="button" class="btn btn-primary">임시페이지</button></a>
+		</div>
+		<div class="text-right">
+			<button type="button" class="btn btn-primary" onclick="csrfCheck()">csrf 확인</button>
 		</div>
 			
 		<div class="text-center pt-3">
@@ -113,6 +119,7 @@
 <script>
 function dataget(){
 	$('#getdata').submit();
+	console.log("${_csrf.token}");
 }
 </script>
 

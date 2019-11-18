@@ -37,6 +37,7 @@ public class AuthController {
 	@RequestMapping("/notification.do")
 	public String data(@RequestParam Map map, Authentication auth) {
 		UserDetails userDetails=(UserDetails)auth.getPrincipal();
+		System.out.println(userDetails.getUsername());
 		map.put("id",userDetails.getUsername());
 		System.out.println(map);
 		int count=NotificationService.countList(map);

@@ -12,10 +12,12 @@
 <!doctype html>
 <html lang="ko">
 <head>
+
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="_token" content="{{ csrf_token() }}">
 <title><tiles:getAsString name="title"/></title>	
 
 	<!-- CSS -->
@@ -31,6 +33,7 @@
     </c:forEach>
     <!-- end scripts -->
 <script>
+
 if(${param.required !=null}==true){
 	$(window).on('load',function(){
 	    $('#required-modal').modal('show');
