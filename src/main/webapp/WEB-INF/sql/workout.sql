@@ -222,11 +222,7 @@ CREATE TABLE H_MEMBER
 	picture nvarchar2(100),
 	joindate date DEFAULT SYSDATE NOT NULL,
 	NICK_NAME nvarchar2(20) NOT NULL,
-<<<<<<< HEAD
 	CENTER_NAME NVARCHAR2(50),
-=======
-	CENTER_NAME nvarchar2(50),
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	PRIMARY KEY (ID)
 );
 
@@ -451,6 +447,5 @@ COMMENT ON COLUMN H_MEMBER.MY_COMMENT IS '회원가입페이지에서 등록X �
 COMMENT ON COLUMN MESSAGE_TABLE.ID IS '계정';
 COMMENT ON COLUMN MY_MATE.ID IS '계정';
 COMMENT ON COLUMN RegiCenter.ID IS '계정';
-
 
 

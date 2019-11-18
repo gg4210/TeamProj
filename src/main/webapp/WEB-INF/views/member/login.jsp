@@ -177,11 +177,8 @@
 									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-mate-tab'/>" id="lpills-mate">
 										<span>운동메이트</span>
 									</a>
-<<<<<<< HEAD
-									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-contact-tab'/>" id="lpills-coupon">
-=======
+									
 									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-coupon-tab'/>" id="lpills-coupon">
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 										<span>쿠폰함</span>
 									</a>
 									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-scrap-tab'/>">
@@ -259,8 +256,12 @@
 		console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
 		console.log('Name: ' + profile.getName());
 		console.log('Image URL: ' + profile.getImageUrl());
-		console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+		console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.	
+		
+		profile.submit();
 	}
+	
+
 	
 	//네이버 로그인 자바스크립트 코드
 	var naverLogin = new naver.LoginWithNaverId(
@@ -292,6 +293,7 @@
 				}
 			});
 		});
+	
 	
 	
 </script>
