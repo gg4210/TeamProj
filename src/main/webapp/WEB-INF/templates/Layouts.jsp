@@ -18,12 +18,8 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<<<<<<< HEAD
-<meta name="_token" content="{{ csrf_token() }}">
-=======
-    <meta name="_csrf" content="${_csrf.token}"/>
-    <meta name="_csrf_header" content="${_csrf.parameterName}"/>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.parameterName}"/>
 <title><tiles:getAsString name="title"/></title>	
 
 	<!-- CSS -->
