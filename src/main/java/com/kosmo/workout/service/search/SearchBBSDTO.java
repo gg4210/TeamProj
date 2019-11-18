@@ -4,6 +4,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class SearchBBSDTO {
 
+	
 	String title;
 	String mapkey;
 	String tel;
@@ -15,7 +16,6 @@ public class SearchBBSDTO {
 	String service;
 	String id;
 
-	
 	
 	public String getJibunAddr() {
 		return jibunAddr;
