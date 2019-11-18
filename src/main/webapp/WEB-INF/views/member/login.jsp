@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!-- 구글 로그인에 필요한 소스 시작 -->
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <meta name="google-signin-client_id" content="471338080176-g046e95v00o1np1q8glj03ghqf97mjra.apps.googleusercontent.com">
@@ -9,6 +11,11 @@
 <!-- 네이버 로그인에 필요한 소스 시작 -->
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 <!-- 네이버 로그인에 필요한 소스 끝 -->
+<!-- 카카오 로그인에 필요한 소스 시작 -->
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<!-- 카카오 로그인에 필요한 소스 끝 -->
+
+
 <!-- 비로그인시 로그인 사이드바 -->
 <style>
 #customerLinks a{
@@ -16,11 +23,13 @@
 	padding-bottom:10px;
 }
 </style>
+
 <script>
 	function loginformOpen(){
 		$("#loginMenu").fadeToggle("3000");
 	}
 </script>
+
 <sec:authorize access="isAnonymous()">
 <div class="login bg-dark" id="loginMenu" style="width: 450px">
 	<!-- close button 시작 -->
@@ -70,7 +79,10 @@
 			<div id="naverIdLogin"></div>
 		</div>
 		<!-- 네이버 로그인 버튼 끝 -->
-		<button class="btn btn-yellow btn-block mx-auto mt-3 font-weight-bold">카카오톡 로그인</button>
+		<!-- 카카오 로그인 버튼 시작 -->
+		<a id="kakao-login-btn"></a>
+		<a href="http://developers.kakao.com/logout"></a>
+		<!-- 카카오 로그인 버튼 끝 -->
 		
 	</div>
 </div>
@@ -215,6 +227,7 @@ function dataget(){
 									<a class="list-group-item list-group-item-action" href="<c:url value='/member/customer.do#pills-mate-tab'/>" id="lpills-mate">
 										<span>운동메이트</span>
 									</a>
+
 									<a class="list-group-item list-group-item-action" href="<c:url value='/member/customer.do#pills-coupon-tab'/>" id="lpills-coupon">
 										<span>쿠폰함</span>
 									</a>
@@ -539,6 +552,21 @@ function dataget(){
 				}
 			});
 		});
+		
+		  //<![CDATA[
+	    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+	    Kakao.init('277dd2a8bda106627e537859aae6e385');
+	    // 카카오 로그인 버튼을 생성합니다.
+	    Kakao.Auth.createLoginButton({
+	      container: '#kakao-login-btn',
+	      success: function(authObj) {
+	        alert(JSON.stringify(authObj));
+	      },
+	      fail: function(err) {
+	         alert(JSON.stringify(err));
+	      }
+	    });
+	  //]]>	
 	
 	
 </script>
