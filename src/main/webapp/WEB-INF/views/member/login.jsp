@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!-- 구글 로그인에 필요한 소스 시작 -->
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <meta name="google-signin-client_id" content="471338080176-g046e95v00o1np1q8glj03ghqf97mjra.apps.googleusercontent.com">
@@ -15,6 +16,12 @@
 	padding-bottom:10px;
 }
 </style>
+<script>
+	function loginformOpen(){
+		$("#loginMenu").fadeToggle("3000");
+	}
+</script>
+<sec:authorize access="isAnonymous()">
 <div class="login bg-dark" id="loginMenu" style="width: 450px">
 	<!-- close button 시작 -->
 	<button type="button" class="close text-white mt-2" aria-label="Close" id="closelogin">
@@ -27,22 +34,23 @@
 				<img src="<c:url value='/resources/images/loginLogo.png'/>"/>
 			</div>
 		</div>
-		<form action="<c:url value='/templogin.do'/>" method="post">
-				<div class="md-form">
-					<input type="text" id="id" name="id" class="form-control text-white"> 
-						<label for="id"><span class="text-white" id="labelId">아이디</span></label>
-				</div>
-				<div class="md-form">
-					<input type="password" id="password" name="password" class="form-control text-white"> 
-					<label for="password"><span class="text-white" id="labelPwd">비밀번호</span></label>
-				</div>
-				<div class="text-right">
-					<button type="submit" value="submit" class="btn btn-primary">들어가기</button>
-				</div>
-			</form>
-			<div class="text-right">
-				<a href="<c:url value='/mypage.do'/>"><button type="button" class="btn btn-primary">임시페이지</button></a>
+		<form action="<c:url value='/loginprocess.do'/>" method="post">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+			<div class="md-form">
+				<input type="text" id="id" name="id" class="form-control text-white"> 
+					<label for="id"><span class="text-white" id="labelId">아이디</span></label>
 			</div>
+			<div class="md-form">
+				<input type="password" id="password" name="password" class="form-control text-white"> 
+				<label for="password"><span class="text-white" id="labelPwd">비밀번호</span></label>
+			</div>
+			<div class="text-right">
+				<button type="submit" value="submit" class="btn btn-primary">들어가기</button>
+			</div>
+		</form>
+		<div class="text-right">
+			<a href="<c:url value='/mypage.do'/>"><button type="button" class="btn btn-primary">임시페이지</button></a>
+		</div>
 			
 		<div class="text-center pt-3">
 			<span class="text-white">회원이 아니신가요? <a href="<c:url value='jointype.do'/>">회원가입</a></span>
@@ -66,6 +74,36 @@
 		
 	</div>
 </div>
+
+<div class="modal fade" id="required-modal" tabindex="-1"
+	role="alert" aria-labelledby="requiredCenterTitle"
+	aria-hidden="true">
+
+	<!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+	<div class="modal-dialog modal-dialog-centered" role="document">
+
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="requiredLongTitle">이 서비스를 이용하려면 로그인하셔야 합니다.</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn peach-gradient" onclick="loginformOpen()" data-dismiss="modal">확인</button>
+			</div>
+		</div>
+	</div>
+</div>
+</sec:authorize>
+
+<sec:authorize access="isAuthenticated()">
+<script>
+function dataget(){
+	$('#getdata').submit();
+}
+</script>
+
 <!-- 개인회원으로 로그인시 사이드바 -->
 <div class="login bg-dark" id="CustomerLoMenu">
 	<!-- close button 시작 -->
@@ -78,7 +116,7 @@
 			<div class="col-6" style="margin-bottom:15px;">
 				<img class="col-12" src="<c:url value='/resources/images/girl.png'/>" />
 			</div>
-			<div class="h5 text-white col-6" style="align-self:center;">${sessionScope.id }님,<br/>반갑습니다</div>
+			<div class="h5 text-white col-6" style="align-self:center;"><sec:authentication property="principal.username"/>님,<br/>반갑습니다</div>
 			
 			<div class="row">
 				<!-- col1 등록한 센터 시작 -->
@@ -171,19 +209,19 @@
 				         <!-- 카드 바디 시작 -->
 				         	<div class="card-body" style="padding:0px">
 				         		<div class="list-group" id="customerLinks">
-									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-home-tab'/>" id="lpills-home">
+									<a class="list-group-item list-group-item-action" href="<c:url value='/member/customer.do#pills-home-tab'/>" id="lpills-home">
 										<span>마이페이지</span>
 									</a>
-									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-mate-tab'/>" id="lpills-mate">
+									<a class="list-group-item list-group-item-action" href="<c:url value='/member/customer.do#pills-mate-tab'/>" id="lpills-mate">
 										<span>운동메이트</span>
 									</a>
-									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-coupon-tab'/>" id="lpills-coupon">
+									<a class="list-group-item list-group-item-action" href="<c:url value='/member/customer.do#pills-coupon-tab'/>" id="lpills-coupon">
 										<span>쿠폰함</span>
 									</a>
-									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-scrap-tab'/>">
+									<a class="list-group-item list-group-item-action" href="<c:url value='/member/customer.do#pills-scrap-tab'/>">
 										<span>스크랩</span>
 									</a>
-									<a class="list-group-item list-group-item-action" href="<c:url value='/customer.do#pills-info-tab'/>">
+									<a class="list-group-item list-group-item-action" href="<c:url value='/member/customer.do#pills-info-tab'/>">
 										<span>내 정보 관리</span>
 									</a>
 								</div>
@@ -222,19 +260,19 @@
 				         <!-- 카드 바디 시작 -->
 				         	<div class="card-body" style="padding:0px">
 				         		<div class="list-group" id="serviceLinks">
-									<a class="list-group-item list-group-item-action" href="<c:url value='/customerServiceMain.do#pills-home-tab'/>" id="lpills-home">
+									<a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-home-tab'/>" id="lpills-home">
 										<span>고객센터 홈</span>
 									</a>
-									<a class="list-group-item list-group-item-action" href="<c:url value='/customerServiceMain.do#pills-faq-tab'/>" id="lpills-mate">
+									<a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-faq-tab'/>" id="lpills-mate">
 										<span>자주 묻는 질문</span>
 									</a>
-									<a class="list-group-item list-group-item-action" href="<c:url value='/customerServiceMain.do#pills-notice-tab'/>" id="lpills-coupon">
+									<a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-notice-tab'/>" id="lpills-coupon">
 										<span>공지 이벤트</span>
 									</a>
-									<a class="list-group-item list-group-item-action" href="<c:url value='/customerServiceMain.do#pills-consultwrite-tab'/>">
+									<a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-consultwrite-tab'/>">
 										<span>1:1 문의</span>
 									</a>
-									<a class="list-group-item list-group-item-action" href="<c:url value='/customerServiceMain.do#pills-consultlist-tab'/>">
+									<a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-consultlist-tab'/>">
 										<span>문의내역 확인</span>
 									</a>
 								</div>
@@ -243,12 +281,24 @@
 					</div>
 				</div>
 				<!-- col3 끝 -->
+				<button type="button" class="btn btn-primary col-12" onclick="javascript:logout()">로그아웃</button>
+				<button type="button" class="btn btn-primary col-12" onclick="javascript:dataget()">데이터 받아오기</button>
+				<form id="getdata" method="post" action="<c:url value='/notification.do'/>">
+					<input type="hidden" value="<sec:authentication property="principal.username"/>" name="id"/>
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+				</form>
+				<form id="logoutForm" method="post" action="<c:url value='/logout.do'/>">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+				</form>
 			</div>
 		</div>
 	</div>
 </div>
-
+</sec:authorize>
 <script>
+	function logout(){
+		$('#logoutForm').submit();
+	}
 	//구글 로그인 후, 호출되는 함수
 	function onSignIn(googleUser) {
 		var profile = googleUser.getBasicProfile();
@@ -257,7 +307,9 @@
 		console.log('Image URL: ' + profile.getImageUrl());
 		console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 	}
-	
+</script>
+
+<script>
 	//네이버 로그인 자바스크립트 코드
 	var naverLogin = new naver.LoginWithNaverId(
 			{
@@ -291,4 +343,3 @@
 	
 	
 </script>
-

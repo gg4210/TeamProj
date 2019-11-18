@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CustomerServiceController {
 	
-	@RequestMapping("/customerServiceMain.do")
+	@RequestMapping("/member/customerServiceMain.do")
 	public String mainPage() {
 		return "customerService/customerServiceMain.tiles";
 	}

@@ -1,9 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script> 
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script> 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
 
@@ -56,7 +53,7 @@
 			      		<div class="col">
 				      		<div class="card">
 				    			<div class="card-body mr-3">
-				    				<h3 class="card-title font-weight-bold mt-2"><a href="<c:url value='/bbsView.do?nowPage=&no='/>">마음이 안정되는</a></h3>
+				    				<h3 class="card-title font-weight-bold mt-2"><a href="<c:url value='/member/bbsView.do?nowPage=&no='/>">마음이 안정되는</a></h3>
 				    				<hr>
 				    				<p class="mb-0"><span class="badge badge-primary">글쓴이</span>&nbsp김길동</p>
 				    			</div>
@@ -104,7 +101,7 @@
 			      		<div class="col">
 				      		<div class="card">
 				    			<div class="card-body mr-3">
-				    				<h3 class="card-title font-weight-bold mt-2"><a href="<c:url value='/bbsView.do?nowPage=&no='/>">런닝중</a></h3>
+				    				<h3 class="card-title font-weight-bold mt-2"><a href="<c:url value='/member/bbsView.do?nowPage=&no='/>">런닝중</a></h3>
 				    				<hr>
 				    				<p class="mb-0"><span class="badge badge-primary">글쓴이</span>&nbsp조길동</p>
 				    			</div>

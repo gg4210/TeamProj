@@ -5,6 +5,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.json.simple.JSONObject;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.kosmo.workout.service.MemberService;
+import com.kosmo.workout.service.NotificationService;
 
 @SessionAttributes("id")
 @Controller
@@ -23,19 +26,21 @@ public class AuthController {
 	@Resource(name="MemberService")
 	private MemberService MemberService;
 	
-	@RequestMapping("/templogin.do")
-	public String tempmylogin(@RequestParam Map map, Model model) {
+	@Resource(name="NotificationService")
+	private NotificationService NotificationService;
+	
+	@RequestMapping("/loginprocess.do")
+	public void tempmylogin(@RequestParam Map map, Model model) {
 		System.out.println(map);
-		boolean isLogin=MemberService.login(map);	
-		if(isLogin==true) {
-			model.addAllAttributes(map);
-			System.out.println(map);
-		}
-		else {
-			model.addAttribute("NotMember", "아이디와 비번인 일치하지 않아요");
-			System.out.println("아이디와 비번인 일치하지 않아요");
-		}
-		System.out.println("model:"+model);
+	}
+	
+	@RequestMapping("/notification.do")
+	public String data(@RequestParam Map map, Authentication auth) {
+		UserDetails userDetails=(UserDetails)auth.getPrincipal();
+		map.put("id",userDetails.getUsername());
+		System.out.println(map);
+		int count=NotificationService.countList(map);
+		System.out.println(count);
 		return "index.tiles";
 	}
 	
@@ -54,15 +59,16 @@ public class AuthController {
 	public String joincomplete(@RequestParam Map map,Model model){
 		System.out.println(map);
 		MemberService.insertJoin(map);
+		MemberService.authjoin(map);
 		return "index.tiles";
 	}
-	
+	/*
 	@RequestMapping("/logout.do")
 	public String logout(SessionStatus status) {
 		//로그 아웃처리-세션영역에 속성 삭제]
 		status.setComplete();
 		//뷰(JSP)정보 반환]-메인으로 이동
-		return "forward:/";
+		return "index.tiles";
 	}
-	
+	*/
 }

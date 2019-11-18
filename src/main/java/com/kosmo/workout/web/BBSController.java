@@ -14,7 +14,7 @@ public class BBSController {
 		return "bbs/list.tiles";
 	}
 	
-	@RequestMapping("/bbsView.do")
+	@RequestMapping("/member/bbsView.do")
 	public String bbsView() {
 		
 		
