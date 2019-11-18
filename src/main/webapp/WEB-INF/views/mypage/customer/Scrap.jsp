@@ -83,6 +83,7 @@ nav > ul a {
 						<th scope="col" class="text-center" style="width:10%">글번호</th>
 						<th scope="col" class="text-center">#</th>
 						<th scope="col" class="text-center" style="width:50%">제목</th>
+						<th scope="col" class="text-center">작성자</th>
 						<th scope="col" class="text-center">스크랩 일자</th>
 					</tr>
 				</thead>
@@ -97,6 +98,7 @@ nav > ul a {
 						<td class="text-center">10</td>
 						<td class="text-center">자유게시판</td>
 						<td>오늘의 일상10</td>
+						<td class="text-center">길동띠</td>
 						<td class="text-center">2019-10-05</td>
 					</tr>				
 				</tbody>			
