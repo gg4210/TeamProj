@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!-- 구글 로그인에 필요한 소스 시작 -->
 <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -361,7 +361,7 @@ function dataget(){
 	    Kakao.Auth.createLoginButton({
 	      container: '#kakao-login-btn',
 	      success: function(authObj) {
-	        alert(JSON.stringify(authObj));
+	    	  alert(JSON.stringify(res)); //<---- kakao.api.request 에서 불러온 결과값 json형태로 출력
 	      },
 	      fail: function(err) {
 	         alert(JSON.stringify(err));
