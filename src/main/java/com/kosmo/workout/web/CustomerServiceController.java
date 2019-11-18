@@ -21,10 +21,6 @@ import com.kosmo.workout.service.CSService;
 @Controller
 public class CustomerServiceController {
 	
-<<<<<<< HEAD
-	@RequestMapping("/member/customerServiceMain.do")
-	public String mainPage() {
-=======
 	//서비스 주입]
 	@Resource(name = "CSService")
 	private CSService CSService;
@@ -130,7 +126,7 @@ public class CustomerServiceController {
 	
 	/////////////////////////////////////////////////////////////////
 	
-	@RequestMapping("/customerServiceMain.do")
+	@RequestMapping("/member/customerServiceMain.do")
 	public String mainPage(@RequestParam Map map,Model model) {
 		//서비스 호출]
 		//페이징을 위한 로직 시작]
@@ -148,7 +144,6 @@ public class CustomerServiceController {
 		System.out.println(list);
 		System.out.println(model);
 		//뷰 정보 반환]
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 		return "customerService/customerServiceMain.tiles";
 	}
 	
