@@ -254,13 +254,8 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
 	   content+='<input type="hidden" name="jibunAddr" value="'+address+'">';
    }
    		content+='<input type="hidden" name="tel" value="'+phone+'">'+
-<<<<<<< HEAD
-   '      		<a class="h6 float-left text-white" href="java	script:info_form.submit()" id="title">'+title+'</a>'+
-   '			<input type="" name="" value=""/>'+
-=======
    '      		<a class="h6 float-left text-white" href="javascript:info_form.submit()" id="title">'+title+'</a>'+
    '			<input type="hidden" name="'+header+'" value="'+token+'"/>'+
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
    '		</form>'+   
    '		<div class="float-right">'+
    '			<button type="button" class="close text-white" aria-label="Close">'+
