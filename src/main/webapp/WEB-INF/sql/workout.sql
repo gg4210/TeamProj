@@ -222,11 +222,7 @@ CREATE TABLE H_MEMBER
 	picture nvarchar2(100),
 	joindate date DEFAULT SYSDATE NOT NULL,
 	NICK_NAME nvarchar2(20) NOT NULL,
-<<<<<<< HEAD
 	CENTER_NAME NVARCHAR2(50),
-=======
-	CENTER_NAME nvarchar2(50),
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	PRIMARY KEY (ID)
 );
 
