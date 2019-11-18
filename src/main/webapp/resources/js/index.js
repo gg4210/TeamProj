@@ -24,7 +24,13 @@ $(function() {
 				if($(this).attr("id")==='login'){
 					$("#loginMenu").fadeToggle("3000");
 				}
-				else{
+				else if($(this).attr("id")==='user'){
+					$("#CustomerLoMenu").fadeToggle("3000");
+				}
+				else if($(this).attr("id")==='login'){
+					$("#CustomerLoMenu").fadeToggle("3000");
+				}
+				else if($(this).attr("id")==='login'){
 					$("#CustomerLoMenu").fadeToggle("3000");
 				}
 			default:break;
