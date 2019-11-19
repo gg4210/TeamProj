@@ -1,8 +1,11 @@
 package com.kosmo.workout.web;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,10 +35,16 @@ public class HealthMateController {
 	}
 
 	@RequestMapping("mateWriteOk.do")
-	public String mateWriteOk(@ModelAttribute("id") String id, @RequestParam Map map, Model model, @RequestParam("matePhoto") MultipartFile matePhoto) {
+	public String mateWriteOk(@ModelAttribute("id") String id, @RequestParam Map map, Model model, @RequestParam("matePhoto") MultipartFile matePhoto, HttpServletRequest req) throws IllegalStateException, IOException {
+		//1]서버의 물리적 경로 얻기
+		String path=req.getSession().getServletContext().getRealPath("/Upload");
+		//2]File객체 생성
+		File file=new File(path+File.separator+matePhoto.getOriginalFilename());
+		//3]업로드 처리
+		matePhoto.transferTo(file);
 		String originalFile=matePhoto.getOriginalFilename();
-		String originalFileExtension=originalFile.substring(originalFile.lastIndexOf("."));
-		
+		//String originalFileExtension=originalFile.substring(originalFile.lastIndexOf("."));
+		map.put("photo", originalFile);
 		
 		/*
 		map.put("id", id);
