@@ -1,16 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <!-- 왼쪽 사이드 고정된 sidebar -->
 <div class="sidebar z-depth-5">
 	<a href="<c:url value='/main.do'/>"><i class="fa fa-home"></i></a>
-	<a href="#"><i class="fas fa-search"></i></a> 		
-	<a href="#" id="member"><i class="fas fa-user"></i></a>
-	<a href="#" id="login" style="display:block"><i class="fas fa-user"></i></a>
-	<a href="<c:url value='/healthMateMain.do'/>"><i class="fas fa-user-friends"></i></a> 
+	<a href="#"><i class="fas fa-search"></i></a> 	
+	<sec:authorize access="hasRole('ROLE_USER')">
+		<a href="#" id="user"><i class="fas fa-user"></i></a>
+	</sec:authorize>
+	<sec:authorize access="hasRole('ROLE_CENTER')">
+		<a href="#" id="center"><i class="fas fa-user"></i></a>
+	</sec:authorize>
+	<sec:authorize access="hasRole('ROLE_ADMIN')">
+		<a href="#" id="admin"><i class="fas fa-user"></i></a>
+	</sec:authorize>
+	<sec:authorize access="isAnonymous()">
+		<a href="#" id="login" style="display:block"><i class="fas fa-user"></i></a>
+	</sec:authorize>
+	<a href="<c:url value='/member/healthMateMain.do'/>"><i class="fas fa-user-friends"></i></a> 
 	<a href="<c:url value='/bbsList.do'/>"><i class="fas fa-clipboard-list"></i></a> 
-	<a href="<c:url value='/customerServiceMain.do'/>"><i class="fas fa-info-circle"></i></a>
+	<a href="<c:url value='/member/customerServiceMain.do'/>"><i class="fas fa-info-circle"></i></a>
 </div>
 <!-- sidebar 영역 끝 -->
 

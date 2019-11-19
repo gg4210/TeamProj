@@ -15,71 +15,103 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import com.kosmo.workout.service.search.SearchBBSDTO;
+
 
 public class CommonUtility {
 
 	
-	public static JSONObject mapkeyCrawling(String mapkey, HttpServletRequest req) throws IOException {
+	public static SearchBBSDTO mapkeyCrawling(String mapkey, String tel, HttpServletRequest req) throws IOException {		
+	
+		SearchBBSDTO mapinfo=new SearchBBSDTO();
 		
-		JSONObject mapinfo = new JSONObject();
-		
-		
-		//¸ÊÅ°·Î »óÈ£¸í ±¸ÇÔ
 		String base_url="https://place.map.kakao.com/"+mapkey;
 		Document doc=Jsoup.connect(base_url).get();
 		Elements result=doc.select("head > meta:nth-child(4)");
-		String title=result.get(0).attr("content");
-		//¸ÊÅ°·Î »óÈ£¸í ±¸ÇÔ ³¡
-		
-		//³×ÀÌ¹ö·Î °Ë»ö
+		String title=result.get(0).attr("content");		
+						
 		base_url="https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query="+title;
 		doc=Jsoup.connect(base_url).get();
-		result=doc.select("#sp_local_1 > div.tit_area > a");
-		String href=result.get(0).attr("href");
-		//³×ÀÌ¹ö °Ë»ö ³¡
+		result=doc.select("#lcs_greenmap > div.local_map > div.detail");
 		
 		
-		//°Ë»öÀ¸·Î ³ª¿À´Â ÁÖ¼Ò·Î ¼¿·¹´Ï¿ò À¥Å©·Ñ¸µ ½ÃÀÛ
-		String path=req.getSession().getServletContext().getRealPath("/");
-		String webDriverPath=path+"resources"+File.separator+"webdriver"+File.separator+"chromedriver.exe";
-		//µå¶óÀÌ¹ö ¼Â¾÷
-        ChromeOptions options = new ChromeOptions();
-        options.setCapability("ignoreProtectedModeSettings", true);
-        options.setHeadless(true);
-		System.setProperty("webdriver.chrome.driver", webDriverPath);
-        WebDriver driver= new ChromeDriver(options);	
-		//µå¶óÀÌ¹ö ¼Â¾÷ ³¡
+		if(result.isEmpty() || tel=="" ) { //ê²€ìƒ‰ê²°ê³¼ í˜¹ì€ ì „í™”ë²ˆí˜¸ê°€ ì—†ëŠ” ê²½ìš°
+			return mapinfo;			
+		}
 		
-		//À¥Å©·Ñ¸µ ½ÃÀÛ
+		else { //ê°ì²´ í•˜ë‚˜ í˜¹ì€ ë¦¬ìŠ¤íŠ¸ë¡œ ë½‘íˆëŠ” ê²½ìš°
+			
+			result=doc.select("#lcs_greenmap > div.local_map > div.detail > ul");//ë¦¬ìŠ¤íŠ¸ì¼ ê²½ìš°
+			
+			if(result.isEmpty()) {//ê°ì²´ í•˜ë‚˜
+				
+				//System.out.println("ê°ì²´ê°€ í•œê°œì¼ ë•Œ");
+				String href=doc.select("#sp_local_1 > div.tit_area > a").get(0).attr("href");
+				mapinfo=seleniumCrawling(href,req);
+				return mapinfo;
+				
+			}
+			else {//ë¦¬ìŠ¤íŠ¸
+				
+				//System.out.println("ê°ì²´ê°€ ì—¬ëŸ¬ê°œì¼ ë•Œ");
+				for(int i=1; i<9;i++) {// 1 ~ 7ê¹Œì§€ì˜  ê°’ì„ ì–»ì–´ëƒ„. ì´ ì•ˆì— ê°’ì´ ì¡´ì¬í•˜ì§€ ì•ŠëŠ”ë‹¤ë©´ ê·¸ëƒ¥ ì—†ëŠ” ì •ë³´ë¼ê³  ìƒê°í•  ì˜ˆì •
+					if(doc.select("#sp_local_"+i+" > dl > dd:nth-child(3) > span.tell").html()==tel) {
+						String href=doc.select("#sp_local_"+i+" > dl > dd.txt_inline > a").get(0).attr("href");
+						System.out.println(href);
+						mapinfo=seleniumCrawling(href, req);
+						
+					}
+				}
+				return mapinfo;
+			}			
+		}
+	}
+	
+	
+	public static SearchBBSDTO seleniumCrawling(String href, HttpServletRequest req) {
+		
+		SearchBBSDTO mapinfo=new SearchBBSDTO();
+		
+		//ì…€ë ˆë‹ˆì›€ ë“œë¼ì´ë²„ path ì•Œì•„ë‚´ì„œ ë“œë¼ì´ë²„ì— ì…‹íŒ…í•˜ê¸°
+		WebDriver driver=getWebDriver(req);
+		//ì…€ë ˆë‹ˆì›€ ë“œë¼ì´ë²„ path ì•Œì•„ë‚´ì„œ ë“œë¼ì´ë²„ì— ì…‹íŒ…í•˜ê¸° ë
+        
+		//ë“œë¼ì´ë²„ë¡œ ë„¤ì´ë²„ ì§€ë„ ë·°í˜ì´ì§€ href ì—´ê²Œ í•¨
 		driver.get(href);
 		
-		mapinfo.put("addr", driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[2]/dl/dd[1]/a")).getText());
-		mapinfo.put("jibunAddr", driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[2]/dl/dd[1]/p/a")).getText());
-		mapinfo.put("tel", driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[2]/dl/dd[2]")).getText());
-		mapinfo.put("service", driver.findElement(By.xpath("//*[@id=\"_baseInfo\"]/div[1]/dl/dd[2]")).getText());
-		mapinfo.put("content", driver.findElement(By.xpath("//*[@id=\"_baseInfo\"]/div[2]/p")).getText());
-		mapinfo.put("otime", driver.findElement(By.xpath("//*[@id=\"_baseInfo\"]/div[1]/dl/dd[1]/ul")).getText());
-
-		//ÀÌ¹ÌÁö URL ¸®½ºÆ® »Ì¾Æ³»±â ½ÃÀÛ
+		mapinfo.setService(driver.findElement(By.xpath("//*[@id=\"_baseInfo\"]/div[1]/dl/dd[2]")).getText());//ì„œë¹„ìŠ¤
+		mapinfo.setContent(driver.findElement(By.xpath("//*[@id=\"_baseInfo\"]/div[2]/p")).getText());//ìƒì„¸ë‚´ìš©
+		mapinfo.setOtime(driver.findElement(By.xpath("//*[@id=\"_baseInfo\"]/div[1]/dl/dd[1]/ul")).getText());//ìš´ì˜ì‹œê°„
+		//ê¸ì–´ì˜´
+		
+		//ì´ë¯¸ì§€ url ë¦¬ìŠ¤íŠ¸ ë½‘ì•„ë‚´ê¸°
 		java.util.List<WebElement> img_lis=driver.findElements(By.xpath("//*[@id=\"_imageViewer\"]/div[2]/div/ul/li"));
 		String[] img_urls = new String[img_lis.size()];
 		int i=0;
 		for(WebElement img_li:img_lis) {
-			img_urls[i]=img_li.findElement(By.tagName("a")).findElement(By.tagName("img")).getAttribute("data-origin");//<li>ÅÂ±× ¾È¿¡ <a>ÅÂ±×, <a>ÅÂ±× ¾È¿¡ <img>ÅÂ±×°¡ Á¸Àç. img ÅÂ±× ³» src Á¤º¸¸¦ ¾ò¾î³½´Ù.	
+			img_urls[i]=img_li.findElement(By.tagName("a")).findElement(By.tagName("img")).getAttribute("data-origin");//<li>ï¿½Â±ï¿½ ï¿½È¿ï¿½ <a>ï¿½Â±ï¿½, <a>ï¿½Â±ï¿½ ï¿½È¿ï¿½ <img>ï¿½Â±×°ï¿½ ï¿½ï¿½ï¿½ï¿½. img ï¿½Â±ï¿½ ï¿½ï¿½ src ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½î³½ï¿½ï¿½.	
 			i++;
 		}
-		driver.close();
+		//ì´ë¯¸ì§€ url ë¦¬ìŠ¤íŠ¸ ë½‘ì•„ë‚´ê¸° ë
 
-		mapinfo.put("img_urls", img_urls);
+		mapinfo.setImg_urls(img_urls);
 		
-		//ÀÌ¹ÌÁö URL »Ì¾Æ³»±â ³¡
+		driver.close();//driver ë‹«ê¸°
 		
-		//À¥Å©·Ñ¸µ ³¡
-		
-        
-
 		return mapinfo;
+		
 	}
 	
+	public static WebDriver getWebDriver(HttpServletRequest req) {
+		String path=req.getSession().getServletContext().getRealPath("/");
+		String webDriverPath=path+"resources"+File.separator+"webdriver"+File.separator+"chromedriver.exe";
+        ChromeOptions options = new ChromeOptions();
+        options.setCapability("ignoreProtectedModeSettings", true);
+        options.setHeadless(true);
+		System.setProperty("webdriver.chrome.driver", webDriverPath);
+        WebDriver driver= new ChromeDriver(options);
+		return driver;
+	}
 	
+	 
 }

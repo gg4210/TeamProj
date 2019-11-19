@@ -1,6 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<sec:authentication property="principal.username" var="id"/>
+
+<script src="<c:url value='/resources/MDB-Free_4.8.10/js/addons/rating.js'/>"></script>
 
 <style>
 
@@ -82,6 +88,78 @@ background-color: #4285F4; }
 
 </style>
 
+<script>
+
+	$(document).ready(function() {
+		
+		$('#rateMe1').mdbRate();
+		
+		var index=$('#rateMe1').find('i.amber-text').length;
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");
+		
+		$('#comment_submit').click(function(){
+		
+			$.ajax({
+				url:"<c:url value='/searchView/commentwrite.do'/>",
+				type:"post",
+				beforeSend:function(xhr){
+					xhr.setRequestHeader(header, token);
+				},
+				dataType:text,
+				data:{
+					rate:index,
+					
+				},
+				success:function(data){
+					showComment();
+				},
+				error:function(data){
+					console.log(data);
+				},
+			});
+			
+		}
+		
+	}); 
+	
+	
+	var showComment=function(){
+		url:"<c:url value='/searchView/commentlist.do'/>",
+		data:{mapkey:${viewinfo.mapkey}},
+		dataType:'json',
+		type:'post',
+		success:displayComments
+	}
+	
+	var displayComments=function(data){
+		var comment='<div class="row pb-4">';
+		if(data.length==0){
+			comment+='<div class="col text-center">등록된 한줄 댓글이 존재하지 않습니다.</div>';
+		}
+		else{
+			comment+='<div class="col-2">';
+			comment+='<img src="<c:url value='+element['PICTURE']+'/>" alt="Avatar" class="avatar img-fluid">';
+			comment+='</div>';
+			comment+='<div class="col">';
+			comment+='<span class="mt-0 font-weight-bold blue-text h5">닉네임</span>';
+			comment+='<span id="rateMe">'setRating(element['RATE']);
+			comment+='</span>'+element['NICK_NAME'];
+			comment+='<p>'+element['RCOMMENT']+'</p>';
+			comment+='<p>'+element['RPOSTDATE']+'</p>';
+			comment+='</div>';
+			comment+='</div>';
+		}
+	}
+	
+	
+	//<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>'+
+
+	
+</script>
+
+
+
 
 <div class="container-fluid">
 	<div class="row">
@@ -106,26 +184,42 @@ background-color: #4285F4; }
 						<div class="col-md-6 pb-3">
 							<div class="card">
 								<div class="card-header pt-4 font-weight-bold">
-									<p class="font-weight-bold h3">도레미스포츠센터</p>
+									<p class="font-weight-bold h3">${viewinfo.title }</p>
 								</div>							
 								<div class="card-body">
-									<p><span class="badge badge-primary">주소</span> : 경기도 부천시 원미구 역곡동 -------</p>
+									<p><span class="badge badge-primary">주소</span> : ${viewinfo.addr }</p>
+									<p><span class="badge badge-primary">지번</span> : ${viewinfo.jibunAddr }</p>
 									<hr/>
-									<p><span class="badge badge-primary">전화번호</span> : 000-0000-0000</p>
-									<hr/>									
-									<p>붐비는 정도가 들어갈 공간</p>
+									<p><span class="badge badge-primary">전화번호</span> : ${viewinfo.tel }</p>
+									<hr/>
+									   <p>혼잡도</p>
+									   <div class="row">
+									   
+										   <div class="col-10 align-middle">
+											   <div class="progress blue">
+													<div class="progress-bar" style="width:70%; background:#fe3b3b;">
+														<div class="progress-value">70%</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-2 px-0">
+												51명
+											</div>
+											
+										</div>
+										
 									<hr/>									
 									<p><span style="font-weight: bold; color:blue;">TODAY</span> : 현재 운영중!</p>
 									<hr/>									
 									<p><span class="badge badge-primary">종목</span> <i class="fas fa-swimming-pool"></i> 수영 &nbsp&nbsp<i class="fas fa-dumbbell"></i> 헬스</p>
 									<hr/>
 									<p>평균별점 : <span id="rateMe">
-												<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-												<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-												<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
+												<i class="fas fa-star py-2 px-1 rate-popover" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
+												<i class="fas fa-star py-2 px-1 rate-popover" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
+												<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
 												<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
 												<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-									</span>(3.0)</p>
+									</span>(0.0)</p>
 								</div>								
 							</div>
 						</div>
@@ -137,66 +231,35 @@ background-color: #4285F4; }
 								<div class="card-header pt-4"><p class="font-weight-bold h3">시설안내</p></div>
 								<div class="card-body">
 
-									<p class="h4"><span class="badge badge-primary"><i class="fas fa-clock"></i>&nbsp;운영시간</span></p>
-									<p>-평일:    08:00~22:00</p>
-									<p>-주말/공휴일: 09:00~23:00</p>
-									<p style="color: red;">※매주 2,4번째주 수요일은 휴관합니다.</p>
+									<p class="h4"><span class="badge badge-primary"><i class="fas fa-clock"></i>&nbsp;운영시간</span></p>	
+									<c:if test="${empty viewinfo.otime }" var="otime">
+										기업회원이 정보를 제공하지 않았습니다.
+									</c:if>
+									<c:if test="${not otime }">
+										${viewinfo.otime }
+									</c:if>
 									<p class="h4"><span class="badge badge-primary">제공 서비스</span></p>
-									<div class="row">
-										<div class="col-2">
-											<img src="<c:url value='/resources/images/icon/clothes.png'/>" class="img-fluid"/>
-											<br/>
-											<p class="text-center mt-2">운동복</p>
-										</div>
-										<div class="col-2">
-											<img src="<c:url value='/resources/images/icon/park.png'/>" class="img-fluid"/>
-											<br/>
-											<p class="text-center mt-2">주차</p>
-										</div>
-										<div class="col-2">
-											<img src="<c:url value='/resources/images/icon/locker.png'/>" class="img-fluid"/>
-											<br/>
-											<p class="text-center mt-2">라커</p>
-										</div>
-										<div class="col-2">
-											<img src="<c:url value='/resources/images/icon/wifi.png'/>" class="img-fluid"/>
-											<br/>
-											<p class="text-center mt-2">와이파이</p>
-										</div>
-										<div class="col-2">
-											<img src="<c:url value='/resources/images/icon/shower.png'/>" class="img-fluid"/>
-											<br/>
-											<p class="text-center mt-2">샤워실</p>
-										</div>
-									</div>																	
+									<c:if test="${empty viewinfo.service }" var="service">
+										<p>기업회원이 정보를 제공하지 않았습니다.</p>
+									</c:if>
+									<c:if test="${not service }">
+										<p>${viewinfo.service }</p>
+									</c:if>
 									<p class="h4"><span class="badge badge-primary">사진</span></p>
 										<div class="scrolling-wrapper scrollbar scrollbar-primary">
-											<div class="card-container p-3">
-												<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
-												<div class="card-img-middle">
-													<div class="text px-3" id="tex	t-modal">추가하기</div>
-												</div>
-											</div>
-											<div class="card-container p-3">
-												<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
-												<div class="card-img-middle">
-													<div class="text px-3" id="text-modal">추가하기</div>
-												</div>
-											</div>
-											<div class="card-container p-3">
-												<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
-												<div class="card-img-middle">
-													<div class="text px-3" id="text-modal">추가하기</div>
-												</div>
-											</div>
-											<div class="card-container p-3">
-												<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
-												<div class="card-img-middle">
-													<div class="text px-3" id="text-modal">추가하기</div>
-												</div>
-											</div>
-									</div>
-									
+											<c:if test="${empty viewinfo.img_urls }" var="img_urls">
+												<div class="card-container p-3">
+													<img class="card-img-top" src="" alt="기업회원이 이미지를 등록하지 않았습니다." style="width: 100%">
+												</div>											
+											</c:if>
+											<c:if test="${not img_urls }">												
+												<c:forEach items="${viewinfo.img_urls }" var="img_url" varStatus="loop">
+													<div class="card-container p-3">
+														<img class="card-img-top" src="${img_url }" alt="" style="width: 100%">
+													</div>
+												</c:forEach>
+											</c:if>										
+										</div>
 								</div>
 							</div>
 						</div>		
@@ -251,12 +314,12 @@ background-color: #4285F4; }
 								</div>
 								<div class="card-body">
 								
-									<!--Text-->
-									<p>Sed ut perspiciatis unde omnis
-										iste natus error sit voluptatem accusantium doloremque laudantium,
-										totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et
-										quasi architecto beatae vitae dicta sunt explicabo. Nemo enim
-										ipsam voluptatem quia voluptas.</p>
+									<c:if test="${empty viewinfo.content }" var="content">
+										<p>기업회원이 정보를 제공하지 않았습니다.</p>
+									</c:if>
+									<c:if test="${not content }">
+										<p>${viewinfo.content }</p>									
+									</c:if>
 										
 								</div>
 							</div>
@@ -273,19 +336,15 @@ background-color: #4285F4; }
 									<div class="row align-items-center h-100">
 										<div class="col">
 										
-											<div class="form" action="#">
-												<span id="rateMe">
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-												</span>
+											<form id="comment_form">
+											
+												<span id="rateMe1"></span>
 												<div class="form-group shadow-textarea m-0 mt-2">
 													<textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="후기를 등록하세요!"></textarea>
-												</div>
-												<button type="submit" class="btn btn-indigo">등록하기</button>
-											</div>
+												</div>												
+												<button type="submit" class="btn btn-indigo" id="comment_submit">등록하기</button>
+												
+											</form>
 											
 										</div>
 									</div>
@@ -351,6 +410,5 @@ background-color: #4285F4; }
 	<!-- row -->
 </div>
 <!-- container-fluid -->
-
 
 

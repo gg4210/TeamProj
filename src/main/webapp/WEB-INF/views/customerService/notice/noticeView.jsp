@@ -1,43 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<div class="container">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<script>
+//현재 글 번호에 대한 코멘트 목록을 가져오는 함수 - Ajax로 처리
+var showComment = function(){
+	$.ajax({
+		url:"<c:url value='/MemoComment/BBS/Write.bbs'/>",
+	});
+};/////////////////////////////////////////////////////url주소 바꿔야 함.
+
+</script>    
+
+<!-- 실제 내용 시작 -->
+<div class="container">
 	<div class="row pt-5">
 		<div class="col">
 			<h1><strong>공지사항 </strong><small><small> 상세보기 페이지</small></small></h1>
 		</div>	
 	</div>
 	<hr />
-
+	
 	<div class="row pt-2">
 		<div class="col">
 			<table class="table table-bordered">
 				<tbody>
 					<tr>
 						<th class="blue-text" style="width:20%;text-align: center;font-weight: bold">카테고리</th>
-						<td colspan="3">카테고리 선택 내용입니다.</td>
+						<td colspan="3">${record.category}</td>
 					</tr>
 					<tr>
 						<th class="blue-text" style="text-align: center;font-weight: bold">제목</th>
-						<td style="width:40%">제목입니다.</td>
+						<td style="width:40%">${record.title}</td>
 						<th class="blue-text" style="width:20%;text-align: center;font-weight: bold">작성일</th>
-						<td style="width:20%;text-align: center">2019-10-23</td>
+						<td style="width:20%;text-align: center">${record.postDate}</td>
 					</tr>
 					<tr>
 						<th class="blue-text" style="text-align: center;font-weight: bold">내용</th>
-						<td colspan="3">내용입니다<br/>
-										내용의 길이에 따라 영역의 크기가 변합니다.<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-						</td>
+						<td colspan="3">${record.content}</td>
 					</tr>
 				</tbody>
 			</table>
@@ -79,7 +79,7 @@
 	
 	<div class="row d-flex justify-content-center mt-3 mb-3">		
 		<button type="button" class="btn btn-info" id="notice_edit">수정</button>
-		<button type="button" class="btn btn-primary" id="notice_confirm">확인</button>
+		<button type="button" class="btn btn-primary" id="notice_confirm">목록</button>
 		<button type="button" class="btn btn-info" id="notice_delete">삭제</button>
 	</div>
 	<br/>
@@ -87,12 +87,12 @@
 	
 	<!-- 삭제 모달 시작 -->
 	<div class="modal fade" id="delete-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-			<div class="modal-dialog modal-notify modal-primary modal-dialog-centered" role="document">
+			<div class="modal-sm modal-dialog modal-notify modal-primary modal-dialog-centered" role="document">
 				<!--Content-->
 				<div class="modal-content">
 					<!--Header-->
 					<div class="modal-header">
-						<p class="heading">삭제 확인</p>
+						<p class="heading py-0">삭제 확인</p>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true" class="white-text">&times;</span>
 						</button>
@@ -100,11 +100,11 @@
 					<!--Body-->
 					<div class="modal-body">
 						<div class="row d-flex justify-content-center my-3">
-							<h4>정말로 삭제하시겠습니까?</h4>
+							<h5>정말로 삭제하시겠습니까?</h5>
 						</div>
 						<div class="row d-flex justify-content-center">	
-							<button type="button" class="btn btn-primary btn-md">삭제</button>
-							<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
+							<button type="button" class="btn btn-primary">삭제</button>
+							<button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
 							
 						</div>
 					</div>
@@ -126,7 +126,7 @@ $(function(){
 	
 
 	$('#notice_confirm').click(function(){
-		location.href="noticeList.do";
+		$('#pills-noticeNevent').tab('show');
 	});
 	
 	$('#notice_delete').click(function(){

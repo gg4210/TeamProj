@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
+<!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
+
+<mapper namespace="mybatis.Member">
+	<select id="Isdata" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM H_MEMBER WHERE ID=#{id}
+	</select>
+	<insert id="MemberJoin" parameterType="java.util.Map">
+		INSERT INTO H_MEMBER(ID,PASSWORD,NAME,EMAIL,ADDRESS,CELLPHONE,
+		AUTHORITY,MY_COMMENT,INTER_SPORTS,PICTURE,JOINDATE,NICK_NAME,DETAIL_ADDRESS)
+  		VALUES(#{id},#{password},#{name},#{email},#{address},#{cellphone},
+  		#{authority},#{my_comment},#{inter_sports},#{picture},SYSDATE,#{nick},#{addressdetail})
+	</insert>
+	<insert id="AuthJoin" parameterType="java.util.Map">
+		INSERT INTO AUTH_SECURITY(SECNO,ID,AUTHORITY,ENABLED)
+		VALUES(SEQ_AUTH_SECURITY_SECNO.NEXTVAL,#{id},#{authority},#{enabled})
+	</insert>
+</mapper>

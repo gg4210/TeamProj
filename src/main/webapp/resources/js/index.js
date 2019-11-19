@@ -1,8 +1,7 @@
 
 $(function() {
 	
-	
-					//사이드바 관련 자바 스크립트.
+	//사이드바 관련 자바 스크립트.
 	var sidebarIndex = $('a').click(function() {
 		switch(sidebarIndex.index(this)){
 		
@@ -22,13 +21,18 @@ $(function() {
 				break;
 				
 			case 2://마이페이지 클릭
-				$("#CustomerLoMenu").hide();
-				$("#loginMenu").fadeToggle("3000");
-				break;
-			case 3:
-				$("#loginMenu").hide();
-				$("#CustomerLoMenu").fadeToggle("3000");
-				break;
+				if($(this).attr("id")==='login'){
+					$("#loginMenu").fadeToggle("3000");
+				}
+				else if($(this).attr("id")==='user'){
+					$("#CustomerLoMenu").fadeToggle("3000");
+				}
+				else if($(this).attr("id")==='center'){
+					$("#CenterLoMenu").fadeToggle("3000");
+				}
+				else if($(this).attr("id")==='admin'){
+					$("#AdminLoMenu").fadeToggle("3000");
+				}
 			default:break;
 		}
 	
@@ -40,6 +44,13 @@ $(function() {
 	
 	$("#closeCulogin").click(function(){
 		$("#CustomerLoMenu").fadeOut("3000");
+	});
+	$("#closeCelogin").click(function(){
+		$("#CenterLoMenu").fadeOut("3000");
+	});
+	
+	$("#closeAdlogin").click(function(){
+		$("#AdminLoMenu").fadeOut("3000");
 	});
 
 	var myFullpage = new fullpage('#fullpage', {
@@ -71,6 +82,16 @@ $(function() {
 			setMargin(width);
 		});
 	//메인페이지의 카드 높이 조절용 끝//
+		
+	//알림 권한 허용
+	window.addEventListener('load', function () {
+		Notification.requestPermission(function (status) {
+			// This allows to use Notification.permission with Chrome/Safari
+			if (Notification.permission !== status) {
+				Notification.permission = status;
+			}
+		});
+	});
 	
 });
 //마진속성 주는 function//

@@ -3,6 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
+
 <!-- 모든 곳에 쓰이는 스타일시트와 자바스크립트 불러오기. -->
 <tiles:importAttribute name="stylesheets"/>
 <tiles:importAttribute name="javascripts"/>
@@ -12,10 +13,13 @@
 <!doctype html>
 <html lang="ko">
 <head>
+
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="_csrf" content="${_csrf.token}"/>
+<meta name="_csrf_header" content="${_csrf.parameterName}"/>
 <title><tiles:getAsString name="title"/></title>	
 
 	<!-- CSS -->
@@ -30,16 +34,15 @@
         <script src="<c:url value="${script}"/>"></script>
     </c:forEach>
     <!-- end scripts -->
+<script>
 
-<style>
-body{
-	height:auto;
-	width:100%;
-	background-image: url("/resources/images/cobackground.png");
-	background-size:cover;
+if(${param.required !=null}==true){
+	$(window).on('load',function(){
+	    $('#required-modal').modal('show');
+	});
 }
-</style>
-    
+	
+</script>
 </head>
 <body>
 

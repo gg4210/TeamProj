@@ -3,7 +3,7 @@
 .null2{}
 #loginMenu {
   	height: 100%;
-  	width: 300px;
+  	width: 450px;
   	position: fixed;
 	z-index: 4;
    	top: 0;
@@ -38,6 +38,50 @@
 }
 
 #CustomerLoMenu #closeCulogin {
+   position: absolute;
+   top: 0;
+   right: 25px;
+   font-size: 36px;
+   margin-left: 50px;
+}
+
+#CenterLoMenu {
+  	height: 100%;
+  	width: 300px;
+  	position: fixed;
+	z-index: 4;
+   	top: 0;
+   	left: 0;
+   	overflow-x: hidden;
+   	transition: 0.5s;
+   	padding-top: 60px;
+   	margin-left:50px;
+   	display: none;
+}
+
+#CenterLoMenu #closeCelogin {
+   position: absolute;
+   top: 0;
+   right: 25px;
+   font-size: 36px;
+   margin-left: 50px;
+}
+
+#AdminLoMenu {
+  	height: 100%;
+  	width: 300px;
+  	position: fixed;
+	z-index: 4;
+   	top: 0;
+   	left: 0;
+   	overflow-x: hidden;
+   	transition: 0.5s;
+   	padding-top: 60px;
+   	margin-left:50px;
+   	display: none;
+}
+
+#AdminLoMenu #closeAdlogin {
    position: absolute;
    top: 0;
    right: 25px;

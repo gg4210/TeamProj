@@ -48,7 +48,7 @@
 					<tr>
 						<td class="text-center">1</td>
 						<td class="text-center">[이벤트]</td>
-						<td><a href="<c:url value='/customerService/event/eventView.do'/>">운동해!偕 서비스가 오픈하였습니다.</a></td>
+						<td><a href="<c:url value='/customerService/event/eventView.do'/>">첫 이벤트.</a></td>
 						<td class="text-center">2019-10-21</td>
 					</tr>
 				</tbody>
@@ -56,6 +56,15 @@
 		</div>  <!-- col-md-12 -->
 	</div>
 	
+	<div class="row">
+		<div class="clearfix col">
+			<div class="float-right">
+				<div class="form-inline">
+					<button type="button" class="btn btn-info p-2 px-4" id="event_write">이벤트 작성</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- 페이지네이션 시작 -->
 	<div class="row">
@@ -78,3 +87,11 @@
 	</div>  <!-- 페이지네이션 끝 -->
 </div>
 
+<script>
+	$(function(){
+		
+		$('#event_write').click(function(){
+			location.href="customerService/event/eventWrite.do";
+		});
+	});
+</script>

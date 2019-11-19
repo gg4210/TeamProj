@@ -1,6 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+
+ <script>   
+$(function () {
+	////다른페이지에 있다가 눌렀을 때
+	var durl = window.location.hash;////console.log(durl); = #id
+	//var dactiveTab = durl.substring(durl.indexOf("#") + 1);////id ////의미없는 코드인 듯.
+	console.log(durl);
+	if (durl !='') {
+		/* if(durl.lastIndexOf("#")!=0){//#id#id
+			console.log("두 개다!!");
+			var idArr = durl.split('#');//////////아래꺼, 스플릿!!
+			
+			$('#'+idArr[0]).tab('show');
+		} 
+		else */ $(durl).tab('show');
+	}
+	////같은 페이지에 있다가 눌렀을 때
+	$('#event_confirm').click(function(){
+		var link = $(this).attr('onclick');////
+		console.log('link:',link);//=>/workout/customer.do#pills-scrap-tab
+		var sactiveTab = link.substring(link.indexOf("#"));////내가 +1지움 ////console.log('sactiveTab:',sactiveTab);=>sactiveTab: #pills-scrap-tab	
+		$('#customerLinks a').removeClass("active");
+		$(this).addClass("active");
+		$(sactiveTab).tab('show');
+	});
+});
+</script>
+
 <div class="container">
 
 	<div class="row pt-5">
@@ -79,7 +107,7 @@
 	
 	<div class="row d-flex justify-content-center mt-3 mb-3">		
 		<button type="button" class="btn btn-info" id="event_edit">수정</button>
-		<button type="button" class="btn btn-primary" id="event_confirm"">확인</button>
+		<button type="button" class="btn btn-primary" id="event_confirm" onclick="<c:url value='/customerService/event/eventView.do'/>">목록</button>
 		<button type="button" class="btn btn-info" id="event_delete">삭제</button>
 	</div>
 	<br/>
@@ -124,7 +152,11 @@ $(function(){
 	});
 	
 	$('#event_confirm').click(function(){
-		location.href="eventList.do";
+		//location.href="/workout/customerServiceMain.do#pills-notice-tab";
+		location.href="/workout/customerService/event/eventView.do#pills-notice-tab#pills-event-tab";
+		
+		//location.href="/workout/eventList.do#pills-notice-tab";
+		
 	});
 	
 	$('#event_delete').click(function(){

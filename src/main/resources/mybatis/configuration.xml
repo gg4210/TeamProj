@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE configuration  
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+ <!-- myBatis 환경설정파일
+     1]데이타베이스 연결정보 설정
+     2]매퍼파일의 위치정보 설정
+ -->
+<configuration>
+	<!-- 자바빈 별칭:매퍼파일에서 환경설정 파일로 위치됨.--> 
+	
+	<typeAliases>
+		<typeAlias alias="WorkOutDTO" type="com.kosmo.workout.service.MemberDTO"/>
+		<typeAlias alias="CSDTO" type="com.kosmo.workout.service.CSDTO"/>
+		<typeAlias alias="HealthMateDTO" type="com.kosmo.workout.service.HealthMateDTO"/>
+		<!--<typeAlias alias="SearchBBSDTO" type="com.kosmo.workout.service.search.SearchBBSDTO"/>-->
+		<!--<typeAlias alias="MyMateDTO" type="com.kosmo.workout.service.MyMateDTO"/>-->
+	</typeAliases>
+	
+	<!-- 매퍼파일(SQL쿼리 결과와 자바빈 매핑) 정보 설정 -->		
+	<mappers>
+		<mapper resource="mybatis/Member.xml" />
+		<mapper resource="mybatis/Notification.xml"/>
+		<mapper resource="mybatis/CS.xml" />
+		<mapper resource="mybatis/HealthMate.xml" />
+		<!--<mapper resource="mybatis/MyMate.xml" />-->
+		<!--<mapper resource="mybatis/Search.xml" />-->	
+	</mappers>
+	
+</configuration>

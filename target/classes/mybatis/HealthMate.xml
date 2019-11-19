@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
+<!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
+
+<mapper namespace="mybatis.HealthMate">
+	<select id="mateTotal" parameterType="java.util.Map" resultType="int">
+		select count(*) from healthMate
+	</select>
+	<select id="mateSelectList" parameterType="java.util.Map" resultType="HealthMateDTO">
+		select * from healthMate order by no desc
+	</select>
+	<select id="mateSelectOne" parameterType="java.util.Map" resultType="HealthMateDTO">
+		select * from healthMate where no=#{no}
+	</select>
+	<insert id="mateInsert" parameterType="java.util.Map">
+		insert into healthMate values(SEQ_healthMate_NO.nextval,#{title},#{tag},#{location},#{healthTime},#{content},sysdate,#{id},
+  		#{matePhoto})
+	</insert>
+	<select id="mateUpdate" parameterType="java.util.Map">
+		update healthMate set title=#{title},tag=#{tag},location=#{location},healthTime=#{healthTime},content=#{content},picture=#{matePhoto} where no=#{no}
+	</select>
+	<delete id="mateDelete" parameterType="java.util.Map">
+		delete healthMate where no=#{no}
+	</delete>
+</mapper>
