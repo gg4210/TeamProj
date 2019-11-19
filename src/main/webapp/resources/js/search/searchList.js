@@ -11,10 +11,10 @@ console.log(header);//name
 //map 높이를 동적으로 가져가기 위한 로직 시작
 $('.map_wrap').css('height',mapheight);
 $(window).on('resize',function(){
-	$('.map_wrap').css('height',mapheight);
+   $('.map_wrap').css('height',mapheight);
 });
 //map 높이를 동적으로 가져가기 위한 로직 끝
-	
+   
 var markers = [];
 
 var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -37,15 +37,15 @@ searchPlaces();
 
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
-	
-	url=window.location.href;
+   
+   url=window.location.href;
     var keyword=getParameterByName("searchWord");
     
     //키워드를 배열로 만들어서 for문 돌리고 나온 데이터 쌓기    
     
     if (!keyword.replace(/^\s+|\s+$/g, '')) {
-    	//setWarningModal('키워드를 입력해주세요!');
-    	//warningModalOpen();
+       //setWarningModal('키워드를 입력해주세요!');
+       //warningModalOpen();
         return false;
     }
     // 장소검색 객체를 통해 키워드로 장소검색을 요청합니다
@@ -65,15 +65,15 @@ function placesSearchCB(data, status, pagination) {
         displayPagination(pagination);
 
     } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-    	//setWarningModal('검색 결과가 존재하지 않습니다.');
+       //setWarningModal('검색 결과가 존재하지 않습니다.');
         //$('#warningModal').modal();
-    	warningModalOpen();
+       warningModalOpen();
         return;
 
     } else if (status === kakao.maps.services.Status.ERROR) {
-    	//setWarningModal('검색 결과 중 오류가 발생했습니다.');
+       //setWarningModal('검색 결과 중 오류가 발생했습니다.');
         //$('#warningModal').modal();
-    	warningModalOpen();
+       warningModalOpen();
         return;
 
     }
@@ -82,8 +82,8 @@ function placesSearchCB(data, status, pagination) {
 // 검색 결과 목록과 마커를 표출하는 함수입니다
 function displayPlaces(places) {
 
-	console.log(places);
-	
+   console.log(places);
+   
     var listEl = document.getElementById('placesList'), 
     menuEl = document.getElementById('menu_wrap'),
     fragment = document.createDocumentFragment(), 
@@ -97,46 +97,46 @@ function displayPlaces(places) {
     removeMarker();
     
     for ( var i=0; i<places.length; i++ ) {
-    	
-    		//console.log(places[i].category_name);
-    	
-	    	//스포츠,레저 > 스포츠시설 > 스포츠센터 			"스포츠센터"
-	    	//스포츠,레저 > 요가,필라테스 > 필라테스 		"필라테스"
-	    	//스포츠,레저 > 스포츠시설 > 헬스클럽			"헬스클럽"
-	    	//스포츠,레저 > 클라이밍 						"클라이밍"
-	    	//스포츠,레저 > 복싱,권투 > 복싱,권투장			"복싱"
-	    	//스포츠,레저 > 스포츠시설 > 에어로빅 			"에어로빅"
-	    	//스포츠,레저 > 골프 > 골프장 					"골프장"
-    		//스포츠,레저 > 수영,수상 > 수영장 				"수영장"
-    	
-    		//console.log(places[i].category_name.indexOf("스포츠,레저"));
-    	
-	        	// 마커를 생성하고 지도에 표시합니다
-		        var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
-		        	marker = addMarker(placePosition, i), 
-		            itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
-    		
-		        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-		        // LatLngBounds 객체에 좌표를 추가합니다
-		        bounds.extend(placePosition);
-    		
-		        // 마커와 검색결과 항목에 클릭 했을때
-		        // 해당 장소에 커스텀 오버레이에 장소명을 표시합니다
-		        // 토글속성을 부여하였습니다
-		        
-		        (function(marker, title, address, road_address, phone, id,x,y) {
-		            kakao.maps.event.addListener(marker, 'click', function() {
-		            	displayCustomOverlay(marker, title, address, road_address, phone, id,x,y);
-		            });
-		
-		            itemEl.onclick =  function () {
-		            	displayCustomOverlay(marker, title, address, road_address, phone, id,x,y);   	
-		            };          
-		            
-		        })(marker, places[i].place_name, places[i].address_name, places[i].road_address_name, places[i].phone, places[i].id, places[i].x,places[i].y);
-		
-		        fragment.appendChild(itemEl);
-    		
+       
+          //console.log(places[i].category_name);
+       
+          //스포츠,레저 > 스포츠시설 > 스포츠센터          "스포츠센터"
+          //스포츠,레저 > 요가,필라테스 > 필라테스       "필라테스"
+          //스포츠,레저 > 스포츠시설 > 헬스클럽         "헬스클럽"
+          //스포츠,레저 > 클라이밍                   "클라이밍"
+          //스포츠,레저 > 복싱,권투 > 복싱,권투장         "복싱"
+          //스포츠,레저 > 스포츠시설 > 에어로빅          "에어로빅"
+          //스포츠,레저 > 골프 > 골프장                "골프장"
+          //스포츠,레저 > 수영,수상 > 수영장             "수영장"
+       
+          //console.log(places[i].category_name.indexOf("스포츠,레저"));
+       
+              // 마커를 생성하고 지도에 표시합니다
+              var placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
+                 marker = addMarker(placePosition, i), 
+                  itemEl = getListItem(i, places[i]); // 검색 결과 항목 Element를 생성합니다
+          
+              // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+              // LatLngBounds 객체에 좌표를 추가합니다
+              bounds.extend(placePosition);
+          
+              // 마커와 검색결과 항목에 클릭 했을때
+              // 해당 장소에 커스텀 오버레이에 장소명을 표시합니다
+              // 토글속성을 부여하였습니다
+              
+              (function(marker, title, address, road_address, phone, id,x,y) {
+                  kakao.maps.event.addListener(marker, 'click', function() {
+                     displayCustomOverlay(marker, title, address, road_address, phone, id,x,y);
+                  });
+      
+                  itemEl.onclick =  function () {
+                     displayCustomOverlay(marker, title, address, road_address, phone, id,x,y);      
+                  };          
+                  
+              })(marker, places[i].place_name, places[i].address_name, places[i].road_address_name, places[i].phone, places[i].id, places[i].x,places[i].y);
+      
+              fragment.appendChild(itemEl);
+          
     }
 
     // 검색결과 항목들을 검색결과 목록 Element에 추가합니다
@@ -225,13 +225,13 @@ function displayPagination(pagination) {
 // 인포윈도우에 장소명을 표시합니다
 
 function displayCustomOverlay(marker, title, address, road_address, phone, id, x, y) {
-	
-	
-	if(customOverlay.getMap()!=null){
-	    customOverlay.setMap(null);
-	    return;
-	}
-	
+   
+   
+   if(customOverlay.getMap()!=null){
+       customOverlay.setMap(null);
+       return;
+   }
+   
    var content =
    '<sec:authorize access="isAnonymous()">'+
    '<div class="wrap card" id="customOverlay_content">' + 
@@ -240,61 +240,61 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    '    <img src="https://www.stylermag.co.kr/wp-content/uploads/2018/11/1-23.jpg" class="card-img" alt="...">'+
    '  </div>'+
    '  <div class="col-md-8">'+
-   '  	<div class="card-header indigo">' +
-   '	<div class="row">'+
-   '	<div class="clearfix col">'+
-   '		<form action="/workout/searchView.do" method="post" id="info_form" enctype="multipart/form-data>'+
-   '			<input type="hidden" name="title" value="'+title+'">'+
-   '			<input type="hidden" name="mapkey" value="'+id+'">';
+   '     <div class="card-header indigo">' +
+   '   <div class="row">'+
+   '   <div class="clearfix col">'+
+   '      <form action="/workout/searchView.do" method="post" id="info_form">'+
+   '         <input type="hidden" name="title" value="'+title+'">'+
+   '         <input type="hidden" name="mapkey" value="'+id+'">';
    if(road_address!=null){
-   content+='	<input type="hidden" name="addr" value="'+road_address+'">'+
-   			'	<input type="hidden" name="jibunAddr" value="'+address+'">';
+   content+='   <input type="hidden" name="addr" value="'+road_address+'">'+
+            '   <input type="hidden" name="jibunAddr" value="'+address+'">';
    }
    else{
-	   content+='<input type="hidden" name="jibunAddr" value="'+address+'">';
+      content+='<input type="hidden" name="jibunAddr" value="'+address+'">';
    }
-   		content+='<input type="hidden" name="tel" value="'+phone+'">'+
-   '      		<a class="h6 float-left text-white" href="javascript:info_form.submit()" id="title">'+title+'</a>'+
-   '			<input type="hidden" name="'+header+'" value="'+token+'"/>'+
-   '		</form>'+   
-   '		<div class="float-right">'+
-   '			<button type="button" class="close text-white" aria-label="Close">'+
-   '				<span aria-hidden="true">&times;</span>'+
-   '			</button>'+
-   '		</div>'+
+         content+='<input type="hidden" name="tel" value="'+phone+'">'+
+   '            <a class="h6 float-left text-white" href="javascript:info_form.submit()" id="title">'+title+'</a>'+
+   '         <input type="hidden" name="'+header+'" value="'+token+'"/>'+
+   '      </form>'+   
+   '      <div class="float-right">'+
+   '         <button type="button" class="close text-white" aria-label="Close">'+
+   '            <span aria-hidden="true">&times;</span>'+
+   '         </button>'+
+   '      </div>'+
    '    </div>' + 
    '    </div>' + 
    '    </div>' + 
    '    <div class="card-body p-0 px-2 py-1">'+
    '      <img src="https://img.icons8.com/color/48/000000/open-sign.png">'+
    '      <img src="https://img.icons8.com/color/48/000000/close-sign.png">';
-	if(road_address!=null){
-		content+='<div>'+address+'</div>' + 
-				 '<div>'+road_address+'</div>';
-	}
-	else{
-		content+='<div class="ellipsis">'+address+'</div>';
+   if(road_address!=null){
+      content+='<div>'+address+'</div>' + 
+             '<div>'+road_address+'</div>';
+   }
+   else{
+      content+='<div class="ellipsis">'+address+'</div>';
 
-	}
+   }
    content+='<span class="tel">'+phone+'</span>' +
    '      <p class="mb-0">[평일] 06:00 ~ 24:00</p>'+
    '      <span id="rateMe">'+
-   '      	<i class="fas fa-star py-0 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>'+
-   '      	<i class="fas fa-star py-0 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>'+
-   '      	<i class="fas fa-star py-0 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>'+
-   '      	<i class="fas fa-star py-0 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>'+
-   '      	<i class="fas fa-star py-0 rate-popover amber-text" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>'+
+   '         <i class="fas fa-star py-0 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>'+
+   '         <i class="fas fa-star py-0 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>'+
+   '         <i class="fas fa-star py-0 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>'+
+   '         <i class="fas fa-star py-0 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>'+
+   '         <i class="fas fa-star py-0 rate-popover amber-text" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>'+
    '      </span>(0.0)'+     
    '      <div class="row">'+
-   '		<div class="col">'+
+   '      <div class="col">'+
    '            <h7 class="progress-title">혼잡도</h7>'+
-   '            	<div class="progress orange">'+
-   '	                <div class="progress-bar" style="width:70%; background:#fe3b3b;">'+
-   '	                    <div class="progress-value">70%</div>'+
-   '	                </div>'+
-   '	            </div>'+
-   '	    </div>'+
-   '	  </div>'+
+   '               <div class="progress orange">'+
+   '                   <div class="progress-bar" style="width:70%; background:#fe3b3b;">'+
+   '                       <div class="progress-value">70%</div>'+
+   '                   </div>'+
+   '               </div>'+
+   '       </div>'+
+   '     </div>'+
    '      <p class="card-text">현재 51명이 이용중입니다</p>'+
    '    </div>'+
    '  </div>'+
@@ -306,12 +306,12 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    
 
     customOverlay = new kakao.maps.CustomOverlay({
-		    	    content: content,
-		    	    clickable: true,
-		    	    map: map,
-		    	    position: marker.getPosition(),
-		    	    zIndex: 1
-		    	});
+                 content: content,
+                 clickable: true,
+                 map: map,
+                 position: marker.getPosition(),
+                 zIndex: 1
+             });
     
     var heightOverlay=$('#customOverlay_content').height();    
     $('.card-img').css('height',heightOverlay);
@@ -323,8 +323,8 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
 
     
     $('.close').click(function(){
-    	//클로즈 클릭시 
-    	customOverlay.setMap(null);
+       //클로즈 클릭시 
+       customOverlay.setMap(null);
     });
     
 
@@ -351,11 +351,10 @@ function getParameterByName(name) {
 
 //모달창을 위한 클래스
 function warningModalOpen(){
-	$('#warningModal').modal('show');
+   $('#warningModal').modal('show');
 }
-	
-	
+   
+   
 
 });
-
 

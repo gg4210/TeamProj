@@ -6,8 +6,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,14 +25,13 @@ public class SearchController {
 	}
 	
 	@RequestMapping(value="/searchView.do", method=RequestMethod.POST)
-	public String searchView(@RequestParam Map map, HttpServletRequest req, Model model,Authentication auth) throws IOException {
-		UserDetails userDetails=(UserDetails)auth.getPrincipal();
+	public String searchView(@RequestParam Map map, HttpServletRequest req, Model model) throws IOException {
+		
 		SearchBBSDTO viewinfo=CommonUtility.mapkeyCrawling(map.get("mapkey").toString(), map.get("tel").toString(), req);
-		System.out.println(userDetails.toString());
+
 		viewinfo.setTitle(map.get("title").toString());
 		viewinfo.setTel(map.get("tel").toString());
 		viewinfo.setAddr(map.get("addr").toString());
-		viewinfo.setId(userDetails.getUsername());
 		
 		if(map.get("jibunAddr")!=null) {
 			viewinfo.setJibunAddr(map.get("jibunAddr").toString());
