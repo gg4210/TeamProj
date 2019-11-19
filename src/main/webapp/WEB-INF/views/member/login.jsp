@@ -70,7 +70,7 @@
 		</div>
 			
 		<div class="text-center pt-3">
-			<span class="text-white">회원이 아니신가요? <a href="<c:url value='jointype.do'/>">회원가입</a></span>
+			<span class="text-white">회원이 아니신가요?<a href="<c:url value='jointype.do'/>">회원가입</a></span>
 		</div>
 		
 		<div class="text-center pt-3">
