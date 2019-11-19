@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.kosmo.workout.service.MyMateDTO;
 import com.kosmo.workout.service.MyMateService;
 
 @Service("MyMateService")
@@ -17,7 +18,7 @@ public class MyMateServiceImpl implements MyMateService{
 	private MyMateDAO dao;
 
 	@Override
-	public List<Map> selectList(Map map) {
+	public List<MyMateDTO> selectList(Map map) {
 		return dao.selectList(map);
 	}
 

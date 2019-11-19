@@ -20,6 +20,8 @@ import com.kosmo.workout.service.search.SearchBBSDTO;
 import com.kosmo.workout.service.search.SearchService;
 import com.kosmo.workout.util.CommonUtility;
 
+
+
 @Controller
 public class SearchController {
 	
@@ -52,7 +54,8 @@ public class SearchController {
 			
 			SearchBBSDTO dto=SearchService.selectOneSearchDTO(map);// 데이터 베이스에 값이 있을 시
 			
-			viewinfo.setComplexity(dto.getComplexity());
+			/*viewinfo.setMaxNumber(dto.getMaxNumber());*/
+			
 			viewinfo.setCountNum(dto.getCountNum());
 			viewinfo.setImg_urls(dto.getImg_urls());
 			viewinfo.setContent(dto.getContent());
@@ -64,6 +67,9 @@ public class SearchController {
 
 		model.addAttribute("viewinfo",viewinfo);
 		
+		//모델에 Complexity 로직 싣기
+		//int complexity=0;
+		//model.addAttribute("complexity",complexity);
 		
 		return "search/view.tiles";
 	}
@@ -78,6 +84,14 @@ public class SearchController {
 		
 	}
 	
-	
+	@ResponseBody
+	@RequestMapping(value="/searchView/commentlist.do", produces="text/html; charset=UTF-8")
+	public String listSearchComment(@RequestParam Map map, Authentication auth) {
+		
+		map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());
+		SearchService.insertSearchDTO(map);
+		return map.get("no").toString();
+		
+	}
 	
 }

@@ -25,7 +25,7 @@
     </header>
     
     <!-- row 시작 -->
-	<form method="post" id="mateWriteForm" action='<c:url value="mateWriteOk.do"/>'>
+	<form method="post" id="mateWriteForm" action='<c:url value="mateWriteOk.do"/>' enctype="multipart/form-data">
   	<div class="form-row">
 	  	<!-- 사진 등록 시작 -->
 	  	<div class="col-md-3">

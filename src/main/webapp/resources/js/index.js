@@ -24,8 +24,14 @@ $(function() {
 				if($(this).attr("id")==='login'){
 					$("#loginMenu").fadeToggle("3000");
 				}
-				else{
+				else if($(this).attr("id")==='user'){
 					$("#CustomerLoMenu").fadeToggle("3000");
+				}
+				else if($(this).attr("id")==='center'){
+					$("#CenterLoMenu").fadeToggle("3000");
+				}
+				else if($(this).attr("id")==='admin'){
+					$("#AdminLoMenu").fadeToggle("3000");
 				}
 			default:break;
 		}
@@ -38,6 +44,13 @@ $(function() {
 	
 	$("#closeCulogin").click(function(){
 		$("#CustomerLoMenu").fadeOut("3000");
+	});
+	$("#closeCelogin").click(function(){
+		$("#CenterLoMenu").fadeOut("3000");
+	});
+	
+	$("#closeAdlogin").click(function(){
+		$("#AdminLoMenu").fadeOut("3000");
 	});
 
 	var myFullpage = new fullpage('#fullpage', {
