@@ -363,6 +363,7 @@ function submit_join(){
 				</div>
 			</div>
 			<input type="hidden" id="enabled" name="enabled" value="1">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			<button class="btn btn-info offset-md-10 col-md-2" id="startchange" type="submit">가입 완료</button>
 		</form>
 	</div>

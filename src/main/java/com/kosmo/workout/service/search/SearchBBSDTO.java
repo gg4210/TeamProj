@@ -19,8 +19,7 @@ public class SearchBBSDTO {
 	}
 	public void setJibunAddr(String jibunAddr) {
 		this.jibunAddr = jibunAddr;
-	}	
-	
+	}
 	public String getTitle() {
 		return title;
 	}

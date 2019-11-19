@@ -288,7 +288,7 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    '      <div class="row">'+
    '		<div class="col">'+
    '            <h7 class="progress-title">혼잡도</h7>'+
-   '            	<div class="progress orange">'+
+   '            	<div class="progress blue">'+
    '	                <div class="progress-bar" style="width:70%; background:#fe3b3b;">'+
    '	                    <div class="progress-value">70%</div>'+
    '	                </div>'+
