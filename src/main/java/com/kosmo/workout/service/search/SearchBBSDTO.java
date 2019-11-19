@@ -12,11 +12,25 @@ public class SearchBBSDTO {
 	String content;
 	String[] img_urls;
 	String service;
+	String tag;
+	String[] sport_kind;
+	int countNum;
+	int complexity;
+	
 
 	
+	public String[] getSport_kind() {
+		return sport_kind;
+	}
+
+	public void setSport_kind(String[] sport_kind) {
+		this.sport_kind = sport_kind;
+	}
+
 	public String getJibunAddr() {
 		return jibunAddr;
 	}
+
 	public void setJibunAddr(String jibunAddr) {
 		this.jibunAddr = jibunAddr;
 	}
@@ -68,6 +82,26 @@ public class SearchBBSDTO {
 	public void setService(String service) {
 		this.service = service;
 	}
-	
+	public String getTag() {
+		return tag;
+	}
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+	public int getCountNum() {
+		return countNum;
+	}
+
+	public void setCountNum(int countNum) {
+		this.countNum = countNum;
+	}
+
+	public int getComplexity() {
+		return complexity;
+	}
+
+	public void setComplexity(int complexity) {
+		this.complexity = complexity;
+	}
 	
 }

@@ -30,7 +30,6 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int insertJoin(Map map) {
 		return dao.insertJoin(map);
-		
 	}
 	
 	public void authjoin(Map map) {

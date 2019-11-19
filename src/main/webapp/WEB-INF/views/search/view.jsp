@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <style>
 
@@ -258,6 +259,7 @@ background-color: #4285F4; }
 									<div class="row align-items-center h-100">
 										<div class="col">
 										
+											<form:form modelAttribute="insertCommentForm" method="POST">
 											<div class="form" action="#">
 												<span id="rateMe">
 													<i class="fas fa-star py-2 px-1 rate-popover" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
@@ -271,6 +273,7 @@ background-color: #4285F4; }
 												</div>
 												<button type="submit" class="btn btn-indigo">등록하기</button>
 											</div>
+											</form:form>
 											
 										</div>
 									</div>
