@@ -8,7 +8,6 @@ DROP TABLE BBS CASCADE CONSTRAINTS;
 DROP TABLE BookMark CASCADE CONSTRAINTS;
 DROP TABLE CenterReview CASCADE CONSTRAINTS;
 DROP TABLE Complexity CASCADE CONSTRAINTS;
-DROP TABLE C_KIND_LIST CASCADE CONSTRAINTS;
 DROP TABLE RegiCenter CASCADE CONSTRAINTS;
 DROP TABLE CENTER_INFO CASCADE CONSTRAINTS;
 DROP TABLE Notification CASCADE CONSTRAINTS;
@@ -18,7 +17,6 @@ DROP TABLE healthMate CASCADE CONSTRAINTS;
 DROP TABLE MESSAGE_TABLE CASCADE CONSTRAINTS;
 DROP TABLE MY_MATE CASCADE CONSTRAINTS;
 DROP TABLE H_MEMBER CASCADE CONSTRAINTS;
-DROP TABLE SPORTS_KIND CASCADE CONSTRAINTS;
 
 
 
@@ -129,13 +127,14 @@ CREATE TABLE CenterReview
 CREATE TABLE CENTER_INFO
 (
 	mapkey number(8) NOT NULL,
-	operatingTime nvarchar2(12) NOT NULL,
 	-- 수정할 때 사진 받을 경우 씀
-	filename nvarchar2(50),
+	filename nvarchar2(700),
 	title nvarchar2(50) NOT NULL,
 	tel nvarchar2(20) NOT NULL,
 	otime nvarchar2(100) NOT NULL,
 	service nvarchar2(80) NOT NULL,
+	tag nvarchar2(100),
+	sport_kind nvarchar2(100),
 	PRIMARY KEY (mapkey)
 );
 
@@ -180,20 +179,11 @@ CREATE TABLE CustomerService
 );
 
 
-CREATE TABLE C_KIND_LIST
-(
-	NO number NOT NULL,
-	SPORT_CODE number NOT NULL,
-	mapkey number(8) NOT NULL,
-	PRIMARY KEY (NO)
-);
-
-
 CREATE TABLE healthMate
 (
 	NO number NOT NULL,
 	title nvarchar2(20) NOT NULL,
-	tag varchar2(10),
+	tag varchar2(50),
 	location nvarchar2(20) NOT NULL,
 	healthTime nvarchar2(10) DEFAULT '시간협의' NOT NULL,
 	content nvarchar2(1000),
@@ -234,9 +224,11 @@ CREATE TABLE MESSAGE_TABLE
 	ID nvarchar2(50) NOT NULL,
 	CONTENT nvarchar2(500) NOT NULL,
 	RECEIVED_DATE date DEFAULT SYSDATE NOT NULL,
-	READ_STATUS date DEFAULT SYSDATE,
 	name nvarchar2(50),
 	picture nvarchar2(50),
+	-- 1은 읽지않음
+	-- 0은 읽음
+	isRead number(1) DEFAULT 1 NOT NULL,
 	PRIMARY KEY (MNO)
 );
 
@@ -278,17 +270,10 @@ CREATE TABLE SCRAP
 	NO number NOT NULL,
 	scrap_date date DEFAULT SYSDATE NOT NULL,
 	bbs_no number NOT NULL,
+	member_id nvarchar2(20) NOT NULL,
 	-- 계정
-	member_id nvarchar2(50) NOT NULL,
+	ID nvarchar2(50) NOT NULL,
 	PRIMARY KEY (NO)
-);
-
-
-CREATE TABLE SPORTS_KIND
-(
-	SPORT_CODE number NOT NULL,
-	SPORT_NAME nvarchar2(50) NOT NULL,
-	PRIMARY KEY (SPORT_CODE)
 );
 
 
@@ -320,12 +305,6 @@ ALTER TABLE CenterReview
 
 
 ALTER TABLE Complexity
-	ADD FOREIGN KEY (mapkey)
-	REFERENCES CENTER_INFO (mapkey)
-;
-
-
-ALTER TABLE C_KIND_LIST
 	ADD FOREIGN KEY (mapkey)
 	REFERENCES CENTER_INFO (mapkey)
 ;
@@ -416,7 +395,7 @@ ALTER TABLE RegiCenter
 
 
 ALTER TABLE SCRAP
-	ADD FOREIGN KEY (member_id)
+	ADD FOREIGN KEY (ID)
 	REFERENCES H_MEMBER (ID)
 ;
 
@@ -430,12 +409,6 @@ ALTER TABLE Notification
 ALTER TABLE Notification
 	ADD FOREIGN KEY (FNO)
 	REFERENCES MY_MATE (FNO)
-;
-
-
-ALTER TABLE C_KIND_LIST
-	ADD FOREIGN KEY (SPORT_CODE)
-	REFERENCES SPORTS_KIND (SPORT_CODE)
 ;
 
 
@@ -457,10 +430,12 @@ COMMENT ON COLUMN H_MEMBER.ID IS '계정';
 COMMENT ON COLUMN H_MEMBER.AUTHORITY IS 'customer or enterprise or admin';
 COMMENT ON COLUMN H_MEMBER.MY_COMMENT IS '회원가입페이지에서 등록X 운동메이트 등록 및 수정 페이지에서 데이터를 받을 예정입니다.';
 COMMENT ON COLUMN MESSAGE_TABLE.ID IS '계정';
+COMMENT ON COLUMN MESSAGE_TABLE.isRead IS '1은 읽지않음
+0은 읽음';
 COMMENT ON COLUMN MY_MATE.ID IS '계정';
 COMMENT ON COLUMN Notification.ID IS '계정';
 COMMENT ON COLUMN RegiCenter.ID IS '계정';
-COMMENT ON COLUMN SCRAP.member_id IS '계정';
+COMMENT ON COLUMN SCRAP.ID IS '계정';
 
 
 

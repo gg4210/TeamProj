@@ -3,28 +3,30 @@
 <script>
 <!-- 전체선택 -->
 $(function(){
-	$(':checkbox').click(function(){
-		if($(this).val() == 'all'){
+	console.log($('#scrap-checkbox-all input:checkbox'));
+	console.log($('#scrap-checkbox tr td input:checkbox'));
+	$('#scrap-checkbox-all input:checkbox').click(function(){
+		if($(this).val() == 'scrap-check-all'){
 			if($(this).prop('checked')){
-				$(':checkbox:gt(0)').each(function(){
+				$('#scrap-checkbox tr td input:checkbox').each(function(){
 					$(this).prop('checked',true);
 				});
 			}
 			else{
-				$(':checkbox:gt(0)').each(function(){
+				$('#scrap-checkbox tr td input:checkbox').each(function(){
 					$(this).prop('checked',false);
 				});
 			}
 		}
+	});
+	$('#scrap-checkbox input:checkbox').click(function(){
+		if($(this).prop('checked')){
+			if($('#scrap-checkbox tr td input:checkbox').length == $('#scrap-checkbox tr td input:checkbox:checked').length){
+				$('#scrap-checkbox-all input:checkbox').prop('checked',true);
+			}
+		}
 		else{
-			if($(this).prop('checked')){
-				if($(':checkbox:gt(0)').length == $(':checkbox:checked').length){
-					$(':checkbox:first').prop('checked',true);
-				}
-			}
-			else{
-				$(':checkbox:first').prop('checked',false);
-			}
+			$('#scrap-checkbox-all input:checkbox').prop('checked',false);
 		}
 	});
 	
@@ -75,9 +77,9 @@ nav > ul a {
 				<thead>
 					<tr>
 						<th scope="col" class="text-center">
-							<div class="custom-control custom-checkbox">
-							    <input type="checkbox" class="custom-control-input" id="defaultUnchecked" value="all">
-							    <label class="custom-control-label" for="defaultUnchecked"></label>
+							<div class="custom-control custom-checkbox" id="scrap-checkbox-all">
+							    <input type="checkbox" class="custom-control-input" id="scrap-checkall" value="scrap-check-all">
+							    <label class="custom-control-label" for="scrap-checkall"></label>
 							</div>
 						</th>
 						<th scope="col" class="text-center" style="width:10%">글번호</th>
@@ -87,12 +89,12 @@ nav > ul a {
 						<th scope="col" class="text-center">스크랩 일자</th>
 					</tr>
 				</thead>
-				<tbody class="text-center">
+				<tbody class="text-center" id="scrap-checkbox">
 					<tr>
 						<td class="text-center">
 							<div class="custom-control custom-checkbox">
-							    <input type="checkbox" class="custom-control-input">
-							    <label class="custom-control-label" for="defaultUnchecked"></label>
+							    <input type="checkbox" class="custom-control-input" id="scrap-check1" value="scrap1">
+							    <label class="custom-control-label" for="scrap-check1"></label>
 							</div>						
 						</td>
 						<td class="text-center">10</td>
@@ -100,7 +102,33 @@ nav > ul a {
 						<td>오늘의 일상10</td>
 						<td class="text-center">길동띠</td>
 						<td class="text-center">2019-10-05</td>
-					</tr>				
+					</tr>
+					<tr>
+						<td class="text-center">
+							<div class="custom-control custom-checkbox">
+							    <input type="checkbox" class="custom-control-input" id="scrap-check2" value="scrap2">
+							    <label class="custom-control-label" for="scrap-check2"></label>
+							</div>						
+						</td>
+						<td class="text-center">11</td>
+						<td class="text-center">자유게시판</td>
+						<td>오늘의 일상11</td>
+						<td class="text-center">길동이</td>
+						<td class="text-center">2019-11-05</td>
+					</tr>
+					<tr>
+						<td class="text-center">
+							<div class="custom-control custom-checkbox">
+							    <input type="checkbox" class="custom-control-input" id="scrap-check3" value="scrap3">
+							    <label class="custom-control-label" for="scrap-check3"></label>
+							</div>						
+						</td>
+						<td class="text-center">12</td>
+						<td class="text-center">자유게시판</td>
+						<td>오늘의 일상12</td>
+						<td class="text-center">길똥</td>
+						<td class="text-center">2019-11-15</td>
+					</tr>			
 				</tbody>			
 			</table>			
 		</div><!-- col-md-12 -->
