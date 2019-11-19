@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<script src="<c:url value='/resources/MDB-Free_4.8.10/js/addons/rating.js'/>"></script>
 
 <style>
 
@@ -82,6 +83,20 @@ background-color: #4285F4; }
 
 
 </style>
+
+<script>
+
+	$(document).ready(function() {
+		$('#rateMe1').mdbRate();
+		$('#rateMe1').click(function(){
+			var list=$('#rateMe1').find('i.amber-text').length;
+			console.log(list);
+		});
+	}); ///인덱스 찾아오기^^....
+	
+</script>
+
+
 
 
 <div class="container-fluid">
@@ -259,21 +274,15 @@ background-color: #4285F4; }
 									<div class="row align-items-center h-100">
 										<div class="col">
 										
-											<form:form modelAttribute="insertCommentForm" method="POST">
-											<div class="form" action="#">
-												<span id="rateMe">
-													<i class="fas fa-star py-2 px-1 rate-popover" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-												</span>
+											<form action="<c:url value='/searchView/commentwrite.do'/>">
+											
+												<span id="rateMe1"></span>
 												<div class="form-group shadow-textarea m-0 mt-2">
 													<textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="후기를 등록하세요!"></textarea>
-												</div>
+												</div>												
 												<button type="submit" class="btn btn-indigo">등록하기</button>
-											</div>
-											</form:form>
+												
+											</form>
 											
 										</div>
 									</div>
@@ -339,6 +348,5 @@ background-color: #4285F4; }
 	<!-- row -->
 </div>
 <!-- container-fluid -->
-
 
 
