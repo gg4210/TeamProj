@@ -144,7 +144,7 @@ $(function(){
 							</th>
 							<th style="width:10%;text-align:center" scope="col">사진</th>
 							<th style="width:15%" scope="col">닉네임</th>	
-							<th style="width:50%;text-align:center" scope="col">코멘트</th>
+							<th style="width:50%;text-align:center" scope="col">내용</th>
 						</tr>
 					</thead>
 					<tbody id="matelist-checkbox">
