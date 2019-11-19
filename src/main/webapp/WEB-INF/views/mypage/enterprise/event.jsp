@@ -120,8 +120,8 @@
 				</div>
 				<div class="modal-body">쿠폰을 발급하시겠습니까?</div>
 				<div class="modal-footer">
-					<button type="button" class="btn blue-gradient">바코드로 발급</button>
-					<button type="button" class="btn peach-gradient" data-dismiss="modal">사용안함</button>
+					<button type="button" class="btn blue-gradient">발급</button>
+					<button type="button" class="btn peach-gradient" data-dismiss="modal">취소</button>
 					
 				</div>
 			</div>
