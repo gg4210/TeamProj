@@ -1,11 +1,6 @@
 
-<<<<<<< HEAD
 /* Drop Tables */
-/*
-=======
-/* Drop Tables 
 
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 DROP TABLE AUTH_SECURITY CASCADE CONSTRAINTS;
 DROP TABLE BBS_Comment CASCADE CONSTRAINTS;
 DROP TABLE SCRAP CASCADE CONSTRAINTS;
@@ -13,7 +8,6 @@ DROP TABLE BBS CASCADE CONSTRAINTS;
 DROP TABLE BookMark CASCADE CONSTRAINTS;
 DROP TABLE CenterReview CASCADE CONSTRAINTS;
 DROP TABLE Complexity CASCADE CONSTRAINTS;
-DROP TABLE C_KIND_LIST CASCADE CONSTRAINTS;
 DROP TABLE RegiCenter CASCADE CONSTRAINTS;
 DROP TABLE CENTER_INFO CASCADE CONSTRAINTS;
 DROP TABLE Notification CASCADE CONSTRAINTS;
@@ -23,7 +17,6 @@ DROP TABLE healthMate CASCADE CONSTRAINTS;
 DROP TABLE MESSAGE_TABLE CASCADE CONSTRAINTS;
 DROP TABLE MY_MATE CASCADE CONSTRAINTS;
 DROP TABLE H_MEMBER CASCADE CONSTRAINTS;
-DROP TABLE SPORTS_KIND CASCADE CONSTRAINTS;
 
 
 
@@ -42,13 +35,12 @@ DROP SEQUENCE SEQ_MESSAGE_TABLE_MNO;
 DROP SEQUENCE SEQ_MY_MATE_FNO;
 DROP SEQUENCE SEQ_RegiCenter_NO;
 DROP SEQUENCE SEQ_SCRAP_NO;
-*/
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 
-Create Sequences 
+
+
+/* Create Sequences */
+
 CREATE SEQUENCE SEQ_AUTH_SECURITY_SECNO INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_BBS_Comment_CNO INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_BBS_NO INCREMENT BY 1 START WITH 1;
@@ -135,13 +127,14 @@ CREATE TABLE CenterReview
 CREATE TABLE CENTER_INFO
 (
 	mapkey number(8) NOT NULL,
-	operatingTime nvarchar2(12) NOT NULL,
 	-- 수정할 때 사진 받을 경우 씀
-	filename nvarchar2(50),
+	filename nvarchar2(700),
 	title nvarchar2(50) NOT NULL,
 	tel nvarchar2(20) NOT NULL,
 	otime nvarchar2(100) NOT NULL,
 	service nvarchar2(80) NOT NULL,
+	tag nvarchar2(100),
+	sport_kind nvarchar2(100),
 	PRIMARY KEY (mapkey)
 );
 
@@ -186,15 +179,6 @@ CREATE TABLE CustomerService
 );
 
 
-CREATE TABLE C_KIND_LIST
-(
-	NO number NOT NULL,
-	SPORT_CODE number NOT NULL,
-	mapkey number(8) NOT NULL,
-	PRIMARY KEY (NO)
-);
-
-
 CREATE TABLE healthMate
 (
 	NO number NOT NULL,
@@ -228,14 +212,7 @@ CREATE TABLE H_MEMBER
 	picture nvarchar2(100),
 	joindate date DEFAULT SYSDATE NOT NULL,
 	NICK_NAME nvarchar2(20) NOT NULL,
-<<<<<<< HEAD
 	DETAIL_ADDRESS nvarchar2(50),
-=======
-<<<<<<< HEAD
-=======
-	DETAIL_ADDRESS nvarchar2(50),
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	PRIMARY KEY (ID)
 );
 
@@ -294,25 +271,9 @@ CREATE TABLE SCRAP
 	scrap_date date DEFAULT SYSDATE NOT NULL,
 	bbs_no number NOT NULL,
 	member_id nvarchar2(20) NOT NULL,
-<<<<<<< HEAD
 	-- 계정
 	ID nvarchar2(50) NOT NULL,
-=======
-<<<<<<< HEAD
-=======
-	-- 계정
-	ID nvarchar2(50) NOT NULL,
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	PRIMARY KEY (NO)
-);
-
-
-CREATE TABLE SPORTS_KIND
-(
-	SPORT_CODE number NOT NULL,
-	SPORT_NAME nvarchar2(50) NOT NULL,
-	PRIMARY KEY (SPORT_CODE)
 );
 
 
@@ -344,12 +305,6 @@ ALTER TABLE CenterReview
 
 
 ALTER TABLE Complexity
-	ADD FOREIGN KEY (mapkey)
-	REFERENCES CENTER_INFO (mapkey)
-;
-
-
-ALTER TABLE C_KIND_LIST
 	ADD FOREIGN KEY (mapkey)
 	REFERENCES CENTER_INFO (mapkey)
 ;
@@ -457,12 +412,6 @@ ALTER TABLE Notification
 ;
 
 
-ALTER TABLE C_KIND_LIST
-	ADD FOREIGN KEY (SPORT_CODE)
-	REFERENCES SPORTS_KIND (SPORT_CODE)
-;
-
-
 
 /* Comments */
 
@@ -487,9 +436,6 @@ COMMENT ON COLUMN MY_MATE.ID IS '계정';
 COMMENT ON COLUMN Notification.ID IS '계정';
 COMMENT ON COLUMN RegiCenter.ID IS '계정';
 COMMENT ON COLUMN SCRAP.ID IS '계정';
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 
 

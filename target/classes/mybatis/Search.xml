@@ -21,13 +21,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<select id="seleteOneSearch" parameterType="java.util.Map" resultType="java.util.Map">
-		select E.filename, C.maxNumber, C.CountNum from CENTER_INFO E INNER JOIN Complexity C on E.mapkey=C.mapkey where E.mapkey=#{mapkey}
+		select E.filename, E.content, E.tag, E.sport_kind, E.otime, C.maxNumber, C.CountNum from CENTER_INFO E INNER JOIN Complexity C on E.mapkey=C.mapkey where E.mapkey=#{mapkey}
 	</select>
 
 
 
 	<select id="listComment" parameterType="java.util.Map" resultType="java.util.Map">
-		select * from CenterReview where mapkey=#{mapkey}
+		select C.*, H.NICKNAME H.PICTURE from CenterReview C, H_MEMBER H where C.mapkey=#{mapkey}
 	</select>
 	
 	<insert id="insertComment" parameterType="java.util.Map">

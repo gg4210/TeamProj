@@ -8,7 +8,21 @@ public class SearchBBSCommentDTO {
 	String id;
 	String mapkey;
 	int no;
+	String picture;
+	String NICK_NAME;
 	
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+	public String getNICK_NAME() {
+		return NICK_NAME;
+	}
+	public void setNICK_NAME(String nICK_NAME) {
+		NICK_NAME = nICK_NAME;
+	}
 	public int getRate() {
 		return rate;
 	}

@@ -37,7 +37,7 @@ $(function(){
 	<form class="mb-3">
 		<div class="form-row">				
 			<select class="custom-select col mr-1">
-				<option selected>5개씩 보기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				<option selected>전체보기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
 				<option value="1">10개씩 보기</option>
 				<option value="2">25개씩 보기</option>
 				<option value="3">50개씩 보기</option>

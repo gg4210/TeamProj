@@ -54,11 +54,12 @@ public class CommonUtility {
 			else {//리스트
 				
 				//System.out.println("객체가 여러개일 때");
-				for(int i=1; i<8;i++) {// 1 ~ 7까지의  값을 얻어냄. 이 안에 값이 존재하지 않는다면 그냥 없는 정보라고 생각할 예정
-					if(doc.select("#sp_local_"+i+" > dl > dd:nth-child(3) > span.tell").get(0).html()==tel) {
-						String href=doc.select("#sp_local_"+i+" > dl > dd.txt_inline > a:nth-child(1)").get(0).attr("href");
+				for(int i=1; i<9;i++) {// 1 ~ 7까지의  값을 얻어냄. 이 안에 값이 존재하지 않는다면 그냥 없는 정보라고 생각할 예정
+					if(doc.select("#sp_local_"+i+" > dl > dd:nth-child(3) > span.tell").html()==tel) {
+						String href=doc.select("#sp_local_"+i+" > dl > dd.txt_inline > a").get(0).attr("href");
 						System.out.println(href);
 						mapinfo=seleniumCrawling(href, req);
+						
 					}
 				}
 				return mapinfo;

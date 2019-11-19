@@ -9,12 +9,6 @@
    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=277dd2a8bda106627e537859aae6e385&libraries=services,drawing"></script>
 <!-- 카카오맵 키 끝 -->
 
-<script>
-$(function(){
-	console.log("${_csrf.token}");
-	console.log("${_csrf.parameterName}");
-});
-</script>
 <!-- 모달 -->
 	<div class="modal fade" id="#warningModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-notify modal-warning" role="document">
