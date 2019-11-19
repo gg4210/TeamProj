@@ -205,7 +205,6 @@ function submit_join(){
 						<label for="Id" class="col-md-3 mb-1">아이디:</label>
 						<input maxlength="14" type="text" id="idcomp" name="id" class="form-control mb-1 col-10 col-md-4" placeholder="아이디">
 						<span class="fa form-control-feedback col-1 fa-check" style="color:green;display:none;"></span>
-						<button type="button" class="btn btn-primary mb-1 ml-md-2 ml-0 col-10 col-md-2" id="idcheck">중복확인</button>
 				    </div>
 				    <div class="col-12 p-0 m-0">
 						<div class="row p-0 m-0">
@@ -217,7 +216,6 @@ function submit_join(){
 						<label for="Nick" class="col-md-3 mb-1">닉네임:</label>
 						<input maxlength="14" type="text" id="nick" name="nick" class="form-control mb-1 col-10 col-md-4" placeholder="닉네임">
 						<span class="fa form-control-feedback col-1 fa-check" style="color:green;display:none;"></span>
-						<button type="button" class="btn btn-primary mb-1 ml-md-2 ml-0 col-10 col-md-2" id="nickcheck">중복확인</button>
 				    </div>
 				    <div class="col-12 p-0 m-0">
 						<div class="row p-0 m-0">
@@ -363,6 +361,7 @@ function submit_join(){
 				</div>
 			</div>
 			<input type="hidden" id="enabled" name="enabled" value="1">
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			<button class="btn btn-info offset-md-10 col-md-2" id="startchange" type="submit">가입 완료</button>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 		</form>

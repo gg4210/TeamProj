@@ -28,22 +28,36 @@ public class MyPageController {
 	
 	
 		/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 시작*/
-	@RequestMapping("/member/customer.do")
+	@RequestMapping("/customer.do")
+	public String customer_temp(){
+		return "mypage/customer/mypage_Index.tiles";
+	}
+	
+	@RequestMapping("/user/customer.do")
 	public String customer(){
 		return "mypage/customer/mypage_Index.tiles";
 	}
 	
 	@RequestMapping("/admin.do")
+	public String admin_temp(){
+		return "mypage/admin/mypage_Index.tiles";
+	}
+	
+	@RequestMapping("/admin/admin.do")
 	public String admin(){
 		return "mypage/admin/mypage_Index.tiles";
 	}
 	
 	@RequestMapping("/enterprise.do")
+	public String enterprise_temp(){
+		return "mypage/enterprise/mypage_Index.tiles";
+	}
+	@RequestMapping("/center/enterprise.do")
 	public String enterprise(){
 		return "mypage/enterprise/mypage_Index.tiles";
 	}
 		/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 끝*/
-	@RequestMapping("/member/enterprise/edit_center_info.do")
+	@RequestMapping("/enterprise/edit_center_info.do")
 	public String edit_center_info() {
 		return "mypage/enterprise/edit_center_info.tiles";
 	}

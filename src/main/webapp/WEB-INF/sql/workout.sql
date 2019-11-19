@@ -1,6 +1,11 @@
 
+<<<<<<< HEAD
 /* Drop Tables */
 /*
+=======
+/* Drop Tables 
+
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 DROP TABLE AUTH_SECURITY CASCADE CONSTRAINTS;
 DROP TABLE BBS_Comment CASCADE CONSTRAINTS;
 DROP TABLE SCRAP CASCADE CONSTRAINTS;
@@ -38,7 +43,10 @@ DROP SEQUENCE SEQ_MY_MATE_FNO;
 DROP SEQUENCE SEQ_RegiCenter_NO;
 DROP SEQUENCE SEQ_SCRAP_NO;
 */
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 
 Create Sequences 
 CREATE SEQUENCE SEQ_AUTH_SECURITY_SECNO INCREMENT BY 1 START WITH 1;
@@ -220,7 +228,14 @@ CREATE TABLE H_MEMBER
 	picture nvarchar2(100),
 	joindate date DEFAULT SYSDATE NOT NULL,
 	NICK_NAME nvarchar2(20) NOT NULL,
+<<<<<<< HEAD
 	DETAIL_ADDRESS nvarchar2(50),
+=======
+<<<<<<< HEAD
+=======
+	DETAIL_ADDRESS nvarchar2(50),
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	PRIMARY KEY (ID)
 );
 
@@ -232,9 +247,11 @@ CREATE TABLE MESSAGE_TABLE
 	ID nvarchar2(50) NOT NULL,
 	CONTENT nvarchar2(500) NOT NULL,
 	RECEIVED_DATE date DEFAULT SYSDATE NOT NULL,
-	READ_STATUS date DEFAULT SYSDATE,
 	name nvarchar2(50),
 	picture nvarchar2(50),
+	-- 1은 읽지않음
+	-- 0은 읽음
+	isRead number(1) DEFAULT 1 NOT NULL,
 	PRIMARY KEY (MNO)
 );
 
@@ -277,8 +294,16 @@ CREATE TABLE SCRAP
 	scrap_date date DEFAULT SYSDATE NOT NULL,
 	bbs_no number NOT NULL,
 	member_id nvarchar2(20) NOT NULL,
+<<<<<<< HEAD
 	-- 계정
 	ID nvarchar2(50) NOT NULL,
+=======
+<<<<<<< HEAD
+=======
+	-- 계정
+	ID nvarchar2(50) NOT NULL,
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	PRIMARY KEY (NO)
 );
 
@@ -456,10 +481,15 @@ COMMENT ON COLUMN H_MEMBER.ID IS '계정';
 COMMENT ON COLUMN H_MEMBER.AUTHORITY IS 'customer or enterprise or admin';
 COMMENT ON COLUMN H_MEMBER.MY_COMMENT IS '회원가입페이지에서 등록X 운동메이트 등록 및 수정 페이지에서 데이터를 받을 예정입니다.';
 COMMENT ON COLUMN MESSAGE_TABLE.ID IS '계정';
+COMMENT ON COLUMN MESSAGE_TABLE.isRead IS '1은 읽지않음
+0은 읽음';
 COMMENT ON COLUMN MY_MATE.ID IS '계정';
 COMMENT ON COLUMN Notification.ID IS '계정';
 COMMENT ON COLUMN RegiCenter.ID IS '계정';
 COMMENT ON COLUMN SCRAP.ID IS '계정';
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 
 
