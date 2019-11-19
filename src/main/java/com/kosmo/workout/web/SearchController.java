@@ -88,6 +88,7 @@ public class SearchController {
 	@RequestMapping(value="/searchView/commentlist.do", produces="text/html; charset=UTF-8", method=RequestMethod.POST)
 	public String listSearchComment(@RequestParam Map map) {
 		
+		System.out.println(map);
 		SearchService.selectListComment(map);
 		return map.get("no").toString();
 		
