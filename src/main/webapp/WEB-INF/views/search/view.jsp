@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <style>
 
@@ -113,8 +114,23 @@ background-color: #4285F4; }
 									<p><span class="badge badge-primary">지번</span> : ${viewinfo.jibunAddr }</p>
 									<hr/>
 									<p><span class="badge badge-primary">전화번호</span> : ${viewinfo.tel }</p>
-									<hr/>									
-									<p>붐비는 정도가 들어갈 공간</p>
+									<hr/>
+									   <p>혼잡도</p>
+									   <div class="row">
+									   
+										   <div class="col-10 align-middle">
+											   <div class="progress blue">
+													<div class="progress-bar" style="width:70%; background:#fe3b3b;">
+														<div class="progress-value">70%</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-2 px-0">
+												51명
+											</div>
+											
+										</div>
+										
 									<hr/>									
 									<p><span style="font-weight: bold; color:blue;">TODAY</span> : 현재 운영중!</p>
 									<hr/>									
@@ -243,6 +259,7 @@ background-color: #4285F4; }
 									<div class="row align-items-center h-100">
 										<div class="col">
 										
+											<form:form modelAttribute="insertCommentForm" method="POST">
 											<div class="form" action="#">
 												<span id="rateMe">
 													<i class="fas fa-star py-2 px-1 rate-popover" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
@@ -256,6 +273,7 @@ background-color: #4285F4; }
 												</div>
 												<button type="submit" class="btn btn-indigo">등록하기</button>
 											</div>
+											</form:form>
 											
 										</div>
 									</div>

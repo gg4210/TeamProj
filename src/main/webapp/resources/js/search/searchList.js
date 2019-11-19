@@ -288,13 +288,13 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    '      <div class="row">'+
    '      <div class="col">'+
    '            <h7 class="progress-title">혼잡도</h7>'+
-   '               <div class="progress orange">'+
-   '                   <div class="progress-bar" style="width:70%; background:#fe3b3b;">'+
-   '                       <div class="progress-value">70%</div>'+
-   '                   </div>'+
-   '               </div>'+
-   '       </div>'+
-   '     </div>'+
+   '            	<div class="progress blue">'+
+   '	                <div class="progress-bar" style="width:70%; background:#fe3b3b;">'+
+   '	                    <div class="progress-value">70%</div>'+
+   '	                </div>'+
+   '	            </div>'+
+   '	    </div>'+
+   '	  </div>'+
    '      <p class="card-text">현재 51명이 이용중입니다</p>'+
    '    </div>'+
    '  </div>'+
