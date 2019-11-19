@@ -168,28 +168,6 @@
 		<!-- card 4 끝 -->
 		
 		
-		<!--
-		<div class="col-lg-3 col-md-6 col-mb-4">
-			<div class="card h-100">
-				<div class="card-image-container">
-					<img class="card-img-top" src="http://placehold.it/500x325" alt="" style="width: 100%">
-					<div class="card-img-middle">
-						<div class="text">추가하기</div>
-					</div>
-				</div>
-
-				<div class="card-body">
-					<h4 class="card-title">Card title</h4>
-					<p class="card-text">Lorem ipsum dolor sit amet, consectetur
-						adipisicing elit. Sapiente esse necessitatibus neque.</p>
-				</div>
-				<div class="card-footer">
-					<button button type="submit" class="detail btn btn-info">상세보기</button>
-				</div>
-			</div>
-		</div> -->
-		
-		
 		<!-- 페이징, 검색창 시작 -->
 		<div class="row mx-auto pt-4">
 			<div class="text-center">
@@ -297,6 +275,8 @@
 							</div>
 						</div>
 						<div class="row justify-content-center">
+							<button type="submit" class="btn btn-warning btn-md" id="mateUpdate">수정하기</button>
+							<button type="button" class="btn btn-danger btn-md">삭제하기</button>
 							<button type="button" class="btn btn-info btn-md">추가하기</button>
 							<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
 						</div>
