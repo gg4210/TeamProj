@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.kosmo.workout.service.MyMateDTO;
 import com.kosmo.workout.service.MyMateService;
 
 @Repository("MyMateDAO")
@@ -16,7 +17,7 @@ public class MyMateDAO implements MyMateService{
 	@Resource(name="template")
 	private SqlSessionTemplate template;
 	
-	public List<Map> selectList(Map map) {
+	public List<MyMateDTO> selectList(Map map) {
 		return template.selectList("MyMateSelectList", map);
 	}
 

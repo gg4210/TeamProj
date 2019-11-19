@@ -87,8 +87,10 @@
       </div>
       <!-- 네이버 로그인 버튼 끝 -->
       <!-- 카카오 로그인 버튼 시작 -->
-      <a id="kakao-login-btn"></a>
-      <a href="http://developers.kakao.com/logout"></a>
+      <div class="row justify-content-center mt-3">
+      	<a id="kakao-login-btn"></a>
+      	<a href="http://developers.kakao.com/logout"></a>
+       </div>
       <!-- 카카오 로그인 버튼 끝 -->
       
    </div>

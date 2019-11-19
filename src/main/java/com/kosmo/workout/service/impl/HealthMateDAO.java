@@ -24,7 +24,7 @@ public class HealthMateDAO implements HealthMateService {
 
 	@Override
 	public int getTotalRecord(Map map) {
-		return 0;
+		return template.selectOne("mateTotal",map);
 	}
 
 	@Override
