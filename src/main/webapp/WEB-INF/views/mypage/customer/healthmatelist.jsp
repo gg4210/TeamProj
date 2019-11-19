@@ -121,9 +121,6 @@ $(function(){
 			</div>
 			<!-- 페이지네이션 끝 -->
 		</div>
-
-	<!-- 쪽지함 모달 -->
-	
 	
 	<div class="col-md-6">
 			<div class="page-header" style="margin-bottom:25px; border-bottom:1px solid #D8D8D8;">
@@ -131,7 +128,7 @@ $(function(){
 			</div>
 			<div>
 				<div class="float-right">
-					<button class="btn purple-gradient p-2 px-4">쪽지삭제</button>
+					<button class="btn purple-gradient p-2 px-4" data-toggle="modal" data-target="#message-delete-modal">쪽지삭제</button>
 				</div>
 				<table class="table table-hover">
 					<thead class="black white-text">
@@ -245,20 +242,15 @@ $(function(){
 						<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />
 						야
 						</p>
-						
 						<p class="badge badge-light text-wrap" style="text-align:left; font-size:medium;">
 						<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />
 						야 집에 언제가
 						</p>
-					
 						
 						<p class="badge badge-secondary text-wrap" style="text-align:right; font-size:medium;">
 						가긴 어딜가
 						<img class="img-uncle" id="me" src="http://wiki.hash.kr/images/thumb/0/09/%EA%B0%95%ED%98%95%EC%9A%B1.jpg/100px-%EA%B0%95%ED%98%95%EC%9A%B1.jpg" />
 						</p>
-					
-					
-					
 						<p class="badge badge-secondary text-wrap" style="text-align:right; font-size:medium;">
 						ㅁㅊ
 						<img class="img-uncle" id="me" src="http://wiki.hash.kr/images/thumb/0/09/%EA%B0%95%ED%98%95%EC%9A%B1.jpg/100px-%EA%B0%95%ED%98%95%EC%9A%B1.jpg" />
@@ -274,6 +266,32 @@ $(function(){
 				<div class="modal-footer">
 				<input type="text" class="form-control" placeholder="내용을 입력하세요">
 				<button class="btn blue-gradient p-2 px-4">→</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<!-- 쪽지 삭제 모달 -->
+	<div class="modal fade" id="message-delete-modal" tabindex="-1"
+		role="dialog" aria-labelledby="message-delete-ModalCenterTitle"
+		aria-hidden="true">
+
+		<!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+		<div class="modal-dialog modal-dialog-centered" role="document">
+
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="message-delete-ModalLongTitle">삭제</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">정말로 삭제하시겠습니까?</div>
+				<div class="modal-footer">
+					<button type="button" class="btn blue-gradient">삭제</button>
+					<button type="button" class="btn peach-gradient" data-dismiss="modal">취소</button>
+					
 				</div>
 			</div>
 		</div>
