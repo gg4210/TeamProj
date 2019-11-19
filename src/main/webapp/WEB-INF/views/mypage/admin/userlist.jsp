@@ -148,7 +148,7 @@ $(function(){
 	
 	<!-- 센터관리 승인처리 모달 -->
 	<div id="permit-power-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalPopoversLabel">
-	  <div class="modal-dialog" role="document">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <h5 class="modal-title" id="exampleModalPopoversLabel">센터관리 권한 승인 요청</h5>

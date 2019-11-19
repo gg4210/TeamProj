@@ -47,7 +47,7 @@
                
             </div>
             <div class="d-flex justify-content-center">
-               <button style="width:20%;" class="btn purple-gradient" id="event-send"  data-toggle="modal" data-target="#event-modal">전송</button>
+               <button style="width:20%;" class="btn purple-gradient" id="event-send" data-toggle="modal" data-target="#event-modal">전송</button>
             </div>   
          </div>
       </div>
@@ -69,7 +69,7 @@
                         </thead>
                         <tbody>
                            <tr>
-                              <td>스타벅스 아메리카노</td>
+                              <td><a href="#" data-toggle="modal" data-target="#send-coupon-history-ModalScrollable" id="send-coupon-history">10% 할인쿠폰</a></td>
                               <td class="align-middle" style="text-align:center;">2019-10-01</td>
                            </tr>
                         </tbody>
@@ -126,6 +126,31 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	
+	<!-- 쿠폰 발급내역 모달 -->
+	<div class="modal fade" id="send-coupon-history-ModalScrollable" tabindex="-1" role="dialog" aria-labelledby="send-coupon-history-ModalScrollableTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="send-coupon-history-ModalScrollableTitle">10% 할인쿠폰</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      	11월 리모델링 기념으로 10% 할인쿠폰을 보내드립니다
+	      	<br/>
+			유효기간내 2인 동시 등록시 추가 10% 할인해드립니다
+			<br/>
+			많은 관심 부탁드립니다
+	      </div>
+	      <div class="modal-footer">
+	      	<button type="button" class="btn btn-primary">내용 복사하기</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 	
 

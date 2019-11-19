@@ -29,11 +29,6 @@ $(function(){
 			$('#scrap-checkbox-all input:checkbox').prop('checked',false);
 		}
 	});
-	
-	<!-- 스크랩 삭제 모달 -->
-	$('#scrap-delete').click(function(){
-		$('#scrap-modal').modal('show');
-	});
 });
 </script>
 <style>
@@ -70,7 +65,7 @@ nav > ul a {
 	<div class="row">
 		<div class="col-md-12">
 			<div class="float-right">
-				<button id="scrap-delete" class="btn purple-gradient p-2 px-4">삭제</button>
+				<button id="scrap-delete" class="btn purple-gradient p-2 px-4" data-toggle="modal" data-target="#scrap-modal">삭제</button>
 			</div>
 			
 			<table class="table table-hover" style="margin-top:50px;">
