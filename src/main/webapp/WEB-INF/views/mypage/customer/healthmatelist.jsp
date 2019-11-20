@@ -4,13 +4,8 @@
     
     
 <script>
-<<<<<<< HEAD
 <!-- 전체선택 -->
-=======
-<!-- 전체선택 -->
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 $(function(){
-<<<<<<< HEAD
    $('#matelist-checkbox-all input:checkbox').click(function(){
       if($(this).val() == 'message-check-all'){
          if($(this).prop('checked')){
@@ -36,34 +31,6 @@ $(function(){
       }
    });
 });
-=======
-	$('#matelist-checkbox-all input:checkbox').click(function(){
-		if($(this).val() == 'message-check-all'){
-			if($(this).prop('checked')){
-				$('#matelist-checkbox tr th input:checkbox').each(function(){
-					$(this).prop('checked',true);
-				});
-			}
-			else{
-				$('#matelist-checkbox tr th input:checkbox').each(function(){
-					$(this).prop('checked',false);
-				});
-			}
-		}
-	});
-	$('#matelist-checkbox input:checkbox').click(function(){
-		if($(this).prop('checked')){
-			if($('#matelist-checkbox tr th input:checkbox').length == $('#matelist-checkbox tr th input:checkbox:checked').length){
-				$('#matelist-checkbox-all input:checkbox').prop('checked',true);
-			}
-		}
-		else{
-			$('#matelist-checkbox-all input:checkbox').prop('checked',false);
-		}
-	});
-});
-
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 </script>
 
 <style>
