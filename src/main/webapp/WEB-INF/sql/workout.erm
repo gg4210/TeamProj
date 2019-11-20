@@ -135,7 +135,11 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2019-10-04 16:01:24</creation_date>
+<<<<<<< HEAD
 			<updated_date>2019-11-20 13:12:11</updated_date>
+=======
+			<updated_date>2019-11-20 12:42:40</updated_date>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -3161,7 +3165,11 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
+<<<<<<< HEAD
 					<word_id>48</word_id>
+=======
+					<word_id>47</word_id>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<id>38</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -4147,7 +4155,11 @@
 			<option></option>
 			<columns>
 				<normal_column>
+<<<<<<< HEAD
 					<word_id>47</word_id>
+=======
+					<word_id>48</word_id>
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<id>60</id>
 					<description></description>
 					<unique_key_name></unique_key_name>

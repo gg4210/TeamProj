@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.kosmo.workout.service.MemberDTO;
 import com.kosmo.workout.service.MemberService;
 
 @Repository("MemberDAO")
@@ -49,6 +50,13 @@ public class MemberDAO implements MemberService{
 	public void update(Map map) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public MemberDTO selectOne(Map map) {
+		System.out.println("DAO 통과");
+		System.out.println(map);
+		return template.selectOne("MemberSelectOne", map);
 	}
 
 	

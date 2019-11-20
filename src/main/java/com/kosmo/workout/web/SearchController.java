@@ -48,11 +48,11 @@ public class SearchController {
 			viewinfo.setJibunAddr(map.get("jibunAddr").toString());
 		}
 	
-		//우리 데이터 베이스에 입력된 값이 있는지 여부를 판단
+		//테이블에 들어있냐?
 		int isIn=SearchService.isIn(map);
 		if(isIn!=0) {
 			
-			SearchBBSDTO dto=SearchService.selectOneSearchDTO(map);// 데이터 베이스에 값이 있을 시
+			SearchBBSDTO dto=SearchService.selectOneSearchDTO(map);// 있으면 우리 데이터 베이스!
 			
 			/*viewinfo.setMaxNumber(dto.getMaxNumber());*/
 			
@@ -67,7 +67,7 @@ public class SearchController {
 
 		model.addAttribute("viewinfo",viewinfo);
 		
-		//모델에 Complexity 로직 싣기
+		//紐⑤뜽�뿉 Complexity 濡쒖쭅 �떍湲�
 		//int complexity=0;
 		//model.addAttribute("complexity",complexity);
 		
@@ -75,7 +75,7 @@ public class SearchController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/searchView/commentwrite.do", produces="text/html; charset=UTF-8")
+	@RequestMapping(value="/searchView/commentwrite.do", produces="text/html; charset=UTF-8", method=RequestMethod.POST)
 	public String insertSearchComment(@RequestParam Map map, Authentication auth) {
 		
 		map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());
@@ -85,11 +85,11 @@ public class SearchController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/searchView/commentlist.do", produces="text/html; charset=UTF-8")
-	public String listSearchComment(@RequestParam Map map, Authentication auth) {
+	@RequestMapping(value="/searchView/commentlist.do", produces="text/html; charset=UTF-8", method=RequestMethod.POST)
+	public String listSearchComment(@RequestParam Map map) {
 		
-		map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());
-		SearchService.insertSearchDTO(map);
+		System.out.println(map);
+		SearchService.selectListComment(map);
 		return map.get("no").toString();
 		
 	}

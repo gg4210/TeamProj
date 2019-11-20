@@ -9,16 +9,17 @@ public class MemberDTO {
 	private String name;
 	private String email;
 	private String address;
-	private String addressdetail;
+	private String detail_address;
 	private String cellphone;
 	private String authority;
 	private String my_comment;
 	private String picture;
 	private String[] inter_sports;
 	private java.sql.Date joinDate;
-	private String nick;
+	private String nick_name;
 	private String enabled;
-	
+	private String zipcode;
+
 
 	public String getId() {
 		return id;
@@ -44,12 +45,12 @@ public class MemberDTO {
 		this.password_re = password_re;
 	}
 
-	public String getNick() {
-		return nick;
+	public String getNick_name() {
+		return nick_name;
 	}
 
-	public void setNick(String nick) {
-		this.nick = nick;
+	public void setNick_name(String nick_name) {
+		this.nick_name = nick_name;
 	}
 
 	public String getName() {
@@ -76,12 +77,12 @@ public class MemberDTO {
 		this.address = address;
 	}
 	
-	public String getAddressdetail() {
-		return addressdetail;
+	public String getDetail_address() {
+		return detail_address;
 	}
 
-	public void setAddressdetail(String addressdetail) {
-		this.addressdetail = addressdetail;
+	public void setDetail_address(String detail_address) {
+		this.detail_address = detail_address;
 	}
 
 	public String getCellphone() {
@@ -138,6 +139,14 @@ public class MemberDTO {
 
 	public void setEnabled(String enabled) {
 		this.enabled = enabled;
+	}
+
+	public String getZipcode() {
+		return zipcode;
+	}
+
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
 	}
 	
 	
