@@ -14,6 +14,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="CSDTO" type="com.kosmo.workout.service.CSDTO"/>
 		<typeAlias alias="HealthMateDTO" type="com.kosmo.workout.service.HealthMateDTO"/>
 		<typeAlias alias="SearchBBSDTO" type="com.kosmo.workout.service.search.SearchBBSDTO"/>
+		<typeAlias alias="SearchBBSCommentDTO" type="com.kosmo.workout.service.search.SearchBBSCommentDTO"/>
+		
 		<!--<typeAlias alias="MyMateDTO" type="com.kosmo.workout.service.MyMateDTO"/>-->
 	</typeAliases>
 	

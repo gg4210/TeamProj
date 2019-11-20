@@ -24,12 +24,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 
-	<select id="listComment" parameterType="java.util.Map" resultType="java.util.Map">
-		select C.*, H.NICKNAME H.PICTURE from CenterReview C, H_MEMBER H where C.mapkey=#{mapkey}
+	<select id="listComment" parameterType="java.util.Map" resultType="SearchBBSCommentDTO">
+		select C.*, H.NICK_NAME,H.PICTURE from CenterReview C, H_MEMBER H where C.mapkey=#{mapkey}
 	</select>
 	
 	<insert id="insertComment" parameterType="java.util.Map">
-		insert INTO CenterReview(rate,rpostdate,rcomment,id,mapkey,no) VALUES(#{RATE},SYSDATE,#{rComment},#{id},#{mapkey},SEQ_CenterReview_NO.nextval)
+		insert INTO CenterReview(rate,rpostdate,rcomment,id,mapkey,no) VALUES(#{rate},SYSDATE,#{rComment},#{id},#{mapkey},SEQ_CenterReview_NO.nextval)
 	</insert>
 	
 	<delete id="deleteComment" parameterType="java.util.Map">

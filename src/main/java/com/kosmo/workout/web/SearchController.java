@@ -1,13 +1,18 @@
 package com.kosmo.workout.web;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.kosmo.workout.service.search.SearchBBSCommentDTO;
 import com.kosmo.workout.service.search.SearchBBSDTO;
 import com.kosmo.workout.service.search.SearchService;
 import com.kosmo.workout.util.CommonUtility;
@@ -27,7 +33,6 @@ public class SearchController {
 	
 	@Resource(name="SearchService")
 	private SearchService SearchService;
-
 	
 	
 	@RequestMapping("/searchList.do")
@@ -39,7 +44,7 @@ public class SearchController {
 	public String searchView(@RequestParam Map map, HttpServletRequest req, Model model) throws IOException {
 		
 		SearchBBSDTO viewinfo=CommonUtility.mapkeyCrawling(map.get("mapkey").toString(), map.get("tel").toString(), req);
-
+		viewinfo.setMapkey(map.get("mapkey").toString());
 		viewinfo.setTitle(map.get("title").toString());
 		viewinfo.setTel(map.get("tel").toString());
 		viewinfo.setAddr(map.get("addr").toString());		
@@ -67,31 +72,59 @@ public class SearchController {
 
 		model.addAttribute("viewinfo",viewinfo);
 		
-		//紐⑤뜽�뿉 Complexity 濡쒖쭅 �떍湲�
 		//int complexity=0;
 		//model.addAttribute("complexity",complexity);
 		
 		return "search/view.tiles";
 	}
 	
+	
 	@ResponseBody
-	@RequestMapping(value="/searchView/commentwrite.do", produces="text/html; charset=UTF-8", method=RequestMethod.POST)
-	public String insertSearchComment(@RequestParam Map map, Authentication auth) {
+	@RequestMapping(value="/commentwrite.do", method=RequestMethod.POST)
+	public int insertSearchComment(@RequestParam Map map, Authentication auth) {
 		
-		map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());
-		SearchService.insertSearchDTO(map);
-		return map.get("no").toString();
+		System.out.println("insert로 들어옵니까?");
+		UserDetails userDetails=(UserDetails)auth.getPrincipal();
+		userDetails.getUsername();
+		map.put("id", userDetails.getUsername());//시큐리티 적용 후
+		System.out.println(map);		
+		int insertInt=SearchService.insertComment(map);
+		return insertInt;
 		
 	}
 	
+	
 	@ResponseBody
-	@RequestMapping(value="/searchView/commentlist.do", produces="text/html; charset=UTF-8", method=RequestMethod.POST)
+	@RequestMapping(value="/commentlist.do", method=RequestMethod.POST, produces = "application/json; charset=utf-8")
 	public String listSearchComment(@RequestParam Map map) {
 		
-		System.out.println(map);
-		SearchService.selectListComment(map);
-		return map.get("no").toString();
+		System.out.println("list로 들어옵니까?");
 		
+		List<SearchBBSCommentDTO> list=SearchService.selectListComment(map);
+		
+		System.out.println(list);
+		System.out.println(list.getClass().toString());
+				
+		List<Map> collections=new Vector<Map>();
+		
+		for(SearchBBSCommentDTO dto:list) {
+			Map record=new HashMap();
+			record.put("NO", dto.getNo());
+			record.put("PICTURE", dto.getPicture());
+			record.put("RATE", dto.getRate());
+			record.put("RPOSTDATE", dto.getrPostDate().toString());
+			record.put("ID", dto.getId());
+			record.put("RCOMMENT", dto.getrComment());
+			record.put("NICK_NAME", dto.getNICK_NAME());
+			record.put("MAPKEY", dto.getMapkey());
+			collections.add(record);
+		}
+		
+		String jsonString =JSONArray.toJSONString(collections);
+		System.out.println(jsonString);
+		
+		return jsonString;
+	
 	}
 	
 }

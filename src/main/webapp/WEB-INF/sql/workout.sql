@@ -1,6 +1,6 @@
 
 /* Drop Tables */
-/*
+
 DROP TABLE AUTH_SECURITY CASCADE CONSTRAINTS;
 DROP TABLE BBS_Comment CASCADE CONSTRAINTS;
 DROP TABLE SCRAP CASCADE CONSTRAINTS;
@@ -35,7 +35,7 @@ DROP SEQUENCE SEQ_MESSAGE_TABLE_MNO;
 DROP SEQUENCE SEQ_MY_MATE_FNO;
 DROP SEQUENCE SEQ_RegiCenter_NO;
 DROP SEQUENCE SEQ_SCRAP_NO;
-*/
+
 
 
 
@@ -135,16 +135,16 @@ CREATE TABLE CENTER_INFO
 	service nvarchar2(80) NOT NULL,
 	tag nvarchar2(100),
 	sport_kind nvarchar2(100),
+	MAXNUMBER number NOT NULL,
 	PRIMARY KEY (mapkey)
 );
 
 
 CREATE TABLE Complexity
 (
-	maxNumber number,
-	CountNum number DEFAULT 0 NOT NULL,
 	mapkey number(8) NOT NULL,
-	PRIMARY KEY (mapkey)
+	-- 계정
+	ID nvarchar2(50) NOT NULL
 );
 
 
@@ -225,8 +225,8 @@ CREATE TABLE MESSAGE_TABLE
 	ID nvarchar2(50) NOT NULL,
 	CONTENT nvarchar2(500) NOT NULL,
 	RECEIVED_DATE date DEFAULT SYSDATE NOT NULL,
-	name nvarchar2(50),
-	picture nvarchar2(50),
+	picture nvarchar2(100),
+	fromID nvarchar2(50),
 	-- 1은 읽지않음
 	-- 0은 읽음
 	isRead number(1) DEFAULT 1 NOT NULL,
@@ -299,12 +299,6 @@ ALTER TABLE BookMark
 ;
 
 
-ALTER TABLE CenterReview
-	ADD FOREIGN KEY (mapkey)
-	REFERENCES CENTER_INFO (mapkey)
-;
-
-
 ALTER TABLE Complexity
 	ADD FOREIGN KEY (mapkey)
 	REFERENCES CENTER_INFO (mapkey)
@@ -348,6 +342,12 @@ ALTER TABLE BookMark
 
 
 ALTER TABLE CenterReview
+	ADD FOREIGN KEY (ID)
+	REFERENCES H_MEMBER (ID)
+;
+
+
+ALTER TABLE Complexity
 	ADD FOREIGN KEY (ID)
 	REFERENCES H_MEMBER (ID)
 ;
@@ -424,6 +424,7 @@ COMMENT ON COLUMN CenterReview.rate IS '0~4 까지의 인덱스 저장
 숫자가 적을수록 낮은 별점';
 COMMENT ON COLUMN CenterReview.ID IS '계정';
 COMMENT ON COLUMN CENTER_INFO.filename IS '수정할 때 사진 받을 경우 씀';
+COMMENT ON COLUMN Complexity.ID IS '계정';
 COMMENT ON COLUMN COUPON.ID IS 'AUTH 권한 설정:기업,관리자';
 COMMENT ON COLUMN CustomerService.ID IS '계정';
 COMMENT ON COLUMN healthMate.ID IS '계정';

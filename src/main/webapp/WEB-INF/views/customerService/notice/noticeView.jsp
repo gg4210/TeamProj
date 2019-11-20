@@ -2,15 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<script>
-//현재 글 번호에 대한 코멘트 목록을 가져오는 함수 - Ajax로 처리
-var showComment = function(){
-	$.ajax({
-		url:"<c:url value='/MemoComment/BBS/Write.bbs'/>",
-	});
-};/////////////////////////////////////////////////////url주소 바꿔야 함.
-
-</script>    
 
 <!-- 실제 내용 시작 -->
 <div class="container">
