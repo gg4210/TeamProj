@@ -5,75 +5,32 @@
     
 <script>
 <!-- 전체선택 -->
-
 $(function(){
-   console.log($('#matelist-checkbox tr th :checkbox'));
-   $('#matelist-checkbox-all :checkbox').click(function(){
-      if($(this).val() == 'check-all'){
+   $('#matelist-checkbox-all input:checkbox').click(function(){
+      if($(this).val() == 'message-check-all'){
          if($(this).prop('checked')){
-            $('#matelist-checkbox tr th :checkbox').each(function(){
+            $('#matelist-checkbox tr th input:checkbox').each(function(){
                $(this).prop('checked',true);
             });
          }
          else{
-            $('#matelist-checkbox tr th :checkbox').each(function(){
+            $('#matelist-checkbox tr th input:checkbox').each(function(){
                $(this).prop('checked',false);
             });
          }
       }
-      else{
-         if($(this).prop('checked')){
-            if($('#matelist-checkbox tr th :checkbox').length == $('#matelist-checkbox tr th :checkbox :checked').length){
-               $('#matelist-checkbox-all :checkbox').prop('checked',true);
-            }
-         }
-         else{
-            $('#matelist-checkbox-all :checkbox').prop('checked',false);
-         }
-      }
    });
-});
-function hwagin(){
-   console.log($('#matelist-checkbox tr th :checkbox').eq(0));
-   console.log($('#matelist-checkbox tr th :checkbox').eq(1));
-   console.log($('#matelist-checkbox tr th :checkbox').eq(2));
-   console.log($('#matelist-checkbox tr th :checkbox').eq(0).prop('checked'));
-   console.log($('#matelist-checkbox tr th :checkbox').eq(1).prop('checked'));
-   console.log($('#matelist-checkbox tr th :checkbox').eq(2).prop('checked'));
-   console.log($('#matelist-checkbox tr th :checkbox').prop('checked'));
-   console.log($('#matelist-checkbox tr th input:checkbox'));
-   console.log($('#matelist-checkbox tr th input:checkbox').length);
-   console.log($('#matelist-checkbox tr th input:checkbox:checked').length);
-}
-
-<!--
-$(function(){
-   $(':checkbox').click(function(){
-      if($(this).val() == 'all'){
-         if($(this).prop('checked')){
-            $(':checkbox:gt(0)').each(function(){
-               $(this).prop('checked',true);
-            });
-         }
-         else{
-            $(':checkbox:gt(0)').each(function(){
-               $(this).prop('checked',false);
-            });
+   $('#matelist-checkbox input:checkbox').click(function(){
+      if($(this).prop('checked')){
+         if($('#matelist-checkbox tr th input:checkbox').length == $('#matelist-checkbox tr th input:checkbox:checked').length){
+            $('#matelist-checkbox-all input:checkbox').prop('checked',true);
          }
       }
       else{
-         if($(this).prop('checked')){
-            if($(':checkbox:gt(0)').length == $(':checkbox:checked').length){
-               $(':checkbox:first').prop('checked',true);
-            }
-         }
-         else{
-            $(':checkbox:first').prop('checked',false);
-         }
+         $('#matelist-checkbox-all input:checkbox').prop('checked',false);
       }
    });
 });
--->
 </script>
 
 <style>

@@ -139,7 +139,9 @@ function submit_join(){
 	
 	addrdetail=document.getElementById('Daum_detailAddress');
 	addrex=document.getElementById('Daum_extraAddress');
+	zip=document.getElementById('Daum_postcode');
 	document.getElementById('addressdetail').value=addrdetail.value+addrex.value;
+	document.getElementById('zipcode').value=zip.value;
 	console.log(address_totalbase.value);
 	console.log(document.getElementById('addressdetail').value);
 	
@@ -298,6 +300,7 @@ function submit_join(){
 						</div>
 						<input type="hidden" name="address" id="address_total" value="">
 						<input type="hidden" name="addressdetail" id="addressdetail" value="">
+						<input type="hidden" name="addressdetail" id="zipcode" value="">
 					</div>
 				</div>  
 					

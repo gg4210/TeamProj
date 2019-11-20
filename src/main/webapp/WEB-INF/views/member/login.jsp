@@ -119,10 +119,38 @@
 <sec:authorize access="hasRole('ROLE_USER')">
 <script>
 function dataget(){
-
-   $('#getdata').submit();
-   console.log("${_csrf.token}");
+	$('#getdata').submit();
 }
+$(function(){
+	$('#customerLinks a').click(function(){
+		var cIndex=$(this).index();
+		console.log($('#asubmit'));
+		console.log($('#asubmit').prop('action'));
+		switch(cIndex){
+			case 0:
+				$('#asubmit').prop('action','<c:url value='/user/customer.do#pills-home-tab'/>');
+				document.getElementById("asubmit").submit();
+				break;
+			case 1:
+				$('#asubmit').prop('action','<c:url value='/user/customer.do#pills-mate-tab'/>');
+				document.getElementById("asubmit").submit();
+				break;
+			case 2:
+				$('#asubmit').prop('action','<c:url value='/user/customer.do#pills-coupon-tab'/>');
+				document.getElementById("asubmit").submit();
+				break;
+			case 3:
+				$('#asubmit').prop('action','<c:url value='/user/customer.do#pills-scrap-tab'/>');
+				document.getElementById("asubmit").submit();
+				break;
+			default:
+				$('#asubmit').prop('action','<c:url value='/user/customer.do#pills-info-tab'/>');
+				document.getElementById("asubmit").submit();
+			
+		}
+	});
+});
+
 </script>
 
 <!-- 개인회원으로 로그인시 사이드바 -->
@@ -230,22 +258,26 @@ function dataget(){
 				         <!-- 카드 바디 시작 -->
 				         	<div class="card-body" style="padding:0px">
 				         		<div class="list-group" id="customerLinks">
-									<a class="list-group-item list-group-item-action" href="<c:url value='/user/customer.do#pills-home-tab'/>" id="lpills-home">
+				         			<a class="list-group-item list-group-item-action" href="#" id="lpills-home">
 										<span>마이페이지</span>
 									</a>
-									<a class="list-group-item list-group-item-action" href="<c:url value='/user/customer.do#pills-mate-tab'/>" id="lpills-mate">
+									<a class="list-group-item list-group-item-action" href="#" id="lpills-mate">
 										<span>운동메이트</span>
 									</a>
 
-									<a class="list-group-item list-group-item-action" href="<c:url value='/user/customer.do#pills-coupon-tab'/>" id="lpills-coupon">
+									<a class="list-group-item list-group-item-action" href="#" id="lpills-coupon">
 										<span>쿠폰함</span>
 									</a>
-									<a class="list-group-item list-group-item-action" href="<c:url value='/user/customer.do#pills-scrap-tab'/>">
+									<a class="list-group-item list-group-item-action" href="#">
 										<span>스크랩</span>
 									</a>
-									<a class="list-group-item list-group-item-action" href="<c:url value='/user/customer.do#pills-info-tab'/>">
+									<a class="list-group-item list-group-item-action" href="#">
 										<span>내 정보 관리</span>
 									</a>
+									<form id="asubmit" action="<c:url value='/user/customer.do#pills-home-tab'/>" method="post">
+										<input type="hidden" value="<sec:authentication property="principal.username"/>" name="id"/>
+										<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+									</form>
 								</div>
 				         	</div>
 				         </div>
@@ -325,7 +357,7 @@ function dataget(){
 }
 </script>
 
-<!-- 개인회원으로 로그인시 사이드바 -->
+<!-- 센터회원으로 로그인시 사이드바 -->
 <div class="login bg-dark" id="CenterLoMenu">
 	<!-- close button 시작 -->
 	<button type="button" class="close text-white mt-2" aria-label="Close" id="closeCelogin">
