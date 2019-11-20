@@ -102,24 +102,23 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td class="text-center">3</td>
-									<td class="text-center">카테고리3</td>
-									<td>가장 최근에 등록된 공지사항 입니다.</td>
-									<td class="text-center">2019-10-22</td>
-								</tr>
-								<tr>
-									<td class="text-center">2</td>
-									<td class="text-center">카테고리2</td>
-									<td>두번째로 최근에 등록된 공지사항입니다.</td>
-									<td class="text-center">2019-10-22</td>
-								</tr>
-								<tr>
-									<td class="text-center">1</td>
-									<td class="text-center">카테고리1</td>
-									<td>최근 공지사항 중 가장 오래된 공지사항입니다.</td>
-									<td class="text-center">2019-10-22</td>
-								</tr>
+								<c:if test='${empty noticeList}' var="isEmpty">
+									<tr>
+										<td colspan="4" class="text-center">등록된 게시물이 없습니다.</td>
+									</tr>
+								</c:if>
+								<c:if test="${not isEmpty}">						
+									<c:forEach var="item" items="${noticeList}" varStatus="loop">	
+										<tr>
+											<td>${item.rownum}</td><!-- ROWNUM으로 바꿔줘야 함. -->
+											<td>${item.category}</td>
+											<td class="text-left">
+												<a href="<c:url value='/customerService/notice/noticeView.do?no=${item.no}'/>">${item.title}</a></td>
+												<!-- <a href="<c:url value='/OneMemo/BBS/View.bbs?no=${item.no}&nowPage='/><c:out value='${param.nowPage}' default='1'/>">${item.title }</a> -->
+											<td>${item.postDate}</td>
+										</tr>
+									</c:forEach>
+								</c:if>
 							</tbody>
 						</table>
 					</div>

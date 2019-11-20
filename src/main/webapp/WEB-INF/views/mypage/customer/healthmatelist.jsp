@@ -6,30 +6,30 @@
 <script>
 <!-- 전체선택 -->
 $(function(){
-	$('#matelist-checkbox-all input:checkbox').click(function(){
-		if($(this).val() == 'message-check-all'){
-			if($(this).prop('checked')){
-				$('#matelist-checkbox tr th input:checkbox').each(function(){
-					$(this).prop('checked',true);
-				});
-			}
-			else{
-				$('#matelist-checkbox tr th input:checkbox').each(function(){
-					$(this).prop('checked',false);
-				});
-			}
-		}
-	});
-	$('#matelist-checkbox input:checkbox').click(function(){
-		if($(this).prop('checked')){
-			if($('#matelist-checkbox tr th input:checkbox').length == $('#matelist-checkbox tr th input:checkbox:checked').length){
-				$('#matelist-checkbox-all input:checkbox').prop('checked',true);
-			}
-		}
-		else{
-			$('#matelist-checkbox-all input:checkbox').prop('checked',false);
-		}
-	});
+   $('#matelist-checkbox-all input:checkbox').click(function(){
+      if($(this).val() == 'message-check-all'){
+         if($(this).prop('checked')){
+            $('#matelist-checkbox tr th input:checkbox').each(function(){
+               $(this).prop('checked',true);
+            });
+         }
+         else{
+            $('#matelist-checkbox tr th input:checkbox').each(function(){
+               $(this).prop('checked',false);
+            });
+         }
+      }
+   });
+   $('#matelist-checkbox input:checkbox').click(function(){
+      if($(this).prop('checked')){
+         if($('#matelist-checkbox tr th input:checkbox').length == $('#matelist-checkbox tr th input:checkbox:checked').length){
+            $('#matelist-checkbox-all input:checkbox').prop('checked',true);
+         }
+      }
+      else{
+         $('#matelist-checkbox-all input:checkbox').prop('checked',false);
+      }
+   });
 });
 
 </script>
@@ -59,15 +59,14 @@ $(function(){
 				<h2>친구목록</h2>
 			</div>
 			
-				<!-- 검색창 -->
-		
+			<!-- 검색창 -->
 			<div class="clearfix">
 				<div class="form-inline mb-1 float-right">
 					<input type="text" class="form-control" placeholder="Search">
 					<button class="btn blue-gradient p-2 px-4">검색</button>
 				</div>
 			</div>
-				<!-- 검색창 끝 -->		
+			<!-- 검색창 끝 -->		
 			
 			
 			
