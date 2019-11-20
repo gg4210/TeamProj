@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: kosmo_28
 Build-Jdk: 1.8.0_211
+=======
+Built-By: kosmo_12
+Build-Jdk: 1.8.0_231
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 Created-By: Maven Integration for Eclipse
 

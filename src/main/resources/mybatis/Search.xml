@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.Search">
+
+
+	<select id="isIn" parameterType="java.util.Map" resultType="int">
+		select count(*) from CENTER_INFO where mapkey=#{mapkey}
+	</select>
+	
+	<insert id="insertSearch" parameterType="java.util.Map">
+		insert INTO CENTER_INFO(mapkey,filename,title,tel,otime,service,tag,sport_kind,MAXNUMBER) VALUES(#{mapkey},#{filename},#{title},#{tel},#{otime},#{service},#{tag},#{sport_kind},#{MAXNUMBER})
+	</insert>
+	
+	<update id="updateSearch" parameterType="java.util.Map">
+		update CENTER_INFO set filename=#{filename},tel=#{tel},otime=#{otime},service=#{service},tag=#{tag},sport_kind=#{sport_kind}
+	</update>
+	
+	<select id="seleteOneSearch" parameterType="java.util.Map" resultType="java.util.Map">
+		select E.filename, E.content, E.tag, E.sport_kind, E.otime, C.COUNT(*) from CENTER_INFO E INNER JOIN Complexity C on E.mapkey=C.mapkey where E.mapkey=#{mapkey}
+	</select>
+
+
+
+	<select id="listComment" parameterType="java.util.Map" resultType="java.util.Map">
+		select C.*, H.NICKNAME H.PICTURE from CenterReview C, H_MEMBER H where C.mapkey=#{mapkey}
+	</select>
+	
+	<insert id="insertComment" parameterType="java.util.Map">
+		insert INTO CenterReview(rate,rpostdate,rcomment,id,mapkey,no) VALUES(#{RATE},SYSDATE,#{rComment},#{id},#{mapkey},SEQ_CenterReview_NO.nextval)
+	</insert>
+	
+	<delete id="deleteComment" parameterType="java.util.Map">
+		delete CenterReview where no=#{no}
+	</delete>
+	
+	<update id="updateComment" parameterType="java.util.Map">
+		Update CenterReview set RATE=#{RATE},rPostdate=SYSDATE,rComment=#{rComment} where no=#{no}
+	</update>
+	
+
+</mapper>

@@ -1,6 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<sec:authentication property="principal.username" var="id"/>
+
+<script src="<c:url value='/resources/MDB-Free_4.8.10/js/addons/rating.js'/>"></script>
 
 <style>
 
@@ -82,6 +88,78 @@ background-color: #4285F4; }
 
 </style>
 
+<script>
+
+	$(document).ready(function() {
+		
+		$('#rateMe1').mdbRate();
+		
+		var index=$('#rateMe1').find('i.amber-text').length;
+		var token = $("meta[name='_csrf']").attr("content");
+		var header = $("meta[name='_csrf_header']").attr("content");
+		
+		$('#comment_submit').click(function(){
+		
+			$.ajax({
+				url:"<c:url value='/searchView/commentwrite.do'/>",
+				type:"post",
+				beforeSend:function(xhr){
+					xhr.setRequestHeader(header, token);
+				},
+				dataType:text,
+				data:{
+					rate:index,
+					
+				},
+				success:function(data){
+					showComment();
+				},
+				error:function(data){
+					console.log(data);
+				},
+			});
+			
+		}
+		
+	}); 
+	
+	
+	var showComment=function(){
+		url:"<c:url value='/searchView/commentlist.do'/>",
+		data:{mapkey:${viewinfo.mapkey}},
+		dataType:'json',
+		type:'post',
+		success:displayComments
+	}
+	
+	var displayComments=function(data){
+		var comment='<div class="row pb-4">';
+		if(data.length==0){
+			comment+='<div class="col text-center">등록된 한줄 댓글이 존재하지 않습니다.</div>';
+		}
+		else{
+			comment+='<div class="col-2">';
+			comment+='<img src="<c:url value='+element['PICTURE']+'/>" alt="Avatar" class="avatar img-fluid">';
+			comment+='</div>';
+			comment+='<div class="col">';
+			comment+='<span class="mt-0 font-weight-bold blue-text h5">닉네임</span>';
+			comment+='<span id="rateMe">'setRating(element['RATE']);
+			comment+='</span>'+element['NICK_NAME'];
+			comment+='<p>'+element['RCOMMENT']+'</p>';
+			comment+='<p>'+element['RPOSTDATE']+'</p>';
+			comment+='</div>';
+			comment+='</div>';
+		}
+	}
+	
+	
+	//<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>'+
+
+	
+</script>
+
+
+
 
 <div class="container-fluid">
 	<div class="row">
@@ -113,8 +191,23 @@ background-color: #4285F4; }
 									<p><span class="badge badge-primary">지번</span> : ${viewinfo.jibunAddr }</p>
 									<hr/>
 									<p><span class="badge badge-primary">전화번호</span> : ${viewinfo.tel }</p>
-									<hr/>									
-									<p>붐비는 정도가 들어갈 공간</p>
+									<hr/>
+									   <p>혼잡도</p>
+									   <div class="row">
+									   
+										   <div class="col-10 align-middle">
+											   <div class="progress blue">
+													<div class="progress-bar" style="width:70%; background:#fe3b3b;">
+														<div class="progress-value">70%</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-2 px-0">
+												51명
+											</div>
+											
+										</div>
+										
 									<hr/>									
 									<p><span style="font-weight: bold; color:blue;">TODAY</span> : 현재 운영중!</p>
 									<hr/>									
@@ -243,19 +336,15 @@ background-color: #4285F4; }
 									<div class="row align-items-center h-100">
 										<div class="col">
 										
-											<div class="form" action="#">
-												<span id="rateMe">
-													<i class="fas fa-star py-2 px-1 rate-popover" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-												</span>
+											<form id="comment_form">
+											
+												<span id="rateMe1"></span>
 												<div class="form-group shadow-textarea m-0 mt-2">
 													<textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="후기를 등록하세요!"></textarea>
-												</div>
-												<button type="submit" class="btn btn-indigo">등록하기</button>
-											</div>
+												</div>												
+												<button type="submit" class="btn btn-indigo" id="comment_submit">등록하기</button>
+												
+											</form>
 											
 										</div>
 									</div>
@@ -321,6 +410,5 @@ background-color: #4285F4; }
 	<!-- row -->
 </div>
 <!-- container-fluid -->
-
 
 

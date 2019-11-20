@@ -7,8 +7,14 @@
 <div class="sidebar z-depth-5">
 	<a href="<c:url value='/main.do'/>"><i class="fa fa-home"></i></a>
 	<a href="#"><i class="fas fa-search"></i></a> 	
-	<sec:authorize access="isAuthenticated()">
-		<a href="#" id="member"><i class="fas fa-user"></i></a>
+	<sec:authorize access="hasRole('ROLE_USER')">
+		<a href="#" id="user"><i class="fas fa-user"></i></a>
+	</sec:authorize>
+	<sec:authorize access="hasRole('ROLE_CENTER')">
+		<a href="#" id="center"><i class="fas fa-user"></i></a>
+	</sec:authorize>
+	<sec:authorize access="hasRole('ROLE_ADMIN')">
+		<a href="#" id="admin"><i class="fas fa-user"></i></a>
 	</sec:authorize>
 	<sec:authorize access="isAnonymous()">
 		<a href="#" id="login" style="display:block"><i class="fas fa-user"></i></a>

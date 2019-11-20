@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
 
 
 <!-- 카카오맵 키 시작-->
 <script type="text/javascript"
    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=277dd2a8bda106627e537859aae6e385&libraries=services,drawing"></script>
 <!-- 카카오맵 키 끝 -->
-
 
 <!-- 모달 -->
 	<div class="modal fade" id="#warningModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -13,16 +13,16 @@ $( document ).ready( function () {
 			},
 			password: {
 				required: true,
-				rangelength: [5,16]
+				rangelength: [4,16]
 			},
 			password_re: {
 				required: true,
-				rangelength: [5,16],
+				rangelength: [4,16],
 				equalTo: "#password1"
 			},
 			id: {
 				required: true,
-				minlength: 4
+				minlength: 3
 			},
 			nick: {
 				required: true
@@ -35,16 +35,16 @@ $( document ).ready( function () {
 			},
 			password: {
 				required: "비밀번호를 입력해주세요.",
-				rangelength: "비밀번호는 최소 5자에서 최대 16자로 입력하셔야합니다."
+				rangelength: "비밀번호는 최소 4자에서 최대 16자로 입력하셔야합니다."
 			},
 			password_re: {
 				required: "비밀번호를 다시 입력해주세요.",
-				rangelength: "비밀번호는 최소 5자에서 최대 16자로 입력하셔야합니다.",
+				rangelength: "비밀번호는 최소 4자에서 최대 16자로 입력하셔야합니다.",
 				equalTo: "위에서 입력하셨던 비밀번호와 일치하지 않습니다."
 			},
 			id: {
 				required: "아이디를 입력해주세요.",
-				minlength: "아이디는 최소 4자 이상으로 입력하셔야합니다."
+				minlength: "아이디는 최소 3자 이상으로 입력하셔야합니다."
 			},
 			nick: {
 				required:"닉네임을 입력해주세요."
@@ -139,7 +139,9 @@ function submit_join(){
 	
 	addrdetail=document.getElementById('Daum_detailAddress');
 	addrex=document.getElementById('Daum_extraAddress');
+	zip=document.getElementById('Daum_postcode');
 	document.getElementById('addressdetail').value=addrdetail.value+addrex.value;
+	document.getElementById('zipcode').value=zip.value;
 	console.log(address_totalbase.value);
 	console.log(document.getElementById('addressdetail').value);
 	
@@ -205,7 +207,6 @@ function submit_join(){
 						<label for="Id" class="col-md-3 mb-1">아이디:</label>
 						<input maxlength="14" type="text" id="idcomp" name="id" class="form-control mb-1 col-10 col-md-4" placeholder="아이디">
 						<span class="fa form-control-feedback col-1 fa-check" style="color:green;display:none;"></span>
-						<button type="button" class="btn btn-primary mb-1 ml-md-2 ml-0 col-10 col-md-2" id="idcheck">중복확인</button>
 				    </div>
 				    <div class="col-12 p-0 m-0">
 						<div class="row p-0 m-0">
@@ -217,7 +218,6 @@ function submit_join(){
 						<label for="Nick" class="col-md-3 mb-1">닉네임:</label>
 						<input maxlength="14" type="text" id="nick" name="nick" class="form-control mb-1 col-10 col-md-4" placeholder="닉네임">
 						<span class="fa form-control-feedback col-1 fa-check" style="color:green;display:none;"></span>
-						<button type="button" class="btn btn-primary mb-1 ml-md-2 ml-0 col-10 col-md-2" id="nickcheck">중복확인</button>
 				    </div>
 				    <div class="col-12 p-0 m-0">
 						<div class="row p-0 m-0">
@@ -299,7 +299,8 @@ function submit_join(){
 							<input type="text" class="form-control offset-1 col-7 col-md-4 mt-2 md-2" id="Daum_extraAddress" placeholder="참고항목" disabled="disabled">
 						</div>
 						<input type="hidden" name="address" id="address_total" value="">
-						<input type="hidden" name="addressdetail" id="addressdetail" value="">
+						<input type="hidden" name="detail_address" id="addressdetail" value="">
+						<input type="hidden" name="zipcode" id="zipcode" value="">
 					</div>
 				</div>  
 					
@@ -365,6 +366,7 @@ function submit_join(){
 			<input type="hidden" id="enabled" name="enabled" value="1">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			<button class="btn btn-info offset-md-10 col-md-2" id="startchange" type="submit">가입 완료</button>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 		</form>
 	</div>
 </div>

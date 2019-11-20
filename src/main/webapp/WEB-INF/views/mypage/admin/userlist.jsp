@@ -37,7 +37,7 @@ $(function(){
 	<form class="mb-3">
 		<div class="form-row">				
 			<select class="custom-select col mr-1">
-				<option selected>5개씩 보기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+				<option selected>전체보기&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
 				<option value="1">10개씩 보기</option>
 				<option value="2">25개씩 보기</option>
 				<option value="3">50개씩 보기</option>
@@ -148,7 +148,7 @@ $(function(){
 	
 	<!-- 센터관리 승인처리 모달 -->
 	<div id="permit-power-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalPopoversLabel">
-	  <div class="modal-dialog" role="document">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <h5 class="modal-title" id="exampleModalPopoversLabel">센터관리 권한 승인 요청</h5>
