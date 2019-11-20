@@ -31,6 +31,7 @@ $(function(){
       }
    });
 });
+
 </script>
 
 <style>
@@ -58,15 +59,14 @@ $(function(){
 				<h2>친구목록</h2>
 			</div>
 			
-				<!-- 검색창 -->
-		
+			<!-- 검색창 -->
 			<div class="clearfix">
 				<div class="form-inline mb-1 float-right">
 					<input type="text" class="form-control" placeholder="Search">
 					<button class="btn blue-gradient p-2 px-4">검색</button>
 				</div>
 			</div>
-				<!-- 검색창 끝 -->		
+			<!-- 검색창 끝 -->		
 			
 			
 			

@@ -3,34 +3,35 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 
  <script>   
-$(function () {
+/* $(function () {
 	////다른페이지에 있다가 눌렀을 때
 	var durl = window.location.hash;////console.log(durl); = #id
 	//var dactiveTab = durl.substring(durl.indexOf("#") + 1);////id ////의미없는 코드인 듯.
 	console.log(durl);
 	if (durl !='') {
-		/* if(durl.lastIndexOf("#")!=0){//#id#id
-			console.log("두 개다!!");
-			var idArr = durl.split('#');//////////아래꺼, 스플릿!!
-			
-			$('#'+idArr[0]).tab('show');
-		} 
-		else */ $(durl).tab('show');
+		// if(durl.lastIndexOf("#")!=0){//#id#id
+		//	console.log("두 개다!!");
+		//	var idArr = durl.split('#');//////////아래꺼, 스플릿!!
+		//	
+		//	$('#'+idArr[0]).tab('show');
+	//	} 
+		//else 
+			$(durl).tab('show');
 	}
 	////같은 페이지에 있다가 눌렀을 때
 	$('#event_confirm').click(function(){
 		var link = $(this).attr('onclick');////
 		console.log('link:',link);//=>/workout/customer.do#pills-scrap-tab
 		var sactiveTab = link.substring(link.indexOf("#"));////내가 +1지움 ////console.log('sactiveTab:',sactiveTab);=>sactiveTab: #pills-scrap-tab	
-		$('#customerLinks a').removeClass("active");
+		$('#customerLinks a').removeClass("active");/////////////여기 이상한데.. 선택자 안바꾼 거 같아.
 		$(this).addClass("active");
 		$(sactiveTab).tab('show');
 	});
-});
+}); */
 </script>
 
+<!-- 실제 내용 시작 -->
 <div class="container">
-
 	<div class="row pt-5">
 		<div class="col">
 			<h1><strong>이벤트</strong><small><small> 상세보기 페이지</small></small></h1>
@@ -44,27 +45,17 @@ $(function () {
 				<tbody>
 					<tr>
 						<th class="blue-text" style="width:20%;text-align: center;font-weight: bold">카테고리</th>
-						<td colspan="3">카테고리 선택 내용입니다.</td>
+						<td colspan="3">${eventRecord.category}</td>
 					</tr>
 					<tr>
 						<th class="blue-text" style="text-align: center;font-weight: bold">제목</th>
-						<td style="width:40%">제목입니다.</td>
+						<td style="width:40%">${eventRecord.title}</td>
 						<th class="blue-text" style="width:20%;text-align: center;font-weight: bold">작성일</th>
-						<td style="width:20%;text-align: center">2019-10-23</td>
+						<td style="width:20%;text-align: center">${eventRecord.postDate}</td>
 					</tr>
 					<tr>
 						<th class="blue-text" style="text-align: center;font-weight: bold">내용</th>
-						<td colspan="3">내용입니다<br/>
-										내용의 길이에 따라 영역의 크기가 변합니다.<br/> 
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
-										내용입니다<br/>
+						<td colspan="3">${eventRecord.content}
 						</td>
 					</tr>
 				</tbody>
@@ -154,7 +145,6 @@ $(function(){
 	$('#event_confirm').click(function(){
 		//location.href="/workout/customerServiceMain.do#pills-notice-tab";
 		location.href="/workout/customerService/event/eventView.do#pills-notice-tab#pills-event-tab";
-		
 		//location.href="/workout/eventList.do#pills-notice-tab";
 		
 	});

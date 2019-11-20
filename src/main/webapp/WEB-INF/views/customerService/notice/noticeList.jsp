@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<sec:authentication property="principal.username" var="id"/>
+<sec:authentication property="principal.authorities" var="auth"/>
+
+<c:forEach items="${auth}" var="item">
+	<!-- <h2>${item}</h2> -->
+</c:forEach>
 
 <!-- 실제 내용 시작 -->
 <div class="container">
@@ -40,15 +48,15 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:if test='${empty list}' var="isEmpty">
+					<c:if test='${empty noticeList}' var="isEmpty">
 						<tr>
 							<td colspan="4" class="text-center">등록된 게시물이 없습니다.</td>
 						</tr>
 					</c:if>
 					<c:if test="${not isEmpty}">						
-						<c:forEach var="item" items="${list}" varStatus="loop">	
+						<c:forEach var="item" items="${noticeList}" varStatus="loop">	
 							<tr>
-								<td>${item.no}</td>
+								<td>${item.rownum}</td><!-- ROWNUM으로 바꿔줘야 함. -->
 								<td>${item.category}</td>
 								<td class="text-left">
 									<a href="<c:url value='/customerService/notice/noticeView.do?no=${item.no}'/>">${item.title}</a></td>

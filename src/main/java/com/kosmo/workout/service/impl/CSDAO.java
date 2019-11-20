@@ -20,18 +20,27 @@ public class CSDAO implements CSService {
 		
 	//목록용]
 	@Override
-	public List<CSDTO> selectList(Map map) {
-		return template.selectList("CSSelectList",map);
+	public List<CSDTO> noticeSelectList(Map map) {
+		return template.selectList("noticeSelectList",map);
 	}
+	public List<CSDTO> eventSelectList(Map emap) {
+		return template.selectList("eventSelectList",emap);
+	}
+	
+	//상세보기용]
+	@Override
+	public CSDTO selectOne(Map map) {
+		return template.selectOne("noticeSelectOne", map);
+	}
+	@Override
+	public CSDTO eventSelectOne(Map emap) {
+		return template.selectOne("eventSelectOne", emap);
+	}
+
 	
 	@Override
 	public int getNoticeRecord(Map map) {
 		return template.selectOne("noticeTotal", map);
-	}
-
-	@Override
-	public CSDTO selectOne(Map map) {
-		return template.selectOne("noticeSelectOne", map);
 	}
 
 	//입력용]-일단 공지사항부터...

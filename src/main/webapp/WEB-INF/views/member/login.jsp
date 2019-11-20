@@ -351,6 +351,7 @@ $(function(){
 </sec:authorize>
 
 <sec:authorize access="hasRole('ROLE_CENTER')">
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 <script>
 function dataget(){
    $('#getdata').submit();
@@ -694,6 +695,7 @@ function dataget(){
    </div>
 </div>
 </sec:authorize>
+
 <script>
    function logout(){
       $('#logoutForm').submit();
