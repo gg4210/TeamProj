@@ -56,7 +56,7 @@ public class AuthController {
 		
 	}
 	
-	@RequestMapping(value="/joincomplete.do",method=RequestMethod.POST)
+	@RequestMapping(value="/joincomplete.do", method=RequestMethod.POST)
 	public String joincomplete(@RequestParam Map map,Model model){
 		System.out.println(map);
 		MemberService.insertJoin(map);

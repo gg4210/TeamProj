@@ -1,11 +1,13 @@
 package com.kosmo.workout.web;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.kosmo.workout.service.search.SearchBBSCommentDTO;
 import com.kosmo.workout.service.search.SearchBBSDTO;
 import com.kosmo.workout.service.search.SearchService;
 import com.kosmo.workout.util.CommonUtility;
@@ -27,7 +30,6 @@ public class SearchController {
 	
 	@Resource(name="SearchService")
 	private SearchService SearchService;
-
 	
 	
 	@RequestMapping("/searchList.do")
@@ -39,7 +41,7 @@ public class SearchController {
 	public String searchView(@RequestParam Map map, HttpServletRequest req, Model model) throws IOException {
 		
 		SearchBBSDTO viewinfo=CommonUtility.mapkeyCrawling(map.get("mapkey").toString(), map.get("tel").toString(), req);
-
+		viewinfo.setMapkey(map.get("mapkey").toString());
 		viewinfo.setTitle(map.get("title").toString());
 		viewinfo.setTel(map.get("tel").toString());
 		viewinfo.setAddr(map.get("addr").toString());		
@@ -75,22 +77,30 @@ public class SearchController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/searchView/commentwrite.do", produces="text/html; charset=UTF-8")
+	@RequestMapping(value="/searchView/commentwrite.do")
 	public String insertSearchComment(@RequestParam Map map, Authentication auth) {
 		
-		map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());
+		System.out.println("ajax");
+				
+		map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());///null pointer
 		SearchService.insertSearchDTO(map);
 		return map.get("no").toString();
 		
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/searchView/commentlist.do", produces="text/html; charset=UTF-8")
-	public String listSearchComment(@RequestParam Map map, Authentication auth) {
+	@RequestMapping(value="/searchView/commentlist.do")
+	public String listSearchComment(@RequestParam Map map) {
 		
-		map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());
-		SearchService.insertSearchDTO(map);
-		return map.get("no").toString();
+		System.out.println("list로 들어옵니까?");
+
+		
+		List<SearchBBSCommentDTO> list=SearchService.selectListComment(map);
+		for(SearchBBSCommentDTO comments:list) {
+			comments.setrPostDate(comments.getrPostDate().toString().substring(0, 10));
+		}
+		
+		return JSONArray.toJSONString(list);
 		
 	}
 	

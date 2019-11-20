@@ -10,8 +10,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from CENTER_INFO where mapkey=#{mapkey}
 	</select>
 	
-	
-	
 	<insert id="insertSearch" parameterType="java.util.Map">
 		insert into CENTER_INFO VALUES(#{mapkey},#{filename},#{title},#{tel},#{otime},#{service},#{tag},#{sport_kind})
 	</insert>
@@ -31,7 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<insert id="insertComment" parameterType="java.util.Map">
-		insert into CenterReview VALUES(#{RATE},SYSDATE,#{rComment},#{id},#{mapkey},SEQ.NEXTVAL)
+		insert into CenterReview VALUES(#{RATE}, SYSDATE, #{rComment}, #{id}, #{mapkey}, SEQ.NEXTVAL)
 	</insert>
 	
 	<delete id="deleteComment" parameterType="java.util.Map">
