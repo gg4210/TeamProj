@@ -142,10 +142,9 @@ CREATE TABLE CENTER_INFO
 CREATE TABLE Complexity
 (
 	maxNumber number,
+	CountNum number DEFAULT 0 NOT NULL,
 	mapkey number(8) NOT NULL,
-	-- 계정
-	ID nvarchar2(50) NOT NULL,
-	countNumber number DEFAULT 0
+	PRIMARY KEY (mapkey)
 );
 
 
@@ -214,6 +213,7 @@ CREATE TABLE H_MEMBER
 	joindate date DEFAULT SYSDATE NOT NULL,
 	NICK_NAME nvarchar2(20) NOT NULL,
 	DETAIL_ADDRESS nvarchar2(50),
+	ZIPCODE number,
 	PRIMARY KEY (ID)
 );
 
@@ -222,15 +222,14 @@ CREATE TABLE MESSAGE_TABLE
 (
 	MNO number NOT NULL,
 	-- 계정
-	toID nvarchar2(50) NOT NULL,
+	ID nvarchar2(50) NOT NULL,
 	CONTENT nvarchar2(500) NOT NULL,
 	RECEIVED_DATE date DEFAULT SYSDATE NOT NULL,
-	picture nvarchar2(100),
-	fromID nvarchar2(50),
+	name nvarchar2(50),
+	picture nvarchar2(50),
 	-- 1은 읽지않음
 	-- 0은 읽음
 	isRead number(1) DEFAULT 1 NOT NULL,
-	NICK_NAME nvarchar2(50) NOT NULL,
 	PRIMARY KEY (MNO)
 );
 
@@ -354,12 +353,6 @@ ALTER TABLE CenterReview
 ;
 
 
-ALTER TABLE Complexity
-	ADD FOREIGN KEY (ID)
-	REFERENCES H_MEMBER (ID)
-;
-
-
 ALTER TABLE COUPON
 	ADD FOREIGN KEY (ID)
 	REFERENCES H_MEMBER (ID)
@@ -379,7 +372,7 @@ ALTER TABLE healthMate
 
 
 ALTER TABLE MESSAGE_TABLE
-	ADD FOREIGN KEY (toID)
+	ADD FOREIGN KEY (ID)
 	REFERENCES H_MEMBER (ID)
 ;
 
@@ -431,14 +424,13 @@ COMMENT ON COLUMN CenterReview.rate IS '0~4 까지의 인덱스 저장
 숫자가 적을수록 낮은 별점';
 COMMENT ON COLUMN CenterReview.ID IS '계정';
 COMMENT ON COLUMN CENTER_INFO.filename IS '수정할 때 사진 받을 경우 씀';
-COMMENT ON COLUMN Complexity.ID IS '계정';
 COMMENT ON COLUMN COUPON.ID IS 'AUTH 권한 설정:기업,관리자';
 COMMENT ON COLUMN CustomerService.ID IS '계정';
 COMMENT ON COLUMN healthMate.ID IS '계정';
 COMMENT ON COLUMN H_MEMBER.ID IS '계정';
 COMMENT ON COLUMN H_MEMBER.AUTHORITY IS 'customer or enterprise or admin';
 COMMENT ON COLUMN H_MEMBER.MY_COMMENT IS '회원가입페이지에서 등록X 운동메이트 등록 및 수정 페이지에서 데이터를 받을 예정입니다.';
-COMMENT ON COLUMN MESSAGE_TABLE.toID IS '계정';
+COMMENT ON COLUMN MESSAGE_TABLE.ID IS '계정';
 COMMENT ON COLUMN MESSAGE_TABLE.isRead IS '1은 읽지않음
 0은 읽음';
 COMMENT ON COLUMN MY_MATE.ID IS '계정';
