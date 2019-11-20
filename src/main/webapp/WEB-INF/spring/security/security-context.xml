@@ -33,7 +33,9 @@
 			delete-cookies="true"
 			invalidate-session="true"
 		/>
+		
         <security:csrf disabled="false" />
+      
         <!-- 중복 로그인 방지용 -->
         <security:session-management invalid-session-url="/main.do">
 			<security:concurrency-control 

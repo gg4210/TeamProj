@@ -1,8 +1,10 @@
 package com.kosmo.workout.web;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -50,11 +53,11 @@ public class SearchController {
 			viewinfo.setJibunAddr(map.get("jibunAddr").toString());
 		}
 	
-		//우리 데이터 베이스에 입력된 값이 있는지 여부를 판단
+		//테이블에 들어있냐?
 		int isIn=SearchService.isIn(map);
 		if(isIn!=0) {
 			
-			SearchBBSDTO dto=SearchService.selectOneSearchDTO(map);// 데이터 베이스에 값이 있을 시
+			SearchBBSDTO dto=SearchService.selectOneSearchDTO(map);// 있으면 우리 데이터 베이스!
 			
 			/*viewinfo.setMaxNumber(dto.getMaxNumber());*/
 			
@@ -69,39 +72,59 @@ public class SearchController {
 
 		model.addAttribute("viewinfo",viewinfo);
 		
-		//모델에 Complexity 로직 싣기
 		//int complexity=0;
 		//model.addAttribute("complexity",complexity);
 		
 		return "search/view.tiles";
 	}
 	
+	
 	@ResponseBody
-	@RequestMapping(value="/searchView/commentwrite.do")
-	public String insertSearchComment(@RequestParam Map map, Authentication auth) {
+	@RequestMapping(value="/commentwrite.do", method=RequestMethod.POST)
+	public int insertSearchComment(@RequestParam Map map, Authentication auth) {
 		
-		System.out.println("ajax");
-				
-		map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());///null pointer
-		SearchService.insertSearchDTO(map);
-		return map.get("no").toString();
+		System.out.println("insert로 들어옵니까?");
+		UserDetails userDetails=(UserDetails)auth.getPrincipal();
+		userDetails.getUsername();
+		map.put("id", userDetails.getUsername());//시큐리티 적용 후
+		System.out.println(map);		
+		int insertInt=SearchService.insertComment(map);
+		return insertInt;
 		
 	}
 	
+	
 	@ResponseBody
-	@RequestMapping(value="/searchView/commentlist.do")
+	@RequestMapping(value="/commentlist.do", method=RequestMethod.POST, produces = "application/json; charset=utf-8")
 	public String listSearchComment(@RequestParam Map map) {
 		
 		System.out.println("list로 들어옵니까?");
-
 		
 		List<SearchBBSCommentDTO> list=SearchService.selectListComment(map);
-		for(SearchBBSCommentDTO comments:list) {
-			comments.setrPostDate(comments.getrPostDate().toString().substring(0, 10));
+		
+		System.out.println(list);
+		System.out.println(list.getClass().toString());
+				
+		List<Map> collections=new Vector<Map>();
+		
+		for(SearchBBSCommentDTO dto:list) {
+			Map record=new HashMap();
+			record.put("NO", dto.getNo());
+			record.put("PICTURE", dto.getPicture());
+			record.put("RATE", dto.getRate());
+			record.put("RPOSTDATE", dto.getrPostDate().toString());
+			record.put("ID", dto.getId());
+			record.put("RCOMMENT", dto.getrComment());
+			record.put("NICK_NAME", dto.getNICK_NAME());
+			record.put("MAPKEY", dto.getMapkey());
+			collections.add(record);
 		}
 		
-		return JSONArray.toJSONString(list);
+		String jsonString =JSONArray.toJSONString(collections);
+		System.out.println(jsonString);
 		
+		return jsonString;
+	
 	}
 	
 }
