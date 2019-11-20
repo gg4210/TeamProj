@@ -2,11 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
-<sec:authentication property="principal.username" var="id"/>
-
-<script src="<c:url value='/resources/MDB-Free_4.8.10/js/addons/rating.js'/>"></script>
 
 <style>
 
@@ -15,7 +12,6 @@
  padding-left:15px;
 
 }
-
 .shadow-textarea textarea.form-control::placeholder {
     font-weight: 300;
 }
@@ -88,73 +84,128 @@ background-color: #4285F4; }
 
 </style>
 
+<script src="<c:url value='/resources/MDB-Free_4.8.10/js/addons/rating.js'/>"></script>
+
 <script>
 
-	$(document).ready(function() {
+$(function() {
+	
+	console.log('시작');
+	
+	var token = $("meta[name='_csrf']").attr("content");
+	var header = $("meta[name='_csrf_header']").attr("content");
+	console.log('token:',token)
+	console.log('header:',header)
+	console.log('header길이:',header.length)
+
+	
+	var showComment=function(){///Ajax로 처리
+		console.log('showComment Ajax 들어옴');
+		$.ajax({
+			url:"<c:url value='/commentlist.do?_csrf="+token+"'/>",
+			//beforeSend:function(xhr){xhr.setRequestHeader(header, token);},
+			data:{'mapkey':'${viewinfo.mapkey}'},
+			type:"post",
+			success:displayComments,
+		    error:function(request,status,error){
+		         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+		    },
+		});
+	};
+	
+	var displayComments=function(data){
+		var comment='<div class="row pb-4">';
+		console.log('data:',data,',타입:',typeof data)
 		
-		$('#rateMe1').mdbRate();
+		if(data.length==0){
+			console.log('데이타 업쇼습니다')
+			comment+='<div class="col text-center">등록된 한줄 댓글이 존재하지 않습니다.</div></div>';
+		}
+		else{
+			$.each(data,function(index, element){
+				comment+='<div class="col-2">';
+				comment+='<img src='+element['PICTURE']+' alt="Avatar" class="avatar img-fluid">';
+				comment+='</div>'
+				comment+='<div class="col">';
+				comment+='<span class="mt-0 font-weight-bold blue-text h5">'+element['NICK_NAME']+'</span>';
+				comment+='<span id="rateMe">';
+				switch(element['RATE']){
+					case 1:
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>';
+						break;
+					case 2:
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>';
+						break;
+					case 3:
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>';
+						break;
+					case 4:
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>';
+						break;
+					case 5:
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>';
+						break;
+					default:
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>';
+						comment+='<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>';
+				}//switch
+				comment+='</span><p>'+element['RCOMMENT']+'</p><p>'+element['RPOSTDATE']+'</p></div></div>';
+			});//$.each
+			console.log(comment);
+				
+		}//else	
+		$('#comment_list').html(comment);
+	}
+	
+	$('#rateMe1').mdbRate();
+
+		showComment();
 		
-		var index=$('#rateMe1').find('i.amber-text').length;
-		var token = $("meta[name='_csrf']").attr("content");
-		var header = $("meta[name='_csrf_header']").attr("content");
 		
-		$('#comment_submit').click(function(){
-		
+		$('#comment_submit').click(function(e){
+			var index=parseInt($('#rateMe1').find('i.amber-text').length.toString());
+			e.preventDefault();
 			$.ajax({
-				url:"<c:url value='/searchView/commentwrite.do'/>",
+				url:"<c:url value='/commentwrite.do?_csrf="+token+"'/>",
 				type:"post",
-				beforeSend:function(xhr){
-					xhr.setRequestHeader(header, token);
-				},
-				dataType:text,
-				data:{
-					rate:index,
-					
-				},
+				data:{'rate':index,'rComment':$('#comment_text').val(), 'mapkey':'${viewinfo.mapkey}'},
 				success:function(data){
 					showComment();
 				},
 				error:function(data){
 					console.log(data);
-				},
+				}
 			});
-			
-		}
+		});//클릭이벤트 끝
 		
-	}); 
-	
-	
-	var showComment=function(){
-		url:"<c:url value='/searchView/commentlist.do'/>",
-		data:{mapkey:${viewinfo.mapkey}},
-		dataType:'json',
-		type:'post',
-		success:displayComments
-	}
-	
-	var displayComments=function(data){
-		var comment='<div class="row pb-4">';
-		if(data.length==0){
-			comment+='<div class="col text-center">등록된 한줄 댓글이 존재하지 않습니다.</div>';
-		}
-		else{
-			comment+='<div class="col-2">';
-			comment+='<img src="<c:url value='+element['PICTURE']+'/>" alt="Avatar" class="avatar img-fluid">';
-			comment+='</div>';
-			comment+='<div class="col">';
-			comment+='<span class="mt-0 font-weight-bold blue-text h5">닉네임</span>';
-			comment+='<span id="rateMe">'setRating(element['RATE']);
-			comment+='</span>'+element['NICK_NAME'];
-			comment+='<p>'+element['RCOMMENT']+'</p>';
-			comment+='<p>'+element['RPOSTDATE']+'</p>';
-			comment+='</div>';
-			comment+='</div>';
-		}
-	}
-	
-	
-	//<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>'+
-
+		
+		
+		
+		
+});	//function 끝
 	
 </script>
 
@@ -337,13 +388,12 @@ background-color: #4285F4; }
 										<div class="col">
 										
 											<form id="comment_form">
-											
 												<span id="rateMe1"></span>
 												<div class="form-group shadow-textarea m-0 mt-2">
-													<textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="3" placeholder="후기를 등록하세요!"></textarea>
-												</div>												
+													<textarea class="form-control z-depth-1" id="comment_text" rows="3" placeholder="후기를 등록하세요!" name="rComment"></textarea>
+												</div>
+												<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 												<button type="submit" class="btn btn-indigo" id="comment_submit">등록하기</button>
-												
 											</form>
 											
 										</div>
@@ -357,42 +407,9 @@ background-color: #4285F4; }
 						<div class="col">
 							<div class="card">
 								<div class="card-header pt-4"><p class="font-weight-bold h3">이용후기</p></div>
-								<div class="card-body">
+								<div class="card-body" id="comment_list">
 								
-									<div class="row pb-4">
-										<div class="col-2">
-											<img src="<c:url value='/resources/images/girl.png'/>" alt="Avatar" class="avatar img-fluid">
-										</div>
-										<div class="col">
-												<span class="mt-0 font-weight-bold blue-text h5">닉네임</span>
-												<span id="rateMe">
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-												</span>
-											<p>코멘트 내용입니다.</p>
-										</div>
-									</div>
 									
-									<div class="row pb-3">
-										<div class="col-2">
-											<img src="<c:url value='/resources/images/girl.png'/>" alt="Avatar" class="avatar img-fluid">
-										</div>
-										<div class="col">
-												<span class="mt-0 font-weight-bold blue-text h5">닉네임</span>
-												<span id="rateMe">
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-													<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-												</span>
-											<p>코멘트 내용입니다.</p>
-										</div>
-										<hr/>										
-									</div>
 									
 								</div>	
 							</div>

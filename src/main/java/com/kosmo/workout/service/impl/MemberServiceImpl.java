@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.kosmo.workout.service.MemberDTO;
 import com.kosmo.workout.service.MemberService;
 
 @Service("MemberService")
@@ -51,6 +52,13 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int Isdata(Map map) {
 		return dao.Isdata(map);
+	}
+
+	@Override
+	public MemberDTO selectOne(Map map) {
+		System.out.println("ServiceImpl 통과");
+		System.out.println(map);
+		return dao.selectOne(map);
 	}
 
 }

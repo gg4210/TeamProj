@@ -34,7 +34,7 @@ public class HealthMateController {
 	public String mainPage(@RequestParam Map map, Model model) {
 		List<HealthMateDTO> mateList=HealthMateService.selectList(map);
 		model.addAttribute("mateList", mateList);
-		
+
 		return "healthMate/healthMateMain.tiles";
 	}
 	

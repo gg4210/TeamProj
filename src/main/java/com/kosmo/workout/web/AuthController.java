@@ -39,7 +39,7 @@ public class AuthController {
 		UserDetails userDetails=(UserDetails)auth.getPrincipal();
 		System.out.println(userDetails.getUsername());
 		map.put("id",userDetails.getUsername());
-		System.out.println(map);
+		System.out.println("map확인"+map);
 		int count=NotificationService.countList(map);
 		System.out.println(count);
 		return "index.tiles";
@@ -56,7 +56,7 @@ public class AuthController {
 		
 	}
 	
-	@RequestMapping(value="/joincomplete.do",method=RequestMethod.POST)
+	@RequestMapping(value="/joincomplete.do", method=RequestMethod.POST)
 	public String joincomplete(@RequestParam Map map,Model model){
 		System.out.println(map);
 		MemberService.insertJoin(map);

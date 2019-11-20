@@ -15,15 +15,24 @@ public class CSDTO {
 
 	//프로그램 효율성을 위한 속성 추가]
 	//이름 저장
-	private String name;
+	private String name;	
+	private String rownum;
 		
 	//게터,세터]	
+	
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
+	public String getRownum() {
+		return rownum;
+	}
+	public void setRownum(String rownum) {
+		this.rownum = rownum;
+	}
+	
 	public String getNo() {
 		return no;
 	}

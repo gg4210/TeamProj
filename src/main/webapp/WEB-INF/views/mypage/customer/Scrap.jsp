@@ -29,11 +29,6 @@ $(function(){
 			$('#scrap-checkbox-all input:checkbox').prop('checked',false);
 		}
 	});
-	
-	<!-- 스크랩 삭제 모달 -->
-	$('#scrap-delete').click(function(){
-		$('#scrap-modal').modal('show');
-	});
 });
 </script>
 <style>
@@ -70,7 +65,7 @@ nav > ul a {
 	<div class="row">
 		<div class="col-md-12">
 			<div class="float-right">
-				<button id="scrap-delete" class="btn purple-gradient p-2 px-4">삭제</button>
+				<button id="scrap-delete" class="btn purple-gradient p-2 px-4" data-toggle="modal" data-target="#scrap-modal">삭제</button>
 			</div>
 			
 			<table class="table table-hover" style="margin-top:50px;">
@@ -134,17 +129,17 @@ nav > ul a {
 		</div><!-- col-md-12 -->
 	</div><!-- row 끝 -->
 	
-		<!-- 검색창 -->
-			<div class="form-inline d-flex justify-content-center mt-3">
-				<select name="searchColumn" class="form-control custom-select mr-2">
-					<option value="title">제목</option>
-					<option value="name">작성자</option>
-					<option value="content">내용</option>
-				</select>
-				<input type="text" class="form-control" placeholder="Search">
-				<button class="btn blue-gradient p-2 px-4">검색</button>
-			</div>
-		<!-- 검색창 끝 -->		
+	<!-- 검색창 -->
+		<div class="form-inline d-flex justify-content-center mt-3">
+			<select name="searchColumn" class="form-control custom-select mr-2">
+				<option value="title">제목</option>
+				<option value="name">작성자</option>
+				<option value="content">내용</option>
+			</select>
+			<input type="text" class="form-control" placeholder="Search">
+			<button class="btn blue-gradient p-2 px-4">검색</button>
+		</div>
+	<!-- 검색창 끝 -->		
 
 	<!-- 페이지네이션 시작 -->
 	<div class="row">

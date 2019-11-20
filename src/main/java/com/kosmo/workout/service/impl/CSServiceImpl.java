@@ -18,15 +18,23 @@ public class CSServiceImpl implements CSService{
 	private CSDAO dao;
 
 	@Override
-	public List<CSDTO> selectList(Map map) {
-		return dao.selectList(map);
+	public List<CSDTO> noticeSelectList(Map map) {
+		return dao.noticeSelectList(map);
+	}
+	public List<CSDTO> eventSelectList(Map emap) {
+		return dao.eventSelectList(emap);
 	}
 
 	@Override
 	public CSDTO selectOne(Map map) {
 		return dao.selectOne(map);
 	}
-
+	@Override
+	public CSDTO eventSelectOne(Map emap) {
+		return dao.eventSelectOne(emap);
+	}
+	
+	
 	@Override
 	public int insert(Map map) {
 		return dao.insert(map);

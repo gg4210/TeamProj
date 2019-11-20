@@ -12,7 +12,7 @@
 			<div class="col-md-12">
 				<form class="form-horizontal" method="post"
 					action="<c:url value='/customerService/notice/noticeWrite.do'/>">
-					
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<div class="form-group row" id="category">
 						<label class="control-label pr-4">분류</label>
 						<div class="col-2">
