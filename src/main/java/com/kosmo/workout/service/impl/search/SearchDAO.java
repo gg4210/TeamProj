@@ -14,6 +14,8 @@ import com.kosmo.workout.service.search.SearchBBSDTO;
 @Repository("SearchDAO")
 public class SearchDAO {
 	
+	
+	
 	@Resource(name="template")
 	private SqlSessionTemplate template;
 	
@@ -23,10 +25,11 @@ public class SearchDAO {
 	}
 	// 센터 정보 유무 확인용
 	
+	
+	
 	//센터 정보 입력, 수정, 불러오기 관련//
 	public int insertSearchDTO(Map map) {
 		return template.insert("insertSearch",map);
-		
 	}
 	public int updateSearchDTO(Map map) {
 		return template.update("updateSearch",map);
@@ -35,7 +38,33 @@ public class SearchDAO {
 	public SearchBBSDTO selectOneSearchDTO(Map map) {
 		return template.selectOne("seleteOneSearch",map);
 	}
+	public int setRating(Map map) {
+		return template.selectOne("avgRate",map);
+	}
+	public SearchBBSDTO setComplexity(Map map) {
+		return template.selectOne("complexity",map);
+	}
 	//센터 정보 입력, 수정 관련 끝//
+
+	
+	
+	//북마크 관련//
+	public int isBookmarked(Map map) {
+		return template.selectOne("isBookmarked",map);
+	}
+	public int countBookmark(Map map) {
+		return template.selectOne("countBookmark",map);
+	}
+	public int insertBookmark(Map map) {
+		return template.insert("insertBookmark",map);
+	}
+	public int deleteBookmark(Map map) {
+		return template.delete("deleteBookmark",map);
+	}
+	//북마크 관련//	
+	
+	
+	
 	
 	//코멘트 입력 , 리스트 뿌려주기 시작//
 	public int insertComment(Map map) {
@@ -50,8 +79,7 @@ public class SearchDAO {
 	public int updateComment(Map map) {
 		return template.update("updateComment",map);		
 	}
-	
-	
+	//코멘트 입력 , 리스트 뿌려주기 끝//
 	
 	
 }

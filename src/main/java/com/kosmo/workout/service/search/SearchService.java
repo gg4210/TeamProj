@@ -14,6 +14,8 @@ public interface SearchService {
 	int insertSearchDTO(Map map);
 	int updateSearchDTO(Map map);	
 	SearchBBSDTO selectOneSearchDTO(Map map);
+	int setRating(Map map);
+	SearchBBSDTO setComplexity(Map map);
 	//센터 정보 입력, 수정 관련 끝//
 	
 	//코멘트 입력 , 리스트 뿌려주기 시작//

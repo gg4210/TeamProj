@@ -69,13 +69,51 @@ public class SearchController {
 			viewinfo.setSport_kind(dto.getSport_kind());
 
 		}
-
+		
+		
+		String avgRate=CommonUtility.ratingString(SearchService.setRating(map));
+		viewinfo.setAvgR(SearchService.setRating(map));
+		viewinfo.setAvgRate(avgRate);
+		
+		SearchBBSDTO dto=SearchService.setComplexity(map);
+		viewinfo.setCountNum(dto.getCountNum());
+		viewinfo.setMaxNumber(dto.getMaxNumber());
+		
 		model.addAttribute("viewinfo",viewinfo);
 		
 		//int complexity=0;
 		//model.addAttribute("complexity",complexity);
 		
 		return "search/view.tiles";
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/show_Summery.do", method=RequestMethod.POST)
+	public String SummeryView(@RequestParam Map map, Model model) {
+		
+		SearchBBSDTO viewinfo = new SearchBBSDTO();
+		String avgRate=CommonUtility.ratingString(SearchService.setRating(map));//별 표시
+		
+		viewinfo.setAvgR(SearchService.setRating(map));// 평점 싣기
+		viewinfo.setAvgRate(avgRate);//별표시 싣기
+		
+		SearchBBSDTO dto=SearchService.setComplexity(map);
+		viewinfo.setCountNum(dto.getCountNum());
+		viewinfo.setMaxNumber(dto.getMaxNumber());
+		
+		model.addAttribute("viewinfo",viewinfo);
+		
+		return null;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/showBookmarked.do", method=RequestMethod.POST)
+	public String BookmarkedView(@RequestParam Map map, Model model) {
+		
+		
+		
+		return null;
 	}
 	
 	

@@ -4,8 +4,6 @@ var mapheight=$(window).height();
 
 var token = $("meta[name='_csrf']").attr("content");
 var header = $("meta[name='_csrf_header']").attr("content");
-console.log(token);//value
-console.log(header);//name
 
 
 //map 높이를 동적으로 가져가기 위한 로직 시작
@@ -267,8 +265,19 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    '    </div>' + 
    '    </div>' + 
    '    <div class="card-body p-0 px-2 py-1">'+
-   '      <img src="https://img.icons8.com/color/48/000000/open-sign.png">'+
-   '      <img src="https://img.icons8.com/color/48/000000/close-sign.png">';
+   '      <img src="https://img.icons8.com/color/48/000000/open-sign.png">';
+         
+   var isBookMarked=function(data){
+	   $.each(data,function(index,element){
+		   if(data.length==0){
+			   content+='<i class="far fa-heart"></i>';
+		   }
+		   else{
+			   content+='<i class="fas fa-heart red-text"></i>';
+		   }
+	   });
+   }
+   
    if(road_address!=null){
       content+='<div>'+address+'</div>' + 
              '<div>'+road_address+'</div>';
@@ -277,35 +286,68 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
       content+='<div class="ellipsis">'+address+'</div>';
 
    }
-   content+='<span class="tel">'+phone+'</span>' +
-   '      <p class="mb-0">[평일] 06:00 ~ 24:00</p>'+
-   '      <span id="rateMe">'+
-   '         <i class="fas fa-star py-0 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>'+
-   '         <i class="fas fa-star py-0 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>'+
-   '         <i class="fas fa-star py-0 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>'+
-   '         <i class="fas fa-star py-0 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>'+
-   '         <i class="fas fa-star py-0 rate-popover amber-text" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>'+
-   '      </span>(0.0)'+     
-   '      <div class="row">'+
-   '      <div class="col">'+
-   '            <h7 class="progress-title">혼잡도</h7>'+
-   '            	<div class="progress blue">'+
-   '	                <div class="progress-bar" style="width:70%; background:#fe3b3b;">'+
-   '	                    <div class="progress-value">70%</div>'+
-   '	                </div>'+
-   '	            </div>'+
-   '	    </div>'+
-   '	  </div>'+
-   '      <p class="card-text">현재 51명이 이용중입니다</p>'+
-   '    </div>'+
-   '  </div>'+
-   '</div>'+
-   '</div>'+    
-   '</div>'+
-   '</sec:authorize>';
-
    
+   content+='<span class="tel">'+phone+'</span>';
 
+   var showDetail=function(data){
+	   if(data.length==0){
+		   content+='</div>';    
+		   content+='</div>';
+		   content+='</sec:authorize>';
+	   }
+	   else{
+		   $.each(data,function(index, element){
+			content+='<p class="mb-0">'+element['otime']+'</p>'+
+		   '      <span id="rateMe">'+
+		   element['avgRate']+
+		   '      </span>'+element['avgR']+    
+		   '      <div class="row">'+
+		   '      <div class="col">'+
+		   '            <h7 class="progress-title">혼잡도</h7>'+
+		   '            	<div class="progress blue">'+
+		   '	                <div class="progress-bar" style="width:'+(element['COUNTNUM']/element['MAXNUMBER'])*100+'%; background:#fe3b3b;">'+
+		   '	                    <div class="progress-value">'+(element['COUNTNUM']/element['MAXNUMBER'])*100+'%</div>'+
+		   '	                </div>'+
+		   '	            </div>'+
+		   '	    </div>'+
+		   '	  </div>'+
+		   '      <p class="card-text">현재 '+element['COUNTNUM']+'명이 이용중입니다</p>'+
+		   '    </div>'+
+		   '  </div>'+
+		   '</div>'+
+		   '</div>'+    
+		   '</div>'+
+		   '</sec:authorize>';
+		   });
+	   }
+   };
+      
+   $.ajax({
+	   	url:'/workout/show_Summery.do?_csrf='+token,
+		type:"post",
+		data:{'mapkey':id},
+		success:function(data){
+			showDetail();
+		},
+		error:function(data){
+			console.log(data);
+		}  
+   });
+   
+   $.ajax({
+	   url:'/workout/showBookmarked.do?_csrf='+token,
+	   type:"post",
+	   data:{'mapkey':id},
+	   success:function(data){
+			isBookMarked();
+	   },
+		error:function(data){
+			console.log(data);
+		}  
+   });
+   
+   
+ 
     customOverlay = new kakao.maps.CustomOverlay({
                  content: content,
                  clickable: true,
