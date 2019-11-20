@@ -23,11 +23,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/Notification.xml"/>
 		<mapper resource="mybatis/CS.xml" />
 		<mapper resource="mybatis/HealthMate.xml" />
-<<<<<<< HEAD
-=======
+
 		<!--<mapper resource="mybatis/MyMate.xml" />-->
 		<mapper resource="mybatis/Search.xml" />
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
+
 	</mappers>
 	
 </configuration>
