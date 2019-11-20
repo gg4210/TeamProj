@@ -9,9 +9,10 @@ import org.springframework.stereotype.Service;
 
 import com.kosmo.workout.service.search.SearchBBSCommentDTO;
 import com.kosmo.workout.service.search.SearchBBSDTO;
+import com.kosmo.workout.service.search.SearchService;
 
 @Service("SearchService")
-public class SearchServiceImpl {
+public class SearchServiceImpl implements SearchService{
 	
 		@Resource(name="SearchDAO")
 		private SearchDAO dao;
@@ -41,7 +42,7 @@ public class SearchServiceImpl {
 		public int insertComment(Map map) {
 			return dao.insertComment(map);
 		}
-		List<SearchBBSCommentDTO> selectListComment(Map map) {
+		public List<SearchBBSCommentDTO> selectListComment(Map map) {
 			return dao.selectListComment(map);		
 		}
 		public int DeleteListComment(Map map) {

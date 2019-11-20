@@ -16,7 +16,7 @@ public class SearchBBSDTO {
 	String tag;
 	String[] sport_kind;
 	int countNum;
-	int complexity;
+	int maxNumber;
 	
 
 	
@@ -97,12 +97,13 @@ public class SearchBBSDTO {
 		this.countNum = countNum;
 	}
 
-	public int getComplexity() {
-		return complexity;
+	public int getMaxNumber() {
+		return maxNumber;
 	}
 
-	public void setComplexity(int complexity) {
-		this.complexity = complexity;
+	public void setMaxNumber(int maxNumber) {
+		this.maxNumber = maxNumber;
 	}
+
 	
 }

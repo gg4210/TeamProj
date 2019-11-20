@@ -7,7 +7,7 @@ public class HealthMateDTO {
 	private int no;
 	private String title;
 	private String[] tag;
-	private String[] location;
+	private String location;
 	private String healthTime;
 	private Date postDate;
 	private String matePhoto;
@@ -31,10 +31,10 @@ public class HealthMateDTO {
 	public void setTag(String[] tag) {
 		this.tag = tag;
 	}
-	public String[] getLocation() {
+	public String getLocation() {
 		return location;
 	}
-	public void setLocation(String[] location) {
+	public void setLocation(String location) {
 		this.location = location;
 	}
 	public String getHealthTime() {

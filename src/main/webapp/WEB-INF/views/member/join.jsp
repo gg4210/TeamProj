@@ -13,16 +13,16 @@ $( document ).ready( function () {
 			},
 			password: {
 				required: true,
-				rangelength: [5,16]
+				rangelength: [4,16]
 			},
 			password_re: {
 				required: true,
-				rangelength: [5,16],
+				rangelength: [4,16],
 				equalTo: "#password1"
 			},
 			id: {
 				required: true,
-				minlength: 4
+				minlength: 3
 			},
 			nick: {
 				required: true
@@ -35,16 +35,16 @@ $( document ).ready( function () {
 			},
 			password: {
 				required: "비밀번호를 입력해주세요.",
-				rangelength: "비밀번호는 최소 5자에서 최대 16자로 입력하셔야합니다."
+				rangelength: "비밀번호는 최소 4자에서 최대 16자로 입력하셔야합니다."
 			},
 			password_re: {
 				required: "비밀번호를 다시 입력해주세요.",
-				rangelength: "비밀번호는 최소 5자에서 최대 16자로 입력하셔야합니다.",
+				rangelength: "비밀번호는 최소 4자에서 최대 16자로 입력하셔야합니다.",
 				equalTo: "위에서 입력하셨던 비밀번호와 일치하지 않습니다."
 			},
 			id: {
 				required: "아이디를 입력해주세요.",
-				minlength: "아이디는 최소 4자 이상으로 입력하셔야합니다."
+				minlength: "아이디는 최소 3자 이상으로 입력하셔야합니다."
 			},
 			nick: {
 				required:"닉네임을 입력해주세요."
@@ -366,6 +366,7 @@ function submit_join(){
 			<input type="hidden" id="enabled" name="enabled" value="1">
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 			<button class="btn btn-info offset-md-10 col-md-2" id="startchange" type="submit">가입 완료</button>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 		</form>
 	</div>
 </div>
