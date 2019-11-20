@@ -376,6 +376,10 @@ $(function(){
 	}
 	});
 
+	
+	$('#makeQRCode').click(function(){
+		location.href="QRCode.jsp";
+	});
 
 })
 

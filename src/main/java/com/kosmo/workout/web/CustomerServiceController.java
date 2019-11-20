@@ -1,11 +1,16 @@
 package com.kosmo.workout.web;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,7 +22,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.kosmo.workout.service.CSDTO;
 import com.kosmo.workout.service.CSService;
 
-@SessionAttributes("id")
+//@SessionAttributes("id")//스프링 씨큐리티를 사용하지 않을때
 @Controller
 public class CustomerServiceController {
 	
@@ -27,12 +32,12 @@ public class CustomerServiceController {
 		
 	
 	//리소스파일(cs.properties-아직 안 만듦)에서 읽어오기
-	/*
+	
 	@Value("${PAGE_SIZE}")
 	private int pageSize;
 	@Value("${BLOCK_PAGE}")
 	private int blockPage; 
-	*/
+	
 	
 	//목록 처리]	
 //	@RequestMapping("")
@@ -55,44 +60,34 @@ public class CustomerServiceController {
 //		return null;
 //	}
 	
-	//공지사항 목록 처리]
-	@RequestMapping("/customerService/notice/noticeList.do")
-	public String noticeList(@RequestParam Map map,Model model) {
-//		//서비스 호출]
-//		//페이징을 위한 로직 시작]
-//		//전체 레코드 수]
-//		int noticeRecordCount = CSService.getNoticeRecord(map);
-//		//전체 페이지 수]
-//		//int totalPage = (int)Math.ceil((double)noticeRecordCount/pageSize);
-//		//시작 및 끝 ROWNUM 구하기]
-//		//페이징을 위한 로직 끝]
-		List<CSDTO> list = CSService.selectList(map);
-//		
-//		//데이터 저장]
-		model.addAttribute("list", list);
-//		//뷰 정보 반환]
-		return "customerService/notice/noticeList.tiles";
-	}
+	
+	
 
 	//공지사항 작성폼으로 이동]
-	@RequestMapping(value="/customerService/notice/noticeWrite.do",method = RequestMethod.GET)
-	public String noticeWrite(@ModelAttribute("id") String id) {
+	@RequestMapping(value="/member/customerService/notice/noticeWrite.do",method = RequestMethod.GET)
+	public String noticeWrite() {
 		return "customerService/notice/noticeWrite.tiles";
 	}	
-	//공지사항 작성 처리] ////아직 시큐리티 사용 전 상태 입니다.
+	//공지사항 작성 처리]
 		@RequestMapping(value = "/customerService/notice/noticeWrite.do",method=RequestMethod.POST)
-		public String noticeWriteOk(@ModelAttribute("id") String id,@RequestParam Map map) {
+		public String noticeWriteOk(@RequestParam Map map,Authentication auth) {
 			//서비스 호출]
 			//스프링 시큐리티 사용 시 아래에 코드 추가
+			UserDetails userDetails = (UserDetails)auth.getPrincipal(); 
 			//호출 전 아이디 맵에 저장
-			System.out.println("id : "+id);
-			map.put("id", id);
-			
-			
+			map.put("id",userDetails.getUsername());
+						
 			CSService.insert(map);
 			
+			Collection auths = userDetails.getAuthorities();
+			System.out.println("id : "+userDetails.getUsername());
+			System.out.println("principal:"+auth.getPrincipal().toString());
 			
-			return "forward:/customerService/notice/noticeList.do";////포워드 했으면 정보 가져가야 하는 거 아냐?
+			for(GrantedAuthority a : auth.getAuthorities()){
+				System.out.println(a.getAuthority());
+			}
+			
+			return "forward:member/customerService/notice/noticeList.do";////포워드 했으면 정보 가져가야 하는 거 아냐?
 		}
 //	//수정 전 연결페이지
 //	@RequestMapping("/customerService/notice/noticeWrite.do")
@@ -117,6 +112,17 @@ public class CustomerServiceController {
 		System.out.println(record);
 		return "customerService/notice/noticeView.tiles";
 	}
+	//이벤트 상세보기]
+	@RequestMapping("/customerService/event/eventView.do")
+	public String eventView(@RequestParam Map emap,Model model) {
+		System.out.println("이벤트 상세보기");
+		CSDTO record = CSService.eventSelectOne(emap); 
+		record.setContent(record.getContent().replace("\r\n", "<br/>"));
+		model.addAttribute("eventRecord", record);
+		return "customerService/event/EventView.tiles";
+	}
+	
+	
 	
 	//수정폼으로 이동 및 수정 처리]
 	
@@ -127,7 +133,7 @@ public class CustomerServiceController {
 	/////////////////////////////////////////////////////////////////
 	
 	@RequestMapping("/member/customerServiceMain.do")
-	public String mainPage(@RequestParam Map map,Model model) {
+	public String mainPage(@RequestParam Map map,@RequestParam Map emap,Model model) {
 		//서비스 호출]
 		//페이징을 위한 로직 시작]
 		//전체 레코드 수]
@@ -136,18 +142,85 @@ public class CustomerServiceController {
 		//int totalPage = (int)Math.ceil((double)noticeRecordCount/pageSize);
 		//시작 및 끝 ROWNUM 구하기]
 		//페이징을 위한 로직 끝]
-		List<CSDTO> list = CSService.selectList(map);
+		List<CSDTO> noticeList = CSService.noticeSelectList(map);
+		List<CSDTO> eventList = CSService.eventSelectList(emap);
 		
 		//데이터 저장]
-		model.addAttribute("list", list);
+		model.addAttribute("noticeList", noticeList);
+		model.addAttribute("eventList",eventList);
 		
-		System.out.println(list);
+		System.out.println(noticeList);
+		System.out.println(eventList);
 		System.out.println(model);
 		//뷰 정보 반환]
 		return "customerService/customerServiceMain.tiles";
 	}
 	
+	//공지사항 목록 처리]
+		@RequestMapping("/customerService/notice/noticeList.do")
+		public String noticeList(
+				@RequestParam Map map,
+				Model model,
+				HttpServletRequest req,
+				@RequestParam(required = false, defaultValue = "1") int nowPage
+				) {
+			//서비스 호출]
+			//페이징을 위한 로직 시작]
+			//전체 레코드 수]
+			int noticeRecordCount = CSService.getNoticeRecord(map);
+			//전체 페이지 수]
+			int totalPage = (int)Math.ceil((double)noticeRecordCount/pageSize);
+			//시작 및 끝 ROWNUM 구하기]
+			int start = (nowPage-1)*pageSize+1;
+			int end = nowPage*pageSize;
+			//페이징을 위한 로직 끝]
+			map.put("start",start);
+			map.put("end",end);
+			List<CSDTO> list = CSService.noticeSelectList(map);
+			//데이터 저장]
+			//////////////////String pagingString = PagingUtil.pagingBootStrapStyle(noticeRecordCount,pageSize,blockPage,nowPage,req.getContextPath()+"/customerService/notice/noticeList.do?");
+			
+			model.addAttribute("list", list);
+			//뷰 정보 반환]
+			return "customerService/notice/noticeList.tiles";
+		}
+		//이벤트 목록 처리]
+		@RequestMapping("/customerService/event/eventList.do")
+		public String eventList(@RequestParam Map emap,Model model) {
+			System.out.println("이벤트 리스트");
+			List<CSDTO> eventList = CSService.eventSelectList(emap);
+			model.addAttribute("eventList", eventList);
+			
+			return "customerService/event/eventList.tiles";
+		}
+		//1:1문의 목록 처리]
+		@RequestMapping("/customerService/consult/consultList.do")
+		public String consultList(@RequestParam Map cmap,Model model) {
+//			//서비스 호출]
+//			//페이징을 위한 로직 시작]
+//			//전체 레코드 수]
+//			int noticeRecordCount = CSService.getNoticeRecord(map);
+//			//전체 페이지 수]
+//			int totalPage = (int)Math.ceil((double)noticeRecordCount/pageSize);
+//			//시작 및 끝 ROWNUM 구하기]
+//			int start = (nowPage-1)*pageSize+1;
+//			int end = nowPage*pageSize;
+//			//페이징을 위한 로직 끝]
+//			map.put("start",start);
+//			map.put("end",end);
+//			List<CSDTO> list = CSService.noticeSelectList(map);
+//			//데이터 저장]
+//			model.addAttribute("list", list);
+//			//뷰 정보 반환]
+//			return "customerService/notice/noticeList.tiles";
+//			
+			
+			
+			CSDTO record = CSService.selectOne(cmap);//메소드 생성/변경 해야함.
+			return "customerService/consult/consultList.tiles";
+		}
 	
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 //	@RequestMapping("/moreFAQ.do")
 //	public String moreFAQ() {
@@ -180,10 +253,11 @@ public class CustomerServiceController {
 		return "customerService/consult/consultView.tiles";
 	}
 	
-	@RequestMapping("/customerService/consult/consultList.do")
-	public String consultList() {
-		return "customerService/consult/consultList.tiles";
-	}
+//	@RequestMapping("/customerService/consult/consultList.do")
+//	public String consultList() {
+//		
+//		return "customerService/consult/consultList.tiles";
+//	}
 	
 	@RequestMapping("/customerService/consult/consultEdit.do")
 	public String consultEdit () {
@@ -192,22 +266,23 @@ public class CustomerServiceController {
 	
 	
 	
-	@RequestMapping("/customerService/event/eventView.do")
-	public String eventView() {
-		System.out.println("이벤트 상세보기");
-		return "customerService/event/EventView.tiles";
-	}
+//	@RequestMapping("/customerService/event/eventView.do")
+//	public String eventView() {
+//		System.out.println("이벤트 상세보기");
+//		return "customerService/event/EventView.tiles";
+//	}
 	
 	@RequestMapping("/customerService/event/eventEdit.do")
 	public String eventEdit() {
 		return "customerService/event/eventEdit.tiles";
 	}	
 	
-	@RequestMapping("/customerService/event/eventList.do")
-	public String eventList() {
-		System.out.println("이벤트 리스트");
-		return "customerService/event/eventList.tiles";
-	}
+//	@RequestMapping("/customerService/event/eventList.do")
+//	public String eventList() {
+//		System.out.println("이벤트 리스트");
+//		
+//		return "customerService/event/eventList.tiles";
+//	}
 	
 	@RequestMapping("/customerService/event/eventWrite.do")
 	public String eventWrite() {
