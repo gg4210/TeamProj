@@ -9,15 +9,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="mybatis.CS">
 	<select id="noticeTotal" parameterType="java.util.Map" resultType="int">
 		SELECT COUNT(*) FROM customerService
+		<if test="searchColumn !=null">
+			WHERE ${searchColumn} LIKE '%' || #{searchWord} || '%'
+		</if>
 	</select>
 	
-	<select id="CSSelectList" parameterType="java.util.Map" resultType="CSDTO">
-		SELECT no,category,title,postDate FROM customerService WHERE menu='NOTICE' ORDER BY no desc
+	<select id="noticeSelectList" parameterType="java.util.Map" resultType="CSDTO">
+		<!-- SELECT * FROM customerService WHERE menu='NOTICE' ORDER BY no desc -->
+		SELECT ROWNUM,T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='NOTICE' ORDER BY NO) T ORDER BY ROWNUM DESC
+		<if test="searchColumn != null"><!-- 다른 조건으로 바꿔줘야 할 듯./지금 where절은 고객센터 홈 공지사항부분/이 경우 ORDER BY 고민 좀 해야할 듯... -->
+			WHERE ROWNUM&lt;=3
+		</if>
 	</select>
-	 
+	<select id="eventSelectList" parameterType="java.util.Map" resultType="CSDTO">
+		SELECT ROWNUM,T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='EVENT' ORDER BY NO) T ORDER BY ROWNUM DESC
+	</select>
+	<select id="eventConsultList" parameterType="java.util.Map" resultType="CSDTO">
+		SELECT ROWNUM,T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='CONSULT' ORDER BY NO) T ORDER BY ROWNUM DESC
+	</select>
+	
 	<select id="noticeSelectOne" parameterType="java.util.Map" resultType="CSDTO">
 		SELECT * FROM customerService WHERE no = #{no}
 	</select>
+	<select id="eventSelectOne" parameterType="java.util.Map" resultType="CSDTO">
+		SELECT * FROM customerService where no = #{no}
+	</select>
+	
+	
+	
 	
 	<insert id="noticeInsert" parameterType="java.util.Map">
 		INSERT INTO customerService(no,id,menu,category,title,content,postdate)

@@ -129,17 +129,17 @@ nav > ul a {
 		</div><!-- col-md-12 -->
 	</div><!-- row 끝 -->
 	
-		<!-- 검색창 -->
-			<div class="form-inline d-flex justify-content-center mt-3">
-				<select name="searchColumn" class="form-control custom-select mr-2">
-					<option value="title">제목</option>
-					<option value="name">작성자</option>
-					<option value="content">내용</option>
-				</select>
-				<input type="text" class="form-control" placeholder="Search">
-				<button class="btn blue-gradient p-2 px-4">검색</button>
-			</div>
-		<!-- 검색창 끝 -->		
+	<!-- 검색창 -->
+		<div class="form-inline d-flex justify-content-center mt-3">
+			<select name="searchColumn" class="form-control custom-select mr-2">
+				<option value="title">제목</option>
+				<option value="name">작성자</option>
+				<option value="content">내용</option>
+			</select>
+			<input type="text" class="form-control" placeholder="Search">
+			<button class="btn blue-gradient p-2 px-4">검색</button>
+		</div>
+	<!-- 검색창 끝 -->		
 
 	<!-- 페이지네이션 시작 -->
 	<div class="row">

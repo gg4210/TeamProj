@@ -19,12 +19,13 @@
 
 	<!-- Page Features -->
 	<div class="row text-center">
+	<c:forEach var="mate" items="${mateList}" varStatus="loop">
 	<!-- card 1 시작 -->
 	<div class="col-lg-3 col-md-6">
 			<div class="card h-100">
-				<h2 class="card-title m-0 p-2 mdb-color darken-3" style="color: white">TITLE</h2>
+				<h2 class="card-title m-0 p-2 mdb-color darken-3" style="color: white">${mate.title }</h2>
 				<div class="card-image-container p-3">
-					<img class="card-img-top" src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F9909CB415A87C79932" alt="" style="width: 100%">
+					<img class="card-img-top" src="https://i.pinimg.com/originals/05/23/7d/05237daed52cbcc8a09cc659fefd055a.jpg" alt="이미지" style="width: 100%">
 					<div class="card-img-middle">
 						<div class="text px-3" id="text-modal">추가하기</div>
 					</div>
@@ -33,30 +34,34 @@
 				<div class="row justify-content-center">
 					<div class="row tag pb-3">
 							<div class="mr-3">
-							<h5><span class="badge badge-pill badge-default">#태그</span></h5>
+							<h5><span class="badge badge-pill badge-default">${mate.first_tag }</span></h5>
 							</div>
 							<div class="mr-3">
-								<h5><span class="badge badge-pill badge-default">#태그</span></h5>
+								<h5><span class="badge badge-pill badge-default">${mate.second_tag }</span></h5>
 							</div>
 							<div>
-								<h5><span class="badge badge-pill badge-default">#태그</span></h5>
+								<h5><span class="badge badge-pill badge-default">${mate.third_tag }</span></h5>
 							</div>
 					</div>
 				</div>
-					<div class="row justify-content-center pb-1"><strong><i class="fas fa-search-location"></i>지역: 어딘가</strong></div>
-					<div class="row justify-content-center pb-1"><strong><i class="fas fa-heart"></i>관심 종목: 기타</strong></div>
-					<div class="row justify-content-center pb-1"><strong><i class="far fa-clock"></i>운동시간: 협의</strong></div>
-					<div class="row justify-content-center pb-3"><strong><i class="far fa-calendar-plus"></i>일자: 협의</strong></div>
+					<div class="row justify-content-center pb-1"><strong><i class="fas fa-pencil-alt"></i>등록일: ${mate.postDate }/${mate.no }</strong></div>
+					<div class="row justify-content-center pb-1"><strong><i class="fas fa-search-location"></i>지역: ${mate.location }</strong></div>
+					<div class="row justify-content-center pb-1"><strong><i class="fas fa-heart"></i>관심 종목: ${mate.interSport } </strong></div>
+					<div class="row justify-content-center pb-1"><strong><i class="far fa-clock"></i>운동 시간: ${mate.healthTime }</strong></div>
+					<div class="row justify-content-center pb-3"><strong><i class="far fa-calendar-plus"></i>일자: ${mate.startDate } ~ ${mate.endDate }</strong></div>
 				</div>
 					
 				<div class="card-footer">
-					<button button type="submit" class="detail btn btn-info px-3">상세보기</button>
+					<button type="submit" class="detail btn btn-info px-3">상세보기</button>
 				</div>
 			</div>
 		</div>
+		</c:forEach>
+		</div>
 		<!-- card 1 끝 -->
-
+		
 	<!-- card 2 시작 -->
+	<!--
 	<div class="col-lg-3 col-md-6">
 			<div class="card h-100">
 				<h2 class="card-title m-0 p-2 mdb-color darken-3" style="color: white">TITLE</h2>
@@ -94,6 +99,7 @@
 		<!-- card 2 끝 -->
 
 	<!-- card 3 시작 -->
+	<!--
 	<div class="col-lg-3 col-md-6">
 			<div class="card h-100">
 				<h2 class="card-title m-0 p-2 mdb-color darken-3" style="color: white">TITLE</h2>
@@ -131,6 +137,7 @@
 		<!-- card 3 끝 -->
 		
 		<!-- card 4 시작 -->
+		<!--
 		<div class="col-lg-3 col-md-6">
 			<div class="card h-100">
 				<h2 class="card-title m-0 p-2 mdb-color darken-3" style="color: white">TITLE</h2>
@@ -168,8 +175,9 @@
 		<!-- card 4 끝 -->
 		
 		
+		
 		<!-- 페이징, 검색창 시작 -->
-		<div class="row mx-auto pt-4">
+		<div class="row justify-content-center pt-4">
 			<div class="text-center">
 				<nav aria-label="Page navigation example">
 					<ul class="pagination pg-blue justify-content-center">
@@ -192,7 +200,7 @@
 					<div class="form-group">
 						<input type="text" name="searchWord" class="form-control" placeholder="Search" />
 					</div>
-					<button button type="submit" class="p-2 px-3 btn btn-primary">검색</button>
+					<button type="submit" class="p-2 px-3 btn btn-primary">검색</button>
 				</form>
 			</div>
 		</div>
@@ -244,7 +252,7 @@
 				<div class="modal-content">
 					<!--Header-->
 					<div class="modal-header">
-						<p class="heading">Title</p>
+						<p class="heading"></p>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true" class="white-text">&times;</span>
 						</button>
@@ -286,6 +294,8 @@
 			</div>
 		</div>
 		<!-- 상세보기 모달 끝 -->
+
+
 		
 
 

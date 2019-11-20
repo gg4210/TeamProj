@@ -68,7 +68,7 @@ $(function () {
 				<jsp:include page="/WEB-INF/views/mypage/customer/Scrap.jsp"/>
 			</div>
 			<div class="tab-pane fade mt-4" id="pills-info" role="tabpanel" aria-labelledby="pills-info-tab">
-				<jsp:include page="/WEB-INF/views/mypage/customer/Infochange.jsp"/>
+				<jsp:include page="/WEB-INF/views/mypage/customer/Info.jsp"/>
 			</div>
 	  	</div>
 	  	<!-- tab content 끝-->

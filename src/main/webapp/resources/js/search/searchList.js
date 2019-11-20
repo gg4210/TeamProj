@@ -244,6 +244,7 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    '   <div class="row">'+
    '   <div class="clearfix col">'+
    '      <form action="/workout/searchView.do" method="post" id="info_form">'+
+   '		 <sec:authentication property="principal.username"/>'+
    '         <input type="hidden" name="title" value="'+title+'">'+
    '         <input type="hidden" name="mapkey" value="'+id+'">';
    if(road_address!=null){
