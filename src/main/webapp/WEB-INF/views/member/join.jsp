@@ -299,8 +299,8 @@ function submit_join(){
 							<input type="text" class="form-control offset-1 col-7 col-md-4 mt-2 md-2" id="Daum_extraAddress" placeholder="참고항목" disabled="disabled">
 						</div>
 						<input type="hidden" name="address" id="address_total" value="">
-						<input type="hidden" name="addressdetail" id="addressdetail" value="">
-						<input type="hidden" name="addressdetail" id="zipcode" value="">
+						<input type="hidden" name="detail_address" id="addressdetail" value="">
+						<input type="hidden" name="zipcode" id="zipcode" value="">
 					</div>
 				</div>  
 					

@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		INSERT INTO H_MEMBER(ID,PASSWORD,NAME,EMAIL,ADDRESS,CELLPHONE,
 		AUTHORITY,MY_COMMENT,INTER_SPORTS,PICTURE,JOINDATE,NICK_NAME,DETAIL_ADDRESS,ZIPCODE)
   		VALUES(#{id},#{password},#{name},#{email},#{address},#{cellphone},
-  		#{authority},#{my_comment},#{inter_sports},#{picture},SYSDATE,#{nick},#{address_detail},#{zipcode})
+  		#{authority},#{my_comment},#{inter_sports},#{picture},SYSDATE,#{nick},#{detail_address},#{zipcode})
 	</insert>
 	<insert id="AuthJoin" parameterType="java.util.Map">
 		INSERT INTO AUTH_SECURITY(SECNO,ID,AUTHORITY,ENABLED)

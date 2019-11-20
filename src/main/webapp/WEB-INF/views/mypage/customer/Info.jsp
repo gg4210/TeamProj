@@ -257,6 +257,7 @@ $(function() {
 	console.log("${record.detail_address}");
 	console.log("${record.zipcode}");
 	console.log("${record.cellphone}");
+	console.log("${record.cellphone}");
 	var cell="${record.cellphone}";
 	var cellphone=cell.split("-");
 	$('#cellphone1 option').each(function(){
