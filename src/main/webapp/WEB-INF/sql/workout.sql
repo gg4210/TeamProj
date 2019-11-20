@@ -1,5 +1,5 @@
 
-/* Drop Tables */
+/* Drop Tables
 
 DROP TABLE AUTH_SECURITY CASCADE CONSTRAINTS;
 DROP TABLE BBS_Comment CASCADE CONSTRAINTS;
@@ -35,11 +35,10 @@ DROP SEQUENCE SEQ_MESSAGE_TABLE_MNO;
 DROP SEQUENCE SEQ_MY_MATE_FNO;
 DROP SEQUENCE SEQ_RegiCenter_NO;
 DROP SEQUENCE SEQ_SCRAP_NO;
+*/
 
 
-
-
-/* Create Sequences */
+/* Create Sequences*/
 
 CREATE SEQUENCE SEQ_AUTH_SECURITY_SECNO INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_BBS_Comment_CNO INCREMENT BY 1 START WITH 1;
@@ -182,14 +181,19 @@ CREATE TABLE CustomerService
 CREATE TABLE healthMate
 (
 	NO number NOT NULL,
-	title nvarchar2(20) NOT NULL,
-	tag varchar2(50),
-	location nvarchar2(20) NOT NULL,
-	healthTime nvarchar2(10) DEFAULT '시간협의' NOT NULL,
-	content nvarchar2(1000),
-	postDate date DEFAULT SYSDATE,
 	-- 계정
 	ID nvarchar2(50) NOT NULL,
+	title nvarchar2(20) NOT NULL,
+	location nvarchar2(20) NOT NULL,
+	interSport nvarchar2(50) NOT NULL,
+	healthTime nvarchar2(10) DEFAULT '시간협의' NOT NULL,
+	startDate date NOT NULL,
+	endDate date NOT NULL,
+	first_tag varchar2(10),
+	second_tag nvarchar2(10),
+	third_tag nvarchar2(10),
+	content nvarchar2(1000),
+	postDate date DEFAULT SYSDATE,
 	picture nvarchar2(100),
 	PRIMARY KEY (NO)
 );
@@ -293,12 +297,6 @@ ALTER TABLE SCRAP
 
 
 ALTER TABLE BookMark
-	ADD FOREIGN KEY (mapkey)
-	REFERENCES CENTER_INFO (mapkey)
-;
-
-
-ALTER TABLE CenterReview
 	ADD FOREIGN KEY (mapkey)
 	REFERENCES CENTER_INFO (mapkey)
 ;
