@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
 /* Drop Tables */
+=======
+/* Drop Tables 
+>>>>>>> refs/remotes/origin/master
 
 DROP TABLE AUTH_SECURITY CASCADE CONSTRAINTS;
 DROP TABLE BBS_Comment CASCADE CONSTRAINTS;
@@ -35,8 +39,12 @@ DROP SEQUENCE SEQ_MESSAGE_TABLE_MNO;
 DROP SEQUENCE SEQ_MY_MATE_FNO;
 DROP SEQUENCE SEQ_RegiCenter_NO;
 DROP SEQUENCE SEQ_SCRAP_NO;
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/remotes/origin/master
 
+*/
 
 
 /* Create Sequences */
@@ -262,6 +270,8 @@ CREATE TABLE RegiCenter
 	startDate date DEFAULT SYSDATE NOT NULL,
 	endDate date NOT NULL,
 	mapkey number(8) NOT NULL,
+	-- 허용시 0, 아닐경우 1
+	isAllowed number(1) DEFAULT 1 NOT NULL,
 	PRIMARY KEY (NO)
 );
 
@@ -290,12 +300,6 @@ ALTER TABLE BBS_Comment
 ALTER TABLE SCRAP
 	ADD FOREIGN KEY (bbs_no)
 	REFERENCES BBS (NO)
-;
-
-
-ALTER TABLE BookMark
-	ADD FOREIGN KEY (mapkey)
-	REFERENCES CENTER_INFO (mapkey)
 ;
 
 
@@ -437,6 +441,7 @@ COMMENT ON COLUMN MESSAGE_TABLE.isRead IS '1은 읽지않음
 COMMENT ON COLUMN MY_MATE.ID IS '계정';
 COMMENT ON COLUMN Notification.ID IS '계정';
 COMMENT ON COLUMN RegiCenter.ID IS '계정';
+COMMENT ON COLUMN RegiCenter.isAllowed IS '허용시 0, 아닐경우 1';
 COMMENT ON COLUMN SCRAP.ID IS '계정';
 
 

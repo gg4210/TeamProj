@@ -43,7 +43,6 @@ public class MyPageController {
 		/*임시, 백엔드 스프링 시큐리티 적용 시 삭제 예정 끝*/
 	
 	
-	
 		/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 시작*/
 	@RequestMapping("/customer.do")
 	public String customer_temp(@RequestParam Map map,Model model){
@@ -55,8 +54,7 @@ public class MyPageController {
 		System.out.println(record);
 		model.addAttribute("record", record);
 		return "mypage/customer/mypage_Index.tiles";
-	}
-	
+	}	
 	@RequestMapping("/user/customer.do")
 	public String customer(@RequestParam Map map,Model model){
 		System.out.println("MemberDTO 통과?");
@@ -89,6 +87,9 @@ public class MyPageController {
 		return "mypage/customer/mypage_Index.tiles";
 	}
 	
+	
+	
+	
 	@RequestMapping("/admin.do")
 	public String admin_temp(){
 		return "mypage/admin/mypage_Index.tiles";
@@ -99,12 +100,10 @@ public class MyPageController {
 		return "mypage/admin/mypage_Index.tiles";
 	}
 	
+	
+	
 	@RequestMapping("/enterprise.do")
 	public String enterprise_temp(){
-		return "mypage/enterprise/mypage_Index.tiles";
-	}
-	@RequestMapping("/center/enterprise.do")
-	public String enterprise(){
 		return "mypage/enterprise/mypage_Index.tiles";
 	}
 		/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 끝*/
@@ -113,9 +112,15 @@ public class MyPageController {
 		return "mypage/enterprise/edit_center_info.tiles";
 	}
 	
-	@RequestMapping("/makeQRCode.do")
-	public ModelAndView createCode(@RequestParam String content) {
-		return new ModelAndView("qrcodeview", "content", content);
+	
+	
+	@RequestMapping("/center/enterprise.do")
+	public String enterprise(){
+		return "mypage/enterprise/mypage_Index.tiles";
+	}	
+	@RequestMapping("/center/QRCode.do")
+	public String qrWrite() {
+		return "mypage/enterprise/QRCode";
 	}
 	
 

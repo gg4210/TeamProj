@@ -6,10 +6,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="mybatis.Search">
 
 
-	<select id="isIn" parameterType="java.util.Map" resultType="int">
+	<select id="isIn" parameterType="java.util.Map" resultType="int">	<!-- CENTER VIEW 우리가 받은 값 있는지 -->
 		select count(*) from CENTER_INFO where mapkey=#{mapkey}
 	</select>
 	
+	
+	
+	<!-- CENTER INFO 시작 -->
 	<insert id="insertSearch" parameterType="java.util.Map">
 		insert INTO CENTER_INFO(mapkey,filename,title,tel,otime,service,tag,sport_kind,MAXNUMBER) VALUES(#{mapkey},#{filename},#{title},#{tel},#{otime},#{service},#{tag},#{sport_kind},#{MAXNUMBER})
 	</insert>
@@ -17,15 +20,59 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<update id="updateSearch" parameterType="java.util.Map">
 		update CENTER_INFO set filename=#{filename},tel=#{tel},otime=#{otime},service=#{service},tag=#{tag},sport_kind=#{sport_kind}
 	</update>
+	<!-- EDIT CENTER INFO 끝 -->
 	
-	<select id="seleteOneSearch" parameterType="java.util.Map" resultType="java.util.Map">
+	
+	
+	<!-- CENTER INFO VIEW 시작 -->	
+	<select id="seleteOneSearch" parameterType="java.util.Map" resultType="SearchBBSDTO">
 		select E.filename, E.content, E.tag, E.sport_kind, E.otime, C.COUNT(*) from CENTER_INFO E INNER JOIN Complexity C on E.mapkey=C.mapkey where E.mapkey=#{mapkey}
 	</select>
+	<!-- CENTER INFO VIEW 끝 -->
+	
+	
+	
+	<!-- 별점 평균 구하기 -->
+	<select id="avgRate" parameterType="java.util.Map" resultType="int">
+		select avg(rate) from CENTERREVIEW WHERE MAPKEY=#{mapkey}
+	</select>
+	<!-- 별점 평균 구하기 끝 -->
+	
+	
+	
+	<!-- 혼잡도 구하기 시작 -->
+	<select id="complexity" parameterType="java.util.Map" resultType="SearchBBSDTO">
+		select (SELECT MAXNUMBER FROM CENTER_INFO) MAXNUMBER, (SELECT COUNT(*) FROM COMPLEXITY C) COUNTNUM FROM DUAL
+	</select>
+	<!-- 혼잡도 구하기 끝 -->	
+	
+	
+	
+	
+	<!-- 북마크 관련 시작 -->
+	<select id="isBookmarked" parameterType="java.util.Map" resultType="int">
+		select count(*) from BOOKMARK where mapkey=#{mapkey} and id=#{id}
+	</select><!-- 있는지 없는지 여부 -->
+	
+	<select id="countBookmark" parameterType="java.util.Map" resultType="int">
+		select count(*) from BOOKMARK where id=#{id}
+	</select><!-- 3개인지 여부 -->
+	
+	<insert id="insertBookmark" parameterType="java.util.Map">
+		INSERT INTO BOOKMARK(NO,ID,MAPKEY) VALUES(SEQ_BookMark_NO.NEXTVAL, #{id}, #{mapkey})
+	</insert><!-- 없을 시 입력 -->
+
+	<delete id="deleteBookmark" parameterType="java.util.Map">
+		DELETE BOOKMARK WHERE id=#{id} AND mapkey=#{mapkey}
+	</delete><!-- 있을 시 삭제 -->
+	<!-- 북마크 관련 끝 -->
 
 
 
+
+	<!-- 뷰페이지 평점 , 코멘트 시작 -->
 	<select id="listComment" parameterType="java.util.Map" resultType="SearchBBSCommentDTO">
-		select C.*, H.NICK_NAME,H.PICTURE from CenterReview C, H_MEMBER H where C.mapkey=#{mapkey}
+		select C.*, H.NICK_NAME, H.PICTURE from CenterReview C, H_MEMBER H where C.mapkey=#{mapkey} AND C.ID=H.ID
 	</select>
 	
 	<insert id="insertComment" parameterType="java.util.Map">
@@ -38,7 +85,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="updateComment" parameterType="java.util.Map">
 		Update CenterReview set RATE=#{RATE},rPostdate=SYSDATE,rComment=#{rComment} where no=#{no}
-	</update>
-	
+	</update>	
+	<!-- 뷰페이지 평점 , 코멘트 끝 -->
 
 </mapper>

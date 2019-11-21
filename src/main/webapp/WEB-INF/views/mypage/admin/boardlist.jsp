@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 
     <div class="container">
+    	<!-- customer-service.jsp로 옮겨갑니다.
     	<div class="row">
     		<div class="col clearfix">
 	    		<div class="float-right">
@@ -9,6 +10,7 @@
 	    		</div>
     		</div>
     	</div>
+    	 -->
     	<!-- row 1 시작 -->
 		<form class="mb-3">
 			<div class="form-row">				

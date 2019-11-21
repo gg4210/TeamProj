@@ -73,6 +73,7 @@ $( document ).ready( function () {
 				$(element).css("border","2px solid red");
 			}
 		},
+		
 		unhighlight: function ( element, errorClass, validClass ) {
 			$( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
 			$( element ).next( "span" ).addClass( "fa-check" ).removeClass( "fa-times" );
@@ -81,6 +82,7 @@ $( document ).ready( function () {
 				$(element).css("border","2px solid green");
 			}
 		}
+		
 	} );
 } );
 function emailtypech(){
@@ -179,7 +181,7 @@ function submit_join(){
 </script>
 <div class="container pt-20" id="cujoin">
    	<div class="row align-self-center" id="curow">
-   		<form class="needs-validation text-center border border-light pt-5 pl-5 pr-5 pb-4" id="joinform" onsubmit="submit_join()" action="<c:url value='/joincomplete.do'/>" method="post" novalidate>
+   		<form class="needs-validation text-center border border-light pt-5 pl-5 pr-5 pb-4" id="joinform" onsubmit="submit_join()" action="<c:url value='/joincomplete.do?${_csrf.parameterName}=${_csrf.token}'/>" method="post" novalidate>
    			<p class="h4 mb-4">개인 회원가입</p>
     			<div class="row">
 			   	<!-- 사진 -->

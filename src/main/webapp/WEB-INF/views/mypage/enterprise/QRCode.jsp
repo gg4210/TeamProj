@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 
+<script type="text/javascript" src="<c:url value='/resources/utils/QRCode/jquery.qrcode.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/resources/utils/QRCode/qrcode.js'/>"></script>
 
-<script type="text/javascript" src="jquery.qrcode.js"></script>
-<script type="text/javascript" src="qrcode.js"></script>
 
-<p> 우리 센터의 QR코드는...</p>
 <div id="qrcode"></div>
->
+
 <script>
 	var mapkey = '12345678';//sql로 mapkey 가져와서 넣기
 	var obj = new Object();
@@ -19,9 +18,9 @@
 	//console.log(jsonData);//{"mapkey":"12345678"}
 	
 	
-	
+	/*
 	//jQuery('#qrcode').qrcode("this plugin is great");
-	/* 
+	 
 	jQuery('#qrcodeTable').qrcode({
 		render	: "table",
 		text	: "http://jetienne.com"

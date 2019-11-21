@@ -19,7 +19,6 @@ import com.kosmo.workout.service.search.SearchBBSDTO;
 
 
 public class CommonUtility {
-
 	
 	public static SearchBBSDTO mapkeyCrawling(String mapkey, String tel, HttpServletRequest req) throws IOException {		
 	
@@ -65,8 +64,7 @@ public class CommonUtility {
 				return mapinfo;
 			}			
 		}
-	}
-	
+	}	
 	
 	public static SearchBBSDTO seleniumCrawling(String href, HttpServletRequest req) {
 		
@@ -112,6 +110,160 @@ public class CommonUtility {
         WebDriver driver= new ChromeDriver(options);
 		return driver;
 	}
+	
+	public static String ratingString (int avgRate) {
+		String rate="";
+		switch(avgRate){
+			case 1:
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				break;
+			case 2:
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				break;
+			case 3:
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				break;
+			case 4:
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				break;
+			case 5:
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				break;
+			default:
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+		}//switch
+		
+		
+		return rate;
+	}	
+	
+	
+	public static String Bookmarked(int isbookmarked,int countBooked) {///하트 별점 String
+		
+		String book="";		
+		if(countBooked<3) {
+			if(isbookmarked==1) {//북마크 이미 됐을 경우
+				return book="<i class=\"fas fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\"></i>";
+			}
+			else {//안됐을 경우
+				return book="<i class=\"far fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\"></i>";
+			}
+		}
+		else {//최대 개수 초과
+			if(isbookmarked==1) {
+				return book="<i class=\"fas fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\" ></i>";
+			}
+			else {
+				return book="<i class=\"far fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\"></i>";
+			}
+		}
+		
+	}
+	
+	
+	public static String isComplex(int countnum, int maxnum) {
+		String complex="";
+		try {
+		complex="<h6 class=\"progress-title\">혼잡도</h6><div class=\"col-10 align-middle\"><div class=\"progress blue\">";
+		complex+="<div class=\"progress-bar\" style=\"width:"+((countnum/maxnum)*100)+"%; background:#fe3b3b;\">";
+		complex+="<div class=\"progress-value\">"+((countnum/maxnum)*100)+"%</div>";
+		complex+="</div></div>";
+		complex+="<div class=\"col-2 px-0\">";
+		complex+="현재 "+countnum+"명이 이용중";
+		complex+="</div>";
+		}
+		catch (ArithmeticException e) {
+			complex="";
+		}
+		return complex;
+	}
+	
+	public static String pagingBootStrap4Style(int totalRecordCount, int pageSize, int blockPage, int nowPage, String page){
+		
+		String pagingStr="<nav><ul class=\"pagination pg-blue justify-content-center\">";
+		
+		//1.전체 페이지 구하기
+		int totalPage= (int)(Math.ceil(((double)totalRecordCount/pageSize)));
+		
+		int intTemp = ((nowPage - 1) / blockPage) * blockPage + 1;
+
+		//처음 및 이전을 위한 로직
+		if(intTemp != 1){
+			pagingStr+="<li class=\"page-item\">\r\n" + 
+							"<a class=\"page-link\" href='"+page+"nowPage=1'>\r\n" + 
+							"<span aria-hidden=\"true\">First</span>\r\n" + 
+							"</a>\r\n" + 
+						"</li>\r\n" + 
+					"<li class=\"page-item\">\r\n" + 
+					"<a class=\"page-link\" href='"+page+"nowPage="+(intTemp -blockPage)+"' >\r\n" + 
+					"<span aria-hidden=\"true\">&lsaquo;</span>\r\n" + 
+					"</a>\r\n" + 
+					"</li>";   
+		}
+		
+		//페이지 표시 제어를 위한 변수
+		int blockCount = 1;
+		
+		//페이지를 뿌려주는 로직
+		//블락 페이지 수만큼 혹은 마지막 페이지가 될때까지 페이지를 표시한다1 
+		while(blockCount <= blockPage && intTemp <= totalPage){  // 페이지 오버 를 체크
+				//현재 페이지를 의미함
+			if(intTemp == nowPage){  
+				pagingStr+="<li class=\"page-item active\"><a class=\"page-link\" href='#'>"+intTemp+"</a></li>";
+			}
+		     else
+		    	 pagingStr+="<li class=\"page-item\"><a class=\"page-link\" href='"+page+"nowPage="+intTemp+"'>"+intTemp+"</a></li>";
+		       
+			intTemp = intTemp + 1;
+			blockCount = blockCount + 1;
+		
+		}
+
+		//다음 및 마지막을 위한 로직
+			
+		if(intTemp <= totalPage){
+			pagingStr+="<li class=\"page-item\">\r\n" + 
+					"<a class=\"page-link\" href='"+page+"nowPage="+intTemp+"'>\r\n" + 
+					"<span aria-hidden=\"true\">&rsaquo;</span>\r\n" + 
+					"</a>\r\n" + 
+					"</li>\r\n" + 
+					"<li class=\"page-item\">\r\n" + 
+					"<a class=\"page-link\" href='"+page+"nowPage="+totalPage+"' >\r\n" + 
+					"<span aria-hidden=\"true\">Last</span>\r\n" + 
+					"</a>\r\n" + 
+					"</li>";							   
+		}
+		
+		pagingStr+="</ul></nav>";
+		return pagingStr;
+		
+	}
+	
+	
 	
 	 
 }

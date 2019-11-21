@@ -9,12 +9,28 @@
 		
 			<div class="card">
 				<div class="card-body">
+				
+		<!-- 		<div class="row">
+    		<div class="col clearfix">
+	    		<div class="float-right">
+	    			<button type="button" class="btn btn-primary p-2 px-3"><i class="fas fa-pencil-alt"></i> 공지작성</button>
+	    		</div>
+    		</div>
+    	</div> -->
+
 					<div class="row">
 						<select class="custom-select col-2 my-4 ml-3">
 							<option value="0" selected>전체보기</option>
 							<option value="1">미답변</option>
 							<option value="2">답변완료</option>
-						</select>	
+						</select>
+						<div class="col clearfix">
+							<div class="float-right">
+								<button type="button" class="btn btn-primary p-2 px-3" id="notice_write">
+									<i class="fas fa-pencil-alt"></i> 공지작성
+								</button>
+							</div>
+						</div>
 					</div>
 					<table class="table table-hover">
 						<thead class="text-center">
@@ -41,7 +57,7 @@
 							<tr>
 								<td>3</td>
 								<td>일반회원</td>
-								<td>센터등록 관련</td>								
+								<td>센터등록 관련</td>
 								<td class="text-left"><a>문의내역입니다.</a></td>
 								<td>이고객</td>
 								<td>2019-10-21</td>
@@ -49,8 +65,8 @@
 							</tr>
 							<tr>
 								<td>2</td>
-								<td>기업회원</td>	
-								<td>건의사항</td>							
+								<td>기업회원</td>
+								<td>건의사항</td>
 								<td class="text-left"><a>물어볼게 있어요</a></td>
 								<td>박고객</td>
 								<td>2019-10-21</td>
@@ -60,7 +76,7 @@
 
 								<td>2</td>
 								<td>기업회원</td>
-								<td>센터등록</td>							
+								<td>센터등록</td>
 								<td class="text-left"><a>빨리 좀 승인해주세요</a></td>
 								<td>조길동</td>
 								<td>2019-10-21</td>
@@ -68,7 +84,7 @@
 							</tr>
 						</tbody>
 					</table>
-					
+
 					<!-- pagenation-->
 					<div class="row d-flex justify-content-center mt-4">
 					
@@ -107,5 +123,11 @@
 	</div><!-- row -->
 </div><!-- container -->
 
-	
+<script>
+	$(function(){		
+		$('#notice_write').click(function(){
+			location.href="customerService/notice/noticeWrite.do";
+		});
+	});
+</script>
 
