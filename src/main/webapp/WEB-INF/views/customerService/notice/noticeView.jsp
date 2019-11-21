@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<!--  아이디 얻어서 var에 지정한 변수 id에 저장 -->
+<sec:authentication property="principal.username" var="id"/>
+<sec:authentication property="principal.authorities" var="auth"/>
 
 
 <!-- 실제 내용 시작 -->
@@ -68,10 +73,15 @@
 		</div>
 	</div>
 	
-	<div class="row d-flex justify-content-center mt-3 mb-3">		
-		<button type="button" class="btn btn-info" id="notice_edit">수정</button>
+	<div class="row d-flex justify-content-center mt-3 mb-3">
+		<c:if test="${id==record.id}">
+			<a class="btn btn-primary" href="<c:url value='/member/noticeEdit.do?no=${record.no}'/>">수정</a>
+<!-- 			<button type="button" class="btn btn-info" id="notice_edit">수정</button>
+ -->		</c:if>
 		<button type="button" class="btn btn-primary" id="notice_confirm">목록</button>
-		<button type="button" class="btn btn-info" id="notice_delete">삭제</button>
+		<c:if test="${id==record.id}">
+			<button type="button" class="btn btn-info" id="notice_delete">삭제</button>
+		</c:if>
 	</div>
 	<br/>
 	<br/>
@@ -112,7 +122,7 @@
 <script>
 $(function(){
 	$('#notice_edit').click(function(){
-		location.href="noticeEdit.do";
+		location.href="noticeEdit.do?=${record.no}";
 	});
 	
 

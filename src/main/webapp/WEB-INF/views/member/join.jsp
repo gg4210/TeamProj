@@ -73,6 +73,7 @@ $( document ).ready( function () {
 				$(element).css("border","2px solid red");
 			}
 		},
+		
 		unhighlight: function ( element, errorClass, validClass ) {
 			$( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
 			$( element ).next( "span" ).addClass( "fa-check" ).removeClass( "fa-times" );
@@ -81,6 +82,7 @@ $( document ).ready( function () {
 				$(element).css("border","2px solid green");
 			}
 		}
+		
 	} );
 } );
 function emailtypech(){
