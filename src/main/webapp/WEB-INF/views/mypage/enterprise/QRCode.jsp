@@ -18,9 +18,9 @@
 	//console.log(jsonData);//{"mapkey":"12345678"}
 	
 	
-	
+	/*
 	//jQuery('#qrcode').qrcode("this plugin is great");
-	/* 
+	 
 	jQuery('#qrcodeTable').qrcode({
 		render	: "table",
 		text	: "http://jetienne.com"
