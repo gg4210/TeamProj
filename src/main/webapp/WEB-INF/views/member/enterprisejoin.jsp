@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="<c:url value='/resources/validation/jquery.validate.js'/>"></script>
 <script>
 $( document ).ready( function () {
 	$( "#joinform" ).validate( {
@@ -179,7 +180,7 @@ function submit_join(){
     <div class="container" id="enjoin">
     	<div class="row align-items-center" id="enrow">
 		   	<div class="col-md-8 align-items-center">
-			    <form class="text-center border border-light p-5" action="#!">
+			    <form class="text-center border border-light p-5" action="#!" id="joinform">
 				    <p class="h4 mb-4">사업자 회원가입</p>
 					<!-- 아이디 -->
 					<div class="form-row align-items-center col-12">
