@@ -35,6 +35,9 @@ public class SearchServiceImpl implements SearchService{
 		public SearchBBSDTO selectOneSearchDTO(Map map) {
 			return dao.selectOneSearchDTO(map);
 		}
+		public SearchBBSDTO setComplexity(Map map) {
+			return dao.setComplexity(map);
+		}
 		//센터 정보 입력, 수정 관련 끝//
 		
 		
@@ -52,6 +55,32 @@ public class SearchServiceImpl implements SearchService{
 			return dao.updateComment(map);			
 		}
 		//코멘트 입력 , 리스트 뿌려주기 끝//
+
+
+		@Override
+		public int setRating(Map map) {
+			return dao.setRating(map);
+		}
+		
+		
+		@Override
+		public int isBookmarked(Map map) {
+			return dao.isBookmarked(map);
+		}
+
+		@Override
+		public int insertBookmark(Map map) {
+			return dao.insertBookmark(map);
+		}
+		@Override
+		public int deleteBookmark(Map map) {
+			return dao.deleteBookmark(map);
+		}
+		@Override
+		public int countBookmarked(Map map) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
 		
 
 }

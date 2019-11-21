@@ -2,6 +2,180 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+$( document ).ready( function () {
+	$( "#joinform" ).validate( {
+		rules: {
+			name: {
+				required: true,
+				minlength: 2
+			},
+			password: {
+				required: true,
+				rangelength: [4,16]
+			},
+			password_re: {
+				required: true,
+				rangelength: [4,16],
+				equalTo: "#password1"
+			},
+			id: {
+				required: true,
+				minlength: 3
+			},
+			nick_name: {
+				required: true
+			}
+		},
+		messages: {
+			name: {
+				required: "이름을 입력해주세요.",
+				minlength: "이름은 최소 2자 이상 입력해야합니다."
+			},
+			password: {
+				required: "비밀번호를 입력해주세요.",
+				rangelength: "비밀번호는 최소 4자에서 최대 16자로 입력하셔야합니다."
+			},
+			password_re: {
+				required: "비밀번호를 다시 입력해주세요.",
+				rangelength: "비밀번호는 최소 4자에서 최대 16자로 입력하셔야합니다.",
+				equalTo: "위에서 입력하셨던 비밀번호와 일치하지 않습니다."
+			},
+			id: {
+				required: "아이디를 입력해주세요.",
+				minlength: "아이디는 최소 3자 이상으로 입력하셔야합니다."
+			},
+			nick_name: {
+				required:"닉네임을 입력해주세요."
+			}
+		},
+		errorElement: "em",
+		errorPlacement: function ( error, element ) {
+			// Add the `help-block` class to the error element
+			error.addClass( "help-block" );
+			console.log(error);
+			console.log(element);
+
+			// Add `has-feedback` class to the parent div.form-group
+			// in order to add icons to inputs
+			element.parents( ".col-sm-5" ).addClass( "has-feedback" );
+			// Add the span element, if doesn't exists, and apply the icon classes to it.
+		},
+		success: function ( label, element ) {
+			// Add the span element, if doesn't exists, and apply the icon classes to it.
+		},
+		highlight: function ( element, errorClass, validClass ) {
+			$( element ).parents( ".col-sm-5" ).addClass( "has-error" ).removeClass( "has-success" );
+			$( element ).next( "span" ).addClass( "fa-times" ).removeClass( "fa-check" );
+			if ( $( element ).next( "span" )[ 0 ] ) {
+				$( element ).next( "span" ).css("color","red").css("display","block");
+				$(element).css("border","2px solid red");
+			}
+		},
+		unhighlight: function ( element, errorClass, validClass ) {
+			$( element ).parents( ".col-sm-5" ).addClass( "has-success" ).removeClass( "has-error" );
+			$( element ).next( "span" ).addClass( "fa-check" ).removeClass( "fa-times" );
+			if ( $( element ).next( "span" )[ 0 ] ) {
+				$( element ).next( "span" ).css("color","green").css("display","block");
+				$(element).css("border","2px solid green");
+			}
+		}
+	} );
+} );
+function emailtypech(){
+	emailtypebase=document.getElementById('emailtype');
+	var j=emailtypebase.options.selectedIndex;
+	
+	switch(j){
+		case 1:
+			$('#emailhost').attr("disabled",true);
+			$('#emailhost').prop("value","naver.com");
+			break;
+		case 2:
+			$('#emailhost').attr("disabled",true);
+			$('#emailhost').prop("value","daum.net");
+			break;
+		case 3:
+			$('#emailhost').attr("disabled",true);
+			$('#emailhost').prop("value","gmail.com");
+			break;
+		case 4:
+			$('#emailhost').prop("value","");
+			$('#emailhost').removeAttr("disabled");
+			break;
+		default:
+			$('#emailhost').attr("disabled",true);
+			$('#emailhost').prop("value","");
+	}
+}
+function submit_join(){
+	cellphone1base=document.getElementById('cellphone1');
+	var i=cellphone1base.options.selectedIndex;
+	var cellphone1=cellphone1base.options[i].text;
+	
+	cellphone2base=document.getElementById('cellphone2');
+	var cellphone2=cellphone2base.value;
+	
+	cellphone3base=document.getElementById('cellphone3');
+	var cellphone3=cellphone3base.value;
+	
+	cellphone_totalbase=document.getElementById('cellphone_total');
+	//var cellphone_total=cellphone1+'-'+cellphone2+'-'+cellphone3;
+	cellphone_totalbase.value=cellphone1+'-'+cellphone2+'-'+cellphone3;
+	
+	email1base=document.getElementById('email1');
+	email2base=document.getElementById('emailhost');
+	var email1=email1base.value;
+	var email2=email2base.value;
+	email_totalbase=document.getElementById('email_total');
+	email_totalbase.value=email1+'@'+email2;
+	console.log(email_totalbase.value);
+	
+	mainaddrbase=document.getElementById('Daum_address');
+	var mainaddr=mainaddrbase.value;
+	address_totalbase=document.getElementById('address_total');
+	address_totalbase.value=mainaddr;
+	
+	addrdetail=document.getElementById('Daum_detailAddress');
+	addrex=document.getElementById('Daum_extraAddress');
+	zip=document.getElementById('Daum_postcode');
+	document.getElementById('addressdetail').value=addrdetail.value+addrex.value;
+	document.getElementById('zipcode').value=zip.value;
+	console.log(address_totalbase.value);
+	console.log(document.getElementById('addressdetail').value);
+	
+	
+	var formbase=document.getElementById('joinform');
+	
+	var namevalue=document.getElementById('name').value;
+	var idvalue=document.getElementById('idcomp').value;
+	var passwordvalue=document.getElementById('password1').value;
+	var password_revalue=document.getElementById('password_re').value;
+	var nickvalue=document.getElementById('nick_name').value;
+	console.log($('.valid'));
+	var inter = document.getElementById('inter_sports_total').value;
+	inter=$("input:checkbox:checked").eq(0).val();
+	for(var i=1;i<$("input:checkbox:checked").length;i++){
+		inter+=','+$("input:checkbox:checked").eq(i).val();
+	}
+	console.log(inter);
+	$('#inter_sports_total').val(inter);
+	if(document.getElementById('my_comment').value =="undefined"){
+		document.getElementById('my_comment').value=$('#my_comment').attr("placeholder");
+		console.log(document.getElementById('my_comment').value);
+	}
+	if( namevalue != "" && idvalue != "" && passwordvalue != "" && nickvalue != "" && passwordvalue ===password_revalue){
+		console.log("넘어갔네요");
+		return true;
+	}
+	else{
+		console.log("필수 입력사항을 입력하세요.");
+		event.preventDefault();
+		event.stopPropagation();
+		return false;
+	}
+}
+</script>
     <div class="container" id="enjoin">
     	<div class="row align-items-center" id="enrow">
 		   	<div class="col-md-8 align-items-center">

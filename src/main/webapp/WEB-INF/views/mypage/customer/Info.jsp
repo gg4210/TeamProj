@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="<c:url value='/resources/validation/jquery.validate.js'/>"></script>
 
@@ -98,7 +99,7 @@ $( document ).ready( function () {
 				required: true,
 				minlength: 4
 			},
-			nick: {
+			nick_name: {
 				required: true
 			}
 		},
@@ -120,7 +121,7 @@ $( document ).ready( function () {
 				required: "아이디를 입력해주세요.",
 				minlength: "아이디는 최소 4자 이상으로 입력하셔야합니다."
 			},
-			nick: {
+			nick_name: {
 				required:"닉네임을 입력해주세요."
 			}
 		},
@@ -182,24 +183,23 @@ function emailtypech(){
 			$('#emailhost').attr("disabled",true);
 			$('#emailhost').prop("value","");
 	}
-}
-
+};
 function submit_change(){
 	cellphone1base=document.getElementById('cellphone1');
 	var i=cellphone1base.options.selectedIndex;
+	console.log(i);
 	var cellphone1=cellphone1base.options[i].text;
-	
+	console.log(cellphone1);
 	cellphone2base=document.getElementById('cellphone2');
 	var cellphone2=cellphone2base.value;
 	
 	cellphone3base=document.getElementById('cellphone3');
 	var cellphone3=cellphone3base.value;
-	
 	cellphone_totalbase=document.getElementById('cellphone_total');
 	//var cellphone_total=cellphone1+'-'+cellphone2+'-'+cellphone3;
 	cellphone_totalbase.value=cellphone1+'-'+cellphone2+'-'+cellphone3;
-	
-	email1base=document.getElementById('email1');
+	console.log(cellphone1+'-'+cellphone2+'-'+cellphone3);
+	email1base=document.getElementById('email');
 	email2base=document.getElementById('emailhost');
 	var email1=email1base.value;
 	var email2=email2base.value;
@@ -214,18 +214,19 @@ function submit_change(){
 	
 	addrdetail=document.getElementById('Daum_detailAddress');
 	addrex=document.getElementById('Daum_extraAddress');
+	zip=document.getElementById('Daum_postcode');
 	document.getElementById('addressdetail').value=addrdetail.value+addrex.value;
+	document.getElementById('zipcode').value=zip.value;
 	console.log(address_totalbase.value);
 	console.log(document.getElementById('addressdetail').value);
 	
-	
-	var formbase=document.getElementById('joinform');
-	
+	var formbase=document.getElementById('chform');
+	console.log(formbase);
 	var namevalue=document.getElementById('name').value;
 	var idvalue=document.getElementById('idcomp').value;
 	var passwordvalue=document.getElementById('password1').value;
 	var password_revalue=document.getElementById('password_re').value;
-	var nickvalue=document.getElementById('nick').value;
+	var nickvalue=document.getElementById('nick_name').value;
 	console.log($('.valid'));
 	var inter = document.getElementById('inter_sports_total').value;
 	inter=$("input:checkbox:checked").eq(0).val();
@@ -233,13 +234,15 @@ function submit_change(){
 		inter+=','+$("input:checkbox:checked").eq(i).val();
 	}
 	console.log(inter);
-	if(document.getElementById('my_comment').value =="undefinded"){
+	$('#inter_sports_total').val(inter);
+	if(document.getElementById('my_comment').value =="undefined"){
 		document.getElementById('my_comment').value=$('#my_comment').attr("placeholder");
 		console.log(document.getElementById('my_comment').value);
 	}
 	if( namevalue != "" && idvalue != "" && passwordvalue != "" && nickvalue != "" && passwordvalue ===password_revalue){
 		console.log("넘어갔네요");
 		return true;
+		console.log("왜 안넘어감?");
 	}
 	else{
 		console.log("필수 입력사항을 입력하세요.");
@@ -247,7 +250,7 @@ function submit_change(){
 		event.stopPropagation();
 		return false;
 	}
-}
+};
 
 $(function() {
 	console.log("확인")
@@ -259,11 +262,16 @@ $(function() {
 	console.log("${record.cellphone}");
 	console.log("${record.cellphone}");
 	var cell="${record.cellphone}";
+	
 	var cellphone=cell.split("-");
+	console.log(cellphone[0]);
+	console.log($('#cellphone1 option'));
 	$('#cellphone1 option').each(function(){
-		var i=$(this).text;
-		console.log($(this).text==cellphone[0]);
-		if($(this).text==cellphone[0]){
+		console.log($(this).val());
+		console.log($(this));
+		console.log($(this).text());
+		console.log($(this).html());
+		if($(this).text()==cellphone[0]){
 			$(this).prop("selected",true);
 		}
 		else{
@@ -276,7 +284,52 @@ $(function() {
 	var ema="${record.email}";
 	var email=ema.split("@");
 	$('#email').val(email[0]);
-	$('#emailhost').val(email[0]);
+	$('#emailhost').val(email[1]);
+	$('#emailtype option').each(function(){
+		if($('#emailhost').val()==$(this).val()){
+			$(this).prop("selected",true);
+		}
+		else{
+			$(this).prop("selected",false);
+		}
+	});
+	var zipcode = "${record.zipcode}";
+	$('#Daum_postcode').val(zipcode);
+	
+	var address = "${record.address}";
+	console.log(address);
+	$('#Daum_address').val(address);
+	
+	var detail = "${record.detail_address}";
+	var detail_address = detail.split('(');
+	
+	console.log(detail_address[0]);
+	console.log(detail_address[1]);
+	if(detail_address[1]==undefined){
+		detail_address[1]='';
+	}
+	else{
+		detail_address[1]='('+detail_address[1];
+	}
+	console.log(detail_address[1]);
+	$('#Daum_detailAddress').val(detail_address[0]);
+	$('#Daum_extraAddress').val(detail_address[1]);
+	
+	var inter = "${record.inter_sports}";
+	console.log(inter);
+	var inter_sports=inter.split(',');
+	console.log(inter_sports);
+	
+	console.log($('#inter_sports_list input:checkbox'));
+	$('#inter_sports_list input:checkbox').each(function(){
+		for(var i=0;i<inter_sports.length;i++){
+			if($(this).val()==inter_sports[i]){
+				$(this).prop('checked',true);
+			}
+		}
+	});
+	
+	
 	//photoUpload
 	$('input[type="file"]').each(function(){
 		  var $file = $(this),
@@ -353,7 +406,9 @@ function changestart(){
 				$(this).prop("disabled",true);
 			}
 			else{
-				$(this).prop("disabled",false);
+				if($(this).prop("id")!=$('#idcomp').prop("id")){
+					$(this).prop("disabled",false);
+				}
 			}
 		}
 	});
@@ -367,32 +422,35 @@ function changestart(){
 	$('#start').prop("hidden",true);
 	$('#endchange').prop("hidden",false);
 }
+
 </script>
 <div class="container" id="info">
    	<div class="row align-items-center" id="curow">
-   		<form class="text-center border border-light pt-5 pl-5 pr-5 pb-4" onsubmit="submit_change()" action="<c:url value='/user/changecomplete.do'/>" id="chform">
+   		<form class="text-center border border-light pt-5 pl-5 pr-5 pb-4" onsubmit="submit_change()" action="<c:url value='/user/changecomplete.do?${_csrf.parameterName}=${_csrf.token}'/>" id="chform" method="post" enctype="multipart/form-data" novalidate>
    			<p class="h4 mb-4">내 정보</p>
     			<div class="row">
 			   	<!-- 사진 -->
 				<div class="col-3" style="margin-top:5%;">
 					<div class="wrap-custom-file" id="infoc_file">
 						<input type="file" name="image1" id="image1" accept=".gif, .jpg, .png" disabled/>
-						<label for="image1" style="background-image:url('<c:url value="/resources/images/girl.png"/>');background-size: cover;background-position: center;">
+						<label for="image1" style="background-image:url('<c:url value="${record.picture }"/>');background-size: cover;background-position: center;">
 							<span></span>
 						</label>
 					</div>
+					<input type="hidden" name="picture" id="picture_name" value="">
 			  	</div>
 			   	<div class="col-9">
 			   		<div class="form-inline text-left">
 			   			<label for="Name" class="col-md-3 mb-2">이름:</label>
 					    <!-- 이름 -->
-					    <input maxlength="5" type="text" id="name" name="name" class="form-control mb-2 col-3" value="${record.name }"  placeholder="이름을 입력하세요." disabled>
+					    <input type="text" id="name" name="name" class="form-control mb-2 col-3" value="${record.name }"  placeholder="이름을 입력하세요." disabled>
 					    <span class="fa form-control-feedback col-1 fa-check" style="color:green;display:none;"></span>
 					</div>
 					<!-- 아이디 -->
 					<div class="form-inline text-left">
 						<label for="Id" class="col-md-3 mb-1">아이디:</label>
-						<input maxlength="14" type="text" id="idcomp" name="id" class="form-control mb-1 col-md-4" value="${record.id}"  placeholder="아이디" disabled>
+						<input maxlength="14" type="text" id="idcomp" name="id" class="form-control mb-1 col-md-4" value="<sec:authentication property="principal.username"/>"  placeholder="아이디" disabled>
+						<input maxlength="14" type="hidden" name="id" class="form-control mb-1 col-md-4" value="<sec:authentication property="principal.username"/>" disabled>
 				    </div>
 				    <div class="col-12 p-0 m-0">
 						<div class="row p-0 m-0">
@@ -402,7 +460,7 @@ function changestart(){
 				    <!-- 닉네임 -->
 				    <div class="form-inline text-left">
 						<label for="Nick" class="col-md-3 mb-1">닉네임:</label>
-						<input maxlength="14" type="text" id="nick" name="nick" class="form-control mb-1 col-10 col-md-4" value="${record.nick_name}" placeholder="닉네임" disabled>
+						<input maxlength="14" type="text" id="nick_name" name="nick_name" class="form-control mb-1 col-10 col-md-4" value="${record.nick_name}" placeholder="닉네임" disabled>
 						<span class="fa form-control-feedback col-1 fa-check" style="color:green;display:none;"></span>
 				    </div>
 				    <div class="col-12 p-0 m-0">
@@ -439,7 +497,7 @@ function changestart(){
 				    <!-- 이메일 -->
 				    <div class="form-inline mb-2">
 				    	<label class="col-md-3 mb-2 text-left">이메일 주소:</label>
-				    	<input type="email" maxlength="16" id="email" class="form-control col-md-6 mb-2" placeholder="이메일주소를 입력하세요." value="" disabled>
+				    	<input type="text" maxlength="16" id="email" class="form-control col-md-6 mb-2" placeholder="이메일주소를 입력하세요." value="" disabled>
 				    	<div class="input-group mb-2 offset-md-3 col-md-4 pl-0">
 							<div class="input-group-prepend">
 								<div class="input-group-text">@</div>
@@ -448,10 +506,10 @@ function changestart(){
 						</div>
 						<select class="browser-default custom-select mb-2 col-6 col-md-2" onchange="emailtypech()" id="emailtype" disabled>
 							<option selected>-이메일 유형- </option>
-							<option value="1">네이버</option>
-							<option value="2">다음</option>
-							<option value="3">구글</option>
-							<option value="4">기타</option>
+							<option value="naver.com">네이버</option>
+							<option value="daum.net">다음</option>
+							<option value="gmail.com">구글</option>
+							<option value="etc">기타</option>
 						</select>
 						<input type="hidden" name="email" id="email_total" value="">
 					</div>
@@ -485,7 +543,8 @@ function changestart(){
 							<input type="text" class="form-control offset-1 col-7 col-md-4 mt-2 md-2" id="Daum_extraAddress" placeholder="참고항목" disabled>
 						</div>
 						<input type="hidden" name="address" id="address_total" value="">
-						<input type="hidden" name="addressdetail" id="addressdetail" value="">
+						<input type="hidden" name="detail_address" id="addressdetail" value="">
+						<input type="hidden" name="zipcode" id="zipcode" value="">
 					</div>
 				</div>
 				<div class="form-inline mb-3">
@@ -539,6 +598,7 @@ function changestart(){
 						  <input type="checkbox" class="custom-control-input" id="defaultInline12" value="기타" disabled>
 						  <label class="custom-control-label" for="defaultInline12">기타</label>
 						</div>
+						<input type="hidden" name="inter_sports" id="inter_sports_total" value="">
 					</div>
 				</div>
 				<div class="form-inline mb-3 col-12" >

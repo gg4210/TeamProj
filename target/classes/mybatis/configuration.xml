@@ -20,6 +20,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="CouponDTO" type="com.kosmo.workout.service.CouponDTO"/>
 		<typeAlias alias="ComplexityDTO" type="com.kosmo.workout.service.ComplexityDTO"/>
 		
+		<typeAlias alias="SearchBBSCommentDTO" type="com.kosmo.workout.service.search.SearchBBSCommentDTO"/>
+		
+		<!--<typeAlias alias="MyMateDTO" type="com.kosmo.workout.service.MyMateDTO"/>-->
 	</typeAliases>
 	
 	<!-- 매퍼파일(SQL쿼리 결과와 자바빈 매핑) 정보 설정 -->		
