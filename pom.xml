@@ -228,6 +228,14 @@
 		</dependency>
 		<!-- QR코드 생성에 필요한 속성 추가 끝 -->
 		
+		<!-- fileupload:파일 업로드를 위한 라이브러리 시작 -->   
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+		<!-- fileupload:파일 업로드를 위한 라이브러리 끝 -->   
+		
 		<dependency>
     <groupId>com.fasterxml.jackson.core</groupId>
     <artifactId>jackson-core</artifactId>

@@ -14,7 +14,7 @@ public class MemberDTO {
 	private String authority;
 	private String my_comment;
 	private String picture;
-	private String[] inter_sports;
+	private String inter_sports;
 	private java.sql.Date joinDate;
 	private String nick_name;
 	private String enabled;
@@ -117,11 +117,11 @@ public class MemberDTO {
 		this.picture = picture;
 	}
 
-	public String[] getInter_sports() {
+	public String getInter_sports() {
 		return inter_sports;
 	}
 
-	public void setInter_sports(String[] inter_sports) {
+	public void setInter_sports(String inter_sports) {
 		this.inter_sports = inter_sports;
 	}
 

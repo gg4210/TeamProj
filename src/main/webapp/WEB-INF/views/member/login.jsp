@@ -150,11 +150,11 @@ $(function(){
 		}
 	});
 });
-
 </script>
 
 <!-- 개인회원으로 로그인시 사이드바 -->
 <div class="login bg-dark" id="CustomerLoMenu">
+
 	<!-- close button 시작 -->
 	<button type="button" class="close text-white mt-2" aria-label="Close" id="closeCulogin">
 		 <span aria-hidden="true">×</span>
@@ -351,7 +351,7 @@ $(function(){
 </sec:authorize>
 
 <sec:authorize access="hasRole('ROLE_CENTER')">
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
+
 <script>
 function dataget(){
    $('#getdata').submit();
