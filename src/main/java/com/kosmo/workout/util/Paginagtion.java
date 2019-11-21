@@ -9,6 +9,7 @@ public class Paginagtion {
 	private int listCnt;       //총 게시글 수
 	private int pageCnt;
 	private int rangeCnt;
+	
 	private int startPage;
 	//private int ;
 	//private int geCnt;
