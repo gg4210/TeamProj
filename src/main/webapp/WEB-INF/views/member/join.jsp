@@ -24,7 +24,7 @@ $( document ).ready( function () {
 				required: true,
 				minlength: 3
 			},
-			nick: {
+			nick_name: {
 				required: true
 			}
 		},
@@ -46,7 +46,7 @@ $( document ).ready( function () {
 				required: "아이디를 입력해주세요.",
 				minlength: "아이디는 최소 3자 이상으로 입력하셔야합니다."
 			},
-			nick: {
+			nick_name: {
 				required:"닉네임을 입력해주세요."
 			}
 		},
@@ -154,7 +154,7 @@ function submit_join(){
 	var idvalue=document.getElementById('idcomp').value;
 	var passwordvalue=document.getElementById('password1').value;
 	var password_revalue=document.getElementById('password_re').value;
-	var nickvalue=document.getElementById('nick').value;
+	var nickvalue=document.getElementById('nick_name').value;
 	console.log($('.valid'));
 	var inter = document.getElementById('inter_sports_total').value;
 	inter=$("input:checkbox:checked").eq(0).val();
@@ -162,6 +162,7 @@ function submit_join(){
 		inter+=','+$("input:checkbox:checked").eq(i).val();
 	}
 	console.log(inter);
+	$('#inter_sports_total').val(inter);
 	if(document.getElementById('my_comment').value =="undefinded"){
 		document.getElementById('my_comment').value=$('#my_comment').attr("placeholder");
 		console.log(document.getElementById('my_comment').value);
@@ -180,7 +181,7 @@ function submit_join(){
 </script>
 <div class="container pt-20" id="cujoin">
    	<div class="row align-self-center" id="curow">
-   		<form class="needs-validation text-center border border-light pt-5 pl-5 pr-5 pb-4" id="joinform" onsubmit="submit_join()" action="<c:url value='/joincomplete.do'/>" method="post" novalidate>
+   		<form class="needs-validation text-center border border-light pt-5 pl-5 pr-5 pb-4" id="joinform" onsubmit="submit_join()" action="<c:url value='/joincomplete.do?${_csrf.parameterName}=${_csrf.token}'/>" method="post" novalidate>
    			<p class="h4 mb-4">개인 회원가입</p>
     			<div class="row">
 			   	<!-- 사진 -->
@@ -217,13 +218,13 @@ function submit_join(){
 					</div>
 				    <!-- 닉네임 -->
 				    <div class="form-inline text-left">
-						<label for="Nick" class="col-md-3 mb-1">닉네임:</label>
-						<input maxlength="14" type="text" id="nick" name="nick" class="form-control mb-1 col-10 col-md-4" placeholder="닉네임">
+						<label for="nick_name" class="col-md-3 mb-1">닉네임:</label>
+						<input maxlength="14" type="text" id="nick_name" name="nick_name" class="form-control mb-1 col-10 col-md-4" placeholder="닉네임">
 						<span class="fa form-control-feedback col-1 fa-check" style="color:green;display:none;"></span>
 				    </div>
 				    <div class="col-12 p-0 m-0">
 						<div class="row p-0 m-0">
-							<em id="nick-error" class="error help-block offset-md-3 col-10 col-md-9 text-left pt-0 pb-0 mt-0 mb-0" for="nick" style="display:none;color:red;"></em>
+							<em id="nick-error" class="error help-block offset-md-3 col-10 col-md-9 text-left pt-0 pb-0 mt-0 mb-0" for="nick_name" style="display:none;color:red;"></em>
 						</div>
 					</div>
 				    <input type="hidden" id="authority" name="authority" value="ROLE_USER">

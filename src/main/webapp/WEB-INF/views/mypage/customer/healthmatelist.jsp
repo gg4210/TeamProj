@@ -4,13 +4,8 @@
     
     
 <script>
-<<<<<<< HEAD
 <!-- 전체선택 -->
-=======
-<!-- 전체선택 -->
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 $(function(){
-<<<<<<< HEAD
    $('#matelist-checkbox-all input:checkbox').click(function(){
       if($(this).val() == 'message-check-all'){
          if($(this).prop('checked')){
@@ -35,35 +30,13 @@ $(function(){
          $('#matelist-checkbox-all input:checkbox').prop('checked',false);
       }
    });
-});
-=======
-	$('#matelist-checkbox-all input:checkbox').click(function(){
-		if($(this).val() == 'message-check-all'){
-			if($(this).prop('checked')){
-				$('#matelist-checkbox tr th input:checkbox').each(function(){
-					$(this).prop('checked',true);
-				});
-			}
-			else{
-				$('#matelist-checkbox tr th input:checkbox').each(function(){
-					$(this).prop('checked',false);
-				});
-			}
-		}
-	});
-	$('#matelist-checkbox input:checkbox').click(function(){
-		if($(this).prop('checked')){
-			if($('#matelist-checkbox tr th input:checkbox').length == $('#matelist-checkbox tr th input:checkbox:checked').length){
-				$('#matelist-checkbox-all input:checkbox').prop('checked',true);
-			}
-		}
-		else{
-			$('#matelist-checkbox-all input:checkbox').prop('checked',false);
-		}
-	});
+   
+   
+	var scrollbarLength=$('#messageBox').scrollTop();
+	console.log(scrollbarLength);
+   
 });
 
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 </script>
 
 <style>
@@ -91,15 +64,14 @@ $(function(){
 				<h2>친구목록</h2>
 			</div>
 			
-				<!-- 검색창 -->
-		
+			<!-- 검색창 -->
 			<div class="clearfix">
 				<div class="form-inline mb-1 float-right">
 					<input type="text" class="form-control" placeholder="Search">
 					<button class="btn blue-gradient p-2 px-4">검색</button>
 				</div>
 			</div>
-				<!-- 검색창 끝 -->		
+			<!-- 검색창 끝 -->		
 			
 			
 			
@@ -247,7 +219,7 @@ $(function(){
 					<span aria-hidden="true">&times;</span>
 				</button>
 				</div>
-				<div class="modal-body" id="messageBox" style="background-color:black;">
+				<div class="modal-body" id="messageBox" style="background-color:black; overflow:auto">
 					
 						
 						<p class="badge badge-light text-wrap" style="text-align:left; font-size:medium;">

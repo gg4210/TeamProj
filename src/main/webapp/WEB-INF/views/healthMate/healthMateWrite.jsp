@@ -5,15 +5,10 @@
 
 <script src="<c:url value='/resources/utils/datePicker/moment/moment.min.js'/>"></script>
 <link rel="stylesheet" href="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/css/datepicker.css'/>">
-<!-- 아래는 태그에 필요한 css였는데...안먹어
-<link rel="stylesheet" href="<c:url value='/resources/utils/tagInput/amsify.suggestags.css'/>">
--->
+
 
 <script src="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/js/datepicker.all.js'/>"></script>
 <script src="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/js/datepicker.en.js'/>"></script>
-<!-- 아래는 태그에 필요한 js였는데...안먹어
-<script src="<c:url value='/resources/utils/tagInput/jquery.amsify.suggestags.js'/>"></script>
--->
 
 
 <!-- 실제 내용 시작 -->
@@ -25,7 +20,7 @@
     </header>
     
     <!-- row 시작 -->
-	<form method="post" id="mateWriteForm" action='<c:url value="mateWriteOk.do"/>' enctype="multipart/form-data">
+	<form method="post" id="mateWriteForm" action='<c:url value="/member/mateWriteOk.do?${_csrf.parameterName}=${_csrf.token}"/>' enctype="multipart/form-data">
   	<div class="form-row">
 	  	<!-- 사진 등록 시작 -->
 	  	<div class="col-md-3">
@@ -66,7 +61,7 @@
 					</select>
 					</div>
 					<div class="col-md-2">
-					<select class="browser-default custom-select" id="likeSport" name="likeSport">
+					<select class="browser-default custom-select" id="interSport" name="interSport">
 						<option selected>관심분야</option>
 						<option value="헬스">헬스</option>
 						<option value="필라테스">필라테스</option>
@@ -94,38 +89,26 @@
 				<!-- 날짜 입력란 시작 -->
 					<div class="c-datepicker-date-editor J-datepicker-range-day" style="margin-top: 3px; margin-left: 5px">
 						<i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
-						<input placeholder="시작일" class="c-datepicker-data-input only-date" id="startHealthDate" name="startHealthDate">
+						<input placeholder="시작일" class="c-datepicker-data-input only-date" id="startDate" name="startDate">
 						<span class="c-datepicker-range-separator">-</span>
-						<input placeholder="종료일" class="c-datepicker-data-input only-date" id="endHealthDate" name="endHealthDate">
+						<input placeholder="종료일" class="c-datepicker-data-input only-date" id="endDate" name="endDate">
 					</div>
 				<!-- 날짜 입력란 끝 -->		
 			</div>
 			<!-- 셀렉트박스, 날짜 row 끝 -->
 				
 				
-				<!-- 태그 row 시작 -->
-				<!--
-				<div class="row mb-3">
-					<div class="col">
-						<label for="tag-input">대표 TAG</label> 
-						<input type="text" class="form-control" name="mate_tag" id="mate_tag">
-					</div>
-				</div>
-				 -->
-				<!-- 태그 row 끝 -->
-				
-				
 				<!-- 기존 태그 row 시작 -->
 				<label>대표 TAG</label>
 				<div class="form-row mb-3" id="tag">
 					<div class="col-md-3">
-						<input type="text" class="form-control" name="tag1" id="tag1" placeholder="태그입력" value=""/>
+						<input type="text" class="form-control" name="first_tag" id="first_tag" placeholder="태그입력" value=""/>
 					</div>
 					<div class="col-md-3">
-						<input type="text" class="form-control" name="tag2" id="tag2" placeholder="태그입력" value=""/>
+						<input type="text" class="form-control" name="second_tag" id="second_tag" placeholder="태그입력" value=""/>
 					</div>
 					<div class="col-md-3">
-						<input type="text" class="form-control" name="tag3" id="tag3" placeholder="태그입력" value=""/>
+						<input type="text" class="form-control" name="third_tag" id="third_tag" placeholder="태그입력" value=""/>
 					</div>
 				</div>
 				<!-- 기존 태그 row 끝 -->
@@ -222,7 +205,7 @@ $(function(){
 		console.log(titleValue);
 		console.log(contentValue);
 		*/
-		
+		console.log("여긴 오니")
 		mateWriteForm.submit();
 		
 		

@@ -98,7 +98,7 @@ $( document ).ready( function () {
 				required: true,
 				minlength: 4
 			},
-			nick: {
+			nick_name: {
 				required: true
 			}
 		},
@@ -120,7 +120,7 @@ $( document ).ready( function () {
 				required: "아이디를 입력해주세요.",
 				minlength: "아이디는 최소 4자 이상으로 입력하셔야합니다."
 			},
-			nick: {
+			nick_name: {
 				required:"닉네임을 입력해주세요."
 			}
 		},
@@ -182,8 +182,7 @@ function emailtypech(){
 			$('#emailhost').attr("disabled",true);
 			$('#emailhost').prop("value","");
 	}
-}
-
+};
 function submit_change(){
 	cellphone1base=document.getElementById('cellphone1');
 	var i=cellphone1base.options.selectedIndex;
@@ -225,7 +224,7 @@ function submit_change(){
 	var idvalue=document.getElementById('idcomp').value;
 	var passwordvalue=document.getElementById('password1').value;
 	var password_revalue=document.getElementById('password_re').value;
-	var nickvalue=document.getElementById('nick').value;
+	var nickvalue=document.getElementById('nick_name').value;
 	console.log($('.valid'));
 	var inter = document.getElementById('inter_sports_total').value;
 	inter=$("input:checkbox:checked").eq(0).val();
@@ -247,7 +246,7 @@ function submit_change(){
 		event.stopPropagation();
 		return false;
 	}
-}
+};
 
 $(function() {
 	console.log("확인")
@@ -261,8 +260,7 @@ $(function() {
 	var cell="${record.cellphone}";
 	var cellphone=cell.split("-");
 	$('#cellphone1 option').each(function(){
-		var i=$(this).text;
-		console.log($(this).text==cellphone[0]);
+		console.log($(this).val());
 		if($(this).text==cellphone[0]){
 			$(this).prop("selected",true);
 		}
@@ -276,7 +274,47 @@ $(function() {
 	var ema="${record.email}";
 	var email=ema.split("@");
 	$('#email').val(email[0]);
-	$('#emailhost').val(email[0]);
+	$('#emailhost').val(email[1]);
+	$('#emailtype option').each(function(){
+		if($('#emailhost').val()==$(this).val()){
+			$(this).prop("selected",true);
+		}
+		else{
+			$(this).prop("selected",false);
+		}
+	});
+	var zipcode = "${record.zipcode}";
+	$('#Daum_postcode').val(zipcode);
+	
+	var address = "${record.address}";
+	console.log(address);
+	$('#Daum_address').val(address);
+	
+	var detail = "${record.detail_address}";
+	var detail_address = detail.split('(');
+	
+	console.log(detail_address[0]);
+	console.log(detail_address[1]);
+	detail_address[1]='('+detail_address[1];
+	console.log(detail_address[1]);
+	$('#Daum_detailAddress').val(detail_address[0]);
+	$('#Daum_extraAddress').val(detail_address[1]);
+	
+	var inter = "${record.inter_sports}";
+	console.log(inter);
+	var inter_sports=inter.split(',');
+	console.log(inter_sports);
+	
+	console.log($('#inter_sports_list input:checkbox'));
+	$('#inter_sports_list input:checkbox').each(function(){
+		for(var i=0;i<inter_sports.length;i++){
+			if($(this).val()==inter_sports[i]){
+				$(this).prop('checked',true);
+			}
+		}
+	});
+	
+	
 	//photoUpload
 	$('input[type="file"]').each(function(){
 		  var $file = $(this),
@@ -402,7 +440,7 @@ function changestart(){
 				    <!-- 닉네임 -->
 				    <div class="form-inline text-left">
 						<label for="Nick" class="col-md-3 mb-1">닉네임:</label>
-						<input maxlength="14" type="text" id="nick" name="nick" class="form-control mb-1 col-10 col-md-4" value="${record.nick_name}" placeholder="닉네임" disabled>
+						<input maxlength="14" type="text" id="nick_name" name="nick_name" class="form-control mb-1 col-10 col-md-4" value="${record.nick_name}" placeholder="닉네임" disabled>
 						<span class="fa form-control-feedback col-1 fa-check" style="color:green;display:none;"></span>
 				    </div>
 				    <div class="col-12 p-0 m-0">
@@ -448,10 +486,10 @@ function changestart(){
 						</div>
 						<select class="browser-default custom-select mb-2 col-6 col-md-2" onchange="emailtypech()" id="emailtype" disabled>
 							<option selected>-이메일 유형- </option>
-							<option value="1">네이버</option>
-							<option value="2">다음</option>
-							<option value="3">구글</option>
-							<option value="4">기타</option>
+							<option value="naver.com">네이버</option>
+							<option value="daum.net">다음</option>
+							<option value="gmail.com">구글</option>
+							<option value="etc">기타</option>
 						</select>
 						<input type="hidden" name="email" id="email_total" value="">
 					</div>
