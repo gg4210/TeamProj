@@ -19,7 +19,6 @@ import com.kosmo.workout.service.search.SearchBBSDTO;
 
 
 public class CommonUtility {
-
 	
 	public static SearchBBSDTO mapkeyCrawling(String mapkey, String tel, HttpServletRequest req) throws IOException {		
 	
@@ -65,8 +64,7 @@ public class CommonUtility {
 				return mapinfo;
 			}			
 		}
-	}
-	
+	}	
 	
 	public static SearchBBSDTO seleniumCrawling(String href, HttpServletRequest req) {
 		
@@ -161,8 +159,7 @@ public class CommonUtility {
 		
 		
 		return rate;
-	}
-	
+	}	
 	
 	
 	public static String Bookmarked(int isbookmarked,int countBooked) {///하트 별점 String
@@ -204,6 +201,69 @@ public class CommonUtility {
 		}
 		return complex;
 	}
+	
+	public static String pagingBootStrap4Style(int totalRecordCount, int pageSize, int blockPage, int nowPage, String page){
+		
+		String pagingStr="<nav><ul class=\"pagination pg-blue justify-content-center\">";
+		
+		//1.전체 페이지 구하기
+		int totalPage= (int)(Math.ceil(((double)totalRecordCount/pageSize)));
+		
+		int intTemp = ((nowPage - 1) / blockPage) * blockPage + 1;
+
+		//처음 및 이전을 위한 로직
+		if(intTemp != 1){
+			pagingStr+="<li class=\"page-item\">\r\n" + 
+							"<a class=\"page-link\" href='"+page+"nowPage=1'>\r\n" + 
+							"<span aria-hidden=\"true\">First</span>\r\n" + 
+							"</a>\r\n" + 
+						"</li>\r\n" + 
+					"<li class=\"page-item\">\r\n" + 
+					"<a class=\"page-link\" href='"+page+"nowPage="+(intTemp -blockPage)+"' >\r\n" + 
+					"<span aria-hidden=\"true\">&lsaquo;</span>\r\n" + 
+					"</a>\r\n" + 
+					"</li>";   
+		}
+		
+		//페이지 표시 제어를 위한 변수
+		int blockCount = 1;
+		
+		//페이지를 뿌려주는 로직
+		//블락 페이지 수만큼 혹은 마지막 페이지가 될때까지 페이지를 표시한다1 
+		while(blockCount <= blockPage && intTemp <= totalPage){  // 페이지 오버 를 체크
+				//현재 페이지를 의미함
+			if(intTemp == nowPage){  
+				pagingStr+="<li class=\"page-item active\"><a class=\"page-link\" href='#'>"+intTemp+"</a></li>";
+			}
+		     else
+		    	 pagingStr+="<li class=\"page-item\"><a class=\"page-link\" href='"+page+"nowPage="+intTemp+"'>"+intTemp+"</a></li>";
+		       
+			intTemp = intTemp + 1;
+			blockCount = blockCount + 1;
+		
+		}
+
+		//다음 및 마지막을 위한 로직
+			
+		if(intTemp <= totalPage){
+			pagingStr+="<li class=\"page-item\">\r\n" + 
+					"<a class=\"page-link\" href='"+page+"nowPage="+intTemp+"'>\r\n" + 
+					"<span aria-hidden=\"true\">&rsaquo;</span>\r\n" + 
+					"</a>\r\n" + 
+					"</li>\r\n" + 
+					"<li class=\"page-item\">\r\n" + 
+					"<a class=\"page-link\" href='"+page+"nowPage="+totalPage+"' >\r\n" + 
+					"<span aria-hidden=\"true\">Last</span>\r\n" + 
+					"</a>\r\n" + 
+					"</li>";							   
+		}
+		
+		pagingStr+="</ul></nav>";
+		return pagingStr;
+		
+	}
+	
+	
 	
 	 
 }
