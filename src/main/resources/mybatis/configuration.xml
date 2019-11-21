@@ -25,16 +25,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/Notification.xml"/>
 		<mapper resource="mybatis/CS.xml" />
 		<mapper resource="mybatis/HealthMate.xml" />
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/master
 		<!--<mapper resource="mybatis/MyMate.xml" />-->
 		<mapper resource="mybatis/Search.xml" />
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/master
 	</mappers>
 	
 </configuration>

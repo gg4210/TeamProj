@@ -15,4 +15,7 @@ public interface MemberService {
 	void authjoin(Map map);
 	void delete(Map map);
 	void update(Map map);
+	
+	//QR코드 생성용]
+	int selectMapkey(Map map);
 }

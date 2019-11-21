@@ -20,7 +20,16 @@ public class MemberDTO {
 	private String enabled;
 	private String zipcode;
 
+	
+	private String mapkey;
+	public String getMapkey() {
+		return mapkey;
+	}
+	public void setMapkey(String mapkey) {
+		this.mapkey = mapkey;
+	}
 
+	
 	public String getId() {
 		return id;
 	}
