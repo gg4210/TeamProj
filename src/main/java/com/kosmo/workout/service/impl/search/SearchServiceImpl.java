@@ -62,5 +62,25 @@ public class SearchServiceImpl implements SearchService{
 			return dao.setRating(map);
 		}
 		
+		
+		@Override
+		public int isBookmarked(Map map) {
+			return dao.isBookmarked(map);
+		}
+
+		@Override
+		public int insertBookmark(Map map) {
+			return dao.insertBookmark(map);
+		}
+		@Override
+		public int deleteBookmark(Map map) {
+			return dao.deleteBookmark(map);
+		}
+		@Override
+		public int countBookmarked(Map map) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+		
 
 }

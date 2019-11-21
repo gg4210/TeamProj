@@ -48,6 +48,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	
 	
+	
 	<!-- 북마크 관련 시작 -->
 	<select id="isBookmarked" parameterType="java.util.Map" resultType="int">
 		select count(*) from BOOKMARK where mapkey=#{mapkey} and id=#{id}
@@ -58,13 +59,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select><!-- 3개인지 여부 -->
 	
 	<insert id="insertBookmark" parameterType="java.util.Map">
-		INSERT INTO BOOKMARK(NO,ID,MAPKEY) VALUES(SEQ_BookMark_NO.NEXTVAL, #{ID}, #{MAPKEY})
+		INSERT INTO BOOKMARK(NO,ID,MAPKEY) VALUES(SEQ_BookMark_NO.NEXTVAL, #{id}, #{mapkey})
 	</insert><!-- 없을 시 입력 -->
 
 	<delete id="deleteBookmark" parameterType="java.util.Map">
-		DELETE * FROM BOOKMARK WHERE ID=#{ID} AND MAPKEY=#{MAPKEY}
+		DELETE BOOKMARK WHERE id=#{id} AND mapkey=#{mapkey}
 	</delete><!-- 있을 시 삭제 -->
 	<!-- 북마크 관련 끝 -->
+
 
 
 

@@ -18,6 +18,19 @@ public interface SearchService {
 	SearchBBSDTO setComplexity(Map map);
 	//센터 정보 입력, 수정 관련 끝//
 	
+	
+	
+	//북마크 여부
+	int isBookmarked(Map map);
+	//3개인지 여부
+	int countBookmarked(Map map);
+	//넣기
+	int insertBookmark(Map map);
+	//삭제하기
+	int deleteBookmark(Map map);
+	
+	
+	
 	//코멘트 입력 , 리스트 뿌려주기 시작//
 	int insertComment(Map map);
 	List<SearchBBSCommentDTO> selectListComment(Map map);

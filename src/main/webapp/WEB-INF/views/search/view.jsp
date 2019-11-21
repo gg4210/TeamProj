@@ -97,6 +97,20 @@ $(function() {
 	console.log('token:',token)
 	console.log('header:',header)
 	console.log('header길이:',header.length)
+	
+	var displayComplexAndStar=function(data){
+		
+	};
+	
+	$.ajax({
+		url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
+		data:{'mapkey':'${viewinfo.mapkey}'},
+		type:"post",
+		success:displayComplexAndStar,
+		error:function(request,status,error){
+	         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+	    },
+	});	
 
 	
 	var showComment=function(){///Ajax로 처리
@@ -245,18 +259,9 @@ $(function() {
 									<hr/>
 									   <p>혼잡도</p>
 									   <div class="row">
-									   
-										   <div class="col-10 align-middle">
-											   <div class="progress blue">
-													<div class="progress-bar" style="width:70%; background:#fe3b3b;">
-														<div class="progress-value">70%</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-2 px-0">
-												51명
-											</div>
-											
+									   		<span id="complex">
+											   
+											</span>
 										</div>
 										
 									<hr/>									
@@ -264,7 +269,7 @@ $(function() {
 									<hr/>									
 									<p><span class="badge badge-primary">종목</span> <i class="fas fa-swimming-pool"></i> 수영 &nbsp&nbsp<i class="fas fa-dumbbell"></i> 헬스</p>
 									<hr/>
-									<p>평균별점 : ${viewinfo.avgRate }(${viewinfo.avgR })</p>
+									<p>평균별점 : <span id="starString"></span>${viewinfo.avgRate }(${viewinfo.avgR })</p>
 								</div>								
 							</div>
 						</div>

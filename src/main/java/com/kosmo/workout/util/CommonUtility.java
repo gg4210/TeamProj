@@ -116,50 +116,93 @@ public class CommonUtility {
 	public static String ratingString (int avgRate) {
 		String rate="";
 		switch(avgRate){
-		case 1:
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
-			break;
-		case 2:
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
-			break;
-		case 3:
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
-			break;
-		case 4:
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
-			break;
-		case 5:
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
-			break;
-		default:
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
-			rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
-	}//switch
+			case 1:
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				break;
+			case 2:
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				break;
+			case 3:
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				break;
+			case 4:
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				break;
+			case 5:
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				break;
+			default:
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+		}//switch
+		
 		
 		return rate;
+	}
+	
+	
+	
+	public static String Bookmarked(int isbookmarked,int countBooked) {///하트 별점 String
+		
+		String book="";		
+		if(countBooked<3) {
+			if(isbookmarked==1) {//북마크 이미 됐을 경우
+				return book="<i class=\"fas fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\"></i>";
+			}
+			else {//안됐을 경우
+				return book="<i class=\"far fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\"></i>";
+			}
+		}
+		else {//최대 개수 초과
+			if(isbookmarked==1) {
+				return book="<i class=\"fas fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\" ></i>";
+			}
+			else {
+				return book="<i class=\"far fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\"></i>";
+			}
+		}
+		
+	}
+	
+	
+	public static String isComplex(int countnum, int maxnum) {
+		String complex="";
+		try {
+		complex="<h6 class=\"progress-title\">혼잡도</h6><div class=\"col-10 align-middle\"><div class=\"progress blue\">";
+		complex+="<div class=\"progress-bar\" style=\"width:"+((countnum/maxnum)*100)+"%; background:#fe3b3b;\">";
+		complex+="<div class=\"progress-value\">"+((countnum/maxnum)*100)+"%</div>";
+		complex+="</div></div>";
+		complex+="<div class=\"col-2 px-0\">";
+		complex+="현재 "+countnum+"명이 이용중";
+		complex+="</div>";
+		}
+		catch (ArithmeticException e) {
+			complex="";
+		}
+		return complex;
 	}
 	
 	 

@@ -19,8 +19,7 @@ public class SearchBBSDTO {
 	int maxNumber;
 	int avgR;
 	String avgRate;
-	int bookmarked;
-	int countBookmarked;
+	String bookString;
 	
 	
 	public String getAvgRate() {
@@ -119,9 +118,14 @@ public class SearchBBSDTO {
 	public int getMaxNumber() {
 		return maxNumber;
 	}
-
 	public void setMaxNumber(int maxNumber) {
 		this.maxNumber = maxNumber;
+	}
+	public String getBookString() {
+		return bookString;
+	}
+	public void setBookString(String bookString) {
+		this.bookString = bookString;
 	}
 
 	

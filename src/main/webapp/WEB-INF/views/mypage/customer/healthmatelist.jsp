@@ -30,6 +30,11 @@ $(function(){
          $('#matelist-checkbox-all input:checkbox').prop('checked',false);
       }
    });
+   
+   
+	var scrollbarLength=$('#messageBox').scrollTop();
+	console.log(scrollbarLength);
+   
 });
 
 </script>
@@ -214,7 +219,7 @@ $(function(){
 					<span aria-hidden="true">&times;</span>
 				</button>
 				</div>
-				<div class="modal-body" id="messageBox" style="background-color:black;">
+				<div class="modal-body" id="messageBox" style="background-color:black; overflow:auto">
 					
 						
 						<p class="badge badge-light text-wrap" style="text-align:left; font-size:medium;">

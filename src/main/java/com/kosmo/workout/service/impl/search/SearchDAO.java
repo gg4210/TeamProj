@@ -32,14 +32,13 @@ public class SearchDAO {
 		return template.insert("insertSearch",map);
 	}
 	public int updateSearchDTO(Map map) {
-		return template.update("updateSearch",map);
-		
+		return template.update("updateSearch",map);		
 	}
 	public SearchBBSDTO selectOneSearchDTO(Map map) {
 		return template.selectOne("seleteOneSearch",map);
 	}
 	public int setRating(Map map) {
-		return template.selectOne("avgRate",map);
+		return (Integer) (template.selectOne("avgRate",map)==null?0:template.selectOne("avgRate",map));
 	}
 	public SearchBBSDTO setComplexity(Map map) {
 		return template.selectOne("complexity",map);
