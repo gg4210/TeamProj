@@ -63,6 +63,14 @@ public class AuthController {
 		MemberService.authjoin(map);
 		return "index.tiles";
 	}
+	
+	@RequestMapping(value="/Centerjoincomplete.do", method=RequestMethod.POST)
+	public String Centerjoincomplete(@RequestParam Map map,Model model){
+		System.out.println(map);
+		MemberService.insertCenterJoin(map);
+		MemberService.authjoin(map);
+		return "index.tiles";
+	}
 	/*
 	@RequestMapping("/logout.do")
 	public String logout(SessionStatus status) {

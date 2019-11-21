@@ -181,16 +181,17 @@ function submit_join(){
 </script>
 <div class="container pt-20" id="cujoin">
    	<div class="row align-self-center" id="curow">
-   		<form class="needs-validation text-center border border-light pt-5 pl-5 pr-5 pb-4" id="joinform" onsubmit="submit_join()" action="<c:url value='/joincomplete.do?${_csrf.parameterName}=${_csrf.token}'/>" method="post" novalidate>
+   		<form class="needs-validation text-center border border-light pt-5 pl-5 pr-5 pb-4" id="joinform" onsubmit="submit_join()" action="<c:url value='/joincomplete.do?${_csrf.parameterName}=${_csrf.token}'/>" method="post" enctype="multipart/form-data" novalidate>
    			<p class="h4 mb-4">개인 회원가입</p>
     			<div class="row">
 			   	<!-- 사진 -->
 				<div class="col-md-3" style="margin-top:5%;">
 					<div class="wrap-custom-file">
-						<input type="file" name="picture" id="image1" name="image" accept=".gif, .jpg, .png"/>
+						<input type="file" name="image1" id="image1" name="image" accept=".gif, .jpg, .png"/>
 						<label for="image1">
 							<span>사진 등록하기<br/>Click</span>
 						</label>
+						<input type="hidden" name="picture" id="picture_name" value="">
 					</div>
 			  	</div>
 			   	<div class="col-md-9">

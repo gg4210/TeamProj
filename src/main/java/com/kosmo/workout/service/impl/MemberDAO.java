@@ -36,6 +36,10 @@ public class MemberDAO implements MemberService{
 		return template.insert("MemberJoin",map);
 		
 	}
+	@Override
+	public int insertCenterJoin(Map map) {
+		return template.insert("CenterJoin",map);
+	}
 	public void authjoin(Map map) {
 		template.insert("AuthJoin",map);
 	}
@@ -58,6 +62,8 @@ public class MemberDAO implements MemberService{
 		System.out.println(map);
 		return template.selectOne("MemberSelectOne", map);
 	}
+
+	
 
 	
 

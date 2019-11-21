@@ -32,6 +32,10 @@ public class MemberServiceImpl implements MemberService{
 	public int insertJoin(Map map) {
 		return dao.insertJoin(map);
 	}
+	@Override
+	public int insertCenterJoin(Map map) {
+		return dao.insertCenterJoin(map);
+	}
 	
 	public void authjoin(Map map) {
 		dao.authjoin(map);
