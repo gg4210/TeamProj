@@ -58,8 +58,6 @@ public class MemberDAO implements MemberService{
 
 	@Override
 	public MemberDTO selectOne(Map map) {
-		System.out.println("DAO 통과");
-		System.out.println(map);
 		return template.selectOne("MemberSelectOne", map);
 	}
 
