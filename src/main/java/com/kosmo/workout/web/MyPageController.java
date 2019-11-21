@@ -1,20 +1,30 @@
 package com.kosmo.workout.web;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kosmo.workout.service.MemberDTO;
 import com.kosmo.workout.service.MemberService;
+import com.oreilly.servlet.MultipartRequest;
+import com.kosmo.workout.common.FileUploadService;
+import com.kosmo.workout.common.FileUtils;
 
 @SessionAttributes("id")
 @Controller
@@ -22,6 +32,9 @@ public class MyPageController {
 	
 	@Resource(name = "MemberService")
 	private MemberService MemberService;
+	
+	@Autowired
+	FileUploadService fileUploadService;
 		/*임시, 백엔드 스프링 시큐리티 적용 시 삭제 예정 시작*/
 	@RequestMapping("/mypage.do")
 	public String temp() {
@@ -57,8 +70,22 @@ public class MyPageController {
 		return "mypage/customer/mypage_Index.tiles";
 	}
 	
-	@RequestMapping("/user/changecomplete.do")
-	public String customer_change(){
+	@RequestMapping(value="/user/changecomplete.do", method=RequestMethod.POST)
+	public String customer_change(@RequestParam Map map,
+			Model model,
+			@RequestParam("image1") MultipartFile picture) throws Exception{
+		
+		String url = fileUploadService.restore(picture);
+		System.out.println(url);
+		Iterator<String> keys = map.keySet().iterator();
+		while(keys.hasNext()) {
+			String key = keys.next();
+		    System.out.println("key : " + key +" / value : " + map.get(key));
+		}
+		boolean update=MemberService.update(map);
+		MemberDTO record=MemberService.selectOne(map);
+		model.addAttribute("update",update);
+		model.addAttribute("record",record);
 		return "mypage/customer/mypage_Index.tiles";
 	}
 	

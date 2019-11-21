@@ -161,7 +161,7 @@ function submit_join(){
 	}
 	console.log(inter);
 	$('#inter_sports_total').val(inter);
-	if(document.getElementById('my_comment').value =="undefinded"){
+	if(document.getElementById('my_comment').value =="undefined"){
 		document.getElementById('my_comment').value=$('#my_comment').attr("placeholder");
 		console.log(document.getElementById('my_comment').value);
 	}
@@ -185,7 +185,7 @@ function submit_join(){
 			   	<!-- 사진 -->
 				<div class="col-md-3" style="margin-top:5%;">
 					<div class="wrap-custom-file">
-						<input type="file" name="picture" id="image1" accept=".gif, .jpg, .png"/>
+						<input type="file" name="picture" id="image1" name="image" accept=".gif, .jpg, .png"/>
 						<label for="image1">
 							<span>사진 등록하기<br/>Click</span>
 						</label>

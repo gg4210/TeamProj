@@ -44,8 +44,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public void update(Map map) {
-		// TODO Auto-generated method stub
+	public boolean update(Map map) {
+		return dao.update(map);
 		
 	}
 

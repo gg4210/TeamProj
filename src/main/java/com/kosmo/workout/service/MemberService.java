@@ -14,5 +14,5 @@ public interface MemberService {
 	int insertJoin(Map map);
 	void authjoin(Map map);
 	void delete(Map map);
-	void update(Map map);
+	boolean update(Map map);
 }

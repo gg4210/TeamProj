@@ -50,6 +50,9 @@
 		<beans:property name="viewClass"
 			value="org.springframework.web.servlet.view.tiles3.TilesView" />
 	</beans:bean>
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="/TeamProj/src/main/webapp/resources/upload"></beans:constructor-arg>
+	</beans:bean>
 
 	<!-- 리소스파일(.properties) 사용을 위한 설정 -->
 	<context:property-placeholder
