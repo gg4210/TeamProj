@@ -173,7 +173,6 @@ public class SearchController {
 		
 		System.out.println("insert로 들어옵니까?");
 		UserDetails userDetails=(UserDetails)auth.getPrincipal();
-		userDetails.getUsername();
 		map.put("id", userDetails.getUsername());//시큐리티 적용 후
 		System.out.println(map);		
 		int insertInt=SearchService.insertComment(map);
