@@ -7,10 +7,9 @@ public class CouponDTO {
 	private String id;
 	private String eventTitle;
 	private String eventContent;
-	private String eventStart;
-	private String eventEnd;
-	private String eventSend;
-	private String centerId;
+	private Date eventStart;
+	private Date eventEnd;
+	private Date eventSend;
 	private String authority;
 	
 	public String getCno() {
@@ -37,29 +36,23 @@ public class CouponDTO {
 	public void setEventContent(String eventContent) {
 		this.eventContent = eventContent;
 	}
-	public String getEventStart() {
+	public Date getEventStart() {
 		return eventStart;
 	}
-	public void setEventStart(String eventStart) {
+	public void setEventStart(Date eventStart) {
 		this.eventStart = eventStart;
 	}
-	public String getEventEnd() {
+	public Date getEventEnd() {
 		return eventEnd;
 	}
-	public void setEventEnd(String eventEnd) {
+	public void setEventEnd(Date eventEnd) {
 		this.eventEnd = eventEnd;
 	}
-	public String getEventSend() {
+	public Date getEventSend() {
 		return eventSend;
 	}
-	public void setEventSend(String eventSend) {
+	public void setEventSend(Date eventSend) {
 		this.eventSend = eventSend;
-	}
-	public String getCenterId() {
-		return centerId;
-	}
-	public void setCenterId(String centerId) {
-		this.centerId = centerId;
 	}
 	public String getAuthority() {
 		return authority;

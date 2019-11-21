@@ -16,32 +16,55 @@ public class NotificationServiceImpl implements NotificationService{
 	//NotificationDAO주입]
 	@Resource(name="NotificationDAO")
 	private NotificationDAO dao;
-
+	
 	@Override
-	public int countList(Map map) {
-		return dao.countList(map);
-	}
-
-	@Override
-	public void insert(Map map) {
-		dao.insert(map);
+	public int countAll(Map map) {
+		return dao.countAll(map);
 	}
 	
 	@Override
-	public void insert2(Map map) {
-		dao.insert2(map);
-	}
-	
-	@Override
-	public void insert3(Map map) {
-		dao.insert3(map);
+	public int countCNO(Map map) {
+		return dao.countCNO(map);
 	}
 
 	@Override
-	public void delete(Map map) {
-		dao.delete(map);
+	public int countMNO(Map map) {
+		return dao.countMNO(map);
+	}
+
+	@Override
+	public int countFNO(Map map) {
+		return dao.countFNO(map);
+	}
+
+	@Override
+	public void insertCNO(Map map) {
+		dao.insertCNO(map);
 	}
 	
+	@Override
+	public void insertMNO(Map map) {
+		dao.insertMNO(map);
+	}
 	
+	@Override
+	public void insertFNO(Map map) {
+		dao.insertFNO(map);
+	}
+
+	@Override
+	public int deleteCNO(Map map) {
+		return dao.deleteCNO(map);
+	}
+
+	@Override
+	public int deleteMNO(Map map) {
+		return dao.deleteMNO(map);		
+	}
+
+	@Override
+	public int deleteFNO(Map map) {
+		return dao.deleteFNO(map);
+	}
 
 }

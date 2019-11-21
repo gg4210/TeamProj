@@ -5,7 +5,7 @@ import java.sql.Date;
 public class NotificationDTO {
 	private String mno;
 	private String cno;
-	private String yno;
+	private String fno;
 	private String id;
 	
 	public String getMno() {
@@ -20,11 +20,11 @@ public class NotificationDTO {
 	public void setCno(String cno) {
 		this.cno = cno;
 	}
-	public String getYno() {
-		return yno;
+	public String getFno() {
+		return fno;
 	}
-	public void setYno(String yno) {
-		this.yno = yno;
+	public void setFno(String fno) {
+		this.fno = fno;
 	}
 	public String getId() {
 		return id;
