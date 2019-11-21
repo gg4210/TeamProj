@@ -1,5 +1,9 @@
 
+<<<<<<< HEAD
+/* Drop Tables */
+=======
 /* Drop Tables 
+>>>>>>> refs/remotes/origin/master
 
 DROP TABLE AUTH_SECURITY CASCADE CONSTRAINTS;
 DROP TABLE BBS_Comment CASCADE CONSTRAINTS;
@@ -35,6 +39,10 @@ DROP SEQUENCE SEQ_MESSAGE_TABLE_MNO;
 DROP SEQUENCE SEQ_MY_MATE_FNO;
 DROP SEQUENCE SEQ_RegiCenter_NO;
 DROP SEQUENCE SEQ_SCRAP_NO;
+<<<<<<< HEAD
+
+=======
+>>>>>>> refs/remotes/origin/master
 
 */
 

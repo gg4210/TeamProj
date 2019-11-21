@@ -47,8 +47,8 @@ public class MemberDAO implements MemberService{
 	}
 
 	@Override
-	public void update(Map map) {
-		// TODO Auto-generated method stub
+	public boolean update(Map map) {
+		return template.update("UpdateMember",map)==0?false:true;
 		
 	}
 

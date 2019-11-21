@@ -378,7 +378,20 @@ $(function(){
 
 	
 	$('#makeQRCode').click(function(){
-		location.href="QRCode.jsp";
+		//location.href="QRCode.jsp";//새 페이지로 만들기(webapp아래)
+		
+		
+	        var url = "QRCode.do";
+	        var name = "QRcode";
+	        var option = "width = 500, height = 500, top = 100, left = 200, location = no"
+	            
+	        
+		
+		//window.open("URL", "팝업이름", "팝업 옵션");
+		//window.open("TeamProj/src/main/webapp/WEB-INF/views/mypage/enterprise/QRCode.jsp", "QRcode","location=no");
+		//window.open("WEB-INF/views/mypage/enterprise/QRCode.jsp", "QRcode","location=no");
+	        	window.open(url, name, option);
+		
 	});
 
 })

@@ -4,8 +4,7 @@
    xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
    
    <!-- Root Context: defines shared resources visible to all other web components -->
-   <bean id="datasource"
-      class="org.springframework.jndi.JndiObjectFactoryBean">
+   <bean id="datasource" class="org.springframework.jndi.JndiObjectFactoryBean">
       <property name="jndiName" value="WORKOUT" />
       <property name="resourceRef">
          <value>true</value>
@@ -13,8 +12,7 @@
    </bean>
    <!-- 마이바티스 지원을 위한 빈 등록 -->
    <!-- 1]SqlSessionFactory -->
-   <bean id="sqlSessionFactory"
-      class="org.mybatis.spring.SqlSessionFactoryBean">
+   <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
       <!-- 데이타소스:데이타베이스 연결정보 -->
       <property name="dataSource" ref="datasource" />
       <!-- 환경설정 파일 위치 설정 -->
@@ -26,10 +24,9 @@
       <constructor-arg ref="sqlSessionFactory" />
    </bean>
    <!-- MultipartResolver 설정 -->
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-	  <property name="maxUploadSize" value="100000000" />
-	  <property name="maxInMemorySize" value="100000000" />
-	</bean>
-   
+   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+      <property name="maxUploadSize" value="200000000" />
+      <property name="maxInMemorySize" value="200000000" />
+   </bean>
    
 </beans>
