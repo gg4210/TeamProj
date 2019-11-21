@@ -178,7 +178,8 @@
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>4.2.8.RELEASE</version>
 		</dependency>
-		<!--  Spring-Security관련 라이브러리 끝 -->		
+		<!--  Spring-Security관련 라이브러리 끝 -->	
+			
 		<!-- 웹크롤링을 위한 jsoup -->
 		<dependency>
 		    <groupId>org.jsoup</groupId>
@@ -239,9 +240,10 @@
 		    <groupId>commons-io</groupId>
 		    <artifactId>commons-io</artifactId>
 		    <version>2.4</version>
-		</dependency>
-		
+		</dependency>		
 		<!-- fileupload:파일 업로드를 위한 라이브러리 끝 -->
+		
+		
 		<dependency>		
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-core</artifactId>

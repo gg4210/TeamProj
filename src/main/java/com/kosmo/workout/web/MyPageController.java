@@ -54,7 +54,8 @@ public class MyPageController {
 		System.out.println(record);
 		model.addAttribute("record", record);
 		return "mypage/customer/mypage_Index.tiles";
-	}	
+	}
+	
 	@RequestMapping("/user/customer.do")
 	public String customer(@RequestParam Map map,Model model){
 		System.out.println("MemberDTO 통과?");
@@ -70,19 +71,20 @@ public class MyPageController {
 	
 	@RequestMapping(value="/user/changecomplete.do", method=RequestMethod.POST)
 	public String customer_change(@RequestParam Map map,
+			HttpServletRequest req,
 			Model model,
 			@RequestParam("image1") MultipartFile picture) throws Exception{
-		
-		String url = fileUploadService.restore(picture);
+	
+		String url = fileUploadService.restore(req,picture);
 		System.out.println(url);
 		Iterator<String> keys = map.keySet().iterator();
 		while(keys.hasNext()) {
 			String key = keys.next();
 		    System.out.println("key : " + key +" / value : " + map.get(key));
 		}
+		map.put("picture",url);
 		boolean update=MemberService.update(map);
 		MemberDTO record=MemberService.selectOne(map);
-		model.addAttribute("update",update);
 		model.addAttribute("record",record);
 		return "mypage/customer/mypage_Index.tiles";
 	}

@@ -14,6 +14,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartRequest;
 
 import com.kosmo.workout.service.search.SearchBBSDTO;
 
@@ -201,6 +203,8 @@ public class CommonUtility {
 		}
 		return complex;
 	}
+	
+	
 	
 	public static String pagingBootStrap4Style(int totalRecordCount, int pageSize, int blockPage, int nowPage, String page){
 		
