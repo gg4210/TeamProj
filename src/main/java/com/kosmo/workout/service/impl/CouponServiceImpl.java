@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.kosmo.workout.service.CouponDTO;
 import com.kosmo.workout.service.CouponService;
 
 @Service("CouponService")
@@ -17,13 +18,25 @@ public class CouponServiceImpl implements CouponService{
 	private CouponDAO dao;
 
 	@Override
-	public List<Map> selectList(Map map) {
+	public int countCoupon(Map map) {
+		return dao.countCoupon(map);
+	}
+
+	@Override
+	public List<CouponDTO> selectList(Map map) {
 		return dao.selectList(map);
 	}
 
 	@Override
-	public void insert(Map map) {
-		dao.insert(map);
+	public int insert(Map map) {
+		return dao.insert(map);
 	}
+
+	@Override
+	public int delete(Map map) {
+		return dao.delete(map);
+	}
+
+	
 	
 }

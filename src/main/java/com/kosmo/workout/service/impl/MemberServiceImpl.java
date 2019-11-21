@@ -32,6 +32,10 @@ public class MemberServiceImpl implements MemberService{
 	public int insertJoin(Map map) {
 		return dao.insertJoin(map);
 	}
+	@Override
+	public int insertCenterJoin(Map map) {
+		return dao.insertCenterJoin(map);
+	}
 	
 	public void authjoin(Map map) {
 		dao.authjoin(map);
@@ -44,8 +48,8 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public void update(Map map) {
-		// TODO Auto-generated method stub
+	public boolean update(Map map) {
+		return dao.update(map);
 		
 	}
 
@@ -56,8 +60,6 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public MemberDTO selectOne(Map map) {
-		System.out.println("ServiceImpl 통과");
-		System.out.println(map);
 		return dao.selectOne(map);
 	}
 

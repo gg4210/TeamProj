@@ -17,9 +17,19 @@ public class SearchBBSDTO {
 	String[] sport_kind;
 	int countNum;
 	int maxNumber;
+	int avgR;
+	String avgRate;
+	String bookString;
 	
+	
+	public String getAvgRate() {
+		return avgRate;
+	}
 
-	
+	public void setAvgRate(String avgRate) {
+		this.avgRate = avgRate;
+	}
+
 	public String[] getSport_kind() {
 		return sport_kind;
 	}
@@ -53,6 +63,14 @@ public class SearchBBSDTO {
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
+	public int getAvgR() {
+		return avgR;
+	}
+
+	public void setAvgR(int avgR) {
+		this.avgR = avgR;
+	}
+
 	public String getAddr() {
 		return addr;
 	}
@@ -100,9 +118,14 @@ public class SearchBBSDTO {
 	public int getMaxNumber() {
 		return maxNumber;
 	}
-
 	public void setMaxNumber(int maxNumber) {
 		this.maxNumber = maxNumber;
+	}
+	public String getBookString() {
+		return bookString;
+	}
+	public void setBookString(String bookString) {
+		this.bookString = bookString;
 	}
 
 	

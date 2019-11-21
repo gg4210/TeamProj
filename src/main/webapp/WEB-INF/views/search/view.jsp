@@ -97,6 +97,20 @@ $(function() {
 	console.log('token:',token)
 	console.log('header:',header)
 	console.log('header길이:',header.length)
+	
+	var displayComplexAndStar=function(data){
+		
+	};
+	
+	$.ajax({
+		url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
+		data:{'mapkey':'${viewinfo.mapkey}'},
+		type:"post",
+		success:displayComplexAndStar,
+		error:function(request,status,error){
+	         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+	    },
+	});	
 
 	
 	var showComment=function(){///Ajax로 처리
@@ -114,16 +128,16 @@ $(function() {
 	};
 	
 	var displayComments=function(data){
-		var comment='<div class="row pb-4">';
+		var comment='';
 		console.log('data:',data,',타입:',typeof data)
 		
 		if(data.length==0){
 			console.log('데이타 업쇼습니다')
-			comment+='<div class="col text-center">등록된 한줄 댓글이 존재하지 않습니다.</div></div>';
+			comment+='<div class="row pb-4"><div class="col text-center">등록된 한줄 댓글이 존재하지 않습니다.</div></div>';
 		}
 		else{
 			$.each(data,function(index, element){
-				comment+='<div class="col-2">';
+				comment+='<div class="row pb-4"><div class="col-2">';
 				comment+='<img src='+element['PICTURE']+' alt="Avatar" class="avatar img-fluid">';
 				comment+='</div>'
 				comment+='<div class="col">';
@@ -245,18 +259,9 @@ $(function() {
 									<hr/>
 									   <p>혼잡도</p>
 									   <div class="row">
-									   
-										   <div class="col-10 align-middle">
-											   <div class="progress blue">
-													<div class="progress-bar" style="width:70%; background:#fe3b3b;">
-														<div class="progress-value">70%</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-2 px-0">
-												51명
-											</div>
-											
+									   		<span id="complex">
+											   
+											</span>
 										</div>
 										
 									<hr/>									
@@ -264,13 +269,7 @@ $(function() {
 									<hr/>									
 									<p><span class="badge badge-primary">종목</span> <i class="fas fa-swimming-pool"></i> 수영 &nbsp&nbsp<i class="fas fa-dumbbell"></i> 헬스</p>
 									<hr/>
-									<p>평균별점 : <span id="rateMe">
-												<i class="fas fa-star py-2 px-1 rate-popover" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-												<i class="fas fa-star py-2 px-1 rate-popover" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-												<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-												<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-												<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-									</span>(0.0)</p>
+									<p>평균별점 : <span id="starString"></span>${viewinfo.avgRate }(${viewinfo.avgR })</p>
 								</div>								
 							</div>
 						</div>

@@ -64,12 +64,12 @@ public class CustomerServiceController {
 	
 
 	//공지사항 작성폼으로 이동]
-	@RequestMapping(value="/member/customerService/notice/noticeWrite.do",method = RequestMethod.GET)
+	@RequestMapping(value= {"/member/noticeWrite.do","/admin/customerService/notice/noticeWrite.do"},method = RequestMethod.GET)
 	public String noticeWrite() {
 		return "customerService/notice/noticeWrite.tiles";
 	}	
 	//공지사항 작성 처리]
-		@RequestMapping(value = "/customerService/notice/noticeWrite.do",method=RequestMethod.POST)
+		@RequestMapping(value = "/member/noticeWrite.do",method=RequestMethod.POST)
 		public String noticeWriteOk(@RequestParam Map map,Authentication auth) {
 			//서비스 호출]
 			//스프링 시큐리티 사용 시 아래에 코드 추가
@@ -87,7 +87,7 @@ public class CustomerServiceController {
 				System.out.println(a.getAuthority());
 			}
 			
-			return "forward:member/customerService/notice/noticeList.do";////포워드 했으면 정보 가져가야 하는 거 아냐?
+			return "forward:/member/customerService/notice/noticeList.do";////포워드 했으면 정보 가져가야 하는 거 아냐?
 		}
 //	//수정 전 연결페이지
 //	@RequestMapping("/customerService/notice/noticeWrite.do")
@@ -99,7 +99,7 @@ public class CustomerServiceController {
 	
 	//상세보기]
 	//공지사항 상세보기]/////////////////////////////////////////////////작업중///////////////////////////////////////////////////
-	@RequestMapping("/customerService/notice/noticeView.do")
+	@RequestMapping("/noticeView.do")
 	public String noticeView(@RequestParam Map map,Model model) {
 		//서비스 호출]
 		CSDTO record = CSService.selectOne(map);
@@ -157,7 +157,7 @@ public class CustomerServiceController {
 	}
 	
 	//공지사항 목록 처리]
-		@RequestMapping("/customerService/notice/noticeList.do")
+		@RequestMapping("/member/noticeList.do")
 		public String noticeList(
 				@RequestParam Map map,
 				Model model,
@@ -180,7 +180,7 @@ public class CustomerServiceController {
 			//데이터 저장]
 			//////////////////String pagingString = PagingUtil.pagingBootStrapStyle(noticeRecordCount,pageSize,blockPage,nowPage,req.getContextPath()+"/customerService/notice/noticeList.do?");
 			
-			model.addAttribute("list", list);
+			model.addAttribute("noticeList", list);
 			//뷰 정보 반환]
 			return "customerService/notice/noticeList.tiles";
 		}
@@ -237,11 +237,29 @@ public class CustomerServiceController {
 	
 	
 	
-	
-	@RequestMapping("/customerService/notice/noticeEdit.do")
-	public String noticeEdit() {
+	//공지사항 수정폼으로 이동 및 수정처리]★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
+	@RequestMapping("/member/noticeEdit.do")
+	public String noticeEdit(HttpServletRequest req,@RequestParam Map map) {
+		if(req.getMethod().equals("GET")) {//수정폼으로 이동
+			//서비스 호출]
+			CSDTO record = CSService.selectOne(map);
+			//데이터 저장]
+			req.setAttribute("record", record);
+			//수정폼으로 이동]
+			return "customerService/notice/noticeEdit.tiles";
+		}
+		
+//		//수정처리 후 메시지 뿌려주는 페이지로 이동
+//		int result=CSService.update(map);
+//		req.setAttribute("WHERE", "EDT");
+//		req.setAttribute("RESULT", result);
+//		return "customerService/Message";
 		return "customerService/notice/noticeEdit.tiles";
 	}
+//	@RequestMapping("/customerService/notice/noticeEdit.do")
+//	public String noticeEdit() {
+//		return "customerService/notice/noticeEdit.tiles";
+//	}
 	
 	
 	

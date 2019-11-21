@@ -4,9 +4,6 @@ var mapheight=$(window).height();
 
 var token = $("meta[name='_csrf']").attr("content");
 var header = $("meta[name='_csrf_header']").attr("content");
-console.log(token);//value
-console.log(header);//name
-
 
 //map 높이를 동적으로 가져가기 위한 로직 시작
 $('.map_wrap').css('height',mapheight);
@@ -34,6 +31,14 @@ var customOverlay = new kakao.maps.CustomOverlay();
 
 // 키워드로 장소를 검색합니다
 searchPlaces();
+
+
+
+//모달창을 위한 클래스
+function warningModalOpen(){
+   $('#warningModal').modal('show');
+}
+
 
 // 키워드 검색을 요청하는 함수입니다
 function searchPlaces() {
@@ -231,7 +236,8 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
        customOverlay.setMap(null);
        return;
    }
-   
+  
+ 
    var content =
    '<sec:authorize access="isAnonymous()">'+
    '<div class="wrap card" id="customOverlay_content">' + 
@@ -254,7 +260,7 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    else{
       content+='<input type="hidden" name="jibunAddr" value="'+address+'">';
    }
-         content+='<input type="hidden" name="tel" value="'+phone+'">'+
+   content+='<input type="hidden" name="tel" value="'+phone+'">'+
    '            <a class="h6 float-left text-white" href="javascript:info_form.submit()" id="title">'+title+'</a>'+
    '         <input type="hidden" name="'+header+'" value="'+token+'"/>'+
    '      </form>'+   
@@ -267,8 +273,18 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    '    </div>' + 
    '    </div>' + 
    '    <div class="card-body p-0 px-2 py-1">'+
-   '      <img src="https://img.icons8.com/color/48/000000/open-sign.png">'+
-   '      <img src="https://img.icons8.com/color/48/000000/close-sign.png">';
+   '	<div class="clearfix row">'+
+   '	<div class="col">'+
+   '		<div class="float-left">'+
+   '    		<img src="https://img.icons8.com/color/48/000000/open-sign.png">'+
+   '		</div>'+
+   '		<div class="float-right">'+
+   '			<span id="bookmarked" class="ml-2"></span>'+
+   '		</div>'+
+   '	</div>'+
+   '	</div>';
+   content+='<sec:authorize access="hasAnyRole(\'ROLE_USER,ROLE_CENTER,ROLE_ADMIN\')">';
+   content+='</sec:authorize>';
    if(road_address!=null){
       content+='<div>'+address+'</div>' + 
              '<div>'+road_address+'</div>';
@@ -276,35 +292,58 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    else{
       content+='<div class="ellipsis">'+address+'</div>';
 
-   }
-   content+='<span class="tel">'+phone+'</span>' +
-   '      <p class="mb-0">[평일] 06:00 ~ 24:00</p>'+
-   '      <span id="rateMe">'+
-   '         <i class="fas fa-star py-0 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>'+
-   '         <i class="fas fa-star py-0 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>'+
-   '         <i class="fas fa-star py-0 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>'+
-   '         <i class="fas fa-star py-0 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>'+
-   '         <i class="fas fa-star py-0 rate-popover amber-text" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>'+
-   '      </span>(0.0)'+     
-   '      <div class="row">'+
-   '      <div class="col">'+
-   '            <h7 class="progress-title">혼잡도</h7>'+
-   '            	<div class="progress blue">'+
-   '	                <div class="progress-bar" style="width:70%; background:#fe3b3b;">'+
-   '	                    <div class="progress-value">70%</div>'+
-   '	                </div>'+
-   '	            </div>'+
-   '	    </div>'+
-   '	  </div>'+
-   '      <p class="card-text">현재 51명이 이용중입니다</p>'+
-   '    </div>'+
-   '  </div>'+
-   '</div>'+
-   '</div>'+    
-   '</div>'+
-   '</sec:authorize>';
+   }   
+   content+='<span class="tel">'+phone+'</span>';
 
+   content+='     <div class="row"><div class="col"><span id="rateMe">'+
+		   '      </span>(<span id="rate"></span>)</div></div>'+
+		   '      <div class="row">'+
+		   '      <div class="col">'+
+		   '            	<span id="complex">'+
+		   '	            </span>'+
+		   '	    </div>'+
+		   '	  </div>'+
+		   '    </div>'+
+		   '  </div>'+
+		   '</div>'+
+		   '</div>'+    
+		   '</div>'+
+		   '</sec:authorize>';
    
+   $.ajax({
+	   	url:'/workout/show_Summery.do?_csrf='+token,
+		type:"post",
+		data:{'mapkey':id},
+		success:function(data){
+			var summery=JSON.parse(data);			
+			$('#bookmarked').html(summery['bookmarkedString']).click(function(){
+				console.log('북아이콘 클릭!');
+			   	   $.ajax({
+			   		   	url:'/workout/insertdelete.do?_csrf='+token,
+			   			type:"post",
+			   			data:{'mapkey':id},
+			   			success:function(data){
+			   				//모달 띄우게 할 예정
+			   				var status=JSON.parse(data);
+			   				console.log(status['status']);
+			   				$('#bookmarked').html(status['bookmarkedString']);
+			   				},
+			   			error:function (request, status, error){        
+			   		        var msg = "ERROR : " + request.status + "<br>"
+			   		        msg +=  + "내용 : " + request.responseText + "<br>" + error;
+			   		        console.log(msg);              
+			   				}
+			   	   });
+			});
+			$('#rateMe').html(summery['rateString']);
+			$('#rate').html(summery['rate']);
+			$('#complex').html(summery['complex']);
+			},
+		error:function (request, status, error){        
+	        var msg = "ERROR : " + request.status + "<br>"
+	        msg +=  + "내용 : " + request.responseText + "<br>" + error;
+	        console.log(msg);              
+		}});
 
     customOverlay = new kakao.maps.CustomOverlay({
                  content: content,
@@ -317,6 +356,7 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
     var heightOverlay=$('#customOverlay_content').height();    
     $('.card-img').css('height',heightOverlay);
     customOverlay.setMap(map);
+
     
     //커스텀 오버레이가 생성될 때, 지도를 커스텀 오버레이가 위치한 곳으로 이동.
     var replacePosition = new kakao.maps.LatLng(y,x);
@@ -327,8 +367,6 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
        //클로즈 클릭시 
        customOverlay.setMap(null);
     });
-    
-
 }
 
 
@@ -349,11 +387,6 @@ function getParameterByName(name) {
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
 
-
-//모달창을 위한 클래스
-function warningModalOpen(){
-   $('#warningModal').modal('show');
-}
    
    
 

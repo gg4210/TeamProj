@@ -12,7 +12,8 @@ public interface MemberService {
 	MemberDTO selectOne(Map map);
 	//로그인/입력/수정/삭제]
 	int insertJoin(Map map);
+	int insertCenterJoin(Map map);
 	void authjoin(Map map);
 	void delete(Map map);
-	void update(Map map);
+	boolean update(Map map);
 }
