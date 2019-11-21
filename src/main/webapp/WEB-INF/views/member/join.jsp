@@ -186,12 +186,11 @@ function submit_join(){
     			<div class="row">
 			   	<!-- 사진 -->
 				<div class="col-md-3" style="margin-top:5%;">
-					<div class="wrap-custom-file">
-						<input type="file" name="image1" id="image1" name="image" accept=".gif, .jpg, .png"/>
-						<label for="image1">
-							<span>사진 등록하기<br/>Click</span>
+					<div class="wrap-custom-file" id="infoc_file">
+						<input type="file" name="image1" id="image1" accept=".gif, .jpg, .png"/>
+						<label for="image1" style="background-image:url('<c:url value="${record.picture }"/>');background-size: cover;background-position: center;">
+							<span></span>
 						</label>
-						<input type="hidden" name="picture" id="picture_name" value="">
 					</div>
 			  	</div>
 			   	<div class="col-md-9">
