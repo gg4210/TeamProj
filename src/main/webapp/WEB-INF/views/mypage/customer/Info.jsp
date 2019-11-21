@@ -433,7 +433,7 @@ function changestart(){
 				<div class="col-3" style="margin-top:5%;">
 					<div class="wrap-custom-file" id="infoc_file">
 						<input type="file" name="image1" id="image1" accept=".gif, .jpg, .png" disabled/>
-						<label for="image1" style="background-image:url('<c:url value="/resources/images/girl.png"/>');background-size: cover;background-position: center;">
+						<label for="image1" style="background-image:url('<c:url value="${record.picture }"/>');background-size: cover;background-position: center;">
 							<span></span>
 						</label>
 					</div>

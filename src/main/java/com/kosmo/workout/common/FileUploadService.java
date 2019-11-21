@@ -1,23 +1,29 @@
 package com.kosmo.workout.common;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Calendar;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+
+
 
 @Service
 public class FileUploadService {
 	// 리눅스 기준으로 파일 경로를 작성 ( 루트 경로인 /으로 시작한다. )
 	// 윈도우라면 workspace의 드라이브를 파악하여 JVM이 알아서 처리해준다.
 	// 따라서 workspace가 C드라이브에 있다면 C드라이브에 upload 폴더를 생성해 놓아야 한다.
-	private static final String SAVE_PATH = "/upload";
-	private static final String PREFIX_URL = "/upload/";
+	private static final String PREFIX_URL = "/resources/upload/";
 	
-	public String restore(MultipartFile multipartFile) {
-		String url = null;
+	public String restore(HttpServletRequest req, MultipartFile multipartFile) {
 		
+		String url = null;
+		String path=req.getSession().getServletContext().getRealPath("/");
+		String physicalPaths=path+"resources"+File.separator+"upload"+File.separator;
 		try {
 			// 파일 정보
 			String originFilename = multipartFile.getOriginalFilename();
@@ -33,9 +39,9 @@ public class FileUploadService {
 			System.out.println("size : " + size);
 			System.out.println("saveFileName : " + saveFileName);
 			
-			writeFile(multipartFile, saveFileName);
+			writeFile(multipartFile, saveFileName, physicalPaths);
 			url = PREFIX_URL + saveFileName;
-		}
+		}//   /upload/201910217741859.jpg
 		catch (Exception e) {
 			throw new RuntimeException(e);
 		}
@@ -62,17 +68,16 @@ public class FileUploadService {
 	
 	
 	// 파일을 실제로 write 하는 메서드
-	private boolean writeFile(MultipartFile multipartFile, String saveFileName)
+	private boolean writeFile(MultipartFile multipartFile, String saveFileName, String physicalPaths)
 								throws IOException{
 		boolean result = false;
 
 		byte[] data = multipartFile.getBytes();
-		FileOutputStream fos = new FileOutputStream(SAVE_PATH + "/" + saveFileName);
-		System.out.println("님 왜 안됨");
+		FileOutputStream fos = new FileOutputStream(physicalPaths+ saveFileName);
 		fos.write(data);
-		System.out.println("fos.write 되긴 했음??");
 		fos.close();
 		
 		return result;
 	}
+	
 }

@@ -14,6 +14,8 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class FileUtils {
+	
+	
 	//파일 업로드 로직]
 	public static MultipartRequest upload(HttpServletRequest req,String uploadPath) {
 		MultipartRequest mr = null;
@@ -28,6 +30,9 @@ public class FileUtils {
 		catch(Exception e) {e.printStackTrace();}
 		return mr;
 	}/////////////upload
+	
+	
+	
 	//파일 삭제 로직]
 	public static void deleteFile(HttpServletRequest req, String uploadPath, String attachedFile) {
 		//서버의 물리적 경로 얻기]
@@ -37,6 +42,8 @@ public class FileUtils {
 		//파일 존재 여부 판단후 삭제]
 		if(file.exists()) file.delete();
 	}/////////deleteFile
+	
+	
 	public static void download(HttpServletRequest request,HttpServletResponse response,String filename,String uploadDir) {
 		
 		try {
@@ -97,4 +104,6 @@ public class FileUtils {
 		}
 		catch(Exception e) {e.printStackTrace();}
 	}
+	
+	
 }///////////////////////////

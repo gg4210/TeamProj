@@ -1,17 +1,23 @@
 package com.kosmo.workout.service;
 
-import java.util.List;
 import java.util.Map;
 
 public interface NotificationService {
 	
 	//목록용]
-	//레코드를 DTO가 아닌 맵에 담아보자.
-	int countList(Map map);
+	int countAll(Map map);
+	
+	int countCNO(Map map);
+	int countMNO(Map map);
+	int countFNO(Map map);
+	
 	//입력/삭제]
-	void insert(Map map);
-	void insert2(Map map);
-	void insert3(Map map);
-	void delete(Map map);
+	void insertCNO(Map map);
+	void insertMNO(Map map);
+	void insertFNO(Map map);
+	
+	int deleteCNO(Map map);
+	int deleteMNO(Map map);
+	int deleteFNO(Map map);
 	
 }

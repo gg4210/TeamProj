@@ -86,12 +86,26 @@ $(function() {
 	//알림 권한 허용
 	window.addEventListener('load', function () {
 		Notification.requestPermission(function (status) {
+			var token = $("meta[name='_csrf']").attr("content");
 			// This allows to use Notification.permission with Chrome/Safari
 			if (Notification.permission !== status) {
 				Notification.permission = status;
 			}
-		});
+			else {
+				$.ajax({
+					url:'/workout/webnotification.do?_csrf='+token,
+					type:'post',
+        			success: function(data) {
+        				var notification = new Notification(data["Notification"]);
+	    			},
+	    			timeout: 3000,
+	    			complete: setTimeout(function() { poll(); }, 6000)
+				});
+			}
+		});		
 	});
+	
+	
 	
 });
 //마진속성 주는 function//

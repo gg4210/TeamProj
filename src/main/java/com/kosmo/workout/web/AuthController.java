@@ -40,7 +40,7 @@ public class AuthController {
 		System.out.println(userDetails.getUsername());
 		map.put("id",userDetails.getUsername());
 		System.out.println("map확인"+map);
-		int count=NotificationService.countList(map);
+		int count=NotificationService.countAll(map);
 		System.out.println(count);
 		return "index.tiles";
 	}
