@@ -72,7 +72,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 뷰페이지 평점 , 코멘트 시작 -->
 	<select id="listComment" parameterType="java.util.Map" resultType="SearchBBSCommentDTO">
-		select C.*, H.NICK_NAME, H.PICTURE from CenterReview C, H_MEMBER H where C.mapkey=#{mapkey} AND C.ID=H.ID
+		select C.*, H.NICK_NAME, H.PICTURE from CenterReview C, H_MEMBER H where C.mapkey=#{mapkey} AND C.ID=H.ID order by C.rPostDate desc
 	</select>
 	
 	<insert id="insertComment" parameterType="java.util.Map">

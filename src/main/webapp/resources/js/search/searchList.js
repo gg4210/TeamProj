@@ -231,7 +231,11 @@ function displayPagination(pagination) {
 
 function displayCustomOverlay(marker, title, address, road_address, phone, id, x, y) {
    
-   
+    var heightOverlay=$('#customOverlay_content').height();
+    console.log(heightOverlay);
+    $('.card-img').css('height',heightOverlay);
+	
+	
    if(customOverlay.getMap()!=null){
        customOverlay.setMap(null);
        return;
@@ -241,8 +245,8 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    var content =
    '<sec:authorize access="isAnonymous()">'+
    '<div class="wrap card" id="customOverlay_content">' + 
-   '<div class="row no-gutters">'+
-   '  <div class="col-md-4">'+
+   '<div class="row no-gutters" id="colheight">'+
+   '  <div class="col-md-4" id="height">'+
    '    <img src="https://www.stylermag.co.kr/wp-content/uploads/2018/11/1-23.jpg" class="card-img" alt="...">'+
    '  </div>'+
    '  <div class="col-md-8">'+
@@ -250,7 +254,7 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    '   <div class="row">'+
    '   <div class="clearfix col">'+
    '      <form action="/workout/searchView.do" method="post" id="info_form">'+
-   '		 <sec:authentication property="principal.username"/>'+
+   '       <sec:authentication property="principal.username"/>'+
    '         <input type="hidden" name="title" value="'+title+'">'+
    '         <input type="hidden" name="mapkey" value="'+id+'">';
    if(road_address!=null){
@@ -273,16 +277,16 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    '    </div>' + 
    '    </div>' + 
    '    <div class="card-body p-0 px-2 py-1">'+
-   '	<div class="clearfix row">'+
-   '	<div class="col">'+
-   '		<div class="float-left">'+
-   '    		<img src="https://img.icons8.com/color/48/000000/open-sign.png">'+
-   '		</div>'+
-   '		<div class="float-right">'+
-   '			<span id="bookmarked" class="ml-2"></span>'+
-   '		</div>'+
-   '	</div>'+
-   '	</div>';
+   '   <div class="clearfix row">'+
+   '   <div class="col">'+
+   '      <div class="float-left">'+
+   '          <img src="https://img.icons8.com/color/48/000000/open-sign.png">'+
+   '      </div>'+
+   '      <div class="float-right">'+
+   '         <span id="bookmarked" class="ml-2"></span>'+
+   '      </div>'+
+   '   </div>'+
+   '   </div>';
    content+='<sec:authorize access="hasAnyRole(\'ROLE_USER,ROLE_CENTER,ROLE_ADMIN\')">';
    content+='</sec:authorize>';
    if(road_address!=null){
@@ -291,60 +295,66 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
    }
    else{
       content+='<div class="ellipsis">'+address+'</div>';
-
    }   
    content+='<span class="tel">'+phone+'</span>';
-
-   content+='     <div class="row"><div class="col"><span id="rateMe">'+
-		   '      </span>(<span id="rate"></span>)</div></div>'+
-		   '      <div class="row">'+
-		   '      <div class="col">'+
-		   '            	<span id="complex">'+
-		   '	            </span>'+
-		   '	    </div>'+
-		   '	  </div>'+
-		   '    </div>'+
-		   '  </div>'+
-		   '</div>'+
-		   '</div>'+    
-		   '</div>'+
-		   '</sec:authorize>';
+   content+='<div class="row"><div class="col"><span id="rateMe">'+
+         '      </span></div></div>'+
+         '      <div class="row">'+
+         '			<div class="col">'+
+         '				<p class="h6"><span class="badge badge-primary">혼잡도</span></p>'+
+         '</div>'+
+         '</div>'+
+         '<div class="row">'+
+         '<div class="col">'+
+         '               <span id="complex">'+
+         '               </span>'+
+         '</div>'+
+         '</div>'+
+         '			</div>'+
+         '       </div>'+
+         '     </div>'+         
+         '     </div>'+
+         '    </div>'+
+         '  </div>'+
+         '</div>'+
+         '</div>'+    
+         '</div>'+
+         '</sec:authorize>';
    
    $.ajax({
-	   	url:'/workout/show_Summery.do?_csrf='+token,
-		type:"post",
-		data:{'mapkey':id},
-		success:function(data){
-			console.log(data);
-			var summery=JSON.parse(data);			
-			$('#bookmarked').html(summery['bookmarkedString']).click(function(){
-				console.log('북아이콘 클릭!');
-			   	   $.ajax({
-			   		   	url:'/workout/insertdelete.do?_csrf='+token,
-			   			type:"post",
-			   			data:{'mapkey':id},
-			   			success:function(data){
-			   				//모달 띄우게 할 예정
-			   				var status=JSON.parse(data);
-			   				console.log(status['status']);
-			   				$('#bookmarked').html(status['bookmarkedString']);
-			   				},
-			   			error:function (request, status, error){        
-			   		        var msg = "ERROR : " + request.status + "<br>"
-			   		        msg +=  + "내용 : " + request.responseText + "<br>" + error;
-			   		        console.log(msg);              
-			   				}
-			   	   });
-			});
-			$('#rateMe').html(summery['rateString']);
-			$('#rate').html(summery['rate']);
-			$('#complex').html(summery['complex']);
-			},
-		error:function (request, status, error){        
-	        var msg = "ERROR : " + request.status + "<br>"
-	        msg +=  + "내용 : " + request.responseText + "<br>" + error;
-	        console.log(msg);              
-		}});
+         url:'/workout/show_Summery.do?_csrf='+token,
+      type:"post",
+      data:{'mapkey':id},
+      success:function(data){
+         console.log(data);
+         var summery=JSON.parse(data);         
+         $('#bookmarked').html(summery['bookmarkedString']).click(function(){
+            console.log('북아이콘 클릭!');
+                  $.ajax({
+                        url:'/workout/insertdelete.do?_csrf='+token,
+                     type:"post",
+                     data:{'mapkey':id},
+                     success:function(data){
+                        //모달 띄우게 할 예정
+                        var status=JSON.parse(data);
+                        console.log(status['status']);
+                        $('#bookmarked').html(status['bookmarkedString']);
+                        },
+                     error:function (request, status, error){        
+                          var msg = "ERROR : " + request.status + "<br>"
+                          msg +=  + "내용 : " + request.responseText + "<br>" + error;
+                          console.log(msg);              
+                        }
+                  });
+         });
+         $('#rateMe').html(summery['rateString']);
+         $('#complex').html(summery['complex']);
+         },
+      error:function (request, status, error){        
+           var msg = "ERROR : " + request.status + "<br>"
+           msg +=  + "내용 : " + request.responseText + "<br>" + error;
+           console.log(msg);              
+      }});
 
     customOverlay = new kakao.maps.CustomOverlay({
                  content: content,
@@ -353,9 +363,8 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
                  position: marker.getPosition(),
                  zIndex: 1
              });
+   
     
-    var heightOverlay=$('#customOverlay_content').height();    
-    $('.card-img').css('height',heightOverlay);
     customOverlay.setMap(map);
 
     
@@ -392,4 +401,3 @@ function getParameterByName(name) {
    
 
 });
-

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +33,9 @@ public class MyPageController {
 	
 	@Resource(name = "MemberService")
 	private MemberService MemberService;
+	
+	
+	
 	
 	@Autowired
 	FileUploadService fileUploadService;
@@ -92,17 +96,27 @@ public class MyPageController {
 	}
 	
 	
-	
 	@RequestMapping("/enterprise.do")
 	public String enterprise_temp(){
 		return "mypage/enterprise/mypage_Index.tiles";
 	}
+	
 		/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 끝*/
+	
+	
 	@RequestMapping("/enterprise/edit_center_info.do")
 	public String edit_center_info() {
+		
+		
 		return "mypage/enterprise/edit_center_info.tiles";
 	}
 	
+	@RequestMapping("/enterprise/editOK.do")
+	public String edit_OK(@RequestParam Map map, Authentication auth) {
+		
+		return "mypage/enterprise/mypage_Index.tiles";
+	}
+
 	
 	
 	@RequestMapping("/center/enterprise.do")

@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
+import org.openqa.selenium.json.Json;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,8 +22,11 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.kosmo.workout.common.FileUploadService;
+import com.kosmo.workout.service.MemberDTO;
 import com.kosmo.workout.service.MemberService;
 import com.kosmo.workout.service.NotificationService;
+import com.kosmo.workout.service.regicenter.RegicenterDTO;
+import com.kosmo.workout.service.regicenter.RegicenterService;
 
 @SessionAttributes("id")
 @Controller
@@ -30,6 +34,10 @@ public class AuthController {
 	//서비스 주입]
 	@Resource(name="MemberService")
 	private MemberService MemberService;
+	
+	@Resource(name="RegicenterService")
+	private RegicenterService RegicenterService;
+	
 	
 	@Autowired
 	FileUploadService fileUploadService;
@@ -87,6 +95,10 @@ public class AuthController {
 		System.out.println(map);
 		MemberService.insertCenterJoin(map);
 		MemberService.authjoin(map);
+		
+		
+		RegicenterService.insertRegiCenter(map);
+		
 		return "index.tiles";
 	}
 	/*
@@ -98,4 +110,20 @@ public class AuthController {
 		return "index.tiles";
 	}
 	*/
+	
+	@ResponseBody
+	@RequestMapping(value="/getUserInfo.do", method=RequestMethod.POST)
+	public String getUserInfo(@RequestParam Map map) {
+		
+		MemberDTO dto=MemberService.selectOne(map);
+		System.out.println("getUserInfo 들어옴");
+		JSONObject json=new JSONObject();
+		json.put("picture", dto.getPicture());
+		
+		return json.toJSONString();
+		
+	}
+
+	
+	
 }

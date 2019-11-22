@@ -23,6 +23,7 @@ public class FileUploadService {
 		
 		String url = null;
 		String path=req.getSession().getServletContext().getRealPath("/");
+		System.out.println(path);
 		String physicalPaths=path+"resources"+File.separator+"upload"+File.separator;
 		try {
 			// 파일 정보

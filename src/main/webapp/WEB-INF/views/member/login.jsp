@@ -117,10 +117,15 @@
 </sec:authorize>
 
 <sec:authorize access="hasRole('ROLE_USER')">
+
 <script>
+
+var token = $("meta[name='_csrf']").attr("content");
+
 function dataget(){
    $('#getdata').submit();
 }
+
 $(function(){
    $('#customerLinks a').click(function(){
       var cIndex=$(this).index();
@@ -149,7 +154,19 @@ $(function(){
       }
    });
    
-   
+	$.ajax({
+		url:"<c:url value='/getUserInfo.do?_csrf="+token+"'/>",
+		type:"post",
+		data:{'id':'${sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.username}'},
+		success:function(data){
+			var user=JSON.parse(data);
+			console.log("인포 받아오는지:",user["picture"].toString());
+			$('#picture').attr('src','<c:url value="'+'/workout'+user['picture']+'"/>');
+		},
+	    error:function(request,status,error){
+	         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+	    }
+	});  
    
 });
 </script>
@@ -165,7 +182,7 @@ $(function(){
    <div class="container text-center">
       <div class="row">
          <div class="col-6" style="margin-bottom:15px;">
-            <img class="col-12" src="<c:url value='/resources/images/girl.png'/>" />
+            <img class="col-12" src="<c:url value='/resources/images/girl.png'/>" id="picture"/>
          </div>
          <div class="h5 text-white col-6" style="align-self:center;"><sec:authentication property="principal.username"/>님,<br/>반갑습니다</div>
          

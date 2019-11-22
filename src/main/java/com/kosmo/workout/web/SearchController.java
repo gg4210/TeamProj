@@ -8,6 +8,7 @@ import java.util.Vector;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -41,12 +42,25 @@ public class SearchController {
 	}
 	
 	@ResponseBody
-	@RequestMapping(value="/viewComplexAndStar.do", method=RequestMethod.POST)
+	@RequestMapping(value="/viewComplexAndStar.do", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	public String complexAndstar(@RequestParam Map map) {
+
+
+		System.out.println("complexAndstar ajax 가 안들어오네-_- 뭐ㅏ햔?");
 		JSONObject json=new JSONObject();
 		int rate=SearchService.setRating(map);	
 		String avgRate=CommonUtility.ratingString(rate);//별 표시
-		json.put("avgRate", avgRate);	
+		json.put("avgRate", avgRate);
+		
+		SearchBBSDTO dto=SearchService.setComplexity(map);
+		int countnum=dto.getCountNum();
+		int maxnum=dto.getMaxNumber();
+		String complex=CommonUtility.isComplex(countnum, maxnum);
+		
+		System.out.println("안녕:"+complex);
+
+		json.put("complex", complex);
+		
 		return json.toJSONString();	
 	}
 	
@@ -101,7 +115,7 @@ public class SearchController {
 	
 	
 	@ResponseBody
-	@RequestMapping(value="/show_Summery.do", method=RequestMethod.POST)
+	@RequestMapping(value="/show_Summery.do", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	public String SummeryView(@RequestParam Map map, Model model, Authentication auth) {
 		
 		System.out.println("별표시, 평점, 혼잡도 ajax");
@@ -187,11 +201,12 @@ public class SearchController {
 		
 		System.out.println("list로 들어옵니까?");
 		
-		List<SearchBBSCommentDTO> list=SearchService.selectListComment(map);
+		List<SearchBBSCommentDTO> list=SearchService.selectListComment(map);		
 				
 		List<Map> collections=new Vector<Map>();
 		
 		for(SearchBBSCommentDTO dto:list) {
+		
 			Map record=new HashMap();
 			record.put("NO", dto.getNo());
 			record.put("PICTURE", dto.getPicture());
@@ -202,6 +217,7 @@ public class SearchController {
 			record.put("NICK_NAME", dto.getNICK_NAME());
 			record.put("MAPKEY", dto.getMapkey());
 			collections.add(record);
+			
 		}
 		
 		String jsonString =JSONArray.toJSONString(collections);

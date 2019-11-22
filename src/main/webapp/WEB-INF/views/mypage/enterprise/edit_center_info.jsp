@@ -12,7 +12,7 @@
 <div class="container">
 	<div class="row no-gutters">
 	<div class="card card-body">
-	<form action="#" enctype="multipart/form-data" method="post">
+	<form action="<c:url value='/enterprise/editOK.do'/>" enctype="multipart/form-data" method="post">
 		
 		<div class="jumbotron">
 		    <div class="" style="font-size:4em;">
@@ -110,13 +110,13 @@
 		<!-- 이미지 첨부 시작 -->
 		<div class="form-group">
 			<label for="image-upload">센터 이미지 업로드</label>		
-			<div class="input-images" style="padding-top: .5rem;"></div>
+			<div class="input-images" style="padding-top: .5rem;" id="upload-image"></div>
 		</div>
 		<!-- 이미지 첨부 끝 -->
 		
 		<div class="row">
 			<div class="col d-flex justify-content-center">
-				<button class="btn btn-primary" id="image-upload">확인</button>
+				<button class="btn btn-primary" id="submit_edit">확인</button>
 			</div>
 		</div>
 
@@ -124,4 +124,30 @@
 	</div>
 	</div>
 </div>
+
+<script>
+$(function(){
+	$('#submit_edit').click(function(e){
+		
+		e.preventDefault();
+		
+		console.log("센터:",$('#edit-centername').val());
+		console.log("주중운영시작:",$('#weekday_start').val());
+		console.log("주중운영끝:",$('#weekday_end').val());
+		console.log("주말운영시작:",$('#weekend_start').val());
+		console.log("주말운영끝:",$('#weekend_end').val());
+		console.log("정원:",$('#max').val());
+		console.log("내용:",$('#center-info-textarea').val());
+		console.log("종목:",$('#kinds_of_sport').val());
+		console.log("서비스:",$('#kind_of_service').val());
+		console.log("태그:",$('#work-tag').val());
+		
+		//input type file 넘기기
+		console.log("이미지 이름:");
+		
+		
+	
+	});
+});
+</script>
 
