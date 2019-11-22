@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
+<!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
+
+<mapper namespace="mybatis.Complexity">
+	<select id="isRegiCenter" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM REGICENTER WHERE ID=#{ID} AND MAPKEY=#{MAPKEY}
+	</select>
+	<select id="viewComplexity" parameterType="java.util.Map">
+		SELECT(SELECT MAXNUMBER FROM CENTER_INFO) MAXNUMBER, 
+		(SELECT COUNT(*) FROM COMPLEXITY C) COUNTNUM FROM DUAL
+	</select>
+	<select id="isChecked" parameterType="java.util.Map">
+		SELECT COUNT(ID) FROM COMPLEXITY
+	</select>
+	<insert id="complexityInsert" parameterType="java.util.Map">
+		INSERT INTO COMPLEXITY(ID,MAPKEY) VALUES(#{ID},#{MAPKEY})
+	</insert>
+	<delete id="complexityDelete" parameterType="java.util.Map">
+		DELETE Notification WHERE ID=#{id}
+	</delete>
+</mapper>
