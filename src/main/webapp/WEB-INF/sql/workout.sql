@@ -1,6 +1,6 @@
 
-/* Drop Tables */
-/*
+/* Drop Tables
+
 DROP TABLE AUTH_SECURITY CASCADE CONSTRAINTS;
 DROP TABLE BBS_Comment CASCADE CONSTRAINTS;
 DROP TABLE SCRAP CASCADE CONSTRAINTS;
@@ -17,11 +17,11 @@ DROP TABLE healthMate CASCADE CONSTRAINTS;
 DROP TABLE MESSAGE_TABLE CASCADE CONSTRAINTS;
 DROP TABLE MY_MATE CASCADE CONSTRAINTS;
 DROP TABLE H_MEMBER CASCADE CONSTRAINTS;
-*/
+
 
 
 /* Drop Sequences */
-/*
+
 DROP SEQUENCE SEQ_AUTH_SECURITY_SECNO;
 DROP SEQUENCE SEQ_BBS_Comment_CNO;
 DROP SEQUENCE SEQ_BBS_NO;
@@ -35,7 +35,7 @@ DROP SEQUENCE SEQ_MESSAGE_TABLE_MNO;
 DROP SEQUENCE SEQ_MY_MATE_FNO;
 DROP SEQUENCE SEQ_RegiCenter_NO;
 DROP SEQUENCE SEQ_SCRAP_NO;
-*/
+ */
 
 
 
@@ -182,15 +182,20 @@ CREATE TABLE CustomerService
 CREATE TABLE healthMate
 (
 	NO number NOT NULL,
-	title nvarchar2(20) NOT NULL,
-	tag varchar2(50),
-	location nvarchar2(20) NOT NULL,
-	healthTime nvarchar2(10) DEFAULT '시간협의' NOT NULL,
-	content nvarchar2(1000),
-	postDate date DEFAULT SYSDATE,
 	-- 계정
 	ID nvarchar2(50) NOT NULL,
-	picture nvarchar2(100),
+	title nvarchar2(20) NOT NULL,
+	location nvarchar2(20) NOT NULL,
+	interSport nvarchar2(20) NOT NULL,
+	healthTime nvarchar2(10) DEFAULT '시간협의' NOT NULL,
+	startDate date NOT NULL,
+	endDate date NOT NULL,
+	first_tag nvarchar2(10),
+	second_tag nvarchar2(10),
+	third_tag nvarchar2(10),
+	content nvarchar2(1000),
+	postDate date DEFAULT SYSDATE,
+	matePhoto nvarchar2(100),
 	PRIMARY KEY (NO)
 );
 
@@ -214,6 +219,7 @@ CREATE TABLE H_MEMBER
 	NICK_NAME nvarchar2(20) NOT NULL,
 	DETAIL_ADDRESS nvarchar2(50),
 	ZIPCODE number,
+	CREGINUM nvarchar2(40),
 	PRIMARY KEY (ID)
 );
 
@@ -259,8 +265,8 @@ CREATE TABLE RegiCenter
 	NO number NOT NULL,
 	-- 계정
 	ID nvarchar2(50) NOT NULL,
-	startDate date DEFAULT SYSDATE NOT NULL,
-	endDate date NOT NULL,
+	startDate date DEFAULT SYSDATE,
+	endDate date,
 	mapkey number(8) NOT NULL,
 	-- 허용시 0, 아닐경우 1
 	isAllowed number(1) DEFAULT 1 NOT NULL,
@@ -435,6 +441,4 @@ COMMENT ON COLUMN Notification.ID IS '계정';
 COMMENT ON COLUMN RegiCenter.ID IS '계정';
 COMMENT ON COLUMN RegiCenter.isAllowed IS '허용시 0, 아닐경우 1';
 COMMENT ON COLUMN SCRAP.ID IS '계정';
-
-
 
