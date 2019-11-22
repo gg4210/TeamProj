@@ -1,10 +1,13 @@
 package com.kosmo.workout.web;
 
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -15,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.kosmo.workout.common.FileUploadService;
 import com.kosmo.workout.service.MemberService;
 import com.kosmo.workout.service.NotificationService;
 
@@ -25,6 +30,9 @@ public class AuthController {
 	//서비스 주입]
 	@Resource(name="MemberService")
 	private MemberService MemberService;
+	
+	@Autowired
+	FileUploadService fileUploadService;
 	
 	@Resource(name="NotificationService")
 	private NotificationService NotificationService;
@@ -57,9 +65,27 @@ public class AuthController {
 	}
 	
 	@RequestMapping(value="/joincomplete.do", method=RequestMethod.POST)
-	public String joincomplete(@RequestParam Map map,Model model){
-		System.out.println(map);
+	public String joincomplete(@RequestParam Map map,
+			HttpServletRequest req,
+			Model model,
+			@RequestParam("image1") MultipartFile picture){
+		String url = fileUploadService.restore(req,picture);
+		System.out.println(url);
+		Iterator<String> keys = map.keySet().iterator();
+		while(keys.hasNext()) {
+			String key = keys.next();
+		    System.out.println("key : " + key +" / value : " + map.get(key));
+		}
+		map.put("picture",url);
 		MemberService.insertJoin(map);
+		MemberService.authjoin(map);
+		return "index.tiles";
+	}
+	
+	@RequestMapping(value="/Centerjoincomplete.do", method=RequestMethod.POST)
+	public String Centerjoincomplete(@RequestParam Map map,Model model){
+		System.out.println(map);
+		MemberService.insertCenterJoin(map);
 		MemberService.authjoin(map);
 		return "index.tiles";
 	}

@@ -1,9 +1,5 @@
 
-<<<<<<< HEAD
 /* Drop Tables */
-=======
-/* Drop Tables 
->>>>>>> refs/remotes/origin/master
 
 DROP TABLE AUTH_SECURITY CASCADE CONSTRAINTS;
 DROP TABLE BBS_Comment CASCADE CONSTRAINTS;
@@ -39,12 +35,8 @@ DROP SEQUENCE SEQ_MESSAGE_TABLE_MNO;
 DROP SEQUENCE SEQ_MY_MATE_FNO;
 DROP SEQUENCE SEQ_RegiCenter_NO;
 DROP SEQUENCE SEQ_SCRAP_NO;
-<<<<<<< HEAD
 
-=======
->>>>>>> refs/remotes/origin/master
 
-*/
 
 
 /* Create Sequences */
@@ -222,6 +214,7 @@ CREATE TABLE H_MEMBER
 	NICK_NAME nvarchar2(20) NOT NULL,
 	DETAIL_ADDRESS nvarchar2(50),
 	ZIPCODE number,
+	CREGINUM nvarchar2(40),
 	PRIMARY KEY (ID)
 );
 
@@ -267,8 +260,8 @@ CREATE TABLE RegiCenter
 	NO number NOT NULL,
 	-- 계정
 	ID nvarchar2(50) NOT NULL,
-	startDate date DEFAULT SYSDATE NOT NULL,
-	endDate date NOT NULL,
+	startDate date DEFAULT SYSDATE,
+	endDate date,
 	mapkey number(8) NOT NULL,
 	-- 허용시 0, 아닐경우 1
 	isAllowed number(1) DEFAULT 1 NOT NULL,
