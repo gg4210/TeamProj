@@ -6,14 +6,7 @@
 
 	<!-- QR코드 생성버튼 시작 -->
 	<div class="row col">
-		<h2><sec:authentication property="principal.username"/></h2>
-		<!-- <h2>${record.id}</h2> -->
 		<button type="submit" class="btn btn-info px-3" id="makeQRCode">QR코드생성</button>
-		<%-- 
-		<form id="frm" onClick="paycheck()" method ="post">
-			<input type="hidden" value="<sec:authentication property="principal.username"/>" name="id"/>
-		</form>
-		 --%>
 	</div>
 	<div id="qrcode"></div>
 	<!-- QR코드 생성버튼 끝 -->
@@ -383,23 +376,12 @@ $(function(){
 	});
 
 	
-	$('#makeQRCode').click(function(){		
-	        //var url = "QRCode.do";
-	        var url = "QRCode.do?id=${record.id}";
+	$('#makeQRCode').click(function(){
+	        var url = "QRCode.do";
 	        var name = "QRcode";
-	        var option = "width = 500, height = 500, top = 100, left = 200, location = no"
+	        var option = "width = 400, height = 400, top = 100, left = 200, location = no"
 	        window.open(url, name, option);		
 	});
 	
 });
-/* 
-function paycheck(){
-      var gsWin = window.open('about:blank',"width = 500, height = 500, top = 100, left = 200, location = no");
-      var frm =document.getElementById('frm');
-      frm.action = '<c:url value="/center/QRCode.do"/>';
-      frm.target ="payviewer";
-      frm.method ="post";
-      frm.submit();
-     }
- */
 </script>

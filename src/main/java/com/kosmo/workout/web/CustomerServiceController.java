@@ -57,17 +57,19 @@ public class CustomerServiceController {
 	}
 	
 	@RequestMapping("/member/customerServiceMain.do")
-	public String mainPage(@RequestParam Map map,@RequestParam Map emap,Model model) {
+	public String mainPage(@RequestParam Map map,@RequestParam Map emap,@RequestParam Map cmap,Model model) {
 		List<CSDTO> noticeList = CSService.noticeSelectList(map);
 		List<CSDTO> eventList = CSService.eventSelectList(emap);
-		
+		//List<CSDTO> consultList = CSService.consultSelectList(cmap);
 		//데이터 저장]
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("eventList",eventList);
+		//model.addAttribute("consultList", consultList);
 		
-		System.out.println(noticeList);
-		System.out.println(eventList);
-		System.out.println(model);
+		System.out.println("noticeList:"+noticeList);
+		System.out.println("eventList:"+eventList);
+		//System.out.println("consultList:"+consultList);
+		System.out.println("model:"+model);
 		//뷰 정보 반환]
 		return "customerService/customerServiceMain.tiles";
 	}
@@ -80,32 +82,38 @@ public class CustomerServiceController {
 		return "customerService/notice/noticeWrite.tiles";
 	}	
 	//공지사항 작성 처리]
-		@RequestMapping(value = "/member/noticeWrite.do",method=RequestMethod.POST)
-		public String noticeWriteOk(@RequestParam Map map,Authentication auth) {
-			//서비스 호출]
-			//스프링 시큐리티 사용 시 아래에 코드 추가
-			UserDetails userDetails = (UserDetails)auth.getPrincipal(); 
-			//호출 전 아이디 맵에 저장
-			map.put("id",userDetails.getUsername());
-						
-			CSService.insert(map);
-			
-			Collection auths = userDetails.getAuthorities();
-			System.out.println("id : "+userDetails.getUsername());
-			System.out.println("principal:"+auth.getPrincipal().toString());
-			
-			for(GrantedAuthority a : auth.getAuthorities()){
-				System.out.println(a.getAuthority());
-			}
-			
-			return "forward:/member/customerService/notice/noticeList.do";////포워드 했으면 정보 가져가야 하는 거 아냐?
+	@RequestMapping(value = "/member/noticeWrite.do",method=RequestMethod.POST)
+	public String noticeWriteOk(@RequestParam Map map,Authentication auth) {
+		//서비스 호출]
+		//스프링 시큐리티 사용 시 아래에 코드 추가
+		UserDetails userDetails = (UserDetails)auth.getPrincipal(); 
+		//호출 전 아이디 맵에 저장
+		map.put("id",userDetails.getUsername());
+
+		CSService.insert(map);
+
+		Collection auths = userDetails.getAuthorities();
+		System.out.println("id : "+userDetails.getUsername());
+		System.out.println("principal:"+auth.getPrincipal().toString());
+
+		for(GrantedAuthority a : auth.getAuthorities()){
+			System.out.println(a.getAuthority());
 		}
+
+		return "forward:/member/customerService/notice/noticeList.do";////포워드 했으면 정보 가져가야 하는 거 아냐?
+	}
+		
+	//이벤트
+	@RequestMapping("/customerService/event/eventWrite.do")
+	public String eventWrite() {
+		return "customerService/event/eventWrite.tiles";
+	}
 		
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		
 		//상세보기]
 		//공지사항 상세보기]/////////////////////////////////////////////////작업중///////////////////////////////////////////////////
-		@RequestMapping("/noticeView.do")
+		@RequestMapping("/member/noticeView.do")
 		public String noticeView(@RequestParam Map map,Model model) {
 			//서비스 호출]
 			CSDTO record = CSService.selectOne(map);
@@ -202,10 +210,7 @@ public class CustomerServiceController {
 	
 	
 
-	@RequestMapping("/customerService/event/eventWrite.do")
-	public String eventWrite() {
-		return "customerService/event/eventWrite.tiles";
-	}
+	
 	
 	
 

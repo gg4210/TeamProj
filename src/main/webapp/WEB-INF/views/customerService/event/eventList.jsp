@@ -51,6 +51,7 @@
 								<td>${item.rownum}</td>
 								<td>${item.category}</td>
 								<td class="text-left"><a href="<c:url value='/customerService/event/eventView.do?no=${item.no}'/>">${item.title}</a></td>
+<%-- 								<td class="text-left"><a href="<c:url value='/customerService/event/eventView.do?no=${item.no}'/>">${item.title}</a></td> --%>
 								<td>${item.postDate}</td>
 							</tr>
 						</c:forEach>

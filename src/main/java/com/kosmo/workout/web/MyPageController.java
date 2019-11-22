@@ -1,17 +1,14 @@
 package com.kosmo.workout.web;
 
-
-import java.io.File;
-import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,13 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.kosmo.workout.service.MemberDTO;
 import com.kosmo.workout.service.MemberService;
-import com.oreilly.servlet.MultipartRequest;
 import com.kosmo.workout.common.FileUploadService;
-import com.kosmo.workout.common.FileUtils;
 
 @SessionAttributes("id")
 @Controller
@@ -104,20 +98,20 @@ public class MyPageController {
 		return "mypage/enterprise/edit_center_info.tiles";
 	}
 	
-	
-	//아래부터 QR코드 관련 코딩입니다.
+
 	@RequestMapping("/center/enterprise.do")
 	public String enterprise(){
 		return "mypage/enterprise/mypage_Index.tiles";
-	}	
+	}
+
+	//아래부터 QR코드 관련 코딩입니다.
 	@RequestMapping("/center/QRCode.do")
-	public String qrWrite(@RequestParam Map map,Model model) {
-		System.out.println(map);
+	public String qrWrite(@RequestParam Map map,Authentication auth,Model model) {
+		UserDetails userDetails = (UserDetails)auth.getPrincipal();
+		map.put("id",userDetails.getUsername());
 		int mapkey = MemberService.selectMapkey(map);
-		System.out.println("mapkey:"+mapkey);
 		model.addAttribute("mapkey", mapkey);
 		return "mypage/enterprise/QRCode";
 	}
 	
-
 }

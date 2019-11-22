@@ -6,7 +6,6 @@
 <script type="text/javascript" src="<c:url value='/resources/utils/QRCode/jquery.qrcode.js'/>"></script>
 <script type="text/javascript" src="<c:url value='/resources/utils/QRCode/qrcode.js'/>"></script>
 
-
 <div id="qrcode"></div>
 
 <script>
@@ -15,8 +14,4 @@
 		obj.mapkey = mapkey;
 	var jsonData = JSON.stringify(obj);
 	jQuery('#qrcode').qrcode(jsonData);	
-	
 </script>
-<!-- 
-<c:out value="${mapkey}" escapeXml="false"> email 없음</c:out>
--->

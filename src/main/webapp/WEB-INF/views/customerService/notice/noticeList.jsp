@@ -59,8 +59,9 @@
 								<td>${item.rownum}</td><!-- ROWNUM으로 바꿔줘야 함. -->
 								<td>${item.category}</td>
 								<td class="text-left">
-									<a href="<c:url value='member/noticeView.do?no=${item.no}'/>">${item.title}</a></td>
-									<!-- <a href="<c:url value='/OneMemo/BBS/View.bbs?no=${item.no}&nowPage='/><c:out value='${param.nowPage}' default='1'/>">${item.title }</a> -->
+									<a href="<c:url value='noticeView.do?no=${item.no}'/>">${item.title}</a></td>
+									<!-- member/noticeView.do?no= : 패턴0에서 에러 / -->
+									<!-- noticeView.do?no= : 패턴0에서 정상작동 / -->
 								<td>${item.postDate}</td>
 							</tr>
 						</c:forEach>
