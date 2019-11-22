@@ -1,5 +1,6 @@
 package com.kosmo.workout.web;
 
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
@@ -104,13 +105,26 @@ public class MyPageController {
 	}
 	
 	
-	
+	//아래부터 QR코드 관련 코딩입니다.
 	@RequestMapping("/center/enterprise.do")
-	public String enterprise(){
+	public String enterprise(@RequestParam Map map,Model model){
+//		System.out.println("map:"+map);///////////////////////////////////////
+//		System.out.println("MemberDTO 통과?");
+//		MemberDTO record=MemberService.selectOne(map);
+//		System.out.println("map 통과");
+//		System.out.println(map);
+//		System.out.println("record 통과");
+//		System.out.println(record);
+//		model.addAttribute("record",record);
+//		System.out.println("model"+model);
 		return "mypage/enterprise/mypage_Index.tiles";
 	}	
 	@RequestMapping("/center/QRCode.do")
-	public String qrWrite() {
+	public String qrWrite(@RequestParam Map map,Model model) {
+		System.out.println(map);
+		int mapkey = MemberService.selectMapkey(map);
+		System.out.println("mapkey:"+mapkey);
+		model.addAttribute("mapkey", mapkey);
 		return "mypage/enterprise/QRCode";
 	}
 	

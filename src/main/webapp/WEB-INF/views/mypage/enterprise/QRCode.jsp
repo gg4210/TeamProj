@@ -10,7 +10,8 @@
 <div id="qrcode"></div>
 
 <script>
-	var mapkey = '12345678';//sql로 mapkey 가져와서 넣기
+	//var mapkey = '12345678';//sql로 mapkey 가져와서 넣기
+	var mapkey = ${mapkey};
 	var obj = new Object();
 		obj.mapkey = mapkey;
 	var jsonData = JSON.stringify(obj);
@@ -35,3 +36,6 @@
 	jQuery('#qrcode').qrcode(jsonData);	
 	
 </script>
+
+<h2>들어는 오냐?</h2>
+<c:out value="${mapkey}" escapeXml="false"> email 없음</c:out>

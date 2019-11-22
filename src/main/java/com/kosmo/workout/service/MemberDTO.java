@@ -20,7 +20,8 @@ public class MemberDTO {
 	private String enabled;
 	private String zipcode;
 	private String creginum;
-
+	private String mapkey;
+	
 	
 	public MemberDTO() {
 		super();
@@ -67,7 +68,13 @@ public class MemberDTO {
 		this.enabled = enabled;
 		this.zipcode = zipcode;
 	}
-
+	
+	public String getMapkey() {
+		return mapkey;
+	}
+	public void setMapkey(String mapkey) {
+		this.mapkey = mapkey;
+	}
 	public String getId() {
 		return id;
 	}

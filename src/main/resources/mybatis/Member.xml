@@ -12,6 +12,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<select id="MemberSelectOne" parameterType="java.util.Map" resultType="WorkOutDTO">
 		SELECT * FROM H_MEMBER WHERE ID=#{id}
+	</select>	
+	<select id="makeqr" parameterType="java.util.Map" resultType="int">
+		SELECT mapkey FROM RegiCenter <!-- WHERE ID=#{id} -->
 	</select>
 	<insert id="MemberJoin" parameterType="java.util.Map">
 		INSERT INTO H_MEMBER(ID,PASSWORD,NAME,EMAIL,ADDRESS,CELLPHONE,
