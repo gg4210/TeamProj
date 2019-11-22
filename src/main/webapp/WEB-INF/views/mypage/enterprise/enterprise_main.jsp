@@ -7,7 +7,7 @@
 	<!-- QR코드 생성버튼 시작 -->
 	<div class="row col">
 		<h2><sec:authentication property="principal.username"/></h2>
-		<h2>${record.id}</h2>
+		<!-- <h2>${record.id}</h2> -->
 		<button type="submit" class="btn btn-info px-3" id="makeQRCode">QR코드생성</button>
 		<%-- 
 		<form id="frm" onClick="paycheck()" method ="post">

@@ -107,16 +107,7 @@ public class MyPageController {
 	
 	//아래부터 QR코드 관련 코딩입니다.
 	@RequestMapping("/center/enterprise.do")
-	public String enterprise(@RequestParam Map map,Model model){
-//		System.out.println("map:"+map);///////////////////////////////////////
-//		System.out.println("MemberDTO 통과?");
-//		MemberDTO record=MemberService.selectOne(map);
-//		System.out.println("map 통과");
-//		System.out.println(map);
-//		System.out.println("record 통과");
-//		System.out.println(record);
-//		model.addAttribute("record",record);
-//		System.out.println("model"+model);
+	public String enterprise(){
 		return "mypage/enterprise/mypage_Index.tiles";
 	}	
 	@RequestMapping("/center/QRCode.do")
