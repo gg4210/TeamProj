@@ -10,8 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<select id="notificationCountAll" parameterType="java.util.Map" resultType="int">
 		SELECT COUNT(*) FROM NOTIFICATION WHERE ID=#{id}
-	</select>
-	
+	</select>	
 	<select id="notificationCountCNO" parameterType="java.util.Map" resultType="int">
 		SELECT COUNT(*) FROM NOTIFICATION WHERE ID=#{id} AND CNO=#{cno}
 	</select>

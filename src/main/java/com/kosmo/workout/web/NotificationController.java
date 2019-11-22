@@ -31,7 +31,10 @@ public class NotificationController {
 			
 			map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());
 			System.out.println("WebNotification ajax 들어옴");
+			
+			System.out.println("전체값:"+NotificationService.countAll(map));			
 				
+			
 			if(NotificationService.countAll(map) != 0) {
 				if(NotificationService.countCNO(map) != 0) {
 					json.put("Notification", "새로운 쿠폰이 도착했어요!");
@@ -41,11 +44,11 @@ public class NotificationController {
 				}
 				else if(NotificationService.countFNO(map) != 0) {
 					json.put("Notification", "새로운 친구신청이 도착했어요!");
-				}
-				
+				}				
 			}
 			else {
 				System.out.println("WebNotification ajax 빈값");
+				json.put("Notification", "");
 			}			
 		}
 		

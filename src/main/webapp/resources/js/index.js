@@ -91,26 +91,23 @@ $(function() {
 				Notification.permission = status;
 			}
 			else {
-				(function poll(){
-					$.ajax({
+				
+				var notification=$.ajax({
 						url:'/workout/webnotification.do?_csrf='+token,
 						type:'post',
 						success: function(data) {
 							
-						var obj=JSON.parse(data);
-						
-						console.log("obj",obj);
-						console.log("obj['Notification']",obj['Notification']);
-
-						if(obj['Notification'] != ""){
-							var notification = new Notification(obj['Notification']);
-						}
+							var obj=JSON.parse(data);
+							
+							if(obj['Notification'] != ""){
+								var notification = new Notification(obj['Notification']);
+							}
 							
 		    			},
 		    			timeout: 3000,
-		    			complete: setTimeout(function() { poll(); }, 6000)
-					});
-				})();
+		    			complete: setTimeout(function() { notification }, 6000)
+				});
+				
 			}
 		});		
 	});/////// 알림
