@@ -87,23 +87,33 @@ $(function() {
 	window.addEventListener('load', function () {
 		Notification.requestPermission(function (status) {
 			var token = $("meta[name='_csrf']").attr("content");
-			// This allows to use Notification.permission with Chrome/Safari
 			if (Notification.permission !== status) {
 				Notification.permission = status;
 			}
 			else {
-				$.ajax({
-					url:'/workout/webnotification.do?_csrf='+token,
-					type:'post',
-        			success: function(data) {
-        				var notification = new Notification(data["Notification"]);
-	    			},
-	    			timeout: 3000,
-	    			complete: setTimeout(function() { poll(); }, 6000)
-				});
+				(function poll(){
+					$.ajax({
+						url:'/workout/webnotification.do?_csrf='+token,
+						type:'post',
+						success: function(data) {
+							
+						var obj=JSON.parse(data);
+						
+						console.log("obj",obj);
+						console.log("obj['Notification']",obj['Notification']);
+
+						if(obj['Notification'] != ""){
+							var notification = new Notification(obj['Notification']);
+						}
+							
+		    			},
+		    			timeout: 3000,
+		    			complete: setTimeout(function() { poll(); }, 6000)
+					});
+				})();
 			}
 		});		
-	});
+	});/////// 알림
 	
 	
 	
