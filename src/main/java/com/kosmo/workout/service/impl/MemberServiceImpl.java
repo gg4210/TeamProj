@@ -63,4 +63,10 @@ public class MemberServiceImpl implements MemberService{
 		return dao.selectOne(map);
 	}
 
+	//QR코드용]
+	@Override
+	public int selectMapkey(Map map) {
+		return dao.selectMapkey(map);
+	}
+
 }

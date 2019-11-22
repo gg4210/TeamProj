@@ -61,6 +61,12 @@ public class MemberDAO implements MemberService{
 		return template.selectOne("MemberSelectOne", map);
 	}
 
+	//QR코드-맵키 가져오기
+	@Override
+	public int selectMapkey(Map map) {
+		return template.selectOne("makeqr",map);
+	}
+
 	
 
 	

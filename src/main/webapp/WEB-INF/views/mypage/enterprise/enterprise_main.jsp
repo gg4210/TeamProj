@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-   
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <div class="container">
 
 	<!-- QR코드 생성버튼 시작 -->
 	<div class="row col">
-		 <button type="submit" class="btn btn-info px-3" id="makeQRCode">QR코드생성</button>
-		 <img id="img" alt="QR코드">
+		<button type="submit" class="btn btn-info px-3" id="makeQRCode">QR코드생성</button>
 	</div>
 	<div id="qrcode"></div>
 	<!-- QR코드 생성버튼 끝 -->
@@ -378,22 +377,11 @@ $(function(){
 
 	
 	$('#makeQRCode').click(function(){
-		//location.href="QRCode.jsp";//새 페이지로 만들기(webapp아래)
-		
-		
 	        var url = "QRCode.do";
 	        var name = "QRcode";
-	        var option = "width = 500, height = 500, top = 100, left = 200, location = no"
-	            
-	        
-		
-		//window.open("URL", "팝업이름", "팝업 옵션");
-		//window.open("TeamProj/src/main/webapp/WEB-INF/views/mypage/enterprise/QRCode.jsp", "QRcode","location=no");
-		//window.open("WEB-INF/views/mypage/enterprise/QRCode.jsp", "QRcode","location=no");
-	        	window.open(url, name, option);
-		
+	        var option = "width = 400, height = 400, top = 100, left = 200, location = no"
+	        window.open(url, name, option);		
 	});
-
-})
-
+	
+});
 </script>
