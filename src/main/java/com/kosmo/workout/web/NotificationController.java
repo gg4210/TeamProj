@@ -25,22 +25,30 @@ public class NotificationController {
 	@RequestMapping(value = "/webnotification.do", method = RequestMethod.POST)
 	public String WebNotification(@RequestParam Map map, Authentication auth) {
 		
-		UserDetails userDetails = (UserDetails)auth.getPrincipal();
-		map.put("id", userDetails.getUsername());
-		
 		JSONObject json = new JSONObject();
 
-		if(NotificationService.countAll(map) != 0) {
-			if(NotificationService.countCNO(map) != 0) {
-				json.put("Notification", "새로운 쿠폰이 도착했어요!");
-			}
-			else if(NotificationService.countMNO(map) != 0) {
-				json.put("Notification", "새로운 쪽지가 도착했어요!");
+		if(((UserDetails)auth.getPrincipal()).getUsername()!=null) {
+			
+			map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());
+			System.out.println("WebNotification ajax 들어옴");
+				
+			if(NotificationService.countAll(map) != 0) {
+				if(NotificationService.countCNO(map) != 0) {
+					json.put("Notification", "새로운 쿠폰이 도착했어요!");
+				}
+				else if(NotificationService.countMNO(map) != 0) {
+					json.put("Notification", "새로운 쪽지가 도착했어요!");
+				}
+				else if(NotificationService.countFNO(map) != 0) {
+					json.put("Notification", "새로운 친구신청이 도착했어요!");
+				}
+				
 			}
 			else {
-				json.put("Notification", "새로운 친구신청이 도착했어요!");
-			}
+				System.out.println("WebNotification ajax 빈값");
+			}			
 		}
+		
 		return json.toJSONString();
 		
 	}

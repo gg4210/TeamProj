@@ -102,6 +102,7 @@ $(function() {
 		
 	};
 	
+	
 	$.ajax({
 		url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
 		data:{'mapkey':'${viewinfo.mapkey}'},

@@ -145,10 +145,12 @@ $(function(){
             break;
          default:
             $('#asubmit').prop('action','<c:url value='/user/customer.do#pills-info-tab'/>');
-            document.getElementById("asubmit").submit();
-         
+            document.getElementById("asubmit").submit();         
       }
    });
+   
+   
+   
 });
 </script>
 
