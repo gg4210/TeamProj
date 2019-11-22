@@ -46,26 +46,15 @@ public class MyPageController {
 		/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 시작*/
 	@RequestMapping("/customer.do")
 	public String customer_temp(@RequestParam Map map,Model model){
-		System.out.println("MemberDTO 통과?");
 		MemberDTO record=MemberService.selectOne(map);
-		System.out.println("map 통과");
-		System.out.println(map);
-		System.out.println("record 통과");
-		System.out.println(record);
 		model.addAttribute("record", record);
 		return "mypage/customer/mypage_Index.tiles";
 	}
 	
 	@RequestMapping("/user/customer.do")
 	public String customer(@RequestParam Map map,Model model){
-		System.out.println("MemberDTO 통과?");
 		MemberDTO record=MemberService.selectOne(map);
-		System.out.println("map 통과");
-		System.out.println(map);
-		System.out.println("record 통과");
-		System.out.println(record);
 		model.addAttribute("record",record);
-		System.out.println("model"+model);
 		return "mypage/customer/mypage_Index.tiles";
 	}
 	
