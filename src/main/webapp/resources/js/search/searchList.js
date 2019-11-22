@@ -315,6 +315,7 @@ function displayCustomOverlay(marker, title, address, road_address, phone, id, x
 		type:"post",
 		data:{'mapkey':id},
 		success:function(data){
+			console.log(data);
 			var summery=JSON.parse(data);			
 			$('#bookmarked').html(summery['bookmarkedString']).click(function(){
 				console.log('북아이콘 클릭!');
