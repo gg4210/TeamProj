@@ -33,10 +33,6 @@ public class RegicenterServiceImpl  implements RegicenterService{
 		return dao.mapkeyIsIn(map);
 	}
 
-	@Override
-	public int isAllowed(Map map) {
-		return dao.isAllowed(map);
-	}
 
 	@Override
 	public int updateAllowed0(Map map) {

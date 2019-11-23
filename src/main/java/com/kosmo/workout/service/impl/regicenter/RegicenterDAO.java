@@ -31,10 +31,6 @@ public class RegicenterDAO implements RegicenterService{
 		return template.selectOne("mapkeyIsIn",map);
 	}
 
-	@Override
-	public int isAllowed(Map map) {
-		return template.selectOne("isAllowed",map);
-	}
 
 	@Override
 	public int updateAllowed0(Map map) {

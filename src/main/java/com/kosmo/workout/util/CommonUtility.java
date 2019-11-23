@@ -42,7 +42,7 @@ public class CommonUtility {
 		System.out.println("맵키:"+mapkey);
 		driver.close();
 		return mapkey;
-	}	
+	}
 	
 	public static SearchBBSDTO mapkeyCrawling(String mapkey, String tel, HttpServletRequest req) throws IOException {		
 	
