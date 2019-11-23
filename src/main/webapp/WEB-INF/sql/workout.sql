@@ -1,5 +1,5 @@
 
-/* Drop Tables
+/* Drop Tables */
 
 DROP TABLE AUTH_SECURITY CASCADE CONSTRAINTS;
 DROP TABLE BBS_Comment CASCADE CONSTRAINTS;
@@ -8,7 +8,6 @@ DROP TABLE BBS CASCADE CONSTRAINTS;
 DROP TABLE BookMark CASCADE CONSTRAINTS;
 DROP TABLE CenterReview CASCADE CONSTRAINTS;
 DROP TABLE Complexity CASCADE CONSTRAINTS;
-DROP TABLE RegiCenter CASCADE CONSTRAINTS;
 DROP TABLE CENTER_INFO CASCADE CONSTRAINTS;
 DROP TABLE Notification CASCADE CONSTRAINTS;
 DROP TABLE COUPON CASCADE CONSTRAINTS;
@@ -16,6 +15,7 @@ DROP TABLE CustomerService CASCADE CONSTRAINTS;
 DROP TABLE healthMate CASCADE CONSTRAINTS;
 DROP TABLE MESSAGE_TABLE CASCADE CONSTRAINTS;
 DROP TABLE MY_MATE CASCADE CONSTRAINTS;
+DROP TABLE RegiCenter CASCADE CONSTRAINTS;
 DROP TABLE H_MEMBER CASCADE CONSTRAINTS;
 
 
@@ -35,7 +35,7 @@ DROP SEQUENCE SEQ_MESSAGE_TABLE_MNO;
 DROP SEQUENCE SEQ_MY_MATE_FNO;
 DROP SEQUENCE SEQ_RegiCenter_NO;
 DROP SEQUENCE SEQ_SCRAP_NO;
- */
+
 
 
 
@@ -104,21 +104,23 @@ CREATE TABLE BookMark
 	NO number NOT NULL,
 	-- 계정
 	ID nvarchar2(50) NOT NULL,
-	mapkey number(8) NOT NULL,
+	-- 아 카카오 지도 id값..ㅎㅎ
+	mapkey number(20) NOT NULL,
 	PRIMARY KEY (NO)
 );
 
 
 CREATE TABLE CenterReview
 (
-	-- 0~4 까지의 인덱스 저장
+	-- 1~5 까지의 인덱스 저장
 	-- 숫자가 적을수록 낮은 별점
 	rate number(1) NOT NULL,
 	rPostDate date DEFAULT SYSDATE NOT NULL,
 	rComment nvarchar2(500) NOT NULL,
 	-- 계정
 	ID nvarchar2(50) NOT NULL,
-	mapkey number(8) NOT NULL,
+	-- 아 카카오 지도 id값..ㅎㅎ
+	mapkey number(20) NOT NULL,
 	NO number NOT NULL,
 	PRIMARY KEY (NO)
 );
@@ -126,7 +128,8 @@ CREATE TABLE CenterReview
 
 CREATE TABLE CENTER_INFO
 (
-	mapkey number(8) NOT NULL,
+	-- 아 카카오 지도 id값..ㅎㅎ
+	mapkey number(20) NOT NULL,
 	-- 수정할 때 사진 받을 경우 씀
 	filename nvarchar2(700),
 	title nvarchar2(50) NOT NULL,
@@ -142,7 +145,8 @@ CREATE TABLE CENTER_INFO
 
 CREATE TABLE Complexity
 (
-	mapkey number(8) NOT NULL,
+	-- 아 카카오 지도 id값..ㅎㅎ
+	mapkey number(20) NOT NULL,
 	-- 계정
 	ID nvarchar2(50) NOT NULL
 );
@@ -267,7 +271,8 @@ CREATE TABLE RegiCenter
 	ID nvarchar2(50) NOT NULL,
 	startDate date DEFAULT SYSDATE,
 	endDate date,
-	mapkey number(8) NOT NULL,
+	-- 아 카카오 지도 id값..ㅎㅎ
+	mapkey number(20) NOT NULL,
 	-- 허용시 0, 아닐경우 1
 	isAllowed number(1) DEFAULT 1 NOT NULL,
 	PRIMARY KEY (NO)
@@ -302,12 +307,6 @@ ALTER TABLE SCRAP
 
 
 ALTER TABLE Complexity
-	ADD FOREIGN KEY (mapkey)
-	REFERENCES CENTER_INFO (mapkey)
-;
-
-
-ALTER TABLE RegiCenter
 	ADD FOREIGN KEY (mapkey)
 	REFERENCES CENTER_INFO (mapkey)
 ;
@@ -422,10 +421,14 @@ COMMENT ON COLUMN AUTH_SECURITY.ID IS '계정';
 COMMENT ON COLUMN BBS.ID IS '계정';
 COMMENT ON COLUMN BBS_Comment.ID IS '계정';
 COMMENT ON COLUMN BookMark.ID IS '계정';
-COMMENT ON COLUMN CenterReview.rate IS '0~4 까지의 인덱스 저장
+COMMENT ON COLUMN BookMark.mapkey IS '아 카카오 지도 id값..ㅎㅎ';
+COMMENT ON COLUMN CenterReview.rate IS '1~5 까지의 인덱스 저장
 숫자가 적을수록 낮은 별점';
 COMMENT ON COLUMN CenterReview.ID IS '계정';
+COMMENT ON COLUMN CenterReview.mapkey IS '아 카카오 지도 id값..ㅎㅎ';
+COMMENT ON COLUMN CENTER_INFO.mapkey IS '아 카카오 지도 id값..ㅎㅎ';
 COMMENT ON COLUMN CENTER_INFO.filename IS '수정할 때 사진 받을 경우 씀';
+COMMENT ON COLUMN Complexity.mapkey IS '아 카카오 지도 id값..ㅎㅎ';
 COMMENT ON COLUMN Complexity.ID IS '계정';
 COMMENT ON COLUMN COUPON.ID IS 'AUTH 권한 설정:기업,관리자';
 COMMENT ON COLUMN CustomerService.ID IS '계정';
@@ -439,6 +442,9 @@ COMMENT ON COLUMN MESSAGE_TABLE.isRead IS '1은 읽지않음
 COMMENT ON COLUMN MY_MATE.ID IS '계정';
 COMMENT ON COLUMN Notification.ID IS '계정';
 COMMENT ON COLUMN RegiCenter.ID IS '계정';
+COMMENT ON COLUMN RegiCenter.mapkey IS '아 카카오 지도 id값..ㅎㅎ';
 COMMENT ON COLUMN RegiCenter.isAllowed IS '허용시 0, 아닐경우 1';
 COMMENT ON COLUMN SCRAP.ID IS '계정';
+
+
 
