@@ -31,10 +31,22 @@ public class RegicenterDAO implements RegicenterService{
 		return template.selectOne("mapkeyIsIn",map);
 	}
 
+	@Override
+	public int updateAllowed0_forAdmin(Map map) {
+		return template.update("updateAllowed0_admin",map);
+	}
 
 	@Override
-	public int updateAllowed0(Map map) {
-		return template.update("updateAllowed0",map);
+	public int updateAllowed0_forCenter(Map map) {
+		return template.update("updateAllowed0_center",map);
 	}
+
+	@Override
+	public int delete_expired(Map map) {
+		return template.delete("delete_expired",map);
+	}
+
+
+
 	
 }

@@ -17,8 +17,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT ISALLOWED FROM REGICENTER WHERE id=#{ID} and mapkey=#{mapkey}
 	</select>
 	
-	<update id="updateAllowed0" parameterType="java.util.Map">
+	<update id="updateAllowed0_admin" parameterType="java.util.Map">
 		update ISALLOWED FROM REGICENTER WHERE id=#{ID} and mapkey=#{mapkey}
 	</update>
+	
+	<update id="updateAllowed0_center" parameterType="java.util.Map">
+		update ISALLOWED, startdate, enddate FROM REGICENTER WHERE id=#{ID} and mapkey=#{mapkey}
+	</update>
+	
+	<delete id="delete_expired">
+		delete REGICENTER where #{enddate}>sysdate
+	</delete>
 
 </mapper>

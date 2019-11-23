@@ -33,11 +33,24 @@ public class RegicenterServiceImpl  implements RegicenterService{
 		return dao.mapkeyIsIn(map);
 	}
 
+	@Override
+	public int updateAllowed0_forAdmin(Map map) {
+		return dao.updateAllowed0_forAdmin(map);
+	}
 
 	@Override
-	public int updateAllowed0(Map map) {
-		return dao.updateAllowed0(map);
+	public int updateAllowed0_forCenter(Map map) {
+		// TODO Auto-generated method stub
+		return dao.updateAllowed0_forCenter(map);
 	}
+
+	@Override
+	public int delete_expired(Map map) {
+		return dao.delete_expired(map);
+	}
+
+
+	
 
 
 	

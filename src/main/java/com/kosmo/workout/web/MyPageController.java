@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import com.kosmo.workout.service.MemberDTO;
 import com.kosmo.workout.service.MemberService;
-import com.kosmo.workout.common.FileUploadService;
+import com.kosmo.workout.util.FileUploadService;
 
 @SessionAttributes("id")
 @Controller

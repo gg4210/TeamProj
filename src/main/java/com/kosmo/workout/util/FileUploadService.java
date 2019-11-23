@@ -1,4 +1,4 @@
-package com.kosmo.workout.common;
+package com.kosmo.workout.util;
 
 import java.io.File;
 import java.io.FileOutputStream;
