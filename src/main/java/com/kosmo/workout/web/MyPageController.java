@@ -114,7 +114,7 @@ public class MyPageController {
 	
 
 	@RequestMapping("/center/enterprise.do")
-	public String enterprise(){
+	public String enterprise(){	
 		return "mypage/enterprise/mypage_Index.tiles";
 	}
 

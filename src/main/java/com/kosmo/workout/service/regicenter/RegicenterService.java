@@ -11,6 +11,10 @@ public interface RegicenterService {
 	MemberDTO selectForMapkeyGet(Map map);
 	//등록센터에 값 추가
 	int insertRegiCenter(Map map);
+	
+	//id 값으로 가입 시 저장된 맵키 가져오기
+	RegicenterDTO getMapkey(Map map);
+	
 	//맵키+승인여부 판단용. 빈값이면 mapkey 없는거, 0이면 승인된 것, 1이면 승인 안된 것
 	int mapkeyIsIn(Map map);
 	

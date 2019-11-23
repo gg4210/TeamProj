@@ -8,6 +8,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.kosmo.workout.service.MemberDTO;
+import com.kosmo.workout.service.regicenter.RegicenterDTO;
 import com.kosmo.workout.service.regicenter.RegicenterService;
 
 
@@ -44,6 +45,11 @@ public class RegicenterDAO implements RegicenterService{
 	@Override
 	public int delete_expired(Map map) {
 		return template.delete("delete_expired",map);
+	}
+
+	@Override
+	public RegicenterDTO getMapkey(Map map) {
+		return template.selectOne("getMapkey", map);
 	}
 
 

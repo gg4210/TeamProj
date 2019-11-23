@@ -13,6 +13,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into regicenter(no,id,mapkey,isAllowed) values(SEQ_RegiCenter_NO.nextval,#{id},#{mapkey},default)
 	</insert>
 	
+	<select id="getMapkey" parameterType="java.util.Map" resultType="RegicenterDTO">
+		select mapkey from regicenter where id=#{id}
+	</select>
+	
 	<select id="isAllowed" parameterType="java.util.Map" resultType="RegicenterDTO">
 		SELECT ISALLOWED FROM REGICENTER WHERE id=#{ID} and mapkey=#{mapkey}
 	</select>
