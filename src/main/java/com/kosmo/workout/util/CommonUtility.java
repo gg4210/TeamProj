@@ -38,10 +38,7 @@ public class CommonUtility {
 	 *  
 	 *  
 	 */
-	
-	
-	
-	
+
 	
 	public static String getMapkeyFromCenterInfo(String addr, String name, HttpServletRequest req) throws IOException {
 		
@@ -72,7 +69,8 @@ public class CommonUtility {
 		String base_url="https://place.map.kakao.com/"+mapkey;
 		Document doc=Jsoup.connect(base_url).get();
 		Elements result=doc.select("head > meta:nth-child(4)");
-		String title=result.get(0).attr("content");		
+		String title=result.get(0).attr("content");
+		mapinfo.setTitle(title);
 						
 		base_url="https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query="+title;
 		doc=Jsoup.connect(base_url).get();
