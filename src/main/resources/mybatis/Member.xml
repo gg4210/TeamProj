@@ -18,15 +18,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<insert id="MemberJoin" parameterType="java.util.Map">
 		INSERT INTO H_MEMBER(ID,PASSWORD,NAME,EMAIL,ADDRESS,CELLPHONE,
-		AUTHORITY,MY_COMMENT,INTER_SPORTS,PICTURE,JOINDATE,NICK_NAME,DETAIL_ADDRESS,ZIPCODE)
+		MY_COMMENT,INTER_SPORTS,PICTURE,JOINDATE,NICK_NAME,DETAIL_ADDRESS,ZIPCODE)
   		VALUES(#{id},#{password},#{name},#{email},#{address},#{cellphone},
-  		#{authority},#{my_comment},#{inter_sports},#{picture},SYSDATE,#{nick_name},#{detail_address},#{zipcode})
+  		#{my_comment},#{inter_sports},#{picture},SYSDATE,#{nick_name},#{detail_address},#{zipcode})
 	</insert>
 	<insert id="CenterJoin" parameterType="java.util.Map">
 		INSERT INTO H_MEMBER(ID,PASSWORD,NAME,EMAIL,ADDRESS,CELLPHONE,
-		AUTHORITY,JOINDATE,NICK_NAME,DETAIL_ADDRESS,ZIPCODE,CREGINUM)
+		JOINDATE,NICK_NAME,DETAIL_ADDRESS,ZIPCODE,CREGINUM)
   		VALUES(#{id},#{password},#{name},#{email},#{address},#{cellphone},
-  		#{authority},SYSDATE,#{nick_name},#{detail_address},#{zipcode},#{creginum})
+  		SYSDATE,#{nick_name},#{detail_address},#{zipcode},#{creginum})
 	</insert>
 	<insert id="AuthJoin" parameterType="java.util.Map">
 		INSERT INTO AUTH_SECURITY(SECNO,ID,AUTHORITY,ENABLED)

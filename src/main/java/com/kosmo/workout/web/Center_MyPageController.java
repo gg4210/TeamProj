@@ -87,7 +87,9 @@ public class Center_MyPageController {
 			
 			System.out.println(dto1.getFilename());			
 			String[] img_urls=dto1.getFilename().split(",");
-			
+			for(int i=0;i<img_urls.length;i++) {
+				System.out.println(img_urls[i]);
+			}
 			result.setImg_urls(img_urls);			
 			result.setCountNum(dto1.getCountNum());
 			result.setContent(dto1.getContent());
