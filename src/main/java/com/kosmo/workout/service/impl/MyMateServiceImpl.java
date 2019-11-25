@@ -18,13 +18,23 @@ public class MyMateServiceImpl implements MyMateService{
 	private MyMateDAO dao;
 
 	@Override
-	public List<MyMateDTO> selectList(Map map) {
-		return dao.selectList(map);
+	public void insert(Map map) {
+		dao.insert(map);
 	}
 
 	@Override
-	public void insert(Map map) {
-		dao.insert(map);
+	public MyMateDTO selectOne(Map map) {
+		return dao.selectOne(map);
+	}
+
+	@Override
+	public List<MyMateDTO> toSelectList(Map map) {
+		return dao.toSelectList(map);
+	}
+
+	@Override
+	public List<MyMateDTO> fromSelectList(Map map) {
+		return dao.fromSelectList(map);
 	}
 	
 	

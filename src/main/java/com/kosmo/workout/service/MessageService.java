@@ -6,8 +6,14 @@ import java.util.Map;
 public interface MessageService {
 	
 	//목록용]
-	//레코드를 DTO가 아닌 맵에 담아보자.
-	List<Map> selectList(Map map);
+	List<MessageDTO> selectList(Map map);
+	
+	//쪽지함 목록용]
+	List<MessageDTO> selectOne(Map map);
+	
+	//메세지가 있는지 확인용]
+	int MessageCount(Map map);
+	
 	//로그인/입력/수정/삭제]
 	void insert(Map map);
 	

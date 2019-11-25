@@ -4,6 +4,7 @@
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
 <script>
+
 $(function () {
 	////다른페이지에 있다가 눌렀을 때
 	var durl = window.location.hash;////console.log(durl); = #id
@@ -15,6 +16,7 @@ $(function () {
 	////같은 페이지에 있다가 눌렀을 때
 	$('#customerLinks a').click(function(){
 		var link = $(this).attr('href');////console.log('link:',link);=>/workout/customer.do#pills-scrap-tab
+		console.log("link: ",link);
 		var sactiveTab = link.substring(link.indexOf("#"));////내가 +1지움 ////console.log('sactiveTab:',sactiveTab);=>sactiveTab: #pills-scrap-tab	
 		$('#customerLinks a').removeClass("active");
 		$(this).addClass("active");

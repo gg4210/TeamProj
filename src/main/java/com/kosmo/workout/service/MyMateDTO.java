@@ -3,15 +3,16 @@ package com.kosmo.workout.service;
 import java.sql.Date;
 
 public class MyMateDTO {
-	private String yno;
+	private String fno;
 	private String id;
-	private String followedId;
+	private String FRIEND_ID;
+	private Date MATEDATE;
 	
-	public String getYno() {
-		return yno;
+	public String getFno() {
+		return fno;
 	}
-	public void setYno(String yno) {
-		this.yno = yno;
+	public void setFno(String fno) {
+		this.fno = fno;
 	}
 	public String getId() {
 		return id;
@@ -19,11 +20,20 @@ public class MyMateDTO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getFollowedId() {
-		return followedId;
+	public String getFRIEND_ID() {
+		return FRIEND_ID;
 	}
-	public void setFollowedId(String followedId) {
-		this.followedId = followedId;
+	public void setFRIEND_ID(String fRIEND_ID) {
+		FRIEND_ID = fRIEND_ID;
 	}
+	public Date getMATEDATE() {
+		return MATEDATE;
+	}
+	public void setMATEDATE(Date mATEDATE) {
+		MATEDATE = mATEDATE;
+	}
+	
+
+	
 	
 }

@@ -82,9 +82,7 @@
                   <!-- 회원 등록,삭제 버튼 -->
                      <div class="clearfix">
                         <div class="float-right">
-                           <button type="submit" class="btn btn-info px-3" id="memberPlus">회원등록</button>
-                           <button type="submit" class="btn btn-default px-3" id="memberupdate">정보수정</button>   
-                           <button type="submit" class="btn btn-danger px-3" id="memberDelete">회원삭제</button>         
+                           <button type="submit" class="btn btn-info px-3" id="memberPlus">회원등록</button>       
                         </div>
                      </div>
                <!-- 회원 등록,삭제 버튼 -->
@@ -92,133 +90,20 @@
                   <table class="table" style="text-align: center;">
                      <thead class="bg-primary white-text">
                         <tr>
-                           <th scope="col">
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="CheckAll">
-                              <label class="custom-control-label" for="CheckAll"></label>
-                           </div>
-                           </th>
-                           <th scope="col">NO</th>
                            <th scope="col">이름</th>
                            <th scope="col">아이디</th>
-                           <th scope="col">성별</th>
-                           <th scope="col">나이</th>
                            <th scope="col">일자</th>
+                           <th scope="col">승인여부</th>
                         </tr>
                      </thead>
                      <tbody>
                         <tr>
-                           <th scope="row">
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check10">
-                              <label class="custom-control-label" for="Check10"></label>
-                           </div>
-                           </th>
-                           <td>10</td>
                            <td>나아는</td>
-                           <td>NAA*</td>
-                           <td>여</td>
-                           <td>27</td>
-                           <td>2019.10.24 ~ 2020.09.23</td>
+                           <td>NAA</td>
+                           <td>2019.10.24 ~ 2020.09.23*</td>
+                           <td>승인중</td>
                         </tr>
-                        <tr>
-                           <th scope="row">
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check9">
-                              <label class="custom-control-label" for="Check9"></label>
-                           </div>
-                           </th>
-                           <td>9</td>
-                           <td>김집에</td>
-                           <td>KIM*</td>
-                           <td>여</td>
-                           <td>27</td>
-                           <td>2019.10.23 ~ 2020.10.22</td>
-                        </tr>
-                        <tr>
-                           <th scope="row">
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check8">
-                              <label class="custom-control-label" for="Check8"></label>
-                           </div>
-                           </th>
-                           <td>8</td>
-                           <td>박가고</td>
-                           <td>PAR*</td>
-                           <td>남</td>
-                           <td>45</td>
-                           <td>2019.10.23 ~ 2020.01.22</td>
-                        </tr>
-                        <tr>
-                           <th scope="row">
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check7">
-                              <label class="custom-control-label" for="Check7"></label>
-                           </div>
-                           </th>
-                           <td>7</td>
-                           <td>김고객</td>
-                           <td>KIM*</td>
-                           <td>남</td>
-                           <td>30</td>
-                           <td>2019.10.20 ~ 2020.01.19</td>
-                        </tr>
-                        <tr>
-                           <th scope="row">
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check6">
-                              <label class="custom-control-label" for="Check6"></label>
-                           </div>
-                           </th>
-                           <td>6</td>
-                           <td>최고객</td>
-                           <td>CHO*</td>
-                           <td>여</td>
-                           <td>23</td>
-                           <td>2019.10.15 ~ 2020.11.14</td>
-                        </tr>
-                        <tr>
-                           <th scope="row">
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check5">
-                              <label class="custom-control-label" for="Check5"></label>
-                           </div>
-                           </th>
-                           <td>5</td>
-                           <td>이고객</td>
-                           <td>LEE*</td>
-                           <td>여</td>
-                           <td>25</td>
-                           <td>2019.09.30 ~ 2020.12.29</td>
-                        </tr>
-                        <tr>
-                           <th scope="row">
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check4">
-                              <label class="custom-control-label" for="Check4"></label>
-                           </div>
-                           </th>
-                           <td>4</td>
-                           <td>김집에</td>
-                           <td>KIM*</td>
-                           <td>여</td>
-                           <td>27</td>
-                           <td>2019.10.23 ~ 2020.10.22</td>
-                        </tr>
-                        <tr>
-                           <th scope="row">
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="Check3">
-                              <label class="custom-control-label" for="Check3"></label>
-                           </div>
-                           </th>
-                           <td>3</td>
-                           <td>김집에</td>
-                           <td>KIM*</td>
-                           <td>여</td>
-                           <td>27</td>
-                           <td>2019.10.23 ~ 2020.10.22</td>
-                        </tr>
+                        <!--
                         <tr>
                            <th scope="row">
                            <div class="custom-control custom-checkbox">
@@ -247,12 +132,13 @@
                            <td>27</td>
                            <td>2019.10.23 ~ 2020.10.22</td>
                         </tr>
+                        -->
                      </tbody>
                   </table>
                   <!-- 테이블 끝 -->   
             </div>
             
-            <!-- 페이징 시작 -->
+            <!-- 페이징 시작
             <div class="row justify-content-center">
                <nav aria-label="Page navigation example">
                   <ul class="pagination pg-blue">
@@ -264,6 +150,7 @@
                   </ul>
                </nav>
             </div>
+            -->
             <!-- 페이징 끝 -->
          </div>
       </div>
@@ -291,28 +178,6 @@
 					<div class="modal-body">
 						<!-- 회원 등록 폼 시작 -->
 						<div class="row justify-content-center">
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text" id="basic-addon1">이름</span>
-								</div>
-								<input type="text" class="form-control" placeholder="이름을 입력하세요" aria-describedby="basic-addon1">
-								<div class="input-group-prepend pl-2">
-									<span class="input-group-text" id="basic-addon2">아이디</span>
-								</div>
-								<input type="text" class="form-control" placeholder="아이디를 입력하세요" aria-describedby="basic-addon2">		
-							</div>
-		
-							<div class="input-group mb-3">
-								<div class="input-group-prepend">
-									<span class="input-group-text" id="basic-addon2">나이</span>
-								</div>
-								<input type="text" class="form-control" placeholder="나이를 입력하세요" aria-describedby="basic-addon2">		
-								<select class="browser-default custom-select ml-3">
-									<option selected>성별</option>
-									<option value="1">남</option>
-									<option value="2">여</option>
-								</select>
-							</div>
 							<div class="input-group">
 								<div class="input-group-prepend">
 									<span class="input-group-text" id="basic-addon3">등록일</span>

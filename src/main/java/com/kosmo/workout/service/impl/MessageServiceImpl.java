@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.kosmo.workout.service.MessageDTO;
 import com.kosmo.workout.service.MessageService;
 
 @Service("MessageService")
@@ -17,13 +18,23 @@ public class MessageServiceImpl implements MessageService{
 	private MessageDAO dao;
 
 	@Override
-	public List<Map> selectList(Map map) {
+	public List<MessageDTO> selectList(Map map) {
 		return dao.selectList(map);
 	}
 
 	@Override
 	public void insert(Map map) {
 		dao.insert(map);
+	}
+
+	@Override
+	public int MessageCount(Map map) {
+		return dao.MessageCount(map);
+	}
+
+	@Override
+	public List<MessageDTO> selectOne(Map map) {
+		return dao.selectOne(map);
 	}
 	
 }

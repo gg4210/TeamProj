@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="mybatis.Message">
+	<select id="MessageSelectList" parameterType="java.util.Map" resultType="MessageDTO">
+		select * from (select * from message_table where id=#{id} or fromid=#{id}) where id=#{fromid} or fromid=#{fromid} order by mno
+		<!-- select * from (select * from message_table where id=#{id}) where fromid=#{fromid}-->
+	</select>
+	<select id="MessageCount" parameterType="java.util.Map" resultType="int">
+		select count(*) from message_table where id=#{id} or fromid=#{id}
+	</select>
+	<insert id="MessageInsert" parameterType="java.util.Map">
+		insert into message_table values(SEQ_MESSAGE_TABLE_MNO.nextval,#{id},#{content},sysdate,null,#{fromid},default)
+	</insert>
+	<select id="MessageSelectOne" parameterType="java.util.Map" resultType="MessageDTO">
+		select * from (select * from message_table where id=#{id} or fromid=#{id}) where id=#{fromid} or fromid=#{fromid} order by mno desc limit 1
+	</select>
+	
+	
+</mapper>

@@ -16,14 +16,25 @@ public class MyMateDAO implements MyMateService{
 	
 	@Resource(name="template")
 	private SqlSessionTemplate template;
-	
-	public List<MyMateDTO> selectList(Map map) {
-		return template.selectList("MyMateSelectList", map);
-	}
 
 	@Override
 	public void insert(Map map) {
 		template.insert("MyMateInsert", map);
+	}
+
+	@Override
+	public MyMateDTO selectOne(Map map) {
+		return template.selectOne("MyMateSelectOne", map);
+	}
+
+	@Override
+	public List<MyMateDTO> toSelectList(Map map) {
+		return template.selectList("MyMateToSelectList",map);
+	}
+
+	@Override
+	public List<MyMateDTO> fromSelectList(Map map) {
+		return template.selectList("MyMateFromSelectList", map);
 	}
 
 	
