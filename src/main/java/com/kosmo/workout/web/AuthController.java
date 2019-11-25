@@ -1,10 +1,7 @@
 package com.kosmo.workout.web;
 
-<<<<<<< HEAD
 import java.util.HashMap;
-=======
 import java.io.IOException;
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -27,13 +24,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
-<<<<<<< HEAD
-import com.kosmo.workout.common.FileUploadService;
 import com.kosmo.workout.service.AuthSecurityDTO;
 import com.kosmo.workout.service.AuthSecurityService;
-=======
 import com.kosmo.workout.service.MemberDTO;
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 import com.kosmo.workout.service.MemberService;
 import com.kosmo.workout.service.NotificationService;
 import com.kosmo.workout.service.regicenter.RegicenterDTO;
