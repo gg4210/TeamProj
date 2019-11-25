@@ -22,6 +22,46 @@ import com.kosmo.workout.service.search.SearchBBSDTO;
 
 public class CommonUtility {
 	
+	
+	
+	/*
+	 * [목차]
+	 * 
+	 *  1) getMapkeyFromCenterInfo ( 상호명, addr, HttpServletRequest) : 센터 맵키 웹크롤링  - Jsoup, selenium
+	 * 	2) mapkeyCrawling (맵키, tel, HttpServletRequest)  : 센터 상세정보 유무 웹크롤링(다음 -> 네이버) - Jsoup, selenium
+	 *  3) seleniumCrawling : 상세정보 있을 시 상세정보 웹크롤링 - selenium
+	 *  4) getWebDriver : 셀레니움 웹크롤링을 위한 서버 내 드라이버 경로 얻어내고 실행시킴
+	 *  5) ratingString : 별점 스트링 반환해줌
+	 *  6) Bookmarked : 경우의 수를 따져 북마크 string으로 반환
+	 *  7) isComplex : 복잡도 보여주는 progressbar 생성하는 string 반환
+	 *  8) pagingBootStrap4Style : 부트스트랩 4 버전으로 만든 paging String 반환
+	 *  
+	 *  
+	 */
+
+	
+	public static String getMapkeyFromCenterInfo(String addr, String name, HttpServletRequest req) throws IOException {
+		
+		String mapkey="";
+
+		String base_url="https://search.daum.net/search?nil_suggest=btn&w=tot&DA=SBC&q="+addr+name;
+		System.out.println(base_url);
+		WebDriver driver=getWebDriver(req);
+		
+		driver.get(base_url);
+		
+		if(driver.findElement(By.xpath("//*[@id=\"poiColl\"]/div[2]/div[3]/ul/li/div[1]/div/a[1]"))!=null) {
+			String href=driver.findElement(By.xpath("//*[@id=\"poiColl\"]/div[2]/div[3]/ul/li/div[1]/div/a[1]")).getAttribute("href");
+			String[] split=href.split("/");
+			mapkey=split[3];
+			System.out.println(mapkey);
+		}
+
+		System.out.println("맵키:"+mapkey);
+		driver.close();
+		return mapkey;
+	}
+	
 	public static SearchBBSDTO mapkeyCrawling(String mapkey, String tel, HttpServletRequest req) throws IOException {		
 	
 		SearchBBSDTO mapinfo=new SearchBBSDTO();
@@ -29,7 +69,8 @@ public class CommonUtility {
 		String base_url="https://place.map.kakao.com/"+mapkey;
 		Document doc=Jsoup.connect(base_url).get();
 		Elements result=doc.select("head > meta:nth-child(4)");
-		String title=result.get(0).attr("content");		
+		String title=result.get(0).attr("content");
+		mapinfo.setTitle(title);
 						
 		base_url="https://search.naver.com/search.naver?sm=top_hty&fbm=1&ie=utf8&query="+title;
 		doc=Jsoup.connect(base_url).get();
@@ -121,42 +162,42 @@ public class CommonUtility {
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
-				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>("+avgRate+")";
 				break;
 			case 2:
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
-				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>("+avgRate+")";
 				break;
 			case 3:
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
-				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>("+avgRate+")";
 				break;
 			case 4:
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
-				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>("+avgRate+")";
 				break;
 			case 5:
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
-				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover amber-text' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>("+avgRate+")";
 				break;
 			default:
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Very bad'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Poor'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='OK'></i>";
 				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Good'></i>";
-				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>";
+				rate+="<i class='fas fa-star py-2 px-1 rate-popover' data-index='0' data-html='true' data-toggle='popover' data-placement='top' title='Excellent'></i>("+avgRate+")";
 		}//switch
 		
 		
@@ -169,18 +210,18 @@ public class CommonUtility {
 		String book="";		
 		if(countBooked<3) {
 			if(isbookmarked==1) {//북마크 이미 됐을 경우
-				return book="<i class=\"fas fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\"></i>";
+				return book="<sec:authorize access=\"hasRole(\'ROLE_USER\')\"><i class=\"fas fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\"></i></sec:authorize>";
 			}
 			else {//안됐을 경우
-				return book="<i class=\"far fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\"></i>";
+				return book="<sec:authorize access=\"hasRole('ROLE_USER\')\"><i class=\"far fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\"></i></sec:authorize>";
 			}
 		}
 		else {//최대 개수 초과
 			if(isbookmarked==1) {
-				return book="<i class=\"fas fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\" ></i>";
+				return book="<sec:authorize access=\"hasRole(\'ROLE_USER\')\"><i class=\"fas fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\"></i></sec:authorize>";
 			}
 			else {
-				return book="<i class=\"far fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\"></i>";
+				return book="<sec:authorize access=\"hasRole(\'ROLE_USER\')\"><i class=\"far fa-heart fa-2x red-text\" style=\"cursor: pointer\" id=\"bookicon\"></i></sec:authorize>";
 			}
 		}
 		
@@ -199,7 +240,7 @@ public class CommonUtility {
 		complex+="</div>";
 		}
 		catch (ArithmeticException e) {
-			complex="";
+			complex="이 센터는 본 서비스를 제공하지 않습니다.";
 		}
 		return complex;
 	}

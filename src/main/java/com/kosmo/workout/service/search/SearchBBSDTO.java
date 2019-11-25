@@ -20,8 +20,18 @@ public class SearchBBSDTO {
 	int avgR;
 	String avgRate;
 	String bookString;
+	String compliextyString;
 	
 	
+	
+	public String getCompliextyString() {
+		return compliextyString;
+	}
+
+	public void setCompliextyString(String compliextyString) {
+		this.compliextyString = compliextyString;
+	}
+
 	public String getAvgRate() {
 		return avgRate;
 	}

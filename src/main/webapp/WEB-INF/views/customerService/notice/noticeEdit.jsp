@@ -9,8 +9,9 @@
 		</div><hr/>
 		<div class="row">
 			<div class="col-md-12">
-				<form class="form-horizontal" method="post"
-					action="/member/noticeView.do">
+				<form class="form-horizontal" method="post" action="/member/noticeList.do">
+				<!-- /member/noticeView.do : 경로 0에서 에러 -->
+				<!-- /noticeView.do : 경로 0에서 에러 -->
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<input type="hidden" name="no" value="${record.no}"/><!-- no? rownum?헷갈린다... -->
 					<div class="form-group row" id="category">

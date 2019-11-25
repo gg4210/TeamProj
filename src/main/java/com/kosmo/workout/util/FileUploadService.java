@@ -1,4 +1,4 @@
-package com.kosmo.workout.common;
+package com.kosmo.workout.util;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -23,6 +23,7 @@ public class FileUploadService {
 		
 		String url = null;
 		String path=req.getSession().getServletContext().getRealPath("/");
+		System.out.println(path);
 		String physicalPaths=path+"resources"+File.separator+"upload"+File.separator;
 		try {
 			// 파일 정보

@@ -111,11 +111,9 @@ $(function() {
             })();
          }
       });      
-   });/////// 알림
-   
-   
-   
+   });/////// 알림   
 });
+
 //마진속성 주는 function//
 function setMargin(width){
    //margin 속성 주기 시작//

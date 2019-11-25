@@ -20,6 +20,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="CouponDTO" type="com.kosmo.workout.service.CouponDTO"/>
 		<typeAlias alias="ComplexityDTO" type="com.kosmo.workout.service.ComplexityDTO"/>
 		<typeAlias alias="AuthSecurityDTO" type="com.kosmo.workout.service.AuthSecurityDTO"/>
+		<typeAlias alias="RegicenterDTO" type="com.kosmo.workout.service.regicenter.RegicenterDTO"/>
 		<typeAlias alias="SearchBBSCommentDTO" type="com.kosmo.workout.service.search.SearchBBSCommentDTO"/>
 		
 		<!--<typeAlias alias="MyMateDTO" type="com.kosmo.workout.service.MyMateDTO"/>-->
@@ -37,6 +38,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/Coupon.xml"/>
 		<mapper resource="mybatis/Complexity.xml"/>
 		<mapper resource="mybatis/AuthSecurity.xml"/>
+		<mapper resource="mybatis/EditCenter.xml"/>
 	</mappers>
 	
 </configuration>
