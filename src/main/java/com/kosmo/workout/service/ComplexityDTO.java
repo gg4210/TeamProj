@@ -1,6 +1,7 @@
 package com.kosmo.workout.service;
 
 public class ComplexityDTO {
+	
 	private String id;
 	private String mapkey;
 	

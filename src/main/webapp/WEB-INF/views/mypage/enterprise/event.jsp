@@ -21,26 +21,26 @@
                <h3>쿠폰 발급하기</h3>
                
                <div class="form-group row">
-                  <label class="control-label pr-2 col-offset-1 col-2" for="title">제목</label>
+                  <label class="control-label pr-2 col-offset-1 col-2" for="event_title">제목</label>
                   <div class="col-12">
-                     <input type="text" class="form-control" name="title" id="title" placeholder="제목을 입력하세요"/>
+                     <input type="text" class="form-control" name="event_title" id="event_title" placeholder="제목을 입력하세요"/>
                   </div>
                </div>
                <div class="form-group row">
-                  <label class="control-label pr-2 col-offset-1 col-2" for="content">내용</label>
+                  <label class="control-label pr-2 col-offset-1 col-2" for="event_content">내용</label>
                   <div class="col-12">
-                     <textarea rows="10" name="content" id="content" class="form-control" placeholder="내용을 입력하세요"></textarea>
+                     <textarea rows="10" name="event_content" id="event_content" class="form-control" placeholder="내용을 입력하세요"></textarea>
                   </div>
                </div>
                
                <div class="mt40">
                		
-	               		<label class="control-label pr-2 col-offset-1 col-3" for="content">유효기간</label>
+	               		<label class="control-label pr-2 col-offset-1 col-3" for="">유효기간</label>
 				        <div class="c-datepicker-date-editor  J-datepicker-range-day mt10">
 				          <i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
-				          <input placeholder="시작일" name="" class="c-datepicker-data-input only-date" value="">
+				          <input placeholder="시작일" name="event_start" class="c-datepicker-data-input only-date" value="" id="event_start">
 				          <span class="c-datepicker-range-separator">-</span>
-				          <input placeholder="종료일" name="" class="c-datepicker-data-input only-date" value="">
+				          <input placeholder="종료일" name="event_end" class="c-datepicker-data-input only-date" value="" id="event_end">
 				        </div>
 				        
 		      	</div>
@@ -120,7 +120,7 @@
 				</div>
 				<div class="modal-body">쿠폰을 발급하시겠습니까?</div>
 				<div class="modal-footer">
-					<button type="button" class="btn blue-gradient">발급</button>
+					<button type="button" class="btn blue-gradient" id="confirm_coupon">발급</button>
 					<button type="button" class="btn peach-gradient" data-dismiss="modal">취소</button>
 					
 				</div>
@@ -181,7 +181,33 @@ $(function(){
 	            shortcutOptions: DATAPICKERAPI.rangeShortcutOption1
 	            
 	});
-   
+	
+	$('#confirm_coupon').click(function(){
+        var token = $("meta[name='_csrf']").attr("content");
+        console.log("컨펌쿠폰 버튼 클릭!");
+		$.ajax({
+			url:'/workout/senduserlist.do?_csrf='+token,
+			type:'post',
+			data:{
+				'cno':'',
+				'event_title':$("#event_title").val(),
+				'event_content':$("#event_content").val(),
+				'event_start':$("#event_start").val(),
+				'event_end':$("#event_end").val(),
+				'id':'${sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.username}'
+			},
+			success:function(data){
+				console.log("전송성공");
+				$('#send-coupon-history-ModalScrollable').modal('hide');
+			},
+			error:function(data){
+				console.log('전송실패');
+				$('#send-coupon-history-ModalScrollable').modal('hide');
+			}
+		});
+		
+	});
+	   
 });
 
 </script>
