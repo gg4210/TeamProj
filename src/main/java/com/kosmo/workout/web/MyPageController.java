@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import com.kosmo.workout.service.MemberDTO;
 import com.kosmo.workout.service.MemberService;
-import com.kosmo.workout.common.FileUploadService;
+import com.kosmo.workout.service.regicenter.RegicenterDTO;
+import com.kosmo.workout.service.regicenter.RegicenterService;
+import com.kosmo.workout.util.FileUploadService;
 
 @SessionAttributes("id")
 @Controller
@@ -29,6 +31,8 @@ public class MyPageController {
 	private MemberService MemberService;
 	
 	
+	@Resource(name="RegicenterService")
+	private RegicenterService RegicenterService;
 	
 	
 	@Autowired
@@ -97,34 +101,14 @@ public class MyPageController {
 	
 		/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 끝*/
 	
-	
-	@RequestMapping("/enterprise/edit_center_info.do")
-	public String edit_center_info() {
-		
-		
-		return "mypage/enterprise/edit_center_info.tiles";
-	}
-	
-	@RequestMapping("/enterprise/editOK.do")
-	public String edit_OK(@RequestParam Map map, Authentication auth) {
-		
-		return "mypage/enterprise/mypage_Index.tiles";
-	}
-
-	
-
-	@RequestMapping("/center/enterprise.do")
-	public String enterprise(){
-		return "mypage/enterprise/mypage_Index.tiles";
-	}
 
 	//아래부터 QR코드 관련 코딩입니다.
 	@RequestMapping("/center/QRCode.do")
 	public String qrWrite(@RequestParam Map map,Authentication auth,Model model) {
 		UserDetails userDetails = (UserDetails)auth.getPrincipal();
 		map.put("id",userDetails.getUsername());
-		int mapkey = MemberService.selectMapkey(map);
-		model.addAttribute("mapkey", mapkey);
+		RegicenterDTO dto = RegicenterService.getMapkey(map);
+		model.addAttribute("mapkey", dto.getMapkey());
 		return "mypage/enterprise/QRCode";
 	}
 	

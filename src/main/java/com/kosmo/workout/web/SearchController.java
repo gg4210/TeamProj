@@ -46,7 +46,7 @@ public class SearchController {
 	public String complexAndstar(@RequestParam Map map) {
 
 
-		System.out.println("complexAndstar ajax 가 안들어오네-_- 뭐ㅏ햔?");
+		System.out.println("complexAndstar ajax");
 		JSONObject json=new JSONObject();
 		int rate=SearchService.setRating(map);	
 		String avgRate=CommonUtility.ratingString(rate);//별 표시
@@ -68,7 +68,9 @@ public class SearchController {
 	@RequestMapping(value="/searchView.do", method=RequestMethod.POST)
 	public String searchView(@RequestParam Map map, HttpServletRequest req, Model model) throws IOException {
 		
+		
 		SearchBBSDTO viewinfo=CommonUtility.mapkeyCrawling(map.get("mapkey").toString(), map.get("tel").toString(), req);
+		
 		viewinfo.setMapkey(map.get("mapkey").toString());
 		viewinfo.setTitle(map.get("title").toString());
 		viewinfo.setTel(map.get("tel").toString());

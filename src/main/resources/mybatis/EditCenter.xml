@@ -6,23 +6,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="mybatis.EditCenter">
 
 	<select id="selectForMapkeyGet" parameterType="java.util.Map" resultType="WorkOutDTO">
-		SELECT NAME,address FROM H_MEMBER WHERE ID=#{ID}
+		SELECT name,address FROM H_MEMBER WHERE id=#{id}
 	</select>
 
 	<insert id="insertRegiCenter" parameterType="java.util.Map">
-		insert into regicenter values(SEQ_RegiCenter_NO,#{id},#{mapkey},default)
+		insert into regicenter(no,id,mapkey,isAllowed) values(SEQ_RegiCenter_NO.nextval,#{id},#{mapkey},default)
 	</insert>
 	
-	<select id="mapkeyIsIn" parameterType="java.util.Map" resultType="int">
+	<select id="getMapkey" parameterType="java.util.Map" resultType="RegicenterDTO">
+		select mapkey from regicenter where id=#{id}
+	</select>
+	
+	<select id="isAllowed" parameterType="java.util.Map" resultType="RegicenterDTO">
 		SELECT ISALLOWED FROM REGICENTER WHERE id=#{ID} and mapkey=#{mapkey}
 	</select>
 	
-	<select id="isAllowed" parameterType="java.util.Map" resultType="int">
-		SELECT ISALLOWED FROM REGICENTER WHERE id=#{ID} and mapkey=#{mapkey}
-	</select>
-	
-	<update id="updateAllowed0" parameterType="java.util.Map">
+	<update id="updateAllowed0_admin" parameterType="java.util.Map">
 		update ISALLOWED FROM REGICENTER WHERE id=#{ID} and mapkey=#{mapkey}
 	</update>
+	
+	<update id="updateAllowed0_center" parameterType="java.util.Map">
+		update ISALLOWED, startdate, enddate FROM REGICENTER WHERE id=#{ID} and mapkey=#{mapkey}
+	</update>
+	
+	<delete id="delete_expired">
+		delete REGICENTER where #{enddate}>sysdate
+	</delete>
 
 </mapper>

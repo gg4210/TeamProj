@@ -242,10 +242,21 @@ $(function() {
 						<div class="col-md-6">
 							 <!--Card image-->
 						      <div class="view">
-						        <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(125).jpg" class="card-img-top" alt="photo">
-						        <a href="#">
-						          <div class="mask rgba-white-slight"></div>
-						        </a>
+						      
+						      	<c:if test="${empty viewinfo.img_urls }" var="img_urls">
+						      		기업회원이 정보를 제공하지 않았습니다.
+								</c:if>
+								<c:if test="${not img_urls }">												
+							      	<c:forEach items="${viewinfo.img_urls }" var="img_url" varStatus="status">
+							      		<c:if test="${status.first}">
+								        	<img src="${img_url }" alt="photo" class="img-fluid">
+									        <a href="#">
+									          <div class="mask rgba-white-slight"></div>
+									        </a>
+								        </c:if>
+							        </c:forEach>
+						        </c:if>
+						        
 						      </div>
 						</div>
 						<div class="col-md-6 pb-3">

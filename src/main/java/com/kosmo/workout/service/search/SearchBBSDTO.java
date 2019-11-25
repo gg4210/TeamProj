@@ -12,16 +12,35 @@ public class SearchBBSDTO {
 	String otime;
 	String content;
 	String[] img_urls;
+	String filename;
 	String service;
 	String tag;
-	String[] sport_kind;
+	String sport_kind;
 	int countNum;
 	int maxNumber;
 	int avgR;
 	String avgRate;
 	String bookString;
+	String compliextyString;
+	
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
+	}
 	
 	
+	
+	public String getCompliextyString() {
+		return compliextyString;
+	}
+
+	public void setCompliextyString(String compliextyString) {
+		this.compliextyString = compliextyString;
+	}
+
 	public String getAvgRate() {
 		return avgRate;
 	}
@@ -30,11 +49,11 @@ public class SearchBBSDTO {
 		this.avgRate = avgRate;
 	}
 
-	public String[] getSport_kind() {
+	public String getSport_kind() {
 		return sport_kind;
 	}
 
-	public void setSport_kind(String[] sport_kind) {
+	public void setSport_kind(String sport_kind) {
 		this.sport_kind = sport_kind;
 	}
 

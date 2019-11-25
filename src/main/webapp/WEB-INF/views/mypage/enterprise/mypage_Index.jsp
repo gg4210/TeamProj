@@ -4,12 +4,17 @@
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
 <script>
+
 $(function () {
+	
+	var token = $("meta[name='_csrf']").attr("content");
 	//다른페이지에 있다가 눌렀을 때
 	var durl = window.location.hash;
 	if (durl !='') {
 		$(durl).tab('show');
 	}
+		
+	
 	//같은 페이지에 있다가 눌렀을 때
 	$('#centerLinks a').click(function(){
 		var link = $(this).attr('href');
@@ -17,7 +22,10 @@ $(function () {
 		$('#centerLinks a').removeClass("active");
 		$(this).addClass("active");
 		$(sactiveTab).tab('show');
-	});
+	});	
+	
+	
+	
 });
 </script>
 <div class="container">

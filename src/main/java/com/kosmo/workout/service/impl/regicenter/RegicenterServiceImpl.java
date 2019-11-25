@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kosmo.workout.service.MemberDTO;
 import com.kosmo.workout.service.impl.search.SearchDAO;
+import com.kosmo.workout.service.regicenter.RegicenterDTO;
 import com.kosmo.workout.service.regicenter.RegicenterService;
 
 @Service("RegicenterService")
@@ -34,14 +35,27 @@ public class RegicenterServiceImpl  implements RegicenterService{
 	}
 
 	@Override
-	public int isAllowed(Map map) {
-		return dao.isAllowed(map);
+	public int updateAllowed0_forAdmin(Map map) {
+		return dao.updateAllowed0_forAdmin(map);
 	}
 
 	@Override
-	public int updateAllowed0(Map map) {
-		return dao.updateAllowed0(map);
+	public int updateAllowed0_forCenter(Map map) {
+		return dao.updateAllowed0_forCenter(map);
 	}
+
+	@Override
+	public int delete_expired(Map map) {
+		return dao.delete_expired(map);
+	}
+
+	@Override
+	public RegicenterDTO getMapkey(Map map) {
+		return dao.getMapkey(map);
+	}
+
+
+	
 
 
 	
