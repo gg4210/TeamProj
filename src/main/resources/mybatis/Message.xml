@@ -3,7 +3,6 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-
 <mapper namespace="mybatis.Message">
 	<select id="MessageSelectList" parameterType="java.util.Map" resultType="MessageDTO">
 		select * from (select * from message_table where id=#{id} or fromid=#{id}) where id=#{fromid} or fromid=#{fromid} order by mno
@@ -18,6 +17,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="MessageSelectOne" parameterType="java.util.Map" resultType="MessageDTO">
 		select * from (select * from message_table where id=#{id} or fromid=#{id}) where id=#{fromid} or fromid=#{fromid} order by mno desc limit 1
 	</select>
-	
-	
 </mapper>

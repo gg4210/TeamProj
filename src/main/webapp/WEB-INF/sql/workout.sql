@@ -8,7 +8,6 @@ DROP TABLE BBS CASCADE CONSTRAINTS;
 DROP TABLE BookMark CASCADE CONSTRAINTS;
 DROP TABLE CenterReview CASCADE CONSTRAINTS;
 DROP TABLE Complexity CASCADE CONSTRAINTS;
-DROP TABLE RegiCenter CASCADE CONSTRAINTS;
 DROP TABLE CENTER_INFO CASCADE CONSTRAINTS;
 DROP TABLE Notification CASCADE CONSTRAINTS;
 DROP TABLE COUPON CASCADE CONSTRAINTS;
@@ -16,6 +15,7 @@ DROP TABLE CustomerService CASCADE CONSTRAINTS;
 DROP TABLE healthMate CASCADE CONSTRAINTS;
 DROP TABLE MESSAGE_TABLE CASCADE CONSTRAINTS;
 DROP TABLE MY_MATE CASCADE CONSTRAINTS;
+DROP TABLE RegiCenter CASCADE CONSTRAINTS;
 DROP TABLE H_MEMBER CASCADE CONSTRAINTS;
 
 
@@ -104,21 +104,23 @@ CREATE TABLE BookMark
 	NO number NOT NULL,
 	-- 계정
 	ID nvarchar2(50) NOT NULL,
-	mapkey number(8) NOT NULL,
+	-- 아 카카오 지도 id값..ㅎㅎ
+	mapkey number(20) NOT NULL,
 	PRIMARY KEY (NO)
 );
 
 
 CREATE TABLE CenterReview
 (
-	-- 0~4 까지의 인덱스 저장
+	-- 1~5 까지의 인덱스 저장
 	-- 숫자가 적을수록 낮은 별점
 	rate number(1) NOT NULL,
 	rPostDate date DEFAULT SYSDATE NOT NULL,
 	rComment nvarchar2(500) NOT NULL,
 	-- 계정
 	ID nvarchar2(50) NOT NULL,
-	mapkey number(8) NOT NULL,
+	-- 아 카카오 지도 id값..ㅎㅎ
+	mapkey number(20) NOT NULL,
 	NO number NOT NULL,
 	PRIMARY KEY (NO)
 );
@@ -126,7 +128,8 @@ CREATE TABLE CenterReview
 
 CREATE TABLE CENTER_INFO
 (
-	mapkey number(8) NOT NULL,
+	-- 아 카카오 지도 id값..ㅎㅎ
+	mapkey number(20) NOT NULL,
 	-- 수정할 때 사진 받을 경우 씀
 	filename nvarchar2(700),
 	title nvarchar2(50) NOT NULL,
@@ -136,13 +139,23 @@ CREATE TABLE CENTER_INFO
 	tag nvarchar2(100),
 	sport_kind nvarchar2(100),
 	MAXNUMBER number NOT NULL,
+<<<<<<< HEAD
+=======
+	-- 아 왜 뺐어?
+	content nvarchar2(1000),
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	PRIMARY KEY (mapkey)
 );
 
 
 CREATE TABLE Complexity
 (
+<<<<<<< HEAD
 	mapkey number(8) NOT NULL,
+=======
+	-- 아 카카오 지도 id값..ㅎㅎ
+	mapkey number(20) NOT NULL,
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	-- 계정
 	ID nvarchar2(50) NOT NULL
 );
@@ -159,6 +172,7 @@ CREATE TABLE COUPON
 	-- AUTH 권한 설정:기업,관리자
 	ID nvarchar2(50) NOT NULL,
 	AUTHORITY nvarchar2(20),
+	TO_ID nvarchar2(20) NOT NULL,
 	PRIMARY KEY (CNO)
 );
 
@@ -209,8 +223,6 @@ CREATE TABLE H_MEMBER
 	email nvarchar2(50),
 	Address nvarchar2(50),
 	cellphone nvarchar2(13) NOT NULL,
-	-- customer or enterprise or admin
-	AUTHORITY varchar2(20),
 	-- 회원가입페이지에서 등록X 운동메이트 등록 및 수정 페이지에서 데이터를 받을 예정입니다.
 	MY_COMMENT nvarchar2(500) DEFAULT '잘 부탁드립니다.',
 	inter_sports nvarchar2(100),
@@ -268,7 +280,12 @@ CREATE TABLE RegiCenter
 	ID nvarchar2(50) NOT NULL,
 	startDate date DEFAULT SYSDATE,
 	endDate date,
+<<<<<<< HEAD
 	mapkey number(8) NOT NULL,
+=======
+	-- 아 카카오 지도 id값..ㅎㅎ
+	mapkey number(20) NOT NULL,
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	-- 허용시 0, 아닐경우 1
 	isAllowed number(1) DEFAULT 1 NOT NULL,
 	PRIMARY KEY (NO)
@@ -303,12 +320,6 @@ ALTER TABLE SCRAP
 
 
 ALTER TABLE Complexity
-	ADD FOREIGN KEY (mapkey)
-	REFERENCES CENTER_INFO (mapkey)
-;
-
-
-ALTER TABLE RegiCenter
 	ADD FOREIGN KEY (mapkey)
 	REFERENCES CENTER_INFO (mapkey)
 ;
@@ -423,16 +434,23 @@ COMMENT ON COLUMN AUTH_SECURITY.ID IS '계정';
 COMMENT ON COLUMN BBS.ID IS '계정';
 COMMENT ON COLUMN BBS_Comment.ID IS '계정';
 COMMENT ON COLUMN BookMark.ID IS '계정';
-COMMENT ON COLUMN CenterReview.rate IS '0~4 까지의 인덱스 저장
+COMMENT ON COLUMN BookMark.mapkey IS '아 카카오 지도 id값..ㅎㅎ';
+COMMENT ON COLUMN CenterReview.rate IS '1~5 까지의 인덱스 저장
 숫자가 적을수록 낮은 별점';
 COMMENT ON COLUMN CenterReview.ID IS '계정';
+COMMENT ON COLUMN CenterReview.mapkey IS '아 카카오 지도 id값..ㅎㅎ';
+COMMENT ON COLUMN CENTER_INFO.mapkey IS '아 카카오 지도 id값..ㅎㅎ';
 COMMENT ON COLUMN CENTER_INFO.filename IS '수정할 때 사진 받을 경우 씀';
+<<<<<<< HEAD
+=======
+COMMENT ON COLUMN CENTER_INFO.content IS '아 왜 뺐어?';
+COMMENT ON COLUMN Complexity.mapkey IS '아 카카오 지도 id값..ㅎㅎ';
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 COMMENT ON COLUMN Complexity.ID IS '계정';
 COMMENT ON COLUMN COUPON.ID IS 'AUTH 권한 설정:기업,관리자';
 COMMENT ON COLUMN CustomerService.ID IS '계정';
 COMMENT ON COLUMN healthMate.ID IS '계정';
 COMMENT ON COLUMN H_MEMBER.ID IS '계정';
-COMMENT ON COLUMN H_MEMBER.AUTHORITY IS 'customer or enterprise or admin';
 COMMENT ON COLUMN H_MEMBER.MY_COMMENT IS '회원가입페이지에서 등록X 운동메이트 등록 및 수정 페이지에서 데이터를 받을 예정입니다.';
 COMMENT ON COLUMN MESSAGE_TABLE.ID IS '계정';
 COMMENT ON COLUMN MESSAGE_TABLE.isRead IS '1은 읽지않음
@@ -440,6 +458,10 @@ COMMENT ON COLUMN MESSAGE_TABLE.isRead IS '1은 읽지않음
 COMMENT ON COLUMN MY_MATE.ID IS '계정';
 COMMENT ON COLUMN Notification.ID IS '계정';
 COMMENT ON COLUMN RegiCenter.ID IS '계정';
+<<<<<<< HEAD
+=======
+COMMENT ON COLUMN RegiCenter.mapkey IS '아 카카오 지도 id값..ㅎㅎ';
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 COMMENT ON COLUMN RegiCenter.isAllowed IS '허용시 0, 아닐경우 1';
 COMMENT ON COLUMN SCRAP.ID IS '계정';
 

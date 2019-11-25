@@ -16,14 +16,10 @@ public class MessageDAO implements MessageService{
 	
 	@Resource(name="template")
 	private SqlSessionTemplate template;
+
 	
 	public List<MessageDTO> selectList(Map map) {
 		return template.selectList("MessageSelectList", map);
-	}
-
-	@Override
-	public void insert(Map map) {
-		template.insert("MessageInsert", map);
 	}
 
 	@Override
@@ -34,6 +30,12 @@ public class MessageDAO implements MessageService{
 	@Override
 	public List<MessageDTO> selectOne(Map map) {
 		return template.selectOne("MessageSelectOne", map);
+	}
+
+	@Override
+	public void insert(Map map) {
+		template.insert("MessageInsert", map);
+		
 	}
 	
 }

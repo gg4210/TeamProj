@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.EditCenter">
+
+	<select id="selectForMapkeyGet" parameterType="java.util.Map" resultType="WorkOutDTO">
+		SELECT name,address FROM H_MEMBER WHERE id=#{id}
+	</select>
+
+	<insert id="insertRegiCenter" parameterType="java.util.Map">
+		insert into regicenter(no,id,mapkey,isAllowed) values(SEQ_RegiCenter_NO.nextval,#{id},#{mapkey},default)
+	</insert>
+	
+	<select id="getMapkey" parameterType="java.util.Map" resultType="RegicenterDTO">
+		select mapkey from regicenter where id=#{id}
+	</select>
+	
+	<select id="isAllowed" parameterType="java.util.Map" resultType="RegicenterDTO">
+		SELECT ISALLOWED FROM REGICENTER WHERE id=#{ID} and mapkey=#{mapkey}
+	</select>
+	
+	<update id="updateAllowed0_admin" parameterType="java.util.Map">
+		update REGICENTER set isAllowed=0 WHERE id=#{ID} and mapkey=#{mapkey}
+	</update>
+	
+	<update id="updateAllowed0_center" parameterType="java.util.Map">
+		update REGICENTER SET ISALLOWED=0, startdate, enddate WHERE id=#{ID} and mapkey=#{mapkey}
+	</update>
+	
+	<delete id="delete_expired">
+		delete REGICENTER where #{enddate}>sysdate
+	</delete>
+
+</mapper>

@@ -8,6 +8,7 @@ import java.util.Vector;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -40,10 +41,35 @@ public class SearchController {
 		return "search/list.tiles";	
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="/viewComplexAndStar.do", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
+	public String complexAndstar(@RequestParam Map map) {
+
+
+		System.out.println("complexAndstar ajax");
+		JSONObject json=new JSONObject();
+		int rate=SearchService.setRating(map);	
+		String avgRate=CommonUtility.ratingString(rate);//별 표시
+		json.put("avgRate", avgRate);
+		
+		SearchBBSDTO dto=SearchService.setComplexity(map);
+		int countnum=dto.getCountNum();
+		int maxnum=dto.getMaxNumber();
+		String complex=CommonUtility.isComplex(countnum, maxnum);
+		
+
+		json.put("complex", complex);
+		
+		return json.toJSONString();	
+	}
+	
+	
 	@RequestMapping(value="/searchView.do", method=RequestMethod.POST)
 	public String searchView(@RequestParam Map map, HttpServletRequest req, Model model) throws IOException {
 		
+		
 		SearchBBSDTO viewinfo=CommonUtility.mapkeyCrawling(map.get("mapkey").toString(), map.get("tel").toString(), req);
+		
 		viewinfo.setMapkey(map.get("mapkey").toString());
 		viewinfo.setTitle(map.get("title").toString());
 		viewinfo.setTel(map.get("tel").toString());
@@ -69,13 +95,90 @@ public class SearchController {
 			viewinfo.setSport_kind(dto.getSport_kind());
 
 		}
-
+		
+		
+		String avgRate=CommonUtility.ratingString(SearchService.setRating(map));
+		viewinfo.setAvgR(SearchService.setRating(map));
+		viewinfo.setAvgRate(avgRate);
+		
+		SearchBBSDTO dto=SearchService.setComplexity(map);
+		viewinfo.setCountNum(dto.getCountNum());
+		viewinfo.setMaxNumber(dto.getMaxNumber());
+		
 		model.addAttribute("viewinfo",viewinfo);
 		
 		//int complexity=0;
 		//model.addAttribute("complexity",complexity);
 		
 		return "search/view.tiles";
+		
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/show_Summery.do", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
+	public String SummeryView(@RequestParam Map map, Model model, Authentication auth) {
+		
+		System.out.println("별표시, 평점, 혼잡도 ajax");
+				
+		int rate=SearchService.setRating(map);
+		String avgRate=CommonUtility.ratingString(rate);//별 표시
+		SearchBBSDTO dto=SearchService.setComplexity(map);
+		int countnum=dto.getCountNum();
+		int maxnum=dto.getMaxNumber();
+		String complex=CommonUtility.isComplex(countnum, maxnum);
+		
+		map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());
+		int isbookmarked=SearchService.isBookmarked(map);
+		int countBooked=SearchService.countBookmarked(map);
+		
+		String bookmarkedString=CommonUtility.Bookmarked(isbookmarked, countBooked);		
+		JSONObject json=new JSONObject();
+
+		json.put("rate", rate);
+		json.put("bookmarkedString", bookmarkedString);
+		json.put("rateString", avgRate);
+		json.put("complex", complex);
+		
+		return json.toJSONString();
+		
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/insertdelete.do", method=RequestMethod.POST)
+	public String InsertDelete(@RequestParam Map map,Authentication auth) {
+			
+		System.out.println("북마크 insert/delete/warning 처리");
+		JSONObject json=new JSONObject();
+		
+		map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());
+		int isbookmarked=SearchService.isBookmarked(map);
+		int countBooked=SearchService.countBookmarked(map);
+		if(countBooked<=3) {
+			if(isbookmarked==1) {
+				SearchService.deleteBookmark(map);
+				isbookmarked=SearchService.isBookmarked(map);
+				countBooked=SearchService.countBookmarked(map);
+				String bookmarkedString=CommonUtility.Bookmarked(isbookmarked, countBooked);
+				json.put("status", "DELETE");
+				json.put("bookmarkedString", bookmarkedString);
+				
+			}
+			else {
+				SearchService.insertBookmark(map);
+				isbookmarked=SearchService.isBookmarked(map);
+				countBooked=SearchService.countBookmarked(map);
+				String bookmarkedString=CommonUtility.Bookmarked(isbookmarked, countBooked);
+				json.put("status","INSERT");
+				json.put("bookmarkedString", bookmarkedString);
+			}
+		}
+		else {
+			json.put("status","WARNING");
+		}
+		return json.toJSONString();
+		
+		
 	}
 	
 	
@@ -85,7 +188,6 @@ public class SearchController {
 		
 		System.out.println("insert로 들어옵니까?");
 		UserDetails userDetails=(UserDetails)auth.getPrincipal();
-		userDetails.getUsername();
 		map.put("id", userDetails.getUsername());//시큐리티 적용 후
 		System.out.println(map);		
 		int insertInt=SearchService.insertComment(map);
@@ -100,14 +202,12 @@ public class SearchController {
 		
 		System.out.println("list로 들어옵니까?");
 		
-		List<SearchBBSCommentDTO> list=SearchService.selectListComment(map);
-		
-		System.out.println(list);
-		System.out.println(list.getClass().toString());
+		List<SearchBBSCommentDTO> list=SearchService.selectListComment(map);		
 				
 		List<Map> collections=new Vector<Map>();
 		
 		for(SearchBBSCommentDTO dto:list) {
+		
 			Map record=new HashMap();
 			record.put("NO", dto.getNo());
 			record.put("PICTURE", dto.getPicture());
@@ -118,10 +218,10 @@ public class SearchController {
 			record.put("NICK_NAME", dto.getNICK_NAME());
 			record.put("MAPKEY", dto.getMapkey());
 			collections.add(record);
+			
 		}
 		
 		String jsonString =JSONArray.toJSONString(collections);
-		System.out.println(jsonString);
 		
 		return jsonString;
 	

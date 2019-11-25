@@ -7,19 +7,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
 
 <mapper namespace="mybatis.Notification">
-	<select id="NotificationSelectList" parameterType="java.util.Map" resultType="int">
+
+	<select id="notificationCountAll" parameterType="java.util.Map" resultType="int">
 		SELECT COUNT(*) FROM NOTIFICATION WHERE ID=#{id}
+	</select>	
+	<select id="notificationCountCNO" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM Notification WHERE ID=#{id} AND CNO=#{cno}
 	</select>
-	<insert id="NotificationInsert" parameterType="java.util.Map">
-		INSERT INTO Notification(ID,cno) VALUES(#{id},#{cno})
+	<select id="notificationCountMNO" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM Notification WHERE ID=#{id} AND MNO=#{mno}
+	</select>
+	<select id="notificationCountFNO" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM Notification WHERE ID=#{id} AND FNO=#{fno}
+	</select>
+	
+	<insert id="notificationCNO" parameterType="java.util.Map">
+		INSERT INTO Notification(id,cno) VALUES(#{id},#{cno})
 	</insert>
-	<insert id="NotificationInsert2" parameterType="java.util.Map">
-		INSERT INTO Notification(ID,mno) VALUES(#{id},#{mno})
+	<insert id="notificationMNO" parameterType="java.util.Map">
+		INSERT INTO Notification(id,mno) VALUES(#{id},#{mno})
 	</insert>
-	<insert id="NotificationInsert3" parameterType="java.util.Map">
-		INSERT INTO Notification(ID,yno) VALUES(#{id},#{yno})
+	<insert id="notificationFNO" parameterType="java.util.Map">
+		INSERT INTO Notification(id,fno) VALUES(#{id},#{fno})
 	</insert>
-	<delete id="NotificationDelete" parameterType="java.util.Map">
+	
+	<delete id="deleteCNO" parameterType="java.util.Map">
 		DELETE Notification WHERE ID=#{id}
 	</delete>
+	<delete id="deleteMNO" parameterType="java.util.Map">
+		DELETE Notification WHERE ID=#{id}
+	</delete>
+	<delete id="deleteFNO" parameterType="java.util.Map">
+		DELETE Notification WHERE ID=#{id}
+	</delete>
+	
 </mapper>

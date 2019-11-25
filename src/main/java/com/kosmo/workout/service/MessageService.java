@@ -16,5 +16,6 @@ public interface MessageService {
 	
 	//로그인/입력/수정/삭제]
 	void insert(Map map);
+
 	
 }

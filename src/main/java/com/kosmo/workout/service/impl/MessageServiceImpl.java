@@ -22,12 +22,6 @@ public class MessageServiceImpl implements MessageService{
 		return dao.selectList(map);
 	}
 
-	@Override
-	public void insert(Map map) {
-		dao.insert(map);
-	}
-
-	@Override
 	public int MessageCount(Map map) {
 		return dao.MessageCount(map);
 	}
@@ -36,5 +30,10 @@ public class MessageServiceImpl implements MessageService{
 	public List<MessageDTO> selectOne(Map map) {
 		return dao.selectOne(map);
 	}
+	
+	public void insert(Map map) {
+		dao.insert(map);
+	}
+
 	
 }

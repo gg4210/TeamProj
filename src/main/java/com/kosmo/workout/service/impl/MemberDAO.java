@@ -36,6 +36,10 @@ public class MemberDAO implements MemberService{
 		return template.insert("MemberJoin",map);
 		
 	}
+	@Override
+	public int insertCenterJoin(Map map) {
+		return template.insert("CenterJoin",map);
+	}
 	public void authjoin(Map map) {
 		template.insert("AuthJoin",map);
 	}
@@ -47,17 +51,23 @@ public class MemberDAO implements MemberService{
 	}
 
 	@Override
-	public void update(Map map) {
-		// TODO Auto-generated method stub
+	public boolean update(Map map) {
+		return template.update("UpdateMember",map)==0?false:true;
 		
 	}
 
 	@Override
 	public MemberDTO selectOne(Map map) {
-		System.out.println("DAO 통과");
-		System.out.println(map);
 		return template.selectOne("MemberSelectOne", map);
 	}
+
+	//QR코드-맵키 가져오기
+	@Override
+	public int selectMapkey(Map map) {
+		return template.selectOne("makeqr",map);
+	}
+
+	
 
 	
 

@@ -4,11 +4,16 @@ import java.util.List;
 import java.util.Map;
 
 public interface CouponService {
+	//전체 쿠폰 수]
+	int countCoupon(Map map);
 	
-	//목록용]
-	//레코드를 DTO가 아닌 맵에 담아보자.
-	List<Map> selectList(Map map);
-	//로그인/입력/수정/삭제]
-	void insert(Map map);
+	//쿠폰 목록]
+	List<CouponDTO> selectList(Map map);
+	
+	//쿠폰 입력]
+	int insert(Map map);
+	
+	//삭제]
+	int delete(Map map);
 	
 }

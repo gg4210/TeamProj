@@ -12,12 +12,6 @@ public class MessageDTO {
 	private String picture;
 	private String fromid;
 	
-	public String getFromid() {
-		return fromid;
-	}
-	public void setFromid(String fromid) {
-		this.fromid = fromid;
-	}
 	public String getMno() {
 		return mno;
 	}
@@ -42,7 +36,6 @@ public class MessageDTO {
 	public void setRECEIVED_DATE(Date rECEIVED_DATE) {
 		RECEIVED_DATE = rECEIVED_DATE;
 	}
-
 	public String getReadStatus() {
 		return readStatus;
 	}
@@ -61,5 +54,11 @@ public class MessageDTO {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
+	public String getFromid() {
+		return fromid;
+	}
+	public void setFromid(String fromid) {
+		this.fromid = fromid;
+	}
 	
-}
+	

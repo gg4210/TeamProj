@@ -19,8 +19,62 @@ public class MemberDTO {
 	private String nick_name;
 	private String enabled;
 	private String zipcode;
+	private String creginum;
+	private String mapkey;
+	
+	
+	public MemberDTO() {
+		super();
+	}
 
+	public MemberDTO(String id, String password, String password_re, String name, String email, String address,
+			String detail_address, String cellphone, String authority, Date joinDate, String nick_name, String enabled,
+			String zipcode, String creginum) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.password_re = password_re;
+		this.name = name;
+		this.email = email;
+		this.address = address;
+		this.detail_address = detail_address;
+		this.cellphone = cellphone;
+		this.authority = authority;
+		this.joinDate = joinDate;
+		this.nick_name = nick_name;
+		this.enabled = enabled;
+		this.zipcode = zipcode;
+		this.creginum = creginum;
+	}
 
+	public MemberDTO(String id, String password, String password_re, String name, String email, String address,
+			String detail_address, String cellphone, String authority, String my_comment, String picture,
+			String inter_sports, Date joinDate, String nick_name, String enabled, String zipcode, String creginum) {
+		super();
+		this.id = id;
+		this.password = password;
+		this.password_re = password_re;
+		this.name = name;
+		this.email = email;
+		this.address = address;
+		this.detail_address = detail_address;
+		this.cellphone = cellphone;
+		this.authority = authority;
+		this.my_comment = my_comment;
+		this.picture = picture;
+		this.inter_sports = inter_sports;
+		this.joinDate = joinDate;
+		this.nick_name = nick_name;
+		this.enabled = enabled;
+		this.zipcode = zipcode;
+	}
+	
+	public String getMapkey() {
+		return mapkey;
+	}
+	public void setMapkey(String mapkey) {
+		this.mapkey = mapkey;
+	}
 	public String getId() {
 		return id;
 	}
@@ -148,6 +202,15 @@ public class MemberDTO {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
+
+	public String getCreginum() {
+		return creginum;
+	}
+
+	public void setCreginum(String creginum) {
+		this.creginum = creginum;
+	}
+	
 	
 	
 }

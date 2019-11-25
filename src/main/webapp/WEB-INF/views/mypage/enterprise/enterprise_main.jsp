@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-   
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <div class="container">
 
 	<!-- QR코드 생성버튼 시작 -->
 	<div class="row col">
-		 <button type="submit" class="btn btn-info px-3" id="makeQRCode">QR코드생성</button>
-		 <img id="img" alt="QR코드">
+		<button type="submit" class="btn btn-info px-3" id="makeQRCode">QR코드생성</button>
 	</div>
 	<div id="qrcode"></div>
 	<!-- QR코드 생성버튼 끝 -->
@@ -378,9 +377,11 @@ $(function(){
 
 	
 	$('#makeQRCode').click(function(){
-		location.href="QRCode.jsp";
+	        var url = "QRCode.do";
+	        var name = "QRcode";
+	        var option = "width = 400, height = 400, top = 100, left = 200, location = no"
+	        window.open(url, name, option);		
 	});
-
-})
-
+	
+});
 </script>

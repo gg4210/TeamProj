@@ -99,6 +99,24 @@ $(function() {
 	console.log('header길이:',header.length)
 
 	
+	
+	$.ajax({
+		url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
+		data:{'mapkey':'${viewinfo.mapkey}'},
+		type:"post",
+		success:function(data){
+			console.log("displayComplexAndStar 속으로 들어오는지????????"); 
+	        var status=JSON.parse(data);		
+			$('#starString').html(status["avgRate"]);
+			$('#complex').html(status["complex"]);			
+		},
+		error:function(request,status,error){
+	         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+	    },
+	});	
+	
+
+	
 	var showComment=function(){///Ajax로 처리
 		console.log('showComment Ajax 들어옴');
 		$.ajax({
@@ -114,17 +132,16 @@ $(function() {
 	};
 	
 	var displayComments=function(data){
-		var comment='<div class="row pb-4">';
-		console.log('data:',data,',타입:',typeof data)
+		var comment='';
 		
 		if(data.length==0){
 			console.log('데이타 업쇼습니다')
-			comment+='<div class="col text-center">등록된 한줄 댓글이 존재하지 않습니다.</div></div>';
+			comment+='<div class="row pb-4"><div class="col text-center">등록된 한줄 댓글이 존재하지 않습니다.</div></div>';
 		}
 		else{
 			$.each(data,function(index, element){
-				comment+='<div class="col-2">';
-				comment+='<img src='+element['PICTURE']+' alt="Avatar" class="avatar img-fluid">';
+				comment+='<div class="row pb-4"><div class="col-2">';
+				comment+='<img src=/workout'+element['PICTURE']+' alt="Avatar" class="avatar img-fluid">';
 				comment+='</div>'
 				comment+='<div class="col">';
 				comment+='<span class="mt-0 font-weight-bold blue-text h5">'+element['NICK_NAME']+'</span>';
@@ -174,7 +191,6 @@ $(function() {
 				}//switch
 				comment+='</span><p>'+element['RCOMMENT']+'</p><p>'+element['RPOSTDATE']+'</p></div></div>';
 			});//$.each
-			console.log(comment);
 				
 		}//else	
 		$('#comment_list').html(comment);
@@ -226,10 +242,21 @@ $(function() {
 						<div class="col-md-6">
 							 <!--Card image-->
 						      <div class="view">
-						        <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(125).jpg" class="card-img-top" alt="photo">
-						        <a href="#">
-						          <div class="mask rgba-white-slight"></div>
-						        </a>
+						      
+						      	<c:if test="${empty viewinfo.img_urls }" var="img_urls">
+						      		기업회원이 정보를 제공하지 않았습니다.
+								</c:if>
+								<c:if test="${not img_urls }">												
+							      	<c:forEach items="${viewinfo.img_urls }" var="img_url" varStatus="status">
+							      		<c:if test="${status.first}">
+								        	<img src="${img_url }" alt="photo" class="img-fluid">
+									        <a href="#">
+									          <div class="mask rgba-white-slight"></div>
+									        </a>
+								        </c:if>
+							        </c:forEach>
+						        </c:if>
+						        
 						      </div>
 						</div>
 						<div class="col-md-6 pb-3">
@@ -243,20 +270,11 @@ $(function() {
 									<hr/>
 									<p><span class="badge badge-primary">전화번호</span> : ${viewinfo.tel }</p>
 									<hr/>
-									   <p>혼잡도</p>
+									   <p><span class="badge badge-primary">혼잡도</span></p>
 									   <div class="row">
-									   
-										   <div class="col-10 align-middle">
-											   <div class="progress blue">
-													<div class="progress-bar" style="width:70%; background:#fe3b3b;">
-														<div class="progress-value">70%</div>
-													</div>
-												</div>
-											</div>
-											<div class="col-2 px-0">
-												51명
-											</div>
-											
+									   		<div class="col">
+									   			<span id="complex"></span>
+									   		</div>
 										</div>
 										
 									<hr/>									
@@ -264,13 +282,7 @@ $(function() {
 									<hr/>									
 									<p><span class="badge badge-primary">종목</span> <i class="fas fa-swimming-pool"></i> 수영 &nbsp&nbsp<i class="fas fa-dumbbell"></i> 헬스</p>
 									<hr/>
-									<p>평균별점 : <span id="rateMe">
-												<i class="fas fa-star py-2 px-1 rate-popover" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-												<i class="fas fa-star py-2 px-1 rate-popover" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-												<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-												<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-												<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-									</span>(0.0)</p>
+									<p>평균별점 : <span id="starString"></span></p>
 								</div>								
 							</div>
 						</div>
