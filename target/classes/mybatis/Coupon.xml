@@ -21,8 +21,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{event_start},#{event_end},SYSDATE,#{id},#{to_id})
 	</insert>
 	
-	<delete id="endCounpon" parameterType="java.util.Map">
-		DELETE COUPON WHERE EVENT_END=sysdate
+	<delete id="couponEnd" parameterType="java.util.Map">
+		DELETE COUPON WHERE EVENT_END=SYSDATE
 	</delete>
 	
 </mapper>

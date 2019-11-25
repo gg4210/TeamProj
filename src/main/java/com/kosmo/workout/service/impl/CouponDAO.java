@@ -34,7 +34,7 @@ public class CouponDAO implements CouponService{
 
 	@Override
 	public int delete(Map map) {
-		return template.delete("endCounpon", map);
+		return template.delete("couponEnd", map);
 	}
 	
 }
