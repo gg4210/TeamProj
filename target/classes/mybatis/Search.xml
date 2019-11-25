@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<update id="updateSearch" parameterType="java.util.Map">
-		update CENTER_INFO set filename=#{filename},tel=#{tel},otime=#{otime},service=#{service},tag=#{tag},sport_kind=#{sport_kind}
+		update CENTER_INFO set filename=#{filename}, tel=#{tel}, otime=#{otime}, service=#{service}, tag=#{tag}, sport_kind=#{sport_kind}, content=#{content}, MAXNUMBER=#{MAXNUMBER}
 	</update>
 	<!-- EDIT CENTER INFO 끝 -->
 	
@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- CENTER INFO VIEW 시작 -->	
 	<select id="seleteOneSearch" parameterType="java.util.Map" resultType="SearchBBSDTO">
-		select E.filename, E.content, E.tag, E.sport_kind, E.otime, C.COUNT(*) from CENTER_INFO E INNER JOIN Complexity C on E.mapkey=C.mapkey where E.mapkey=#{mapkey}
+		select filename, content, tag, sport_kind, otime, service from CENTER_INFO where mapkey=#{mapkey}
 	</select>
 	<!-- CENTER INFO VIEW 끝 -->
 	

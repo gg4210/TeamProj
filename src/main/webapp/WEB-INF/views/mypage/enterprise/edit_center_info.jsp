@@ -27,7 +27,7 @@
 				<!-- 센터명 시작 -->
 				<div class="form-group">
 				  <label for="edit-centername">센터명</label>
-				  <input type="text" class="form-control col-5" name="title">
+				  <input type="text" class="form-control col-5" name="title" value="${dto.title }">
 				</div>
 				<!-- 센터명 끝 -->
 	
@@ -50,7 +50,7 @@
 				<div class="form-group">
 				  <label for="edit-centername mt-1">정원</label>
 				  <div class="form-inline">
-				  	<input type="text" class="form-control col-3" id="max" style="text-align:right;" name="maxNumber"><span class="mt-2">&nbsp명</span>
+				  	<input type="text" class="form-control col-3" id="max" style="text-align:right;" name="maxNumber" value="${dto.MAXNUMBER }"><span class="mt-2">&nbsp명</span>
 				  </div>
 				</div>
 				<!-- 정원 끝 -->
@@ -58,7 +58,7 @@
 			<!-- 센터소개 시작 -->			
 			<div class="form-group col-lg-6">
 				<label for="center-info-textarea">센터소개</label>
-				<textarea class="form-control" id="center-info-textarea" rows="11" name="content"></textarea>
+				<textarea class="form-control" id="center-info-textarea" rows="11" name="content" value="${dto.content }"></textarea>
 			</div>
 			<!-- 센터소개 끝 -->
 			
@@ -67,7 +67,7 @@
 		<!-- 종목 시작 -->	
   		<div class="form-group">
 			<label for="kinds_of_sport">운동종목</label> 
-				<select name="kinds_of_sport" id="kinds_of_sport" class="form-control">
+				<select name="kinds_of_sport" id="kinds_of_sport" class="form-control" multiple="multiple">
 					<option value="헬스" icon="iw-way">헬스</option>
 					<option value="필라테스" icon="iw-crane">필라테스</option>
 					<option value="수영" icon="iw-scope">수영</option>
@@ -88,7 +88,7 @@
 		<div class="form-group">	
 		
 			<label for="kind_of_service">제공 서비스</label>			
-			<select name="kind_of_service" id="kind_of_service" class="form-control">
+			<select name="kind_of_service" id="kind_of_service" class="form-control" multiple="multiple">
 				<option value="운동복" icon="iw-uniform">운동복</option>
 				<option value="타월" icon="iw-tower">타월</option>
 				<option value="주차" icon="iw-park">주차</option>

@@ -46,18 +46,29 @@ $(function(){
 		success:function(data){
 			console.log("center_info 관련 ajax");
 			var obj = JSON.parse(data);
-			$("#first-img").html('<img src="'+obj.img_urls[0]+'" class="card-img-top img-fluid" alt="photo" height="350px">');
+			console.log(data);
+			
+			var split=obj.tag.split(',');
+			var tagString="";
+			for ( var i in split ) {
+				tagString+='<div class="col-md-2"><input type="text" class="form-control" name="tag1" id="tag1" placeholder="태그입력" value="#'+split[i]+'" disabled="disabled"/></div>';	
+			}
+			
+			
+			$("#first-img").html('<img src="/workout'+obj.img_urls[0]+'" class="card-img-top img-fluid" alt="photo" height="350px">');
 			$('#title_center').html(obj.title);
 			$('#tel').html(obj.tel);
 			$('#addr').html(obj.addr);
 			$('#otime').html(obj.otime);
+			$('#tag_centerInfo').html(tagString);
+			$('#sports-kind').html(obj.sport_kind);
 			$('#content_center_info').html(obj.content);
 			$('#service').html(obj.service);
 			$('#rating').html(obj.avgRate);
 			$('#complexity').html(obj.compliextyString);
 			var image_content="";
 			for(var i in obj.img_urls){
-                image_content+='<div class="card"><img class="card-img-top" src="'+obj.img_urls[i]+'" alt="Card image cap"></div>';
+                image_content+='<div class="card"><img class="card-img-top" src="/workout'+obj.img_urls[i]+'" alt="Card image cap"></div>';
 			}
 			$('#img_urls').html(image_content);
 			showComment(obj.mapkey);		
@@ -259,17 +270,10 @@ $(function(){
                         </div>
                         <div class="card-body">
                         <!--Text-->
-                           <div class="form-row">
-                              <div class="col-md-3">
-                                 <input type="text" class="form-control" name="tag1" id="tag1" placeholder="태그입력" value="#필라테스" disabled="disabled"/>
-                              </div>
-                              <div class="col-md-3">
-                                 <input type="text" class="form-control" name="tag2" id="tag2" placeholder="태그입력" value="#헬스" disabled="disabled"/>
-                              </div>
-                              <div class="col-md-3">
-                                 <input type="text" class="form-control" name="tag3" id="tag3" placeholder="태그입력" value="#최고의강사진" disabled="disabled"/>
-                              </div>
-                              </div>
+                           <div class="form-row" id="tag_centerInfo">
+                           
+                              
+                            </div>
                         </div>
                      </div>
                   </div>
