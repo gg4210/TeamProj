@@ -12,7 +12,7 @@
 	<category_index>0</category_index>
 	<zoom>1.0</zoom>
 	<x>3</x>
-	<y>445</y>
+	<y>0</y>
 	<default_color>
 		<r>128</r>
 		<g>128</g>
@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2019-10-04 16:01:24</creation_date>
-			<updated_date>2019-11-25 11:01:11</updated_date>
+			<updated_date>2019-11-25 11:52:39</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -4667,7 +4667,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>53</word_id>
+					<word_id>52</word_id>
 					<id>73</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -4928,7 +4928,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>52</word_id>
+					<word_id>53</word_id>
 					<id>77</id>
 					<description></description>
 					<unique_key_name></unique_key_name>

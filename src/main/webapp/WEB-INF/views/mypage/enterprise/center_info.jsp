@@ -47,15 +47,16 @@ $(function(){
 			console.log("center_info 관련 ajax");
 			var obj = JSON.parse(data);
 			console.log(data);
-			
-			var split=obj.tag.split(',');
-			var tagString="";
-			for ( var i in split ) {
-				tagString+='<div class="col-md-2"><input type="text" class="form-control" name="tag1" id="tag1" placeholder="태그입력" value="#'+split[i]+'" disabled="disabled"/></div>';	
+		
+			if(obj.tag!=null){
+				var split=obj.tag.split(',');
+				var tagString="";
+				for ( var i in split ) {
+					tagString+='<div class="col-md-2"><input type="text" class="form-control" name="tag1" id="tag1" placeholder="태그입력" value="#'+split[i]+'" disabled="disabled"/></div>';	
+				}
 			}
 			
-			
-			$("#first-img").html('<img src="/workout'+obj.img_urls[0]+'" class="card-img-top img-fluid" alt="photo" height="350px">');
+			$("#first-img").html('<img src="'+obj.img_urls[0]+'" class="card-img-top img-fluid" alt="photo" height="350px">');
 			$('#title_center').html(obj.title);
 			$('#tel').html(obj.tel);
 			$('#addr').html(obj.addr);
@@ -68,7 +69,7 @@ $(function(){
 			$('#complexity').html(obj.compliextyString);
 			var image_content="";
 			for(var i in obj.img_urls){
-                image_content+='<div class="card"><img class="card-img-top" src="/workout'+obj.img_urls[i]+'" alt="Card image cap"></div>';
+                image_content+='<div class="card"><img class="card-img-top" src="'+obj.img_urls[i]+'" alt="Card image cap"></div>';
 			}
 			$('#img_urls').html(image_content);
 			showComment(obj.mapkey);		
