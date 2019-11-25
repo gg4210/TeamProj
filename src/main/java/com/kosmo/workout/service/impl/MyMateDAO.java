@@ -17,10 +17,7 @@ public class MyMateDAO implements MyMateService{
 	@Resource(name="template")
 	private SqlSessionTemplate template;
 
-	@Override
-	public void insert(Map map) {
-		template.insert("MyMateInsert", map);
-	}
+	
 
 	@Override
 	public MyMateDTO selectOne(Map map) {
@@ -35,6 +32,11 @@ public class MyMateDAO implements MyMateService{
 	@Override
 	public List<MyMateDTO> fromSelectList(Map map) {
 		return template.selectList("MyMateFromSelectList", map);
+	}
+
+	@Override
+	public int insert(Map map) {
+		return template.insert("MyMateInsert",map);
 	}
 
 	

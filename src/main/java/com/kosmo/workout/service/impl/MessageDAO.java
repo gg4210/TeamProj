@@ -33,9 +33,10 @@ public class MessageDAO implements MessageService{
 	}
 
 	@Override
-	public void insert(Map map) {
-		template.insert("MessageInsert", map);
-		
+	public int insert(Map map) {
+		return template.insert("MessageInsert", map);
 	}
+
+
 	
 }

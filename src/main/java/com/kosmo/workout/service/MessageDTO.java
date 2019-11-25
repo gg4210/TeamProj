@@ -61,4 +61,5 @@ public class MessageDTO {
 		this.fromid = fromid;
 	}
 	
+}
 	

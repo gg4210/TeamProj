@@ -15,7 +15,7 @@ public interface MessageService {
 	int MessageCount(Map map);
 	
 	//로그인/입력/수정/삭제]
-	void insert(Map map);
+	int insert(Map map);
 
 	
 }

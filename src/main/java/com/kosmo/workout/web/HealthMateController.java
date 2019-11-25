@@ -37,15 +37,10 @@ public class HealthMateController {
 	//서비스 주입]
 	@Resource(name = "HealthMateService")
 	private HealthMateService HealthMateService;
-<<<<<<< HEAD
 	@Resource(name="MyMateService")
 	private MyMateService MyMateService;
 	
 	@RequestMapping("/member/healthMateMain.do")
-=======
-	
-	@RequestMapping("/member/healthMateMain.do")
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	public String mainPage(@RequestParam Map map, Model model) {
 		List<HealthMateDTO> mateList=HealthMateService.selectList(map);
 		model.addAttribute("mateList", mateList);

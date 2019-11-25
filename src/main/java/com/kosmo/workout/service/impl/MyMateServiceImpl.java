@@ -17,10 +17,7 @@ public class MyMateServiceImpl implements MyMateService{
 	@Resource(name="MyMateDAO")
 	private MyMateDAO dao;
 
-	@Override
-	public void insert(Map map) {
-		dao.insert(map);
-	}
+	
 
 	@Override
 	public MyMateDTO selectOne(Map map) {
@@ -35,6 +32,11 @@ public class MyMateServiceImpl implements MyMateService{
 	@Override
 	public List<MyMateDTO> fromSelectList(Map map) {
 		return dao.fromSelectList(map);
+	}
+
+	@Override
+	public int insert(Map map) {
+		return dao.insert(map);
 	}
 	
 	
