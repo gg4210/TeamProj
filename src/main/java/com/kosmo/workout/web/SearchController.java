@@ -57,7 +57,6 @@ public class SearchController {
 		int maxnum=dto.getMaxNumber();
 		String complex=CommonUtility.isComplex(countnum, maxnum);
 		
-		System.out.println("안녕:"+complex);
 
 		json.put("complex", complex);
 		

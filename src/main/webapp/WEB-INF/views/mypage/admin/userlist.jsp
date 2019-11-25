@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
     
 <script src='<c:url value="/resources/utils/table_edit/jquery.tabledit.js"/>'></script>
 <script src='<c:url value="/resources/utils/table_edit/jquery.tablesorter.js"/>'></script>
@@ -10,13 +11,55 @@
 
 <script type="text/javascript">
 $(function(){
-	$('#user-datatable').Tabledit({
-	    url: 'example.php',
-	    columns: {
-	        identifier: [0, 'id'],
-	        editable: [[1, '구분'], [2, '아이디'], [3, '이름'], [4, '이메일'], [5, '휴대폰번호'], [6, '가입일'], [7, '권한']]
-	    }
-	});
+	
+	var token = $("meta[name='_csrf']").attr("content");
+
+	var showUserInfo=function(){
+		$.ajax({
+			url:"<c:url value='/usertable.do?_csrf="+token+"'/>",
+			type:"post",
+			success:function(data){
+				var tableString='';
+				
+				var data=JSON.parse(data);
+				
+				if(data.length==0){
+					console.log("회원이 존재하지 않는다");
+					tableString='<tr><td scope="row">"회원이 존재하지 않습니다."</td></tr>';
+				}
+				else{
+					console.log("회원이 존재한다.");
+					console.log(data);
+					$.each(data, function(index, element){
+						tableString+='<tr>'+
+						'<td>'+element['NO']+'</td>'+
+						'<td>'+element['AUTHORITY']+'</td>'+
+						'<td>'+element['ID']+'</td>'+
+						'<td>'+element['NAME']+'</td>'+
+						'<td>'+element['EMAIL']+'</td>'+
+						'<td>'+element['TEL']+'</td>'+
+						'<td>'+element['JOINDATE']+'</td>';
+						if(element['AUTHORITY']=="ROLE_USER"){
+							tableString+='<td>-</td>';
+							}
+						else{
+							if(element['ISALLOWED']==1){
+								tableString+='<td><a href="'+element['MAPKEY']+'" id="'+element['ID']+'">승인처리</span></td>';
+							}
+							else{
+								tableString+='<td>'+element['MAPKEY']+'</td>';			
+							}
+						}
+						tableString+='</tr>';
+					});//each끝
+					$('#inner_table').html(tableString);
+					
+				}//else끝
+			},
+			error:function(data){
+			}
+		});
+	}
 
 	$('#user-datatable').tablesorter({
 		widgets : [ 'zebra', 'columns' ],
@@ -24,8 +67,38 @@ $(function(){
 		sortReset : true,
 		sortRestart : true
 	});
-	
+
 	$('#user-datatable').tableSearch({});
+	
+	showUserInfo();
+	
+	$(document).on("click","#inner_table > tr > td:nth-child(8) > a", function(event){
+		event.preventDefault();
+		$('#permit-power-modal').modal();
+		$('#permit_mapkey').html($(this).attr("href"));
+		var mapkey=$(this).attr("href");
+		var id=$(this).attr('id');
+		
+		$('#confirm_allowed').click(function(){
+			$.ajax({
+				url:"/workout/updateAllowed0_admin.do?_csrf="+token,
+				data:{"mapkey":mapkey,"ID":id},
+				type:"post",
+				success:function(data){
+					var data=JSON.parse(data);
+					console.log(data);
+					$('#permit-power-modal').modal('hide');
+					alert(data.isUpdate);
+					showUserInfo();
+				},
+				error:function(data){					
+				}
+			});
+		});
+		
+	});
+	
+
 });
 </script>
 
@@ -67,50 +140,8 @@ $(function(){
 					<th width="10%">권한</th>
 				</tr>
 			</thead>
-			<tbody class="pt-3">
-				<tr>
-					<td>4</td>
-					<td>일반</td>
-					<td>kim</td>
-					<td>김길동</td>
-					<td>kim@kim.com</td>
-					<td>000-0000-0000</td>
-					<td>2019-10-21</td>
-					<td>-</td>
-				</tr>
-				<tr>
-					<td>3</td>						
-					<td>기업</td>
-					<td>lee</td>
-					<td>이길동</td>
-					<td>lee@lee.com</td>
-					<td>111-1111-1111</td>
-					<td>2019-10-21</td>
-					<td>mapkey1</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>기업</td>
-					<td>park</td>
-					<td>박길동</td>
-					<td>park@park.com</td>
-					<td>222-2222-2222</td>
-					<td>2019-10-25</td>
-					<td><a href="#" data-toggle="modal" data-target="#permit-power-modal" id="permit-power">승인처리</a></td>
-					<!-- 
-					<td><button class="btn btn-warning p-2 px-4">승인처리</button></td>
-					-->
-				</tr>
-				<tr>
-					<td>1</td>
-					<td>일반</td>
-					<td>woo</td>
-					<td>우길동</td>
-					<td>woo@woo.com</td>
-					<td>333-3333-3333</td>
-					<td>2019-10-21</td>
-					<td>-</td>
-				</tr>
+			<tbody class="pt-3" id="inner_table">
+		
 			</tbody>
 		</table>
 	</div>
@@ -157,16 +188,11 @@ $(function(){
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        <h5>센터 찾기</h5>
-	        <p>이
-	          <a role="button" class="btn btn-secondary popover-test" title="" data-content="Popover body content is set in this attribute."
-	            data-original-title="Popover title" data-toggle="popover">button</a> 버튼을 눌러 센터를 검색합니다</p>
-	        <hr>
 	        <h5>센터의 맵키</h5>
-	        <p>123456789</p>
+	        <p id="permit_mapkey"></p>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary">확인</button>
+	        <button type="button" class="btn btn-primary" id="confirm_allowed">확인</button>
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
 	      </div>
 	    </div>
@@ -175,16 +201,4 @@ $(function(){
 	
 </div>
 
-
-<script>
-<!-- 센터관리 승인처리 모달 -->
-$(function(){
-	$('#permit-power').click(function(){
-		if($(this).val() === '승인처리'){
-			$('#permit-power-modal').modal('show');
-		}
-		
-	});
-});
-</script>
 
