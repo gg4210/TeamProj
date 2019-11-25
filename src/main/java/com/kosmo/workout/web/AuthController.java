@@ -1,7 +1,9 @@
 package com.kosmo.workout.web;
 
+import java.util.HashMap;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -22,6 +24,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.kosmo.workout.service.AuthSecurityDTO;
+import com.kosmo.workout.service.AuthSecurityService;
 import com.kosmo.workout.service.MemberDTO;
 import com.kosmo.workout.service.MemberService;
 import com.kosmo.workout.service.NotificationService;
@@ -119,6 +123,13 @@ public class AuthController {
 		
 		return "index.tiles";
 	}
+	
+	@Resource(name = "AuthSecurityService")
+	private AuthSecurityService AuthSecurityService;
+	
+	@Resource(name = "CouponService")
+	private com.kosmo.workout.service.CouponService CouponService;
+	
 	/*
 	@RequestMapping("/logout.do")
 	public String logout(SessionStatus status) {

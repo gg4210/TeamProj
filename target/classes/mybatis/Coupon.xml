@@ -7,17 +7,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
 
 <mapper namespace="mybatis.Coupon">
+
 	<select id="couponCount" parameterType="java.util.Map" resultType="int">
 		SELECT COUNT(*) FROM COUPON WHERE ID=#{id}
 	</select>
+	
 	<select id="couponList" parameterType="java.util.Map" resultType="CouponDTO">
-		SELECT * FROM COUPON WHERE ID=#{id} ORDRE BY CNO DESC
+		SELECT * FROM COUPON WHERE ID=#{id} ORDER BY CNO DESC
 	</select>
+	
 	<insert id="couponInsert" parameterType="java.util.Map">
-		INSERT INTO COUPON VALUES(SEQ_COUPON_NO.NEXTVAL,#{cno},#{eventTitle},#{eventContent},
-		#{eventStart},#{eventEnd},sysdate,#{id},#{authority})
+		INSERT INTO COUPON(CNO,EVENT_TITLE,EVENT_CONTENT,EVENT_START,EVENT_END,EVENT_SEND,ID,TO_ID) VALUES(SEQ_COUPON_CNO.NEXTVAL,#{event_title},#{event_content},
+		#{event_start},#{event_end},SYSDATE,#{id},#{to_id})
 	</insert>
+	
 	<delete id="endCounpon" parameterType="java.util.Map">
 		DELETE COUPON WHERE EVENT_END=sysdate
 	</delete>
+	
 </mapper>

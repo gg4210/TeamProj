@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mybatis.Complexity">
 	<select id="isRegiCenter" parameterType="java.util.Map" resultType="int">
-		SELECT COUNT(*) FROM REGICENTER WHERE ID=#{ID} AND MAPKEY=#{MAPKEY}
+		SELECT COUNT(*) FROM REGICENTER WHERE ID=#{id} AND MAPKEY=#{mapkey}
 	</select>
 	<select id="viewComplexity" parameterType="java.util.Map">
 		SELECT(SELECT MAXNUMBER FROM CENTER_INFO) MAXNUMBER, 
@@ -18,9 +18,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT COUNT(ID) FROM COMPLEXITY
 	</select>
 	<insert id="complexityInsert" parameterType="java.util.Map">
-		INSERT INTO COMPLEXITY(ID,MAPKEY) VALUES(#{ID},#{MAPKEY})
+		INSERT INTO COMPLEXITY(ID,MAPKEY) VALUES(#{id},#{mapkey})
 	</insert>
 	<delete id="complexityDelete" parameterType="java.util.Map">
-		DELETE Notification WHERE ID=#{id}
+		DELETE COMPLEXITY WHERE MAPKEY=#{MAPKEY} AND ID=#{ID}
 	</delete>
 </mapper>

@@ -12,13 +12,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT COUNT(*) FROM NOTIFICATION WHERE ID=#{id}
 	</select>	
 	<select id="notificationCountCNO" parameterType="java.util.Map" resultType="int">
-		SELECT COUNT(*) FROM NOTIFICATION WHERE ID=#{id} AND CNO=#{cno}
+		SELECT COUNT(*) FROM Notification WHERE ID=#{id} AND CNO=#{cno}
 	</select>
 	<select id="notificationCountMNO" parameterType="java.util.Map" resultType="int">
-		SELECT COUNT(*) FROM NOTIFICATION WHERE ID=#{id} AND MNO=#{mno}
+		SELECT COUNT(*) FROM Notification WHERE ID=#{id} AND MNO=#{mno}
 	</select>
 	<select id="notificationCountFNO" parameterType="java.util.Map" resultType="int">
-		SELECT COUNT(*) FROM NOTIFICATION WHERE ID=#{id} AND FNO=#{fno}
+		SELECT COUNT(*) FROM Notification WHERE ID=#{id} AND FNO=#{fno}
 	</select>
 	
 	<insert id="notificationCNO" parameterType="java.util.Map">
