@@ -35,7 +35,7 @@ public class CommonUtility {
 	 *  6) Bookmarked : 경우의 수를 따져 북마크 string으로 반환
 	 *  7) isComplex : 복잡도 보여주는 progressbar 생성하는 string 반환
 	 *  8) pagingBootStrap4Style : 부트스트랩 4 버전으로 만든 paging String 반환
-	 *  
+	 *  9) implode : 배열 -> 문자열로 바꿔줌.
 	 *  
 	 */
 
@@ -306,6 +306,19 @@ public class CommonUtility {
 		pagingStr+="</ul></nav>";
 		return pagingStr;
 		
+	}
+	
+	public static String implode(String separator, String... data) {
+	    StringBuilder sb = new StringBuilder();
+	    for (int i = 0; i < data.length - 1; i++) {
+	    //data.length - 1 => to not add separator at the end
+	        if (!data[i].matches(" *")) {//empty string are ""; " "; "  "; and so on
+	            sb.append(data[i]);
+	            sb.append(separator);
+	        }
+	    }
+	    sb.append(data[data.length - 1].trim());
+	    return sb.toString();
 	}
 	
 	

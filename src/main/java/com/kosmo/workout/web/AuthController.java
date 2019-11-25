@@ -56,6 +56,7 @@ public class AuthController {
 		System.out.println(map);
 	}
 	
+	/*
 	@RequestMapping("/notification.do")
 	public String data(@RequestParam Map map, Authentication auth) {
 		UserDetails userDetails=(UserDetails)auth.getPrincipal();
@@ -66,6 +67,7 @@ public class AuthController {
 		System.out.println(count);
 		return "index.tiles";
 	}
+	*/
 	
 	@RequestMapping(value="/appLogin.do", produces = "text/html; charset=UTF-8")
 	@ResponseBody

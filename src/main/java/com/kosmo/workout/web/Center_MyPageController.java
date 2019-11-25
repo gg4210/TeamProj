@@ -85,14 +85,23 @@ public class Center_MyPageController {
 		if(isIn!=0) {// 있으면 우리 데이터 베이스!
 			SearchBBSDTO dto1=SearchService.selectOneSearchDTO(map);
 			
-			/*viewinfo.setMaxNumber(dto.getMaxNumber());*/
+			System.out.println(dto1.getFilename());			
+			String[] img_urls=dto1.getFilename().split(",");
 			
+			result.setImg_urls(img_urls);			
 			result.setCountNum(dto1.getCountNum());
-			result.setImg_urls(dto1.getImg_urls());
 			result.setContent(dto1.getContent());
+			result.setService(dto1.getService());
+			result.setSport_kind(dto1.getSport_kind());
 			result.setOtime(dto1.getOtime());
 			result.setTag(dto1.getTag());
 			result.setSport_kind(dto1.getSport_kind());
+			result.setAvgRate(CommonUtility.ratingString(SearchService.setRating(map)));
+			int rate=SearchService.setRating(map);
+			String avgRate=CommonUtility.ratingString(rate);//별 표시 String
+			String compliextyString=CommonUtility.isComplex(dto1.getCountNum(), dto1.getMaxNumber()); //혼잡도 표시 String
+			result.setAvgRate(avgRate);
+			result.setCompliextyString(compliextyString);
 			
 		}
 		else { // 웹크롤링에 저장된 값.
@@ -115,28 +124,61 @@ public class Center_MyPageController {
 	}
 	
 	
+	
+	
+	
 	@RequestMapping("/center/enterprise.do")
-	public String enterprise() throws IOException{	
+	public String enterprise() throws IOException{
+		
 		return "mypage/enterprise/mypage_Index.tiles";
 	}
 	
 	
 	@RequestMapping("/center/edit_centerinfo.do")
-	public String edit_centerinfo() {
-		return "mypage/enterprise/edit_center_info.tiles";
-	}
-	@RequestMapping("/center/edit_OK.do")
-	public String edit_OK(@RequestParam Map map, MultipartHttpServletRequest mtfRequest, HttpServletRequest req, Authentication auth) {
-		
-		System.out.println(map);
+	public String edit_centerinfo(@RequestParam Map map, Authentication auth, Model model) {
 		
 		map.put("id",((UserDetails)auth.getPrincipal()).getUsername());
 		RegicenterDTO dto=RegicenterService.getMapkey(map);
 		map.put("mapkey", dto.getMapkey());
 		
+		MemberDTO dto2=MemberService.selectOne(map);
+		map.put("title", dto2.getName());
+		map.put("address", dto2.getAddress());
+		map.put("tel", dto2.getCellphone());
+		
+		int isin=SearchService.isIn(map);
+		
+		if(isin!=0) {
+			SearchBBSDTO dto1=SearchService.selectOneSearchDTO(map);
+			map.put("MAXNUMBER", dto1.getMaxNumber());
+			map.put("content", dto1.getContent());
+			map.put("filename", dto1.getImg_urls());
+			map.put("otime", dto1.getOtime());
+			map.put("tag", dto1.getTag());
+			map.put("sport_kind", dto1.getSport_kind());
+		}
+	
+		model.addAttribute("dto",map);
+		
+		return "mypage/enterprise/edit_center_info.tiles";
+	}
+	
+	
+	
+	
+	@RequestMapping("/center/edit_OK.do")
+	public String edit_OK(@RequestParam Map map, MultipartHttpServletRequest mtfRequest, HttpServletRequest req, Authentication auth) {
+		
+		
+		System.out.println(map.get("kinds_of_sport")); // 하나밖에 못들고옴...ㅅㅂ
+		System.out.println(map.get("kind_of_service")); // 하나밖에 못들고옴 역시...ㅅㅂ
+		
+		map.put("id",((UserDetails)auth.getPrincipal()).getUsername());
+		RegicenterDTO dto=RegicenterService.getMapkey(map);
+		map.put("mapkey", dto.getMapkey());		
+		
 		List<MultipartFile> fileList = mtfRequest.getFiles("photos[]");
 
-		String img_urls[]= new String[fileList.size()];
 		
 		map.put("MAXNUMBER", map.get("maxNumber"));
 		map.put("service", map.get("kind_of_service"));
@@ -150,20 +192,29 @@ public class Center_MyPageController {
 		map.put("tag", map.get("work-tag"));
 		map.put("sport_kind", map.get("kinds_of_sport"));
 		
+		String[] url= new String[fileList.size()];
+		StringBuilder sb = new StringBuilder();
 		//Multiple file upload 시작
 		for(int i=0;i<fileList.size();i++) {
 			MultipartFile mf=fileList.get(i);
-            String originFileName = mf.getOriginalFilename(); // 원본 파일 명
-            long fileSize = mf.getSize(); // 파일 사이즈
-
-			String url=fileUploadService.restore(req, mf);
-			img_urls[i]=url;
+			url[i]=fileUploadService.restore(req, mf);
 		}
-		map.put("filename", img_urls.toString());
+		
+		System.out.println("implode:"+CommonUtility.implode(",", url));
+		
+		
+		map.put("filename", CommonUtility.implode(",", url));
 		//Multiple file upload 끝
 		
-        
-        SearchService.insertSearchDTO(map);
+		System.out.println("edit center 값:"+map);
+		int isin=SearchService.isIn(map);
+		
+		if(isin==0) {//입력값이 없다.
+			SearchService.insertSearchDTO(map);
+		}
+		else {//입력값이 있다.
+			SearchService.updateSearchDTO(map);
+		}
 
 
 		return "mypage/enterprise/mypage_Index.tiles";
