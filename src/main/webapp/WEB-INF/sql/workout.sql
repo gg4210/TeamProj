@@ -1,5 +1,5 @@
 
-/* Drop Tables
+/* Drop Tables */
 
 DROP TABLE AUTH_SECURITY CASCADE CONSTRAINTS;
 DROP TABLE BBS_Comment CASCADE CONSTRAINTS;
@@ -35,10 +35,11 @@ DROP SEQUENCE SEQ_MESSAGE_TABLE_MNO;
 DROP SEQUENCE SEQ_MY_MATE_FNO;
 DROP SEQUENCE SEQ_RegiCenter_NO;
 DROP SEQUENCE SEQ_SCRAP_NO;
-*/
 
 
-/* Create Sequences*/
+
+
+/* Create Sequences */
 
 CREATE SEQUENCE SEQ_AUTH_SECURITY_SECNO INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_BBS_Comment_CNO INCREMENT BY 1 START WITH 1;
@@ -134,16 +135,16 @@ CREATE TABLE CENTER_INFO
 	service nvarchar2(80) NOT NULL,
 	tag nvarchar2(100),
 	sport_kind nvarchar2(100),
+	MAXNUMBER number NOT NULL,
 	PRIMARY KEY (mapkey)
 );
 
 
 CREATE TABLE Complexity
 (
-	maxNumber number,
-	CountNum number DEFAULT 0 NOT NULL,
 	mapkey number(8) NOT NULL,
-	PRIMARY KEY (mapkey)
+	-- 계정
+	ID nvarchar2(50) NOT NULL
 );
 
 
@@ -185,16 +186,16 @@ CREATE TABLE healthMate
 	ID nvarchar2(50) NOT NULL,
 	title nvarchar2(20) NOT NULL,
 	location nvarchar2(20) NOT NULL,
-	interSport nvarchar2(50) NOT NULL,
+	interSport nvarchar2(20) NOT NULL,
 	healthTime nvarchar2(10) DEFAULT '시간협의' NOT NULL,
 	startDate date NOT NULL,
 	endDate date NOT NULL,
-	first_tag varchar2(10),
+	first_tag nvarchar2(10),
 	second_tag nvarchar2(10),
 	third_tag nvarchar2(10),
 	content nvarchar2(1000),
 	postDate date DEFAULT SYSDATE,
-	picture nvarchar2(100),
+	matePhoto nvarchar2(100),
 	PRIMARY KEY (NO)
 );
 
@@ -217,6 +218,8 @@ CREATE TABLE H_MEMBER
 	joindate date DEFAULT SYSDATE NOT NULL,
 	NICK_NAME nvarchar2(20) NOT NULL,
 	DETAIL_ADDRESS nvarchar2(50),
+	ZIPCODE number,
+	CREGINUM nvarchar2(40),
 	PRIMARY KEY (ID)
 );
 
@@ -228,8 +231,8 @@ CREATE TABLE MESSAGE_TABLE
 	ID nvarchar2(50) NOT NULL,
 	CONTENT nvarchar2(500) NOT NULL,
 	RECEIVED_DATE date DEFAULT SYSDATE NOT NULL,
-	name nvarchar2(50),
-	picture nvarchar2(50),
+	picture nvarchar2(100),
+	fromID nvarchar2(50),
 	-- 1은 읽지않음
 	-- 0은 읽음
 	isRead number(1) DEFAULT 1 NOT NULL,
@@ -243,6 +246,7 @@ CREATE TABLE MY_MATE
 	-- 계정
 	ID nvarchar2(50) NOT NULL,
 	FRIEND_ID nvarchar2(50) NOT NULL,
+	mateDate date DEFAULT SYSDATE,
 	PRIMARY KEY (FNO)
 );
 
@@ -262,9 +266,11 @@ CREATE TABLE RegiCenter
 	NO number NOT NULL,
 	-- 계정
 	ID nvarchar2(50) NOT NULL,
-	startDate date DEFAULT SYSDATE NOT NULL,
-	endDate date NOT NULL,
+	startDate date DEFAULT SYSDATE,
+	endDate date,
 	mapkey number(8) NOT NULL,
+	-- 허용시 0, 아닐경우 1
+	isAllowed number(1) DEFAULT 1 NOT NULL,
 	PRIMARY KEY (NO)
 );
 
@@ -293,12 +299,6 @@ ALTER TABLE BBS_Comment
 ALTER TABLE SCRAP
 	ADD FOREIGN KEY (bbs_no)
 	REFERENCES BBS (NO)
-;
-
-
-ALTER TABLE BookMark
-	ADD FOREIGN KEY (mapkey)
-	REFERENCES CENTER_INFO (mapkey)
 ;
 
 
@@ -345,6 +345,12 @@ ALTER TABLE BookMark
 
 
 ALTER TABLE CenterReview
+	ADD FOREIGN KEY (ID)
+	REFERENCES H_MEMBER (ID)
+;
+
+
+ALTER TABLE Complexity
 	ADD FOREIGN KEY (ID)
 	REFERENCES H_MEMBER (ID)
 ;
@@ -421,6 +427,7 @@ COMMENT ON COLUMN CenterReview.rate IS '0~4 까지의 인덱스 저장
 숫자가 적을수록 낮은 별점';
 COMMENT ON COLUMN CenterReview.ID IS '계정';
 COMMENT ON COLUMN CENTER_INFO.filename IS '수정할 때 사진 받을 경우 씀';
+COMMENT ON COLUMN Complexity.ID IS '계정';
 COMMENT ON COLUMN COUPON.ID IS 'AUTH 권한 설정:기업,관리자';
 COMMENT ON COLUMN CustomerService.ID IS '계정';
 COMMENT ON COLUMN healthMate.ID IS '계정';
@@ -433,6 +440,7 @@ COMMENT ON COLUMN MESSAGE_TABLE.isRead IS '1은 읽지않음
 COMMENT ON COLUMN MY_MATE.ID IS '계정';
 COMMENT ON COLUMN Notification.ID IS '계정';
 COMMENT ON COLUMN RegiCenter.ID IS '계정';
+COMMENT ON COLUMN RegiCenter.isAllowed IS '허용시 0, 아닐경우 1';
 COMMENT ON COLUMN SCRAP.ID IS '계정';
 
 
