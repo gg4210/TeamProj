@@ -9,7 +9,7 @@ public interface MessageService {
 	List<MessageDTO> selectList(Map map);
 	
 	//쪽지함 목록용]
-	List<MessageDTO> selectOne(Map map);
+	MessageDTO selectOne(Map map);
 	
 	//메세지가 있는지 확인용]
 	int MessageCount(Map map);

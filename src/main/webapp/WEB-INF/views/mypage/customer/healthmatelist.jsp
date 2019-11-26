@@ -81,7 +81,7 @@ $(function(){
    //메세지 보내기]
   var sendMessage=function(data){
 	   $('#send').click(function(){
-		   console.log("클릭은 되남");
+		   //console.log("클릭은 되남");
 		   var fromid=$('#fromID').text();
 		   var content = $('input[name=content]').val();
 		   var from_ID=$('#messageModalScrollableTitle').text();
@@ -96,12 +96,29 @@ $(function(){
 				   success:function(data){
 					   console.log("성공");
 					   $('input[name=content]').val("");
-					   
 					   $.ajax({
 						   url:"<c:url value='/resetmessage.do'/>",
 						   data:{"fromid":from_ID},
 						   dataType:"json",
 						   success:function(data){
+							   showMessage(data);
+							   /*
+							   console.log("리셋 컨트롤러는 들어오세요 예...?",data);
+							   var message='<p class="badge '+data.BADGE+' text-wrap" style="font-size:medium; text-align:'+data.ALIGN+';">';
+							   if(data.ALIGN=="left"){
+								   console.log("그럼 여기는요?");
+								   message+='<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />';
+								   message+=data.CONTENT;
+								   message+="<br/><span id='to_id' style='text-align'>"+data.ID+"</span>";
+								   message+="</p>";  
+							   }
+							   else if(data.ALIGN=="right"){
+								   message+=data.CONTENT;
+								   message+='<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />';
+								   message+="<br/><span id='to_id' style='text-align'>"+data.ID+"</span>";
+								   message+="</p>"; 
+							   }
+							   /*
 							   $.each(data,function(index,element){
 								   console.log("여기 좀 제발 들어가라");
 								   id=element["FROMID"];
@@ -109,8 +126,8 @@ $(function(){
 								   if(element["ALIGN"]=="left"){
 									   message+='<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />';
 									   message+=element["CONTENT"];
-									   message+="<br/><span id='to_id' style='text-align'>"+element["ID"]+"</span>";
-									   message+="</p>";
+									   message+="<br/><span id='to_id' style='text-align'>"+data.ID+"</span>";
+									   message+="</p>";  
 								   }
 								   else if(element["ALIGN"]=="right"){
 									   message+=element["CONTENT"];
@@ -119,9 +136,11 @@ $(function(){
 									   message+="</p>";   
 								   }
 							   });
+							  
 							   $('#messageModalScrollableTitle').html(fromid);
 							   $('#messageBox').html(message);
 							   $('#messageModalScrollable').modal('show');
+							   */
 						   },
 						   error:function(data){ 
 							   console.log("리셋실패");
@@ -191,18 +210,10 @@ $(function(){
 				<h2>친구목록</h2>
 			</div>
 			
-			<!-- 검색창 -->
-			<div class="clearfix">
-				<div class="form-inline mb-1 float-right">
-					<input type="text" class="form-control" placeholder="Search">
-					<button class="btn blue-gradient p-2 px-4">검색</button>
-				</div>
-			</div>
-			<!-- 검색창 끝 -->		
+		
 			
 			<!-- 내가 추가한 메이트 목록 -->
 			<div>
-			<span class="badge badge-primary mb-2" style="font-size: medium;">내가 추가한 메이트</span>
 				<table class="table table-hover">
 					<thead class="black white-text">
 						<tr>

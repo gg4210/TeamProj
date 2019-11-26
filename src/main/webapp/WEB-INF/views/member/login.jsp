@@ -4,16 +4,17 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 
-<!-- 구글 로그인에 필요한 소스 시작 -->
+<!-- 구글 로그인에 필요한 소스 시작
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <meta name="google-signin-client_id" content="471338080176-g046e95v00o1np1q8glj03ghqf97mjra.apps.googleusercontent.com">
 <!-- 구글 로그인에 필요한 소스 끝 -->
-<!-- 네이버 로그인에 필요한 소스 시작 -->
+<!-- 네이버 로그인에 필요한 소스 시작
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 <!-- 네이버 로그인에 필요한 소스 끝 -->
-<!-- 카카오 로그인에 필요한 소스 시작 -->
+<!-- 카카오 로그인에 필요한 소스 시작 
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<!-- 카카오 로그인에 필요한 소스 끝 -->
+<!-- 카카오 로그인에 필요한 소스 끝 
+-->
 
 
 <!-- 비로그인시 로그인 사이드바 -->
@@ -58,7 +59,7 @@
             <label for="password"><span class="text-white" id="labelPwd">비밀번호</span></label>
          </div>
          <div class="text-right">
-            <button type="submit" value="submit" class="btn btn-primary">들어가기</button>
+            <button type="submit" value="submit" class="btn btn-primary">LOGIN</button>
          </div>
       </form>
       <div class="text-right">
@@ -72,21 +73,23 @@
          <span class="text-white">회원이 아니신가요?<a href="<c:url value='jointype.do'/>">회원가입</a></span>
       </div>
       
+      <!--아이디 비밀번호 찾기
       <div class="text-center pt-3">
          <span class="text-white"><a href="<c:url value='join.do'/>">아이디/비밀번호 찾기</a></span>
       </div>
+      -->
       
-      <!-- 구글 로그인 버튼 시작 -->
+      <!-- 구글 로그인 버튼 시작
       <div class="row justify-content-center mt-3">
-         <div class="g-signin2" data-onsuccess="onSignIn"></div><!-- data-onsucess: 로그인 성공시 onSignIn함수실행  -->
+         <div class="g-signin2" data-onsuccess="onSignIn"></div>
       </div>
-      <!-- 구글 로그인 버튼 끝 -->
-      <!-- 네이버 로그인 버튼 시작 -->
+   
+      <!-- 네이버 로그인 버튼 시작
       <div class="row justify-content-center mt-3">
          <div id="naverIdLogin"></div>
       </div>
-      <!-- 네이버 로그인 버튼 끝 -->
-      <!-- 카카오 로그인 버튼 시작 -->
+   
+      <!-- 카카오 로그인 버튼 시작
       <a id="kakao-login-btn"></a>
       <a href="http://developers.kakao.com/logout"></a>
       <!-- 카카오 로그인 버튼 끝 -->

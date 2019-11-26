@@ -38,6 +38,11 @@ public class MyMateServiceImpl implements MyMateService{
 	public int insert(Map map) {
 		return dao.insert(map);
 	}
+
+	@Override
+	public int mateTotal(Map map) {
+		return dao.mateTotal(map);
+	}
 	
 	
 

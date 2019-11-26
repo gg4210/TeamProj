@@ -39,6 +39,11 @@ public class MyMateDAO implements MyMateService{
 		return template.insert("MyMateInsert",map);
 	}
 
+	@Override
+	public int mateTotal(Map map) {
+		return template.selectOne("MateTotal", map);
+	}
+
 	
 	
 }

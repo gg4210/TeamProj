@@ -86,16 +86,16 @@ $(function(){
 							success:function(data){
 								console.log("성공하였습니다!!!");
 								var obj = JSON.parse(data);
-								console.log();
-								
+								console.log("obj[PLUSCHECK]",obj["PLUSCHECK"]);
 								$('#plus-modal').modal('hide');
 								console.log(data);
 								if(obj["PLUSCHECK"]=="0"){
+									$('#plusCheck').modal('hide');
 									$("#plusCancel").modal('show');
 								}
 								else{
-									$('#plusCheck').modal('show');
 									$("#plusCancel").modal('hide');
+									$('#plusCheck').modal('show');
 								}
 							},
 							error:function(data){console.log("실패하였지요ㅠ")}

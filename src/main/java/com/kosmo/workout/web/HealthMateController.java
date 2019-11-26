@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gargoylesoftware.htmlunit.javascript.host.Console;
 import com.kosmo.workout.service.HealthMateDTO;
 import com.kosmo.workout.service.HealthMateService;
 import com.kosmo.workout.service.MyMateDTO;
@@ -126,19 +127,21 @@ public class HealthMateController {
 	@ResponseBody
 	@RequestMapping("/member/plusMate.do")
 	public String plusMate(@RequestParam Map map, Authentication auth, Model model) {
-		//System.out.println("추가하기 컨트롤러 진입");
+		System.out.println("추가하기 컨트롤러 진입");
 		String userId=((UserDetails)auth.getPrincipal()).getUsername();
 		//System.out.println(userId);
 		map.put("id", userId);
 		String follow=map.get("FRIEND_ID").toString();
+		map.put("FRIEND_ID", follow);
+		int mateTotal=MyMateService.mateTotal(map);
+		System.out.println("mateTotal: "+mateTotal+" follow: "+follow);
 		//System.out.println("id: "+userId);
 		//System.out.println("FRIEND_ID: "+follow);
-
 		String plusCheck="";
-		if(follow.equals(userId)) {
+		if(follow.equals(userId) || mateTotal!=0) {
 			plusCheck="0";
 		}
-		else {
+		else if(!follow.equals(userId) || mateTotal==0) {
 			MyMateService.insert(map);
 			plusCheck="1";
 		}
