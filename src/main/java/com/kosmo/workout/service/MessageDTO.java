@@ -6,10 +6,11 @@ public class MessageDTO {
 	private String mno;
 	private String id;
 	private String content;
-	private Date receivedDate;
+	private Date RECEIVED_DATE;
+	private String readStatus;
+	private String name;
 	private String picture;
-	private String fromId;
-	private String isRead;
+	private String fromid;
 	
 	public String getMno() {
 		return mno;
@@ -29,11 +30,23 @@ public class MessageDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getReceivedDate() {
-		return receivedDate;
+	public Date getRECEIVED_DATE() {
+		return RECEIVED_DATE;
 	}
-	public void setReceivedDate(Date receivedDate) {
-		this.receivedDate = receivedDate;
+	public void setRECEIVED_DATE(Date rECEIVED_DATE) {
+		RECEIVED_DATE = rECEIVED_DATE;
+	}
+	public String getReadStatus() {
+		return readStatus;
+	}
+	public void setReadStatus(String readStatus) {
+		this.readStatus = readStatus;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getPicture() {
 		return picture;
@@ -41,17 +54,12 @@ public class MessageDTO {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-	public String getFromId() {
-		return fromId;
+	public String getFromid() {
+		return fromid;
 	}
-	public void setFromId(String fromId) {
-		this.fromId = fromId;
-	}
-	public String getIsRead() {
-		return isRead;
-	}
-	public void setIsRead(String isRead) {
-		this.isRead = isRead;
+	public void setFromid(String fromid) {
+		this.fromid = fromid;
 	}
 	
 }
+	

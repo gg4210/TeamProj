@@ -45,5 +45,4 @@ public class HealthMateServiceImpl implements HealthMateService {
 	public int update(Map map) {
 		return dao.update(map);
 	}
-
 }

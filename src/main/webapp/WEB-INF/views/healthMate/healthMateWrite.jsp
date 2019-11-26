@@ -35,7 +35,7 @@
 	  	
 	  	<div class="col-md-9">
 	  	<!-- 셀렉트박스, 날짜 시작 -->
-	  		<label>필수선택</label>
+	  		<label><span style="color: red; font-weight: bold;">필수 항목</span></label>
 	  		<div class="form-row mb-3">
 				<div class="col-md-2">
 					<select class="browser-default custom-select" id="location" name="location">

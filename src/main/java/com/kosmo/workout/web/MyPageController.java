@@ -1,14 +1,18 @@
 package com.kosmo.workout.web;
 
+import java.util.HashMap;
+import java.util.List;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Vector;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.springframework.security.core.Authentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,16 +21,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
+
 import com.kosmo.workout.service.MemberDTO;
 import com.kosmo.workout.service.MemberService;
+import com.kosmo.workout.service.MessageService;
+import com.kosmo.workout.service.MyMateDTO;
+import com.kosmo.workout.service.MyMateService;
 import com.kosmo.workout.service.regicenter.RegicenterDTO;
 import com.kosmo.workout.service.regicenter.RegicenterService;
 import com.kosmo.workout.util.FileUploadService;
 
+
 @SessionAttributes("id")
 @Controller
 public class MyPageController {
-	
+
 	@Resource(name = "MemberService")
 	private MemberService MemberService;
 	
@@ -49,14 +59,34 @@ public class MyPageController {
 	@RequestMapping("/customer.do")
 	public String customer_temp(@RequestParam Map map,Model model){
 		MemberDTO record=MemberService.selectOne(map);
+		//System.out.println("map 통과");
+		//System.out.println(map);
+		//System.out.println("record 통과");
+		//System.out.println(record);
+
 		model.addAttribute("record", record);
 		return "mypage/customer/mypage_Index.tiles";
 	}
 	
+	@Resource(name = "MyMateService")
+	private MyMateService MyMateService;
+	@Resource(name = "MessageService")
+	private MessageService MessageService;
+	
 	@RequestMapping("/user/customer.do")
 	public String customer(@RequestParam Map map,Model model){
+
 		MemberDTO record=MemberService.selectOne(map);
 		model.addAttribute("record",record);
+		System.out.println("id는"+map.get("id"));
+		//내가 추가한 메이트 목록
+		List<MyMateDTO> ToMateList=MyMateService.toSelectList(map);
+		System.out.println("내가 추가한 메이트 리스트: "+ToMateList);
+		
+		System.out.println("ToMateList"+ToMateList);
+		
+		model.addAttribute("ToMateList", ToMateList);
+
 		return "mypage/customer/mypage_Index.tiles";
 	}
 	
@@ -99,8 +129,11 @@ public class MyPageController {
 		return "mypage/enterprise/mypage_Index.tiles";
 	}
 	
-		/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 끝*/
-	
+	@RequestMapping("/makeQRCode.do")
+	public ModelAndView createCode(@RequestParam String content) {
+		return new ModelAndView("qrcodeview", "content", content);
+	}
+
 
 	//아래부터 QR코드 관련 코딩입니다.
 	@RequestMapping("/center/QRCode.do")

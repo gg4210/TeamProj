@@ -3,6 +3,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <script>
+
+
+
 $(function() {
 	   var durl = window.location.hash;
 	   console.log(durl);
@@ -24,8 +27,7 @@ $(function() {
 	   $('#msg_plus').click(function(){
 	      $('#pills-mate-tab').tab('show');
 	   });
-	   
-	   
+	  
 	});
 </script>
 	<div class="container">

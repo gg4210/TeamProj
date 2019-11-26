@@ -22,30 +22,21 @@ public class MessageServiceImpl implements MessageService{
 		return dao.selectList(map);
 	}
 
+	public int MessageCount(Map map) {
+		return dao.MessageCount(map);
+	}
+
 	@Override
-	public String getNickname(Map map) {
-		return dao.getNickname(map);
+	public List<MessageDTO> selectOne(Map map) {
+		return dao.selectOne(map);
 	}
 
 	@Override
 	public int insert(Map map) {
 		return dao.insert(map);
 	}
-
-	@Override
-	public int newMessageCount(Map map) {
-		return dao.newMessageCount(map);
-	}
-
-	@Override
-	public boolean isMessageRead(Map map) {
-		return dao.isMessageRead(map);
-	}
-
-	@Override
-	public int delete(Map map) {
-		return dao.delete(map);
-	}
+	
+	
 
 	
 }

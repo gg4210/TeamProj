@@ -1,5 +1,5 @@
 
-/* Drop Tables */
+/* Drop Tables 
 
 DROP TABLE AUTH_SECURITY CASCADE CONSTRAINTS;
 DROP TABLE BBS_Comment CASCADE CONSTRAINTS;
@@ -37,9 +37,9 @@ DROP SEQUENCE SEQ_RegiCenter_NO;
 DROP SEQUENCE SEQ_SCRAP_NO;
 
 
+ */
 
-
-/* Create Sequences */
+/* Create Sequences*/
 
 CREATE SEQUENCE SEQ_AUTH_SECURITY_SECNO INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_BBS_Comment_CNO INCREMENT BY 1 START WITH 1;
@@ -165,7 +165,6 @@ CREATE TABLE COUPON
 	-- AUTH 권한 설정:기업,관리자
 	ID nvarchar2(50) NOT NULL,
 	AUTHORITY nvarchar2(20),
-	TO_ID nvarchar2(20) NOT NULL,
 	PRIMARY KEY (CNO)
 );
 
@@ -216,6 +215,8 @@ CREATE TABLE H_MEMBER
 	email nvarchar2(50),
 	Address nvarchar2(50),
 	cellphone nvarchar2(13) NOT NULL,
+	-- customer or enterprise or admin
+	AUTHORITY varchar2(20),
 	-- 회원가입페이지에서 등록X 운동메이트 등록 및 수정 페이지에서 데이터를 받을 예정입니다.
 	MY_COMMENT nvarchar2(500) DEFAULT '잘 부탁드립니다.',
 	inter_sports nvarchar2(100),
@@ -436,6 +437,7 @@ COMMENT ON COLUMN COUPON.ID IS 'AUTH 권한 설정:기업,관리자';
 COMMENT ON COLUMN CustomerService.ID IS '계정';
 COMMENT ON COLUMN healthMate.ID IS '계정';
 COMMENT ON COLUMN H_MEMBER.ID IS '계정';
+COMMENT ON COLUMN H_MEMBER.AUTHORITY IS 'customer or enterprise or admin';
 COMMENT ON COLUMN H_MEMBER.MY_COMMENT IS '회원가입페이지에서 등록X 운동메이트 등록 및 수정 페이지에서 데이터를 받을 예정입니다.';
 COMMENT ON COLUMN MESSAGE_TABLE.ID IS '계정';
 COMMENT ON COLUMN MESSAGE_TABLE.isRead IS '1은 읽지않음
@@ -446,6 +448,4 @@ COMMENT ON COLUMN RegiCenter.ID IS '계정';
 COMMENT ON COLUMN RegiCenter.mapkey IS '아 카카오 지도 id값..ㅎㅎ';
 COMMENT ON COLUMN RegiCenter.isAllowed IS '허용시 0, 아닐경우 1';
 COMMENT ON COLUMN SCRAP.ID IS '계정';
-
-
 
