@@ -5,7 +5,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.json.simple.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,7 +31,7 @@ public class CenterController {
 	
 	@ResponseBody
 	@RequestMapping(value="/senduserlist.do", method = RequestMethod.POST )
-	public String EventCoupon(@RequestParam Map map, Authentication auth) {
+	public String EventCoupon(@RequestParam Map map, org.springframework.security.core.Authentication auth) {
 		System.out.println(map);
 		//ROLE_USER인 사람 리스트 뽑기
 		List<String> lists=AuthSecurityService.selectList();

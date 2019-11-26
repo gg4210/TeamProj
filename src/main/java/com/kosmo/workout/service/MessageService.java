@@ -5,16 +5,16 @@ import java.util.Map;
 
 public interface MessageService {
 	
-	//목록용]
+	//紐⑸줉�슜]
 	List<MessageDTO> selectList(Map map);
 	
-	//쪽지함 목록용]
+	//履쎌��븿 紐⑸줉�슜]
 	MessageDTO selectOne(Map map);
 	
-	//메세지가 있는지 확인용]
+	//硫붿꽭吏�媛� �엳�뒗吏� �솗�씤�슜]
 	int MessageCount(Map map);
 	
-	//로그인/입력/수정/삭제]
+	//濡쒓렇�씤/�엯�젰/�닔�젙/�궘�젣]
 	int insert(Map map);
 
 	

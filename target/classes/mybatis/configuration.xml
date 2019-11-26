@@ -34,17 +34,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/Notification.xml"/>
 		<mapper resource="mybatis/Message.xml"/>
 		<mapper resource="mybatis/Coupon.xml"/>
-<<<<<<< HEAD
 		<mapper resource="mybatis/Complexity.xml"/>
 		<mapper resource="mybatis/AuthSecurity.xml"/>
 		<mapper resource="mybatis/RegiCenter.xml"/>
 		<mapper resource="mybatis/Admin.xml"/>
-=======
-		<mapper resource="mybatis/Complexity.xml"/>
-		<mapper resource="mybatis/AuthSecurity.xml"/>
-		<mapper resource="mybatis/EditCenter.xml"/>
-		<mapper resource="mybatis/Admin.xml"/>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
+
 	</mappers>
 	
 </configuration>

@@ -27,7 +27,7 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
-	public List<MessageDTO> selectOne(Map map) {
+	public MessageDTO selectOne(Map map) {
 		return dao.selectOne(map);
 	}
 
