@@ -38,7 +38,7 @@ public class SearchController {
 	
 	@RequestMapping("/searchList.do")
 	public String searchList(@RequestParam Map map) {
-		return "search/list.tiles";	
+		return "search/list.tiles";
 	}
 	
 	@ResponseBody
@@ -194,7 +194,6 @@ public class SearchController {
 		return insertInt;
 		
 	}
-	
 	
 	@ResponseBody
 	@RequestMapping(value="/commentlist.do", method=RequestMethod.POST, produces = "application/json; charset=utf-8")

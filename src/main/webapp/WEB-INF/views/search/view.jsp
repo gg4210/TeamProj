@@ -106,7 +106,7 @@ $(function() {
 		type:"post",
 		success:function(data){
 			console.log("displayComplexAndStar 속으로 들어오는지????????"); 
-	        var status=JSON.parse(data);		
+	        var status=JSON.parse(data);
 			$('#starString').html(status["avgRate"]);
 			$('#complex').html(status["complex"]);			
 		},

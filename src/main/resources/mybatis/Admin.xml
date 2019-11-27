@@ -5,13 +5,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="mybatis.Admin">
 
-
 	<select id="admin_userlist" resultType="Admin_UserTableDTO">
 		select rownum, h.id, h.name, h.email, h.cellphone, h.joindate, a.authority, r.isAllowed, r.mapkey from 
 		(select ID, authority from auth_security where authority='ROLE_CENTER' OR authority='ROLE_USER') a 
 		left outer join H_member h on a.id=h.id
 		left outer join regicenter r on a.id=r.id
 	</select>
-
-
 </mapper>
