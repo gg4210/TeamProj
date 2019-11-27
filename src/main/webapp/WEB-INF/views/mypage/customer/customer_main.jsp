@@ -285,7 +285,6 @@
                <div class="card-body pt-1">
                	  <!-- 더보기  시작 -->
                	  	<div class="row float-right pr-2">
-               	  	<button type="submit" class="btn btn-danger p-1 px-2" id="mate_delete">삭제하기</button>
                		<button type="button" class="btn btn-info p-1 px-2" id="mate_select"><i class="fas fa-plus"></i> 더보기</button>
                	</div>               	  
                	<!-- 더보기 끝 -->
@@ -293,33 +292,29 @@
                   <table class="table" style="text-align: center;">
                      <thead class="bg-primary white-text">
                         <tr>
-                           <th scope="col" style="width: 5%">
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="mate_allCheck">
-                              <label class="custom-control-label" for="mate_allCheck"></label>
-                           </div>
-                           </th>
-                           <th scope="col">이미지</th>
-                           <th scope="col" style="width: 15%">아이디</th>
+                          <th scope="col">이미지</th>
+                           <th scope="col">메이트 아이디</th>
                            <th scope="col">메이트 등록일</th>
-                           <th scope="col" style="width: 10%">상세보기</th>
                         </tr>
                      </thead>
                      <tbody>
-                        <tr>
-                          <td scope="row" class="align-middle">
-                           <div class="custom-control custom-checkbox">
-                              <input type="checkbox" class="custom-control-input" id="mate_check1">
-                              <label class="custom-control-label" for="mate_check1"></label>
-                           </div>
+                        
+					<tbody>
+					<c:if test='${empty ToMateList}' var="isEmpty">
+						<tr>
+							<td colspan="4" class="text-center">등록한 메이트가 없습니다.</td>
+						</tr>
+					</c:if>
+					<c:forEach var="toMate" items="${ToMateList}" varStatus="loop">
+					    <tr>
+						   <td scope="row" style="size:0.5em;" class="align-middle">
+                           <img src="http://mblogthumb4.phinf.naver.net/20150427_171/ninevincent_1430122791934m8cxB_JPEG/kakao_4.jpg?type=w2" class="rounded-circle img-fluid">
                            </td>
-                           <td scope="row">
-                           <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" alt="avatar mx-auto white" class="rounded-circle img-fluid">
-                           </td>
-                           <td class="align-middle">KIM**</td>
-                           <td class="align-middle">2019.10.28</td>
-                           <td class="align-middle"><button type="button" class="btn btn-default btn-rounded p-1 px-3">Click!</button></td>
-                        </tr>
+							<td class="align-middle text-center">${toMate.FRIEND_ID }</td>
+							<td class="align-middle text-center">${toMate.MATEDATE }</td>
+					    </tr>
+					 </c:forEach>
+					 <!--
                         <tr>
                            <td scope="row" class="align-middle">
                            <div class="custom-control custom-checkbox">
@@ -348,6 +343,7 @@
                            <td class="align-middle">2019.10.01</td>
                            <td class="align-middle"><button type="button" class="btn btn-default btn-rounded p-1 px-3">Click!</button></td>
                         </tr>
+                        -->
                      </tbody>
                   </table>
                   <!-- 테이블 끝 -->
@@ -388,7 +384,7 @@
                         </div>
                         <div class="row">
                            <p class="text-left text-white">
-                              <span class="badge badge-pill badge-primary">new</span> 새로운 쪽지가 도착했어요!
+                              <span class="badge badge-pill badge-primary">new</span> 메이트들의 쪽지를 확인하세요!
                            </p>
                         </div>
                      </div>

@@ -17,9 +17,16 @@ public class HealthMateDTO {
 	private Date endDate;
 	private String interSport;
 	private String matePhoto;
+	private String content;
 	
 	
 	//게터와 세터
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	public String getFirst_tag() {
 		return first_tag;
 	}

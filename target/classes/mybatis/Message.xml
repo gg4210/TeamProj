@@ -3,27 +3,18 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
-<!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
-
 <mapper namespace="mybatis.Message">
-	<select id="messageList" parameterType="java.util.Map" resultType="MessageDTO">
-		SELECT * FROM MESSAGE_TABLE WHERE ID=#{id} ORDER BY FROMID, RECEIVED_DATE desc
+	<select id="MessageSelectList" parameterType="java.util.Map" resultType="MessageDTO">
+		select DISTINCT * from (select * from message_table where id=#{id} or fromid=#{id}) where id=#{fromid} or fromid=#{fromid} order by mno
+		<!-- select * from (select * from message_table where id=#{id}) where fromid=#{fromid}-->
 	</select>
-	<select id="getFromNickname" parameterType="java.util.Map" resultType="String">
-		SELECT NICK_NAME FROM H_MEMBER WHERE ID=#{FROMID}
+	<select id="MessageCount" parameterType="java.util.Map" resultType="int">
+		select count(*) from message_table where id=#{id} or fromid=#{id}
 	</select>
-	<insert id="messageInsert" parameterType="java.util.Map">
-		INSERT INTO MESSAGE_TABLE(MNO,ID,CONTENT,RECEIVED_DATE,PICTURE,FROMID,ISREAD,NICK_NAME) 
-		VALUES(#{MNO},#{ID},#{CONTENT},SYSDATE,#{PICTURE},#{FROMID},DEFAULT,#{NICK_NAME})
+	<insert id="MessageInsert" parameterType="java.util.Map">
+		insert into message_table values(SEQ_MESSAGE_TABLE_MNO.nextval,#{id},#{content},sysdate,null,#{fromid},default)
 	</insert>
-	<select id="newMessage" parameterType="java.util.Map" resultType="int">
-		SELECT COUNT(ISREAD) FROM MESSAGE_TABLE WHERE FROMID=#{FROMID} AND ISREAD=1
+	<select id="MessageSelectOne" parameterType="java.util.Map" resultType="MessageDTO">
+		select DISTINCT * from ((select * from (select * from message_table where id=#{id} or fromid=#{id}) where id=#{fromid} or fromid=#{fromid}) order by mno desc) where rownum=1
 	</select>
-	<select id="checkedRead" parameterType="java.util.Map" resultType="int">
-		UPDATE MESSAGE_TABLE SET ISREAD=0 WHERE FROMID=#{FROMID} AND ID=#{ID} AND ISREAD=1
-	</select>
-	<delete id="messageDelete" parameterType="java.util.Map">
-		DELETE * FROM MESSAGE_TABLE WHERE FROMID=#{FROMID}
-	</delete>
 </mapper>

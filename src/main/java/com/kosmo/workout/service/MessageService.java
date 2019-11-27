@@ -5,26 +5,17 @@ import java.util.Map;
 
 public interface MessageService {
 	
-	//목록]
+	//紐⑸줉�슜]
 	List<MessageDTO> selectList(Map map);
 	
-	//보낸사람 닉네임 가져오기]
-	String getNickname(Map map);
+	//履쎌��븿 紐⑸줉�슜]
+	MessageDTO selectOne(Map map);
 	
-	//입력]
+	//硫붿꽭吏�媛� �엳�뒗吏� �솗�씤�슜]
+	int MessageCount(Map map);
+	
+	//濡쒓렇�씤/�엯�젰/�닔�젙/�궘�젣]
 	int insert(Map map);
-	
-	//안 읽은 메시지 갯수 조회]
-	int newMessageCount(Map map);
-	
-	//메시지 읽을 시 1을 0으로 바꿔줌]
-	boolean isMessageRead(Map map);
-	
-	//삭제]
-	int delete(Map map);
 
-	
-	
-	
 	
 }

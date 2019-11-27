@@ -17,34 +17,26 @@ public class MessageDAO implements MessageService{
 	@Resource(name="template")
 	private SqlSessionTemplate template;
 
-	@Override
+	
 	public List<MessageDTO> selectList(Map map) {
-		return template.selectList("messageList", map);
+		return template.selectList("MessageSelectList", map);
 	}
 
 	@Override
-	public String getNickname(Map map) {
-		return template.selectOne("getFromNickname", map);
+	public int MessageCount(Map map) {
+		return template.selectOne("MessageCount",map);
 	}
 
 	@Override
 	public int insert(Map map) {
-		return template.insert("messageInsert", map);
+		return template.insert("MessageInsert", map);
 	}
 
 	@Override
-	public int newMessageCount(Map map) {
-		return template.selectOne("newMessage", map);
+	public MessageDTO selectOne(Map map) {
+		return template.selectOne("MessageSelectOne", map);
 	}
 
-	@Override
-	public boolean isMessageRead(Map map) {
-		return (Integer)template.selectOne("checkedRead", map) == 0 ? false : true;
-	}
 
-	@Override
-	public int delete(Map map) {
-		return template.delete("messageDelete", map);
-	}
 	
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper    
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatis.MyMate">
+	<insert id="MyMateInsert" parameterType="java.util.Map">
+		insert into MY_MATE values(SEQ_MY_MATE_FNO.nextval, #{id},
+		(select id from healthMate where no=#{fno}),sysdate)
+	</insert>
+	<select id="MyMateToSelectList" parameterType="java.util.Map" resultType="MyMateDTO">
+		select * from my_mate where id=#{id} and rowid in (select max(rowid) from my_mate group by id)
+		<!--select * from MY_MATE where id=#{id}-->
+	</select>
+	<select id="MyMateFromSelectList" parameterType="java.util.Map" resultType="MyMateDTO">
+		select * from my_mate where FRIEND_ID=#{id} and rowid in (select max(rowid) from my_mate group by id)
+		<!--select * from MY_MATE where FRIEND_ID=#{id} -->
+	</select>
+	<select id="MyMateSelectOne" parameterType="java.util.Map" resultType="MyMateDTO">
+		select * from MY_MATE where id=#{id}
+	</select>
+	<select id="MateTotal" parameterType="java.util.Map" resultType="int">
+		select count(*) from message_table where id=#{id} and fromid=#{FRIEND_ID}
+	</select>
+</mapper>

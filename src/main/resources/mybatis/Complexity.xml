@@ -7,6 +7,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
 
 <mapper namespace="mybatis.Complexity">
+
 	<select id="isRegiCenter" parameterType="java.util.Map" resultType="int">
 		SELECT COUNT(*) FROM REGICENTER WHERE ID=#{id} AND MAPKEY=#{mapkey}
 	</select>
@@ -23,4 +24,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="complexityDelete" parameterType="java.util.Map">
 		DELETE COMPLEXITY WHERE MAPKEY=#{MAPKEY} AND ID=#{ID}
 	</delete>
+	
 </mapper>
