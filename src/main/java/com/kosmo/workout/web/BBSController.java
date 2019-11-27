@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BBSController {
 
 	
-	@RequestMapping("/bbsList.do")
+	@RequestMapping("/react/bbsList.do")
 	public String bbsList() {
 		
 		
-		return "bbs/list.tiles";
+		return "react/index.tiles";
 	}
 	
 	@RequestMapping("/member/bbsView.do")

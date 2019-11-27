@@ -130,6 +130,7 @@
       </definition>
       
       
+      
       <definition name="customerService/*.tiles" extends="layouts">
          <put-attribute name="title" value="운동해(偕)!-고객센터 페이지"/>
          <put-attribute name="Body" value="/WEB-INF/views/customerService/{1}.jsp"/>
@@ -138,6 +139,11 @@
       <definition name="customerService/*/*.tiles" extends="layouts">
          <put-attribute name="title" value="운동해(偕)!-고객센터 페이지"/>
          <put-attribute name="Body" value="/WEB-INF/views/customerService/{1}/{2}.jsp"/>
+      </definition>
+      
+      <definition name="react/*.tiles" extends="layouts">
+         <put-attribute name="title" value="운동해(偕)!-리액트 게시판"/>
+         <put-attribute name="Body" value="/WEB-INF/views/react/{1}.jsp"/>
       </definition>
       
 

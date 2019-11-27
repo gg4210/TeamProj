@@ -170,7 +170,24 @@ $(function(){
 	         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
 	    }
 	});  
-   
+	/*
+	$.ajax({
+		url:"<c:url value='/ajax/getUserRegiCenter?_csrf="+token+"'/>",
+		type:"post",
+		data:{
+			'id':'${sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.username}',
+			
+			},
+		success:function(data){
+			var user=JSON.parse(data);
+			console.log("인포 받아오는지:",user["picture"].toString());
+			$('#picture').attr('src','<c:url value="'+user['picture']+'"/>');
+		},
+	    error:function(request,status,error){
+	         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+	    }
+	});
+   */
 });
 </script>
 

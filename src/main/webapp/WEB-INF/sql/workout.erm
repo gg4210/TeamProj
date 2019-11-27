@@ -10,11 +10,7 @@
 		<right_margin>30</right_margin>
 	</page_setting>
 	<category_index>0</category_index>
-<<<<<<< HEAD
 	<zoom>1.0</zoom>
-=======
-	<zoom>0.8</zoom>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	<x>0</x>
 	<y>0</y>
 	<default_color>
@@ -93,7 +89,7 @@
 				<is_open_after_saved>true</is_open_after_saved>
 			</export_html_setting>
 			<export_image_setting>
-				<output_file_path>C:\Users\kosmo_04\Desktop\workout.png</output_file_path>
+				<output_file_path></output_file_path>
 				<category_dir_path></category_dir_path>
 				<with_category_image>true</with_category_image>
 				<is_open_after_saved>true</is_open_after_saved>
@@ -139,11 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2019-10-04 16:01:24</creation_date>
-<<<<<<< HEAD
 			<updated_date>2019-11-25 17:52:01</updated_date>
-=======
-			<updated_date>2019-11-27 10:32:06</updated_date>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -1944,11 +1936,7 @@
 				</relation>
 				<relation>
 					<id>2</id>
-<<<<<<< HEAD
 					<source>0</source>
-=======
-					<source>14</source>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<target>1</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -2178,11 +2166,7 @@
 				<normal_column>
 					<id>14</id>
 					<referenced_column>88</referenced_column>
-<<<<<<< HEAD
 					<relation>1</relation>
-=======
-					<relation>2</relation>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3533,31 +3517,6 @@
 			<connections>
 				<relation>
 					<id>8</id>
-<<<<<<< HEAD
-=======
-					<source>15</source>
-					<target>6</target>
-						<source_xp>-1</source_xp>
-						<source_yp>-1</source_yp>
-						<target_xp>-1</target_xp>
-						<target_yp>-1</target_yp>
-						<color>
-							<r>0</r>
-							<g>0</g>
-							<b>0</b>
-						</color>
-					<child_cardinality>1..n</child_cardinality>
-					<parent_cardinality>0..1</parent_cardinality>
-					<reference_for_pk>true</reference_for_pk>
-					<name></name>
-					<on_delete_action>RESTRICT</on_delete_action>
-					<on_update_action>RESTRICT</on_update_action>
-					<referenced_column>null</referenced_column>
-					<referenced_complex_unique_key>null</referenced_complex_unique_key>
-				</relation>
-				<relation>
-					<id>9</id>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<source>14</source>
 					<target>6</target>
 						<source_xp>-1</source_xp>
@@ -3579,13 +3538,8 @@
 					<referenced_complex_unique_key>null</referenced_complex_unique_key>
 				</relation>
 				<relation>
-<<<<<<< HEAD
 					<id>9</id>
 					<source>11</source>
-=======
-					<id>10</id>
-					<source>5</source>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<target>6</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -3606,15 +3560,9 @@
 					<referenced_complex_unique_key>null</referenced_complex_unique_key>
 				</relation>
 				<relation>
-<<<<<<< HEAD
 					<id>10</id>
 					<source>5</source>
-=======
-					<id>11</id>
-					<source>11</source>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<target>6</target>
-<<<<<<< HEAD
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
 						<target_xp>-1</target_xp>
@@ -3637,8 +3585,6 @@
 					<id>11</id>
 					<source>15</source>
 					<target>6</target>
-=======
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
 						<target_xp>-1</target_xp>
@@ -3702,11 +3648,7 @@
 				<normal_column>
 					<id>48</id>
 					<referenced_column>102</referenced_column>
-<<<<<<< HEAD
 					<relation>11</relation>
-=======
-					<relation>8</relation>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3740,11 +3682,7 @@
 				<normal_column>
 					<id>49</id>
 					<referenced_column>74</referenced_column>
-<<<<<<< HEAD
 					<relation>9</relation>
-=======
-					<relation>11</relation>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3778,11 +3716,7 @@
 				<normal_column>
 					<id>50</id>
 					<referenced_column>88</referenced_column>
-<<<<<<< HEAD
 					<relation>8</relation>
-=======
-					<relation>9</relation>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name>사용자 아이디</logical_name>
@@ -4733,11 +4667,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-<<<<<<< HEAD
 					<word_id>52</word_id>
-=======
-					<word_id>53</word_id>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<id>73</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -4998,11 +4928,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-<<<<<<< HEAD
 					<word_id>53</word_id>
-=======
-					<word_id>52</word_id>
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 					<id>77</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
