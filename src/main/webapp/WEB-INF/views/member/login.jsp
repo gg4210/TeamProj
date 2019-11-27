@@ -69,8 +69,8 @@
          <button type="button" class="btn btn-primary" onclick="csrfCheck()">csrf 확인</button>
       </div>
          
-      <div class="text-center pt-3">
-         <span class="text-white">회원이 아니신가요?<a href="<c:url value='jointype.do'/>">회원가입</a></span>
+      <div class="text-center pt-4">
+         <span class="text-white">회원이 아니신가요?<a href="<c:url value='jointype.do'/>"> 회원가입</a></span>
       </div>
       
       <!--아이디 비밀번호 찾기

@@ -108,7 +108,8 @@ $(function() {
 			console.log("displayComplexAndStar 속으로 들어오는지????????"); 
 	        var status=JSON.parse(data);
 			$('#starString').html(status["avgRate"]);
-			$('#complex').html(status["complex"]);			
+			$('#complex').html(status["complex"]);
+			console.log("status[complex']:",status["complex"]);
 		},
 		error:function(request,status,error){
 	         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리

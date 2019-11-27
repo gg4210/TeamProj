@@ -4,8 +4,11 @@ import java.io.File;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.jsoup.Jsoup;
@@ -21,7 +24,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kosmo.workout.service.HealthMateDTO;
+import com.kosmo.workout.service.HealthMateService;
+import com.kosmo.workout.service.MyMateDTO;
 import com.kosmo.workout.util.CommonUtility;
 
 
@@ -40,8 +47,21 @@ public class HomeController {
 	public String home() {
 		return "intro";
 	}
+
+	@Resource(name = "HealthMateService")
+	private HealthMateService HealthMateService;
+
+	
 	@RequestMapping("/main.do")
-	public String main(HttpServletRequest req) throws IOException {
+	public String main(HttpServletRequest req, @RequestParam Map map,Model model) throws IOException {
+		
+		//메인페이지 운동메이트 뿌려주는 용도
+		int total=HealthMateService.getTotalRecord(map);
+		//System.out.println("total: "+total);
+		model.addAttribute("MateTotal", total);
+		List<HealthMateDTO> mateList=HealthMateService.selectList(map);
+		model.addAttribute("MateList", mateList);
+		
 		
 		/*
 		String path=req.getSession().getServletContext().getRealPath("/");

@@ -51,13 +51,13 @@ $(function(){
 		   //console.log("아아아 data:"+data);
 		   //console.log("이것도 축하한다");
 		   //var arrayObj=JSON.parse(data);
-		   //console.log("쇼에서 data: ",arrayObj);
+		   console.log("data: ",data);//데이타 받아오는데 뭐가 문제야
 		   var message="";
 		   var fromid=$('#fromID').text();
 		   console.log("fromid: ",fromid);
 		   $.each(data,function(index,element){
 			   console.log("좀들어가라");
-			   id=element["FROMID"];
+			   //var id=element["FROMID"];
 			   message+='<p class="badge '+element["BADGE"]+' text-wrap" style="font-size:medium; text-align:'+element["ALIGN"]+';">';
 			   if(element["ALIGN"]=="left"){
 				   message+='<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />';
@@ -211,44 +211,30 @@ $(function(){
 			</div>
 			
 		
-			
-			<!-- 내가 추가한 메이트 목록 -->
 			<div>
 				<table class="table table-hover">
 					<thead class="black white-text">
 						<tr>
-						   <th scope="col">이미지</th>
-                           <th scope="col">메이트 아이디</th>
-                           <th scope="col">메이트 등록일</th>
+						   <th scope="col" class="align-middle text-center">이미지</th>
+                           <th scope="col" class="align-middle text-center">메이트 아이디</th>
+                           <th scope="col" class="align-middle text-center">메이트 등록일</th>
 						</tr>
 					</thead>
 					<tbody>
 					<c:if test='${empty ToMateList}' var="isEmpty">
 						<tr>
-							<td colspan="4" class="text-center">등록한 메이트가 없습니다.</td>
+							<td colspan="4" class="align-middle text-center">등록한 메이트가 없습니다.</td>
 						</tr>
 					</c:if>
 					<c:forEach var="toMate" items="${ToMateList}" varStatus="loop">
-					    <tr class="healthMate" id="${toMate.id}" >
-						   <td scope="row" style="size:0.5em;" class="align-middle">
-                           <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" alt="avatar mx-auto white" class="rounded-circle img-fluid">
+					    <tr class="healthMate " id="${toMate.id}" >
+						   <td scope="row" class="align-middle text-center">
+                           <img style="width: 80px; height: 80px;" src="http://mblogthumb4.phinf.naver.net/20150427_171/ninevincent_1430122791934m8cxB_JPEG/kakao_4.jpg?type=w2" alt="avatar mx-auto white" class="rounded-circle img-fluid">
                            </td>
 							<td class="align-middle text-center" id="fromID">${toMate.FRIEND_ID }</td>
 							<td class="align-middle text-center">${toMate.MATEDATE }</td>
 					    </tr>
 					 </c:forEach>
-					    <!--
-					    <tr>
-							<th scope="row"><img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/42.jpg" alt="Card image cap"></th>
-							<td>Jacob</td>
-							<td>달리기가 너무 힘드네요. 같이 뛸 사람 구해봐요</td>
-					    </tr>
-					    <tr>
-							<th scope="row"><img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap"></th>
-							<td>Larry</td>
-							<td>죽겄다</td>
-					    </tr>
-					    -->
 					  </tbody>
 				</table>
 			</div>
@@ -296,7 +282,7 @@ $(function(){
 			</div>
 -->
 			
-			<!-- 페이지네이션 시작 -->
+			<!-- 페이지네이션 시작
 			<div class="row">
 				<div class="col">
 					<nav class="d-flex justify-content-center mt-3">
@@ -314,6 +300,7 @@ $(function(){
 					</nav>
 				</div>
 			</div>
+			-->
 			<!-- 페이지네이션 끝 -->
 		</div>
 	
@@ -323,32 +310,23 @@ $(function(){
 				<h2>쪽지함</h2>
 			</div>
 			<div>
+			<!--
 				<div class="float-right">
 					<button class="btn purple-gradient p-2 px-4" data-toggle="modal" data-target="#message-delete-modal">쪽지삭제</button>
 				</div>
+			-->
 				<table class="table table-hover">
 					<thead class="black white-text">
 						<tr>
-							<th style="width:5%" scope="col">
-								<div class="custom-control custom-checkbox" id="matelist-checkbox-all">
-								    <input type="checkbox" class="custom-control-input" id="message-checkall" value="message-check-all">
-								    <label class="custom-control-label" for="message-checkall"></label>
-								</div>
-							</th>
 							<th style="width:20%" scope="col">메이트 아이디</th>	
 							<th style="width:60%;text-align:center" scope="col">내용</th>
 						</tr>
 					</thead>
 					<tbody id="matelist-checkbox">
 					    <tr>
-					    	<th>
-								<div class="custom-control custom-checkbox">
-								    <input type="checkbox" class="custom-control-input" id="health3" value="message3">
-								    <label class="custom-control-label" for="health3"></label>
-								</div>
-							</th>
-							<td id="fromid">Larry</td>
-							<td><a href="#" data-toggle="modal" data-target="#messageModalScrollable" id="messagelist"><span style="text-align: center;">응 ㄲㅈ</span></a></td>
+					    	
+							<td id="fromid" class="align-middle text-center">Larry</td>
+							<td class="align-middle text-center"><a href="#" data-toggle="modal" data-target="#messageModalScrollable" id="messagelist">응 ㄲㅈ</a></td>
 					    </tr>
 					  </tbody>
 				</table>
@@ -356,7 +334,7 @@ $(function(){
 			<!-- 쪽지함 끝 -->
 
 			
-			<!-- 페이지네이션 시작 -->
+			<!-- 페이지네이션 시작 
 			<div class="row">
 				<div class="col">
 					<nav class="d-flex justify-content-center mt-3">
@@ -374,6 +352,7 @@ $(function(){
 					</nav>
 				</div>
 			</div>
+			-->
 			<!-- 페이지네이션 끝 -->
 		</div>
 	</div>
@@ -390,45 +369,7 @@ $(function(){
 				</div>
 				<div class="modal-body" id="messageBox" style="background-color:black;">
 					<span id="message_line"></span>
-						
-						<p class="badge badge-light text-wrap" style="font-size:medium; text-align:left;">
-						<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />
-						야
-						</p>
-						<p class="badge badge-light text-wrap" style="text-align:left; font-size:medium;">
-						<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />
-						야
-						</p>
-						<p class="badge badge-light text-wrap" style="text-align:left; font-size:medium;">
-						<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />
-						야
-						</p>
-						<p class="badge badge-light text-wrap" style="text-align:left; font-size:medium;">
-						<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />
-						야
-						</p>
-						<p class="badge badge-light text-wrap" style="text-align:left; font-size:medium;">
-						<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />
-						야
-						</p>
-						<p class="badge badge-light text-wrap" style="text-align:left; font-size:medium;">
-						<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />
-						야
-						</p>
-						<p class="badge badge-light text-wrap" style="text-align:left; font-size:medium;">
-						<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />
-						야 집에 언제가
-						</p>
-						
-						<p class="badge badge-secondary text-wrap" style="text-align:right; font-size:medium;">
-						가긴 어딜가
-						<img class="img-uncle" id="me" src="http://wiki.hash.kr/images/thumb/0/09/%EA%B0%95%ED%98%95%EC%9A%B1.jpg/100px-%EA%B0%95%ED%98%95%EC%9A%B1.jpg" />
-						</p>
-						<p class="badge badge-secondary text-wrap" style="text-align:right; font-size:medium;">
-						ㅁㅊ
-						<img class="img-uncle" id="me" src="http://wiki.hash.kr/images/thumb/0/09/%EA%B0%95%ED%98%95%EC%9A%B1.jpg/100px-%EA%B0%95%ED%98%95%EC%9A%B1.jpg" />
-						</p>
-						
+	
 						<p class="badge badge-light text-wrap" style="text-align:left; font-size:medium;">
 						<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />
 						응 ㄲㅈ

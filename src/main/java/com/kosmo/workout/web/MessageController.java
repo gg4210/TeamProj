@@ -36,11 +36,13 @@ public class MessageController {
 		String align="";
 		String badge="";
 		String id=((UserDetails)auth.getPrincipal()).getUsername();
-		//map.put("id", id);
+		System.out.println("id는 "+id);
+		map.put("id", id);
 		int messageTotal=MessageService.MessageCount(map);
-		MessageDTO messageList=MessageService.selectOne(map);
+		List<MessageDTO> messageList=MessageService.selectList(map);
+		/*
 		JSONObject msgjson=new JSONObject();
-		msgjson.put("ID", messageList.getId());
+		msgjson.put("ID",messageList);
 		msgjson.put("FROMID", messageList.getFromid());
 		msgjson.put("CONTENT", messageList.getContent());
 		msgjson.put("PICTURE", messageList.getPicture());
@@ -61,7 +63,7 @@ public class MessageController {
 		}
 		
 		return msgjson.toJSONString();
-		/*
+		*/
 		List<Map> collection=new Vector<Map>();
 		//메세지가 있을 경우
 		if(messageTotal!=0 && messageList!=null) {
@@ -101,7 +103,7 @@ public class MessageController {
 		}
 		System.out.println("아아 이건 뭐지"+JSONArray.toJSONString(collection));
 		return JSONArray.toJSONString(collection);
-		*/
+	
 	}////////////////////////
 	
 	//메세지 보내기

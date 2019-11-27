@@ -42,7 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 혼잡도 구하기 시작 -->
 	<select id="complexity" parameterType="java.util.Map" resultType="SearchBBSDTO">
-		select (SELECT MAXNUMBER FROM CENTER_INFO) MAXNUMBER, (SELECT COUNT(*) FROM COMPLEXITY C) COUNTNUM FROM DUAL
+		SELECT(SELECT MAXNUMBER FROM CENTER_INFO where mapkey=#{mapkey}) MAXNUMBER, (SELECT COUNT(*) FROM COMPLEXITY C where mapkey=#{mapkey}) COUNTNUM FROM DUAL
 	</select>
 	<!-- 혼잡도 구하기 끝 -->	
 	
