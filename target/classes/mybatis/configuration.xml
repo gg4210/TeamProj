@@ -22,6 +22,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="AuthSecurityDTO" type="com.kosmo.workout.service.AuthSecurityDTO"/>
 		<typeAlias alias="RegicenterDTO" type="com.kosmo.workout.service.regicenter.RegicenterDTO"/>
 		<typeAlias alias="SearchBBSCommentDTO" type="com.kosmo.workout.service.search.SearchBBSCommentDTO"/>
+		<typeAlias alias="Admin_UserTableDTO" type="com.kosmo.workout.service.admin.Admin_UserTableDTO"/>
 	</typeAliases>
 	
 	<!-- 매퍼파일(SQL쿼리 결과와 자바빈 매핑) 정보 설정 -->		
@@ -37,6 +38,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/Complexity.xml"/>
 		<mapper resource="mybatis/AuthSecurity.xml"/>
 		<mapper resource="mybatis/EditCenter.xml"/>
+		<mapper resource="mybatis/Admin.xml"/>
 	</mappers>
 	
 </configuration>

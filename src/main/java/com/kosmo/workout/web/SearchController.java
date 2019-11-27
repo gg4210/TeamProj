@@ -45,7 +45,7 @@ public class SearchController {
 	@RequestMapping(value="/viewComplexAndStar.do", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	public String complexAndstar(@RequestParam Map map) {
 
-
+		
 		System.out.println("complexAndstar ajax");
 		JSONObject json=new JSONObject();
 		int rate=SearchService.setRating(map);	
@@ -56,9 +56,9 @@ public class SearchController {
 		int countnum=dto.getCountNum();
 		int maxnum=dto.getMaxNumber();
 		String complex=CommonUtility.isComplex(countnum, maxnum);
-		
 
 		json.put("complex", complex);
+		System.out.println("complex"+complex);
 		
 		return json.toJSONString();	
 	}
@@ -120,6 +120,7 @@ public class SearchController {
 	public String SummeryView(@RequestParam Map map, Model model, Authentication auth) {
 		
 		System.out.println("별표시, 평점, 혼잡도 ajax");
+		System.out.println("이게 안되는건가");
 				
 		int rate=SearchService.setRating(map);
 		String avgRate=CommonUtility.ratingString(rate);//별 표시
@@ -127,6 +128,7 @@ public class SearchController {
 		int countnum=dto.getCountNum();
 		int maxnum=dto.getMaxNumber();
 		String complex=CommonUtility.isComplex(countnum, maxnum);
+		System.out.println("complex는 "+complex);
 		
 		map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());
 		int isbookmarked=SearchService.isBookmarked(map);

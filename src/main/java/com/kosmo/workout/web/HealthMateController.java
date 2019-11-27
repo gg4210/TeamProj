@@ -3,6 +3,7 @@ package com.kosmo.workout.web;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.json.Json;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -23,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gargoylesoftware.htmlunit.javascript.host.Console;
@@ -30,6 +33,8 @@ import com.kosmo.workout.service.HealthMateDTO;
 import com.kosmo.workout.service.HealthMateService;
 import com.kosmo.workout.service.MyMateDTO;
 import com.kosmo.workout.service.MyMateService;
+import com.kosmo.workout.util.CommonUtility;
+import com.kosmo.workout.util.FileUploadService;
 
 //@SessionAttributes({"id"})//시큐리티 적용 전
 @Controller
@@ -40,6 +45,8 @@ public class HealthMateController {
 	private HealthMateService HealthMateService;
 	@Resource(name="MyMateService")
 	private MyMateService MyMateService;
+	@Autowired
+	FileUploadService fileUploadService;
 	
 	@RequestMapping("/member/healthMateMain.do")
 	public String mainPage(@RequestParam Map map, Model model) {
@@ -60,10 +67,25 @@ public class HealthMateController {
 							  Model model,
 							  //@RequestParam("matePhoto") MultipartFile matePhoto,
 							  HttpServletRequest req,
-							  Authentication auth) throws IllegalStateException, IOException {
+							  Authentication auth,
+							  @RequestParam("matePhoto") MultipartFile picture
+							) throws IllegalStateException, IOException {
 		//시큐리티 적용 후
 		UserDetails userDetails=(UserDetails)auth.getPrincipal();
 		map.put("id", userDetails.getUsername());
+		
+		//파일 업로드
+		String url = fileUploadService.restore(req,picture);
+		System.out.println(url);
+		Iterator<String> keys = map.keySet().iterator();
+		while(keys.hasNext()) {
+			String key = keys.next();
+		    //System.out.println("key : " + key +" / value : " + map.get(key));
+		}
+		map.put("matePhoto",url);
+		System.out.println("url: "+url);
+		
+		
 		/*
 		//1]서버의 물리적 경로 얻기
 		String path=req.getSession().getServletContext().getRealPath("/image");
@@ -86,6 +108,9 @@ public class HealthMateController {
 		//System.out.println("컨트롤러는 들어오니");
 		//System.out.println(map);
 		HealthMateDTO view=HealthMateService.selectOne(map);
+		String date=view.getStartDate().toString();
+		date+=" ~ ";
+		date+=view.getEndDate().toString();
 		String first_tag=view.getFirst_tag();
 		String seconde_tag=view.getSecond_tag();
 		String third_tag=view.getThird_tag();
@@ -108,6 +133,8 @@ public class HealthMateController {
 		matejson.put("TIME", view.getHealthTime());
 		matejson.put("TAG", tag);
 		matejson.put("CONTENT", view.getContent());
+		matejson.put("DATE", date);
+		matejson.put("MATEPHOTO", view.getMatePhoto());
 		//System.out.println(matejson);
 		
 		return matejson.toJSONString();
@@ -117,7 +144,7 @@ public class HealthMateController {
 	@ResponseBody
 	@RequestMapping(value = "/member/mateDelete.do")
 	public String mateDelete(@RequestParam Map map) {
-		//System.out.println("삭제 컨트롤러 진입했습니다");
+		System.out.println("삭제 컨트롤러 진입했습니다");
 		//System.out.println(map);
 		HealthMateService.delete(map);
 		return "healthMate/healthMateMain.tiles";

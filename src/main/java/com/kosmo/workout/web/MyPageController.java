@@ -83,8 +83,6 @@ public class MyPageController {
 		List<MyMateDTO> ToMateList=MyMateService.toSelectList(map);
 		System.out.println("내가 추가한 메이트 리스트: "+ToMateList);
 		
-		System.out.println("ToMateList"+ToMateList);
-		
 		model.addAttribute("ToMateList", ToMateList);
 
 		return "mypage/customer/mypage_Index.tiles";

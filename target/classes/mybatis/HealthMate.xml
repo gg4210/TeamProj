@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<insert id="mateInsert" parameterType="java.util.Map">
 		insert into healthMate values(SEQ_healthMate_NO.nextval,#{id},#{title},#{location},#{interSport},#{healthTime},#{startDate},#{endDate},
-  		#{first_tag},#{second_tag},#{third_tag},#{content},sysdate,null)
+  		#{first_tag},#{second_tag},#{third_tag},#{content},sysdate,#{matePhoto})
 	</insert>
 	<select id="mateUpdate" parameterType="java.util.Map">
 		update healthMate set title=#{title},tag=#{tag},location=#{location},healthTime=#{healthTime},content=#{content},picture=#{matePhoto} where no=#{no}

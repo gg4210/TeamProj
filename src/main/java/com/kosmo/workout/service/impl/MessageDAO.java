@@ -27,14 +27,16 @@ public class MessageDAO implements MessageService{
 		return template.selectOne("MessageCount",map);
 	}
 
-	@Override
-	public List<MessageDTO> selectOne(Map map) {
-		return template.selectOne("MessageSelectOne", map);
-	}
+	
 
 	@Override
 	public int insert(Map map) {
 		return template.insert("MessageInsert", map);
+	}
+
+	@Override
+	public MessageDTO selectOne(Map map) {
+		return template.selectOne("MessageSelectOne", map);
 	}
 
 
