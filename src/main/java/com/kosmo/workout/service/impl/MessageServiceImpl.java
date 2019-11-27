@@ -26,7 +26,6 @@ public class MessageServiceImpl implements MessageService{
 		return dao.MessageCount(map);
 	}
 
-
 	@Override
 	public int insert(Map map) {
 		return dao.insert(map);

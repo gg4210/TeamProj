@@ -27,8 +27,6 @@ public class MessageDAO implements MessageService{
 		return template.selectOne("MessageCount",map);
 	}
 
-	
-
 	@Override
 	public int insert(Map map) {
 		return template.insert("MessageInsert", map);

@@ -1,5 +1,6 @@
 package com.kosmo.workout.service.impl.regicenter;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -50,6 +51,16 @@ public class RegicenterDAO implements RegicenterService{
 	@Override
 	public RegicenterDTO getMapkey(Map map) {
 		return template.selectOne("getMapkey", map);
+	}
+
+	@Override
+	public int isIn(Map map) {
+		return template.selectOne("isIn",map);
+	}
+
+	@Override
+	public List<RegicenterDTO> listRegicenter(Map map) {
+		return template.selectList("listRegicenter",map);
 	}
 
 
