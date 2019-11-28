@@ -6,7 +6,7 @@
 <script>
 $( document ).ready( function () {
 	$( "#notice_form" ).validate( {
-		rules: {////category,title,content 
+		rules: {
 			title: {
 				required: true,
 				maxlength: 30
@@ -48,7 +48,7 @@ $( document ).ready( function () {
 					action="<c:url value='/member/noticeWrite.do'/>">
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<div class="form-group row" id="category">
-						<label class="control-label pr-4">분류</label>
+						<label class="control-label pr-3">카테고리</label>
 						<div class="col-2">
 							<select name="selectCategory" class="form-control custom-select">
 								<!-- 

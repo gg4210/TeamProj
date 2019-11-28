@@ -12,7 +12,7 @@
 <div class="container">
 	<div class="row pt-5">
 		<div class="col">
-			<h1><strong>공지사항 </strong><small><small> 상세보기 페이지</small></small></h1>
+			<h1><strong>공지사항</strong><small><small> 상세보기 페이지</small></small></h1>
 		</div>	
 	</div>
 	<hr />
@@ -75,7 +75,7 @@
 	
 	<div class="row d-flex justify-content-center mt-3 mb-3">
 		<c:if test="${id==record.id}">
-			<a class="btn btn-primary" href="<c:url value='/member/noticeEdit.do?no=${record.no}'/>">수정</a>
+			<a class="btn btn-info" href="<c:url value='/member/noticeEdit.do?no=${record.no}'/>">수정</a>
 <!-- 			<button type="button" class="btn btn-info" id="notice_edit">수정</button>
  -->		</c:if>
 		<button type="button" class="btn btn-primary" id="notice_confirm">목록</button>
@@ -123,11 +123,12 @@
 $(function(){
 	$('#notice_edit').click(function(){
 		location.href="noticeEdit.do?=${record.no}";
-	});
-	
+	});	
 
 	$('#notice_confirm').click(function(){
-		$('#pills-noticeNevent').tab('show');
+		//console.log("들어옵니까?");
+		//console.log("href:",window.location.href);
+		location.href="/workout/member/customerServiceMain.do#pills-noticeNevent-tab";
 	});
 	
 	$('#notice_delete').click(function(){

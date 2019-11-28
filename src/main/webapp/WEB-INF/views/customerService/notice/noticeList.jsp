@@ -13,7 +13,7 @@
 <!-- 실제 내용 시작 -->
 <div class="container">
 	<div class="row pt-2">
-		<h3>공지사항</h3>		
+		<h3>공지사항</h3>
 	</div>
 
 	<div class="row">
@@ -41,10 +41,10 @@
 			<table class="table table-hover text-center">
 				<thead>
 					<tr>
-						<th scope="col" class="text-center" style="width: 10%">글번호</th>
-						<th scope="col" class="text-center" style="width: 15%">카테고리</th>
-						<th scope="col" class="text-center" style="width: 65%">제목</th>
-						<th scope="col" class="text-center" style="width: 10%">등록일</th>
+						<th scope="col" style="width: 10%">글번호</th>
+						<th scope="col" style="width: 15%">카테고리</th>
+						<th scope="col" style="width: 65%">제목</th>
+						<th scope="col" style="width: 10%">등록일</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -56,12 +56,13 @@
 					<c:if test="${not isEmpty}">						
 						<c:forEach var="item" items="${noticeList}" varStatus="loop">	
 							<tr>
-								<td>${item.rownum}</td><!-- ROWNUM으로 바꿔줘야 함. -->
+								<td>${item.r}</td>  
+								<!--<td>${totalNoticeRecordCount-(((nowPage-1)*pageSize)+loop.index)}</td> -->				
 								<td>${item.category}</td>
 								<td class="text-left">
-									<a href="<c:url value='noticeView.do?no=${item.no}'/>">${item.title}</a></td>
-									<!-- member/noticeView.do?no= : 패턴0에서 에러 / -->
+									<a href="<c:url value='/member/noticeView.do?no=${item.no}&nowPage='/><c:out value='${param.nowPage}' default='1'/>">${item.title}</a></td>
 									<!-- noticeView.do?no= : 패턴0에서 정상작동 / -->
+									<!-- member/noticeView.do?no= : 패턴0에서 에러 / -->
 								<td>${item.postDate}</td>
 							</tr>
 						</c:forEach>
@@ -76,7 +77,7 @@
 		<div class="clearfix col">
 			<div class="float-right">
 				<c:if test="${auth eq '[ROLE_ADMIN]'}">
-					<button type="button" class="btn btn-info p-2 px-4" id="notice_write">공지 작성</button>
+					<button type="button" class="btn btn-primary p-2 px-4" id="notice_write">공지 작성</button>
 				</c:if>
 			</div>
 		</div>
@@ -84,6 +85,7 @@
 
 
 	<!-- 페이지네이션 시작 -->
+	<!-- 
 	<div class="row">
 		<div class="col">
 			<nav class="d-flex justify-content-center mt-3">
@@ -101,7 +103,11 @@
 				</ul>
 			</nav>
 		</div>
-	</div>  <!-- 페이지네이션 끝 -->
+	</div>  --> <!-- 페이지네이션 끝 -->
+	<!-- 페이징 -->
+	<div class="row">
+		<div class="col-md-12 text-center">${noticePagingString}</div>
+	</div>
 </div>
 
 <script>

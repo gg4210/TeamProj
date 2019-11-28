@@ -13,14 +13,14 @@
 				<!-- /member/noticeView.do : 경로 0에서 에러 -->
 				<!-- /noticeView.do : 경로 0에서 에러 -->
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-					<input type="hidden" name="no" value="${record.no}"/><!-- no? rownum?헷갈린다... -->
+					<input type="hidden" name="no" value="${record.no}"/>
 					<div class="form-group row" id="category">
 						<label class="control-label pr-4">카테고리</label>
 						<div>
 							<select name="selectCategory" class="form-control custom-select">
-								<option selected value="1">--선택해주세요--</option>
-								<option value="2">정기점검</option>
-								<option value="3">기타</option>
+								<option selected value="[공지]">공지</option>
+								<option value="[정기점검]">정기점검</option>
+								<option value="[기타]">기타</option>
 							</select>
 						</div>
 					</div>

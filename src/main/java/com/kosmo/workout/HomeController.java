@@ -26,6 +26,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kosmo.workout.service.CSDTO;
+import com.kosmo.workout.service.CSService;
 import com.kosmo.workout.service.HealthMateDTO;
 import com.kosmo.workout.service.HealthMateService;
 import com.kosmo.workout.service.MyMateDTO;
@@ -50,7 +52,8 @@ public class HomeController {
 
 	@Resource(name = "HealthMateService")
 	private HealthMateService HealthMateService;
-
+	@Resource(name = "CSService")
+	private CSService CSService;
 	
 	@RequestMapping("/main.do")
 	public String main(HttpServletRequest req, @RequestParam Map map,Model model) throws IOException {
@@ -62,7 +65,11 @@ public class HomeController {
 		List<HealthMateDTO> mateList=HealthMateService.selectList(map);
 		model.addAttribute("MateList", mateList);
 		
-		
+		//메인페이지 공지사항과 이벤트 뿌려주기
+		List<CSDTO> homeNoticeList = CSService.homeNoticeSelectList(map);
+		model.addAttribute("homeNoticeList", homeNoticeList);
+		List<CSDTO> mainEventList = CSService.mainEventSelectList(map);
+		model.addAttribute("mainEventList", mainEventList);
 		/*
 		String path=req.getSession().getServletContext().getRealPath("/");
 		String webDriverPath=path+"resources"+File.separator+"webdriver"+File.separator+"chromedriver.exe";

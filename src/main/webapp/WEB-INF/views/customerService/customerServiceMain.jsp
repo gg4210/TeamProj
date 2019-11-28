@@ -4,19 +4,14 @@
 
 <script>
 $(function () {
-	////다른페이지에 있다가 눌렀을 때
+	//다른페이지에 있다가 눌렀을 때
 	var durl = window.location.hash;////console.log(durl); => #id
 	console.log(durl);
 	if (durl !='') {
-		/* if(durl.lastIndexOf("#")!=0){//#id#id
-			console.log("두 개다!!");
-			var idArr = durl.split('#');
-			$('#'+idArr[0]).tab('show');
-		} 
-		else */ $(durl).tab('show');
+		 $(durl).tab('show');
 	}
-	////같은 페이지에 있다가 눌렀을 때 ////serviceLinks는 login.jsp에 있는 div태그의 id속성의 값이다.
-	$('#serviceLinks a').click(function(){
+	//같은 페이지에 있다가 눌렀을 때 ////serviceLinks는 login.jsp에 있는 div태그의 id속성의 값이다.
+	/* $('#serviceLinks a').click(function(){
 		var link = $(this).attr('href');////console.log('link:',link);=> link :  /workout/customerServiceMain.do#pills-notice-tab
 		var sactiveTab = link.substring(link.indexOf("#"));////내가 +1지움 그래서 .tab('show')에서 선택자 앞에 # 안 더해줌.
 		console.log('link : ',link);
@@ -24,7 +19,7 @@ $(function () {
 		$('#serviceLinks a').removeClass("active");
 		$(this).addClass("active");
 		$(sactiveTab).tab('show');
-	});
+	}); */
 });
 </script>
 
@@ -41,7 +36,7 @@ $(function () {
 					aria-controls="pills-faq" aria-selected="false"> <i class='fas fa-edit fa-6x'></i><h4 class="mt-2">자주 묻는 질문</h4></a>
 			</li>
 			<li class="nav-item col">
-				<a class="nav-link" id="pills-notice-tab" data-toggle="pill" href="#pills-noticeNevent" role="tab" 
+				<a class="nav-link" id="pills-noticeNevent-tab" data-toggle="pill" href="#pills-noticeNevent" role="tab" 
 					aria-controls="pills-notice" aria-selected="false"> <i class="fas fa-bullhorn fa-6x"></i><h4 class="mt-2">공지<br />/이벤트</h4></a>
 			</li>
 			<li class="nav-item col">

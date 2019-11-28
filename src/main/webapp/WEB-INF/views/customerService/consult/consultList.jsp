@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<sec:authentication property="principal.username" var="id"/>
+<sec:authentication property="principal.authorities" var="auth"/>
+
 <style>
 #page-header {
 	font-style: inherit;
@@ -26,32 +30,50 @@ nav > ul a {
 
 </style>
 
-
+<!-- 실제 내용 시작 -->
 <div class="container">
-	<div class="page-header pt-2">
-		<h2>문의내역 확인</h2>
+	<div class="row pt-2">
+		<h3>문의내역 확인</h3>
 	</div>
-	
+	<!-- <br/> -->
 	<div class="row">
 		<div class="col-md-12">
-			<table class="table table-hover" style="margin-top:50px;">
+			<table class="table table-hover pt-5 text-center">
 				<thead>
 					<tr>
-						<th scope="col" class="text-center" style="width:15%">글번호</th>
-						<th scope="col" class="text-center" style="width:15%">카테고리</th>
-						<th scope="col" class="text-center" style="width:50%">제목</th>
-						<th scope="col" class="text-center" style="width:10%">등록일</th>
-						<th scope="col" class="text-center" style="width:10%">답변현황</th>
+						<th scope="col" style="width:10%">글번호</th>
+						<th scope="col" style="width:20%">카테고리</th>
+						<th scope="col" style="width:50%">제목</th>
+						<th scope="col" style="width:10%">등록일</th>
+						<th scope="col" style="width:10%">답변현황</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td class="text-center">10</td>
-						<td class="text-center">헬스장 관련</td>
-						<td>헬스장 신청은 어떻게 하면 좋을까요?</td>
-						<td class="text-center">2019-10-05</td>
-						<td class="text-center">미답변</td>
-					</tr>
+				<c:forEach items="${auth}" var="item_auth">
+	
+
+					<c:if test='${empty consultList}' var="isEmpty">
+						<tr>
+							<td colspan="4" class="text-center">등록된 게시물이 없습니다.</td>
+						</tr>
+					</c:if>
+					<c:if test="${not isEmpty}">						
+							<c:forEach var="item" items="${consultList}" varStatus="loop">	
+								<tr>
+									<td>${item.r}</td>
+									<td>${item.category}</td>
+									<td class="text-left">
+										<%-- <a href="<c:url value='consultView.do?no=${item.no}&${item_auth}'/>">${item.title}</a></td> --%>
+										<a href="<c:url value='consultView.do?no=${item.no}'/>">${item.title}</a></td>
+										<!-- member/noticeView.do?no= : 패턴0에서 에러 / -->
+										<!-- noticeView.do?no= : 패턴0에서 정상작동 / -->
+									<td>${item.postDate}</td>
+									<td>미답변</td><!-- 수정처리 필요 -->
+								</tr>
+							</c:forEach>
+						</c:if>
+						</c:forEach>
+					<!-- 
 					<tr>
 						<td class="text-center">9</td>
 						<td class="text-center">게시판 이용 관련</td>
@@ -59,6 +81,7 @@ nav > ul a {
 						<td class="text-center">2019-10-03</td>
 						<td class="text-center">답변완료</td>
 					</tr>
+					 -->
 				</tbody>			
 			</table>			
 		</div><!-- col-md-12 -->
@@ -77,6 +100,7 @@ nav > ul a {
 		<!-- 검색창 끝 -->		
 
 	<!-- 페이지네이션 시작 -->
+	<!-- 
 	<div class="row">
 		<div class="col">
 			<nav class="d-flex justify-content-center mt-3">
@@ -93,6 +117,10 @@ nav > ul a {
 				</ul>
 			</nav>
 		</div>
-	</div>
+	</div> -->
 	<!-- 페이지네이션 끝 -->	
+	<!-- 페이징 -->
+	<div class="row">
+		<div class="col-md-12 text-center">${consultPagingString}</div>
+	</div>
 </div>		
