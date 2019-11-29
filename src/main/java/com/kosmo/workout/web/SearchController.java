@@ -200,9 +200,7 @@ public class SearchController {
 	
 	@ResponseBody
 	@RequestMapping(value="/commentlist.do", method=RequestMethod.POST, produces = "application/json; charset=utf-8")
-	public String listSearchComment(@RequestParam Map map) {
-		
-		System.out.println("list로 들어옵니까?");
+	public String listSearchComment(@RequestParam Map map) {		
 		
 		List<SearchBBSCommentDTO> list=SearchService.selectListComment(map);		
 				
@@ -228,5 +226,19 @@ public class SearchController {
 		return jsonString;
 	
 	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/addMarker.do", method=RequestMethod.POST, produces = "application/json; charset=utf-8")
+	public String MarkerIsIN(@RequestParam Map map) {
+		
+		System.out.println("addMarker로 들어옵니까?");
+		
+		return null;
+	
+	}
+	
+	
+	
 	
 }
