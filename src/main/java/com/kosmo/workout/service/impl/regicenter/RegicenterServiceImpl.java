@@ -74,4 +74,9 @@ public class RegicenterServiceImpl  implements RegicenterService{
 	public String findCenterID(String mk) {
 		return dao.findCenterID(mk);
 	}
+
+	@Override
+	public int totalCount(Map map) {
+		return dao.totalCount(map);
+	}
 }

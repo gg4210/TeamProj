@@ -192,7 +192,6 @@ $(function(){
 		data:{'id':'${sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.username}'},
 		success:function(data){
 			var user=JSON.parse(data);
-			console.log("인포 받아오는지:",user["picture"].toString());
 			$('#picture').attr('src','<c:url value="'+user['picture']+'"/>');
 		},
 	    error:function(request,status,error){
@@ -391,7 +390,7 @@ $(function(){
             </div>
             <!-- col3 끝 -->
             <button type="button" class="btn btn-primary col-12" onclick="javascript:logout()">로그아웃</button>
-            <button type="button" class="btn btn-primary col-12" onclick="javascript:dataget()">데이터 받아오기</button>
+            <!-- <button type="button" class="btn btn-primary col-12" onclick="javascript:dataget()">데이터 받아오기</button>-->
             <form id="getdata" method="post" action="<c:url value='/notification.do'/>">
                <input type="hidden" value="<sec:authentication property="principal.username"/>" name="id"/>
                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -509,42 +508,72 @@ function dataget(){
                                </tr>
                              </thead>
                                <tbody>
-                               <tr>
-                                 <td scope="row">KIM*</td>
-                                  <td scope="row">
-                                        <span id="rateMe">
-                                    <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-                                    <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-                                    <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-                                    <i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-                                    <i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-                                    </span>
-                                 </td>
-                               </tr>
-                               <tr>
-                                 <td scope="row">LEE*</td>
-                                 <td scope="row">
-                                        <span id="rateMe">
-                                    <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-                                    <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-                                    <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-                                    <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-                                    <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-                                    </span>
-                                 </td>
-                               </tr>
-                               <tr>
-                                 <td scope="row">CHO*</td>
-                                <td scope="row">
-                                        <span id="rateMe">
-                                    <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-                                    <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-                                    <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-                                    <i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-                                    <i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-                                    </span>
-                                 </td>
-                               </tr>
+                               <c:if test="${empty Comment }">
+                      	 <td><span>등록된 리뷰가 없습니다.</span></td>
+                      </c:if>
+                      <c:if test="${not empty Comment}">
+                    	  <c:forEach var="comment" items="${Comment }">
+                      		<tr>
+                        	<td scope="row">${comment.NICK_NAME }</td>
+                        	<td scope="row">
+                        	<c:if test="${comment.rate eq 0 }">
+                        	<span id="rateMe">
+                        		<i class="fas fa-star py-2 px-1 rate-popover" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
+                          		<i class="fas fa-star py-2 px-1 rate-popover" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
+                           	</span>
+                        	</c:if>
+                        	<c:if test="${comment.rate eq 1 }">
+                        	<span id="rateMe">
+                        		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
+                          		<i class="fas fa-star py-2 px-1 rate-popover" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
+                           	</span>
+                        	</c:if>
+                        	<c:if test="${comment.rate eq 2 }">
+                        	<span id="rateMe">
+                        		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
+                          		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
+                           	</span>
+                        	</c:if>
+                        	<c:if test="${comment.rate eq 3 }">
+                        	<span id="rateMe">
+                        		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
+                          		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
+                           	</span>
+                        	</c:if>
+                        	<c:if test="${comment.rate eq 4 }">
+                        	<span id="rateMe">
+                        		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
+                          		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
+                           	</span>
+                        	</c:if>
+                        	<c:if test="${comment.rate eq 5 }">
+                        	<span id="rateMe">
+                        		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
+                          		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
+                           		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
+                           	</span>
+                        	</c:if>
+                        </td>
+                      </tr>   
+                    	  </c:forEach>
+                      </c:if>
                            </tbody>
                          </table>            
                        </div>
@@ -653,8 +682,8 @@ function dataget(){
             </div>
             <!-- col3 끝 -->
             <button type="button" class="btn btn-primary col-12" onclick="javascript:logout()">로그아웃</button>
-            <button type="button" class="btn btn-primary col-12" onclick="javascript:dataget()">데이터 받아오기</button>
-            <form id="getdata" method="post" action="<c:url value='/notification.do'/>">
+            <!-- <button type="button" class="btn btn-primary col-12" onclick="javascript:dataget()">데이터 받아오기</button>-->
+            <form id="bsubmit" method="post" action="<c:url value='/center/enterprise.do'/>">
                <input type="hidden" value="<sec:authentication property="principal.username"/>" name="id"/>
                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             </form>
@@ -737,7 +766,7 @@ function dataget(){
                </div>
             </div>
             <button type="button" class="btn btn-primary col-12" onclick="javascript:logout()">로그아웃</button>
-            <button type="button" class="btn btn-primary col-12" onclick="javascript:dataget()">데이터 받아오기</button>
+            <!-- <button type="button" class="btn btn-primary col-12" onclick="javascript:dataget()">데이터 받아오기</button>-->
             <form id="getdata" method="post" action="<c:url value='/notification.do'/>">
                <input type="hidden" value="<sec:authentication property="principal.username"/>" name="id"/>
                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>

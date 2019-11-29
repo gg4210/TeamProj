@@ -98,6 +98,7 @@ $(function() {
 	console.log('header:',header)
 	console.log('header길이:',header.length)
 	
+<<<<<<< HEAD
 	$.ajax({
 		url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
 		data:{'mapkey':'${viewinfo.mapkey}'},
@@ -115,6 +116,27 @@ $(function() {
 	         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
 	    },
 	});
+=======
+	var starNComplexity=function(){
+		$.ajax({
+			url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
+			data:{'mapkey':'${viewinfo.mapkey}'},
+			type:"post",
+			success:function(data){
+		        var status=JSON.parse(data);		
+				$('#starString').html(status["avgRate"]);
+				$('#complex').html(status["complex"]);
+				console.log("status[complex']:",status["complex"]);
+			},
+			error:function(request,status,error){
+		         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+		    },
+		})
+	};	
+	
+
+	
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	var showComment=function(){///Ajax로 처리
 		console.log('showComment Ajax 들어옴');
 		$.ajax({
@@ -137,7 +159,7 @@ $(function() {
 		else{
 			$.each(data,function(index, element){
 				comment+='<div class="row pb-4"><div class="col-2">';
-				comment+='<img src=/workout'+element['PICTURE']+' alt="Avatar" class="avatar img-fluid">';
+				comment+='<img src='+element['PICTURE']+' alt="Avatar" class="avatar img-fluid">';
 				comment+='</div>'
 				comment+='<div class="col">';
 				comment+='<span class="mt-0 font-weight-bold blue-text h5">'+element['NICK_NAME']+'</span>';
@@ -192,6 +214,12 @@ $(function() {
 	}
 	$('#rateMe1').mdbRate();
 		showComment();
+<<<<<<< HEAD
+=======
+		starNComplexity();
+		
+		
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 		$('#comment_submit').click(function(e){
 			var index=parseInt($('#rateMe1').find('i.amber-text').length.toString());
 			e.preventDefault();
@@ -201,6 +229,7 @@ $(function() {
 				data:{'rate':index,'rComment':$('#comment_text').val(), 'mapkey':'${viewinfo.mapkey}'},
 				success:function(data){
 					showComment();
+					starNComplexity();
 				},
 				error:function(data){
 					console.log("입력실패");
@@ -232,7 +261,7 @@ $(function() {
 						      	<c:if test="${empty viewinfo.img_urls }" var="img_urls">
 						      		기업회원이 정보를 제공하지 않았습니다.
 								</c:if>
-								<c:if test="${not img_urls }">												
+								<c:if test="${not empty img_urls }">												
 							      	<c:forEach items="${viewinfo.img_urls }" var="img_url" varStatus="status">
 							      		<c:if test="${status.first}">
 								        	<img src="${img_url }" alt="photo" class="img-fluid">
@@ -287,7 +316,7 @@ $(function() {
 									<c:if test="${not otime }">
 										${viewinfo.otime }
 									</c:if>
-									<p class="h4"><span class="badge badge-primary">제공 서비스</span></p>
+									<p class="h4 mt-1"><span class="badge badge-primary">제공 서비스</span></p>
 									<c:if test="${empty viewinfo.service }" var="service">
 										<p>기업회원이 정보를 제공하지 않았습니다.</p>
 									</c:if>
@@ -338,17 +367,12 @@ $(function() {
 		                        </div>
 		                        <div class="card-body">
 		                        <!--Text-->
-		                           <div class="form-row">
-		                              <div class="col-md-3">
-		                                 <input type="text" class="form-control" name="tag1" id="tag1" placeholder="태그입력" value="#필라테스" disabled="disabled"/>
-		                              </div>
-		                              <div class="col-md-3">
-		                                 <input type="text" class="form-control" name="tag2" id="tag2" placeholder="태그입력" value="#헬스" disabled="disabled"/>
-		                              </div>
-		                              <div class="col-md-3">
-		                                 <input type="text" class="form-control" name="tag3" id="tag3" placeholder="태그입력" value="#최고의강사진" disabled="disabled"/>
-		                              </div>
-		                              </div>
+		                        <c:if test="${empty viewinfo.tag }">
+		                        	<span>대표 태그가 등록되어 있지 않습니다:)</span>
+		                        </c:if>
+		                        <c:if test="${not empty viewinfo.tag }">
+		                        	<input type="text" class="form-control" name="tag1" id="tag1" placeholder="태그입력" value="${viewinfo.tag}" disabled="disabled"/>
+		                        </c:if>
 		                        </div>
 		                     </div>
 		                  </div>

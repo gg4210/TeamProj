@@ -47,4 +47,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		REGICENTER R INNER JOIN AUTH_SECURITY A ON R.ID = A.ID INNER JOIN H_MEMBER H ON R.ID=H.ID
 		WHERE A.AUTHORITY='ROLE_USER' AND MAPKEY=#{mapkey}
 	</select>
+	<select id="RegicenterTotal" parameterType="java.util.Map" resultType="int">
+		select count(*) from REGICENTER
+	</select>
 </mapper>

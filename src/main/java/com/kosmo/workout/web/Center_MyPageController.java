@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -28,6 +29,7 @@ import com.google.gson.Gson;
 import com.kosmo.workout.service.MemberDTO;
 import com.kosmo.workout.service.MemberService;
 import com.kosmo.workout.service.regicenter.RegicenterDTO;
+import com.kosmo.workout.service.search.SearchBBSCommentDTO;
 import com.kosmo.workout.service.search.SearchBBSDTO;
 import com.kosmo.workout.service.search.SearchService;
 import com.kosmo.workout.util.CommonUtility;
@@ -123,10 +125,16 @@ public class Center_MyPageController {
 		return gson.toJson(result);//값 반환
 	}
 	
-	
 	@RequestMapping("/center/enterprise.do")
-	public String enterprise() throws IOException{
-		
+	public String enterprise(Map map,Authentication auth,Model model) throws IOException{
+		String id=((UserDetails)auth.getPrincipal()).getUsername();
+		System.out.println("id는 "+id);
+		map.put("id", id);
+		RegicenterDTO dto=RegicenterService.getMapkey(map);
+		int mapkey=Integer.parseInt(dto.getMapkey());
+		map.put("mapkey", mapkey);
+		List<SearchBBSCommentDTO> commentList=SearchService.selectListComment(map);
+		model.addAttribute("CommentList", commentList);
 		return "mypage/enterprise/mypage_Index.tiles";
 	}
 	
@@ -180,7 +188,7 @@ public class Center_MyPageController {
 		map.put("otime","주중 : "+map.get("weekday_start").toString()+"~"+map.get("weekday_end").toString()+" 주말 : "+map.get("weekend_start").toString()+"~"+map.get("weekend_end").toString());
 		
 		MemberDTO dto2=MemberService.selectOne(map);
-
+		
 		map.put("tel", dto2.getCellphone());
 		map.put("content",map.get("content"));
 		map.put("tag", map.get("work-tag"));

@@ -65,7 +65,6 @@ public class SearchController {
 	@RequestMapping(value="/searchView.do", method=RequestMethod.POST)
 	public String searchView(@RequestParam Map map, HttpServletRequest req, Model model) throws IOException {
 		
-		
 		SearchBBSDTO viewinfo=CommonUtility.mapkeyCrawling(map.get("mapkey").toString(), map.get("tel").toString(), req);
 		
 		viewinfo.setMapkey(map.get("mapkey").toString());
@@ -82,17 +81,29 @@ public class SearchController {
 		if(isIn!=0) {
 			
 			SearchBBSDTO dto=SearchService.selectOneSearchDTO(map);// 있으면 우리 데이터 베이스!
-			
 			/*viewinfo.setMaxNumber(dto.getMaxNumber());*/
 			
+			String filename=dto.getFilename();
+			String img_url[]=filename.split(",");
+			//viewinfo.setImg_urls(filename.split(","));
+			
+			for(int i=0;i<img_url.length;i++) {
+				System.out.println("img_url: "+img_url[i]);
+				
+				}
+			
+		
 			viewinfo.setCountNum(dto.getCountNum());
 			viewinfo.setImg_urls(dto.getImg_urls());
 			viewinfo.setContent(dto.getContent());
 			viewinfo.setOtime(dto.getOtime());
 			viewinfo.setTag(dto.getTag());
 			viewinfo.setSport_kind(dto.getSport_kind());
+			viewinfo.setService(dto.getService());
+			viewinfo.setImg_urls(img_url);
 
 		}
+			System.out.println(viewinfo.getImg_urls());
 		
 		
 		String avgRate=CommonUtility.ratingString(SearchService.setRating(map));
@@ -104,6 +115,8 @@ public class SearchController {
 		viewinfo.setMaxNumber(dto.getMaxNumber());
 		
 		model.addAttribute("viewinfo",viewinfo);
+		System.out.println("Img_urls: "+viewinfo.getImg_urls());
+		System.out.println("getContent: "+viewinfo.getContent());
 		
 		//int complexity=0;
 		//model.addAttribute("complexity",complexity);
@@ -197,9 +210,7 @@ public class SearchController {
 	
 	@ResponseBody
 	@RequestMapping(value="/commentlist.do", method=RequestMethod.POST, produces = "application/json; charset=utf-8")
-	public String listSearchComment(@RequestParam Map map) {
-		
-		System.out.println("list로 들어옵니까?");
+	public String listSearchComment(@RequestParam Map map) {		
 		
 		List<SearchBBSCommentDTO> list=SearchService.selectListComment(map);		
 				
@@ -225,5 +236,19 @@ public class SearchController {
 		return jsonString;
 	
 	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/addMarker.do", method=RequestMethod.POST, produces = "application/json; charset=utf-8")
+	public String MarkerIsIN(@RequestParam Map map) {
+		
+		System.out.println("addMarker로 들어옵니까?");
+		
+		return null;
+	
+	}
+	
+	
+	
 	
 }

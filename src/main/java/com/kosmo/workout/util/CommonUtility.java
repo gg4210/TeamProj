@@ -96,7 +96,7 @@ public class CommonUtility {
 			else {//리스트
 				
 				//System.out.println("객체가 여러개일 때");
-				for(int i=1; i<9;i++) {// 1 ~ 7까지의  값을 얻어냄. 이 안에 값이 존재하지 않는다면 그냥 없는 정보라고 생각할 예정
+				for(int i=1; i<9;i++) {// 1 ~ 7까지의  값을 얻어냄. 
 					if(doc.select("#sp_local_"+i+" > dl > dd:nth-child(3) > span.tell").html()==tel) {
 						String href=doc.select("#sp_local_"+i+" > dl > dd.txt_inline > a").get(0).attr("href");
 						System.out.println(href);
@@ -241,7 +241,7 @@ public class CommonUtility {
 			complex+="</div>";
 			*/
 			complex="<div class=\"align-middle\"><div class=\"progress blue\">";
-			complex+="<div class=\"progress-bar\" style=\"width:50%;background:#fe3b3b;\">";
+			complex+="<div class=\"progress-bar\" style=\"width:"+((countnum/maxnum)*100)+"%;background:#fe3b3b;\">";
 			complex+="<div class=\"progress-value\">"+((countnum/maxnum)*100)+"%</div>";
 			complex+="</div></div>";
 			complex+="<div class=\"row pl-3 pt-1\">";

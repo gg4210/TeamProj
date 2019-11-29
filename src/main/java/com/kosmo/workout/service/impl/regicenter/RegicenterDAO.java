@@ -69,6 +69,9 @@ public class RegicenterDAO implements RegicenterService{
 	public String findCenterID(String mk) {
 		return template.selectOne("findCenterID", mk);
 	}
-	
+	@Override
+	public int totalCount(Map map) {
+		return template.selectOne("RegicenterTotal", map);
+	}
 	
 }

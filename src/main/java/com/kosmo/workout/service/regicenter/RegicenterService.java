@@ -37,4 +37,7 @@ public interface RegicenterService {
 	int delete_expired(Map map);
 	//가입 중인 센터 구하기
 	String findCenterID(String mk);
+	
+	//제휴 헬스장 수
+	int totalCount(Map map);
 }
