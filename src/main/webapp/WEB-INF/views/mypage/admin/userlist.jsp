@@ -24,12 +24,9 @@ $(function(){
 				var data=JSON.parse(data);
 				
 				if(data.length==0){
-					console.log("회원이 존재하지 않는다");
 					tableString='<tr><td scope="row">"회원이 존재하지 않습니다."</td></tr>';
 				}
 				else{
-					console.log("회원이 존재한다.");
-					console.log(data);
 					$.each(data, function(index, element){
 						tableString+='<tr>'+
 						'<td>'+element['NO']+'</td>'+
@@ -47,7 +44,7 @@ $(function(){
 								tableString+='<td><a href="'+element['MAPKEY']+'" id="'+element['ID']+'">승인처리</span></td>';
 							}
 							else{
-								tableString+='<td>'+element['MAPKEY']+'</td>';			
+								tableString+='<td>'+element['MAPKEY']+'</td>';		
 							}
 						}
 						tableString+='</tr>';
@@ -71,7 +68,7 @@ $(function(){
 	$('#user-datatable').tableSearch({});
 	
 	showUserInfo();
-	
+		
 	$(document).on("click","#inner_table > tr > td:nth-child(8) > a", function(event){
 		event.preventDefault();
 		$('#permit-power-modal').modal();
