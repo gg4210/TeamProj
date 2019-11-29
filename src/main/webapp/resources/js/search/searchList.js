@@ -32,8 +32,6 @@ var customOverlay = new kakao.maps.CustomOverlay();
 // 키워드로 장소를 검색합니다
 searchPlaces();
 
-
-
 //모달창을 위한 클래스
 function warningModalOpen(){
    $('#warningModal').modal('show');

@@ -144,11 +144,19 @@ public class AuthController {
 	@RequestMapping(value="/getUserInfo.do", method=RequestMethod.POST)
 	public String getUserInfo(@RequestParam Map map) {
 		
+		//맵키
+		RegicenterDTO mapkey=RegicenterService.getMapkey(map);
+		Map getm=new HashMap();
+		getm.put("mapkey", mapkey.getMapkey());
+		System.out.println("맵키:"+getm);
+		
+		//맵키에 해당하는 아이디
+		Map centerinfo=RegicenterService.getcenterinfo(getm);
+		System.out.println("받아온 기업 아이디:"+centerinfo);
 		MemberDTO dto=MemberService.selectOne(map);
 		System.out.println("getUserInfo 들어옴");
 		JSONObject json=new JSONObject();
 		json.put("picture", dto.getPicture());
-		
 		return json.toJSONString();
 		
 	}

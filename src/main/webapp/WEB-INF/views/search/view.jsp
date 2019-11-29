@@ -97,8 +97,6 @@ $(function() {
 	console.log('token:',token)
 	console.log('header:',header)
 	console.log('header길이:',header.length)
-
-	
 	
 	$.ajax({
 		url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
@@ -106,7 +104,9 @@ $(function() {
 		type:"post",
 		success:function(data){
 			console.log("displayComplexAndStar 속으로 들어오는지????????"); 
+			console.log(data);
 	        var status=JSON.parse(data);
+	        console.log(status);
 			$('#starString').html(status["avgRate"]);
 			$('#complex').html(status["complex"]);
 			console.log("status[complex']:",status["complex"]);
@@ -114,10 +114,7 @@ $(function() {
 		error:function(request,status,error){
 	         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
 	    },
-	});	
-	
-
-	
+	});
 	var showComment=function(){///Ajax로 처리
 		console.log('showComment Ajax 들어옴');
 		$.ajax({
@@ -131,10 +128,8 @@ $(function() {
 		    },
 		});
 	};
-	
 	var displayComments=function(data){
 		var comment='';
-		
 		if(data.length==0){
 			console.log('데이타 업쇼습니다')
 			comment+='<div class="row pb-4"><div class="col text-center">등록된 한줄 댓글이 존재하지 않습니다.</div></div>';
@@ -192,16 +187,11 @@ $(function() {
 				}//switch
 				comment+='</span><p>'+element['RCOMMENT']+'</p><p>'+element['RPOSTDATE']+'</p></div></div>';
 			});//$.each
-				
 		}//else	
 		$('#comment_list').html(comment);
 	}
-	
 	$('#rateMe1').mdbRate();
-
 		showComment();
-		
-		
 		$('#comment_submit').click(function(e){
 			var index=parseInt($('#rateMe1').find('i.amber-text').length.toString());
 			e.preventDefault();
@@ -213,15 +203,10 @@ $(function() {
 					showComment();
 				},
 				error:function(data){
-					console.log(data);
+					console.log("입력실패");
 				}
 			});
 		});//클릭이벤트 끝
-		
-		
-		
-		
-		
 });	//function 끝
 	
 </script>

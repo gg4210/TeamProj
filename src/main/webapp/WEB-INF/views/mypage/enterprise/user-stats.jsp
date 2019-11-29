@@ -9,18 +9,80 @@
 <script src="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/js/datepicker.all.js'/>"></script>
 <script src="<c:url value='/resources/utils/datePicker/versatile-date-time-month-year-picker/js/datepicker.en.js'/>"></script>
 <script src="<c:url value='/resources/js/mypage/enterprise/user-stats.js'/>" /></script>
-
-    
+<script>
+$(function(){
+	var token = $("meta[name='_csrf']").attr("content");
+	var header = $("meta[name='_csrf_header']").attr("content");
+	var checkinsertedlists=function(data){
+		$.ajax({
+			url:"<c:url value='/ajax/getUserRegiList?_csrf="+token+"'/>",
+			type:"post",
+			success:function(data){
+				console.log("확인 중 데이터");
+				console.log(data);
+				showuserlists();
+			},
+		    error:function(request,status,error){
+		    	alert("code = "+ request.status + " message = " + request.responseText + " error = " + error);
+		    }
+		});
+	}
+	var checklists=function(){
+		$.ajax({
+			url:"<c:url value='/ajax/getUserRegiList?_csrf="+token+"'/>",
+			type:"post",
+			success:showuserlists,
+		    error:function(request,status,error){
+		    	alert("code = "+ request.status + " message = " + request.responseText + " error = " + error);
+		    }
+		});
+	}
+	var showuserlists=function(data){
+		var comment='';
+		if(data.length==0){
+			comment+='<tr><td colspan="4">현재 등록된 회원이 없습니다.</td></tr>';
+		}
+		else{
+			$.each(data,function(index, element){
+				comment+='<tr>';
+				comment+='<td>'+element['name']+'</td>';
+				comment+='<td>'+element['id']+'</td>';
+				comment+='<td>'+element['startdate']+'~'+element['enddate']+'</td>';
+				comment+='<td>'+element['isallowed']+'</td>';
+				comment+='<tr/>';
+			});//$.each
+		}
+		$('#customerlist').html(comment);
+	}
+	$('#regisubmit').click(function(e){
+		e.preventDefault();
+		$.ajax({
+			url:"<c:url value='/ajax/UserRegister?_csrf="+token+"'/>",
+			type:"post",
+			data:{
+				'id':$('#user_id').val(),
+				'startdate':$('#startdate').val(),
+				'enddate':$('#enddate').val(),
+				},
+			success:function(data){
+				console.log("입력 성공");
+				checkinsertedlists(data);
+			},
+		    error:function(request,status,error){
+		    	console.log("입력 실패");
+		    }
+		});
+	});
+	checklists();
+});
+</script>
 <div class="container-fluid">
-
    <!-- 페이지 헤더 시작 -->
    <div class="page-header mb-4" style="border-bottom: 1px solid #D8D8D8;">
          <h2 style="font-weight: bold;">회원 관리</h2>
    </div>
    <!-- 페이지 헤더 끝 -->
-   
    <div class="row">
-
       <!-- col-1 시작-->
       <div class="col-md-6">
          <div class="card">
@@ -39,16 +101,16 @@
                     <div class="member tab-pane fade show active" id="user_lineChart" role="tabpanel" aria-labelledby="nav_lineChart">
                     
                         <!-- 셀렉트 박스 시작 -->
-                           <div class="clearfix">
-                              <div class="float-right">
-                                 <select class="browser-default custom-select mt-3" id="member">
-                                       <option value="option1" selected="selected">월별</option>
-                                       <option value="option2">분기별</option>
-                                       <option value="option3">년별</option>
-                                 </select>
-                              </div>
-                           </div>
-                           <!-- 셀렉트 박스 끝 -->
+                          <div class="clearfix">
+                             <div class="float-right">
+                                <select class="browser-default custom-select mt-3" id="member">
+                                      <option value="option1" selected="selected">월별</option>
+                                      <option value="option2">분기별</option>
+                                      <option value="option3">년별</option>
+                                </select>
+                             </div>
+                          </div>
+                          <!-- 셀렉트 박스 끝 -->
                         
                            <!-- 차트 시작 -->   
                            <div class="month mb-4">
@@ -96,13 +158,7 @@
                            <th scope="col">승인여부</th>
                         </tr>
                      </thead>
-                     <tbody>
-                        <tr>
-                           <td>나아는</td>
-                           <td>NAA</td>
-                           <td>2019.10.24 ~ 2020.09.23*</td>
-                           <td>승인중</td>
-                        </tr>
+                     <tbody id="customerlist">
                         <!--
                         <tr>
                            <th scope="row">
@@ -177,25 +233,38 @@
 					<!--Body-->
 					<div class="modal-body">
 						<!-- 회원 등록 폼 시작 -->
-						<div class="row justify-content-center">
-							<div class="input-group">
-								<div class="input-group-prepend">
-									<span class="input-group-text" id="basic-addon3">등록일</span>
+						<form id="regicustomer_form">
+							<div class="row justify-content-center">
+								<div class="row">
+									<div class="input-group col-6">
+										<div class="input-group-prepend">
+											<span class="input-group-text" id="label-newuser">아이디</span>
+										</div>
+										<div>
+											<input type="text" placeholder="회원 아이디" class="form-control text-white" name="id" id="user_id" value="">
+										</div>
+									</div>
+									<div class="input-group col-6">
+										<div class="input-group-prepend">
+											<span class="input-group-text" id="basic-addon3">등록일</span>
+										</div>
+										<!-- 날짜 입력란 시작 -->
+										<div class="c-datepicker-date-editor  J-datepicker-range-day mt10">
+											<i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+											<input placeholder="시작일" id="startdate" name="startdate" class="c-datepicker-data-input only-date" value="">
+											<span class="c-datepicker-range-separator">-</span>
+											<input placeholder="종료일" id="enddate" name="enddate" class="c-datepicker-data-input only-date" value="">
+										</div>
+										<!-- 날짜 입력란 끝 -->
+									</div>
 								</div>
-								<!-- 날짜 입력란 시작 -->
-								<div class="c-datepicker-date-editor  J-datepicker-range-day mt10">
-									<i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
-									<input placeholder="시작일" name="" class="c-datepicker-data-input only-date" value="">
-									<span class="c-datepicker-range-separator">-</span>
-									<input placeholder="종료일" name="" class="c-datepicker-data-input only-date" value="">
-								</div>
-								<!-- 날짜 입력란 끝 -->
 							</div>
-					</div>
-						<div class="row justify-content-center mt-4">
-							<button type="button" class="btn btn-info btn-md">등록하기</button>
-							<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
-						</div>
+							<div class="row justify-content-center mt-4">
+								<button type="submit" id="regisubmit" class="btn btn-info btn-md" data-dismiss="modal">등록하기</button>
+								<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
+							</div>
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+						</form>
 					</div>
 				</div>
 				<!--/.Content-->

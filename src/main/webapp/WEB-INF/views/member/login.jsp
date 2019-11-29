@@ -128,6 +128,36 @@ var token = $("meta[name='_csrf']").attr("content");
 function dataget(){
    $('#getdata').submit();
 }
+$(function(){
+	var token = $("meta[name='_csrf']").attr("content");
+	var header = $("meta[name='_csrf_header']").attr("content");
+	var checkcenterlists=function(){
+		$.ajax({
+			url:"<c:url value='/ajax/UserCenterList?_csrf="+token+"'/>",
+			type:"post",
+			success:showcenterlists,
+		    error:function(request,status,error){
+		    	alert("code = "+ request.status + " message = " + request.responseText + " error = " + error);
+		    }
+		});
+	}
+	var showcenterlists=function(data){
+		var comment='';
+		if(data.length==0){
+			comment+='<tr><td colspan="2">현재 센터에 등록되어있지 않습니다.</td></tr>';
+		}
+		else{
+			$.each(data,function(index, element){
+				comment+='<tr>';
+				comment+='<td>'+element['center_name']+'</td>';
+				comment+='<td>'+element['max']+'</td>';
+				comment+='<tr/>';
+			});//$.each
+		}
+		$('#usercenterlist').html(comment);
+	}
+	checkcenterlists();
+});
 
 $(function(){
    $('#customerLinks a').click(function(){
@@ -246,7 +276,7 @@ $(function(){
                                  <th scope="col" style="width: 40%">혼잡도</th>
                               </tr>
                            </thead>
-                           <tbody>
+                           <tbody id="usercenterlist">
                               <tr>
                                  <td><a href="#">도레미</br>스포츠센터</a></td>
                                  <td><i class="fas fa-circle text-danger"></i> 혼잡</br>85%</td>
