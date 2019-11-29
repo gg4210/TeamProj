@@ -6,6 +6,17 @@
 	background-repeat:repeat;
 	background-size: auto;
 }
+
+#notice, #event, #center, #todayTip, #recommendMate, #community, #title1, #title2, #title3{
+	font-family: fantasy;
+}
+
+#withUs{
+	font-family: fantasy;
+
+}
+
+
 </style>
 <div id="fullpage">
 
@@ -53,11 +64,11 @@
 												</span>
 											</p>
 											<p
-												class="card-title text-center indigo-text font-weight-bold h2">함께해요</p>
+												class="card-title text-center indigo-text font-weight-bold h2" id="title1">TOGETHER</p>
 											<hr />
 											<p>당신과 함께할 수 있는</p>
-											<p>운동메이트의 수</p>
-											<p class="h5 text-center font-weight-bold">00명!</p>
+											<p>운동메이트 수</p>
+											<p class="h3 text-center font-weight-bold">${MateTotal}명!</p>
 										</div>
 									</div>
 									<!-- 카드1 끝 -->
@@ -71,11 +82,11 @@
 												</span>
 											</p>
 											<p
-												class="card-title text-center indigo-text font-weight-bold h2">찾아봐요</p>
+												class="card-title text-center indigo-text font-weight-bold h2" id="title2">SEARCH</p>
 											<hr />
-											<p>당신 주변에 있는</p>
-											<p>헬스장의 수</p>
-											<p class="h5 text-center font-weight-bold">00개!</p>
+											<p>운동해와 함께하는</p>
+											<p>스포츠센터 수</p>
+											<p class="h3 text-center font-weight-bold">${RegiCenterTotal}곳!</p>
 										</div>
 									</div>
 									<!-- 카드2 끝 -->
@@ -89,11 +100,11 @@
 												</span>
 											</p>
 											<h2
-												class="card-title text-center indigo-text font-weight-bold h2">소통해요</h2>
+												class="card-title text-center indigo-text font-weight-bold h2" id="title3">COMMUNICATION</h2>
 											<hr />
 											<p>당신과 나눌 수 있는</p>
 											<p>게시글의 수</p>
-											<p class="h5 text-center font-weight-bold">00개!</p>
+											<p class="h3 text-center font-weight-bold">00건!</p>
 										</div>
 									</div>
 									<!-- 카드3끝 -->
@@ -106,7 +117,7 @@
 						<div class="row mt-5" id="join-row">
 							<div class="col text-center">
 								<p class="h4">
-									<a href="#">함께운동하기</a>
+									<a href="<c:url value="/jointype.do"/>" id="withUs">TOGETHER WITH US</a>
 								</p>
 							</div>
 						</div>
@@ -134,7 +145,7 @@
 
 								<div class="row pr-5" style="margin-right: 7%">
 									<div class="col-md-6">
-										<p class="h2">공지사항</p>
+										<p class="h2" id="notice">NOTICE</p>
 										<div class="card card-body">
 											<table class="table text-center">
 												<thead>
@@ -169,7 +180,7 @@
 										</div>
 									</div>
 									<div class="col-md-6">
-										<p class="h2">이벤트</p>
+										<p class="h2" id="event">EVENT</p>
 										<div class="card card-body">
 											<table class="table text-center">
 												<thead>
@@ -204,7 +215,7 @@
 
 								<div class="row mt-5" style="margin-left: 7%">
 									<div class="col mt-3">
-										<p class="h2">가장 많이 찜한 헬스장</p>
+										<p class="h2" id="center">RECOMMEND CENTER</p>
 
 										<!--Carousel Wrapper-->
 										<div id="carousel-example-2"
@@ -228,9 +239,9 @@
 														<div class="mask rgba-black-light"></div>
 													</div>
 													<div class="carousel-caption">
-														<h3 class="h3-responsive">도레미 스포츠센터</h3>
+														<h3 class="h3-responsive">고투 스포츠센터</h3>
 														<p>
-															<i class="fas fa-heart"></i>&nbsp150 &nbsp&nbsp<i
+															<i class="fas fa-heart"></i>&nbsp100 &nbsp&nbsp<i
 																class="far fa-comment-dots"></i> 30
 														</p>
 													</div>
@@ -244,7 +255,7 @@
 														<div class="mask rgba-black-strong"></div>
 													</div>
 													<div class="carousel-caption">
-														<h3 class="h3-responsive">파솔라 스포츠센터</h3>
+														<h3 class="h3-responsive">구로 스포츠센터</h3>
 														<p>
 															<i class="fas fa-heart"></i>&nbsp280 &nbsp&nbsp<i
 																class="far fa-comment-dots"></i> 100
@@ -260,7 +271,7 @@
 														<div class="mask rgba-black-slight"></div>
 													</div>
 													<div class="carousel-caption">
-														<h3 class="h3-responsive">시도 스포츠센터</h3>
+														<h3 class="h3-responsive">고투 짐</h3>
 														<p>
 															<i class="fas fa-heart"></i>&nbsp100 &nbsp&nbsp<i
 																class="far fa-comment-dots"></i> 20
@@ -295,6 +306,8 @@
 	</div>
 
 	<!-- section 2 끝 -->
+	
+	
 	<div class="section">
 		<div class="container-fluid">
 			<div class="row">
@@ -307,7 +320,7 @@
 								<div class="row mb-5">
 
 									<div class="col-md-6 pt-4 pr-2">
-										<p class="h2 mt-4 pt-4 text-center pb-4">오늘의 팁</p>
+										<p class="h2 mt-4 pt-4 text-center pb-4" id="todayTip">TODAY'S TIP</p>
 
 										<!-- Image -->
 										<div class="embed-responsive embed-responsive-16by9">
@@ -326,6 +339,7 @@
 
 										<div class="row d-flex justify-content-between mx-2">
 											<a href="#!" class="light-blue-text">
+											<br/>
 												<h6 class="font-weight-bold">
 													<i class="fas fa-dumbbell pr-2"></i>헬스
 												</h6>
@@ -334,10 +348,13 @@
 												<i class="fas fa-clock-o pr-2"></i>2019/10/24
 											</p>
 										</div>
+						
+										
+										
 
-										<!-- Excerpt -->
-										<h3 class="font-weight-bold dark-grey-text mb-3">
-											<a>Title of the news</a>
+										<!-- Excerpt-->
+										<h3 class="mb-3">
+											<a id="community">COMMUNITY</a>
 										</h3>
 										<p class="dark-grey-text">Nam libero tempore, cum soluta
 											nobis est eligendi optio cumque nihil impedit quo minus id
@@ -409,71 +426,47 @@
 
 										</ul>
 									</div>
-									<!-- col-md-6 -->
+									<!-- col-md-6-->
 
 
 
+									<!-- 추천 운동메이트 시작 -->
 									<div class="col-md-6 mt-0 pl-5 pr-4 pt-2">
 										<div class="row">
-											<p class="h2 mb-4 col text-center">추천 운동 메이트</p>
+											<p class="h2 mb-4 col text-center" id="recommendMate">RECOMMEND MATE</p>
 											<ul class="list-group list-group-flush py-0 my-0 bg-transparent">
+											<div class="row">
+												<c:forEach var="mate" items="${MateList }">
 												<li class="list-group-item pb-0 mb-0">
 													<div class="row">
-														<div class="col-3">
+														<div class="col-4">
 														
-													        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="rounded-circle z-depth-1 img-fluid mx-auto"
+															<img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="mb-1 rounded-circle z-depth-1 img-fluid mx-auto"
 													          alt="Sample avatar">
 														
 														</div>
 														<div class="col">
-															<h5 class="font-weight-bold">Anna Williams</h5>
-															<p class="text-uppercase blue-text">
-																<h5><span class="badge badge-pill badge-default">#태그</span></h5>
+															<h5 class="font-weight-bold">${mate.id }</h5>
+															<p class="grey-text">
+															<div class="row mb-1">
+															<span class="badge badge-info">위치</span><strong>&nbsp;${mate.location }</strong>
+															</div>
+															<div class="row mb-1">
+															<span class="badge badge-info">관심 종목</span><strong>&nbsp;${mate.interSport }</strong>
+															</div>
+															<div class="row mb-1">
+															<span class="badge badge-info">운동 시간</span><strong>&nbsp;${mate.healthTime }</strong>
+															</div>
+															<div class="row mb-1">
+															<span class="badge badge-info">일자</span><strong>&nbsp;${mate.startDate } ~ ${mate.endDate }</strong>
+															</div>
 															</p>
-															<p class="grey-text">Neque porro quisquam est, qui
-																dolorem ipsum quia dolor sit amet, consectetur, adipisci
-																sed quia non numquam modi tempora eius.</p>
 														</div>
 													</div>
 												</li>
-												<li class="list-group-item pb-0 mb-0">
-													<div class="row">
-														<div class="col-3">
-														
-													        <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="rounded-circle z-depth-1 img-fluid mx-auto"
-													          alt="Sample avatar">
-														
-														</div>
-														<div class="col">
-															<h5 class="font-weight-bold">Anna Williams</h5>
-															<p class="text-uppercase blue-text">
-															<h5><span class="badge badge-pill badge-default">#태그</span></h5>
-															</p>
-															<p class="grey-text">Neque porro quisquam est, qui
-																dolorem ipsum quia dolor sit amet, consectetur, adipisci
-																sed quia non numquam modi tempora eius.</p>
-														</div>
-													</div>
-												</li>
-												<li class="list-group-item pb-0 mb-0">
-													<div class="row">
-														<div class="col-3">
-														
-															<img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="rounded-circle z-depth-1 img-fluid mx-auto"
-													          alt="Sample avatar">
-														
-														</div>
-														<div class="col">
-															<h5 class="font-weight-bold">Anna Williams</h5>
-															<p class="text-uppercase blue-text">
-															<h5><span class="badge badge-pill badge-default">#태그</span></h5>
-															</p>
-															<p class="grey-text">Neque porro quisquam est, qui
-																dolorem ipsum quia dolor sit amet, consectetur, adipisci
-																sed quia non numquam modi tempora eius.</p>
-														</div>
-													</div>
-												</li>
+												</c:forEach>
+												</div>
+												<!--
 												<li class="list-group-item pb-0 mb-0">
 													<div class="row">
 														<div class="col-3">
@@ -493,9 +486,11 @@
 														</div>
 													</div>
 												</li>
+												-->
 											</ul>
 										</div>
 									</div>
+									<!-- 추천 운동메이트 끝 -->
 
 
 								</div>

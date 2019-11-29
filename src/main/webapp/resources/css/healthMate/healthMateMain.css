@@ -27,6 +27,14 @@
   backface-visibility: hidden;
 }
 
+/*
+.detail_mateList{
+  width: auto; height: auto;
+  max-width: 350px;
+  max-height: 380px;
+}
+*/
+
 .card-img-middle {
   transition: .5s ease;
   opacity: 0;

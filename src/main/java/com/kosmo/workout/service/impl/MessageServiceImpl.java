@@ -27,13 +27,13 @@ public class MessageServiceImpl implements MessageService{
 	}
 
 	@Override
-	public MessageDTO selectOne(Map map) {
-		return dao.selectOne(map);
+	public int insert(Map map) {
+		return dao.insert(map);
 	}
 
 	@Override
-	public int insert(Map map) {
-		return dao.insert(map);
+	public MessageDTO selectOne(Map map) {
+		return dao.selectOne(map);
 	}
 	
 	

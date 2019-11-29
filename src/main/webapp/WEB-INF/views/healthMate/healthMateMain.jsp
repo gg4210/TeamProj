@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<style>
+.matePicture{
+  width: auto; height: auto;
+  max-width: 300px;
+  max-height: 300px;
+}
+
+</style>
 
 <title>HealthMate Main</title>
 
@@ -13,15 +21,15 @@ $(function(){
 	var showMateView=function(data){
 		//console.log("show는 들어오시나요")
 		//console.log("data",data,",타입: ",typeof data);//type object
-		var mateTitle='<p class="heading">'+'<span id="mateNumber">'+data.NO+'</span>'+data.TITLE+'</p><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="white-text">&times;</span></button>';
-		var mateViewContent='<div class="col-5"><img src="http://placehold.it/500x325" class="img-fluid" alt=""></div>';
+		var mateTitle='<p class="heading">'+'<input type="hidden" id="mateNumber" value="'+data.NO+'">'+data.TITLE+'</p><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="white-text">&times;</span></button>';
+		var mateViewContent='<div class="col-5"><img src="'+data.MATEPHOTO+'" class="matePicture"/></div>';
 			mateViewContent+='<div class="col-7">';
-			mateViewContent+='<p><strong>[지역]</strong>'+data.LOCATION+'</p>';
-			mateViewContent+='<p><strong>[관심종목]</strong>'+data.INTERSPORT+'</p>';
-			mateViewContent+='<p><strong>[운동시간]</strong>'+data.TIME+'</p>';
-			mateViewContent+='<p><strong>[대표 태그]</strong>'+data.TAG+'</p>';
-			mateViewContent+='<p><strong>[운동시간]</strong>'+data.TIME+'</p>';
-			mateViewContent+='<p><strong>[글 내용]</strong></p>';
+			mateViewContent+='<p><span class="badge badge-info">지역</span><strong>&nbsp;'+data.LOCATION+'</strong></p>';
+			mateViewContent+='<p><span class="badge badge-info">관심 종목</span><strong>&nbsp'+data.INTERSPORT+'</strong></p>';
+			mateViewContent+='<p><span class="badge badge-info">운동 시간</span><strong>&nbsp'+data.TIME+'</strong></p>';
+			if(data.TAG.length!=0){mateViewContent+='<p><span class="badge badge-info">대표 태그</span><strong>&nbsp'+data.TAG+'</strong></p>';}
+			//mateViewContent+='<p><span class="badge badge-info">운동 일자</span><strong>&nbsp'+data.DATE+'</strong></p>';
+			mateViewContent+='<p><span class="badge badge-info">내용</span></p>';
 			mateViewContent+='<p>'+data.CONTENT+'</p>';
 			mateViewContent+="</div>";
 			
@@ -153,7 +161,12 @@ $(function(){
 			<div class="card h-100">
 				<h2 class="card-title m-0 p-2 mdb-color darken-3" style="color: white">${mate.title }</h2>
 				<div class="card-image-container p-3">
-					<img class="card-img-top" src="https://i.pinimg.com/originals/05/23/7d/05237daed52cbcc8a09cc659fefd055a.jpg" alt="이미지" style="width: 100%">
+				<c:if test="${not empty mate.matePhoto }">
+					<img class="card-img-top" src="${mate.matePhoto}" alt="이미지" style="width: 100%">
+				</c:if>
+				<c:if test="${empty mate.matePhoto }">
+					<img class="card-img-top" src="http://mblogthumb4.phinf.naver.net/20150427_171/ninevincent_1430122791934m8cxB_JPEG/kakao_4.jpg?type=w2" alt="이미지" style="width: 100%">
+				</c:if>
 						<div class="card-img-middle">
 							<div class="plus_mate text px-3" id="${mate.no }">추가하기</div>
 						</div>
@@ -172,7 +185,7 @@ $(function(){
 							</div>
 					</div>
 				</div>
-					<div class="row justify-content-center pb-1"><strong><i class="fas fa-pencil-alt"></i>등록일: ${mate.postDate }/${mate.no }</strong></div>
+					<div class="row justify-content-center pb-1"><strong><i class="fas fa-pencil-alt"></i>등록일: ${mate.postDate }</strong></div>
 					<div class="row justify-content-center pb-1"><strong><i class="fas fa-search-location"></i>지역: ${mate.location }</strong></div>
 					<div class="row justify-content-center pb-1"><strong><i class="fas fa-heart"></i>관심 종목: ${mate.interSport } </strong></div>
 					<div class="row justify-content-center pb-1"><strong><i class="far fa-clock"></i>운동 시간: ${mate.healthTime }</strong></div>
@@ -190,7 +203,7 @@ $(function(){
 		
 		
 		
-		<!-- 페이징, 검색창 시작 -->
+		<!-- 페이징, 검색창 시작
 		<div class="row justify-content-center pt-4">
 			<div class="text-center">
 				<nav aria-label="Page navigation example">
@@ -218,6 +231,7 @@ $(function(){
 				</form>
 			</div>
 		</div>
+		-->
 		<!-- 페이징, 검색창 끝 -->
 
 		</div>
@@ -226,7 +240,7 @@ $(function(){
 
 		<!-- PLUS MATE 모달 시작 -->
 		<div class="modal fade" id="plus-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-			<div class="modal-dialog modal-notify modal-info modal-dialog-centered" role="document">
+			<div class="modal-dialog modal-notify modal-info modal-dialog-centered modal-sm" role="document">
 				<!--Content-->
 				<div class="modal-content">
 					<!--Header-->
@@ -239,10 +253,7 @@ $(function(){
 					<!--Body-->
 					<div class="modal-body">
 						<div class="row">
-							<div class="col-5">
-								<img src="http://placehold.it/500x325" class="img-fluid" alt="">
-							</div>
-							<div class="col-7">
+							<div class="col">
 								<p><span id="plusMateId"> </span>님을<br/>추가하시겠습니까?</p>
 								<button type="button" class="plusOK btn btn-info btn-md" id="plusOK">추가하기</button>
 								<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
@@ -271,9 +282,9 @@ $(function(){
 						<!-- ajax로 추가 -->
 						</div>
 				<div class="row justify-content-center">';
-					<button type="submit" class="btn btn-warning btn-md" id="mateUpdate">수정하기</button>
-				    <button type="button" class="btn btn-danger btn-md" id="mateDelete">삭제하기</button>
-					<button type="button" class="btn btn-info btn-md">추가하기</button>
+					<!--<button type="submit" class="btn btn-warning btn-md" id="mateUpdate">수정하기</button>-->
+				    <button type="button" class="btn btn-warning btn-md" id="mateDelete">삭제하기</button>
+					<!--<button type="button" class="btn btn-info btn-md">추가하기</button>-->
 				<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
 				</div>
 					</div>
@@ -331,6 +342,7 @@ $(function(){
 					<div class="modal-body text-center">
 						<div class="row text-center">
 							<p><span style="font-weight: bold;">추가 완료!</span></p>
+							<input type="hidden" id="" value="">
 						</div>
 					</div>
 				</div>

@@ -308,7 +308,7 @@
 					<c:forEach var="toMate" items="${ToMateList}" varStatus="loop">
 					    <tr>
 						   <td scope="row" style="size:0.5em;" class="align-middle">
-                           <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg" alt="avatar mx-auto white" class="rounded-circle img-fluid">
+                           <img src="http://mblogthumb4.phinf.naver.net/20150427_171/ninevincent_1430122791934m8cxB_JPEG/kakao_4.jpg?type=w2" class="rounded-circle img-fluid">
                            </td>
 							<td class="align-middle text-center">${toMate.FRIEND_ID }</td>
 							<td class="align-middle text-center">${toMate.MATEDATE }</td>
@@ -384,7 +384,7 @@
                         </div>
                         <div class="row">
                            <p class="text-left text-white">
-                              <span class="badge badge-pill badge-primary">new</span> 새로운 쪽지가 도착했어요!
+                              <span class="badge badge-pill badge-primary">new</span> 메이트들의 쪽지를 확인하세요!
                            </p>
                         </div>
                      </div>

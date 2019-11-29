@@ -30,6 +30,7 @@ import com.kosmo.workout.service.MyMateDTO;
 import com.kosmo.workout.service.MyMateService;
 import com.kosmo.workout.service.regicenter.RegicenterDTO;
 import com.kosmo.workout.service.regicenter.RegicenterService;
+import com.kosmo.workout.service.search.SearchService;
 import com.kosmo.workout.util.FileUploadService;
 
 
@@ -83,8 +84,6 @@ public class MyPageController {
 		List<MyMateDTO> ToMateList=MyMateService.toSelectList(map);
 		System.out.println("내가 추가한 메이트 리스트: "+ToMateList);
 		
-		System.out.println("ToMateList"+ToMateList);
-		
 		model.addAttribute("ToMateList", ToMateList);
 
 		return "mypage/customer/mypage_Index.tiles";
@@ -128,6 +127,7 @@ public class MyPageController {
 	public String enterprise_temp(){
 		return "mypage/enterprise/mypage_Index.tiles";
 	}
+	
 	
 	@RequestMapping("/makeQRCode.do")
 	public ModelAndView createCode(@RequestParam String content) {
