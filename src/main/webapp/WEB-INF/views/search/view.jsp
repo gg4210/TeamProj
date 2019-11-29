@@ -90,33 +90,12 @@ background-color: #4285F4; }
 
 $(function() {
 	
-	console.log('시작');
 	
 	var token = $("meta[name='_csrf']").attr("content");
 	var header = $("meta[name='_csrf_header']").attr("content");
 	console.log('token:',token)
 	console.log('header:',header)
 	console.log('header길이:',header.length)
-
-	
-	
-	var starNComplexity=function(){
-		$.ajax({
-			url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
-			data:{'mapkey':'${viewinfo.mapkey}'},
-			type:"post",
-			success:function(data){
-		        var status=JSON.parse(data);		
-				$('#starString').html(status["avgRate"]);
-				$('#complex').html(status["complex"]);
-				console.log("status[complex']:",status["complex"]);
-			},
-			error:function(request,status,error){
-		         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
-		    },
-		})
-	};	
-	
 
 	
 	var showComment=function(){///Ajax로 처리
@@ -132,6 +111,7 @@ $(function() {
 		    },
 		});
 	};
+	
 	
 	var displayComments=function(data){
 		var comment='';
@@ -201,8 +181,6 @@ $(function() {
 	$('#rateMe1').mdbRate();
 
 		showComment();
-		starNComplexity();
-		
 		
 		$('#comment_submit').click(function(e){
 			var index=parseInt($('#rateMe1').find('i.amber-text').length.toString());
@@ -213,7 +191,6 @@ $(function() {
 				data:{'rate':index,'rComment':$('#comment_text').val(), 'mapkey':'${viewinfo.mapkey}'},
 				success:function(data){
 					showComment();
-					starNComplexity();
 				},
 				error:function(data){
 					console.log(data);
@@ -222,7 +199,23 @@ $(function() {
 		});//클릭이벤트 끝
 		
 		
-		
+		(function poll(){
+			
+			$.ajax({
+				url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
+				data:{'mapkey':'${viewinfo.mapkey}'},
+				type:"post",
+				success:function(data){
+			        var status=JSON.parse(data);		
+					$('#starString').html(status["avgRate"]);
+					$('#complex').html(status["complex"]);
+					console.log("status[complex']:",status["complex"]);
+				},
+				timeout: 3000,
+				complete: setTimeout(function() { poll(); },3000)
+				})
+				
+		})();
 		
 		
 });	//function 끝
