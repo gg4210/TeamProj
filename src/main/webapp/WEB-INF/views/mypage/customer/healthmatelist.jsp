@@ -60,14 +60,24 @@ $(function(){
 			   //var id=element["FROMID"];
 			   message+='<p class="badge '+element["BADGE"]+' text-wrap" style="font-size:medium; text-align:'+element["ALIGN"]+';">';
 			   if(element["ALIGN"]=="left"){
-				   message+='<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />';
+				   if(element["PICTURE"]!=null){
+					   message+='<img class="img-woman" id="you" src="'+element["PICTURE"]+'" />';
+				   }
+				   else{
+					   message+='<img class="img-woman" id="you" src="http://mblogthumb4.phinf.naver.net/20150427_171/ninevincent_1430122791934m8cxB_JPEG/kakao_4.jpg?type=w2" />';
+				   }
 				   message+=element["CONTENT"];
 				   message+="<br/><span id='to_id' style='text-align'>"+element["ID"]+"</span>";
 				   message+="</p>";
 			   }
 			   else if(element["ALIGN"]=="right"){
 				   message+=element["CONTENT"];
-				   message+='<img class="img-woman" id="you" src="http://wiki.hash.kr/images/thumb/b/b5/%EA%B0%95%EC%B1%84%EC%9B%90.jpg/100px-%EA%B0%95%EC%B1%84%EC%9B%90.jpg" />';
+				   if(element["PICTURE"]!=null){
+					   message+='<img class="img-woman" id="you" src="'+element["PICTURE"]+'" />';
+				   }
+				   else{
+					   message+='<img class="img-woman" id="you" src="http://mblogthumb4.phinf.naver.net/20150427_171/ninevincent_1430122791934m8cxB_JPEG/kakao_4.jpg?type=w2" />';
+				   }
 				   message+="<br/><span id='to_id' style='text-align'>"+element["ID"]+"</span>";
 				   message+="</p>";   
 			   }

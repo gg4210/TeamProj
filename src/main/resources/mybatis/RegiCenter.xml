@@ -41,5 +41,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from REGICENTER where id=#{id}
 	</select>
 	
+	<select id="RegicenterTotal" parameterType="java.util.Map" resultType="int">
+		select count(*) from REGICENTER
+	</select>
+	
 
 </mapper>

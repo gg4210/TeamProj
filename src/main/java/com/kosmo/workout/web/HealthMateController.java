@@ -80,7 +80,7 @@ public class HealthMateController {
 		Iterator<String> keys = map.keySet().iterator();
 		while(keys.hasNext()) {
 			String key = keys.next();
-		    //System.out.println("key : " + key +" / value : " + map.get(key));
+			//System.out.println("key : " + key +" / value : " + map.get(key));
 		}
 		map.put("matePhoto",url);
 		System.out.println("url: "+url);

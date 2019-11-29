@@ -81,7 +81,7 @@ public class MessageController {
 					//System.out.println("if문 안에서 id"+dto.getId());
 					//System.out.println("시큐리티 유저 아이디: "+user);
 					align="right";
-					badge="badge-secondary";
+					badge="badge-warning";
 					msg.put("ALIGN", align);
 					msg.put("BADGE", badge);
 				}
@@ -144,7 +144,7 @@ public class MessageController {
 					//System.out.println("if문 안에서 id"+dto.getId());
 					//System.out.println("시큐리티 유저 아이디: "+user);
 					align="right";
-					badge="badge-secondary";
+					badge="badge-warning";
 					msg.put("ALIGN", align);
 					msg.put("BADGE", badge);
 				}

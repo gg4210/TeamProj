@@ -63,6 +63,12 @@ public class RegicenterDAO implements RegicenterService{
 		return template.selectList("listRegicenter",map);
 	}
 
+	@Override
+	public int totalCount(Map map) {
+		return template.selectOne("RegicenterTotal", map);
+	}
+
+
 
 
 	

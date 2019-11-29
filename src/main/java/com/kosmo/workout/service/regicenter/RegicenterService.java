@@ -32,4 +32,8 @@ public interface RegicenterService {
 	//삭제
 	int delete_expired(Map map);
 	
+	//제휴 헬스장 수
+	int totalCount(Map map);
+
+	
 }
