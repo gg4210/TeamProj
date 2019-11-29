@@ -144,13 +144,12 @@ $(function(){
 	var showcenterlists=function(data){
 		var comment='';
 		if(data.length==0){
-			comment+='<tr><td colspan="2">현재 센터에 등록되어있지 않습니다.</td></tr>';
+			comment+='<tr><td>현재 센터에 등록되어있지 않습니다.</td></tr>';
 		}
 		else{
 			$.each(data,function(index, element){
 				comment+='<tr>';
-				comment+='<td>'+element['center_name']+'</td>';
-				comment+='<td>'+element['max']+'</td>';
+				comment+='<td><a href="#">'+element['center_name']+'</a></td>';
 				comment+='<tr/>';
 			});//$.each
 		}
@@ -272,23 +271,10 @@ $(function(){
                         <table class="table" style="text-align: center;" >
                            <thead class="bg-primary white-text">
                               <tr class="align-middle">
-                                 <th scope="col" style="width: 60%">센터명</th>
-                                 <th scope="col" style="width: 40%">혼잡도</th>
+                                 <th scope="col">센터명</th>
                               </tr>
                            </thead>
                            <tbody id="usercenterlist">
-                              <tr>
-                                 <td><a href="#">도레미</br>스포츠센터</a></td>
-                                 <td><i class="fas fa-circle text-danger"></i> 혼잡</br>85%</td>
-                              </tr>
-                              <tr>
-                                 <td><a href="#">파솔라</br>스포츠센터</a></td>
-                                  <td><i class="fas fa-circle text-info"></i> 여유</br>30%</td>
-                              </tr>
-                              <tr>
-                                 <td><a href="#">시도</br>스포츠센터</a></td>
-                                  <td><i class="fas fa-circle text-warning"></i> 보통</br>65%</td>
-                              </tr>
                            </tbody>
                         </table>
                         <!-- 등록한 센터 테이블 끝 -->

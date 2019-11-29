@@ -19,6 +19,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getMapkey" parameterType="java.util.Map" resultType="RegicenterDTO">
 		select mapkey from regicenter where id=#{id}
 	</select>
+	<select id="getMapkeyList" parameterType="java.util.Map" resultType="RegicenterDTO">
+		select mapkey from regicenter where id=#{id}
+	</select>
 	<select id="getcenterinfo" parameterType="java.util.Map" resultType="java.util.Map">
 		select r.id from regicenter r join auth_security a
 		on r.id=a.id where MAPKEY=#{mapkey} and A.AUTHORITY='ROLE_CENTER'
@@ -36,7 +39,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete REGICENTER where #{enddate}<![CDATA[<]]>sysdate
 	</delete>
 	<select id="findCenterID" parameterType="String" resultType="String">
-		SELECT R.ID FROM REGICENTER R INNER JOIN AUTH_SECURITY A WHERE R.ID=A.ID AND WHERE R.MAPKEY='#{mapkey}'
+		SELECT R.ID FROM REGICENTER R INNER JOIN AUTH_SECURITY A ON
+		R.ID=A.ID WHERE R.MAPKEY=#{mapkey} AND A.AUTHORITY='ROLE_CENTER'
 	</select>
 	<select id="listRegicenter" parameterType="java.util.Map" resultType="RegicenterDTO">
 		SELECT R.NO,R.ID,STARTDATE,ENDDATE,H.NAME,R.ISALLOWED FROM

@@ -50,6 +50,10 @@ public class RegicenterDAO implements RegicenterService{
 		return template.selectOne("getMapkey", map);
 	}
 	@Override
+	public List<RegicenterDTO> getMapkeyList(Map map) {
+		return template.selectList("getMapkeyList", map);
+	}
+	@Override
 	public Map getcenterinfo(Map map) {
 		return template.selectOne("getcenterinfo",map);
 	}
@@ -65,5 +69,6 @@ public class RegicenterDAO implements RegicenterService{
 	public String findCenterID(String mk) {
 		return template.selectOne("findCenterID", mk);
 	}
+	
 	
 }

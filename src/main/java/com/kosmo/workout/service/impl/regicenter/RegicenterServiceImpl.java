@@ -55,6 +55,10 @@ public class RegicenterServiceImpl  implements RegicenterService{
 		return dao.getMapkey(map);
 	}
 	@Override
+	public List<RegicenterDTO> getMapkeyList(Map map) {
+		return dao.getMapkeyList(map);
+	}
+	@Override
 	public Map getcenterinfo(Map map) {
 		return dao.getcenterinfo(map);
 	}
@@ -70,8 +74,4 @@ public class RegicenterServiceImpl  implements RegicenterService{
 	public String findCenterID(String mk) {
 		return dao.findCenterID(mk);
 	}
-
-	
-
-	
 }

@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kosmo.workout.service.ComplexityService;
+import com.kosmo.workout.service.MemberService;
 import com.kosmo.workout.service.regicenter.RegicenterDTO;
 import com.kosmo.workout.service.regicenter.RegicenterService;
 
@@ -37,6 +38,9 @@ public class RegiCenterController {
 	
 	@Resource(name="ComplexityService")
 	ComplexityService ComplexityService;
+	
+	@Resource(name="MemberService")
+	MemberService MemberService;
 	
 	@ResponseBody
 	@RequestMapping(value="/AppMainData.do", method=RequestMethod.POST)
@@ -101,51 +105,22 @@ public class RegiCenterController {
 	@ResponseBody
 	@RequestMapping(value="/ajax/UserCenterList", method=RequestMethod.POST, produces = "application/json; charset=utf-8")
 	public String getUserCenterList(@RequestParam Map map,Authentication auth) throws ParseException {
-		
+		System.out.println("유저 센터목록 방면1");
 		UserDetails userDetails = (UserDetails)auth.getPrincipal();
 		Map getmapkey=new HashMap();
 		getmapkey.put("id",userDetails.getUsername());
-		RegicenterDTO key = RegicenterService.getMapkey(getmapkey);
-		Map mapmap=new HashMap();
-		
-		mapmap.put("mapkey",key.getMapkey());
-		List<RegicenterDTO> records= RegicenterService.listRegicenter(mapmap);
+		List<RegicenterDTO> keys = RegicenterService.getMapkeyList(getmapkey);
 		List<Map> collections=new Vector<Map>();
-		for(RegicenterDTO record:records) {
-			
-			
-			String startfrom1 = record.getStartDate();
-			String endfrom1 = record.getEndDate();
-			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-			Date startto1 = transFormat.parse(startfrom1);
-			Date endto1 = transFormat.parse(endfrom1);
-			System.out.println(startto1);
-			System.out.println(endto1);
-			
-			
-			Date startfrom2 = startto1;
-			Date endfrom2 = endto1;
-			String startto2 = transFormat.format(startfrom2);
-			String endto2 = transFormat.format(endfrom2);
-			System.out.println("최종");
-			System.out.println(startto2);
-			System.out.println(endto2);
-			
-			
-			Map re = new HashMap();
-			re.put("no", record.getNo());
-			re.put("id", record.getId());
-			re.put("startdate",startto2);
-			re.put("enddate",endto2);
-			re.put("name", record.getName());
-			re.put("isallowed", record.getIsAllowed()==1?"승인됨":"승인안됨");
-			
-			
-			System.out.println("맵키에 해당하는 인간 정보");
-			System.out.println(record.getNo());
-			System.out.println(record.getId());
-			System.out.println(record.getName());
-			collections.add(re);
+		for(RegicenterDTO key:keys) {
+			System.out.println(key.getMapkey());
+			Map centermk = new HashMap();
+			System.out.println("유저 센터목록 방면2");
+			String cid = RegicenterService.findCenterID(key.getMapkey());
+			System.out.println(cid);
+			System.out.println("유저 센터목록 방면3");
+			String cname = MemberService.getMemberName(cid);
+			centermk.put("center_name", cname);
+			collections.add(centermk);
 		}
 		String jsonString =JSONArray.toJSONString(collections);
 	    return jsonString;
