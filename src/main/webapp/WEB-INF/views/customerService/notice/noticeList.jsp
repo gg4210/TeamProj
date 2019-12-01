@@ -77,7 +77,7 @@
 		<div class="clearfix col">
 			<div class="float-right">
 				<c:if test="${auth eq '[ROLE_ADMIN]'}">
-					<button type="button" class="btn btn-primary p-2 px-4" id="notice_write">공지 작성</button>
+					<button type="button" class="btn btn-info p-2 px-4" id="notice_write">공지 작성</button>
 				</c:if>
 			</div>
 		</div>

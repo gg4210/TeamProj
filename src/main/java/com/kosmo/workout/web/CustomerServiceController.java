@@ -338,9 +338,9 @@ public class CustomerServiceController {
 	public String faqWriteOk(@RequestParam Map map,Authentication auth) {
 		//서비스 호출]
 		//스프링 시큐리티 사용 시 아래에 코드 추가
-		//UserDetails userDetails = (UserDetails)auth.getPrincipal(); 
+		UserDetails userDetails = (UserDetails)auth.getPrincipal(); 
 		//호출 전 아이디 맵에 저장
-		//map.put("id",userDetails.getUsername());
+		map.put("id",userDetails.getUsername());
 
 		CSService.faqInsert(map);
 
@@ -348,9 +348,9 @@ public class CustomerServiceController {
 		//System.out.println("id : "+userDetails.getUsername());
 		//System.out.println("principal:"+auth.getPrincipal().toString());
 
-		for(GrantedAuthority a : auth.getAuthorities()){
-			System.out.println(a.getAuthority());
-		}
+//		for(GrantedAuthority a : auth.getAuthorities()){
+//			System.out.println(a.getAuthority());
+//		}
 
 		return "forward:/member/FAQ.do";
 	}
@@ -413,13 +413,116 @@ public class CustomerServiceController {
 	}
 
 	//4]수정하기
+	//공지사항 수정하기
+	@RequestMapping("/member/noticeEdit.do")
+	public String noticeEdit(HttpServletRequest req,@RequestParam Map map) {
+		System.out.println("공지 수정입니다. req:"+req);
+		System.out.println("공지 수정입니다. map:"+map);
+		if(req.getMethod().equals("GET")) {
+			CSDTO record = CSService.selectOne(map);
+			req.setAttribute("noticeRecord", record);
+			System.out.println("if문 안입니다. record :"+record.getContent());
+			//return "customerService/notice/noticeEdit.tiles";
+			return "customerService/notice/noticeEdit.tiles";
+		}
+		//수정처리 후 메시지 뿌려주는 페이지(Message.jsp)로 이동
+		int sucFail=CSService.update(map);
+		System.out.println("공지 수정입니다.update쿼리 실행 후 sucFail:"+sucFail);
+		req.setAttribute("WHERE", "EDT");
+		req.setAttribute("SUCFAIL", sucFail);
+		System.out.println("공지 수정입니다. req:"+req);
+		return "customerService/Message";
+		
+	}
+	//FAQ 수정하기
+	
+	//이벤트 수정하기
+	@RequestMapping("/member/eventEdit.do")
+	public String eventEdit(HttpServletRequest req,@RequestParam Map map) {
+		System.out.println("이벤트 수정입니다. req:"+req);
+		System.out.println("이벤트 수정입니다. map:"+map);
+		if(req.getMethod().equals("GET")) {
+			CSDTO record = CSService.selectOne(map);
+			req.setAttribute("eventRecord", record);
+			System.out.println("if문 안입니다. record :"+ record);
+			System.out.println("if문 안입니다. record :"+record.getTitle());
+			System.out.println("if문 안입니다. record :"+record.getContent());
+			
+			return "customerService/event/eventEdit.tiles";
+		}
+		//수정처리 후 메시지 뿌려주는 페이지(Message.jsp)로 이동
+		int sucFail=CSService.update(map);
+		System.out.println("이벤트 수정입니다.update쿼리 실행 후 sucFail:"+sucFail);
+		req.setAttribute("WHERE", "EEDT");
+		req.setAttribute("SUCFAIL", sucFail);
+		System.out.println("이벤트 수정입니다. req:"+req);
+		return "customerService/Message";		
+	}
+	//1:1문의 수정하기
+	@RequestMapping("/member/consultEdit.do")
+	public String consultEdit(HttpServletRequest req,@RequestParam Map map) {
+		System.out.println("1:1 수정입니다. req:"+req);
+		System.out.println("1:1 수정입니다. map:"+map);
+		if(req.getMethod().equals("GET")) {
+			CSDTO record = CSService.selectOne(map);
+			req.setAttribute("consultRecord", record);
+			System.out.println("if문 안입니다. record :"+ record);
+			System.out.println("if문 안입니다. record :"+record.getTitle());
+			System.out.println("if문 안입니다. record :"+record.getContent());
+			
+			return "customerService/consult/consultEdit.tiles";
+		}
+		//수정처리 후 메시지 뿌려주는 페이지(Message.jsp)로 이동
+		int sucFail=CSService.update(map);
+		System.out.println("1:1 수정입니다.update쿼리 실행 후 sucFail:"+sucFail);
+		req.setAttribute("WHERE", "CEDT");
+		req.setAttribute("SUCFAIL", sucFail);
+		System.out.println("1:1 수정입니다. req:"+req);
+		return "customerService/Message";		
+	}
+
 	
 	//5]삭제하기
+	//공지사항 삭제처리
 	@RequestMapping("/admin/noticeDelete.do")
 	public String noticeDelete(@RequestParam Map map,Model model) {
-		int sucFail;
-		return null;
+		System.out.println("여기는 공지삭제 입니다. map:"+map);
+		System.out.println("여기는 공지삭제 입니다. model:"+model);
+		int sucFail = CSService.delete(map);
+		model.addAttribute("WHERE", "DEL");
+		model.addAttribute("SUCFAIL", sucFail);
+		System.out.println("sucFail:"+sucFail);
+		return "customerService/Message";
 	}
+	//공지사항 삭제처리
+	@RequestMapping("/admin/eventDelete.do")
+	public String eventDelete(@RequestParam Map map,Model model) {
+		System.out.println("여기는 이벤트 삭제 입니다. map:"+map);
+		System.out.println("여기는 이벤트 삭제 입니다. model:"+model);
+		int sucFail = CSService.delete(map);
+		model.addAttribute("WHERE", "EDEL");
+		model.addAttribute("SUCFAIL", sucFail);
+		System.out.println("sucFail:"+sucFail);
+		return "customerService/Message";
+	}
+	//공지사항 삭제처리
+	@RequestMapping("/admin/consultDelete.do")
+	public String consultDelete(@RequestParam Map map,Model model) {
+		System.out.println("여기는 1:1 삭제 입니다. map:"+map);
+		System.out.println("여기는 1:1 삭제 입니다. model:"+model);
+		int sucFail = CSService.delete(map);
+		model.addAttribute("WHERE", "CDEL");
+		model.addAttribute("SUCFAIL", sucFail);
+		System.out.println("sucFail:"+sucFail);
+		return "customerService/Message";
+	}
+
+	
+	
+	
+	
+	
+	
 	
 	//6]1:1문의 답변 달기 //member로 할 것인가, admin으로 할 것인가...
 	@RequestMapping("/member/replyWrite.do")

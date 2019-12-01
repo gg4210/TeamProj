@@ -85,9 +85,3 @@ $( document ).ready( function () {
 		</div>
 	</div>
 </div>
-
-<script>
-	function picker(){
-		console.log("왔니?");
-	}
-</script>

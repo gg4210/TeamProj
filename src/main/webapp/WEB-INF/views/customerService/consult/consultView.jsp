@@ -97,8 +97,10 @@
 		</div>
 	</div>
 	
-	<div class="row d-flex justify-content-center mt-3 mb-3">		
-		<button type="button" class="btn btn-info" id="reply_write">답변</button>
+	<div class="row d-flex justify-content-center mt-3 mb-3">
+		<c:if test="${auth eq '[ROLE_ADMIN]'}"><!-- admin 페이지 분리하면 없앨지도 모르는 버튼 -->
+			<button type="button" class="btn btn-info" id="reply_write">답변</button>
+		</c:if>
 		<button type="button" class="btn btn-primary" id="question_edit">수정</button>
 		<button type="button"  class="btn btn-primary" id="consultList">목록</button>
 		<button type="button" class="btn btn-primary" id="delete">삭제</button>
@@ -146,7 +148,7 @@ $(function(){
 	});	
 	
 	$('#question_edit').click(function(){
-		location.href="consultEdit.do?=${consultRecord.no}";
+		location.href="consultEdit.do?no=${consultRecord.no}";
 	});
 	
 	$('#consultList').click(function(){

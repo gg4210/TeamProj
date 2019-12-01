@@ -97,6 +97,7 @@ public class CSDAO implements CSService {
 	}
 	@Override
 	public int faqInsert(Map map) {
+		System.out.println("여기:"+map);
 		return template.insert("faqInsert", map);
 	}
 	@Override
@@ -110,8 +111,7 @@ public class CSDAO implements CSService {
 	
 	@Override
 	public int update(Map map) {
-		// TODO Auto-generated method stub
-		return 0;
+		return template.update("noticeUpdate",map);
 	}
 	@Override
 	public int faqUpdate(Map map) {
@@ -131,8 +131,7 @@ public class CSDAO implements CSService {
 
 	@Override
 	public int delete(Map map) {
-		// TODO Auto-generated method stub
-		return 0;
+		return template.delete("delete", map);
 	}
 
 	

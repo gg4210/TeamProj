@@ -9,11 +9,10 @@
 		</div><hr/>
 		<div class="row">
 			<div class="col-md-12">
-				<form class="form-horizontal" method="post" action="/member/noticeList.do">
-				<!-- /member/noticeView.do : 경로 0에서 에러 -->
-				<!-- /noticeView.do : 경로 0에서 에러 -->
+				<form class="form-horizontal" method="post" action="/workout/member/noticeEdit.do">
+				<!-- 원래는 action="<c:url value='/member/noticeEdit.do'/>"을 넣어줘야 하는데 <>같은 것이 깨져서 root까지 넣어줌. -->
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-					<input type="hidden" name="no" value="${record.no}"/>
+					<input type="hidden" name="no" value="${noticeRecord.no}"/>
 					<div class="form-group row" id="category">
 						<label class="control-label pr-4">카테고리</label>
 						<div>
@@ -27,7 +26,7 @@
 					<div class="form-group row">
 						<label class="control-label pr-5" for="title">제목</label>
 						<div class="col-10">
-							<input type="text" value="${record.title}" class="form-control" 
+							<input type="text" value="${noticeRecord.title}" class="form-control" 
 								name="title" id="title" placeholder="입력했던 제목입니다." />
 						</div>
 					</div>
@@ -35,7 +34,7 @@
 						<label class="control-label pr-5" for="content">내용</label>
 						<div class="col-10">
 							<textarea rows="10" name="content" id="content"
-								class="form-control" placeholder="입력했던 내용입니다. 내용을 고쳐주세요">${record.content}</textarea>
+								class="form-control" placeholder="입력했던 내용입니다. 내용을 고쳐주세요">${noticeRecord.content}</textarea>
 						</div>
 					</div>
 					

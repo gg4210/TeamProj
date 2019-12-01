@@ -97,20 +97,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	 -->
 	<insert id="noticeInsert" parameterType="java.util.Map">
-		INSERT INTO customerService(no,id,menu,category,title,content,postdate)
+		INSERT INTO customerService(no,id,menu,category,title,content,postDate)
 		<!-- VALUES(SEQ_CS.NEXTVAL,#{id},'NOTICE',#{selectCategory},#{title},#{content},default) -->
 		VALUES(SEQ_CustomerService_NO.NEXTVAL,#{id},'NOTICE',#{selectCategory},#{title},#{content},default)
 	</insert>
 	<insert id="faqInsert">
-		INSERT INTO customerService(no,id,menu,category,title,content,postdate)
+		INSERT INTO customerService(no,id,menu,category,title,content,postDate)
 		VALUES(SEQ_CustomerService_NO.NEXTVAL,#{id},'FAQ',#{selectCategory},#{title},#{content},default)
 	</insert>
 	<insert id="eventInsert">
-		INSERT INTO customerService(no,id,menu,category,title,content,postdate)
+		INSERT INTO customerService(no,id,menu,category,title,content,postDate)
 		VALUES(SEQ_CustomerService_NO.NEXTVAL,#{id},'EVENT',#{selectCategory},#{title},#{content},default)
 	</insert>
 	<insert id="consultInsert"><!-- 첨부파일 다룰 것. -->
-		INSERT INTO customerService(no,id,menu,category,title,content,postdate)
+		INSERT INTO customerService(no,id,menu,category,title,content,postDate)
 		VALUES(SEQ_CustomerService_NO.NEXTVAL,#{id},'CONSULT',#{selectCategory},#{title},#{content},default)
 	</insert>
+	
+	<update id="noticeUpdate" parameterType="java.util.Map"><!-- *****category처리 해야지... ////select태그로 해야하나? -->
+		UPDATE customerService SET title=#{title},content=#{content} WHERE no=#{no}
+	</update>
+
+	<delete id="delete" parameterType="java.util.Map">
+		DELETE customerService WHERE no=#{no}
+	</delete>
+	
 </mapper>

@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+
 <style>
 	.best5{
 		padding:5px;
@@ -13,21 +16,13 @@
 		padding-bottom:0px !important;
 	}
 </style>
-<!-- 내꺼 일 때 있었던 js인 것 같음.
-<script>
-$(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
-</script>
- -->
 
+<sec:authentication property="principal.username" var="id"/>
+<sec:authentication property="principal.authorities" var="auth"/>
 
 <div class="container">
-
 	<div class="row pt-2">
-		<div class="col">
-			<div class="page-header">
-				<h3>자주 묻는 질문</h3>
-			</div>			
-		</div>
+		<h3>자주 묻는 질문</h3>
 	</div>
 
 	<div class="row my-2">
@@ -63,7 +58,7 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 				<tbody id="contentGroup">
 					<c:forEach var="item" items="${faqList}" varStatus="loop">
 						<c:if test="${item.r<=5}" var="best5">
-							<tr class="best5" role="button" data-toggle="collapse" data-target="#content${item.no}" aria-expanded="true"
+							<tr class="best5 clickable" role="button" data-toggle="collapse" id="tab${item.no}" data-target="#content${item.no}" aria-expanded="true"
 							aria-controls="content${item.no}">
 							<td class="text-center">${item.r}</td>
 							<td class="text-center">${item.category}</td>
@@ -79,7 +74,7 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 						</tr>
 						</c:if>
 						<c:if test="${not best5}">
-							<tr class="clickable" role="button" data-toggle="collapse" data-target="#content${item.no}" aria-expanded="true"
+							<tr class="clickable" role="button" data-toggle="collapse" id="tab${item.no}" data-target="#content${item.no}" aria-expanded="true"
 								aria-controls="content${item.no}">
 								<td class="text-center">${item.r}</td>
 								<td class="text-center">${item.category}</td>
@@ -95,100 +90,6 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 							</tr>
 						</c:if>
 					</c:forEach>
-					<!-- 
-					<tr class="clickable collapsed" data-toggle="collapse"
-						role="button" data-target="#content2" aria-expanded="false"
-						aria-controls="content2">
-						<td class="text-center">2</td>
-						<td class="text-center">앱 관련 질문</td>
-						<td>자주 묻는 질문 2</td>
-					</tr>
-					<tr>
-						<td id="nospace" colspan="2"></td>
-						<td id="nospace">
-							<div id="content2" class="collapse" data-parent="#contentGroup">
-								<p>자주묻는 질문 2 답변입니다<br/>
-									자주묻는 질문 2 답변입니다<br/>
-									자주묻는 질문 2 답변입니다<br/>
-									자주묻는 질문 2 답변입니다<br/>
-									자주묻는 질문 2 답변입니다<br/>
-									자주묻는 질문 2 답변입니다<br/>
-									자주묻는 질문 2 답변입니다<br/>
-									자주묻는 질문 2 답변입니다<br/>
-								</p>
-							</div>
-						</td>
-					</tr>
-					<tr class="clickable collapsed" data-toggle="collapse"
-						role="button" data-target="#content3" aria-expanded="true"
-						aria-controls="content3">
-						<td class="text-center">3</td>
-						<td class="text-center">운동메이트</td>
-						<td>자주 묻는 질문3</td>
-					</tr>
-					<tr>
-						<td id="nospace" colspan="2"></td>
-						<td id="nospace">
-							<div id="content3" class="collapse show" data-parent="#contentGroup">
-								<p>자주묻는 질문 3 답변입니다<br/>
-									자주묻는 질문 3 답변입니다<br/>
-									자주묻는 질문 3 답변입니다<br/>
-									자주묻는 질문 3 답변입니다<br/>
-									자주묻는 질문 3 답변입니다<br/>
-								</p>
-								<ul>
-									<li>List item one</li>
-									<li>List item two</li>
-									<li>List item three</li>
-								</ul>
-							</div>
-						</td>
-					</tr>
-					<tr class="clickable collapsed" data-toggle="collapse"
-						role="button" data-target="#content4" aria-expanded="false"
-						aria-controls="content4">
-						<td class="text-center">4</td>
-						<td class="text-center">운동메이트</td>
-						<td>자주 묻는 질문 4</td>
-					</tr>
-					<tr>
-						<td id="nospace" colspan="2"></td>
-						<td id="nospace">
-							<div id="content4" class="collapse" data-parent="#contentGroup">
-								<p>자주묻는 질문 4 답변입니다<br/>
-									자주묻는 질문 4 답변입니다<br/>
-									자주묻는 질문 4 답변입니다<br/>
-									자주묻는 질문 4 답변입니다<br/>
-								</p>
-							</div>
-						</td>
-					</tr>
-					<tr class="clickable collapsed" data-toggle="collapse"
-						role="button" data-target="#content5" aria-expanded="false"
-						aria-controls="content5">
-						<td class="text-center">5</td>
-						<td class="text-center">기타</td>
-						<td>자주 묻는 질문 5</td>
-					</tr>
-					<tr>
-						<td id="nospace" colspan="2"></td>
-						<td id="nospace">
-							<div id="content5" class="collapse" data-parent="#contentGroup">
-								<p>자주묻는 질문 5 답변입니다<br/>
-									자주묻는 질문 5 답변입니다<br/>
-									자주묻는 질문 5 답변입니다<br/>
-									자주묻는 질문 5 답변입니다<br/>
-									자주묻는 질문 5 답변입니다<br/>
-								</p>
-								<ul>
-									<li>List item one</li>
-									<li>List item two</li>
-									<li>List item three</li>
-								</ul>
-							</div>
-						</td>
-					</tr>
-					 -->					
 				</tbody>
 			</table>
 		</div>
@@ -198,12 +99,15 @@ $(".clickable").collapse({"toggle": true, 'parent': '#accordion'});
 	<div class="row">
 		<div class="clearfix col">
 			<div class="float-right">
-				<div class="form-inline">
+				<c:if test="${auth eq '[ROLE_ADMIN]'}">
 					<button type="button" class="btn btn-info p-2 px-4" id="faq_write">FAQ 작성</button>
-				</div>
+					<!-- <button type="button" class="btn btn-info p-2 px-4" id="faq_edit">FAQ 수정</button>
+					<button type="button" class="btn btn-info p-2 px-4" id="faq_delete">FAQ 삭제</button> -->
+				</c:if>
 			</div>
 		</div>
 	</div>	
+	
 	<!-- 페이지네이션 시작 -->	 
 	<div class="row">
 		<div class="col-md-12 text-center">${faqPagingString}</div>

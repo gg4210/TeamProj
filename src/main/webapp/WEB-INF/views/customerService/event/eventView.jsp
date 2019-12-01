@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
+<sec:authentication property="principal.username" var="id"/>
+<sec:authentication property="principal.authorities" var="auth"/>
 
 <!-- 실제 내용 시작 -->
 <div class="container">
@@ -67,43 +71,40 @@
 		</div>
 	</div>
 	
-	<div class="row d-flex justify-content-center mt-3 mb-3">		
-		<button type="button" class="btn btn-info" id="event_edit">수정</button>
+	<div class="row d-flex justify-content-center mt-3 mb-3">
+		<c:if test="${auth eq '[ROLE_ADMIN]'}">
+			<button type="button" class="btn btn-info" id="event_edit">수정</button>
 <%-- 		<button type="button" class="btn btn-primary" id="event_confirm" onclick="<c:url value='/noitceView.do'/>">목록</button> --%>
+		</c:if>
  		<button type="button" class="btn btn-primary" onclick="toEventList();">목록</button>
-		<%-- <td onclick="tofaq('${item.no}');" id="pick">${item.title}</td> --%>
-		<button type="button" class="btn btn-info" id="event_delete">삭제</button>
+ 		<!-- <button type="button" class="btn btn-primary" id="event_confirm">목록</button> -->
+		<c:if test="${auth eq '[ROLE_ADMIN]'}">
+			<button type="button" class="btn btn-info" id="event_delete">삭제</button>
+		</c:if>
 	</div>
 	<br/>
 	<br/>
 	
 	<!-- 삭제 모달 시작 -->
-	<div class="modal fade" id="delete-modal" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true"
-		data-backdrop="static">
-		<div
-			class="modal-dialog modal-notify modal-primary modal-dialog-centered"
-			role="document">
+	<div class="modal fade" id="delete-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+		<div class="modal-sm modal-dialog modal-notify modal-primary modal-dialog-centered" role="document">
 			<!--Content-->
 			<div class="modal-content">
 				<!--Header-->
 				<div class="modal-header">
-					<p class="heading">삭제 확인</p>
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
+					<p class="heading py-0">삭제 확인</p>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true" class="white-text">&times;</span>
 					</button>
 				</div>
 				<!--Body-->
 				<div class="modal-body">
 					<div class="row d-flex justify-content-center my-3">
-						<h4>정말로 삭제하시겠습니까?</h4>
+						<h5>정말로 삭제하시겠습니까?</h5>
 					</div>
 					<div class="row d-flex justify-content-center">
-						<button type="button" class="btn btn-primary btn-md">삭제</button>
-						<button type="button" class="btn btn-danger btn-md"
-							data-dismiss="modal">취소</button>
-
+						<button type="button" class="btn btn-primary" id="real_delete">삭제</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
 					</div>
 				</div>
 			</div>
@@ -118,7 +119,7 @@
 <script>
 $(function(){
 	$('#event_edit').click(function(){
-		location.href="eventEdit.do";
+		location.href="eventEdit.do?no=${eventRecord.no}";
 	});
 	
 	$('#event_confirm').click(function(){
@@ -127,6 +128,9 @@ $(function(){
 	
 	$('#event_delete').click(function(){
 		$('#delete-modal').modal('show');
+	});
+	$('#real_delete').click(function(){
+		location.href="/workout/admin/eventDelete.do?no=${eventRecord.no}&nowPage=${param.nowPage}";
 	});
 	
 });
