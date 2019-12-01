@@ -4,8 +4,8 @@
 <style>
 .matePicture{
   width: auto; height: auto;
-  max-width: 200px;
-  max-height: 200px;
+  max-width: 300px;
+  max-height: 300px;
 }
 
 </style>
@@ -22,7 +22,7 @@ $(function(){
 		//console.log("show는 들어오시나요")
 		//console.log("data",data,",타입: ",typeof data);//type object
 		var mateTitle='<p class="heading">'+'<input type="hidden" id="mateNumber" value="'+data.NO+'">'+data.TITLE+'</p><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="white-text">&times;</span></button>';
-		var mateViewContent='<div class="col-5"><img src="http://mblogthumb4.phinf.naver.net/20150427_171/ninevincent_1430122791934m8cxB_JPEG/kakao_4.jpg?type=w2" class="matePicture"/></div>';
+		var mateViewContent='<div class="col-5"><img src="'+data.MATEPHOTO+'" class="matePicture"/></div>';
 			mateViewContent+='<div class="col-7">';
 			mateViewContent+='<p><span class="badge badge-info">지역</span><strong>&nbsp;'+data.LOCATION+'</strong></p>';
 			mateViewContent+='<p><span class="badge badge-info">관심 종목</span><strong>&nbsp'+data.INTERSPORT+'</strong></p>';
@@ -240,7 +240,7 @@ $(function(){
 
 		<!-- PLUS MATE 모달 시작 -->
 		<div class="modal fade" id="plus-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-			<div class="modal-dialog modal-notify modal-info modal-dialog-centered" role="document">
+			<div class="modal-dialog modal-notify modal-info modal-dialog-centered modal-sm" role="document">
 				<!--Content-->
 				<div class="modal-content">
 					<!--Header-->
@@ -253,10 +253,7 @@ $(function(){
 					<!--Body-->
 					<div class="modal-body">
 						<div class="row">
-							<div class="col-5">
-								<img src="http://placehold.it/500x325" class="img-fluid" alt="">
-							</div>
-							<div class="col-7">
+							<div class="col">
 								<p><span id="plusMateId"> </span>님을<br/>추가하시겠습니까?</p>
 								<button type="button" class="plusOK btn btn-info btn-md" id="plusOK">추가하기</button>
 								<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>

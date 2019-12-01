@@ -67,7 +67,7 @@
 												class="card-title text-center indigo-text font-weight-bold h2" id="title1">TOGETHER</p>
 											<hr />
 											<p>당신과 함께할 수 있는</p>
-											<p>운동메이트의 수</p>
+											<p>운동메이트 수</p>
 											<p class="h3 text-center font-weight-bold">${MateTotal}명!</p>
 										</div>
 									</div>
@@ -84,9 +84,9 @@
 											<p
 												class="card-title text-center indigo-text font-weight-bold h2" id="title2">SEARCH</p>
 											<hr />
-											<p>당신 주변에 있는</p>
-											<p>헬스장의 수</p>
-											<p class="h3 text-center font-weight-bold">00건!</p>
+											<p>운동해와 함께하는</p>
+											<p>스포츠센터 수</p>
+											<p class="h3 text-center font-weight-bold">${RegiCenterTotal}곳!</p>
 										</div>
 									</div>
 									<!-- 카드2 끝 -->

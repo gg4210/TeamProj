@@ -31,6 +31,8 @@ import com.kosmo.workout.service.MemberService;
 import com.kosmo.workout.service.NotificationService;
 import com.kosmo.workout.service.regicenter.RegicenterDTO;
 import com.kosmo.workout.service.regicenter.RegicenterService;
+import com.kosmo.workout.service.search.SearchBBSCommentDTO;
+import com.kosmo.workout.service.search.SearchService;
 import com.kosmo.workout.util.CommonUtility;
 import com.kosmo.workout.util.FileUploadService;
 
@@ -44,6 +46,9 @@ public class AuthController {
 	@Resource(name="RegicenterService")
 	private RegicenterService RegicenterService;
 	
+	@Resource(name="SearchService")
+	private SearchService SearchService;
+	
 	
 	@Autowired
 	FileUploadService fileUploadService;
@@ -55,31 +60,7 @@ public class AuthController {
 	public void tempmylogin(@RequestParam Map map, Model model) {
 		System.out.println(map);
 	}
-	
-	/*
-	@RequestMapping("/notification.do")
-	public String data(@RequestParam Map map, Authentication auth) {
-		UserDetails userDetails=(UserDetails)auth.getPrincipal();
-		System.out.println(userDetails.getUsername());
-		map.put("id",userDetails.getUsername());
-		System.out.println("map확인"+map);
-		int count=NotificationService.countAll(map);
-		System.out.println(count);
-		return "index.tiles";
-	}
-	*/
-	
-	@RequestMapping(value="/appLogin.do", produces = "text/html; charset=UTF-8")
-	@ResponseBody
-	public String AppLogin(@RequestParam Map map) {
 
-		boolean isLogin=MemberService.login(map);
-		JSONObject login=new JSONObject();
-		login.put("isLogin",isLogin?"Y":"N");
-		return login.toJSONString();
-		
-	}
-	
 	@RequestMapping(value="/joincomplete.do", method=RequestMethod.POST)
 	public String joincomplete(@RequestParam Map map,
 			HttpServletRequest req,
@@ -130,24 +111,23 @@ public class AuthController {
 	@Resource(name = "CouponService")
 	private com.kosmo.workout.service.CouponService CouponService;
 	
-	/*
-	@RequestMapping("/logout.do")
-	public String logout(SessionStatus status) {
-		//로그 아웃처리-세션영역에 속성 삭제]
-		status.setComplete();
-		//뷰(JSP)정보 반환]-메인으로 이동
-		return "index.tiles";
-	}
-	*/
 	
 	@ResponseBody
 	@RequestMapping(value="/getUserInfo.do", method=RequestMethod.POST)
-	public String getUserInfo(@RequestParam Map map) {
+	public String getUserInfo(@RequestParam Map map, Model model) {
 		
 		MemberDTO dto=MemberService.selectOne(map);
 		System.out.println("getUserInfo 들어옴");
 		JSONObject json=new JSONObject();
 		json.put("picture", dto.getPicture());
+		/*
+		RegicenterDTO dto1=RegicenterService.getMapkey(map);
+		int mapkey=Integer.parseInt(dto.getMapkey());
+		map.put("mapkey", mapkey);
+		List<SearchBBSCommentDTO> commentList=SearchService.selectListComment(map);
+		model.addAttribute("Comment", commentList);
+		System.out.println("Comment: "+commentList);
+		*/
 		
 		return json.toJSONString();
 		

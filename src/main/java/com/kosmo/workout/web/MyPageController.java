@@ -30,6 +30,7 @@ import com.kosmo.workout.service.MyMateDTO;
 import com.kosmo.workout.service.MyMateService;
 import com.kosmo.workout.service.regicenter.RegicenterDTO;
 import com.kosmo.workout.service.regicenter.RegicenterService;
+import com.kosmo.workout.service.search.SearchService;
 import com.kosmo.workout.util.FileUploadService;
 
 
@@ -126,6 +127,7 @@ public class MyPageController {
 	public String enterprise_temp(){
 		return "mypage/enterprise/mypage_Index.tiles";
 	}
+	
 	
 	@RequestMapping("/makeQRCode.do")
 	public ModelAndView createCode(@RequestParam String content) {
