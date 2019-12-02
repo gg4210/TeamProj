@@ -26,9 +26,10 @@ public interface RegicenterService {
 	
 	//등록센터가 있는지 여부 판단
 	int isIn(Map map);
+	int isInMapCount(Map map);
 	//등록센터 리스트 뽑아오기
 	List<RegicenterDTO> listRegicenter(Map map);
-	
+	RegicenterDTO isAllowed(Map map);
 	//승인으로 변경
 	int updateAllowed0_forAdmin(Map map);
 	int updateAllowed0_forCenter(Map map);

@@ -79,4 +79,16 @@ public class RegicenterServiceImpl  implements RegicenterService{
 	public int totalCount(Map map) {
 		return dao.totalCount(map);
 	}
+
+	@Override
+	public int isInMapCount(Map map) {
+		return dao.isInMapCount(map);
+		
+	}
+
+	@Override
+	public RegicenterDTO isAllowed(Map map) {
+		return dao.isAllowed(map);
+	}
+
 }

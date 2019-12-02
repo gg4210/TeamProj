@@ -99,7 +99,6 @@ public class MyPageController {
 		model.addAttribute("record",record);
 		return "mypage/customer/mypage_Index.tiles";
 	}
-	
 	@RequestMapping("/admin.do")
 	public String admin_temp(){
 		return "mypage/admin/mypage_Index.tiles";
@@ -120,7 +119,6 @@ public class MyPageController {
 	public ModelAndView createCode(@RequestParam String content) {
 		return new ModelAndView("qrcodeview", "content", content);
 	}
-	
 	//아래부터 QR코드 관련 코딩입니다.
 	@RequestMapping("/center/QRCode.do")
 	public String qrWrite(@RequestParam Map map,Authentication auth,Model model) {

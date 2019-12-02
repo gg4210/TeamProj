@@ -38,9 +38,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/Complexity.xml"/>
 		<mapper resource="mybatis/AuthSecurity.xml"/>
 		<mapper resource="mybatis/RegiCenter.xml"/>
-		<!-- 
 		<mapper resource="mybatis/Admin.xml"/>
-		 -->
 	</mappers>
 	
 </configuration>

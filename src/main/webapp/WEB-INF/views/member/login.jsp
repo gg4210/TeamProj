@@ -142,6 +142,8 @@ $(function(){
 		});
 	}
 	var showcenterlists=function(data){
+		console.log("여긴 어디");
+		console.log(data);
 		var comment='';
 		if(data.length==0){
 			comment+='<tr><td>현재 센터에 등록되어있지 않습니다.</td></tr>';

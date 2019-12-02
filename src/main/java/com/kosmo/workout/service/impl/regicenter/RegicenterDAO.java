@@ -73,5 +73,14 @@ public class RegicenterDAO implements RegicenterService{
 	public int totalCount(Map map) {
 		return template.selectOne("RegicenterTotal", map);
 	}
+	@Override
+	public int isInMapCount(Map map) {
+		return template.selectOne("isInMapcount",map);
+	}
+	@Override
+	public RegicenterDTO isAllowed(Map map) {
+		return template.selectOne("isAllowed",map);
+	}
+	
 	
 }

@@ -67,45 +67,23 @@ public class RegiCenterController {
 		List<RegicenterDTO> records= RegicenterService.listRegicenter(mapmap);
 		List<Map> collections=new Vector<Map>();
 		for(RegicenterDTO record:records) {
-			
-			
-			String startfrom1 = record.getStartDate();
-			String endfrom1 = record.getEndDate();
-			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd");
-			Date startto1 = transFormat.parse(startfrom1);
-			Date endto1 = transFormat.parse(endfrom1);
-			System.out.println(startto1);
-			System.out.println(endto1);
-			
-			
-			Date startfrom2 = startto1;
-			Date endfrom2 = endto1;
-			String startto2 = transFormat.format(startfrom2);
-			String endto2 = transFormat.format(endfrom2);
-			System.out.println("최종");
-			System.out.println(startto2);
-			System.out.println(endto2);
-			
-			
 			Map re = new HashMap();
 			re.put("no", record.getNo());
 			re.put("id", record.getId());
-			re.put("startdate",startto2);
-			re.put("enddate",endto2);
 			re.put("name", record.getName());
-			re.put("isallowed", record.getIsAllowed()==1?"승인됨":"승인안됨");
+			re.put("startdate",record.getStartDate());
+			re.put("enddate",record.getEndDate());
+			re.put("mapkey", key.getMapkey());
+			re.put("isallowed", record.getIsAllowed());
+			System.out.println("모든 데이터"+re);
 			collections.add(re);
-			
-			
 		}
 		String jsonString =JSONArray.toJSONString(collections);
 	    return jsonString;
 	}
-	
 	@ResponseBody
 	@RequestMapping(value="/ajax/UserCenterList", method=RequestMethod.POST, produces = "application/json; charset=utf-8")
 	public String getUserCenterList(@RequestParam Map map,Authentication auth) throws ParseException {
-		System.out.println("유저 센터목록 방면1");
 		UserDetails userDetails = (UserDetails)auth.getPrincipal();
 		Map getmapkey=new HashMap();
 		getmapkey.put("id",userDetails.getUsername());
@@ -114,13 +92,17 @@ public class RegiCenterController {
 		for(RegicenterDTO key:keys) {
 			System.out.println(key.getMapkey());
 			Map centermk = new HashMap();
-			System.out.println("유저 센터목록 방면2");
+			Map isallowedcheck=new HashMap();
+			isallowedcheck.put("ID",userDetails.getUsername());
+			isallowedcheck.put("mapkey", key.getMapkey());
+			RegicenterDTO isallowed=RegicenterService.isAllowed(isallowedcheck);
 			String cid = RegicenterService.findCenterID(key.getMapkey());
 			System.out.println(cid);
-			System.out.println("유저 센터목록 방면3");
 			String cname = MemberService.getMemberName(cid);
 			centermk.put("center_name", cname);
-			collections.add(centermk);
+			if(isallowed.getIsAllowed()==0) {
+				collections.add(centermk);
+			}
 		}
 		String jsonString =JSONArray.toJSONString(collections);
 	    return jsonString;
@@ -135,16 +117,32 @@ public class RegiCenterController {
 		UserDetails userDetails=(UserDetails)auth.getPrincipal();
 		mapkeyfound.put("id",userDetails.getUsername());
 		usercheck.put("id", map.get("id"));
-		int count = RegicenterService.isIn(usercheck);
+		int allcount = RegicenterService.isIn(usercheck);
 		int insertcomp;
-		if(count < 1) {
+		if(allcount < 3) {
 			RegicenterDTO mapkey=RegicenterService.getMapkey(mapkeyfound);
 			map.put("mapkey", mapkey.getMapkey());
-			insertcomp=RegicenterService.insertRegiCustomer(map);
+			int mapcount=RegicenterService.isInMapCount(map);
+			if(mapcount < 1) {
+				insertcomp=RegicenterService.insertRegiCustomer(map);
+			}
+			else {
+				insertcomp=0;
+			}
 		}
 		else {
 			insertcomp=0;
 		}
 	    return insertcomp;
+	}
+	@ResponseBody
+	@RequestMapping(value="/ajax/UserDate", method=RequestMethod.POST)
+	public int UserDate(@RequestParam Map map) {
+		System.out.println("받은 데이터"+map);
+		Map updateDate=new HashMap();
+		updateDate.putAll(map);
+		System.out.println("준비중"+updateDate);
+		int upcenter = RegicenterService.updateAllowed0_forCenter(map);
+		return upcenter;
 	}
 }

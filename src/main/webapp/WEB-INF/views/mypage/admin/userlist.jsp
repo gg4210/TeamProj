@@ -72,6 +72,7 @@ $(function(){
 	$(document).on("click","#inner_table > tr > td:nth-child(8) > a", function(event){
 		event.preventDefault();
 		$('#permit-power-modal').modal();
+		console.log($('#permit_mapkey'));
 		$('#permit_mapkey').html($(this).attr("href"));
 		var mapkey=$(this).attr("href");
 		var id=$(this).attr('id');

@@ -13,14 +13,15 @@
 $(function(){
 	var token = $("meta[name='_csrf']").attr("content");
 	var header = $("meta[name='_csrf_header']").attr("content");
-	var checkinsertedlists=function(data){
+	var checkinsertedlists=function(){
+		console.log("여기 들어가는지 확인");
 		$.ajax({
 			url:"<c:url value='/ajax/getUserRegiList?_csrf="+token+"'/>",
 			type:"post",
 			success:function(data){
 				console.log("확인 중 데이터");
 				console.log(data);
-				showuserlists();
+				showuserlists(data);
 			},
 		    error:function(request,status,error){
 		    	alert("code = "+ request.status + " message = " + request.responseText + " error = " + error);
@@ -38,17 +39,26 @@ $(function(){
 		});
 	}
 	var showuserlists=function(data){
+		console.log("데이터를 받아봅시다.")
+		console.log(data);
 		var comment='';
 		if(data.length==0){
 			comment+='<tr><td colspan="4">현재 등록된 회원이 없습니다.</td></tr>';
 		}
 		else{
 			$.each(data,function(index, element){
+				console.log("element확인:",element);
+				console.log("isallowed 확인",element['isallowed']);
 				comment+='<tr>';
 				comment+='<td>'+element['name']+'</td>';
 				comment+='<td>'+element['id']+'</td>';
-				comment+='<td>'+element['startdate']+'~'+element['enddate']+'</td>';
-				comment+='<td>'+element['isallowed']+'</td>';
+				if(element['isallowed']=='1'){
+					comment+='<td>'+'승인 날짜를 정해주세요.'+'</td>';
+					comment+='<td><a href="'+element['mapkey']+'" id="'+element['id']+'">'+'승인안됨'+'</a></td>';
+				}else{
+					comment+='<td>'+element['startdate']+'~'+element['enddate']+'</td>';
+					comment+='<td>'+'승인완료'+'</td>';
+				}
 				comment+='<tr/>';
 			});//$.each
 		}
@@ -61,8 +71,6 @@ $(function(){
 			type:"post",
 			data:{
 				'id':$('#user_id').val(),
-				'startdate':$('#startdate').val(),
-				'enddate':$('#enddate').val(),
 				},
 			success:function(data){
 				console.log("입력 성공");
@@ -74,6 +82,38 @@ $(function(){
 		});
 	});
 	checklists();
+	$(document).on("click","#customerlist > tr > td:nth-child(4) > a", function(event){
+		event.preventDefault();
+		$('#permit-power-modal').modal();
+		console.log($('#permit_id'));
+		$('#permit_id').html($(this).attr("id"));
+		var mapkey=$(this).attr("href");
+		var id=$(this).attr('id');
+		console.log("아이디",id);
+		console.log("맵키",mapkey);
+		
+		$('#datesubmit').click(function(){
+			$.ajax({
+				url:"<c:url value='/ajax/UserDate?_csrf="+token+"'/>",
+				data:{
+					'mapkey':mapkey,
+					'ID':id,
+					'startdate':$('#startdate').val(),
+					'enddate':$('#enddate').val(),
+					},
+				type:"post",
+				success:function(data){
+					var data=JSON.parse(data);
+					console.log(data);
+					$('#permit-power-modal').modal('hide');
+					checklists();
+				},
+				error:function(data){					
+				}
+			});
+		});
+		
+	});
 });
 </script>
 <div class="container-fluid">
@@ -154,7 +194,7 @@ $(function(){
                         <tr>
                            <th scope="col">이름</th>
                            <th scope="col">아이디</th>
-                           <th scope="col">일자</th>
+                           <th scope="col">등록일자</th>
                            <th scope="col">승인여부</th>
                         </tr>
                      </thead>
@@ -235,27 +275,12 @@ $(function(){
 						<!-- 회원 등록 폼 시작 -->
 						<form id="regicustomer_form">
 							<div class="row justify-content-center">
-								<div class="row">
-									<div class="input-group col-6">
-										<div class="input-group-prepend">
-											<span class="input-group-text" id="label-newuser">아이디</span>
-										</div>
-										<div>
-											<input type="text" placeholder="회원 아이디" class="form-control text-white" name="id" id="user_id" value="">
-										</div>
+								<div class="input-group col">
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="label-newuser">아이디</span>
 									</div>
-									<div class="input-group col-6">
-										<div class="input-group-prepend">
-											<span class="input-group-text" id="basic-addon3">등록일</span>
-										</div>
-										<!-- 날짜 입력란 시작 -->
-										<div class="c-datepicker-date-editor  J-datepicker-range-day mt10">
-											<i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
-											<input placeholder="시작일" id="startdate" name="startdate" class="c-datepicker-data-input only-date" value="">
-											<span class="c-datepicker-range-separator">-</span>
-											<input placeholder="종료일" id="enddate" name="enddate" class="c-datepicker-data-input only-date" value="">
-										</div>
-										<!-- 날짜 입력란 끝 -->
+									<div>
+										<input type="text" placeholder="회원 아이디" class="form-control text-white" name="id" id="user_id" value="">
 									</div>
 								</div>
 							</div>
@@ -292,7 +317,7 @@ $(function(){
 								</p>				
 						</div>
 						<div class="row justify-content-center">
-							<button type="button" class="btn btn-danger btn-md">삭제하기</button>
+							<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">삭제하기</button>
 							<button type="button" class="btn btn-info btn-md" data-dismiss="modal">취소</button>
 						</div>
 					</div>
@@ -301,6 +326,45 @@ $(function(){
 			</div>
 		</div>
 		<!-- 등록한 센터 삭제하기 모달 끝 -->
+		
+		<!-- 회원 승인처리 모달 -->
+		<div id="permit-power-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalPopoversLabel">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalPopoversLabel">센터회원 승인 모달</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">×</span>
+		        </button>
+		      </div>
+		      <form id="regidate_form">
+			      <div class="modal-body">
+			      	<div class="row justify-content-center">
+				      	<div class="input-group col">
+				      		<div class="input-group-prepend">
+								<span class="input-group-text" id="basic-addon3">등록일</span>
+							</div>
+							<!-- 날짜 입력란 시작 -->
+							<div class="c-datepicker-date-editor  J-datepicker-range-day mt10">
+								<i class="c-datepicker-range__icon kxiconfont icon-clock"></i>
+								<input placeholder="시작일" id="startdate" name="startdate" class="c-datepicker-data-input only-date" value="">
+								<span class="c-datepicker-range-separator">-</span>
+								<input placeholder="종료일" id="enddate" name="enddate" class="c-datepicker-data-input only-date" value="">
+							</div>
+							<!-- 날짜 입력란 끝 -->
+						</div>
+					</div>
+			        <h5><span id="permit_id"></span>의 가입신청을 해당 날짜로 승인하시겠습니까?</h5>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-primary" id="datesubmit" data-dismiss="modal">확인</button>
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+			      </div>
+			      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+		      </form>
+		    </div>
+		  </div>
+		</div>
 		
 		
 		

@@ -10,11 +10,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="regiCenterisIn" parameterType="java.util.Map" resultType="int">
 		SELECT COUNT(*) FROM REGICENTER WHERE id=#{id}
 	</select>
+	<select id="isInMapcount" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM REGICENTER WHERE id=#{id} AND mapkey=#{mapkey}
+	</select>
 	<insert id="insertRegiCenter" parameterType="java.util.Map">
 		insert into regicenter(no,id,mapkey,isAllowed) values(SEQ_RegiCenter_NO.nextval,#{id},#{mapkey},default)
 	</insert>
 	<insert id="insertRegiCustomer" parameterType="java.util.Map">
-		insert into regicenter(no,id,startdate,enddate,mapkey,isAllowed) values(SEQ_RegiCenter_NO.nextval,#{id},#{startdate},#{enddate},#{mapkey},0)
+		insert into regicenter(no,id,mapkey,isAllowed) values(SEQ_RegiCenter_NO.nextval,#{id},#{mapkey},1)
 	</insert>
 	<select id="getMapkey" parameterType="java.util.Map" resultType="RegicenterDTO">
 		select mapkey from regicenter where id=#{id}
@@ -33,7 +36,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update REGICENTER set isAllowed=0 WHERE id=#{ID} and mapkey=#{mapkey}
 	</update>
 	<update id="updateAllowed0_center" parameterType="java.util.Map">
-		update REGICENTER SET ISALLOWED=0, startdate, enddate WHERE id=#{ID} and mapkey=#{mapkey}
+		update REGICENTER SET ISALLOWED=0, startdate=#{startdate}, enddate=#{enddate}
+		WHERE id=#{ID} and mapkey=#{mapkey}
 	</update>
 	<delete id="delete_expired">
 		delete REGICENTER where #{enddate}<![CDATA[<]]>sysdate
