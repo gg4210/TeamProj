@@ -28,7 +28,8 @@ public interface SearchService {
 	int insertBookmark(Map map);
 	//삭제하기
 	int deleteBookmark(Map map);
-	
+	//리스트 가져오기
+	List<Map> selectallBookmark(Map map);
 	
 	
 	//코멘트 입력 , 리스트 뿌려주기 시작//

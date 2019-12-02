@@ -81,6 +81,10 @@ public class RegicenterDAO implements RegicenterService{
 	public RegicenterDTO isAllowed(Map map) {
 		return template.selectOne("isAllowed",map);
 	}
+	@Override
+	public Map datecollection(Map map) {
+		return template.selectOne("datecollection", map);
+	}
 	
 	
 }

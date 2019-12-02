@@ -17,7 +17,7 @@ public class SearchBBSDTO {
 	String tag;
 	String sport_kind;
 	int countNum;
-	int maxNumber;
+	int MAXNUMBER;
 	int avgR;
 	String avgRate;
 	String bookString;
@@ -134,12 +134,14 @@ public class SearchBBSDTO {
 		this.countNum = countNum;
 	}
 
-	public int getMaxNumber() {
-		return maxNumber;
+	public int getMAXNUMBER() {
+		return MAXNUMBER;
 	}
-	public void setMaxNumber(int maxNumber) {
-		this.maxNumber = maxNumber;
+
+	public void setMAXNUMBER(int mAXNUMBER) {
+		MAXNUMBER = mAXNUMBER;
 	}
+
 	public String getBookString() {
 		return bookString;
 	}

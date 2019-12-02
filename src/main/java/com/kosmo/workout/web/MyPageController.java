@@ -19,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,6 +42,8 @@ public class MyPageController {
 	private MemberService MemberService;
 	@Resource(name="RegicenterService")
 	private RegicenterService RegicenterService;
+	@Resource(name="SearchService")
+	private SearchService SearchService;
 	@Autowired
 	FileUploadService fileUploadService;
 	/*임시, 백엔드 스프링 시큐리티 적용 시 삭제 예정 시작*/
@@ -127,6 +130,30 @@ public class MyPageController {
 		RegicenterDTO dto = RegicenterService.getMapkey(map);
 		model.addAttribute("mapkey", dto.getMapkey());
 		return "mypage/enterprise/QRCode";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/ajax/getBookmarkList", method=RequestMethod.POST, produces = "application/json; charset=utf-8")
+	public String BookmarkList(@RequestParam Map map,Authentication auth) {
+		UserDetails userDetails = (UserDetails)auth.getPrincipal();
+		System.out.println("일단은 있는 것부터 확인하고 싶다.");
+		map.put("id",userDetails.getUsername());
+		System.out.println(map);
+		List<Map> collections=new Vector<Map>();
+		List<Map> BmList=SearchService.selectallBookmark(map);
+		int i=1;
+		for(Map bm:BmList) {
+			System.out.println(bm);
+			Map re = new HashMap();
+			re.put("index","bookmark"+i);
+			re.put("id", bm.get("ID"));
+			re.put("center_name", bm.get("CENTER_NAME"));
+			re.put("addr", bm.get("ADDR"));
+			collections.add(re);
+			i++;
+		}
+		String jsonString =JSONArray.toJSONString(collections);
+	    return jsonString;
 	}
 	
 }

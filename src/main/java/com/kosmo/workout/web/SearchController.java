@@ -53,7 +53,7 @@ public class SearchController {
 		
 		SearchBBSDTO dto=SearchService.setComplexity(map);
 		int countnum=dto.getCountNum();
-		int maxnum=dto.getMaxNumber();
+		int maxnum=dto.getMAXNUMBER();
 		String complex=CommonUtility.isComplex(countnum, maxnum);
 
 		json.put("complex", complex);
@@ -112,7 +112,7 @@ public class SearchController {
 		
 		SearchBBSDTO dto=SearchService.setComplexity(map);
 		viewinfo.setCountNum(dto.getCountNum());
-		viewinfo.setMaxNumber(dto.getMaxNumber());
+		viewinfo.setMAXNUMBER(dto.getMAXNUMBER());
 		
 		model.addAttribute("viewinfo",viewinfo);
 		System.out.println("Img_urls: "+viewinfo.getImg_urls());
@@ -134,7 +134,7 @@ public class SearchController {
 		String avgRate=CommonUtility.ratingString(rate);//별 표시
 		SearchBBSDTO dto=SearchService.setComplexity(map);
 		int countnum=dto.getCountNum();
-		int maxnum=dto.getMaxNumber();
+		int maxnum=dto.getMAXNUMBER();
 		String complex=CommonUtility.isComplex(countnum, maxnum);
 		
 		JSONObject json=new JSONObject();
@@ -175,6 +175,8 @@ public class SearchController {
 		JSONObject json=new JSONObject();
 		
 		map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());
+		System.out.println("북마크 로직 만들기 위한 사전 준비");
+		System.out.println(map);
 		int isbookmarked=SearchService.isBookmarked(map);
 		int countBooked=SearchService.countBookmarked(map);
 		if(countBooked<=3) {
