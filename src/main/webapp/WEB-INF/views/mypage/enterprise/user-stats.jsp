@@ -13,21 +13,6 @@
 $(function(){
 	var token = $("meta[name='_csrf']").attr("content");
 	var header = $("meta[name='_csrf_header']").attr("content");
-	var checkinsertedlists=function(){
-		console.log("여기 들어가는지 확인");
-		$.ajax({
-			url:"<c:url value='/ajax/getUserRegiList?_csrf="+token+"'/>",
-			type:"post",
-			success:function(data){
-				console.log("확인 중 데이터");
-				console.log(data);
-				showuserlists(data);
-			},
-		    error:function(request,status,error){
-		    	alert("code = "+ request.status + " message = " + request.responseText + " error = " + error);
-		    }
-		});
-	}
 	var checklists=function(){
 		$.ajax({
 			url:"<c:url value='/ajax/getUserRegiList?_csrf="+token+"'/>",
@@ -64,23 +49,6 @@ $(function(){
 		}
 		$('#customerlist').html(comment);
 	}
-	$('#regisubmit').click(function(e){
-		e.preventDefault();
-		$.ajax({
-			url:"<c:url value='/ajax/UserRegister?_csrf="+token+"'/>",
-			type:"post",
-			data:{
-				'id':$('#user_id').val(),
-				},
-			success:function(data){
-				console.log("입력 성공");
-				checkinsertedlists(data);
-			},
-		    error:function(request,status,error){
-		    	console.log("입력 실패");
-		    }
-		});
-	});
 	checklists();
 	$(document).on("click","#customerlist > tr > td:nth-child(4) > a", function(event){
 		event.preventDefault();
@@ -181,12 +149,6 @@ $(function(){
          <div class="card">
             <div class="card-body">
                <h2 class="card-title" style="font-weight: bold;">회원 상세 관리</h2>
-                  <!-- 회원 등록,삭제 버튼 -->
-                     <div class="clearfix">
-                        <div class="float-right">
-                           <button type="submit" class="btn btn-info px-3" id="memberPlus">회원등록</button>       
-                        </div>
-                     </div>
                <!-- 회원 등록,삭제 버튼 -->
                <!-- 테이블 시작 -->
                   <table class="table" style="text-align: center;">
@@ -256,46 +218,6 @@ $(function(){
    <!-- row 끝 -->
 </div>
 <!-- container-fluid 끝 -->
-
-
-		<!-- 회원 등록하기 모달 시작 -->
-		<div class="modal fade" id="memberPlusWrite" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-			<div class="modal-dialog modal-notify modal-info modal-dialog-centered" role="document">
-				<!--Content-->
-				<div class="modal-content">
-					<!--Header-->
-					<div class="modal-header text-center">
-						<p class="heading font-weight-bold">회원 등록하기</p>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true" class="white-text">&times;</span>
-						</button>
-					</div>
-					<!--Body-->
-					<div class="modal-body">
-						<!-- 회원 등록 폼 시작 -->
-						<form id="regicustomer_form">
-							<div class="row justify-content-center">
-								<div class="input-group col">
-									<div class="input-group-prepend">
-										<span class="input-group-text" id="label-newuser">아이디</span>
-									</div>
-									<div>
-										<input type="text" placeholder="회원 아이디" class="form-control text-white" name="id" id="user_id" value="">
-									</div>
-								</div>
-							</div>
-							<div class="row justify-content-center mt-4">
-								<button type="submit" id="regisubmit" class="btn btn-info btn-md" data-dismiss="modal">등록하기</button>
-								<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
-							</div>
-							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-						</form>
-					</div>
-				</div>
-				<!--/.Content-->
-			</div>
-		</div>
-		<!-- 회원 등록하기 모달 끝 -->
 		
 		<!-- 회원 삭제 모달 시작 -->
 		<div class="modal fade" id="member_delete" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">

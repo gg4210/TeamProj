@@ -107,34 +107,6 @@ public class RegiCenterController {
 		String jsonString =JSONArray.toJSONString(collections);
 	    return jsonString;
 	}
-	
-	@ResponseBody
-	@RequestMapping(value="/ajax/UserRegister", method=RequestMethod.POST)
-	public int UserRegister(@RequestParam Map map,Authentication auth) {
-		Map mapkeyfound = new HashMap();
-		Map usercheck = new HashMap();
-		System.out.println(map);
-		UserDetails userDetails=(UserDetails)auth.getPrincipal();
-		mapkeyfound.put("id",userDetails.getUsername());
-		usercheck.put("id", map.get("id"));
-		int allcount = RegicenterService.isIn(usercheck);
-		int insertcomp;
-		if(allcount < 3) {
-			RegicenterDTO mapkey=RegicenterService.getMapkey(mapkeyfound);
-			map.put("mapkey", mapkey.getMapkey());
-			int mapcount=RegicenterService.isInMapCount(map);
-			if(mapcount < 1) {
-				insertcomp=RegicenterService.insertRegiCustomer(map);
-			}
-			else {
-				insertcomp=0;
-			}
-		}
-		else {
-			insertcomp=0;
-		}
-	    return insertcomp;
-	}
 	@ResponseBody
 	@RequestMapping(value="/ajax/UserDate", method=RequestMethod.POST)
 	public int UserDate(@RequestParam Map map) {
