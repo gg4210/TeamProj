@@ -152,6 +152,12 @@ $(function(){
 		$('#comment_list').html(comment);
 	}
 
+	$('#makeQRCode').click(function(){
+        var url = "QRCode.do";
+        var name = "QRcode";
+        var option = "width = 400, height = 400, top = 100, left = 200, location = no"
+        window.open(url, name, option);		
+	});
 });
 
 
@@ -170,6 +176,7 @@ $(function(){
 	<!-- 페이지 헤더 끝 -->
 		<!-- 버튼 시작 -->
 		<div class="text-right p-0 mb-2">
+			<button type="submit" class="btn btn-info px-3" id="makeQRCode">QR코드생성</button>
 			<a class="btn btn-warning px-3" id="edit_center_info_button" href="<c:url value='/center/edit_centerinfo.do'/>">수정</a>
 		</div>
 		<!-- 버튼 끝 -->
