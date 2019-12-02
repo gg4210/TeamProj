@@ -4,46 +4,54 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mybatis.RegiCenter">
-
 	<select id="selectForMapkeyGet" parameterType="java.util.Map" resultType="WorkOutDTO">
 		SELECT name,address FROM H_MEMBER WHERE id=#{id}
 	</select>
-	
-	<select id="regiCenterisIn" parameterType="java.util.Map" resultType="RegicenterDTO">
+	<select id="regiCenterisIn" parameterType="java.util.Map" resultType="int">
 		SELECT COUNT(*) FROM REGICENTER WHERE id=#{id}
-	</select>	
-
+	</select>
+	<select id="isInMapcount" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM REGICENTER WHERE id=#{id} AND mapkey=#{mapkey}
+	</select>
 	<insert id="insertRegiCenter" parameterType="java.util.Map">
 		insert into regicenter(no,id,mapkey,isAllowed) values(SEQ_RegiCenter_NO.nextval,#{id},#{mapkey},default)
 	</insert>
-	
+	<insert id="insertRegiCustomer" parameterType="java.util.Map">
+		insert into regicenter(no,id,mapkey,isAllowed) values(SEQ_RegiCenter_NO.nextval,#{id},#{mapkey},1)
+	</insert>
 	<select id="getMapkey" parameterType="java.util.Map" resultType="RegicenterDTO">
 		select mapkey from regicenter where id=#{id}
 	</select>
-	
+	<select id="getMapkeyList" parameterType="java.util.Map" resultType="RegicenterDTO">
+		select mapkey from regicenter where id=#{id}
+	</select>
+	<select id="getcenterinfo" parameterType="java.util.Map" resultType="java.util.Map">
+		select r.id from regicenter r join auth_security a
+		on r.id=a.id where MAPKEY=#{mapkey} and A.AUTHORITY='ROLE_CENTER'
+	</select>
 	<select id="isAllowed" parameterType="java.util.Map" resultType="RegicenterDTO">
 		SELECT ISALLOWED FROM REGICENTER WHERE id=#{ID} and mapkey=#{mapkey}
 	</select>
-	
 	<update id="updateAllowed0_admin" parameterType="java.util.Map">
 		update REGICENTER set isAllowed=0 WHERE id=#{ID} and mapkey=#{mapkey}
 	</update>
-	
 	<update id="updateAllowed0_center" parameterType="java.util.Map">
-		update REGICENTER SET ISALLOWED=0, startdate, enddate WHERE id=#{ID} and mapkey=#{mapkey}
+		update REGICENTER SET ISALLOWED=0, startdate=#{startdate}, enddate=#{enddate}
+		WHERE id=#{ID} and mapkey=#{mapkey}
 	</update>
-	
 	<delete id="delete_expired">
-		delete REGICENTER where #{enddate}>sysdate
+		delete REGICENTER where #{enddate}<![CDATA[<]]>sysdate
 	</delete>
-	
-	<select id="listRegicenter" parameterType="java.util.Map" resultType="RegicenterDTO">
-		select * from REGICENTER where id=#{id}
+	<select id="findCenterID" parameterType="String" resultType="String">
+		SELECT R.ID FROM REGICENTER R INNER JOIN AUTH_SECURITY A ON
+		R.ID=A.ID WHERE R.MAPKEY=#{mapkey} AND A.AUTHORITY='ROLE_CENTER'
 	</select>
-	
+	<select id="listRegicenter" parameterType="java.util.Map" resultType="RegicenterDTO">
+		SELECT R.NO,R.ID,STARTDATE,ENDDATE,H.NAME,R.ISALLOWED FROM
+		REGICENTER R INNER JOIN AUTH_SECURITY A ON R.ID = A.ID INNER JOIN H_MEMBER H ON R.ID=H.ID
+		WHERE A.AUTHORITY='ROLE_USER' AND MAPKEY=#{mapkey}
+	</select>
 	<select id="RegicenterTotal" parameterType="java.util.Map" resultType="int">
 		select count(*) from REGICENTER
 	</select>
-	
-
 </mapper>

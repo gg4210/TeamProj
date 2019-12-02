@@ -37,26 +37,19 @@ import com.kosmo.workout.util.FileUploadService;
 @SessionAttributes("id")
 @Controller
 public class MyPageController {
-
 	@Resource(name = "MemberService")
 	private MemberService MemberService;
-	
-	
 	@Resource(name="RegicenterService")
 	private RegicenterService RegicenterService;
-	
-	
 	@Autowired
 	FileUploadService fileUploadService;
-		/*임시, 백엔드 스프링 시큐리티 적용 시 삭제 예정 시작*/
+	/*임시, 백엔드 스프링 시큐리티 적용 시 삭제 예정 시작*/
 	@RequestMapping("/mypage.do")
 	public String temp() {
 		return "mypage/temp_Index.tiles";
 	}
-		/*임시, 백엔드 스프링 시큐리티 적용 시 삭제 예정 끝*/
-	
-	
-		/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 시작*/
+	/*임시, 백엔드 스프링 시큐리티 적용 시 삭제 예정 끝*/
+	/*유저에 따라 마이페이지 메인으로 이동하게 하는 Controller 시작*/
 	@RequestMapping("/customer.do")
 	public String customer_temp(@RequestParam Map map,Model model){
 		MemberDTO record=MemberService.selectOne(map);
@@ -64,7 +57,6 @@ public class MyPageController {
 		//System.out.println(map);
 		//System.out.println("record 통과");
 		//System.out.println(record);
-
 		model.addAttribute("record", record);
 		return "mypage/customer/mypage_Index.tiles";
 	}
@@ -76,7 +68,6 @@ public class MyPageController {
 	
 	@RequestMapping("/user/customer.do")
 	public String customer(@RequestParam Map map,Model model){
-
 		MemberDTO record=MemberService.selectOne(map);
 		model.addAttribute("record",record);
 		System.out.println("id는"+map.get("id"));
@@ -108,10 +99,6 @@ public class MyPageController {
 		model.addAttribute("record",record);
 		return "mypage/customer/mypage_Index.tiles";
 	}
-	
-	
-	
-	
 	@RequestMapping("/admin.do")
 	public String admin_temp(){
 		return "mypage/admin/mypage_Index.tiles";
@@ -121,7 +108,6 @@ public class MyPageController {
 	public String admin(){
 		return "mypage/admin/mypage_Index.tiles";
 	}
-	
 	
 	@RequestMapping("/enterprise.do")
 	public String enterprise_temp(){
@@ -133,8 +119,6 @@ public class MyPageController {
 	public ModelAndView createCode(@RequestParam String content) {
 		return new ModelAndView("qrcodeview", "content", content);
 	}
-
-
 	//아래부터 QR코드 관련 코딩입니다.
 	@RequestMapping("/center/QRCode.do")
 	public String qrWrite(@RequestParam Map map,Authentication auth,Model model) {

@@ -35,9 +35,9 @@
 					<table class="table table-hover">
 						<thead class="text-center">
 							<tr>
-								<th>no</th>
+								<th>글번호</th>
 								<th>회원구분</th>
-								<th>분류</th>
+								<th>카테고리</th>
 								<th width="40%">제목</th>
 								<th>작성자</th>
 								<th>작성일</th>

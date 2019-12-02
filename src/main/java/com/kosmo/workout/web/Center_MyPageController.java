@@ -56,7 +56,6 @@ public class Center_MyPageController {
 	@RequestMapping(value ="/ajax_centerinfo", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	public String show_center_info(@RequestParam Map map, Authentication auth, HttpServletRequest req) throws IOException {
 		
-		
 		//dto 객체하나를 gson객체로 바꾸기 위함
 		Gson gson=new Gson();
 		
@@ -77,7 +76,6 @@ public class Center_MyPageController {
 		result.setTitle(dto2.getName());
 		result.setAddr(dto2.getAddress());
 		result.setTel(dto2.getCellphone());
-
 		String tel=dto2.getAddress();
 		
 		
@@ -103,7 +101,8 @@ public class Center_MyPageController {
 			result.setAvgRate(CommonUtility.ratingString(SearchService.setRating(map)));
 			int rate=SearchService.setRating(map);
 			String avgRate=CommonUtility.ratingString(rate);//별 표시 String
-			String compliextyString=CommonUtility.isComplex(dto1.getCountNum(), dto1.getMaxNumber()); //혼잡도 표시 String
+			String compliextyString=CommonUtility.isComplex(dto1.getCountNum(), dto1.getMAXNUMBER()); //혼잡도 표시 String
+			System.out.println("compliextyString: "+compliextyString+"dto1.getCountNum(): "+dto1.getCountNum()+"dto1.getMaxNumber()"+dto1.getMAXNUMBER());
 			result.setAvgRate(avgRate);
 			result.setCompliextyString(compliextyString);
 			
@@ -119,15 +118,13 @@ public class Center_MyPageController {
 			result.setAvgRate(CommonUtility.ratingString(SearchService.setRating(map)));
 			int rate=SearchService.setRating(map);
 			String avgRate=CommonUtility.ratingString(rate);//별 표시 String
-			String compliextyString=CommonUtility.isComplex(dto3.getCountNum(), dto3.getMaxNumber()); //혼잡도 표시 String
+			String compliextyString=CommonUtility.isComplex(dto3.getCountNum(), dto3.getMAXNUMBER()); //혼잡도 표시 String
 			result.setAvgRate(avgRate);
 			result.setCompliextyString(compliextyString);
 		}
 	
 		return gson.toJson(result);//값 반환
 	}
-	
-
 	
 	@RequestMapping("/center/enterprise.do")
 	public String enterprise(Map map,Authentication auth,Model model) throws IOException{
@@ -159,7 +156,7 @@ public class Center_MyPageController {
 		
 		if(isin!=0) {
 			SearchBBSDTO dto1=SearchService.selectOneSearchDTO(map);
-			map.put("MAXNUMBER", dto1.getMaxNumber());
+			map.put("MAXNUMBER", dto1.getMAXNUMBER());
 			map.put("content", dto1.getContent());
 			map.put("filename", dto1.getImg_urls());
 			map.put("otime", dto1.getOtime());
@@ -173,11 +170,8 @@ public class Center_MyPageController {
 	}
 	
 	
-	
-	
 	@RequestMapping("/center/edit_OK.do")
 	public String edit_OK(@RequestParam Map map, MultipartHttpServletRequest mtfRequest, HttpServletRequest req, Authentication auth) {
-		
 		
 		System.out.println(map.get("kinds_of_sport")); // 하나밖에 못들고옴...ㅅㅂ
 		System.out.println(map.get("kind_of_service")); // 하나밖에 못들고옴 역시...ㅅㅂ
@@ -211,7 +205,6 @@ public class Center_MyPageController {
 		
 		System.out.println("implode:"+CommonUtility.implode(",", url));
 		
-		
 		map.put("filename", CommonUtility.implode(",", url));
 		//Multiple file upload 끝
 		
@@ -224,8 +217,7 @@ public class Center_MyPageController {
 		else {//입력값이 있다.
 			SearchService.updateSearchDTO(map);
 		}
-
-
+		
 		return "mypage/enterprise/mypage_Index.tiles";
 	}
 

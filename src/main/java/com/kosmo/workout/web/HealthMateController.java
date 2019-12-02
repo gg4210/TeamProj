@@ -104,9 +104,10 @@ public class HealthMateController {
 	//메이트 상세보기
 	@ResponseBody
 	@RequestMapping(value = "/member/mateView.do", produces = "text/html; charset=UTF-8")
-	public String mateView(@RequestParam Map map) {
+	public String mateView(@RequestParam Map map, Authentication auth) {
 		//System.out.println("컨트롤러는 들어오니");
 		//System.out.println(map);
+		String userId=((UserDetails)auth.getPrincipal()).getUsername();
 		HealthMateDTO view=HealthMateService.selectOne(map);
 		String date=view.getStartDate().toString();
 		date+=" ~ ";
@@ -135,6 +136,7 @@ public class HealthMateController {
 		matejson.put("CONTENT", view.getContent());
 		matejson.put("DATE", date);
 		matejson.put("MATEPHOTO", view.getMatePhoto());
+		matejson.put("USERID", userId);
 		//System.out.println(matejson);
 		
 		return matejson.toJSONString();
@@ -145,8 +147,9 @@ public class HealthMateController {
 	@RequestMapping(value = "/member/mateDelete.do")
 	public String mateDelete(@RequestParam Map map) {
 		System.out.println("삭제 컨트롤러 진입했습니다");
-		//System.out.println(map);
-		HealthMateService.delete(map);
+		System.out.println("map: "+map);
+		int mateDelete=HealthMateService.delete(map);
+		System.out.println("mate 지워진 행"+mateDelete);
 		return "healthMate/healthMateMain.tiles";
 	}
 	

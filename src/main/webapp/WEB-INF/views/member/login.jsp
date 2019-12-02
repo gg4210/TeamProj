@@ -128,6 +128,37 @@ var token = $("meta[name='_csrf']").attr("content");
 function dataget(){
    $('#getdata').submit();
 }
+$(function(){
+	var token = $("meta[name='_csrf']").attr("content");
+	var header = $("meta[name='_csrf_header']").attr("content");
+	var checkcenterlists=function(){
+		$.ajax({
+			url:"<c:url value='/ajax/UserCenterList?_csrf="+token+"'/>",
+			type:"post",
+			success:showcenterlists,
+		    error:function(request,status,error){
+		    	alert("code = "+ request.status + " message = " + request.responseText + " error = " + error);
+		    }
+		});
+	}
+	var showcenterlists=function(data){
+		console.log("여긴 어디");
+		console.log(data);
+		var comment='';
+		if(data.length==0){
+			comment+='<tr><td>현재 센터에 등록되어있지 않습니다.</td></tr>';
+		}
+		else{
+			$.each(data,function(index, element){
+				comment+='<tr>';
+				comment+='<td><a href="#">'+element['center_name']+'</a></td>';
+				comment+='<tr/>';
+			});//$.each
+		}
+		$('#usercenterlist').html(comment);
+	}
+	checkcenterlists();
+});
 
 $(function(){
    $('#customerLinks a').click(function(){
@@ -169,7 +200,24 @@ $(function(){
 	         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
 	    }
 	});  
-   
+	/*
+	$.ajax({
+		url:"<c:url value='/ajax/getUserRegiCenter?_csrf="+token+"'/>",
+		type:"post",
+		data:{
+			'id':'${sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.username}',
+			
+			},
+		success:function(data){
+			var user=JSON.parse(data);
+			console.log("인포 받아오는지:",user["picture"].toString());
+			$('#picture').attr('src','<c:url value="'+user['picture']+'"/>');
+		},
+	    error:function(request,status,error){
+	         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+	    }
+	});
+   */
 });
 </script>
 
@@ -224,23 +272,10 @@ $(function(){
                         <table class="table" style="text-align: center;" >
                            <thead class="bg-primary white-text">
                               <tr class="align-middle">
-                                 <th scope="col" style="width: 60%">센터명</th>
-                                 <th scope="col" style="width: 40%">혼잡도</th>
+                                 <th scope="col">센터명</th>
                               </tr>
                            </thead>
-                           <tbody>
-                              <tr>
-                                 <td><a href="#">도레미</br>스포츠센터</a></td>
-                                 <td><i class="fas fa-circle text-danger"></i> 혼잡</br>85%</td>
-                              </tr>
-                              <tr>
-                                 <td><a href="#">파솔라</br>스포츠센터</a></td>
-                                  <td><i class="fas fa-circle text-info"></i> 여유</br>30%</td>
-                              </tr>
-                              <tr>
-                                 <td><a href="#">시도</br>스포츠센터</a></td>
-                                  <td><i class="fas fa-circle text-warning"></i> 보통</br>65%</td>
-                              </tr>
+                           <tbody id="usercenterlist">
                            </tbody>
                         </table>
                         <!-- 등록한 센터 테이블 끝 -->
@@ -470,13 +505,14 @@ function dataget(){
                         <table class="table table-hover" style="text-align: center;">
                            <thead class="bg-primary text-white">
                                <tr>
-                                 <th scope="col">아이디</th>
+                                 <th scope="col">닉네임</th>
                                  <th scope="col">평점</th>
                                </tr>
                              </thead>
                                <tbody>
                                <c:if test="${empty Comment }">
-                      	 <td><span>등록된 리뷰가 없습니다.</span></td>
+                               <td><span></span></td>
+                      	 		<td><span>등록된 리뷰가 없습니다.</span></td>
                       </c:if>
                       <c:if test="${not empty Comment}">
                     	  <c:forEach var="comment" items="${Comment }">

@@ -96,8 +96,25 @@ $(function() {
 	console.log('token:',token)
 	console.log('header:',header)
 	console.log('header길이:',header.length)
-
 	
+
+	var starNComplexity=function(){
+		$.ajax({
+			url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
+			data:{'mapkey':'${viewinfo.mapkey}'},
+			type:"post",
+			success:function(data){
+		        var status=JSON.parse(data);		
+				$('#starString').html(status["avgRate"]);
+				$('#complex').html(status["complex"]);
+				console.log("status[complex']:",status["complex"]);
+			},
+			error:function(request,status,error){
+		         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+		    },
+		})
+	};	
+
 	var showComment=function(){///Ajax로 처리
 		console.log('showComment Ajax 들어옴');
 		$.ajax({
@@ -111,11 +128,8 @@ $(function() {
 		    },
 		});
 	};
-	
-	
 	var displayComments=function(data){
 		var comment='';
-		
 		if(data.length==0){
 			console.log('데이타 업쇼습니다')
 			comment+='<div class="row pb-4"><div class="col text-center">등록된 한줄 댓글이 존재하지 않습니다.</div></div>';
@@ -173,15 +187,12 @@ $(function() {
 				}//switch
 				comment+='</span><p>'+element['RCOMMENT']+'</p><p>'+element['RPOSTDATE']+'</p></div></div>';
 			});//$.each
-				
 		}//else	
 		$('#comment_list').html(comment);
 	}
-	
 	$('#rateMe1').mdbRate();
-
 		showComment();
-		
+		starNComplexity();
 		$('#comment_submit').click(function(e){
 			var index=parseInt($('#rateMe1').find('i.amber-text').length.toString());
 			e.preventDefault();
@@ -193,7 +204,7 @@ $(function() {
 					showComment();
 				},
 				error:function(data){
-					console.log(data);
+					console.log("입력실패");
 				}
 			});
 		});//클릭이벤트 끝
@@ -216,8 +227,6 @@ $(function() {
 				})
 				
 		})();
-		
-		
 });	//function 끝
 	
 </script>
@@ -277,7 +286,7 @@ $(function() {
 									<hr/>									
 									<p><span style="font-weight: bold; color:blue;">TODAY</span> : 현재 운영중!</p>
 									<hr/>									
-									<p><span class="badge badge-primary">종목</span> <i class="fas fa-swimming-pool"></i> 수영 &nbsp&nbsp<i class="fas fa-dumbbell"></i> 헬스</p>
+									<p><span class="badge badge-primary">종목 </span>${viewinfo.sport_kind }</p>
 									<hr/>
 									<p>평균별점 : <span id="starString"></span></p>
 								</div>								
