@@ -24,20 +24,20 @@ public class CommonUtility {
 	
 	
 	
-	/*
-	 * [목차]
-	 * 
-	 *  1) getMapkeyFromCenterInfo ( 상호명, addr, HttpServletRequest) : 센터 맵키 웹크롤링  - Jsoup, selenium
-	 * 	2) mapkeyCrawling (맵키, tel, HttpServletRequest)  : 센터 상세정보 유무 웹크롤링(다음 -> 네이버) - Jsoup, selenium
-	 *  3) seleniumCrawling : 상세정보 있을 시 상세정보 웹크롤링 - selenium
-	 *  4) getWebDriver : 셀레니움 웹크롤링을 위한 서버 내 드라이버 경로 얻어내고 실행시킴
-	 *  5) ratingString : 별점 스트링 반환해줌
-	 *  6) Bookmarked : 경우의 수를 따져 북마크 string으로 반환
-	 *  7) isComplex : 복잡도 보여주는 progressbar 생성하는 string 반환
-	 *  8) pagingBootStrap4Style : 부트스트랩 4 버전으로 만든 paging String 반환
-	 *  9) implode : 배열 -> 문자열로 바꿔줌.
-	 *  
-	 */
+																		/*
+																		 [목   차]
+						 * 
+						 *  1) getMapkeyFromCenterInfo ( 상호명, addr, HttpServletRequest) : 센터 맵키 웹크롤링  - Jsoup, selenium
+						 * 	2) mapkeyCrawling (맵키, tel, HttpServletRequest)  : 센터 상세정보 유무 웹크롤링(다음 -> 네이버) - Jsoup, selenium
+						 *  3) seleniumCrawling : 상세정보 있을 시 상세정보 웹크롤링 - selenium
+						 *  4) getWebDriver : 셀레니움 웹크롤링을 위한 서버 내 드라이버 경로 얻어내고 실행시킴
+						 *  5) ratingString : 별점 스트링 반환해줌
+						 *  6) Bookmarked : 경우의 수를 따져 북마크 string으로 반환
+						 *  7) isComplex : 복잡도 보여주는 progressbar 생성하는 string 반환
+						 *  8) pagingBootStrap4Style : 부트스트랩 4 버전으로 만든 paging String 반환
+						 *  9) implode : 배열 -> 문자열로 바꿔줌.
+						 *  
+						 */
 
 	
 	public static String getMapkeyFromCenterInfo(String addr, String name, HttpServletRequest req) throws IOException {
