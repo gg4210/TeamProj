@@ -138,10 +138,8 @@ public class RegiCenterController {
 	@ResponseBody
 	@RequestMapping(value="/ajax/UserDate", method=RequestMethod.POST)
 	public int UserDate(@RequestParam Map map) {
-		System.out.println("받은 데이터"+map);
 		Map updateDate=new HashMap();
 		updateDate.putAll(map);
-		System.out.println("준비중"+updateDate);
 		int upcenter = RegicenterService.updateAllowed0_forCenter(map);
 		return upcenter;
 	}
