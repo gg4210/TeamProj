@@ -99,7 +99,7 @@
 
       <div class="modal-content">
          <div class="modal-header">
-            <h5 class="modal-title" id="requiredLongTitle">이 서비스를 이용하려면 로그인 하셔야 합니다.</h5>
+            <h5 class="modal-title" id="requiredLongTitle">이 서비스를 이용하시려면 로그인 하셔야 합니다.</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">&times;</span>
             </button>
