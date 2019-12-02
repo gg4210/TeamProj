@@ -38,17 +38,16 @@ public class SearchController {
 	
 	@RequestMapping("/searchList.do")
 	public String searchList(@RequestParam Map map) {
-		return "search/list.tiles";	
+		return "search/list.tiles";
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="/viewComplexAndStar.do", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	public String complexAndstar(@RequestParam Map map) {
-
 		
 		System.out.println("complexAndstar ajax");
 		JSONObject json=new JSONObject();
-		int rate=SearchService.setRating(map);	
+		int rate=SearchService.setRating(map);
 		String avgRate=CommonUtility.ratingString(rate);//별 표시
 		json.put("avgRate", avgRate);
 		
@@ -63,7 +62,6 @@ public class SearchController {
 		return json.toJSONString();	
 	}
 	
-	
 	@RequestMapping(value="/searchView.do", method=RequestMethod.POST)
 	public String searchView(@RequestParam Map map, HttpServletRequest req, Model model) throws IOException {
 		
@@ -77,7 +75,7 @@ public class SearchController {
 		if(map.get("jibunAddr")!=null) {
 			viewinfo.setJibunAddr(map.get("jibunAddr").toString());
 		}
-	
+		
 		//테이블에 들어있냐?
 		int isIn=SearchService.isIn(map);
 		if(isIn!=0) {
@@ -132,32 +130,42 @@ public class SearchController {
 	@RequestMapping(value="/show_Summery.do", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	public String SummeryView(@RequestParam Map map, Model model, Authentication auth) {
 		
-		System.out.println("별표시, 평점, 혼잡도 ajax");
-		System.out.println("이게 안되는건가");
-				
 		int rate=SearchService.setRating(map);
 		String avgRate=CommonUtility.ratingString(rate);//별 표시
 		SearchBBSDTO dto=SearchService.setComplexity(map);
 		int countnum=dto.getCountNum();
 		int maxnum=dto.getMAXNUMBER();
 		String complex=CommonUtility.isComplex(countnum, maxnum);
-		System.out.println("complex는 "+complex);
 		
-		map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());
-		int isbookmarked=SearchService.isBookmarked(map);
-		int countBooked=SearchService.countBookmarked(map);
-		
-		String bookmarkedString=CommonUtility.Bookmarked(isbookmarked, countBooked);		
 		JSONObject json=new JSONObject();
 
 		json.put("rate", rate);
-		json.put("bookmarkedString", bookmarkedString);
 		json.put("rateString", avgRate);
 		json.put("complex", complex);
 		
 		return json.toJSONString();
 		
 	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/show_Bookmarked.do", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
+	public String BookmarkView(@RequestParam Map map, Model model, Authentication auth) {
+		
+		map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());
+		int isbookmarked=SearchService.isBookmarked(map);
+		int countBooked=SearchService.countBookmarked(map);
+		
+		System.out.println("북마크여부:"+isbookmarked+", 북마크 총 수:"+countBooked);
+		
+		String bookmarkedString=CommonUtility.Bookmarked(isbookmarked, countBooked);
+		JSONObject json=new JSONObject();
+		json.put("bookmarkedString", bookmarkedString);
+		return json.toJSONString();
+
+	}
+	
+	
 	
 	@ResponseBody
 	@RequestMapping(value="/insertdelete.do", method=RequestMethod.POST)
@@ -176,8 +184,7 @@ public class SearchController {
 				countBooked=SearchService.countBookmarked(map);
 				String bookmarkedString=CommonUtility.Bookmarked(isbookmarked, countBooked);
 				json.put("status", "DELETE");
-				json.put("bookmarkedString", bookmarkedString);
-				
+				json.put("bookmarkedString", bookmarkedString);				
 			}
 			else {
 				SearchService.insertBookmark(map);
@@ -210,12 +217,9 @@ public class SearchController {
 		
 	}
 	
-	
 	@ResponseBody
 	@RequestMapping(value="/commentlist.do", method=RequestMethod.POST, produces = "application/json; charset=utf-8")
-	public String listSearchComment(@RequestParam Map map) {
-		
-		System.out.println("list로 들어옵니까?");
+	public String listSearchComment(@RequestParam Map map) {		
 		
 		List<SearchBBSCommentDTO> list=SearchService.selectListComment(map);		
 				
@@ -241,5 +245,19 @@ public class SearchController {
 		return jsonString;
 	
 	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/addMarker.do", method=RequestMethod.POST, produces = "application/json; charset=utf-8")
+	public String MarkerIsIN(@RequestParam Map map) {
+		
+		System.out.println("addMarker로 들어옵니까?");
+		
+		return null;
+	
+	}
+	
+	
+	
 	
 }

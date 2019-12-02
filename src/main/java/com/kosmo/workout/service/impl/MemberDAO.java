@@ -67,6 +67,11 @@ public class MemberDAO implements MemberService{
 		return template.selectOne("makeqr",map);
 	}
 
+	@Override
+	public String getMemberName(String id) {
+		return template.selectOne("getMemberName",id);
+	}
+
 	
 
 	

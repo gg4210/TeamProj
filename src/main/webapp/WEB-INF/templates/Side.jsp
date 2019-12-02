@@ -20,7 +20,7 @@
 		<a href="#" id="login" style="display:block"><i class="fas fa-user"></i></a>
 	</sec:authorize>
 	<a href="<c:url value='/member/healthMateMain.do'/>"><i class="fas fa-user-friends"></i></a> 
-	<a href="<c:url value='/bbsList.do'/>"><i class="fas fa-clipboard-list"></i></a> 
+	<a href="<c:url value='/react/bbsList.do'/>"><i class="fas fa-clipboard-list"></i></a> 
 	<a href="<c:url value='/member/customerServiceMain.do'/>"><i class="fas fa-info-circle"></i></a>
 </div>
 <!-- sidebar 영역 끝 -->

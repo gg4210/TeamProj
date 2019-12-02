@@ -90,34 +90,31 @@ background-color: #4285F4; }
 
 $(function() {
 	
-	console.log('시작');
 	
 	var token = $("meta[name='_csrf']").attr("content");
 	var header = $("meta[name='_csrf_header']").attr("content");
 	console.log('token:',token)
 	console.log('header:',header)
 	console.log('header길이:',header.length)
-
-	
-	
-	$.ajax({
-		url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
-		data:{'mapkey':'${viewinfo.mapkey}'},
-		type:"post",
-		success:function(data){
-			console.log("displayComplexAndStar 속으로 들어오는지????????"); 
-	        var status=JSON.parse(data);		
-			$('#starString').html(status["avgRate"]);
-			$('#complex').html(status["complex"]);
-			console.log("status[complex']:",status["complex"]);
-		},
-		error:function(request,status,error){
-	         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
-	    },
-	});	
 	
 
-	
+	var starNComplexity=function(){
+		$.ajax({
+			url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
+			data:{'mapkey':'${viewinfo.mapkey}'},
+			type:"post",
+			success:function(data){
+		        var status=JSON.parse(data);		
+				$('#starString').html(status["avgRate"]);
+				$('#complex').html(status["complex"]);
+				console.log("status[complex']:",status["complex"]);
+			},
+			error:function(request,status,error){
+		         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+		    },
+		})
+	};	
+
 	var showComment=function(){///Ajax로 처리
 		console.log('showComment Ajax 들어옴');
 		$.ajax({
@@ -131,10 +128,8 @@ $(function() {
 		    },
 		});
 	};
-	
 	var displayComments=function(data){
 		var comment='';
-		
 		if(data.length==0){
 			console.log('데이타 업쇼습니다')
 			comment+='<div class="row pb-4"><div class="col text-center">등록된 한줄 댓글이 존재하지 않습니다.</div></div>';
@@ -142,7 +137,7 @@ $(function() {
 		else{
 			$.each(data,function(index, element){
 				comment+='<div class="row pb-4"><div class="col-2">';
-				comment+='<img src=/workout'+element['PICTURE']+' alt="Avatar" class="avatar img-fluid">';
+				comment+='<img src='+element['PICTURE']+' alt="Avatar" class="avatar img-fluid">';
 				comment+='</div>'
 				comment+='<div class="col">';
 				comment+='<span class="mt-0 font-weight-bold blue-text h5">'+element['NICK_NAME']+'</span>';
@@ -192,16 +187,12 @@ $(function() {
 				}//switch
 				comment+='</span><p>'+element['RCOMMENT']+'</p><p>'+element['RPOSTDATE']+'</p></div></div>';
 			});//$.each
-				
 		}//else	
 		$('#comment_list').html(comment);
 	}
-	
 	$('#rateMe1').mdbRate();
-
 		showComment();
-		
-		
+		starNComplexity();
 		$('#comment_submit').click(function(e){
 			var index=parseInt($('#rateMe1').find('i.amber-text').length.toString());
 			e.preventDefault();
@@ -213,15 +204,29 @@ $(function() {
 					showComment();
 				},
 				error:function(data){
-					console.log(data);
+					console.log("입력실패");
 				}
 			});
 		});//클릭이벤트 끝
 		
 		
-		
-		
-		
+		(function poll(){
+			
+			$.ajax({
+				url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
+				data:{'mapkey':'${viewinfo.mapkey}'},
+				type:"post",
+				success:function(data){
+			        var status=JSON.parse(data);		
+					$('#starString').html(status["avgRate"]);
+					$('#complex').html(status["complex"]);
+					console.log("status[complex']:",status["complex"]);
+				},
+				timeout: 3000,
+				complete: setTimeout(function() { poll(); },3000)
+				})
+				
+		})();
 });	//function 끝
 	
 </script>

@@ -8,8 +8,8 @@ public class RegicenterDTO {
 	String endDate;
 	String mapkey;
 	int isAllowed;
-	
-	
+	String name;
+	String authority;
 	
 	public String getNo() {
 		return no;
@@ -47,6 +47,16 @@ public class RegicenterDTO {
 	public void setIsAllowed(int isAllowed) {
 		this.isAllowed = isAllowed;
 	}
-
-	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getAuthority() {
+		return authority;
+	}
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
 }

@@ -5,10 +5,12 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.openqa.selenium.json.Json;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -114,21 +116,14 @@ public class AuthController {
 	
 	@ResponseBody
 	@RequestMapping(value="/getUserInfo.do", method=RequestMethod.POST)
-	public String getUserInfo(@RequestParam Map map, Model model) {
-		
+	public String getUserInfo(@RequestParam Map map) {
+		System.out.println("리퀘스트맵 확인:"+map);
+		//맵키
 		MemberDTO dto=MemberService.selectOne(map);
 		System.out.println("getUserInfo 들어옴");
 		JSONObject json=new JSONObject();
 		json.put("picture", dto.getPicture());
-		
-		/*
-		RegicenterDTO dto1=RegicenterService.getMapkey(map);
-		int mapkey=Integer.parseInt(dto.getMapkey());
-		map.put("mapkey", mapkey);
-		List<SearchBBSCommentDTO> commentList=SearchService.selectListComment(map);
-		model.addAttribute("CommentList", commentList);
-		*/
-		
+
 		/*
 		RegicenterDTO dto1=RegicenterService.getMapkey(map);
 		int mapkey=Integer.parseInt(dto.getMapkey());
@@ -137,11 +132,6 @@ public class AuthController {
 		model.addAttribute("Comment", commentList);
 		System.out.println("Comment: "+commentList);
 		*/
-		
 		return json.toJSONString();
-		
 	}
-
-	
-	
 }
