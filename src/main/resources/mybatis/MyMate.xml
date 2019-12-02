@@ -20,6 +20,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from MY_MATE where id=#{id}
 	</select>
 	<select id="MateTotal" parameterType="java.util.Map" resultType="int">
-		select count(*) from message_table where id=#{id} and fromid=#{FRIEND_ID}
+		select count(*) from my_mate where id=#{id} and FRIEND_ID=#{FRIEND_ID}
 	</select>
 </mapper>

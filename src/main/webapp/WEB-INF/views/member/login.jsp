@@ -62,13 +62,6 @@
             <button type="submit" value="submit" class="btn btn-primary">LOGIN</button>
          </div>
       </form>
-      <div class="text-right">
-         <a href="<c:url value='/mypage.do'/>"><button type="button" class="btn btn-primary">임시페이지</button></a>
-      </div>
-      <div class="text-right">
-         <button type="button" class="btn btn-primary" onclick="csrfCheck()">csrf 확인</button>
-      </div>
-         
       <div class="text-center pt-4">
          <span class="text-white">회원이 아니신가요?<a href="<c:url value='jointype.do'/>"> 회원가입</a></span>
       </div>
@@ -106,7 +99,7 @@
 
       <div class="modal-content">
          <div class="modal-header">
-            <h5 class="modal-title" id="requiredLongTitle">이 서비스를 이용하려면 로그인하셔야 합니다.</h5>
+            <h5 class="modal-title" id="requiredLongTitle">이 서비스를 이용하시려면 로그인 하셔야 합니다.</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">&times;</span>
             </button>
@@ -427,8 +420,9 @@ function dataget(){
             <img class="col-12" src="<c:url value='/resources/images/girl.png'/>" />
          </div>
          <div class="h5 text-white col-6" style="align-self:center;"><sec:authentication property="principal.username"/>님,<br/>반갑습니다</div>
-         
          <div class="row">
+<<<<<<< HEAD
+=======
             <!-- col1 등록한 센터 시작 -->
             <div class="accordion col" id="centeraccordion1">
                <div class="card">
@@ -505,13 +499,14 @@ function dataget(){
                         <table class="table table-hover" style="text-align: center;">
                            <thead class="bg-primary text-white">
                                <tr>
-                                 <th scope="col">아이디</th>
+                                 <th scope="col">닉네임</th>
                                  <th scope="col">평점</th>
                                </tr>
                              </thead>
                                <tbody>
                                <c:if test="${empty Comment }">
-                      	 <td><span>등록된 리뷰가 없습니다.</span></td>
+                               <td><span></span></td>
+                      	 		<td><span>등록된 리뷰가 없습니다.</span></td>
                       </c:if>
                       <c:if test="${not empty Comment}">
                     	  <c:forEach var="comment" items="${Comment }">
@@ -584,6 +579,7 @@ function dataget(){
                </div>
             </div>
             
+>>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
             <div class="accordion col" id="centeraccordion3">
                <div class="card">
                   <div class="card-header mdb-color darken-3 pb-0" id="heading3" style="padding:0px;">

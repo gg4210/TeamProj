@@ -6,41 +6,159 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <!-- namespace속성:매퍼파일의 완전한경로 .xml는 생략 -->
 <!-- ※ibatis와는 다르게 id값에 .(dot)를 사용 못한다. -->
 
+
+<!-- 검색기능 추가 쿼리문은 위치조정, 내용검토 필요 -->
 <mapper namespace="mybatis.CS">
 	<select id="noticeTotal" parameterType="java.util.Map" resultType="int">
-		SELECT COUNT(*) FROM customerService
-		<if test="searchColumn !=null">
-			WHERE ${searchColumn} LIKE '%' || #{searchWord} || '%'
-		</if>
+		SELECT COUNT(*) FROM customerService WHERE MENU='NOTICE'
+		<if test="searchColumn != null">
+  				AND ${searchColumn} LIKE '%' || #{searchWord} || '%'
+  		</if>
+	</select>
+	<select id="faqTotal" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM customerService WHERE MENU='FAQ'
+	</select>
+	<select id="eventTotal" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM customerService WHERE MENU='EVENT' 
+		<if test="searchColumn != null">
+  				AND ${searchColumn} LIKE '%' || #{searchWord} || '%'
+  		</if>
+	</select>
+	<select id="consultTotal" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM customerService WHERE MENU='CONSULT' AND ID=#{id} 
+	</select>
+	<select id="adminConsultTotal" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM customerService WHERE MENU='CONSULT' 
 	</select>
 	
+	<!-- 될지는 모르겠고 합칠 때를 대비해서 한번 써봄.
+	<select id="totalRecord" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM customerService WHERE menu=#{menu};		
+	</select>
+	 -->
 	<select id="noticeSelectList" parameterType="java.util.Map" resultType="CSDTO">
-		<!-- SELECT * FROM customerService WHERE menu='NOTICE' ORDER BY no desc -->
-		SELECT ROWNUM,T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='NOTICE' ORDER BY NO) T ORDER BY ROWNUM DESC
-		<if test="searchColumn != null"><!-- 다른 조건으로 바꿔줘야 할 듯./지금 where절은 고객센터 홈 공지사항부분/이 경우 ORDER BY 고민 좀 해야할 듯... -->
-			WHERE ROWNUM&lt;=3
-		</if>
+		SELECT * FROM(
+	    SELECT ROWNUM R2, P.* FROM
+	    (SELECT ROWNUM R, T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='NOTICE' 
+	    <if test="searchColumn != null">
+  			AND ${searchColumn} LIKE '%' || #{searchWord} || '%'
+  		</if>
+	    ORDER BY NO) T ORDER BY R DESC)P
+	    ORDER BY R2 DESC) WHERE R2 BETWEEN #{start} AND #{end}
+	    
+	    <!-- 
+	    SELECT * FROM(
+	    SELECT ROWNUM R2, P.* FROM
+	    (SELECT ROWNUM R, T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='NOTICE' ORDER BY NO) T ORDER BY R DESC)P
+	    ORDER BY R2 DESC) WHERE R2 BETWEEN #{start} AND #{end}
+	     -->
+	</select>
+	<select id="homeNoticeSelectList" parameterType="java.util.Map" resultType="CSDTO">
+		SELECT * FROM (SELECT ROWNUM R,T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='NOTICE' ORDER BY NO DESC)T)
+		WHERE R &lt;=3
+	</select>	 
+	<select id="mainEventSelectList" parameterType="java.util.Map" resultType="CSDTO">
+		SELECT * FROM (SELECT ROWNUM R,T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='EVENT' ORDER BY NO DESC)T)
+		WHERE R &lt;=3
+	</select>	 
+	<!-- faq는 입력 순으로 뿌려짐. -->
+	<select id="faqSelectList" parameterType="java.util.Map" resultType="CSDTO">
+		<!-- 
+		SELECT * FROM(
+	    SELECT ROWNUM R2, P.* FROM
+	    (SELECT ROWNUM R, T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='FAQ' ORDER BY NO) T ORDER BY R DESC)P
+	    ORDER BY R2 DESC) WHERE R2 BETWEEN #{start} AND #{end}
+	     -->
+	    SELECT * FROM(
+		SELECT ROWNUM R, T.* FROM (SELECT * FROM CUSTOMERSERVICE WHERE MENU='FAQ' ORDER BY NO) T)
+		WHERE R BETWEEN #{start} AND #{end}
+	    
+	</select>
+	<select id="homeFaqSelectList" parameterType="java.util.Map" resultType="CSDTO">
+		<!-- 
+		select rownum,p.* from (SELECT ROWNUM R, T.* FROM(SELECT NO, TITLE FROM CUSTOMERSERVICE WHERE MENU='FAQ' ORDER BY NO) T ORDER BY R)P
+        WHERE R BETWEEN 4 AND 6;
+  		-->
+  		 select * from (SELECT ROWNUM R, T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='FAQ' ORDER BY NO) T ORDER BY R)
+  		 where R &lt;=5
 	</select>
 	<select id="eventSelectList" parameterType="java.util.Map" resultType="CSDTO">
-		SELECT ROWNUM,T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='EVENT' ORDER BY NO) T ORDER BY ROWNUM DESC
+		<!-- SELECT ROWNUM,T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='EVENT' ORDER BY NO) T ORDER BY ROWNUM DESC -->
+		SELECT * FROM(
+	    SELECT ROWNUM R2, P.* FROM
+	    (SELECT ROWNUM R, T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='EVENT' 
+	     <if test="searchColumn != null">
+  			AND ${searchColumn} LIKE '%' || #{searchWord} || '%'
+  		</if>
+	     ORDER BY NO) T ORDER BY R DESC)P
+	    ORDER BY R2 DESC) WHERE R2 BETWEEN #{start} AND #{end}
 	</select>
-	<select id="eventConsultList" parameterType="java.util.Map" resultType="CSDTO">
-		SELECT ROWNUM,T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='CONSULT' ORDER BY NO) T ORDER BY ROWNUM DESC
+	<select id="consultSelectList" parameterType="java.util.Map" resultType="CSDTO">
+		<!-- SELECT ROWNUM,T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='CONSULT' ORDER BY NO) T ORDER BY ROWNUM DESC -->
+		SELECT * FROM(
+	    SELECT ROWNUM R2, P.* FROM
+	    (SELECT ROWNUM R, T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='CONSULT' AND ID=#{id} 
+	     <if test="searchColumn != null">
+  			AND ${searchColumn} LIKE '%' || #{searchWord} || '%'
+  		</if> 
+	    ORDER BY NO) T ORDER BY R DESC)P
+	    ORDER BY R2 DESC) WHERE R2 BETWEEN #{start} AND #{end}	    
 	</select>
-	
+	<select id="adminSelectList" parameterType="java.util.Map" resultType="CSDTO">
+		SELECT * FROM(
+	    SELECT ROWNUM R2, P.* FROM
+	    (SELECT ROWNUM R, T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='CONSULT' 
+	    <if test="searchColumn != null">
+  			 AND ${searchColumn} LIKE '%' || #{searchWord} || '%'
+  		</if>
+	    ORDER BY NO) T ORDER BY R DESC)P
+	    ORDER BY R2 DESC) WHERE R2 BETWEEN #{start} AND #{end}	    
+	</select>
+	<select id="selectOne" parameterType="java.util.Map" resultType="CSDTO">
+		SELECT * FROM customerService WHERE no = #{no}
+	</select>
+	<select id="adminSelectOne" parameterType="java.util.Map" resultType="CSDTO"></select><!-- 쓸지 안쓸지 아직 모름 -->
+	<!-- 
 	<select id="noticeSelectOne" parameterType="java.util.Map" resultType="CSDTO">
 		SELECT * FROM customerService WHERE no = #{no}
 	</select>
 	<select id="eventSelectOne" parameterType="java.util.Map" resultType="CSDTO">
 		SELECT * FROM customerService where no = #{no}
 	</select>
-	
-		
-	
+	<select id="consultSelectOne" parameterType="java.util.Map" resultType="CSDTO">
+		SELECT * FROM customerService where no = #{no}
+	</select>
+	<select id="consultSelectOne" parameterType="java.util.Map" resultType="CSDTO">
+		SELECT * FROM customerService where no = #{no}
+	</select>
+	 -->
 	<insert id="noticeInsert" parameterType="java.util.Map">
-		INSERT INTO customerService(no,id,menu,category,title,content,postdate)
+		INSERT INTO customerService(no,id,menu,category,title,content,postDate)
 		<!-- VALUES(SEQ_CS.NEXTVAL,#{id},'NOTICE',#{selectCategory},#{title},#{content},default) -->
 		VALUES(SEQ_CustomerService_NO.NEXTVAL,#{id},'NOTICE',#{selectCategory},#{title},#{content},default)
 	</insert>
+	<insert id="faqInsert" parameterType="java.util.Map">
+		INSERT INTO customerService(no,id,menu,category,title,content,postDate)
+		VALUES(SEQ_CustomerService_NO.NEXTVAL,#{id},'FAQ',#{selectCategory},#{title},#{content},default)
+	</insert>
+	<insert id="eventInsert" parameterType="java.util.Map">
+		INSERT INTO customerService(no,id,menu,category,title,content,postDate)
+		VALUES(SEQ_CustomerService_NO.NEXTVAL,#{id},'EVENT',#{selectCategory},#{title},#{content},default)
+	</insert>
+	<insert id="consultInsert" parameterType="java.util.Map"><!-- 첨부파일 다룰 것. -->
+		INSERT INTO customerService(no,id,menu,category,title,content,postDate)
+		VALUES(SEQ_CustomerService_NO.NEXTVAL,#{id},'CONSULT',#{selectCategory},#{title},#{content},default)
+	</insert>
+	
+	<update id="noticeUpdate" parameterType="java.util.Map"><!-- *****category처리 해야지... ////select태그로 해야하나? -->
+		UPDATE customerService SET title=#{title},content=#{content} WHERE no=#{no}
+	</update>
+	<update id="reply" parameterType="java.util.Map">
+		UPDATE CUSTOMERSERVICE SET REPLY=#{reply} WHERE no=#{no}
+	</update>
+
+	<delete id="delete" parameterType="java.util.Map">
+		DELETE customerService WHERE no=#{no}
+	</delete>
 	
 </mapper>

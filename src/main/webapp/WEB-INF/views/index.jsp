@@ -153,28 +153,19 @@
 														<th scope="col">번호</th>
 														<th scope="col">카테고리</th>
 														<th scope="col">제목</th>
-														<th scope="col">날짜</th>
+														<th scope="col">등록일</th>
 													</tr>
 												</thead>
-												<tbody>
-													<tr>
-														<th scope="row">3</th>
-														<td>[정기점검]</td>
-														<td class="text-left">2019-10-26 정기점검 안내</td>
-														<td>2019-10-21</td>
-													</tr>
-													<tr>
-														<th scope="row">2</th>
-														<td>[공지사항]</td>
-														<td class="text-left">운동해!偕 서비스가 정식 오픈하였습니다.</td>
-														<td>2019-10-21</td>
-													</tr>
-													<tr>
-														<th scope="row">1</th>
-														<td>[공지사항]</td>
-														<td class="text-left">운동해!偕 서비스가 가오픈하였습니다.</td>
-														<td>2019-10-18</td>
-													</tr>
+												<tbody>												
+													<c:forEach var="item" items="${homeNoticeList}" varStatus="loop">
+														<tr>
+															<th scope="row">${item.r}</th>
+															<td>${item.category}</td>
+															<td class="text-left">
+																<a href="<c:url value='/member/noticeView.do?no=${item.no}&nowPage='/><c:out value='${param.nowPage}' default='1'/>">${item.title}</td>
+															<td>${item.postDate}</td>
+														</tr>
+													</c:forEach>
 												</tbody>
 											</table>
 										</div>
@@ -187,25 +178,18 @@
 													<tr>
 														<th scope="col">번호</th>
 														<th scope="col">제목</th>
-														<th scope="col">날짜</th>
+														<th scope="col">등록일</th>
 													</tr>
 												</thead>
 												<tbody class="text-center">
-													<tr>
-														<th scope="row">3</th>
-														<td>일부 스포츠센터에서 10월 5% 할인쿠폰을 제공합니다</td>
-														<td>2019-10-21</td>
-													</tr>
-													<tr>
-														<th scope="row">2</th>
-														<td>9월 출석체크 개근 시 스타벅스 커피쿠폰을 드립니다.</td>
-														<td>2019-10-21</td>
-													</tr>
-													<tr>
-														<th scope="row">1</th>
-														<td>10월 출석이벤트! 건강도 챙기고 혜택도 챙기고!</td>
-														<td>2019-10-01</td>
-													</tr>
+													<c:forEach var="item" items="${mainEventList}" varStatus="loop">
+														<tr>
+															<th scope="row">${item.r}</th>
+															<td class="text-left">
+																<a href="<c:url value='/member/noticeView.do?no=${item.no}&nowPage='/><c:out value='${param.nowPage}' default='1'/>">${item.title}</td>
+															<td>${item.postDate}</td>
+														</tr>
+													</c:forEach>													
 												</tbody>
 											</table>
 

@@ -1,6 +1,7 @@
 package com.kosmo.workout.web;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -101,7 +102,8 @@ public class Center_MyPageController {
 			result.setAvgRate(CommonUtility.ratingString(SearchService.setRating(map)));
 			int rate=SearchService.setRating(map);
 			String avgRate=CommonUtility.ratingString(rate);//별 표시 String
-			String compliextyString=CommonUtility.isComplex(dto1.getCountNum(), dto1.getMaxNumber()); //혼잡도 표시 String
+			String compliextyString=CommonUtility.isComplex(dto1.getCountNum(), dto1.getMAXNUMBER()); //혼잡도 표시 String
+			System.out.println("compliextyString: "+compliextyString+"dto1.getCountNum(): "+dto1.getCountNum()+"dto1.getMaxNumber()"+dto1.getMAXNUMBER());
 			result.setAvgRate(avgRate);
 			result.setCompliextyString(compliextyString);
 			
@@ -117,7 +119,7 @@ public class Center_MyPageController {
 			result.setAvgRate(CommonUtility.ratingString(SearchService.setRating(map)));
 			int rate=SearchService.setRating(map);
 			String avgRate=CommonUtility.ratingString(rate);//별 표시 String
-			String compliextyString=CommonUtility.isComplex(dto3.getCountNum(), dto3.getMaxNumber()); //혼잡도 표시 String
+			String compliextyString=CommonUtility.isComplex(dto3.getCountNum(), dto3.getMAXNUMBER()); //혼잡도 표시 String
 			result.setAvgRate(avgRate);
 			result.setCompliextyString(compliextyString);
 		}
@@ -133,8 +135,14 @@ public class Center_MyPageController {
 		RegicenterDTO dto=RegicenterService.getMapkey(map);
 		int mapkey=Integer.parseInt(dto.getMapkey());
 		map.put("mapkey", mapkey);
+		Map allowance=new HashMap();
+		allowance.put("ID", id);
+		allowance.put("mapkey", mapkey);
+		RegicenterDTO centerallowed=RegicenterService.isAllowed(allowance);
 		List<SearchBBSCommentDTO> commentList=SearchService.selectListComment(map);
 		model.addAttribute("CommentList", commentList);
+		model.addAttribute("isallowed",centerallowed.getIsAllowed());
+		System.out.println("enterprise.do들어갈때 데이터:"+model);
 		return "mypage/enterprise/mypage_Index.tiles";
 	}
 	
@@ -155,7 +163,7 @@ public class Center_MyPageController {
 		
 		if(isin!=0) {
 			SearchBBSDTO dto1=SearchService.selectOneSearchDTO(map);
-			map.put("MAXNUMBER", dto1.getMaxNumber());
+			map.put("MAXNUMBER", dto1.getMAXNUMBER());
 			map.put("content", dto1.getContent());
 			map.put("filename", dto1.getImg_urls());
 			map.put("otime", dto1.getOtime());

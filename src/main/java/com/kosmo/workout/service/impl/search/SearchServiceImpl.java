@@ -81,6 +81,12 @@ public class SearchServiceImpl implements SearchService{
 			// TODO Auto-generated method stub
 			return 0;
 		}
+
+
+		@Override
+		public List<Map> selectallBookmark(Map map) {
+			return dao.selectallBookmark(map);
+		}
 		
 
 }

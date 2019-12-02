@@ -13,7 +13,6 @@ $(function () {
 	if (durl !='') {
 		$(durl).tab('show');
 	}
-		
 	
 	//같은 페이지에 있다가 눌렀을 때
 	$('#centerLinks a').click(function(){

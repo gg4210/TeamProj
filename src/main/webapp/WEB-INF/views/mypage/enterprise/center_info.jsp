@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<c:if test ="${isallowed ==0}" var="Allowed">
 <style>
 
    .scrolling-wrapper {
@@ -34,9 +34,12 @@
 }
 
 </style>
-
 <script>
 $(function(){
+	console.log("여기서 체크");
+	console.log("${isallowed}");
+	console.log("${isallowed ==0}");
+	console.log("${not Allowed}");
 	var token = $("meta[name='_csrf']").attr("content");
 	$.ajax({
 		url:"<c:url value='/ajax_centerinfo?_csrf="+token+"'/>",
@@ -64,6 +67,7 @@ $(function(){
 			$('#content_center_info').html(obj.content);
 			$('#service').html(obj.service);
 			$('#rating').html(obj.avgRate);
+			console.log("obj.compliextyString",obj.compliextyString);
 			$('#complexity').html(obj.compliextyString);
 			var image_content="";
 			for(var i in obj.img_urls){
@@ -151,6 +155,12 @@ $(function(){
 		$('#comment_list').html(comment);
 	}
 
+	$('#makeQRCode').click(function(){
+        var url = "QRCode.do";
+        var name = "QRcode";
+        var option = "width = 400, height = 400, top = 100, left = 200, location = no"
+        window.open(url, name, option);		
+	});
 });
 
 
@@ -169,6 +179,7 @@ $(function(){
 	<!-- 페이지 헤더 끝 -->
 		<!-- 버튼 시작 -->
 		<div class="text-right p-0 mb-2">
+			<button type="submit" class="btn btn-info px-3" id="makeQRCode">QR코드생성</button>
 			<a class="btn btn-warning px-3" id="edit_center_info_button" href="<c:url value='/center/edit_centerinfo.do'/>">수정</a>
 		</div>
 		<!-- 버튼 끝 -->
@@ -202,7 +213,8 @@ $(function(){
 									<p><span class="badge badge-primary">주소</span> : <span id="addr"></span></p>
 									<hr/>
 									<p><span class="badge badge-primary">전화번호</span> : <span id="tel"></span></p>
-									<hr/>									
+									<hr/>		
+									<span class="badge badge-primary mb-2">혼잡도</span>							
 									<span id="complexity">
 									</span>
 									<hr/>									
@@ -332,4 +344,14 @@ $(function(){
 
 </div>
 <!-- container-fluid -->
-
+</c:if>
+<c:if test="${not Allowed}">
+	<div class="container-fluid">
+		<div class="page-header mb-1" style="border-bottom: 1px solid #D8D8D8;">
+			<h2 style="font-weight: bold;">센터 관리</h2>
+		</div>
+		<div class="text-center p-0 mb-2">
+			<h2 style="font-weight: bold;">관리자 승인이 완료되었을 때 이용 가능합니다.</h2>
+		</div>
+	</div>
+</c:if>
