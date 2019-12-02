@@ -5,6 +5,7 @@ $(function(){
 	var token = $("meta[name='_csrf']").attr("content");
 	var header = $("meta[name='_csrf_header']").attr("content");
 
+
 //	map 높이를 동적으로 가져가기 위한 로직 시작
 	$('.map_wrap').css('height',mapheight);
 	$(window).on('resize',function(){

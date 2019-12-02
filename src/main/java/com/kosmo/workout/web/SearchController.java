@@ -38,17 +38,16 @@ public class SearchController {
 	
 	@RequestMapping("/searchList.do")
 	public String searchList(@RequestParam Map map) {
-		return "search/list.tiles";	
+		return "search/list.tiles";
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="/viewComplexAndStar.do", method=RequestMethod.POST, produces="text/html;charset=UTF-8")
 	public String complexAndstar(@RequestParam Map map) {
-
 		
 		System.out.println("complexAndstar ajax");
 		JSONObject json=new JSONObject();
-		int rate=SearchService.setRating(map);	
+		int rate=SearchService.setRating(map);
 		String avgRate=CommonUtility.ratingString(rate);//별 표시
 		json.put("avgRate", avgRate);
 		
@@ -63,7 +62,6 @@ public class SearchController {
 		return json.toJSONString();	
 	}
 	
-	
 	@RequestMapping(value="/searchView.do", method=RequestMethod.POST)
 	public String searchView(@RequestParam Map map, HttpServletRequest req, Model model) throws IOException {
 		
@@ -77,7 +75,7 @@ public class SearchController {
 		if(map.get("jibunAddr")!=null) {
 			viewinfo.setJibunAddr(map.get("jibunAddr").toString());
 		}
-	
+		
 		//테이블에 들어있냐?
 		int isIn=SearchService.isIn(map);
 		if(isIn!=0) {
@@ -218,7 +216,6 @@ public class SearchController {
 		return insertInt;
 		
 	}
-	
 	
 	@ResponseBody
 	@RequestMapping(value="/commentlist.do", method=RequestMethod.POST, produces = "application/json; charset=utf-8")

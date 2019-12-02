@@ -69,4 +69,9 @@ public class MemberServiceImpl implements MemberService{
 		return dao.selectMapkey(map);
 	}
 
+	@Override
+	public String getMemberName(String id) {
+		return dao.getMemberName(id);
+	}
+
 }

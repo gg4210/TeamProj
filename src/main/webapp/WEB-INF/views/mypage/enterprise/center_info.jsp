@@ -37,9 +37,7 @@
 
 <script>
 $(function(){
-	
 	var token = $("meta[name='_csrf']").attr("content");
-
 	$.ajax({
 		url:"<c:url value='/ajax_centerinfo?_csrf="+token+"'/>",
 		type:"post",

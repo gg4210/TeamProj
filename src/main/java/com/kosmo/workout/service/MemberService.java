@@ -18,4 +18,5 @@ public interface MemberService {
 	boolean update(Map map);
 	//QR코드 생성용]
 	int selectMapkey(Map map);
+	String getMemberName(String id);
 }
