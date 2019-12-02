@@ -83,7 +83,7 @@ $(function() {
       });
    //메인페이지의 카드 높이 조절용 끝//
       
-   //알림 권한 허용
+   /*알림 권한 허용
    window.addEventListener('load', function () {
       Notification.requestPermission(function (status) {
          var token = $("meta[name='_csrf']").attr("content");
@@ -112,7 +112,7 @@ $(function() {
             })();
          }
       });      
-   });/////// 알림   
+   });*/////// 알림   
 });
 
 //마진속성 주는 function//
