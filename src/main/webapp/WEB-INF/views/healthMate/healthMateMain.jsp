@@ -8,6 +8,16 @@
   max-height: 300px;
 }
 
+.card-image-container{
+	max-width: 100%;
+	width: 300px;
+    max-height: 100%;
+    height:250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 </style>
 
 <title>HealthMate Main</title>
@@ -21,9 +31,11 @@ $(function(){
 	var showMateView=function(data){
 		//console.log("show는 들어오시나요")
 		//console.log("data",data,",타입: ",typeof data);//type object
-		var mateTitle='<p class="heading">'+'<input type="hidden" id="mateNumber" value="'+data.NO+'">'+data.TITLE+'</p><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="white-text">&times;</span></button>';
+		var mateTitle='<p class="heading" style="font-weight:bold;">'+'<input type="hidden" id="mateNumber" value="'+data.NO+'">'+data.TITLE+'</p><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="white-text">&times;</span></button>';
 		var mateViewContent='<div class="col-5"><img src="'+data.MATEPHOTO+'" class="matePicture"/></div>';
 			mateViewContent+='<div class="col-7">';
+			mateViewContent+='<p><span class="badge badge-info">아이디</span><strong>&nbsp'+data.ID+'</strong></p>';
+			//mateViewContent+='<input type="hidden" id="mateID" value="'+data.ID+'">';
 			mateViewContent+='<p><span class="badge badge-info">지역</span><strong>&nbsp;'+data.LOCATION+'</strong></p>';
 			mateViewContent+='<p><span class="badge badge-info">관심 종목</span><strong>&nbsp'+data.INTERSPORT+'</strong></p>';
 			mateViewContent+='<p><span class="badge badge-info">운동 시간</span><strong>&nbsp'+data.TIME+'</strong></p>';
@@ -60,7 +72,8 @@ $(function(){
 	
 	//메이트 삭제]
 	$('#mateDelete').click(function(){
-		var num=$('#mateNumber').text();
+		var num=$('#mateNumber').val();
+		console.log("메이트 번호:",num);
 		$.ajax({
 			url:"<c:url value='/member/mateDelete.do'/>",
 			data:{'no':num},
@@ -87,7 +100,7 @@ $(function(){
 					$('#plusMateId').html(data.ID)
 					$('#plus-modal').modal('show');
 					$("#plusOK").click(function(){
-						console.log("추가하기에 추가하기 클릭");
+						console.log("추가하기 클릭");
 						$.ajax({
 							url:"<c:url value='/member/plusMate.do'/>",
 							data:{"fno":data.NO,"FRIEND_ID":data.ID},
@@ -98,11 +111,11 @@ $(function(){
 								$('#plus-modal').modal('hide');
 								console.log(data);
 								if(obj["PLUSCHECK"]=="0"){
-									$('#plusCheck').modal('hide');
+									//$('#plusCheck').modal('hide');
 									$("#plusCancel").modal('show');
 								}
-								else{
-									$("#plusCancel").modal('hide');
+								else if(obj["PLUSCHECK"]=="1"){
+									//$("#plusCancel").modal('hide');
 									$('#plusCheck').modal('show');
 								}
 							},
@@ -162,12 +175,12 @@ $(function(){
 				<h2 class="card-title m-0 p-2 mdb-color darken-3" style="color: white">${mate.title }</h2>
 				<div class="card-image-container p-3">
 				<c:if test="${not empty mate.matePhoto }">
-					<img class="card-img-top" src="${mate.matePhoto}" alt="이미지" style="width: 100%">
+					<img class="card-img-top" src="${mate.matePhoto}" alt="이미지" style="width: 100%" onerror="this.src='https://taegon.kim/wp-content/uploads/2018/05/image-5.png'">
 				</c:if>
 				<c:if test="${empty mate.matePhoto }">
 					<img class="card-img-top" src="http://mblogthumb4.phinf.naver.net/20150427_171/ninevincent_1430122791934m8cxB_JPEG/kakao_4.jpg?type=w2" alt="이미지" style="width: 100%">
 				</c:if>
-						<div class="card-img-middle">
+						<div class="card-img-middle" id="MATEPLUS">
 							<div class="plus_mate text px-3" id="${mate.no }">추가하기</div>
 						</div>
 				</div>
@@ -281,9 +294,9 @@ $(function(){
 						<div class="row" id="modal_content">
 						<!-- ajax로 추가 -->
 						</div>
-				<div class="row justify-content-center">';
+					<div class="row justify-content-center">';
 					<!--<button type="submit" class="btn btn-warning btn-md" id="mateUpdate">수정하기</button>-->
-				    <button type="button" class="btn btn-warning btn-md" id="mateDelete">삭제하기</button>
+						<button type="button" class="btn btn-warning btn-md" id="mateDelete">삭제하기</button>
 					<!--<button type="button" class="btn btn-info btn-md">추가하기</button>-->
 				<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
 				</div>

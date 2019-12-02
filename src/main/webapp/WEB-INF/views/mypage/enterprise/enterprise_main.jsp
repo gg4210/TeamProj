@@ -282,7 +282,7 @@
                <table class="table table-hover" style="text-align: center;">
                   <thead class="bg-primary text-white">
                       <tr>
-                        <th scope="col">아이디</th>
+                        <th scope="col">닉네임</th>
                         <th scope="col">평점</th>
                         <th scope="col"></th>
                       </tr>
