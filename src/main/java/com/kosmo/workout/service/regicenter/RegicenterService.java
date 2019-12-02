@@ -20,6 +20,7 @@ public interface RegicenterService {
 	RegicenterDTO getMapkey(Map map);
 	List<RegicenterDTO> getMapkeyList(Map map);
 	Map getcenterinfo(Map map);
+	Map datecollection(Map map);
 	
 	//맵키+승인여부 판단용. 빈값이면 mapkey 없는거, 0이면 승인된 것, 1이면 승인 안된 것
 	int mapkeyIsIn(Map map);

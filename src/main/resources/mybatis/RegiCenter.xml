@@ -54,4 +54,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="RegicenterTotal" parameterType="java.util.Map" resultType="int">
 		select count(*) from REGICENTER
 	</select>
+	<select id="datecollection" parameterType="java.util.Map" resultType="java.util.Map">
+		SELECT STARTDATE,ENDDATE FROM REGICENTER WHERE MAPKEY=#{mapkey} AND ID=#{ID} AND ISALLOWED='0'
+	</select>
 </mapper>

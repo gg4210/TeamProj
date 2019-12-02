@@ -1,6 +1,7 @@
 package com.kosmo.workout.web;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -133,8 +134,14 @@ public class Center_MyPageController {
 		RegicenterDTO dto=RegicenterService.getMapkey(map);
 		int mapkey=Integer.parseInt(dto.getMapkey());
 		map.put("mapkey", mapkey);
+		Map allowance=new HashMap();
+		allowance.put("ID", id);
+		allowance.put("mapkey", mapkey);
+		RegicenterDTO centerallowed=RegicenterService.isAllowed(allowance);
 		List<SearchBBSCommentDTO> commentList=SearchService.selectListComment(map);
 		model.addAttribute("CommentList", commentList);
+		model.addAttribute("isallowed",centerallowed.getIsAllowed());
+		System.out.println("enterprise.do들어갈때 데이터:"+model);
 		return "mypage/enterprise/mypage_Index.tiles";
 	}
 	

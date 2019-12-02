@@ -91,4 +91,9 @@ public class RegicenterServiceImpl  implements RegicenterService{
 		return dao.isAllowed(map);
 	}
 
+	@Override
+	public Map datecollection(Map map) {
+		return dao.datecollection(map);
+	}
+
 }
