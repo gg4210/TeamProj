@@ -90,7 +90,6 @@ background-color: #4285F4; }
 
 $(function() {
 	
-	console.log('시작');
 	
 	var token = $("meta[name='_csrf']").attr("content");
 	var header = $("meta[name='_csrf_header']").attr("content");
@@ -98,25 +97,7 @@ $(function() {
 	console.log('header:',header)
 	console.log('header길이:',header.length)
 	
-<<<<<<< HEAD
-	$.ajax({
-		url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
-		data:{'mapkey':'${viewinfo.mapkey}'},
-		type:"post",
-		success:function(data){
-			console.log("displayComplexAndStar 속으로 들어오는지????????"); 
-			console.log(data);
-	        var status=JSON.parse(data);
-	        console.log(status);
-			$('#starString').html(status["avgRate"]);
-			$('#complex').html(status["complex"]);
-			console.log("status[complex']:",status["complex"]);
-		},
-		error:function(request,status,error){
-	         alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
-	    },
-	});
-=======
+
 	var starNComplexity=function(){
 		$.ajax({
 			url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
@@ -133,10 +114,7 @@ $(function() {
 		    },
 		})
 	};	
-	
 
-	
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 	var showComment=function(){///Ajax로 처리
 		console.log('showComment Ajax 들어옴');
 		$.ajax({
@@ -214,12 +192,7 @@ $(function() {
 	}
 	$('#rateMe1').mdbRate();
 		showComment();
-<<<<<<< HEAD
-=======
 		starNComplexity();
-		
-		
->>>>>>> branch 'master' of https://github.com/gg4210/TeamProj.git
 		$('#comment_submit').click(function(e){
 			var index=parseInt($('#rateMe1').find('i.amber-text').length.toString());
 			e.preventDefault();
@@ -229,13 +202,31 @@ $(function() {
 				data:{'rate':index,'rComment':$('#comment_text').val(), 'mapkey':'${viewinfo.mapkey}'},
 				success:function(data){
 					showComment();
-					starNComplexity();
 				},
 				error:function(data){
 					console.log("입력실패");
 				}
 			});
 		});//클릭이벤트 끝
+		
+		
+		(function poll(){
+			
+			$.ajax({
+				url:"<c:url value='/viewComplexAndStar.do?_csrf="+token+"'/>",
+				data:{'mapkey':'${viewinfo.mapkey}'},
+				type:"post",
+				success:function(data){
+			        var status=JSON.parse(data);		
+					$('#starString').html(status["avgRate"]);
+					$('#complex').html(status["complex"]);
+					console.log("status[complex']:",status["complex"]);
+				},
+				timeout: 3000,
+				complete: setTimeout(function() { poll(); },3000)
+				})
+				
+		})();
 });	//function 끝
 	
 </script>

@@ -93,6 +93,7 @@ $(function() {
          else {
             
             (function poll(){
+            	console.log("long polling 확인");
             	$.ajax({
                   url:'/workout/webnotification.do?_csrf='+token,
                   type:'post',
