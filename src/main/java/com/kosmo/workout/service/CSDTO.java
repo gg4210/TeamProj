@@ -16,10 +16,17 @@ public class CSDTO {
 	//프로그램 효율성을 위한 속성 추가]
 	//이름 저장
 	private String name;	
-	private String rownum;
-		
-	//게터,세터]	
+	private String rownum;//////모든 게시판에 설정 바꾼 후 없앨 것.게터 세터도.//////////////////
+	private String r;
 	
+	
+	//게터,세터]
+	public String getR() {
+		return r;
+	}
+	public void setR(String r) {
+		this.r = r;
+	}
 	public String getName() {
 		return name;
 	}
