@@ -44,7 +44,11 @@ public class CSDAO implements CSService {
 	}
 	@Override
 	public List<CSDTO> mainEventSelectList(Map map) {
-		return template.selectList("mainEventSelectList", map);
+		return template.selectList("mainEventSelectList",map);
+	}
+	@Override
+	public List<CSDTO> adminSelectList(Map map) {
+		return template.selectList("adminSelectList",map);
 	}
 	
 	
@@ -89,6 +93,11 @@ public class CSDAO implements CSService {
 	public int getConsultRecord(Map map) {
 		return template.selectOne("consultTotal", map);
 	}
+	@Override
+	public int getAdminConsultRecord(Map map) {
+		return template.selectOne("adminConsultTotal", map);
+	}
+
 	
 	//입력용]-일단 공지사항부터...
 	@Override
@@ -111,7 +120,11 @@ public class CSDAO implements CSService {
 	
 	@Override
 	public int update(Map map) {
-		return template.update("noticeUpdate",map);
+		return template.update("noticeUpdate", map);
+	}
+	@Override
+	public int adminConsultUpdate(Map map) {
+		return template.update("reply", map);
 	}
 	@Override
 	public int faqUpdate(Map map) {
@@ -133,7 +146,7 @@ public class CSDAO implements CSService {
 	public int delete(Map map) {
 		return template.delete("delete", map);
 	}
-
+	
 	
 	
 

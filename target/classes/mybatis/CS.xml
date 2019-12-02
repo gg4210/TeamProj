@@ -11,16 +11,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="mybatis.CS">
 	<select id="noticeTotal" parameterType="java.util.Map" resultType="int">
 		SELECT COUNT(*) FROM customerService WHERE MENU='NOTICE'
+		<if test="searchColumn != null">
+  				AND ${searchColumn} LIKE '%' || #{searchWord} || '%'
+  		</if>
 	</select>
 	<select id="faqTotal" parameterType="java.util.Map" resultType="int">
 		SELECT COUNT(*) FROM customerService WHERE MENU='FAQ'
 	</select>
 	<select id="eventTotal" parameterType="java.util.Map" resultType="int">
-		SELECT COUNT(*) FROM customerService WHERE MENU='EVENT'
+		SELECT COUNT(*) FROM customerService WHERE MENU='EVENT' 
+		<if test="searchColumn != null">
+  				AND ${searchColumn} LIKE '%' || #{searchWord} || '%'
+  		</if>
 	</select>
 	<select id="consultTotal" parameterType="java.util.Map" resultType="int">
-		SELECT COUNT(*) FROM customerService WHERE MENU='CONSULT'AND ID=#{id} 
+		SELECT COUNT(*) FROM customerService WHERE MENU='CONSULT' AND ID=#{id} 
 	</select>
+	<select id="adminConsultTotal" parameterType="java.util.Map" resultType="int">
+		SELECT COUNT(*) FROM customerService WHERE MENU='CONSULT' 
+	</select>
+	
 	<!-- 될지는 모르겠고 합칠 때를 대비해서 한번 써봄.
 	<select id="totalRecord" parameterType="java.util.Map" resultType="int">
 		SELECT COUNT(*) FROM customerService WHERE menu=#{menu};		
@@ -29,8 +39,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="noticeSelectList" parameterType="java.util.Map" resultType="CSDTO">
 		SELECT * FROM(
 	    SELECT ROWNUM R2, P.* FROM
+	    (SELECT ROWNUM R, T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='NOTICE' 
+	    <if test="searchColumn != null">
+  			AND ${searchColumn} LIKE '%' || #{searchWord} || '%'
+  		</if>
+	    ORDER BY NO) T ORDER BY R DESC)P
+	    ORDER BY R2 DESC) WHERE R2 BETWEEN #{start} AND #{end}
+	    
+	    <!-- 
+	    SELECT * FROM(
+	    SELECT ROWNUM R2, P.* FROM
 	    (SELECT ROWNUM R, T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='NOTICE' ORDER BY NO) T ORDER BY R DESC)P
 	    ORDER BY R2 DESC) WHERE R2 BETWEEN #{start} AND #{end}
+	     -->
 	</select>
 	<select id="homeNoticeSelectList" parameterType="java.util.Map" resultType="CSDTO">
 		SELECT * FROM (SELECT ROWNUM R,T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='NOTICE' ORDER BY NO DESC)T)
@@ -65,23 +86,38 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- SELECT ROWNUM,T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='EVENT' ORDER BY NO) T ORDER BY ROWNUM DESC -->
 		SELECT * FROM(
 	    SELECT ROWNUM R2, P.* FROM
-	    (SELECT ROWNUM R, T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='EVENT' ORDER BY NO) T ORDER BY R DESC)P
+	    (SELECT ROWNUM R, T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='EVENT' 
+	     <if test="searchColumn != null">
+  			AND ${searchColumn} LIKE '%' || #{searchWord} || '%'
+  		</if>
+	     ORDER BY NO) T ORDER BY R DESC)P
 	    ORDER BY R2 DESC) WHERE R2 BETWEEN #{start} AND #{end}
 	</select>
 	<select id="consultSelectList" parameterType="java.util.Map" resultType="CSDTO">
 		<!-- SELECT ROWNUM,T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='CONSULT' ORDER BY NO) T ORDER BY ROWNUM DESC -->
 		SELECT * FROM(
 	    SELECT ROWNUM R2, P.* FROM
-	    (SELECT ROWNUM R, T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='CONSULT'
-	    <!-- <if test="searchColumn != null"> user, center 회원일때만 검색조건 걸리게. -->
-	     AND ID=#{id} 
-	    <!-- </if> -->
+	    (SELECT ROWNUM R, T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='CONSULT' AND ID=#{id} 
+	     <if test="searchColumn != null">
+  			AND ${searchColumn} LIKE '%' || #{searchWord} || '%'
+  		</if> 
+	    ORDER BY NO) T ORDER BY R DESC)P
+	    ORDER BY R2 DESC) WHERE R2 BETWEEN #{start} AND #{end}	    
+	</select>
+	<select id="adminSelectList" parameterType="java.util.Map" resultType="CSDTO">
+		SELECT * FROM(
+	    SELECT ROWNUM R2, P.* FROM
+	    (SELECT ROWNUM R, T.* FROM(SELECT * FROM CUSTOMERSERVICE WHERE MENU='CONSULT' 
+	    <if test="searchColumn != null">
+  			 AND ${searchColumn} LIKE '%' || #{searchWord} || '%'
+  		</if>
 	    ORDER BY NO) T ORDER BY R DESC)P
 	    ORDER BY R2 DESC) WHERE R2 BETWEEN #{start} AND #{end}	    
 	</select>
 	<select id="selectOne" parameterType="java.util.Map" resultType="CSDTO">
 		SELECT * FROM customerService WHERE no = #{no}
 	</select>
+	<select id="adminSelectOne" parameterType="java.util.Map" resultType="CSDTO"></select><!-- 쓸지 안쓸지 아직 모름 -->
 	<!-- 
 	<select id="noticeSelectOne" parameterType="java.util.Map" resultType="CSDTO">
 		SELECT * FROM customerService WHERE no = #{no}
@@ -101,21 +137,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- VALUES(SEQ_CS.NEXTVAL,#{id},'NOTICE',#{selectCategory},#{title},#{content},default) -->
 		VALUES(SEQ_CustomerService_NO.NEXTVAL,#{id},'NOTICE',#{selectCategory},#{title},#{content},default)
 	</insert>
-	<insert id="faqInsert">
+	<insert id="faqInsert" parameterType="java.util.Map">
 		INSERT INTO customerService(no,id,menu,category,title,content,postDate)
 		VALUES(SEQ_CustomerService_NO.NEXTVAL,#{id},'FAQ',#{selectCategory},#{title},#{content},default)
 	</insert>
-	<insert id="eventInsert">
+	<insert id="eventInsert" parameterType="java.util.Map">
 		INSERT INTO customerService(no,id,menu,category,title,content,postDate)
 		VALUES(SEQ_CustomerService_NO.NEXTVAL,#{id},'EVENT',#{selectCategory},#{title},#{content},default)
 	</insert>
-	<insert id="consultInsert"><!-- 첨부파일 다룰 것. -->
+	<insert id="consultInsert" parameterType="java.util.Map"><!-- 첨부파일 다룰 것. -->
 		INSERT INTO customerService(no,id,menu,category,title,content,postDate)
 		VALUES(SEQ_CustomerService_NO.NEXTVAL,#{id},'CONSULT',#{selectCategory},#{title},#{content},default)
 	</insert>
 	
 	<update id="noticeUpdate" parameterType="java.util.Map"><!-- *****category처리 해야지... ////select태그로 해야하나? -->
 		UPDATE customerService SET title=#{title},content=#{content} WHERE no=#{no}
+	</update>
+	<update id="reply" parameterType="java.util.Map">
+		UPDATE CUSTOMERSERVICE SET REPLY=#{reply} WHERE no=#{no}
 	</update>
 
 	<delete id="delete" parameterType="java.util.Map">

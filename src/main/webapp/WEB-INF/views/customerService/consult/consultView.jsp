@@ -77,7 +77,7 @@
 		</div>
 	</div>
  -->
-	
+	<!-- 
 	<div class="row">
 		<div class="col-md-10 offset-md-1">
 			<table class="table table-sm table-borderless">
@@ -96,12 +96,14 @@
 			</table>
 		</div>
 	</div>
-	
+	 -->
 	<div class="row d-flex justify-content-center mt-3 mb-3">
 		<c:if test="${auth eq '[ROLE_ADMIN]'}"><!-- admin 페이지 분리하면 없앨지도 모르는 버튼 -->
 			<button type="button" class="btn btn-info" id="reply_write">답변</button>
 		</c:if>
-		<button type="button" class="btn btn-primary" id="question_edit">수정</button>
+		<c:if test="${empty consultRecord.reply}">
+			<button type="button" class="btn btn-primary" id="question_edit">수정</button>
+		</c:if>
 		<button type="button"  class="btn btn-primary" id="consultList">목록</button>
 		<button type="button" class="btn btn-primary" id="delete">삭제</button>
 	</div>

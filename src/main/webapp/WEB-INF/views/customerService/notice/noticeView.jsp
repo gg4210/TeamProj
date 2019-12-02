@@ -53,7 +53,7 @@
 		</div>
 	</div>
  -->
-	
+	<!-- 
 	<div class="row">
 		<div class="col-md-10 offset-md-1">
 			<table class="table table-sm table-borderless">
@@ -61,6 +61,7 @@
 					<tr>
 						<td style="width:10%">▲</td>
 						<td style="width:20%">이전 글</td>
+						<%-- <c:if test=""></c:if> --%>
 						<td>이전 글이 없습니다.</td>
 					</tr>
 					<tr>
@@ -72,7 +73,7 @@
 			</table>
 		</div>
 	</div>
-	
+	 -->
 	<div class="row d-flex justify-content-center mt-3 mb-3">
 		<c:if test="${auth eq '[ROLE_ADMIN]'}">
 			<a class="btn btn-info" href="<c:url value='/member/noticeEdit.do?no=${record.no}'/>">수정</a>

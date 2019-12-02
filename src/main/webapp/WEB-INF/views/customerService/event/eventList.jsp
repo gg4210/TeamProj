@@ -12,23 +12,37 @@
 <div class="container" id="herejqueryajax">
 	<div class="row pt-2">
 		<h3>이벤트</h3>
+		<div class="col clearfix">
+			<div class="float-right">
+				<c:if test="${auth eq '[ROLE_ADMIN]'}">
+					<button type="button" class="btn btn-info p-2 px-3" id="event_write">
+						<i class="fas fa-pencil-alt"></i> 이벤트작성
+					</button>
+				</c:if>
+			</div>
+		</div>
 	</div>	
 
 	<div class="row">
 		<div class="clearfix col">
 			<div class="float-right">
-				<div class="form-inline">
-					<select class="browser-default custom-select">
-						<option selected>검색조건</option>
-						<option value="1">전체</option>
-						<option value="2">전체 이벤트</option>
-						<option value="3">센터별 이벤트</option>
-					</select>
-					<button type="button" class="btn btn-primary p-2 px-4">
-						<i class='fas fa-search'
-							style='font-size: 20px; text-align: center'></i>
-					</button>
-				</div>
+				<form class="form-inline" method="post" action="<c:url value='/member/eventList.do'/>">
+					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+					<div class="form-group">
+						<select class="browser-default custom-select form-control" name="searchColumn">
+							<option selected disabled>검색조건</option>
+							<option value="category">카테고리</option>
+							<option value="title">제목</option>
+							<option value="content">내용</option>
+						</select>
+						<div class="form-group px-1">
+							<input type="text" name="searchWord" class="form-control" />
+						</div>
+						<button type="submit" class="btn btn-primary p-2 px-4">
+							<i class='fas fa-search' style='font-size: 20px; text-align: center'></i>
+						</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -65,7 +79,7 @@
 			</table>
 		</div>  <!-- col-md-12 -->
 	</div>
-	
+	<!-- 
 	<div class="row">
 		<div class="clearfix col">
 			<div class="float-right">
@@ -75,7 +89,7 @@
 			</div>
 		</div>
 	</div>
-
+ 	-->
 	<!-- 페이지네이션 시작 -->
 	<!-- 
 	<div class="row">

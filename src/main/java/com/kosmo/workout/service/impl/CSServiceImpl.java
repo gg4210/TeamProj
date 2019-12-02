@@ -43,7 +43,11 @@ public class CSServiceImpl implements CSService{
 	@Override
 	public List<CSDTO> mainEventSelectList(Map map) {
 		return dao.mainEventSelectList(map);
-	}	
+	}
+	@Override
+	public List<CSDTO> adminSelectList(Map map) {
+		return dao.adminSelectList(map);
+	}
 
 	@Override
 	public CSDTO selectOne(Map map) {
@@ -86,6 +90,10 @@ public class CSServiceImpl implements CSService{
 		return dao.update(map);
 	}
 	@Override
+	public int adminConsultUpdate(Map map) {
+		return dao.adminConsultUpdate(map);
+	}
+	@Override
 	public int faqUpdate(Map map) {
 		// TODO Auto-generated method stub
 		return 0;
@@ -124,6 +132,10 @@ public class CSServiceImpl implements CSService{
 	@Override
 	public int getConsultRecord(Map map) {
 		return dao.getConsultRecord(map);
+	}
+	@Override
+	public int getAdminConsultRecord(Map map) {
+		return dao.getAdminConsultRecord(map);
 	}
 	
 	

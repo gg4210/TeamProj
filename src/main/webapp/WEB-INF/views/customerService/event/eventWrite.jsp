@@ -7,6 +7,9 @@
 $( document ).ready( function () {
 	$( "#event_form" ).validate( {
 		rules: {
+			selectCategory:{
+				required : true				
+			},
 			title: {
 				required: true,
 				maxlength: 30
@@ -17,6 +20,9 @@ $( document ).ready( function () {
 			}
 		},
 		messages: {
+			selectCategory:{
+				required : "카테고리를 선택해주세요."				
+			},
 			title: {
 				required: "제목을 입력해주세요.",
 				maxlength: "제목은 최대 30자까지 입력 가능합니다."
@@ -51,37 +57,37 @@ $( document ).ready( function () {
 						<label class="control-label pr-3">카테고리</label>
 						<div>
 							<select name="selectCategory" class="form-control custom-select">
-								<!-- 
-								<option selected value="1">-카테고리를 선택해주세요.</option>
-								 -->
+								<option selected value="" disabled>-카테고리를 선택해주세요.</option>
 								<option value="[전체 이벤트]">전체 이벤트</option>
 								<option value="[센터별 이벤트]">센터별 이벤트</option>
 							</select>
 						</div>
 					</div>
+					<div class="row">
+						<em id="selectCategory-error" class="error help-block text-left ml-3 pl-5" for="content" style="display:none;color:red;"></em>
+					</div>
+					
 					<div class="form-group row">
 						<label class="control-label pr-4" for="title">제목</label>
 						<div class="col-10">
 							<input type="text" class="form-control" name="title" id="title"
 								placeholder="제목을 입력하세요" />
 						</div>
+					</div>					
+					<div class="row">
+						<em id="title-error" class="error help-block text-left ml-3 pl-5 pb-2" for="title" style="display:none;color:red;"></em>
 					</div>
-					
-						<div class="row">
-							<em id="title-error" class="error help-block text-left ml-3 pl-5 pb-2" for="title" style="display:none;color:red;"></em>
-						</div>
-				
+			
 					<div class="form-group row">
 						<label class="control-label pr-4" for="content">내용</label>
 						<div class="col-10">
 							<textarea rows="10" name="content" id="content"
 								class="form-control" placeholder="내용을 입력하세요"></textarea>
 						</div>
-					</div>
-					
+					</div>					
 					<div class="row">
-							<em id="content-error" class="error help-block text-left ml-3 pl-5" for="content" style="display:none;color:red;"></em>
-						</div>
+						<em id="content-error" class="error help-block text-left ml-3 pl-5" for="content" style="display:none;color:red;"></em>
+					</div>
 					
 					<div class="form-group row">
 						<div class="col-md-2 offset-md-9 pl-5">

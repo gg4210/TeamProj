@@ -51,7 +51,7 @@
 		</div>
 	</div>
  -->
-	
+	<!-- 
 	<div class="row">
 		<div class="col-md-10 offset-md-1">
 			<table class="table table-sm table-borderless">
@@ -70,7 +70,7 @@
 			</table>
 		</div>
 	</div>
-	
+	 -->
 	<div class="row d-flex justify-content-center mt-3 mb-3">
 		<c:if test="${auth eq '[ROLE_ADMIN]'}">
 			<button type="button" class="btn btn-info" id="event_edit">수정</button>

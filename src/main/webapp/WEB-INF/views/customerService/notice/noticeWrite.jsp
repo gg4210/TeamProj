@@ -6,7 +6,10 @@
 <script>
 $( document ).ready( function () {
 	$( "#notice_form" ).validate( {
-		rules: {
+	 	rules: {
+			selectCategory:{
+				required : true				
+			},
 			title: {
 				required: true,
 				maxlength: 30
@@ -17,6 +20,9 @@ $( document ).ready( function () {
 			}
 		},
 		messages: {
+			selectCategory:{
+					required : "카테고리를 선택해주세요."				
+				},
 			title: {
 				required: "제목을 입력해주세요.",
 				maxlength: "제목은 최대 30자까지 입력 가능합니다."
@@ -44,22 +50,24 @@ $( document ).ready( function () {
 		</div><hr/>
 		<div class="row">
 			<div class="col-md-12">
-				<form class="form-horizontal" method="post" id="notice_form"
-					action="<c:url value='/member/noticeWrite.do'/>">
+				<form class="form-horizontal" method="post" id="notice_form" action="<c:url value='/member/noticeWrite.do'/>">
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<div class="form-group row" id="category">
 						<label class="control-label pr-3">카테고리</label>
 						<div class="col-2">
 							<select name="selectCategory" class="form-control custom-select">
-								<!-- 
-								<option selected value="1">-카테고리를 선택해주세요.</option>
-								 -->
+								<option selected value="" disabled>-카테고리를 선택해주세요.</option>
 								<option value="[공지]">공지</option>
 								<option value="[점검]">점검</option>
 								<option value="[기타]">기타</option>
 							</select>
 						</div>
 					</div>
+					
+					<div class="row">
+						<em id="selectCategory-error" class="error help-block text-left ml-3 pl-5" for="content" style="display:none;color:red;"></em>
+					</div>
+				
 					<div class="form-group row">
 						<label class="control-label pr-4" for="title">제목</label>
 						<div class="col-10">

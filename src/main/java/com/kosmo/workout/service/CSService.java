@@ -13,6 +13,7 @@ public interface CSService {
 	List<CSDTO> faqSelectList(Map map);
 	List<CSDTO> homeFaqSelectList(Map map);
 	List<CSDTO> mainEventSelectList(Map map);
+	List<CSDTO> adminSelectList(Map map);
 	
 	//전체 레코드 수]
 	//상세보기용]
@@ -30,7 +31,7 @@ public interface CSService {
 	int eventUpdate(Map map);	
 	int consultUpdate(Map map);	
 	int delete(Map map);
-	
+	int adminConsultUpdate(Map map);
 	
 	
 	
@@ -39,5 +40,6 @@ public interface CSService {
 	int getFAQRecord(Map map);
 	int getEventRecord(Map map);
 	int getConsultRecord(Map map);
+	int getAdminConsultRecord(Map map);
 	
 }/////////////////

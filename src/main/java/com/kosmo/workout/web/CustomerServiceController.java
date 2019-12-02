@@ -72,7 +72,7 @@ public class CustomerServiceController {
 //		System.out.println("map--"+map);
 //		System.out.println("pageSize--"+pageSize);
 //		System.out.println("blockPage--"+blockPage);
-//		System.out.println("noticeList:"+noticeList);
+		System.out.println("noticeList:"+noticeList);
 		System.out.println("totalNoticeRecordCount:"+totalNoticeRecordCount);
 		
 		
@@ -96,6 +96,13 @@ public class CustomerServiceController {
 		map.put("end", end);
 		
 		List<CSDTO> faqList = CSService.faqSelectList(map);
+		
+		//br태그 적용시키려면 해야 하는데, 방법이 떠오르지 않음.
+//		CSDTO record = CSService.selectOne(map);
+//		record.setContent(record.getContent().replace("\r\n", "<br/>"));
+//		model.addAttribute("faqRecord",record);
+		
+		
 		//String faqListingString = FAQListing.faqListing(consultList);/////////////////////////////*****
 		String faqPagingString = CommonUtility.pagingBootStrap4Style(totalFAQRecordCount, pageSize, blockPage, nowPage, req.getContextPath()+"/member/FAQ.do?");
 		
@@ -147,6 +154,7 @@ public class CustomerServiceController {
 		Collection auths = userDetails.getAuthorities();
 		
 		int totalConsultRecordCount = CSService.getConsultRecord(map);
+		int adminConsultRecordCount = CSService.getAdminConsultRecord(map);
 		//int totalPage = (int)Math.ceil((double)totalConsultRecordCount/pageSize);////////////이거 필요 없는 거 같아. 반드시 확인.
 		int start = (nowPage-1)*pageSize+1;
 		int end = nowPage*pageSize;
@@ -154,18 +162,39 @@ public class CustomerServiceController {
 		map.put("end", end);
 		
 		List<CSDTO> consultList = CSService.consultSelectList(map);
+		List<CSDTO> adminConsultList = CSService.adminSelectList(map);
+		
 		String consultPagingString = CommonUtility.pagingBootStrap4Style(totalConsultRecordCount, pageSize, blockPage, nowPage, req.getContextPath()+"/member/consultList.do?");
+		String adminConsultPagingString = CommonUtility.pagingBootStrap4Style(adminConsultRecordCount, pageSize, blockPage, nowPage, req.getContextPath()+"/member/consultList.do?");
 		
 		model.addAttribute("consultList", consultList);
 		model.addAttribute("consultPagingString", consultPagingString);
+		model.addAttribute("adminConsultPagingString", adminConsultPagingString);
 		model.addAttribute("totalConsultRecordCount",totalConsultRecordCount);
+		model.addAttribute("adminConsultList", adminConsultList);
 		model.addAttribute("nowPage", nowPage);
 		model.addAttribute("pageSize", pageSize);
 		
-		//System.out.println("consultPagingString:"+consultPagingString);
+		System.out.println("consultPagingString:"+consultPagingString);
+		System.out.println("adminConsultPagingString:"+adminConsultPagingString);
 		System.out.println("별도페이지consultList:"+consultList);
 		
 		return "customerService/consult/consultList.tiles";
+	}
+	//admin 1:1
+	@RequestMapping("/admin/consultList.do")
+	public String adminConsult(HttpServletRequest req,@RequestParam Map map,Model model) {
+		//답변 작성 후 뿌려주는 페이지(Message.jsp)로 이동
+		int reply=CSService.adminConsultUpdate(map);
+		CSDTO record = CSService.selectOne(map);
+		record.setReply(record.getReply().replace("\r\n", "<br/>"));
+		model.addAttribute("record",record);
+		System.out.println("reply 등록입니다.update쿼리 실행 후 reply:"+reply);
+		req.setAttribute("WHERE", "REPLY");
+		req.setAttribute("SUCFAIL", reply);
+		System.out.println("reply 등록입니다. req:"+req);
+		return "customerService/Message";
+		
 	}
 	
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -186,6 +215,7 @@ public class CustomerServiceController {
 		int totalFAQRecordCount = CSService.getFAQRecord(map);
 		int totalEventRecordCount = CSService.getEventRecord(map);
 		int totalConsultRecordCount = CSService.getConsultRecord(map);
+		int adminConsultRecordCount = CSService.getAdminConsultRecord(map);
 		//전체 페이지 수]
 		//int noticeTotalPage = (int)Math.ceil((double)totalNoticeRecordCount/pageSize);
 		//int faqTotalPage = (int)Math.ceil((double)totalNoticeRecordCount/pageSize);
@@ -199,9 +229,11 @@ public class CustomerServiceController {
 		List<CSDTO> noticeList = CSService.noticeSelectList(map);
 		List<CSDTO> eventList = CSService.eventSelectList(map);
 		List<CSDTO> consultList = CSService.consultSelectList(map);
+		List<CSDTO> adminConsultList = CSService.adminSelectList(map);
 		List<CSDTO> homeNoticeList = CSService.homeNoticeSelectList(map);
 		List<CSDTO> faqList = CSService.faqSelectList(map);
 		List<CSDTO> homeFaqList = CSService.homeFaqSelectList(map);
+		
 		
 		//String faqListingString = FAQListing.faqListing(faqList);/////////////////////////////*****
 		
@@ -211,11 +243,13 @@ public class CustomerServiceController {
 		String faqPagingString = CommonUtility.pagingBootStrap4Style(totalFAQRecordCount, pageSize, blockPage, nowPage, req.getContextPath()+"/member/FAQ.do?");
 		String eventPagingString = CommonUtility.pagingBootStrap4Style(totalEventRecordCount, pageSize, blockPage, nowPage, req.getContextPath()+"/member/eventList.do?");
 		String consultPagingString = CommonUtility.pagingBootStrap4Style(totalConsultRecordCount, pageSize, blockPage, nowPage, req.getContextPath()+"/member/consultList.do?");
-		
+		String adminConsultPagingString = CommonUtility.pagingBootStrap4Style(adminConsultRecordCount, pageSize, blockPage, nowPage, req.getContextPath()+"/member/consultList.do?");
+
 		//데이터 저장]
 		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("eventList",eventList);
 		model.addAttribute("consultList", consultList);
+		model.addAttribute("adminConsultList", adminConsultList);
 		model.addAttribute("homeNoticeList", homeNoticeList);
 		model.addAttribute("faqList", faqList);
 		model.addAttribute("homeFaqList", homeFaqList);
@@ -224,6 +258,8 @@ public class CustomerServiceController {
 		model.addAttribute("faqPagingString",faqPagingString);
 		model.addAttribute("eventPagingString", eventPagingString);
 		model.addAttribute("consultPagingString", consultPagingString);
+		model.addAttribute("adminConsultPagingString", adminConsultPagingString);
+
 		
 		//여기 필요 있나?
 		model.addAttribute("totalNoticeRecordCount",totalNoticeRecordCount);
@@ -236,7 +272,7 @@ public class CustomerServiceController {
 		//model.addAttribute("faqListingString", faqListingString);/////////////////////////*****
 		
 		
-		
+		System.out.println("adminConsultList:"+adminConsultList);
 //		System.out.println("noticeList:"+noticeList);
 //		System.out.println("eventList:"+eventList);
 //		System.out.println("consultList:"+consultList);
@@ -248,13 +284,14 @@ public class CustomerServiceController {
 //		System.out.println("homeNoticeList:"+homeNoticeList);
 //		System.out.println("totalNoticeRecordCount:"+totalNoticeRecordCount);
 		
-		//System.out.println("1]consultPagingString:"+consultPagingString);
+		System.out.println("1]consultPagingString:"+consultPagingString);
 		//System.out.println("nowPage:"+nowPage);
 		//System.out.println("start:"+start);
 		//System.out.println("end:"+end);		
 		//System.out.println("1]eventPagingString:"+eventPagingString);
 		
 		System.out.println("첫페이지consultList:"+consultList);
+		System.out.println("첫페이지 adminConsultList"+adminConsultList.get(2).getReply());
 		//뷰 정보 반환]
 		return "customerService/customerServiceMain.tiles";
 	}
@@ -290,14 +327,29 @@ public class CustomerServiceController {
 		return "customerService/event/eventView.tiles";
 	}
 	//1:1문의 상세보기]
+	//user & center
 	@RequestMapping("/member/consultView.do")
-	public String consultView(@RequestParam Map map,Model model) {
+	public String consultView(@RequestParam Map map,Model model,Authentication auth) {//////////////////////////////////////////////////////////
 		System.out.println("1:1문의 상세보기");
 		//CSDTO record = CSService.consultSelectOne(map); 
-		CSDTO record = CSService.selectOne(map); 
+		CSDTO record = CSService.selectOne(map);
 		record.setContent(record.getContent().replace("\r\n", "<br/>"));
+		record.setReply(record.getReply().replace("\r\n", "<br/>"));
 		model.addAttribute("consultRecord", record);
 		return "customerService/consult/consultView.tiles";
+	}
+	//admin
+	@RequestMapping("/admin/consultView.do")
+	public String adminConsultView(@RequestParam Map map,Model model) {
+		System.out.println("관리자 1:1문의 상세보기");
+		//CSDTO record = CSService.consultSelectOne(map); 
+		CSDTO record = CSService.selectOne(map); /////이거 맞나;;;;;;;;;;;/////////////////
+		record.setContent(record.getContent().replace("\r\n", "<br/>"));
+		if(record.getReply()!=null) {
+			record.setReply(record.getReply().replace("\r\n", "<br/>"));
+		}
+		model.addAttribute("consultRecord", record);
+		return "customerService/consult/admin_consultView.tiles";
 	}
 	
 	//3]작성하기
@@ -342,7 +394,7 @@ public class CustomerServiceController {
 		//호출 전 아이디 맵에 저장
 		map.put("id",userDetails.getUsername());
 
-		CSService.faqInsert(map);
+		 CSService.faqInsert(map);
 
 		//Collection auths = userDetails.getAuthorities();
 		//System.out.println("id : "+userDetails.getUsername());

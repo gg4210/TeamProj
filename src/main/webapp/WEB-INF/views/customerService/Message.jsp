@@ -18,6 +18,11 @@
 		<c:set var="failMsg" value="수정 실패했어요"/>
 		<c:set var="successUrl" value="/member/consultView.do?no=${param.no}&nowPage=${nowPage}"/>
 	</c:when>
+	<c:when test="${WHERE=='REPLY'}">
+		<c:set var="successMsg" value="입력/수정 성공했어요"/>
+		<c:set var="failMsg" value="입력/수정 실패했어요"/>
+		<c:set var="successUrl" value="/admin/consultView.do?no=${param.no}&nowPage=${nowPage}"/>
+	</c:when>
 	<c:when test="${WHERE=='DEL'}">
 		<c:set var="successMsg" value="삭제 성공했어요"/>
 		<c:set var="failMsg" value="삭제 실패했어요"/>
