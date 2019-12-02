@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- CENTER INFO VIEW 시작 -->	
 	<select id="seleteOneSearch" parameterType="java.util.Map" resultType="SearchBBSDTO">
-		select filename, content, tag, sport_kind, otime, service from CENTER_INFO where mapkey=#{mapkey}
+		select filename, content, tag, sport_kind, otime, MAXNUMBER, service from CENTER_INFO where mapkey=#{mapkey}
 	</select>
 	<!-- CENTER INFO VIEW 끝 -->
 	

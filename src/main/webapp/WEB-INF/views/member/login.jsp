@@ -470,13 +470,14 @@ function dataget(){
                         <table class="table table-hover" style="text-align: center;">
                            <thead class="bg-primary text-white">
                                <tr>
-                                 <th scope="col">아이디</th>
+                                 <th scope="col">닉네임</th>
                                  <th scope="col">평점</th>
                                </tr>
                              </thead>
                                <tbody>
                                <c:if test="${empty Comment }">
-                      	 <td><span>등록된 리뷰가 없습니다.</span></td>
+                               <td><span></span></td>
+                      	 		<td><span>등록된 리뷰가 없습니다.</span></td>
                       </c:if>
                       <c:if test="${not empty Comment}">
                     	  <c:forEach var="comment" items="${Comment }">

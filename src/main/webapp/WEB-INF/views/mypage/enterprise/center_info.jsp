@@ -66,6 +66,7 @@ $(function(){
 			$('#content_center_info').html(obj.content);
 			$('#service').html(obj.service);
 			$('#rating').html(obj.avgRate);
+			console.log("obj.compliextyString",obj.compliextyString);
 			$('#complexity').html(obj.compliextyString);
 			var image_content="";
 			for(var i in obj.img_urls){
@@ -204,7 +205,8 @@ $(function(){
 									<p><span class="badge badge-primary">주소</span> : <span id="addr"></span></p>
 									<hr/>
 									<p><span class="badge badge-primary">전화번호</span> : <span id="tel"></span></p>
-									<hr/>									
+									<hr/>		
+									<span class="badge badge-primary mb-2">혼잡도</span>							
 									<span id="complexity">
 									</span>
 									<hr/>									

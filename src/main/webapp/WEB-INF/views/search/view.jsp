@@ -281,7 +281,7 @@ $(function() {
 									<hr/>									
 									<p><span style="font-weight: bold; color:blue;">TODAY</span> : 현재 운영중!</p>
 									<hr/>									
-									<p><span class="badge badge-primary">종목</span> <i class="fas fa-swimming-pool"></i> 수영 &nbsp&nbsp<i class="fas fa-dumbbell"></i> 헬스</p>
+									<p><span class="badge badge-primary">종목 </span>${viewinfo.sport_kind }</p>
 									<hr/>
 									<p>평균별점 : <span id="starString"></span></p>
 								</div>								

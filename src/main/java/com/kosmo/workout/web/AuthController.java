@@ -120,6 +120,15 @@ public class AuthController {
 		System.out.println("getUserInfo 들어옴");
 		JSONObject json=new JSONObject();
 		json.put("picture", dto.getPicture());
+		
+		/*
+		RegicenterDTO dto1=RegicenterService.getMapkey(map);
+		int mapkey=Integer.parseInt(dto.getMapkey());
+		map.put("mapkey", mapkey);
+		List<SearchBBSCommentDTO> commentList=SearchService.selectListComment(map);
+		model.addAttribute("CommentList", commentList);
+		*/
+		
 		/*
 		RegicenterDTO dto1=RegicenterService.getMapkey(map);
 		int mapkey=Integer.parseInt(dto.getMapkey());
