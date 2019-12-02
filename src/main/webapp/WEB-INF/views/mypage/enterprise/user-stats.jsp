@@ -156,7 +156,7 @@ $(function(){
                         <tr>
                            <th scope="col">이름</th>
                            <th scope="col">아이디</th>
-                           <th scope="col">등록 일자</th>
+                           <th scope="col">등록일자</th>
                            <th scope="col">승인여부</th>
                         </tr>
                      </thead>
