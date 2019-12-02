@@ -131,7 +131,11 @@ $(function(){
             dataType:"json",
             success:function(data){
                showMessage(data,fromid);
-
+               $('.close').click(function(){
+                   console.log('클로즈 클릭!')
+                   console.log(request);
+                   request.abort();
+                 });
             },
             error:function(data){
                console.log(data);
@@ -141,12 +145,6 @@ $(function(){
             complete: poll,
             timeout:1000});
         })();
-     
-     $('.close').click(function(){
-        console.log('클로즈 클릭!')
-        console.log(request);
-        request.abort();
-      });
      
    })
   
