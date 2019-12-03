@@ -291,7 +291,7 @@ public class CustomerServiceController {
 		//System.out.println("1]eventPagingString:"+eventPagingString);
 		
 		System.out.println("첫페이지consultList:"+consultList);
-		System.out.println("첫페이지 adminConsultList"+adminConsultList.get(2).getReply());
+		//System.out.println("첫페이지 adminConsultList"+adminConsultList.get(2).getReply());
 		//뷰 정보 반환]
 		return "customerService/customerServiceMain.tiles";
 	}
