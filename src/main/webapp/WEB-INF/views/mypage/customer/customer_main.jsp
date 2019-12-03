@@ -17,6 +17,7 @@ $(function(){
 	}
 	var showcenterlists=function(data){
 		var comment='';
+		console.log(data.length);
 		if(data.length==0){
 			comment+='<tr><td colspan="3">현재 등록한 센터가 없습니다.</td></tr>';
 		}
