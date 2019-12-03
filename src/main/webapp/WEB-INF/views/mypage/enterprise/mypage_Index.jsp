@@ -13,7 +13,6 @@ $(function () {
 	if (durl !='') {
 		$(durl).tab('show');
 	}
-	
 	//같은 페이지에 있다가 눌렀을 때
 	$('#centerLinks a').click(function(){
 		var link = $(this).attr('href');
@@ -21,10 +20,7 @@ $(function () {
 		$('#centerLinks a').removeClass("active");
 		$(this).addClass("active");
 		$(sactiveTab).tab('show');
-	});	
-	
-	
-	
+	});
 });
 </script>
 <div class="container">

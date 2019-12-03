@@ -15,7 +15,6 @@ $(function () {
 	if (durl !='') {
 		 $(durl).tab('show');
 	}
-/* 	//같은 페이지에 있다가 눌렀을 때 ////serviceLinks는 login.jsp에 있는 div태그의 id속성의 값이다.
 	$('#serviceLinks a').click(function(){
 		var link = $(this).attr('href');////console.log('link:',link);=> link :  /workout/customerServiceMain.do#pills-notice-tab
 		var sactiveTab = link.substring(link.indexOf("#"));////내가 +1지움 그래서 .tab('show')에서 선택자 앞에 # 안 더해줌.
@@ -24,7 +23,7 @@ $(function () {
 		$('#serviceLinks a').removeClass("active");
 		$(this).addClass("active");
 		$(sactiveTab).tab('show');
-	}); */
+	});
 });
 
 function selectdel() {

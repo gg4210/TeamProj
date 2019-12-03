@@ -85,13 +85,13 @@ $( document ).ready( function () {
 					<div class="row">
 						<em id="content-error" class="error help-block text-left ml-3 pl-5" for="content" style="display:none;color:red;"></em>
 					</div>
-					
+					<!-- 
 					<div class="form-group row">
 						<label class="control-label pr-1" for="attachedFile">첨부파일</label>
 						<div class="col-10">
 							<input type="file" id="attachedFile">
 						</div>
-					</div>
+					</div> -->
 					<div class="form-group row">
 						<div class="col-md-2 offset-md-9">
 							<button type="submit" class="btn btn-primary">등록</button>
