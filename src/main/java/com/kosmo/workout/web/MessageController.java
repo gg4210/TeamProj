@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kosmo.workout.service.MessageDTO;
 import com.kosmo.workout.service.MessageService;
+import com.kosmo.workout.service.MyMateDTO;
+import com.kosmo.workout.service.MyMateService;
 
 @Controller
 public class MessageController {
@@ -158,5 +160,47 @@ public class MessageController {
 			}/////////for문
 			return JSONArray.toJSONString(collection);
 	}
+	
+	@Resource(name = "MyMateService")
+	private MyMateService MyMateService;
+	
+	//메세지 메인]
+	@ResponseBody
+	@RequestMapping(value = "/messageMain.do", produces = "text/html; charset=UTF-8")
+	public String messageMain(@RequestParam Map map, Model model, Authentication auth) {
+		System.out.println("여긴 들어오니? 메인이거든");
+		String id=((UserDetails)auth.getPrincipal()).getUsername();
+		map.put("id", id);
+		List<MyMateDTO> ToMateList=MyMateService.toSelectList(map);
+		List<Map> collection=new Vector<Map>();
+		List<MessageDTO> col=new Vector<MessageDTO>();
+		for(MyMateDTO dto:ToMateList) {
+			Map msg=new HashMap();
+			msg.put("ID", dto.getId());
+			msg.put("FROMID", dto.getFRIEND_ID());
+			System.out.println("msg:"+msg.get("FROMID"));
+			map.put("fromid", msg.get("FROMID"));
+			MessageDTO msg1=MessageService.selectOne(map);
+			if(msg1!=null) {
+				col.add(msg1);
+			}
+		}
+		System.out.println("col:"+col);
+		
+		for(MessageDTO dto:col) {
+				Map msg=new HashMap();
+				msg.put("FROIM", dto.getFromid());
+				msg.put("CONTENT", dto.getContent());
+				msg.put("ID", dto.getId());
+				collection.add(msg);
+		}
+		
+			
+		
+		
+		
+		return JSONArray.toJSONString(collection);
+	
+	}////////////////////////
 
 }//////////
