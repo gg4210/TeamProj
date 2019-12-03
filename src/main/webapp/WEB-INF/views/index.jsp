@@ -241,8 +241,8 @@
 													<div class="carousel-caption">
 														<h3 class="h3-responsive">고투 스포츠센터</h3>
 														<p>
-															<i class="fas fa-heart"></i>&nbsp100 &nbsp&nbsp<i
-																class="far fa-comment-dots"></i> 30
+															<i class="fas fa-heart"></i>&nbsp53 &nbsp&nbsp<i
+																class="far fa-comment-dots"></i> 5
 														</p>
 													</div>
 												</div>
@@ -257,8 +257,8 @@
 													<div class="carousel-caption">
 														<h3 class="h3-responsive">구로 스포츠센터</h3>
 														<p>
-															<i class="fas fa-heart"></i>&nbsp280 &nbsp&nbsp<i
-																class="far fa-comment-dots"></i> 100
+															<i class="fas fa-heart"></i>&nbsp45 &nbsp&nbsp<i
+																class="far fa-comment-dots"></i> 7
 														</p>
 													</div>
 												</div>
@@ -273,8 +273,8 @@
 													<div class="carousel-caption">
 														<h3 class="h3-responsive">고투 짐</h3>
 														<p>
-															<i class="fas fa-heart"></i>&nbsp100 &nbsp&nbsp<i
-																class="far fa-comment-dots"></i> 20
+															<i class="fas fa-heart"></i>&nbsp40 &nbsp&nbsp<i
+																class="far fa-comment-dots"></i> 1
 														</p>
 													</div>
 												</div>
@@ -356,10 +356,7 @@
 										<h3 class="mb-3">
 											<a id="community">COMMUNITY</a>
 										</h3>
-										<p class="dark-grey-text">Nam libero tempore, cum soluta
-											nobis est eligendi optio cumque nihil impedit quo minus id
-											quod maxime placeat facere possimus, omnis voluptas assumenda
-											est, omnis dolor repellendus.</p>
+									
 
 										<ul class="list-group list-group-flush py-0 my-0">
 
@@ -371,7 +368,7 @@
 														<!--Image-->
 														<div class="view overlay rounded z-depth-1 mb-3">
 															<img class="img-fluid"
-																src="https://mdbootstrap.com/img/Photos/Others/img%20(29).jpg"
+																src="https://img.extmovie.com/files/attach/images/135/444/219/047/e9b380575d55bf80ae7bbc01ac0f63cb.jpeg"
 																alt="Sample image"> <a>
 																<div class="mask rgba-white-slight"></div>
 															</a>
@@ -380,13 +377,12 @@
 													</div>
 													<div class="col-md-9 mb-0 pb-0">
 
-														<p class="font-weight-bold dark-grey-text">2019/10/25</p>
+														<p class="font-weight-bold dark-grey-text">2019/12/02</p>
 														<div class="d-flex justify-content-between mb-0 p-0">
 															<div class="col-11 text-truncate pl-0 mb-0">
-																<a href="#!" class="dark-grey-text pb-0 mb-0">Duis
-																	aute irure dolor in reprehenderit in voluptate</a>
+																<a href="#!" class="dark-grey-text pb-0 mb-0">운동 D+50일째<br/>매일 즐겁게 운동 중입니다.<br/>몸 만드는 거 쉽지 않네요</a>
 															</div>
-															<a><i class="fas fa-angle-double-right pb-0 mb-0"></i></a>
+														
 														</div>
 
 													</div>
@@ -401,7 +397,7 @@
 														<!--Image-->
 														<div class="view overlay rounded z-depth-1 mb-3">
 															<img class="img-fluid"
-																src="https://mdbootstrap.com/img/Photos/Others/img%20(29).jpg"
+																src="https://dimg.donga.com/wps/NEWS/IMAGE/2012/02/29/44408257.4.jpg"
 																alt="Sample image"> <a>
 																<div class="mask rgba-white-slight"></div>
 															</a>
@@ -410,13 +406,12 @@
 													</div>
 													<div class="col-md-9 pb-0 mb-0">
 
-														<p class="font-weight-bold dark-grey-text">2019/10/25</p>
+														<p class="font-weight-bold dark-grey-text">2019/11/25</p>
 														<div class="d-flex justify-content-between pb-0 mb-0">
 															<div class="col-11 text-truncate pl-0 mb-0 pb-0">
-																<a href="#!" class="dark-grey-text">Duis aute irure
-																	dolor in reprehenderit in voluptate</a>
+																<a href="#!" class="dark-grey-text">여러가지 운동 접해보는 중~<br/>요즘은 헬스랑 필라테스 같이 겸하고있어요</a>
 															</div>
-															<a><i class="fas fa-angle-double-right pb-0 mb-0"></i></a>
+														
 														</div>
 
 													</div>
@@ -439,9 +434,9 @@
 												<c:forEach var="mate" items="${MateList }">
 												<li class="list-group-item pb-0 mb-0">
 													<div class="row">
-														<div class="col-4">
+														<div class="col-3">
 														
-															<img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg" class="mb-1 rounded-circle z-depth-1 img-fluid mx-auto"
+															<img src="http://mblogthumb4.phinf.naver.net/20150427_171/ninevincent_1430122791934m8cxB_JPEG/kakao_4.jpg?type=w2" class="mb-1 rounded-circle z-depth-1 img-fluid mx-auto"
 													          alt="Sample avatar">
 														
 														</div>
