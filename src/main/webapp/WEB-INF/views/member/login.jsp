@@ -369,7 +369,7 @@ $(function(){
                            <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-faq-tab'/>" id="lpills-mate">
                               <span>자주 묻는 질문</span>
                            </a>
-                           <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-notice-tab'/>" id="lpills-coupon">
+                           <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-noticeNevent-tab'/>" id="lpills-coupon">
                               <span>공지 이벤트</span>
                            </a>
                            <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-consultwrite-tab'/>">
@@ -505,7 +505,7 @@ function dataget(){
                            <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-faq-tab'/>" id="lpills-mate">
                               <span>자주 묻는 질문</span>
                            </a>
-                           <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-notice-tab'/>" id="lpills-coupon">
+                           <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-noticeNevent-tab'/>" id="lpills-coupon">
                               <span>공지 이벤트</span>
                            </a>
                            <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-consultwrite-tab'/>">
