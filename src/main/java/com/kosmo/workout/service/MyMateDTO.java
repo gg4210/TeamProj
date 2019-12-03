@@ -7,7 +7,22 @@ public class MyMateDTO {
 	private String id;
 	private String FRIEND_ID;
 	private Date MATEDATE;
+	private String PICTURE;
+	private String MY_COMMENT;
 	
+	
+	public String getPICTURE() {
+		return PICTURE;
+	}
+	public void setPICTURE(String pICTURE) {
+		PICTURE = pICTURE;
+	}
+	public String getMY_COMMENT() {
+		return MY_COMMENT;
+	}
+	public void setMY_COMMENT(String mY_COMMENT) {
+		MY_COMMENT = mY_COMMENT;
+	}
 	public String getFno() {
 		return fno;
 	}

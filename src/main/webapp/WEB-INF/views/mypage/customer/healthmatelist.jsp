@@ -7,6 +7,45 @@
 <script>
 <!-- 전체선택 -->
 $(function(){
+	
+	$.ajax({
+        url:"<c:url value='/messageMain.do'/>",
+        dataType:'json',
+        success:function(data){
+        	var messageMain;
+        	$.each(data,function(index,element){
+                   messageMain+='<tr><td id="fromid" class="align-middle text-center">'+element['FROIM']+'</td>'
+                   messageMain+='<tㅇ><td id="fromid" class="align-middle text-center">'+element['ID']+'</td>'
+               	messageMain+='<td class="align-middle text-center"><a href="#" data-toggle="modal" data-target="#messageModalScrollable" id="messagelist">'+element['CONTENT']+'</a></td></tr>'
+            });
+           $('#matelist-checkbox').html(messageMain);
+        },
+        error:function(data){
+           console.log("실패",data);
+        }
+     })
+	
+	var Interval;
+	
+	Interval=setInterval(function(){$.ajax({
+         url:"<c:url value='/messageMain.do'/>",
+         dataType:'json',
+         success:function(data){
+         	var messageMain;
+         	$.each(data,function(index,element){
+                    messageMain+='<tr><td id="fromid" class="align-middle text-center">'+element['FROIM']+'</td>'
+                    messageMain+='<tㅇ><td id="fromid" class="align-middle text-center">'+element['ID']+'</td>'
+                	messageMain+='<td class="align-middle text-center"><a href="#" data-toggle="modal" data-target="#messageModalScrollable" id="messagelist">'+element['CONTENT']+'</a></td></tr>'
+             });
+            $('#matelist-checkbox').html(messageMain);
+         },
+         error:function(data){
+            console.log("실패",data);
+         }
+      })
+	},1000);
+	
+	/*
 
    $('#matelist-checkbox-all input:checkbox').click(function(){
       if($(this).val() == 'message-check-all'){
@@ -32,6 +71,7 @@ $(function(){
          $('#matelist-checkbox-all input:checkbox').prop('checked',false);
       }
    });   
+   */
    
    //메세지함 띄우기
    var showMessage=function(data,fromid){
@@ -99,7 +139,6 @@ $(function(){
                success:function(data){
                   console.log("성공");
                   $('input[name=content]').val(""); 
-                  setInterval(request, 300);
                },
                error:function(data){
                   console.log("실패",data);
@@ -144,25 +183,27 @@ $(function(){
 		var td = tr.children();
 		var fromid = td.eq(1).text();
 		console.log('fromid:'+fromid);
-		var request;
-		
-	   $('#messageModalScrollable').modal('show');
-		   request=$.ajax({
+		var myInterval;
+
+	   myInterval=setInterval(function(){$.ajax({
 		               url:"<c:url value='/message.do'/>",
 		               data:{"fromid":fromid,"id":'${sessionScope.SPRING_SECURITY_CONTEXT.authentication.principal.username}'},
 		               dataType:"json",
 		               success:function(data){
+		            	   $('#messageModalScrollable').modal('show');
 		                  showMessage(data,fromid);
 		               },
 		               error:function(data){
 		                  console.log(data);
 		                  console.log("메세지 띄우기 실패")
 		               }
-		   });
+		   })
+		   },1000);
 	   
 	   $('.close').click(function(){
     	   $('#messageModalScrollable').modal('hide');
  		  console.log('클로즈 클릭!')
+ 		  clearInterval(myInterval);
  		  //clearTimeout(timeout);
  		  //request.abort();
  		});
@@ -318,13 +359,13 @@ $(function(){
 				<table class="table table-hover">
 					<thead class="black white-text">
 						<tr>
-							<th style="width: 20%" scope="col">메이트 아이디</th>
+							<th style="width: 20%" scope="col">받는 사람</th>
+							<th style="width: 20%" scope="col">보낸 사람</th>
 							<th style="width: 60%; text-align: center" scope="col">내용</th>
 						</tr>
 					</thead>
 					<tbody id="matelist-checkbox">
 						<tr>
-
 							<td id="fromid" class="align-middle text-center">Larry</td>
 							<td class="align-middle text-center"><a href="#"
 								data-toggle="modal" data-target="#messageModalScrollable"
@@ -444,7 +485,7 @@ $(function(){
        <td id="fromid" class="align-middle text-center">Larry</td>
                      <td class="align-middle text-center"><a href="#"
                         data-toggle="modal" data-target="#messageModalScrollable"
-                        id="messagelist">응 ㄲㅈ</a></td>
+                        id="messagelist">no Message</a></td>
                   </tr>
                </tbody>
             </table>
