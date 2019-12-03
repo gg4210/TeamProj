@@ -175,6 +175,8 @@ public class SearchController {
 		JSONObject json=new JSONObject();
 		
 		map.put("id", ((UserDetails)auth.getPrincipal()).getUsername());
+		System.out.println("북마크 로직 만들기 위한 사전 준비");
+		System.out.println(map);
 		int isbookmarked=SearchService.isBookmarked(map);
 		int countBooked=SearchService.countBookmarked(map);
 		if(countBooked<=3) {

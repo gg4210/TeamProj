@@ -130,6 +130,9 @@
 
 <script>
 $(function(){
+	console.log("여기서 체크");
+	console.log("${isallowed}");
+	console.log("${isallowed ==0}");
 	var token = $("meta[name='_csrf']").attr("content");
 
 	$('#submit_edit').click(function(e){
@@ -149,4 +152,3 @@ document.addEventListener('keydown', function(event) {
 	  };
 	}, true);
 </script>
-

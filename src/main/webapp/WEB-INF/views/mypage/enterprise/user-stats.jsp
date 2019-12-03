@@ -24,27 +24,30 @@ $(function(){
 		});
 	}
 	var showuserlists=function(data){
-		console.log("데이터를 받아봅시다.")
-		console.log(data);
 		var comment='';
-		if(data.length==0){
+		if(data.length==1){
 			comment+='<tr><td colspan="4">현재 등록된 회원이 없습니다.</td></tr>';
+		}
+		else if(data[data.length-1].centerisallowed!=0){
+			comment+='<tr><td colspan="4">관리자 승인이 아직 완료되지 않았습니다.</td></tr>';
 		}
 		else{
 			$.each(data,function(index, element){
-				console.log("element확인:",element);
-				console.log("isallowed 확인",element['isallowed']);
-				comment+='<tr>';
-				comment+='<td>'+element['name']+'</td>';
-				comment+='<td>'+element['id']+'</td>';
-				if(element['isallowed']=='1'){
-					comment+='<td>'+'승인 날짜를 정해주세요.'+'</td>';
-					comment+='<td><a href="'+element['mapkey']+'" id="'+element['id']+'">'+'승인안됨'+'</a></td>';
-				}else{
-					comment+='<td>'+element['startdate']+'~'+element['enddate']+'</td>';
-					comment+='<td>'+'승인완료'+'</td>';
+				if(element.centerisallowed==undefined){
+					console.log("element확인:",element);
+					console.log("isallowed 확인",element['isallowed']);
+					comment+='<tr>';
+					comment+='<td>'+element['name']+'</td>';
+					comment+='<td>'+element['id']+'</td>';
+					if(element['isallowed']=='1'){
+						comment+='<td>'+'승인 날짜를 정해주세요.'+'</td>';
+						comment+='<td><a href="'+element['mapkey']+'" id="'+element['id']+'">'+'승인안됨'+'</a></td>';
+					}else{
+						comment+='<td>'+element['startdate']+'~'+element['enddate']+'</td>';
+						comment+='<td>'+'승인완료'+'</td>';
+					}
+					comment+='</tr>';
 				}
-				comment+='<tr/>';
 			});//$.each
 		}
 		$('#customerlist').html(comment);

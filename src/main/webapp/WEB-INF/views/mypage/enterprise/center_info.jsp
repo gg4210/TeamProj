@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<c:if test ="${isallowed ==0}" var="Allowed">
 <style>
 
    .scrolling-wrapper {
@@ -34,9 +34,12 @@
 }
 
 </style>
-
 <script>
 $(function(){
+	console.log("여기서 체크");
+	console.log("${isallowed}");
+	console.log("${isallowed ==0}");
+	console.log("${not Allowed}");
 	var token = $("meta[name='_csrf']").attr("content");
 	$.ajax({
 		url:"<c:url value='/ajax_centerinfo?_csrf="+token+"'/>",
@@ -341,4 +344,14 @@ $(function(){
 
 </div>
 <!-- container-fluid -->
-
+</c:if>
+<c:if test="${not Allowed}">
+	<div class="container-fluid">
+		<div class="page-header mb-1" style="border-bottom: 1px solid #D8D8D8;">
+			<h2 style="font-weight: bold;">센터 관리</h2>
+		</div>
+		<div class="text-center p-0 mb-2">
+			<h2 style="font-weight: bold;">관리자 승인이 완료되었을 때 이용 가능합니다.</h2>
+		</div>
+	</div>
+</c:if>
