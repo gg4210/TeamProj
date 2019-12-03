@@ -4,6 +4,7 @@ $(function() {
    if (durl !='') {
       $(durl).tab('show');
    }
+   
    $('#mate_select').click(function(){
       $('#pills-mate-tab').tab('show');
    });
