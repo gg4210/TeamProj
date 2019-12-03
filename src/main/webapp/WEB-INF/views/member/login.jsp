@@ -62,13 +62,6 @@
             <button type="submit" value="submit" class="btn btn-primary">LOGIN</button>
          </div>
       </form>
-      <div class="text-right">
-         <a href="<c:url value='/mypage.do'/>"><button type="button" class="btn btn-primary">임시페이지</button></a>
-      </div>
-      <div class="text-right">
-         <button type="button" class="btn btn-primary" onclick="csrfCheck()">csrf 확인</button>
-      </div>
-         
       <div class="text-center pt-4">
          <span class="text-white">회원이 아니신가요?<a href="<c:url value='jointype.do'/>"> 회원가입</a></span>
       </div>
@@ -106,7 +99,7 @@
 
       <div class="modal-content">
          <div class="modal-header">
-            <h5 class="modal-title" id="requiredLongTitle">이 서비스를 이용하려면 로그인하셔야 합니다.</h5>
+            <h5 class="modal-title" id="requiredLongTitle">이 서비스를 이용하시려면 로그인 하셔야 합니다.</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                <span aria-hidden="true">&times;</span>
             </button>
@@ -376,7 +369,7 @@ $(function(){
                            <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-faq-tab'/>" id="lpills-mate">
                               <span>자주 묻는 질문</span>
                            </a>
-                           <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-notice-tab'/>" id="lpills-coupon">
+                           <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-noticeNevent-tab'/>" id="lpills-coupon">
                               <span>공지 이벤트</span>
                            </a>
                            <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-consultwrite-tab'/>">
@@ -427,164 +420,7 @@ function dataget(){
             <img class="col-12" src="<c:url value='/resources/images/girl.png'/>" />
          </div>
          <div class="h5 text-white col-6" style="align-self:center;"><sec:authentication property="principal.username"/>님,<br/>반갑습니다</div>
-         
          <div class="row">
-            <!-- col1 등록한 센터 시작 -->
-            <div class="accordion col" id="centeraccordion1">
-               <div class="card">
-                  <div class="card-header mdb-color darken-3 pb-0" id="heading1" style="padding:0px;">
-                     <button class="btn btn-link" type="button" data-toggle="collapse"
-                           data-target="#centercenter1" aria-expanded="true"
-                           aria-controls="collapseOne" style="margin:0px;">
-                           <div class="row">
-                              <div class="col-2 mr-5">
-                                 <h4>
-                                    <span class="fa-stack">
-                                       <i class="far fa-circle fa-stack-2x text-white"></i>
-                                       <i class="fas fa-user-clock fa-stack-1x text-white"></i>
-                                    </span>
-                                 </h4>               
-                              </div>
-                              <div class="col" style="align-self:left">
-                                 <div class="row">
-                                    <h5 class="text-left font-weight-bold text-white">
-                                          회원수: 145명
-                                    </h5>
-                                 </div>
-                              </div>
-                           </div>
-                     </button>
-                  </div>
-            
-                  <div id="centercenter1" class="collapse" aria-labelledby="heading1"
-                     data-parent="#centeraccordion1">
-                     <!-- 카드 바디 시작 -->
-                     <div class="card-body">
-                         <p class="py-1">
-                            <i class="fas fa-user-plus"></i>&nbsp;&nbsp;이번달 신규회원 : 25명
-                         </p>
-                         <p class="py-1">
-                            <i class="fas fa-user-minus"></i>&nbsp;&nbsp;이번달 만료회원 : 17명
-                         </p>
-                      </div>
-                     <!-- 카드 바디 끝 -->
-                  </div>
-               </div>
-            </div>
-            
-            <div class="accordion col" id="centeraccordion2">
-               <div class="card">
-                  <div class="card-header mdb-color darken-3 pb-0" id="heading2" style="padding:0px;">
-                     <button class="btn btn-link col-12" type="button" data-toggle="collapse"
-                           data-target="#centercenter2" aria-expanded="true"
-                           aria-controls="collapseOne" style="margin:0px;">
-                           <div class="row">
-                              <div class="col-2 mr-5">
-                                 <h4>
-                                    <span class="fa-stack"> 
-                                       <i class="far fa-circle fa-stack-2x text-white"></i> 
-                                       <i class="fas fa-star fa-stack-1x text-white"></i>
-                                    </span>
-                                 </h4>               
-                              </div>
-                              <div class="col" style="align-self:center">
-                                 <div class="row">
-                                    <h5 class="text-center font-weight-bold text-white">
-                                             리뷰관리
-                                    </h5>
-                                 </div>
-                              </div>
-                           </div>
-                     </button>
-                  </div>
-            
-                  <div id="centercenter2" class="collapse" aria-labelledby="heading2"
-                     data-parent="#centeraccordion2">
-                     <!-- 카드 바디 시작 -->
-                     <div class="card-body" style="padding:0px">
-                        <table class="table table-hover" style="text-align: center;">
-                           <thead class="bg-primary text-white">
-                               <tr>
-                                 <th scope="col">닉네임</th>
-                                 <th scope="col">평점</th>
-                               </tr>
-                             </thead>
-                               <tbody>
-                               <c:if test="${empty Comment }">
-                               <td><span></span></td>
-                      	 		<td><span>등록된 리뷰가 없습니다.</span></td>
-                      </c:if>
-                      <c:if test="${not empty Comment}">
-                    	  <c:forEach var="comment" items="${Comment }">
-                      		<tr>
-                        	<td scope="row">${comment.NICK_NAME }</td>
-                        	<td scope="row">
-                        	<c:if test="${comment.rate eq 0 }">
-                        	<span id="rateMe">
-                        		<i class="fas fa-star py-2 px-1 rate-popover" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-                          		<i class="fas fa-star py-2 px-1 rate-popover" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-                           	</span>
-                        	</c:if>
-                        	<c:if test="${comment.rate eq 1 }">
-                        	<span id="rateMe">
-                        		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-                          		<i class="fas fa-star py-2 px-1 rate-popover" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-                           	</span>
-                        	</c:if>
-                        	<c:if test="${comment.rate eq 2 }">
-                        	<span id="rateMe">
-                        		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-                          		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-                           	</span>
-                        	</c:if>
-                        	<c:if test="${comment.rate eq 3 }">
-                        	<span id="rateMe">
-                        		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-                          		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-                           	</span>
-                        	</c:if>
-                        	<c:if test="${comment.rate eq 4 }">
-                        	<span id="rateMe">
-                        		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-                          		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-                           	</span>
-                        	</c:if>
-                        	<c:if test="${comment.rate eq 5 }">
-                        	<span id="rateMe">
-                        		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="0" data-html="true" data-toggle="popover" data-placement="top" title="Very bad"></i>
-                          		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="1" data-html="true" data-toggle="popover" data-placement="top" title="Poor"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="2" data-html="true" data-toggle="popover" data-placement="top" title="OK"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="3" data-html="true" data-toggle="popover" data-placement="top" title="Good"></i>
-                           		<i class="fas fa-star py-2 px-1 rate-popover amber-text" data-index="4" data-html="true" data-toggle="popover" data-placement="top" title="Excellent"></i>
-                           	</span>
-                        	</c:if>
-                        </td>
-                      </tr>   
-                    	  </c:forEach>
-                      </c:if>
-                           </tbody>
-                         </table>            
-                       </div>
-                     <!-- 카드 바디 끝 -->
-                  </div>
-               </div>
-            </div>
-            
             <div class="accordion col" id="centeraccordion3">
                <div class="card">
                   <div class="card-header mdb-color darken-3 pb-0" id="heading3" style="padding:0px;">
@@ -669,7 +505,7 @@ function dataget(){
                            <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-faq-tab'/>" id="lpills-mate">
                               <span>자주 묻는 질문</span>
                            </a>
-                           <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-notice-tab'/>" id="lpills-coupon">
+                           <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-noticeNevent-tab'/>" id="lpills-coupon">
                               <span>공지 이벤트</span>
                            </a>
                            <a class="list-group-item list-group-item-action" href="<c:url value='/member/customerServiceMain.do#pills-consultwrite-tab'/>">

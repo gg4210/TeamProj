@@ -93,8 +93,7 @@ $(function() {
          else {
             
             (function poll(){
-            	console.log("long polling 확인");
-            	$.ajax({
+               $.ajax({
                   url:'/workout/webnotification.do?_csrf='+token,
                   type:'post',
                   success: function(data) {
@@ -108,7 +107,7 @@ $(function() {
                    },
                    timeout: 3000,
                    complete: setTimeout(function() { poll(); }, 6000)
-            	})
+               })
             })();
          }
       });      

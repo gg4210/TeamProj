@@ -334,7 +334,9 @@ $(function(){
 			$.ajax({
 				url:'/workout/show_Summery.do?_csrf='+token,
 				type:"post",
-				data:{'mapkey':id},
+				data:{'mapkey':id,
+					'title':title,
+					'addr':road_address},
 				success:function(data){
 					console.log(data);
 					var summery=JSON.parse(data);
@@ -354,7 +356,9 @@ $(function(){
 		$.ajax({
 			url:'/workout/show_Bookmarked.do?_csrf='+token,
 			type:"post",
-			data:{'mapkey':id},
+			data:{'mapkey':id,
+				'title':title,
+				'addr':road_address},
 			success:function(data){
 				var summery=JSON.parse(data);
 				$('#bookmarked').html(summery['bookmarkedString']);
@@ -362,7 +366,9 @@ $(function(){
 					$.ajax({
 						url:'/workout/insertdelete.do?_csrf='+token,
 						type:"post",
-						data:{'mapkey':id},
+						data:{'mapkey':id,
+							'title':title,
+							'addr':road_address},
 						success:function(data){
 							console.log(data);
 							//모달 띄우게 할 예정

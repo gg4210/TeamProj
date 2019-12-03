@@ -79,6 +79,12 @@ public class SearchDAO {
 		return template.update("updateComment",map);		
 	}
 	//코멘트 입력 , 리스트 뿌려주기 끝//
+
+
+
+	public List<Map> selectallBookmark(Map map) {
+		return template.selectList("selectallBookmark", map);
+	}
 	
 	
 }

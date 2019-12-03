@@ -1,6 +1,75 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script>
+$(function(){
+	var token = $("meta[name='_csrf']").attr("content");
+	var header = $("meta[name='_csrf_header']").attr("content");
+	var checkcenterlists=function(){
+		$.ajax({
+			url:"<c:url value='/ajax/UserCenterListmypage?_csrf="+token+"'/>",
+			type:"post",
+			success:showcenterlists,
+		    error:function(request,status,error){
+		    	alert("code = "+ request.status + " message = " + request.responseText + " error = " + error);
+		    }
+		});
+	}
+	var showcenterlists=function(data){
+		var comment='';
+		console.log(data.length);
+		if(data.length==0){
+			comment+='<tr><td colspan="3">현재 등록한 센터가 없습니다.</td></tr>';
+		}
+		else{
+			$.each(data,function(index, element){
+				if(element.centerisallowed==undefined){
+					console.log("element확인:",element);
+					console.log("isallowed 확인",element['isallowed']);
+					comment+='<tr>';
+					comment+='<td scope="row" class="align-middle"><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="'+element['index']+'"><label class="custom-control-label" for="'+element['index']+'"></label></div></td>';
+					comment+='<td>'+element['center_name']+'</td>';
+					comment+='<td>'+element['STARTDATE']+'~'+element['ENDDATE']+'</td>';
+					comment+='</tr>';
+				}
+			});//$.each
+		}
+		$('#centerlist').html(comment);
+	}
+	checkcenterlists();
+	var checkbookmarklists=function(){
+		$.ajax({
+			url:"<c:url value='/ajax/getBookmarkList?_csrf="+token+"'/>",
+			type:"post",
+			success:showbookmarklists,
+		    error:function(request,status,error){
+		    	alert("code = "+ request.status + " message = " + request.responseText + " error = " + error);
+		    }
+		});
+	}
+	var showbookmarklists=function(data){
+		var comment='';
+		if(data.length==0){
+			comment+='<tr><td colspan="3">현재 찜한 센터가 없습니다.</td></tr>';
+		}
+		else{
+			$.each(data,function(index, element){
+				if(element.centerisallowed==undefined){
+					console.log("element확인:",element);
+					console.log("isallowed 확인",element['isallowed']);
+					comment+='<tr>';
+					comment+='<td scope="row" class="align-middle"><div class="custom-control custom-checkbox"><input type="checkbox" class="custom-control-input" id="'+element['index']+'"><label class="custom-control-label" for="'+element['index']+'"></label></div></td>'
+					comment+='<td>'+element['center_name']+'</td>';
+					comment+='<td>'+element['addr']+'</td>';
+					comment+='</tr>';
+				}
+			});//$.each
+		}
+		$('#bookmarklist').html(comment);
+	}
+	checkbookmarklists();
+});
+</script>
 <div class="container">
    <!-- row1 시작 -->
    <div class="row">
@@ -57,12 +126,11 @@
                               <label class="custom-control-label" for="center_allCheck"></label>
                            </div>
                            </th>
-                           <th scope="col" style="width: 25%">센터명</th>
-                           <th scope="col" style="width: 40%">일자</th>
-                           <th scope="col" style="width: 15%">혼잡도</th>
+                           <th scope="col" style="width: 35%">센터명</th>
+                           <th scope="col" style="width: 45%">일자</th>
                         </tr>
                      </thead>
-                     <tbody>
+                     <tbody id="centerlist">
                         <tr>
                            <td scope="row" class="align-middle">
                            <div class="custom-control custom-checkbox">
@@ -72,7 +140,6 @@
                            </td>
                            <td><a href="#">도레미</br>스포츠센터</a></td>
                            <td class="align-middle">2019.10.28 ~ 2019.11.27</td>
-                           <td><i class="fas fa-circle text-danger"></i> 혼잡</br>85%</td>
                         </tr>
                         <tr>
                            <td scope="row" class="align-middle">
@@ -83,7 +150,6 @@
                            </td>
                            <td><a href="#">파솔라</br>스포츠센터</a></td>
                            <td class="align-middle">2019.10.28 ~ 2019.11.27</td>
-                            <td><i class="fas fa-circle text-info"></i> 여유</br>30%</td>
                         </tr>
                         <tr>
                            <td scope="row" class="align-middle">
@@ -94,7 +160,6 @@
                            </td>
                            <td><a href="#">시도</br>스포츠센터</a></td>
                            <td class="align-middle">2019.10.28 ~ 2019.11.27</td>
-                            <td><i class="fas fa-circle text-warning"></i> 보통</br>65%</td>
                         </tr>
                      </tbody>
                   </table>
@@ -165,12 +230,11 @@
                               <label class="custom-control-label" for="like_allCheck"></label>
                            </div>
                            </th>
-                           <th scope="col" style="width: 25%">센터명</th>
-                           <th scope="col" style="width: 40%">위치</th>
-                           <th scope="col" style="width: 15%">혼잡도</th>
+                           <th scope="col" style="width: 35%">센터명</th>
+                           <th scope="col" style="width: 45%">위치</th>
                         </tr>
                      </thead>
-                     <tbody>
+                     <tbody id="bookmarklist">
                         <tr>
                            <td scope="row" class="align-middle">
                            <div class="custom-control custom-checkbox">
@@ -180,7 +244,6 @@
                            </td>
                            <td><a href="#">오늘은</br>스포츠센터</a></td>
                            <td class="align-middle">서울시 금천구</td>
-                           <td><i class="fas fa-circle text-danger"></i> 혼잡</br>85%</td>
                         </tr>
                         <tr>
                            <td scope="row" class="align-middle">
@@ -191,7 +254,6 @@
                            </td>
                            <td><a href="#">월요일</br>스포츠센터</a></td>
                            <td class="align-middle">서울시 금천구</td>
-                            <td><i class="fas fa-circle text-info"></i> 여유</br>30%</td>
                         </tr>
                         <tr>
                            <td scope="row" class="align-middle">
@@ -202,7 +264,6 @@
                            </td>
                            <td><a href="#">빠른</br>스포츠센터</a></td>
                            <td class="align-middle">서울시 금천구</td>
-                            <td><i class="fas fa-circle text-warning"></i> 보통</br>65%</td>
                         </tr>
                          <tr>
                            <td scope="row" class="align-middle">
@@ -213,7 +274,6 @@
                            </td>
                            <td><a href="#">귀가</br>스포츠센터</a></td>
                            <td class="align-middle">서울시 금천구</td>
-                             <td><i class="fas fa-circle text-warning"></i> 보통</br>70%</td>
                         </tr>
                          <tr>
                            <td scope="row" class="align-middle">
@@ -224,13 +284,12 @@
                            </td>
                            <td><a href="#">부탁</br>스포츠센터</a></td>
                            <td class="align-middle">서울시 강남구</td>
-                            <td><i class="fas fa-circle text-info"></i> 여유</br>15%</td>
                         </tr>
                      </tbody>
                   </table>
                   <!-- 등록한 센터 테이블 끝 -->  
                   <div class="row float-right pr-2 pb-3">
-                  	<span style="color: red; font-weight: bold;">※센터 찜하기는 최대 5개까지 가능합니다.</span>
+                  	<span style="color: red; font-weight: bold;">※센터 찜하기는 최대 3개까지 가능합니다.</span>
                   </div>
                </div>
                <!-- 카드 바디 끝 -->

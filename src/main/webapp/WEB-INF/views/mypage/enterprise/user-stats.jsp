@@ -24,27 +24,33 @@ $(function(){
 		});
 	}
 	var showuserlists=function(data){
-		console.log("데이터를 받아봅시다.")
-		console.log(data);
+		var currentdate = new Date();
+		console.log(currentdate);
 		var comment='';
-		if(data.length==0){
+		if(data.length==1){
 			comment+='<tr><td colspan="4">현재 등록된 회원이 없습니다.</td></tr>';
+		}
+		else if(data[data.length-1].centerisallowed!=0){
+			comment+='<tr><td colspan="4">관리자 승인이 아직 완료되지 않았습니다.</td></tr>';
 		}
 		else{
 			$.each(data,function(index, element){
-				console.log("element확인:",element);
-				console.log("isallowed 확인",element['isallowed']);
-				comment+='<tr>';
-				comment+='<td>'+element['name']+'</td>';
-				comment+='<td>'+element['id']+'</td>';
-				if(element['isallowed']=='1'){
-					comment+='<td>'+'승인 날짜를 정해주세요.'+'</td>';
-					comment+='<td><a href="'+element['mapkey']+'" id="'+element['id']+'">'+'승인안됨'+'</a></td>';
-				}else{
-					comment+='<td>'+element['startdate']+'~'+element['enddate']+'</td>';
-					comment+='<td>'+'승인완료'+'</td>';
+				if(element.centerisallowed==undefined){
+					console.log("element확인:",element);
+					console.log("isallowed 확인",element['isallowed']);
+					comment+='<tr>';
+					comment+='<td>'+element['name']+'</td>';
+					comment+='<td>'+element['id']+'</td>';
+					if(element['isallowed']=='1'){
+						comment+='<td>'+'승인 날짜를 정해주세요.'+'</td>';
+						comment+='<td><a href="'+element['mapkey']+'" id="'+element['id']+'">'+'승인안됨'+'</a></td>';
+					}
+					else{
+						comment+='<td>'+element['startdate']+'~'+element['enddate']+'</td>';
+						comment+='<td>'+'승인완료'+'</td>';
+					}
+					comment+='</tr>';
 				}
-				comment+='<tr/>';
 			});//$.each
 		}
 		$('#customerlist').html(comment);
@@ -149,7 +155,6 @@ $(function(){
          <div class="card">
             <div class="card-body">
                <h2 class="card-title" style="font-weight: bold;">회원 상세 관리</h2>
-               <!-- 회원 등록,삭제 버튼 -->
                <!-- 테이블 시작 -->
                   <table class="table" style="text-align: center;">
                      <thead class="bg-primary white-text">
@@ -218,7 +223,44 @@ $(function(){
    <!-- row 끝 -->
 </div>
 <!-- container-fluid 끝 -->
-		
+		<!-- 회원 등록하기 모달 시작 -->
+		<div class="modal fade" id="memberPlusWrite" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+			<div class="modal-dialog modal-notify modal-info modal-dialog-centered" role="document">
+				<!--Content-->
+				<div class="modal-content">
+					<!--Header-->
+					<div class="modal-header text-center">
+						<p class="heading font-weight-bold">회원 등록하기</p>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true" class="white-text">&times;</span>
+						</button>
+					</div>
+					<!--Body-->
+					<div class="modal-body">
+						<!-- 회원 등록 폼 시작 -->
+						<form id="regicustomer_form">
+							<div class="row justify-content-center">
+								<div class="input-group col">
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="label-newuser">아이디</span>
+									</div>
+									<div>
+										<input type="text" placeholder="회원 아이디" class="form-control text-white" name="id" id="user_id" value="">
+									</div>
+								</div>
+							</div>
+							<div class="row justify-content-center mt-4">
+								<button type="submit" id="regisubmit" class="btn btn-info btn-md" data-dismiss="modal">등록하기</button>
+								<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
+							</div>
+							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+						</form>
+					</div>
+				</div>
+				<!--/.Content-->
+			</div>
+		</div>
+		<!-- 회원 등록하기 모달 끝 -->
 		<!-- 회원 삭제 모달 시작 -->
 		<div class="modal fade" id="member_delete" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
 			<div class="modal-dialog modal-notify modal-sm modal-danger modal-dialog-centered" role="document">
