@@ -56,6 +56,7 @@ $( document ).ready( function () {
 								<option value="[계정 관련]">계정 관련</option>
 								<option value="[홈페이지 관련]">홈페이지 관련</option>
 								<option value="[앱 관련]">앱 관련</option>
+								<option value="[스포츠센터 관련]">스포츠센터 관련</option>
 							</select>
 						</div>
 					</div>
