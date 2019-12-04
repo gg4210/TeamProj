@@ -25,14 +25,14 @@
 
 			<!-- 테이블 시작 -->
 			<div class="row mt-2">
-				<div class="col">
+				<div class="col-md-10 offset-md-1">
 					<table class="table table-hover">
 						<tbody>
 							<c:forEach var="item" items="${homeFaqList}" varStatus="loop">
 								<tr>
-									<td class="text-center">${item.r}</td>
-									<td class="text-center" style="width: 20%">${item.category}</td>
-									<td onclick="tofaq('${item.no}');">${item.title}</td>
+									<td class="text-center" style="width: 10%">${item.r}</td>
+									<td class="text-center" style="width: 30%">${item.category}</td>
+									<td onclick="tofaq('${item.no}');"> ${item.title}</td>
 								</tr>
 							</c:forEach>	
 						</tbody>

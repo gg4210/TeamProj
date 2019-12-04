@@ -11,14 +11,14 @@
 <!-- 실제 내용 시작 -->
 <div class="container">
 	<div class="row pt-5">
-		<div class="col">
+		<div class="col-md-10 offset-md-1">
 			<h1><strong>공지사항</strong><small><small> 상세보기 페이지</small></small></h1>
 		</div>	
 	</div>
 	<hr />
 	
 	<div class="row pt-2">
-		<div class="col">
+		<div class="col-md-10 offset-md-1 pt-3">
 			<table class="table table-bordered">
 				<tbody>
 					<tr>
@@ -74,7 +74,7 @@
 		</div>
 	</div>
 	 -->
-	<div class="row d-flex justify-content-center mt-3 mb-3">
+	<div class="row d-flex justify-content-center mt-5 mb-3">
 		<c:if test="${auth eq '[ROLE_ADMIN]'}">
 			<a class="btn btn-info" href="<c:url value='/member/noticeEdit.do?no=${record.no}'/>">수정</a>
 <!-- 			<button type="button" class="btn btn-info" id="notice_edit">수정</button> -->

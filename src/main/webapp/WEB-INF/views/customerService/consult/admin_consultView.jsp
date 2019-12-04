@@ -22,8 +22,8 @@
 
 <!-- 실제 내용 시작 -->
 <div class="container">
-	<div class="row pt-5">
-		<div class="col">
+	<div class="row pt-5 ml-3">
+		<div class="col-md-12 ml-5">
 			<h1><strong>1:1문의</strong><small><small> 답변달기 페이지</small></small></h1>
 		</div>	
 	</div>
@@ -31,8 +31,8 @@
 	<form action="<c:url value='/admin/consultList.do'/>" method="post">
 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 	<input type="hidden" name="no" value="${consultRecord.no}"/>
-	<div class="row pt-2">
-		<div class="col">
+	<div class="row pt-4">
+		<div class="col-md-10 offset-1">
 			<table class="table table-bordered">
 				<tbody>
 					<tr>
@@ -97,19 +97,6 @@
 		</div>
 	</div>
 	
-<!-- 아래 테이블 맘에 안들면 바꿔봅시다.. / 글씨 크기는 작은 거? 큰 거?
-	<div class="row">
-		<div class="col">
-			<span style="text-align: center"><small>▲&nbsp;&nbsp;이전
-					글&nbsp;&nbsp;&nbsp;이전 글이 없습니다</small></span>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col">
-			<p>▼&nbsp;&nbsp;다음 글&nbsp;&nbsp;&nbsp;다음 글의 제목입니다</p>
-		</div>
-	</div>
- -->
 	<!-- 
 	<div class="row">
 		<div class="col-md-10 offset-md-1">
@@ -132,7 +119,6 @@
 	 -->
 	<div class="row d-flex justify-content-center mt-3 mb-3">		
 		<button type="submit" class="btn btn-info">답변등록/수정</button>
-		<button type="button" class="btn btn-primary" id="question_edit">수정</button>
 		<button type="button"  class="btn btn-primary" id="consultList">목록</button>
 		
 	</div>
@@ -179,10 +165,6 @@ $(function(){
 	$('#reply_write').click(function(){
 		location.href="replyWrite.do";
 	});	
-	
-	$('#question_edit').click(function(){
-		location.href="consultEdit.do?=${consultRecord.no}";
-	});
 	
 	$('#consultList').click(function(){
 		location.href="/workout/member/customerServiceMain.do#pills-consultlist-tab";

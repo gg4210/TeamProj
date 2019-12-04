@@ -44,17 +44,17 @@ $( document ).ready( function () {
 
 <!-- 실제 내용 시작 -->
 <div class="containter">
-	<div class="col-md-10 offset-1">
+	<div class="col-md-8 offset-2 pt-5">
 		<div class="row pt-2">
-			<h3>이벤트</h3>
-		</div><hr/>
+			<h2>이벤트</h2>
+		</div><hr class="row"/>
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12 ml-5 pt-3">
 				<form class="form-horizontal" method="post" id="event_form"
 					action="<c:url value='/member/eventWrite.do'/>">
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<div class="form-group row" id="category">
-						<label class="control-label pr-3">카테고리</label>
+						<label class="control-label pr-2">카테고리</label>
 						<div>
 							<select name="selectCategory" class="form-control custom-select">
 								<option selected value="" disabled>-카테고리를 선택해주세요.</option>
@@ -68,7 +68,7 @@ $( document ).ready( function () {
 					</div>
 					
 					<div class="form-group row">
-						<label class="control-label pr-4" for="title">제목</label>
+						<label class="control-label pr-5" for="title">제목</label>
 						<div class="col-10">
 							<input type="text" class="form-control" name="title" id="title"
 								placeholder="제목을 입력하세요" />
@@ -79,7 +79,7 @@ $( document ).ready( function () {
 					</div>
 			
 					<div class="form-group row">
-						<label class="control-label pr-4" for="content">내용</label>
+						<label class="control-label pr-5" for="content">내용</label>
 						<div class="col-10">
 							<textarea rows="10" name="content" id="content"
 								class="form-control" placeholder="내용을 입력하세요"></textarea>
@@ -90,7 +90,7 @@ $( document ).ready( function () {
 					</div>
 					
 					<div class="form-group row">
-						<div class="col-md-2 offset-md-9 pl-5">
+						<div class="col-md-2 offset-md-9 pl-5 pt-3">
 							<button type="submit" class="btn btn-info">등록</button>
 						</div>
 					</div>

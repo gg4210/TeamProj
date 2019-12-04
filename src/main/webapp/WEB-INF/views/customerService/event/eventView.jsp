@@ -9,14 +9,14 @@
 <!-- 실제 내용 시작 -->
 <div class="container">
 	<div class="row pt-5">
-		<div class="col">
+		<div class="col-md-10 offset-md-1">
 			<h1><strong>이벤트</strong><small><small> 상세보기 페이지</small></small></h1>
 		</div>	
 	</div>
 	<hr />
 
 	<div class="row pt-2">
-		<div class="col">
+		<div class="col-md-10 offset-md-1 pt-3">
 			<table class="table table-bordered">
 				<tbody>
 					<tr>
@@ -38,19 +38,6 @@
 		</div>
 	</div>
 	
-<!-- 아래 테이블 맘에 안들면 바꿔봅시다.. / 글씨 크기는 작은 거? 큰 거?
-	<div class="row">
-		<div class="col">
-			<span style="text-align: center"><small>▲&nbsp;&nbsp;이전
-					글&nbsp;&nbsp;&nbsp;이전 글이 없습니다</small></span>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col">
-			<p>▼&nbsp;&nbsp;다음 글&nbsp;&nbsp;&nbsp;다음 글의 제목입니다</p>
-		</div>
-	</div>
- -->
 	<!-- 
 	<div class="row">
 		<div class="col-md-10 offset-md-1">
@@ -71,7 +58,7 @@
 		</div>
 	</div>
 	 -->
-	<div class="row d-flex justify-content-center mt-3 mb-3">
+	<div class="row d-flex justify-content-center mt-5 mb-3">
 		<c:if test="${auth eq '[ROLE_ADMIN]'}">
 			<button type="button" class="btn btn-info" id="event_edit">수정</button>
 <%-- 		<button type="button" class="btn btn-primary" id="event_confirm" onclick="<c:url value='/noitceView.do'/>">목록</button> --%>

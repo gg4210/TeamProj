@@ -9,15 +9,15 @@
 
 <!-- 실제 내용 시작 -->
 <div class="container">
-	<div class="row pt-5">
-		<div class="col">
+	<div class="row pt-5 ml-3">
+		<div class="col-md-12 ml-5">
 			<h1><strong>1:1문의</strong><small><small> 상세보기 페이지</small></small></h1>
 		</div>	
 	</div>
 	<hr />
 
-	<div class="row pt-2">
-		<div class="col">
+	<div class="row pt-4">
+		<div class="col-md-10 offset-1">
 			<table class="table table-bordered">
 				<tbody>
 					<tr>
@@ -47,36 +47,12 @@
 							<th class="blue-text" style="text-align: center;font-weight: bold">답변</th>
 							<td colspan="3">${consultRecord.reply}</td>
 						</tr>
-					</c:if>
-					<c:if test="${auth eq '[ROLE_ADMIN]'}">
-						<tr>
-							<th class="blue-text" style="text-align: center;font-weight: bold">답변</th>
-							<td colspan="3">답변입니다<br/>
-											답변의 길이에 따라 영역의 크기가 변합니다.<br/> 
-											//////////여기에 텍스트필드 넣어야 합니다./////////////<br/>								
-							</td>
-						</tr>
-					</c:if>
-					
-					
+					</c:if>					
 				</tbody>
 			</table>
 		</div>
 	</div>
 	
-<!-- 아래 테이블 맘에 안들면 바꿔봅시다.. / 글씨 크기는 작은 거? 큰 거?
-	<div class="row">
-		<div class="col">
-			<span style="text-align: center"><small>▲&nbsp;&nbsp;이전
-					글&nbsp;&nbsp;&nbsp;이전 글이 없습니다</small></span>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col">
-			<p>▼&nbsp;&nbsp;다음 글&nbsp;&nbsp;&nbsp;다음 글의 제목입니다</p>
-		</div>
-	</div>
- -->
 	<!-- 
 	<div class="row">
 		<div class="col-md-10 offset-md-1">
@@ -97,7 +73,7 @@
 		</div>
 	</div>
 	 -->
-	<div class="row d-flex justify-content-center mt-3 mb-3">
+	<div class="row d-flex justify-content-center mt-5 mb-3">
 		<c:if test="${auth eq '[ROLE_ADMIN]'}"><!-- admin 페이지 분리하면 없앨지도 모르는 버튼 -->
 			<button type="button" class="btn btn-info" id="reply_write">답변</button>
 		</c:if>
@@ -112,12 +88,12 @@
 	
 	<!-- 삭제 모달 시작 -->
 	<div class="modal fade" id="delete-modal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
-			<div class="modal-dialog modal-notify modal-primary modal-dialog-centered" role="document">
+			<div class="modal-sm modal-dialog modal-notify modal-primary modal-dialog-centered" role="document">
 				<!--Content-->
 				<div class="modal-content">
 					<!--Header-->
 					<div class="modal-header">
-						<p class="heading">삭제 확인</p>
+						<p class="heading py-0">삭제 확인</p>
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true" class="white-text">&times;</span>
 						</button>
@@ -125,19 +101,17 @@
 					<!--Body-->
 					<div class="modal-body">
 						<div class="row d-flex justify-content-center my-3">
-							<h4>정말로 삭제하시겠습니까?</h4>
+							<h5>정말로 삭제하시겠습니까?</h5>
 						</div>
 						<div class="row d-flex justify-content-center">	
-							<button type="button" class="btn btn-primary btn-md">삭제</button>
-							<button type="button" class="btn btn-danger btn-md" data-dismiss="modal">취소</button>
-							
+							<button type="button" class="btn btn-primary" id="real_delete">삭제</button>
+							<button type="button" class="btn btn-danger" data-dismiss="modal">취소</button>
 						</div>
 					</div>
-				</div>
-				<!--/.Content-->
+				</div><!--/.Content-->				
 			</div>
 		</div>
-		<!-- PLUS MATE 모달 끝 -->
+		<!-- 모달 끝 -->
 	
 	
 	
@@ -159,6 +133,9 @@ $(function(){
 	
 	$('#delete').click(function(){
 		$('#delete-modal').modal('show');
+	});
+	$('#real_delete').click(function(){
+		location.href="/workout/member/consultDelete.do?no=${consultRecord.no}&nowPage=${param.nowPage}";
 	});
 	
 });

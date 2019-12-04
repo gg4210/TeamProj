@@ -28,18 +28,25 @@ nav > ul a {
 	width:35px;
 }
 
+#complete{
+	color:blue;
+}
+#incomplete{
+	color:red;
+}
+
 </style>
 
 <!-- 실제 내용 시작 -->
 <div class="container">
-	<div class="row pt-2">
+	<div class="row pt-2 pl-5">
 		<h3>문의내역 확인</h3>
 	</div>
 	
 	<div class="row">
 		<div class="clearfix col">
 			<div class="float-right">
-				<form class="form-inline" method="post" action="<c:url value='/member/consultList.do'/>">
+				<form class="form-inline pr-5" method="post" action="<c:url value='/member/consultList.do'/>">
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<div class="form-group">
 						<select class="browser-default custom-select form-control" name="searchColumn">
@@ -61,7 +68,7 @@ nav > ul a {
 	</div>
 	
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-11 ml-5">
 			<table class="table table-hover pt-5 text-center">
 				<thead>
 					<tr>
@@ -115,7 +122,7 @@ nav > ul a {
 										<%-- <a href="<c:url value='consultView.do?no=${item.no}&${item_auth}'/>">${item.title}</a></td> --%>
 										<a href="<c:url value='/admin/consultView.do?no=${item.no}'/>">${item.title}</a></td>
 									<td>${item.postDate}</td>
-									<td><c:if test="${item.reply != null}" var="reply">답변완료</c:if><c:if test="${not reply}">미답변</c:if></td><!-- 수정처리 필요 -->
+									<td><c:if test="${item.reply != null}" var="reply"><span id="complete">답변완료</span></c:if><c:if test="${not reply}"><span id="incomplete">미답변</span></c:if></td><!-- 수정처리 필요 -->
 								</tr>
 							</c:forEach>
 						</c:if>

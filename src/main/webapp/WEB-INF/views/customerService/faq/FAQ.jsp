@@ -24,7 +24,7 @@
 </script>
 
 <div class="container">
-	<div class="row pt-2">
+	<div class="row pt-2 pl-5">
 		<h3>자주 묻는 질문</h3>
 		<div class="col clearfix">
 			<div class="float-right">
@@ -42,11 +42,11 @@
 			<div class="float-right">
 				<div class="form-inline">
 					<select class="browser-default custom-select">
-						<option selected>검색조건(전체)</option>
-						<option value="1">계정 관련 질문</option>
-						<option value="2">앱 관련 질문</option>
-						<option value="3">운동메이트</option>
-						<option value="4">기타</option>
+						<option selected value="">검색조건</option>
+						<option value="[계정 관련 질문]">계정 관련 질문</option>
+						<option value="[앱 관련 질문]">앱 관련 질문</option>
+						<option value="[운동메이트]">운동메이트</option>
+						<option value="[기타]">기타</option>
 					</select>
 					<button type="button" class="btn btn-primary p-2 px-4">
 						<i class='fas fa-search'
@@ -58,12 +58,12 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md">
+		<div class="col-md-11 ml-5 pt-3">
 			<table class="table table-hover" id="questions">
 				<thead>
 					<tr style="background-color: #DCDCDC;">
-						<th scope="col" class="text-center" style="width: 5%"></th>
-						<th scope="col" class="text-center" style="width: 15%">분류</th>
+						<th scope="col" class="text-center" style="width: 10%"></th>
+						<th scope="col" class="text-center" style="width: 20%">분류</th>
 						<th scope="col" class="text-center" style="width: 80%">질문</th>
 					</tr>
 				</thead>
@@ -74,7 +74,7 @@
 							aria-controls="content${item.no}">
 							<td class="text-center">${item.r}</td>
 							<td class="text-center">${item.category}</td>
-							<td>${item.title}</td>
+							<td class="col pl-3">${item.title}</td>
 						</tr>
 						<tr>
 							<td id="nospace" colspan="2"></td>
@@ -90,7 +90,7 @@
 								aria-controls="content${item.no}">
 								<td class="text-center">${item.r}</td>
 								<td class="text-center">${item.category}</td>
-								<td>${item.title}</td>
+								<td class="col pl-3">${item.title}</td>
 							</tr>
 							<tr>
 								<td id="nospace" colspan="2"></td>

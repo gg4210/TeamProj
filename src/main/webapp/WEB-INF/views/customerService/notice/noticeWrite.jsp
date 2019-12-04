@@ -44,19 +44,19 @@ $( document ).ready( function () {
 
 <!-- 실제 내용 시작 -->
 <div class="containter">
-	<div class="col-md-10 offset-1">
+	<div class="col-md-8 offset-2 pt-5">
 		<div class="row pt-2">
-			<h3>공지사항</h3>
-		</div><hr/>
+			<h2>공지사항</h2>
+		</div><hr class="row"/>
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-12 ml-5 pt-3">
 				<form class="form-horizontal" method="post" id="notice_form" action="<c:url value='/member/noticeWrite.do'/>">
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<div class="form-group row" id="category">
-						<label class="control-label pr-3">카테고리</label>
+						<label class="control-label pr-2">카테고리</label>
 						<div class="col-2">
 							<select name="selectCategory" class="form-control custom-select">
-								<option selected value="" disabled>-카테고리를 선택해주세요.</option>
+								<option selected value="" disabled>-카테고리 선택</option>
 								<option value="[공지]">공지</option>
 								<option value="[점검]">점검</option>
 								<option value="[기타]">기타</option>
@@ -69,7 +69,7 @@ $( document ).ready( function () {
 					</div>
 				
 					<div class="form-group row">
-						<label class="control-label pr-4" for="title">제목</label>
+						<label class="control-label pr-5" for="title">제목</label>
 						<div class="col-10">
 							<input type="text" class="form-control" name="title" id="title"
 								placeholder="제목을 입력하세요" />								
@@ -82,7 +82,7 @@ $( document ).ready( function () {
 					
 					
 					<div class="form-group row">
-						<label class="control-label pr-4" for="content">내용</label>
+						<label class="control-label pr-5" for="content">내용</label>
 						<div class="col-10">
 							<textarea rows="10" name="content" id="content"
 								class="form-control" placeholder="내용을 입력하세요"></textarea>
@@ -95,7 +95,7 @@ $( document ).ready( function () {
 					
 					
 					<div class="form-group row">
-						<div class="col-md-2 offset-md-9 pl-5">
+						<div class="col-md-3 offset-md-9 pl-5 pt-3">
 							<button type="submit" class="btn btn-info">등록</button>
 						</div>
 					</div>

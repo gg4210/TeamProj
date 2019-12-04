@@ -12,7 +12,7 @@
 
 <!-- 실제 내용 시작 -->
 <div class="container">
-	<div class="row pt-2">
+	<div class="row pt-2 pl-5">
 		<h3>공지사항</h3>
 		<div class="col clearfix">
 			<div class="float-right">
@@ -28,7 +28,7 @@
 	<div class="row">
 		<div class="clearfix col">
 			<div class="float-right">
-				<form class="form-inline" method="post" action="<c:url value='/member/noticeList.do'/>">
+				<form class="form-inline pr-5" method="post" action="<c:url value='/member/noticeList.do'/>">
 					<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 					<div class="form-group">
 						<select class="browser-default custom-select form-control" name="searchColumn">
@@ -51,14 +51,14 @@
 	</div>
 	
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-11 ml-5">
 			<table class="table table-hover text-center">
 				<thead>
 					<tr>
 						<th scope="col" style="width: 10%">글번호</th>
-						<th scope="col" style="width: 15%">카테고리</th>
-						<th scope="col" style="width: 65%">제목</th>
-						<th scope="col" style="width: 10%">등록일</th>
+						<th scope="col" style="width: 20%">카테고리</th>
+						<th scope="col" style="width: 55%">제목</th>
+						<th scope="col" style="width: 15%">등록일</th>
 					</tr>
 				</thead>
 				<tbody>
