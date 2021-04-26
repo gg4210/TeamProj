@@ -239,7 +239,7 @@
 		<dependency>
 		    <groupId>commons-io</groupId>
 		    <artifactId>commons-io</artifactId>
-		    <version>2.4</version>
+		    <version>2.7</version>
 		</dependency>		
 		<!-- fileupload:파일 업로드를 위한 라이브러리 끝 -->
 		
